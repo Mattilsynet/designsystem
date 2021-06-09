@@ -1,0 +1,36 @@
+{
+  "extends": [
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+    //"prettier"
+  ],
+  "plugins": [
+    "svelte3",
+    "@typescript-eslint"
+    //"prettier"
+  ],
+  "overrides": [
+    {
+      "files": ["**/*.svelte"],
+      "processor": "svelte3/svelte3"
+    }
+  ],
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest": true,
+    "node": true
+  },
+  "rules": {
+    "@typescript-eslint/no-unused-vars": "error",
+    //"prettier/prettier": ["warn"],
+    "no-unused-vars": "off", // https://github.com/typescript-eslint/typescript-eslint/issues/2621
+    "no-use-before-define": "off",
+    "@typescript-eslint/ban-types": "off",
+    "@typescript-eslint/no-var-requires": "off"
+  },
+  "parserOptions": {
+    "ecmaVersion": 2019,
+    "sourceType": "module"
+  }
+}

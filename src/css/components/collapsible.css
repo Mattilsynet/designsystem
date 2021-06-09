@@ -1,0 +1,27 @@
+.collapsible {
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+}
+
+.collapsible + .collapsible {
+  border-top: none;
+}
+
+.collapsible .collapsible-header {
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 0;
+  width: 100%;
+  padding: 1rem 0;
+  text-align: left;
+  letter-spacing: normal;
+  word-spacing: normal;
+  background: transparent;
+  border: none;
+}
+
+.collapsible-panel {
+  overflow: hidden;
+  transition: height 0.3s ease-out;
+  height: auto;
+}
