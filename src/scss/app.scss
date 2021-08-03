@@ -1,0 +1,11 @@
+@use "fonts";
+@use "theme";
+@use "reset";
+@use "global";
+@use "components";
+@use "utilities";
+@use "templates";
+
+.footer {
+	flex-shrink: 0;
+}

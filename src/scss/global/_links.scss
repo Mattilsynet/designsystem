@@ -1,0 +1,27 @@
+// stylelint-disable no-descending-specificity
+a:not([class]) {
+  color: var(--color-links);
+}
+
+a,
+button,
+input,
+textarea {
+  --outline-size: max(2px, 0.08em);
+  --outline-style: solid;
+  --outline-color: currentColor;
+
+  &:focus {
+    outline: var(--outline-size) var(--outline-style) var(--outline-color);
+    outline-offset: var(--outline-size);
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: var(--outline-size) var(--outline-style) var(--outline-color);
+    outline-offset: var(--outline-size);
+  }
+}
