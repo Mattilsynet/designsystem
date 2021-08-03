@@ -1,0 +1,149 @@
+@use "sass:math";
+
+// Modular type scales
+// By: Tim Brown
+// https://alistapart.com/article/more-meaningful-typography/
+$type-scales: (
+  "minorSecond": 1.067,
+  "majorSecond": 1.125,
+  "minorThird": 1.2,
+  "majorThird": 1.25,
+  "perfectFourth": 1.333,
+  "augmentedFourth": 1.414,
+  "perfectFifth": 1.5,
+  "goldenRatio": 1.618,
+);
+
+@function type-ratio($scale) {
+  @if (map-get($type-scales, $scale)) {
+    // Return ratio value if found
+    @return map-get($type-scales, $scale);
+  } @else if(type-of($scale) == number) {
+    // Return passed ratio
+    @return $scale;
+  } @else {
+    // Format not allowed
+    @error "$type-scale must an integer or one of the allowed strings from $type-scales";
+  }
+}
+
+// Typography variables
+$type-base-size: 1rem !default;
+$type-scale: "perfectFourth" !default;
+
+// Select by key of map
+$type-scale-ratio: type-ratio($type-scale);
+
+// List in descending order to prevent extra sort function
+// Limited to high-touch heading styles
+$type-levels: 4, 3, 2, 1;
+
+// Size variable to iterate size value
+$level-size: $type-base-size;
+
+// stylelint-disable
+@each $level in $type-levels {
+  // Compute level size
+  $level-size: $level-size * $type-scale-ratio;
+
+  // Output heading styles
+  // Assign to element and create utility class
+  h#{$level},
+  .h#{$level} {
+    font-size: $level-size;
+
+    // Recommendation courtesy of this brilliant work:
+    // @link https://kittygiraudel.com/2020/05/18/using-calc-to-figure-out-optimal-line-height/
+    // line-height: calc(2px + 2ex + 2px);
+
+    // Set with `em` to be relative to current `font-size`
+    // margin-bottom: 0.65em;
+
+    // Limit in place based on testing -> smaller ratios are
+    // prematurely or unnecessarily reduced
+    @if ($type-scale-ratio > 1.2) {
+      // Fluid type styles
+
+      // Remove unit for calculations
+      $level-unitless: math.div($level-size, $level-size * 0 + 1);
+
+      // Set minimum size to a percentage less than $level-size
+      // Reduction is greater for large font sizes (> 4rem) to help
+      // prevent overflow due to font-size on mobile devices
+      $fluid-reduction: if($level-size > 4, 0.5, 0.33);
+      $fluid-min: $level-unitless - ($fluid-reduction * $level-unitless);
+
+      // Prevent dropping lower than 1rem (body font-size)
+      $fluid-min: if($fluid-min > $type-base-size, $fluid-min, 1);
+
+      // Adjust max modifier slightly per level to prevent "same" size
+      // or lower levels appearing larger than higher levels
+      // 4vw was selected by testing from $type-ratios map, YMMV 🙃
+      $fluid-scaler: ($level-unitless - $fluid-min) + 4vw;
+
+      font-size: clamp(
+        #{$fluid-min}rem,
+        #{$fluid-scaler} + 1rem,
+        #{$level-size}
+      );
+
+    }
+  }
+}
+// stylelint-enable
+
+// :is() unprefixed support July 2021: 90%+
+//:is(h1, h2, h3, h4, .h1, .h2, .h3, .h4) {
+h1, h2, h3, h4, .h1, .h2, .h3, .h4 {
+  margin-bottom: 0.65em;
+  font-weight: var(--font-weight-bold);
+  line-height: calc(2px + 2ex + 2px);
+  // Help prevent overflow of long words/names/URLs
+  overflow-wrap: break-word;
+  // Optional, not supported for all languages
+  hyphens: auto;
+}
+
+$content-selectors: "article, .content" !default;
+$content-spacer: 1em !default;
+
+#{$content-selectors} {
+  --content-spacer: #{$content-spacer};
+
+  > * + *,
+  ul:not([class]) li + li,
+  ol:not([class]) li + li {
+    margin-top: var(--content-spacer);
+  }
+
+  //:is(h2, h3:not(h2 + *)):not(:first-child) {
+  h2, h3:not(h2 + *):not(:first-child) {
+    margin-top: 2em;
+  }
+
+  ul + p {
+    margin-top: calc(var(--content-spacer) * 2);
+  }
+
+  > a:not([class]) {
+    display: inline-block;
+  }
+
+  blockquote {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    padding: 0.5em 1.5em;
+    border-left: 2px solid var(--color-primary);
+    font-size: 1rem * $type-scale-ratio;
+  }
+
+  hr {
+    margin: 8vh 5vw;
+    border-style: dashed;
+    border-color: var(--color-primary);
+  }
+}
+
+strong {
+  font-weight: var(--font-weight-bold);
+}

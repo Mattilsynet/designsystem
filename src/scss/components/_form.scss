@@ -1,0 +1,228 @@
+//stylelint-disable no-descending-specificity
+$form-group-spacer: 1.5rem !default;
+$form-field-width: 30ch !default;
+$form-text-color: "var(--color-text)" !default;
+$form-border-color: "currentColor" !default;
+$form-border-radius: 0.25em !default;
+$form-outline-style: dashed !default;
+$form-outline-color: currentColor !default;
+
+form {
+  --form-group-spacer: #{$form-group-spacer};
+  --form-field-width: #{$form-field-width};
+  --form-text-color: #{$form-text-color};
+  --border-color: #{$form-border-color};
+  --border-radius: #{$form-border-radius};
+  --form-outline-style: #{$form-outline-style};
+  --form-outline-color: #{$form-outline-color};
+
+  color: var(--form-text-color);
+}
+
+.form-field + .form-label, .form-field + button, fieldset + .form-label {
+  margin-top: var(--form-group-spacer);
+}
+
+[type="radio"] + label, [type="checkbox"] + label {
+  font-weight: normal;
+}
+
+label {
+  margin-bottom: 0.5em;
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+}
+
+.form-field {
+  --outline-style: var(--form-outline-style);
+  --outline-color: var(--form-outline-color);
+
+  width: 100%;
+  max-width: var(--form-field-width, 30ch);
+  padding: 0.75em 0.5em;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  background-color: #fff;
+  color: inherit;
+  font-family: inherit;
+
+  &.error {
+    --form-outline-color: var(--color-error);
+
+    border: 2px solid var(--color-error);
+  }
+}
+
+.form-field.select {
+  --outline-size: max(2px, 0.08em);
+  --outline-style: var(--form-outline-style);
+  --outline-color: var(--form-outline-color);
+
+  display: grid;
+  position: relative;
+  grid-template-areas: "select";
+  align-items: center;
+
+  select,
+  &::after {
+    grid-area: select;
+  }
+
+  &::after {
+    content: "";
+    justify-self: end;
+    width: 0.8em;
+    height: 0.5em;
+    background-color: currentColor;
+    clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+  }
+
+  select {
+    appearance: none;
+    width: 100%;
+    margin: 0;
+    padding: 0 1em 0 0;
+    border: none;
+    background-color: transparent;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    cursor: inherit;
+
+    // Remove dropdown arrow in IE10 & IE11
+    // @link https://www.filamentgroup.com/lab/select-css.html
+    &::-ms-expand {
+      display: none;
+    }
+  }
+
+  @supports selector(:focus-within) {
+  select {
+    outline: none;
+  }
+
+  &:focus-within {
+    outline: var(--outline-size) var(--outline-style) var(--outline-color);
+    outline-offset: var(--outline-size);
+  }
+  }
+}
+
+.form-control {
+  display: inline-grid;
+  grid-template-columns: 1em 1fr;
+  gap: 0.5em;
+
+  input {
+    width: 1em;
+    height: 1em;
+    margin: 0;
+    opacity: 0;
+
+    &:focus + .input__control {
+      box-shadow: 0 0 0 0.05em #fff, 0 0 0.15em 0.15em var(--color-primary);
+    }
+  }
+
+  &__input {
+    display: grid;
+    grid-template-areas: "input";
+    place-content: center;
+    font-size: 1em;
+
+    > * {
+      grid-area: input;
+    }
+  }
+
+  .input__control {
+    display: grid;
+    place-content: center;
+    width: 1em;
+    height: 1em;
+    border: 0.15em solid var(--border-color);
+  }
+}
+
+.checkbox {
+  .input__control {
+    border-radius: var(--border-radius);
+    color: var(--color-primary);
+  }
+
+  .input__control svg {
+    width: 0.65em;
+    transform: scale(0);
+    transform-origin: bottom left;
+    transition: 120ms transform ease-in-out;
+  }
+
+  input:checked + .input__control svg {
+    transform: scale(1);
+  }
+}
+
+.radio {
+  .input__control {
+    border-radius: 50%;
+  }
+
+  .input__control::before {
+    content: "";
+    width: 0.5em;
+    height: 0.5em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    border-radius: 50%;
+    box-shadow: inset 1em 1em var(--color-primary);
+  }
+
+  input:checked + .input__control::before {
+    transform: scale(1);
+  }
+}
+
+.form-error {
+  display: flex;
+  place-items: center;
+  margin-bottom: 0.25em;
+  gap: 0.75rem;
+  color: var(--color-error);
+}
+
+.radio-item + .radio-item {
+  margin-top: 0.5em;
+}
+
+.error-summary {
+  margin-bottom: var(--form-group-spacer);
+  padding: 2rem;
+  background-color: var(--color-on-error);
+  color: var(--color-error);
+
+  li + li {
+    margin-top: 0.5em;;
+  }
+}
+
+fieldset {
+	--spacer: 1rem;
+
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	legend {
+		margin-bottom: 0.5em;
+		font-weight: var(--font-weight-bold);
+	}
+
+	label {
+		margin-bottom: var(--spacer);
+		font-weight: normal;
+		line-height: 1;
+	}
+}

@@ -1,0 +1,91 @@
+/* 🛑 STOP!
+  Do not change this file directly.
+  Modify colors in src/scss/utilities/colors.js
+ */
+
+$color-primary: hsl(196,89%,25%) !default;
+$color-on-primary: hsl(0,0%,100%) !default;
+$color-secondary: hsl(54,19%,61%) !default;
+$color-on-secondary: hsl(57.10000000000002, 19.3%, 21.4%) !default;
+$color-mt-red: hsl(3,76%,52%) !default;
+$color-on-mt-red: hsl(0, 100%, 5.1%) !default;
+$color-mt-blue: hsl(196,89%,25%) !default;
+$color-on-mt-blue: hsl(195.5, 46%, 75.3%) !default;
+$color-mt-light-blue: hsl(208,63%,75%) !default;
+$color-on-mt-light-blue: hsl(208.79999999999995, 32.1%, 30.6%) !default;
+$color-mt-green: hsl(63,75%,41%) !default;
+$color-on-mt-green: hsl(64.19999999999999, 100%, 13.9%) !default;
+$color-mt-brown: hsl(44,75%,26%) !default;
+$color-on-mt-brown: hsl(45, 39.2%, 80%) !default;
+$color-mt-yellow: hsl(45,100%,68%) !default;
+$color-on-mt-yellow: hsl(45.30000000000001, 72.1%, 26.7%) !default;
+$color-mt-orange: hsl(33,94%,54%) !default;
+$color-on-mt-orange: hsl(28.600000000000023, 100%, 20.6%) !default;
+$color-mt-grey: hsl(216,3%,66%) !default;
+$color-on-mt-grey: hsl(200, 2.4%, 24.1%) !default;
+$color-mt-background: hsl(38,40%,96%) !default;
+$color-on-mt-background: hsl(40, 5.4%, 43.5%) !default;
+$color-mt-text-dark: hsl(0,1%,25%) !default;
+$color-on-mt-text-dark: rgb(170, 170, 170) !default;
+$color-error: hsl(3,76%,36%) !default;
+$color-on-error: hsl(357,100%,93%) !default;
+
+$base-color-tokens: ("primary", "secondary", "mt-red", "mt-blue", "mt-light-blue", "mt-green", "mt-brown", "mt-yellow", "mt-orange", "mt-grey", "mt-background", "mt-text-dark", "error");
+
+$color-tokens: (
+  "color-primary": $color-primary,
+  "color-on-primary": $color-on-primary,
+  "color-secondary": $color-secondary,
+  "color-on-secondary": $color-on-secondary,
+  "color-mt-red": $color-mt-red,
+  "color-on-mt-red": $color-on-mt-red,
+  "color-mt-blue": $color-mt-blue,
+  "color-on-mt-blue": $color-on-mt-blue,
+  "color-mt-light-blue": $color-mt-light-blue,
+  "color-on-mt-light-blue": $color-on-mt-light-blue,
+  "color-mt-green": $color-mt-green,
+  "color-on-mt-green": $color-on-mt-green,
+  "color-mt-brown": $color-mt-brown,
+  "color-on-mt-brown": $color-on-mt-brown,
+  "color-mt-yellow": $color-mt-yellow,
+  "color-on-mt-yellow": $color-on-mt-yellow,
+  "color-mt-orange": $color-mt-orange,
+  "color-on-mt-orange": $color-on-mt-orange,
+  "color-mt-grey": $color-mt-grey,
+  "color-on-mt-grey": $color-on-mt-grey,
+  "color-mt-background": $color-mt-background,
+  "color-on-mt-background": $color-on-mt-background,
+  "color-mt-text-dark": $color-mt-text-dark,
+  "color-on-mt-text-dark": $color-on-mt-text-dark,
+  "color-error": $color-error,
+  "color-on-error": $color-on-error
+) !default;
+
+@mixin color-tokens() {
+  --color-primary: #{$color-primary};
+  --color-on-primary: #{$color-on-primary};
+  --color-secondary: #{$color-secondary};
+  --color-on-secondary: #{$color-on-secondary};
+  --color-mt-red: #{$color-mt-red};
+  --color-on-mt-red: #{$color-on-mt-red};
+  --color-mt-blue: #{$color-mt-blue};
+  --color-on-mt-blue: #{$color-on-mt-blue};
+  --color-mt-light-blue: #{$color-mt-light-blue};
+  --color-on-mt-light-blue: #{$color-on-mt-light-blue};
+  --color-mt-green: #{$color-mt-green};
+  --color-on-mt-green: #{$color-on-mt-green};
+  --color-mt-brown: #{$color-mt-brown};
+  --color-on-mt-brown: #{$color-on-mt-brown};
+  --color-mt-yellow: #{$color-mt-yellow};
+  --color-on-mt-yellow: #{$color-on-mt-yellow};
+  --color-mt-orange: #{$color-mt-orange};
+  --color-on-mt-orange: #{$color-on-mt-orange};
+  --color-mt-grey: #{$color-mt-grey};
+  --color-on-mt-grey: #{$color-on-mt-grey};
+  --color-mt-background: #{$color-mt-background};
+  --color-on-mt-background: #{$color-on-mt-background};
+  --color-mt-text-dark: #{$color-mt-text-dark};
+  --color-on-mt-text-dark: #{$color-on-mt-text-dark};
+  --color-error: #{$color-error};
+  --color-on-error: #{$color-on-error};
+}

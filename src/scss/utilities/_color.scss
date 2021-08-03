@@ -1,0 +1,16 @@
+@use "../color-tokens" as *;
+
+@each $color in $base-color-tokens {
+  .background-#{$color} {
+    background-color: var(--color-#{$color});
+    color: var(--color-on-#{$color});
+  }
+
+  .color-#{$color} {
+    color: var(--color-#{$color});
+  }
+
+  .color-on-#{$color} {
+    color: var(--color-on-#{$color});
+  }
+}
