@@ -1,0 +1,41 @@
+.layout-grid {
+  --gap: 1rem;
+
+  display: grid;
+  gap: var(--gap);
+
+  &--column {
+    grid-auto-flow: column;
+  }
+
+  &--auto-fit {
+    --min: 20ch;
+
+    grid-template-columns: repeat(auto-fit, minmax(min(var(--min), 100%), 1fr));
+  }
+
+  &--sidebar {
+    --sidebar-max: 35ch;
+    --content-min: 30ch;
+
+    grid-template-columns:
+      fit-content(var(--sidebar-max))
+      minmax(min(50vw, var(--content-min)), 1fr);
+  }
+
+  &--centered {
+    place-content: center;
+  }
+
+  &--stack {
+    grid-template-areas: 'stack';
+    place-items: center;
+
+    > * {
+      grid-area: stack;
+      place-self: var(--place-self);
+      align-self: var(--align-self, var(--place-self));
+      justify-self: var(--justify-self, var(--place-self));
+    }
+  }
+}

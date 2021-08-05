@@ -1,0 +1,87 @@
+$button-default-color: 'primary' !default;
+$button-colors: 'error', 'secondary', 'on-primary' !default;
+
+// stylelint-disable order/properties-order
+.button {
+  --button-background: var(--color-#{$button-default-color});
+  --button-color: var(--color-on-#{$button-default-color});
+  --outline-color: transparent;
+
+  // Reset for links
+  text-decoration: none;
+
+  // Reset for buttons
+  padding: 0.25em 0.75em;
+  border: 2px solid transparent;
+  font-family: inherit;
+  cursor: pointer;
+
+  // Display
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  // Visual
+  border-radius: 0.25em;
+  background-color: var(--button-background);
+  color: var(--button-color);
+
+  // Size
+  min-width: 10ch;
+  min-height: 44px;
+
+  // Text
+  text-align: center;
+  line-height: 1;
+  font-weight: var(--font-weight-bold);
+
+  // Effects
+  // transition: all 180ms ease-in-out;
+  transition: none 180ms ease-in-out;
+  transition-property: background-color, color, border-color;
+
+  &:focus {
+    box-shadow: 0 0 0 max(0.15em, 2px) var(--button-focus-inner, var(--button-color)),
+      0 0 0 max(0.3em, 2px) var(--button-focus-outer, var(--button-background));
+  }
+
+  &:hover,
+  &:active {
+    background-color: var(--button-color);
+    color: var(--button-background);
+
+    &:not(.button--outlined) {
+      border-color: currentColor;
+    }
+  }
+
+  @each $color in $button-colors {
+    &--#{$color} {
+      --button-background: var(--color-#{$color});
+      --button-color: var(--color-on-#{$color});
+    }
+  }
+
+  &--outlined {
+    --button-focus-inner: var(--button-background);
+    --button-focus-outer: var(--button-color);
+
+    border-color: var(--button-color);
+  }
+
+  &__icon {
+    width: 1em;
+    height: 1em;
+    flex-shrink: 0;
+  }
+
+  &:not(.button-icon) .button__icon {
+    margin-right: 0.5em;
+  }
+
+  &-icon {
+    border-radius: 50%;
+    min-width: unset;
+  }
+}
+// stylelint-enable

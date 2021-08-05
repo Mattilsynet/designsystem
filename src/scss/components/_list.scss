@@ -1,0 +1,13 @@
+dl {
+  --spacer: 1rem;
+
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 2rem;
+  + dl {
+    margin-top: var(--spacer);
+  }
+  dt {
+    font-weight: bold;
+  }
+}
