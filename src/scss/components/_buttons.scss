@@ -3,9 +3,9 @@ $button-colors: 'error', 'secondary', 'on-primary' !default;
 
 // stylelint-disable order/properties-order
 .button {
-	--button-background: var(--color-#{$button-default-color});
-	--button-color: var(--color-on-#{$button-default-color});
-	--outline-color: transparent;
+  --button-background: var(--color-#{$button-default-color});
+  --button-color: var(--color-on-#{$button-default-color});
+  --outline-color: transparent;
 
   // Reset for links
   text-decoration: none;
@@ -41,9 +41,8 @@ $button-colors: 'error', 'secondary', 'on-primary' !default;
   transition-property: background-color, color, border-color;
 
   &:focus {
-    box-shadow: 0 0 0 max(0.15em, 2px)
-    var(--button-focus-inner, var(--button-color)),
-    0 0 0 max(0.3em, 2px) var(--button-focus-outer, var(--button-background));
+    box-shadow: 0 0 0 max(0.15em, 2px) var(--button-focus-inner, var(--button-color)),
+      0 0 0 max(0.3em, 2px) var(--button-focus-outer, var(--button-background));
   }
 
   &:hover,
@@ -55,8 +54,6 @@ $button-colors: 'error', 'secondary', 'on-primary' !default;
       border-color: currentColor;
     }
   }
-
-
 
   @each $color in $button-colors {
     &--#{$color} {
@@ -88,4 +85,3 @@ $button-colors: 'error', 'secondary', 'on-primary' !default;
   }
 }
 // stylelint-enable
-

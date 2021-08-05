@@ -4,14 +4,14 @@
 // By: Tim Brown
 // https://alistapart.com/article/more-meaningful-typography/
 $type-scales: (
-  "minorSecond": 1.067,
-  "majorSecond": 1.125,
-  "minorThird": 1.2,
-  "majorThird": 1.25,
-  "perfectFourth": 1.333,
-  "augmentedFourth": 1.414,
-  "perfectFifth": 1.5,
-  "goldenRatio": 1.618,
+  'minorSecond': 1.067,
+  'majorSecond': 1.125,
+  'minorThird': 1.2,
+  'majorThird': 1.25,
+  'perfectFourth': 1.333,
+  'augmentedFourth': 1.414,
+  'perfectFifth': 1.5,
+  'goldenRatio': 1.618
 );
 
 @function type-ratio($scale) {
@@ -29,7 +29,7 @@ $type-scales: (
 
 // Typography variables
 $type-base-size: 1rem !default;
-$type-scale: "perfectFourth" !default;
+$type-scale: 'perfectFourth' !default;
 
 // Select by key of map
 $type-scale-ratio: type-ratio($type-scale);
@@ -81,12 +81,7 @@ $level-size: $type-base-size;
       // 4vw was selected by testing from $type-ratios map, YMMV 🙃
       $fluid-scaler: ($level-unitless - $fluid-min) + 4vw;
 
-      font-size: clamp(
-        #{$fluid-min}rem,
-        #{$fluid-scaler} + 1rem,
-        #{$level-size}
-      );
-
+      font-size: clamp(#{$fluid-min}rem, #{$fluid-scaler} + 1rem, #{$level-size});
     }
   }
 }
@@ -94,7 +89,14 @@ $level-size: $type-base-size;
 
 // :is() unprefixed support July 2021: 90%+
 //:is(h1, h2, h3, h4, .h1, .h2, .h3, .h4) {
-h1, h2, h3, h4, .h1, .h2, .h3, .h4 {
+h1,
+h2,
+h3,
+h4,
+.h1,
+.h2,
+.h3,
+.h4 {
   margin-bottom: 0.65em;
   font-weight: var(--font-weight-bold);
   line-height: calc(2px + 2ex + 2px);
@@ -104,7 +106,7 @@ h1, h2, h3, h4, .h1, .h2, .h3, .h4 {
   hyphens: auto;
 }
 
-$content-selectors: "article, .content" !default;
+$content-selectors: 'article, .content' !default;
 $content-spacer: 1em !default;
 
 #{$content-selectors} {
@@ -117,7 +119,8 @@ $content-spacer: 1em !default;
   }
 
   //:is(h2, h3:not(h2 + *)):not(:first-child) {
-  h2, h3:not(h2 + *):not(:first-child) {
+  h2,
+  h3:not(h2 + *):not(:first-child) {
     margin-top: 2em;
   }
 

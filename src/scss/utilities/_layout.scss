@@ -1,22 +1,22 @@
 .container {
-	width: min(60ch, 95vw);
-	margin-right: auto;
-	margin-left: auto;
+  width: min(60ch, 95vw);
+  margin-right: auto;
+  margin-left: auto;
 }
 
 section,
 .section {
-	margin-top: 5vh;
-	margin-bottom: 5vh;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
 }
 
 .layout-flex {
-	--gap: 2rem;
-	--wrap: wrap;
+  --gap: 2rem;
+  --wrap: wrap;
 
-	display: flex;
-	flex-wrap: var(--wrap);
-	gap: var(--gap);
+  display: flex;
+  flex-wrap: var(--wrap);
+  gap: var(--gap);
   &--centered {
     place-content: center;
   }
