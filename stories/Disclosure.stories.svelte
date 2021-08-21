@@ -1,5 +1,4 @@
 <script lang="ts">
-  import '../src/css/disclosure.css';
   import {Meta, Template, Story} from '@storybook/addon-svelte-csf';
   import {splitIntoParagraphs, wrapInShadowDom} from './utils';
   import Disclosure from "../src/svelte/Disclosure";
@@ -70,3 +69,7 @@
     disableCss: true
   }}
 />
+
+<style lang='scss' global>
+  @import "../src/scss/app";
+</style>
