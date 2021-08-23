@@ -5,7 +5,8 @@ $color-grey-hue: $color-primary !default;
 $color-background-body: scale-color($color-grey-hue, $lightness: 98%) !default;
 $color-grey-hue: hue($color-grey-hue);
 
-$font-family: 'Noto Sans JP', sans-serif !default;
+$font-family: Helvetica, Arial, sans-serif !default;
+$font-weight-light: 300 !default;
 $font-weight-bold: 700 !default;
 :root {
   @include color-tokens();
@@ -14,6 +15,7 @@ $font-weight-bold: 700 !default;
   --grey-medium: hsl(#{$color-grey-hue}, 15%, 50%);
   --grey-light: hsl(#{$color-grey-hue}, 20%, 85%);
   --background-body: #{$color-background-body};
+  --font-weight-light: #{$font-weight-light};
   --font-weight-bold: #{$font-weight-bold};
 }
 body {
