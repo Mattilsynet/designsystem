@@ -7,7 +7,7 @@ $color-primary: hsl(196,89%,25%) !default;
 $color-on-primary: hsl(0,0%,100%) !default;
 $color-secondary: hsl(54,19%,61%) !default;
 $color-on-secondary: hsl(57.10000000000002, 19.3%, 21.4%) !default;
-$color-mt-red: hsl(3,76%,52%) !default;
+$color-mt-red: hsl(3, 76%, 52%) !default;
 $color-on-mt-red: hsl(0, 100%, 5.1%) !default;
 $color-mt-blue: hsl(196,89%,25%) !default;
 $color-on-mt-blue: hsl(195.5, 46%, 75.3%) !default;
@@ -27,8 +27,6 @@ $color-mt-background: hsl(38,40%,96%) !default;
 $color-on-mt-background: hsl(40, 5.4%, 43.5%) !default;
 $color-mt-text-dark: hsl(0,1%,25%) !default;
 $color-on-mt-text-dark: rgb(170, 170, 170) !default;
-$color-error: hsl(3,76%,36%) !default;
-$color-on-error: hsl(357,100%,93%) !default;
 
 $base-color-tokens: ("primary", "secondary", "mt-red", "mt-blue", "mt-light-blue", "mt-green", "mt-brown", "mt-yellow", "mt-orange", "mt-grey", "mt-background", "mt-text-dark", "error");
 
@@ -57,8 +55,8 @@ $color-tokens: (
   "color-on-mt-background": $color-on-mt-background,
   "color-mt-text-dark": $color-mt-text-dark,
   "color-on-mt-text-dark": $color-on-mt-text-dark,
-  "color-error": $color-error,
-  "color-on-error": $color-on-error
+  "color-error": $color-mt-red,
+  "color-on-error": $color-on-mt-red
 ) !default;
 
 @mixin color-tokens() {
@@ -86,6 +84,6 @@ $color-tokens: (
   --color-on-mt-background: #{$color-on-mt-background};
   --color-mt-text-dark: #{$color-mt-text-dark};
   --color-on-mt-text-dark: #{$color-on-mt-text-dark};
-  --color-error: #{$color-error};
-  --color-on-error: #{$color-on-error};
+  --color-error: #{$color-mt-red};
+  --color-on-error: #{$color-on-mt-red};
 }

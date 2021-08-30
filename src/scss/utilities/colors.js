@@ -36,10 +36,5 @@ module.exports = [
   },{
     name: "mt-text-dark",
     color: "hsl(0,1%,25%)",
-  },
-  {
-    name: "error",
-    color: "hsl(3,76%,36%)",
-    onColor: "hsl(357,100%,93%)"
-  },
+  }
 ];
