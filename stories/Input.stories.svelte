@@ -1,13 +1,13 @@
-<script lang='ts'>
+<script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf';
 </script>
 
 <Meta
-  title='Components/Form/Input'
+  title="Components/Form/Input"
   args={{
-    label: "Når skjedde det?",
-    helpText: "Skriv når hendelsen skjedde og om det har pågått over lengere periode.",
-    errorMessage: "Fyll inn dette feltet."
+    label: 'Når skjedde det?',
+    helpText: 'Skriv når hendelsen skjedde og om det har pågått over lengere periode.',
+    errorMessage: 'Fyll inn dette feltet.'
   }}
   argTypes={{
     title: {control: 'text'},
@@ -15,41 +15,36 @@
   }}
 />
 
-<Story name='Input' let:label let:helpText>
-  <form>
-    <label class='form-label' for='inputfield'>
+<Story name="Input" let:label let:helpText>
+  <form class="form-layout">
+    <label class="form-label" for="inputfield">
       {label}
     </label>
 
     {#if helpText}
-      <div class='hint'>
+      <div class="hint">
         {@html helpText}
       </div>
     {/if}
 
-    <input
-      id='inputfield'
-      name='email'
-      class='form-field'
-      aria-describedby='inputfield-hint inputfield-error'
-    />
+    <input id="inputfield" name="email" class="form-field" aria-describedby="inputfield-hint inputfield-error" />
   </form>
 </Story>
 
-<Story name='Input with error' let:label let:helpText let:errorMessage>
-  <form>
-    <label class='form-label' for='inputfield'>
+<Story name="Input with error" let:label let:helpText let:errorMessage>
+  <form class="form-layout">
+    <label class="form-label" for="inputfield">
       {label}
     </label>
 
     {#if helpText}
-      <div class='hint'>
+      <div class="hint">
         {@html helpText}
       </div>
     {/if}
 
-    <span id='inputfield-error' class='form-error'>
-      <span class='inclusively-hidden'>Feilmelding:</span>
+    <span id="inputfield-error" class="form-error">
+      <span class="inclusively-hidden">Feilmelding:</span>
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
           d="M11 15H13V17H11V15ZM11 7H13V13H11V7ZM11.99 2C6.47 2 2 6.48 2 12C2 17.52 6.47 22 11.99 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 11.99 2ZM12 20C7.58 20 4 16.42 4 12C4 7.58 7.58 4 12 4C16.42 4 20 7.58 20 12C20 16.42 16.42 20 12 20Z"
@@ -59,15 +54,15 @@
     </span>
 
     <input
-      id='inputfield'
-      name='email'
-      class='form-field error'
+      id="inputfield"
+      name="email"
+      class="form-field error"
       aria-invalid="true"
-      aria-describedby='inputfield-hint inputfield-error'
+      aria-describedby="inputfield-hint inputfield-error"
     />
   </form>
 </Story>
 
-<style lang='scss' global>
-  @import "../src/scss/app";
+<style lang="scss" global>
+  @import '../src/scss/app';
 </style>

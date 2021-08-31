@@ -29,7 +29,7 @@
 />
 
 <Story name='Normal' let:label let:helpText let:disableCss >
-  <form>
+  <form class="form-layout">
     <fieldset id={name} aria-describedby={`${name}-hint ${name}-error`} class='form-fieldset'>
       <legend class='form-legend'>{label}</legend>
 
@@ -40,23 +40,26 @@
       {/if}
 
       {#each options as radio (radio.value)}
-        <label for={radio.value}>
+        <div class="form-control radio">
           <input
             type='radio'
-            class='radio'
+            class='input__control'
             id={radio.value}
             {name}
             value={radio.value} />
 
-          {radio.text}
-        </label>
+          <label for={radio.value}>
+            {radio.text}
+          </label>
+        </div>
       {/each}
     </fieldset>
   </form>
 </Story>
 
+
 <Story name='Disabled' let:label let:helpText let:disableCss >
-  <form>
+  <form class="form-layout">
     <fieldset id={name} aria-describedby={`${name}-hint ${name}-error`} class='form-fieldset'>
       <legend class='form-legend'>{label}</legend>
 
@@ -67,16 +70,18 @@
       {/if}
 
       {#each options as radio (radio.value)}
-        <input
-          type='radio'
-          class='radio'
-          id={radio.value}
-          {name}
-          value={radio.value} />
+        <div class="form-control radio">
+          <input
+            type='radio'
+            class='input__control'
+            id={radio.value}
+            {name}
+            value={radio.value} />
 
-        <label for={radio.value}>
-          {radio.text}
-        </label>
+          <label for={radio.value}>
+            {radio.text}
+          </label>
+        </div>
       {/each}
     </fieldset>
   </form>

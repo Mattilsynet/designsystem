@@ -40,14 +40,17 @@
       {/if}
 
       {#each options as radio (radio.value)}
-        <label for={radio.value}>
-          <input
-            type='checkbox'
-            id={radio.value}
-            {name}
-            value={radio.value} />
-          {radio.text}
-        </label>
+        <div class="form-control checkbox">
+            <input
+              type='checkbox'
+              class="input__control"
+              id={radio.value}
+              {name}
+              value={radio.value} />
+          <label for={radio.value}>
+            {radio.text}
+          </label>
+        </div>
       {/each}
     </fieldset>
   </form>
