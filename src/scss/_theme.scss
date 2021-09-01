@@ -12,7 +12,6 @@ $font-weight-medium: 500 !default;
 $font-weight-semi-bold: 600 !default;
 $font-weight-bold: 700 !default;
 
-
 $font-size-small: 0.875rem !default;
 
 $spacer-small: 0.625rem !default;
@@ -30,6 +29,8 @@ $spacer-large: 3rem !default;
   --font-weight-light: #{$font-weight-light};
   --font-weight-normal: #{$font-weight-normal};
   --font-weight-bold: #{$font-weight-bold};
+  --spacer-large: #{$spacer-large};
+  --spacer-small: #{$spacer-small};
 }
 
 body {

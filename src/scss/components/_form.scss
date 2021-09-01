@@ -1,8 +1,8 @@
 @use "../color-tokens" as *;
 
 //stylelint-disable no-descending-specificity
-$form-group-spacer: 3rem !default;
-$form-text-space: 0.625rem !default;
+$form-group-spacer: 'var(--spacer-large)' !default;
+$form-text-space: 'var(--spacer-small)' !default;
 $form-field-width: 40ch !default;
 $form-text-color: 'var(--color-text)' !default;
 $form-border-color: $color-secondary !default;
@@ -132,7 +132,7 @@ label.form-label {
 
 @mixin error-style {
   &.error {
-    $error-color: rgba($color-error, 0.5);
+    $error-focus-color: rgba($color-error, 0.5);
 
     border-color: var(--color-error);
 
@@ -140,7 +140,7 @@ label.form-label {
     &:focus {
       border-color: var(--color-error);
       outline: none;
-      box-shadow: 0 0 0 0.25rem $error-color;
+      box-shadow: 0 0 0 0.25rem $error-focus-color;
     }
     + label {
       color: var(--color-error);
