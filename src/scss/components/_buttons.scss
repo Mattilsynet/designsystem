@@ -1,5 +1,5 @@
 $button-default-color: 'primary' !default;
-$button-colors: 'error', 'secondary' !default;
+$button-colors: 'error' !default;
 
 // stylelint-disable order/properties-order
 .button {
@@ -65,7 +65,7 @@ $button-colors: 'error', 'secondary' !default;
     }
   }
 
-  &--outlined {
+  &--secondary {
     --button-focus-inner: var(--button-background);
     --button-focus-outer: var(--button-color);
     --color: var(--button-background);
