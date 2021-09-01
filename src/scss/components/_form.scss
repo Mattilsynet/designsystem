@@ -130,6 +130,24 @@ label.form-label {
   }
 }
 
+@mixin error-style {
+  &.error {
+    $error-color: rgba($color-error, 0.5);
+
+    border-color: var(--color-error);
+
+    &:focus-visible,
+    &:focus {
+      border-color: var(--color-error);
+      outline: none;
+      box-shadow: 0 0 0 0.25rem $error-color;
+    }
+    + label {
+      color: var(--color-error);
+    }
+  }
+}
+
 .form-control {
   --dimention: 1.5em;
 
@@ -170,6 +188,8 @@ label.form-label {
 
 .checkbox {
   .input__control {
+    @include error-style;
+
     border-radius: var(--border-radius);
     color: var(--color-primary);
   }
@@ -188,6 +208,8 @@ label.form-label {
 
 .radio {
   .input__control {
+    @include error-style;
+
     border-radius: 50%;
     color: var(--color-primary);
   }
