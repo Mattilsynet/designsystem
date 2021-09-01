@@ -239,15 +239,17 @@ label.form-label {
 .error-summary {
   margin-bottom: var(--form-group-spacer);
   padding: 2rem;
-  background-color: var(--color-on-error);
+  border: 2px solid var(--color-error);
+  background-color: #fff;
+
   ul {
     margin-left: 1rem;
     list-style: disc;
+    li {
+      color: var(--color-primary);
+    }
   }
   li + li {
     margin-top: 0.5em;
-  }
-  a {
-    color: var(--color-mt-text-dark);
   }
 }
