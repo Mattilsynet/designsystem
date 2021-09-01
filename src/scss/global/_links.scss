@@ -12,6 +12,8 @@ textarea {
   --outline-style: solid;
   --outline-color: currentColor;
 
+  transition: box-shadow 0.15s ease-in-out;
+
   &:focus {
     border-color: inherit;
     outline: none;
