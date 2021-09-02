@@ -9,8 +9,11 @@ $font-family: Helvetica, Arial, sans-serif !default;
 $font-weight-light: 300 !default;
 $font-weight-bold: 700 !default;
 
+$font-size-small: 0.875rem !default;
+
 $spacer-small: 0.625rem !default;
-$spacer-medium: 1.5rem !default;
+$spacer-2: 1rem !default;
+$spacer-3: 1.5rem !default;
 $spacer-large: 3rem !default;
 
 :root {
@@ -23,6 +26,7 @@ $spacer-large: 3rem !default;
   --font-weight-light: #{$font-weight-light};
   --font-weight-bold: #{$font-weight-bold};
 }
+
 body {
   background-color: var(--color-mt-background);
   color: var(--color-mt-text-dark);
