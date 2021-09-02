@@ -8,6 +8,11 @@ $color-grey-hue: hue($color-grey-hue);
 $font-family: Helvetica, Arial, sans-serif !default;
 $font-weight-light: 300 !default;
 $font-weight-bold: 700 !default;
+
+$spacer-small: 0.625rem !default;
+$spacer-medium: 1.5rem !default;
+$spacer-large: 3rem !default;
+
 :root {
   @include color-tokens();
 
