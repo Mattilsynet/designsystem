@@ -6,6 +6,7 @@
   title="Components/Buttons"
   args={{
     primary: 'Gå videre',
+    primaryLong: 'Send inn til Mattilsynet',
     secondary: 'Avbryt',
     disabled: false,
     disableCss: false
@@ -17,13 +18,17 @@
   }}
 />
 
-<Story name="Normal" let:primary let:disableCss let:disabled let:secondary>
+<Story name="Normal" let:primary let:primaryLong let:disableCss let:disabled let:secondary>
   <h1>Knapper</h1>
   <p class="description">Hovedknapp</p>
   <button class="button button--primary" {disabled}>{primary}</button>
+  <button class="button button--primary" {disabled}>{primaryLong}</button>
 
   <p class="description">Sekundær</p>
   <button class="button button--secondary" {disabled}>{secondary}</button>
+
+  <p class="description">Feil</p>
+  <button class="button button--error" {disabled}>{secondary}</button>
 </Story>
 
 <style lang="scss" global>
@@ -31,6 +36,7 @@
 
   button {
     margin-top: 0.5rem;
+    margin-right: var(--spacer-2);
   }
   .description {
     margin-top: 2rem;

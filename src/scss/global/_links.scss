@@ -2,14 +2,20 @@
 a:not([class]) {
   color: var(--color-links);
 }
-
+a {
+  &.back-arrow {
+    display: flex;
+    padding-left: var(--spacer-2);
+    background-image: url("data:image/svg+xml,%3Csvg width='8' height='12' viewBox='0 0 8 12' fill='%23075A78FF' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.41 1.41L6 0L0 6L6 12L7.41 10.59L2.83 6L7.41 1.41Z' /%3E%3C/svg%3E%0A");
+    background-repeat: no-repeat;
+    background-position: left center;
+  }
+}
 a,
 button,
 input,
 select,
 textarea {
-  --outline-size: max(2px, 0.08em);
-  --outline-style: solid;
   --outline-color: currentColor;
 
   transition: box-shadow 0.15s ease-in-out;

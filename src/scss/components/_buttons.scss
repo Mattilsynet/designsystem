@@ -11,7 +11,7 @@ $button-colors: 'error' !default;
   text-decoration: none;
 
   // Reset for buttons
-  padding: 0.25em 0.75em;
+  padding: 0.25em 1.25em;
   border: 2px solid transparent;
   font-family: inherit;
   cursor: pointer;
@@ -54,6 +54,12 @@ $button-colors: 'error' !default;
     &--#{$color} {
       --button-background: var(--color-#{$color});
       --button-color: var(--color-on-#{$color});
+
+      &:focus {
+        --outline-color: var(--color-#{$color}-50);
+
+        box-shadow: 0 0 0 0.25rem var(--color-#{$color}-50);
+      }
     }
   }
   &--primary {
@@ -62,6 +68,9 @@ $button-colors: 'error' !default;
       background-color: var(--color-mt-text-dark);
       color: var(--color-mt-background);
       border-color: var(--color-mt-text-dark);
+    }
+    &:focus {
+      box-shadow: 0 0 0 0.25rem var(--color-primary-50);
     }
   }
 
@@ -79,6 +88,9 @@ $button-colors: 'error' !default;
     &:active {
       background-color: var(--color);
       color: var(--background);
+    }
+    &:focus {
+      box-shadow: 0 0 0 0.25rem var(--color-primary-50);
     }
   }
 

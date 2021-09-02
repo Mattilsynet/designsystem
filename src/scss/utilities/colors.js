@@ -55,6 +55,10 @@ module.exports = [
   {
     name: 'error',
     color: 'hsl(3,76%,52%)',
-    onColor: 'hsl(357,100%,93%)'
+    onColor: 'hsl(0,0%,100%)'
+  },
+  {
+    name: 'error-50',
+    color: 'hsl(3,76%,52%, 0.5)'
   }
 ];
