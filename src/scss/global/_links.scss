@@ -4,10 +4,13 @@ a:not([class]) {
 }
 a {
   &.back-arrow {
+    display: flex;
+    align-items: center;
     &::before {
-      content: url("data:image/svg+xml,%3Csvg width='8' height='12' viewBox='0 0 8 12' fill='%23075A78FF' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.41 1.41L6 0L0 6L6 12L7.41 10.59L2.83 6L7.41 1.41Z' /%3E%3C/svg%3E%0A");
+      content: url('data:image/svg+xml,%3Csvg%20width%3D%228%22%20height%3D%2212%22%20fill%3D%22%23075A78%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M7.41%201.41L6%200%200%206l6%206%201.41-1.41L2.83%206l4.58-4.59z%22%2F%3E%3C%2Fsvg%3E');
+      display: inline-block;
+      height: 15px;
       margin-right: var(--spacer-2);
-      vertical-align: middle;
     }
   }
 }
