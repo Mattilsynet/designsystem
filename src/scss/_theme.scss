@@ -7,6 +7,9 @@ $color-grey-hue: hue($color-grey-hue);
 
 $font-family: Helvetica, Arial, sans-serif !default;
 $font-weight-light: 300 !default;
+$font-weight-normal: 400 !default;
+$font-weight-medium: 500 !default;
+$font-weight-semi-bold: 600 !default;
 $font-weight-bold: 700 !default;
 
 $font-size-small: 0.875rem !default;
@@ -24,7 +27,12 @@ $spacer-large: 3rem !default;
   --grey-light: hsl(#{$color-grey-hue}, 20%, 85%);
   --background-body: #{$color-background-body};
   --font-weight-light: #{$font-weight-light};
+  --font-weight-normal: #{$font-weight-normal};
   --font-weight-bold: #{$font-weight-bold};
+  --spacer-large: #{$spacer-large};
+  --spacer-small: #{$spacer-small};
+  --spacer-2: #{$spacer-2};
+  --spacer-3: #{$spacer-3};
 }
 
 body {

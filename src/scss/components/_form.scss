@@ -1,11 +1,14 @@
+@use "../color-tokens" as *;
+
 //stylelint-disable no-descending-specificity
-$form-group-spacer: 1.5rem !default;
-$form-field-width: 30ch !default;
+$form-group-spacer: 'var(--spacer-large)' !default;
+$form-text-space: 'var(--spacer-small)' !default;
+$form-field-width: 40ch !default;
 $form-text-color: 'var(--color-text)' !default;
-$form-border-color: 'currentColor' !default;
+$form-border-color: $color-secondary !default;
 $form-border-radius: 0.25em !default;
-$form-outline-style: dashed !default;
-$form-outline-color: currentColor !default;
+$form-outline-style: solid !default;
+$form-outline-color: $color-primary-50 !default;
 
 form {
   --form-group-spacer: #{$form-group-spacer};
@@ -15,8 +18,20 @@ form {
   --border-radius: #{$form-border-radius};
   --form-outline-style: #{$form-outline-style};
   --form-outline-color: #{$form-outline-color};
+  --form-text-space: #{$form-text-space};
 
   color: var(--form-text-color);
+}
+form,
+fieldset {
+  > * {
+    margin-top: var(--form-text-space);
+  }
+}
+.form-field.error {
+  &:focus-visible {
+    box-shadow: 0 0 0 0.25rem #e2312880;
+  }
 }
 
 .form-field + .form-label,
@@ -25,14 +40,17 @@ fieldset + .form-label {
   margin-top: var(--form-group-spacer);
 }
 
-[type='radio'] + label,
-[type='checkbox'] + label {
+[type='radio'] + .form-label,
+[type='checkbox'] + .form-label {
+  font-size: initial;
   font-weight: normal;
 }
 
-label {
-  margin-bottom: 0.5em;
-  font-weight: var(--font-weight-bold);
+legend.form-legend,
+label.form-label {
+  display: block;
+  font-size: 1.75rem;
+  font-weight: var(--font-weight-normal);
   line-height: 1;
 }
 
@@ -43,11 +61,15 @@ label {
   width: 100%;
   max-width: var(--form-field-width, 30ch);
   padding: 0.75em 0.5em;
-  border: 2px solid var(--border-color);
+  border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
   background-color: #fff;
   color: inherit;
   font-family: inherit;
+
+  &:focus {
+    border-color: var(--color-primary);
+  }
 
   &.error {
     --form-outline-color: var(--color-error);
@@ -112,16 +134,43 @@ label {
   }
 }
 
+@mixin error-style {
+  &.error {
+    $error-focus-color: rgba($color-error, 0.5);
+
+    border-color: var(--color-error);
+
+    &:focus-visible,
+    &:focus {
+      border-color: var(--color-error);
+      outline: none;
+      box-shadow: 0 0 0 0.25rem $error-focus-color;
+    }
+    + label {
+      color: var(--color-error);
+    }
+  }
+}
+
+@mixin focusable($shadow, $border) {
+  &:focus {
+    border-color: $border;
+    box-shadow: 0 0 0 0.25rem $shadow;
+  }
+}
+
 .form-control {
+  --dimention: 1.5em;
+
   display: inline-grid;
   grid-template-columns: 1em 1fr;
-  gap: 0.5em;
+  align-items: center;
+  gap: var(--dimention);
 
   input {
     width: 1em;
     height: 1em;
     margin: 0;
-    opacity: 0;
 
     &:focus + .input__control {
       box-shadow: 0 0 0 0.05em #fff, 0 0 0.15em 0.15em var(--color-primary);
@@ -142,14 +191,17 @@ label {
   .input__control {
     display: grid;
     place-content: center;
-    width: 1em;
-    height: 1em;
+    width: var(--dimention);
+    height: var(--dimention);
     border: 0.15em solid var(--border-color);
   }
 }
 
 .checkbox {
   .input__control {
+    @include error-style;
+    @include focusable(var(--color-primary-50), var(--color-primary));
+
     border-radius: var(--border-radius);
     color: var(--color-primary);
   }
@@ -168,7 +220,11 @@ label {
 
 .radio {
   .input__control {
+    @include error-style;
+    @include focusable(var(--color-primary-50), var(--color-primary));
+
     border-radius: 50%;
+    color: var(--color-primary);
   }
 
   .input__control::before {
@@ -188,45 +244,31 @@ label {
 
 .form-error {
   display: flex;
-  place-items: center;
-  margin-bottom: 0.25em;
-  gap: 0.75rem;
+  align-items: center;
   color: var(--color-error);
-}
 
-.radio-item + .radio-item {
-  margin-top: 0.5em;
+  &::before {
+    content: url('data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22%23E23128%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M11%2015h2v2h-2v-2zm0-8h2v6h-2V7zm.99-5C6.47%202%202%206.48%202%2012s4.47%2010%209.99%2010C17.52%2022%2022%2017.52%2022%2012S17.52%202%2011.99%202zM12%2020c-4.42%200-8-3.58-8-8s3.58-8%208-8%208%203.58%208%208-3.58%208-8%208z%22%2F%3E%3C%2Fsvg%3E');
+    display: inline-block;
+    height: 26px;
+    margin-right: var(--spacer-2);
+  }
 }
 
 .error-summary {
   margin-bottom: var(--form-group-spacer);
   padding: 2rem;
-  background-color: var(--color-on-error);
-  color: var(--color-error);
+  border: 2px solid var(--color-error);
+  background-color: #fff;
 
+  ul {
+    margin-left: 1rem;
+    list-style: disc;
+    li {
+      color: var(--color-primary);
+    }
+  }
   li + li {
     margin-top: 0.5em;
-  }
-}
-
-fieldset {
-  --spacer: 1rem;
-
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  margin: 0;
-  padding: 0;
-  border: 0;
-
-  legend {
-    margin-bottom: 0.5em;
-    font-weight: var(--font-weight-bold);
-  }
-
-  label {
-    margin-bottom: var(--spacer);
-    font-weight: normal;
-    line-height: 1;
   }
 }

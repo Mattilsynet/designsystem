@@ -21,6 +21,7 @@ h4,
 p,
 figure,
 blockquote,
+legend,
 dl,
 dd {
   margin: 0;
@@ -50,7 +51,7 @@ body {
 p,
 ul:not([class]):not([role]) li,
 ol:not([class]):not([role]) li {
-  line-height: 1.5;
+  line-height: 140%;
 }
 
 /* A elements that don't have a class get default styles */

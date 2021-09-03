@@ -5,6 +5,8 @@
 
 $color-primary: hsl(196,89%,25%) !default;
 $color-on-primary: hsl(0,0%,100%) !default;
+$color-primary-50: hsl(196,89%,25%, .5) !default;
+$color-on-primary-50: hsl(195.5, 46%, 75.3%) !default;
 $color-secondary: hsl(54,19%,61%) !default;
 $color-on-secondary: hsl(57.10000000000002, 19.3%, 21.4%) !default;
 $color-mt-red: hsl(3,76%,52%) !default;
@@ -27,14 +29,19 @@ $color-mt-background: hsl(38,40%,96%) !default;
 $color-on-mt-background: hsl(40, 5.4%, 43.5%) !default;
 $color-mt-text-dark: hsl(0,1%,25%) !default;
 $color-on-mt-text-dark: rgb(170, 170, 170) !default;
-$color-error: hsl(3,76%,36%) !default;
-$color-on-error: hsl(357,100%,93%) !default;
+$color-error: hsl(3,76%,52%) !default;
+/* 🚫 Contrast fails against error */
+$color-on-error: hsl(0,0%,100%) !default;
+$color-error-50: hsl(3,76%,52%, 0.5) !default;
+$color-on-error-50: hsl(0, 100%, 5.1%) !default;
 
-$base-color-tokens: ("primary", "secondary", "mt-red", "mt-blue", "mt-light-blue", "mt-green", "mt-brown", "mt-yellow", "mt-orange", "mt-grey", "mt-background", "mt-text-dark", "error");
+$base-color-tokens: ("primary", "primary-50", "secondary", "mt-red", "mt-blue", "mt-light-blue", "mt-green", "mt-brown", "mt-yellow", "mt-orange", "mt-grey", "mt-background", "mt-text-dark", "error", "error-50");
 
 $color-tokens: (
   "color-primary": $color-primary,
   "color-on-primary": $color-on-primary,
+  "color-primary-50": $color-primary-50,
+  "color-on-primary-50": $color-on-primary-50,
   "color-secondary": $color-secondary,
   "color-on-secondary": $color-on-secondary,
   "color-mt-red": $color-mt-red,
@@ -58,12 +65,17 @@ $color-tokens: (
   "color-mt-text-dark": $color-mt-text-dark,
   "color-on-mt-text-dark": $color-on-mt-text-dark,
   "color-error": $color-error,
-  "color-on-error": $color-on-error
+  /* 🚫 Contrast fails against error */
+"color-on-error": $color-on-error,
+  "color-error-50": $color-error-50,
+  "color-on-error-50": $color-on-error-50
 ) !default;
 
 @mixin color-tokens() {
   --color-primary: #{$color-primary};
   --color-on-primary: #{$color-on-primary};
+  --color-primary-50: #{$color-primary-50};
+  --color-on-primary-50: #{$color-on-primary-50};
   --color-secondary: #{$color-secondary};
   --color-on-secondary: #{$color-on-secondary};
   --color-mt-red: #{$color-mt-red};
@@ -87,5 +99,8 @@ $color-tokens: (
   --color-mt-text-dark: #{$color-mt-text-dark};
   --color-on-mt-text-dark: #{$color-on-mt-text-dark};
   --color-error: #{$color-error};
-  --color-on-error: #{$color-on-error};
+  /* 🚫 Contrast fails against error */
+--color-on-error: #{$color-on-error};
+  --color-error-50: #{$color-error-50};
+  --color-on-error-50: #{$color-on-error-50};
 }

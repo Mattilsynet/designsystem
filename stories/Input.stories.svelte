@@ -1,0 +1,63 @@
+<script lang="ts">
+  import {Meta, Story} from '@storybook/addon-svelte-csf';
+</script>
+
+<Meta
+  title="Components/Form/Input"
+  args={{
+    label: 'Når skjedde det?',
+    helpText: 'Skriv når hendelsen skjedde og om det har pågått over lengere periode.',
+    errorMessage: 'Fyll inn dette feltet.'
+  }}
+  argTypes={{
+    title: {control: 'text'},
+    disableCss: {control: 'boolean'}
+  }}
+/>
+
+<Story name="Input" let:label let:helpText>
+  <form class="form-layout">
+    <label class="form-label" for="inputfield">
+      {label}
+    </label>
+
+    {#if helpText}
+      <div class="hint">
+        {@html helpText}
+      </div>
+    {/if}
+
+    <input id="inputfield" name="email" class="form-field" aria-describedby="inputfield-hint inputfield-error" />
+  </form>
+</Story>
+
+<Story name="Input with error" let:label let:helpText let:errorMessage>
+  <form class="form-layout">
+    <label class="form-label" for="inputfield">
+      {label}
+    </label>
+
+    {#if helpText}
+      <div class="hint">
+        {@html helpText}
+      </div>
+    {/if}
+
+    <span id="inputfield-error" class="form-error">
+      <span class="inclusively-hidden">Feilmelding:</span>
+      {errorMessage}
+    </span>
+
+    <input
+      id="inputfield"
+      name="email"
+      class="form-field error"
+      aria-invalid="true"
+      aria-describedby="inputfield-hint inputfield-error"
+    />
+  </form>
+</Story>
+
+<style lang="scss" global>
+  @import '../src/scss/app';
+</style>

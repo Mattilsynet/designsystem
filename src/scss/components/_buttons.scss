@@ -1,5 +1,5 @@
 $button-default-color: 'primary' !default;
-$button-colors: 'error', 'secondary', 'on-primary' !default;
+$button-colors: 'error' !default;
 
 // stylelint-disable order/properties-order
 .button {
@@ -11,7 +11,7 @@ $button-colors: 'error', 'secondary', 'on-primary' !default;
   text-decoration: none;
 
   // Reset for buttons
-  padding: 0.25em 0.75em;
+  padding: 0.25em 1.25em;
   border: 2px solid transparent;
   font-family: inherit;
   cursor: pointer;
@@ -41,32 +41,57 @@ $button-colors: 'error', 'secondary', 'on-primary' !default;
   transition-property: background-color, color, border-color;
 
   &:focus {
-    box-shadow: 0 0 0 max(0.15em, 2px) var(--button-focus-inner, var(--button-color)),
-      0 0 0 max(0.3em, 2px) var(--button-focus-outer, var(--button-background));
+    border-color: var(--button-background);
   }
 
   &:hover,
   &:active {
     background-color: var(--button-color);
     color: var(--button-background);
-
-    &:not(.button--outlined) {
-      border-color: currentColor;
-    }
   }
 
   @each $color in $button-colors {
     &--#{$color} {
       --button-background: var(--color-#{$color});
       --button-color: var(--color-on-#{$color});
+
+      &:focus {
+        --outline-color: var(--color-#{$color}-50);
+
+        box-shadow: 0 0 0 0.25rem var(--color-#{$color}-50);
+      }
+    }
+  }
+  &--primary {
+    &:hover,
+    &:active {
+      background-color: var(--color-mt-text-dark);
+      color: var(--color-mt-background);
+      border-color: var(--color-mt-text-dark);
+    }
+    &:focus {
+      box-shadow: 0 0 0 0.25rem var(--color-primary-50);
     }
   }
 
-  &--outlined {
+  &--secondary {
     --button-focus-inner: var(--button-background);
     --button-focus-outer: var(--button-color);
+    --color: var(--button-background);
+    --background: var(--button-color);
 
-    border-color: var(--button-color);
+    border-color: var(--color);
+    color: var(--color);
+    background-color: var(--background);
+
+    &:hover,
+    &:active {
+      background-color: var(--color);
+      color: var(--background);
+    }
+    &:focus {
+      box-shadow: 0 0 0 0.25rem var(--color-primary-50);
+    }
   }
 
   &__icon {

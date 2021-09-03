@@ -2,18 +2,32 @@
 a:not([class]) {
   color: var(--color-links);
 }
-
+a {
+  &.back-arrow {
+    display: flex;
+    align-items: center;
+    color: var(--color-links);
+    &::before {
+      content: url('data:image/svg+xml,%3Csvg%20width%3D%228%22%20height%3D%2212%22%20fill%3D%22%23075A78%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M7.41%201.41L6%200%200%206l6%206%201.41-1.41L2.83%206l4.58-4.59z%22%2F%3E%3C%2Fsvg%3E');
+      display: inline-block;
+      height: 15px;
+      margin-right: var(--spacer-2);
+    }
+  }
+}
 a,
 button,
 input,
+select,
 textarea {
-  --outline-size: max(2px, 0.08em);
-  --outline-style: solid;
   --outline-color: currentColor;
 
+  transition: box-shadow 0.15s ease-in-out;
+
   &:focus {
-    outline: var(--outline-size) var(--outline-style) var(--outline-color);
-    outline-offset: var(--outline-size);
+    border-color: inherit;
+    outline: none;
+    box-shadow: 0 0 0 0.25rem var(--color-primary-50);
   }
 
   &:focus:not(:focus-visible) {
@@ -21,7 +35,15 @@ textarea {
   }
 
   &:focus-visible {
-    outline: var(--outline-size) var(--outline-style) var(--outline-color);
-    outline-offset: var(--outline-size);
+    border-color: inherit;
+    outline: none;
+    box-shadow: 0 0 0 0.25rem var(--color-primary-50);
+  }
+
+  &:disabled,
+  &[disabled] {
+    pointer-events: none;
+    filter: none;
+    opacity: 0.5;
   }
 }
