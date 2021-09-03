@@ -26,9 +26,6 @@
 
   <p class="description">Sekundær</p>
   <button class="button button--secondary" {disabled}>{secondary}</button>
-
-  <p class="description">Feil</p>
-  <button class="button button--error" {disabled}>{secondary}</button>
 </Story>
 
 <style lang="scss" global>
