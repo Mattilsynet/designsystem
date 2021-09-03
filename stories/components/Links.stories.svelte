@@ -19,14 +19,14 @@
 
 <Story name="Normal" let:primary let:disableCss let:disabled let:secondary>
   <h1>Lenker</h1>
-  <p>Bruk alne:</p>
+  <p>Bruk alene:</p>
   <a href="https://mattilsynet.no/">{primary}</a>
   <hr />
   <p>Bruk i text:</p>
   <p>Les mer om <a href="https://mattilsynet.no/">mattilsynet</a> her.</p>
 
   <hr />
-  <p>Tilbake lenke</p>
+  <p>Tilbakelenke</p>
   <a href="https://mattilsynet.no/" class="back-arrow">Tilbake</a>
 </Story>
 
