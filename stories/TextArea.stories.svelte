@@ -17,7 +17,7 @@
 />
 
 <Story name="TextArea" let:label let:helpText>
-  <form>
+  <form class="form-layout">
     <label class="form-label" for="inputfield">
       {label}
     </label>
@@ -33,7 +33,7 @@
 </Story>
 
 <Story name="TextArea with error" let:label let:helpText let:errorMessage>
-  <form>
+  <form class="form-layout">
     <label class="form-label" for="textfield">
       {label}
     </label>
