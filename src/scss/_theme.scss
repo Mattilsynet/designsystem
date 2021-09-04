@@ -1,5 +1,10 @@
 @use "color-tokens" as *;
+$border-width-small: 1px;
+$border-width-regular: 2px;
 
+$border-red-regular: $border-width-regular solid $color-mt-red;
+
+$breakpoint-small: 70ch;
 $color-links: 'var(--color-primary)' !default;
 $color-grey-hue: $color-primary !default;
 $color-background-body: scale-color($color-grey-hue, $lightness: 98%) !default;
@@ -13,6 +18,8 @@ $font-weight-semi-bold: 600 !default;
 $font-weight-bold: 700 !default;
 
 $font-size-small: 0.875rem !default;
+
+$height-header-regular: 6.25rem;
 
 $spacer-small: 0.625rem !default;
 $spacer-2: 1rem !default;
@@ -36,6 +43,8 @@ $spacer-large: 3rem !default;
 }
 
 body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   background-color: var(--color-mt-background);
   color: var(--color-mt-text-dark);
   font-family: $font-family;
