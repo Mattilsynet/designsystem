@@ -15,8 +15,9 @@
 
 <Story name="Normal" let:title let:disableCss>
   <header class="header header--regular">
-    <a href="" class="link-image" alt="mattilsynet.no">
+    <a href="https://mattilsynet.no/">
       <svg width="203" height="52" viewBox="0 0 203 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <title>Gå til forsiden</title>
         <path
           d="M24.1539 32.9053H21.2772L13.8411 15.9735L14.0039 36.4195H10.313V10.1165H14.8723L22.7427 28.1665L30.5587 10.1165H35.1181V36.4195H31.4272L31.6443 15.9735L24.1539 32.9053Z"
           fill="#E23128"
