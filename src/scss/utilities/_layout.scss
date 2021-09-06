@@ -1,3 +1,6 @@
+@use '../theme' as *;
+@use '../global/typography' as *;
+
 .container {
   width: min(70ch, 95vw);
   margin-right: auto;
@@ -47,10 +50,36 @@ section,
   clip-path: inset(50%);
 }
 
-footer {
-  display: flex;
-  flex-direction: column;
-  place-content: center;
+header,
+.header {
+  display: grid;
   align-items: center;
-  padding: 5rem;
+  padding-right: $spacer-large;
+  padding-left: $spacer-large;
+  border-bottom: $border-red-regular;
+  &--regular {
+    height: $height-header-regular;
+  }
+}
+
+footer,
+.footer {
+  display: flex;
+  padding: $spacer-3 $spacer-large;
+  gap: $spacer-3;
+  border-top: $border-red-regular;
+
+  .col {
+    display: flex;
+    flex-basis: 0;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: $spacer-2;
+
+    h2,
+    h3 {
+      font-size: clamp(1rem, 4.333vw + 1rem, 1.333rem);
+      font-weight: var(--font-weight-bold);
+    }
+  }
 }

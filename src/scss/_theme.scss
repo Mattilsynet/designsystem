@@ -45,6 +45,7 @@ $spacer-large: 3rem !default;
 body {
   display: grid;
   grid-template-rows: auto 1fr auto;
+  row-gap: $spacer-large;
   background-color: var(--color-mt-background);
   color: var(--color-mt-text-dark);
   font-family: $font-family;
