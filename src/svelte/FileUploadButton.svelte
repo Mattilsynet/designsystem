@@ -9,6 +9,7 @@
   export let error: UIError | undefined;
   export let name: string;
   export let label: string;
+  export let multiple: boolean = false;
 
   interface Context {
     fileName?: string;
@@ -105,7 +106,7 @@
   type="file"
   {name}
   class="form-field"
-  multiple
+  {multiple}
   class:error
   class:inclusively-hidden={!onServer}
   aria-describedby={`${name}-hint ${name}-error`}
