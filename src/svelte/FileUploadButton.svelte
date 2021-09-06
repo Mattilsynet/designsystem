@@ -5,81 +5,43 @@
   import type {UIError} from '../ts/types';
 
   export let loadJs: boolean = true;
-  export let title: string;
   export let error: UIError | undefined;
+  export let id: string;
   export let name: string;
-  export let label: string;
   export let multiple: boolean = false;
+  export let buttonText: string = 'Legg til fil';
 
   interface Context {
-    fileName?: string;
-    size: number;
+    fileNames: Array<string>;
   }
 
-  type FileSelectedEvent = {type: 'FILE_SELECTED'; data: {files: Array<{name: string}>}};
-  type FileUploadEvent = {type: 'MOUNTED'} | FileSelectedEvent;
+  type MountedEvent = {type: 'MOUNTED'};
+  type FileSelectedEvent = {type: 'FILE_SELECTED'; fileNames: Array<string>};
+  type FileUploadEvent = MountedEvent | FileSelectedEvent;
 
   type FileUploadButtonState =
     | {value: 'serverRendered'; context: Context}
     | {value: 'empty'; context: Context}
-    | {value: 'singleFile'; context: Context}
-    | {value: 'multipleFiles'; context: Context};
-
-  function isSingleFileSelected(context: Context, event: FileSelectedEvent): boolean {
-    return event.data.files.length === 1;
-  }
+    | {value: 'selected'; context: Context};
 
   const disclosureMachine = createMachine<Context, FileUploadEvent, FileUploadButtonState>({
     id: 'fileUpload',
     initial: 'serverRendered',
     context: {
-      fileName: undefined,
-      size: 0
+      fileNames: []
     },
     states: {
       serverRendered: {
         on: {MOUNTED: 'empty'}
       },
       empty: {
-        on: {
-          FILE_SELECTED: [
-            {
-              target: 'singleFile',
-              cond: isSingleFileSelected
-            },
-            {target: 'multipleFiles'}
-          ]
-        }
+        on: {FILE_SELECTED: 'selected'}
       },
-      singleFile: {
+      selected: {
         entry: assign<Context, FileSelectedEvent>({
-          fileName: (context, event) => event.data.files[0].name,
-          size: 1
+          fileNames: (context, event) => event.fileNames
         }),
-        on: {
-          FILE_SELECTED: [
-            {
-              target: 'singleFile',
-              cond: isSingleFileSelected
-            },
-            {target: 'multipleFiles'}
-          ]
-        }
-      },
-      multipleFiles: {
-        entry: assign<Context, FileSelectedEvent>({
-          fileName: undefined,
-          size: (context, event) => event.data.files.length
-        }),
-        on: {
-          FILE_SELECTED: [
-            {
-              target: 'singleFile',
-              cond: isSingleFileSelected
-            },
-            {target: 'multipleFiles'}
-          ]
-        }
+        on: {FILE_SELECTED: 'selected'}
       }
     }
   });
@@ -87,41 +49,34 @@
   const {state, send} = useMachine(disclosureMachine);
 
   $: onServer = $state.value === 'serverRendered';
+  $: selectedCount = $state.context.fileNames.length;
 
   if (loadJs) {
     onMount(() => send('MOUNTED'));
   }
 </script>
 
-{#if onServer}
-  <label class="form-label" for={name}>
-    {label}
-  </label>
-{/if}
-
-<slot />
-
 <input
-  id={name}
   type="file"
+  {id}
   {name}
-  class="form-field"
   {multiple}
+  class="form-field"
   class:error
   class:inclusively-hidden={!onServer}
   aria-describedby={`${name}-hint ${name}-error`}
   aria-invalid={!!error}
-  on:change={e => send({type: 'FILE_SELECTED', data: {files: e.target.files}})}
+  on:change={e => send({type: 'FILE_SELECTED', fileNames: [...e.target.files].map(file => file.name)})}
 />
 
 {#if !onServer}
-  <label class="button button--primary" for={name}>
-    {#if $state.value === 'singleFile'}
-      {$state.context.fileName}
-    {:else if $state.value === 'multipleFiles'}
-      {`${$state.context.size} filer valgt`}
+  <label class="button button--primary" for={id}>
+    {#if selectedCount === 1}
+      {$state.context.fileNames[0]}
+    {:else if selectedCount > 1}
+      {`${selectedCount} filer valgt`}
     {:else}
-      {label}
+      {buttonText}
     {/if}
   </label>
 {/if}

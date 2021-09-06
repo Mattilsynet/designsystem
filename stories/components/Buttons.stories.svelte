@@ -32,9 +32,7 @@
 </Story>
 
 <Story name="FileUpload" let:disableJs>
-  <FileUploadButton name="file" label="Legg til fil" loadJs={!disableJs} multiple={true}>
-    <div class="hint">Legg ved relevant dokumentasjon som bilde eller video (max fil str. 40MB)</div>
-  </FileUploadButton>
+  <FileUploadButton name="file" id="file1" buttonText="Legg til fil" loadJs={!disableJs} multiple={true} />
 </Story>
 
 <style lang="scss" global>
