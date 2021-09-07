@@ -4,7 +4,8 @@ $border-width-regular: 2px;
 
 $border-red-regular: $border-width-regular solid $color-mt-red;
 
-$breakpoint-small: 70ch;
+$breakpoint-large: 768px;
+
 $color-links: 'var(--color-primary)' !default;
 $color-grey-hue: $color-primary !default;
 $color-background-body: scale-color($color-grey-hue, $lightness: 98%) !default;
@@ -45,6 +46,7 @@ $spacer-large: 3rem !default;
 body {
   display: grid;
   grid-template-rows: auto 1fr auto;
+  row-gap: $spacer-large;
   background-color: var(--color-mt-background);
   color: var(--color-mt-text-dark);
   font-family: $font-family;

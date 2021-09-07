@@ -1,10 +1,10 @@
+@use '../theme' as *;
+@use '../global/typography' as *;
+
 .container {
   width: min(70ch, 95vw);
   margin-right: auto;
   margin-left: auto;
-}
-main {
-  min-height: calc(100vh - 3rem);
 }
 section,
 .section {
@@ -47,10 +47,52 @@ section,
   clip-path: inset(50%);
 }
 
-footer {
+header,
+.header {
+  display: grid;
+  align-items: center;
+  padding-right: $spacer-small;
+  padding-left: $spacer-small;
+  border-bottom: $border-red-regular;
+
+  @media only screen and (min-width: $breakpoint-large) {
+    padding-right: $spacer-large;
+    padding-left: $spacer-large;
+  }
+
+  &--regular {
+    height: $height-header-regular;
+  }
+}
+
+footer,
+.footer {
   display: flex;
   flex-direction: column;
-  place-content: center;
-  align-items: center;
-  padding: 5rem;
+  padding: $spacer-3 $spacer-small;
+  gap: $spacer-3;
+  border-top: $border-red-regular;
+
+  @media only screen and (min-width: $breakpoint-large) {
+    flex-direction: row;
+    padding: $spacer-3 $spacer-large;
+  }
+
+  svg {
+    align-self: center;
+  }
+
+  .col {
+    display: flex;
+    flex-basis: 0;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: $spacer-2;
+
+    h2,
+    h3 {
+      font-size: clamp(1rem, 4.333vw + 1rem, 1.333rem);
+      font-weight: var(--font-weight-bold);
+    }
+  }
 }
