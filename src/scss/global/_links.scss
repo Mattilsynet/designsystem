@@ -41,7 +41,8 @@ textarea {
   }
 
   &:disabled,
-  &[disabled] {
+  &[disabled],
+  &.disabled {
     pointer-events: none;
     filter: none;
     opacity: 0.5;
