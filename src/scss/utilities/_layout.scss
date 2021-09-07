@@ -51,9 +51,15 @@ header,
 .header {
   display: grid;
   align-items: center;
-  padding-right: $spacer-large;
-  padding-left: $spacer-large;
+  padding-right: $spacer-small;
+  padding-left: $spacer-small;
   border-bottom: $border-red-regular;
+
+  @media only screen and (min-width: $breakpoint-large) {
+    padding-right: $spacer-large;
+    padding-left: $spacer-large;
+  }
+
   &--regular {
     height: $height-header-regular;
   }
@@ -62,9 +68,19 @@ header,
 footer,
 .footer {
   display: flex;
-  padding: $spacer-3 $spacer-large;
+  flex-direction: column;
+  padding: $spacer-3 $spacer-small;
   gap: $spacer-3;
   border-top: $border-red-regular;
+
+  @media only screen and (min-width: $breakpoint-large) {
+    flex-direction: row;
+    padding: $spacer-3 $spacer-large;
+  }
+
+  svg {
+    align-self: center;
+  }
 
   .col {
     display: flex;
