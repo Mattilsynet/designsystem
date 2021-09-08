@@ -1,6 +1,11 @@
+@use '../theme' as *;
+
 details {
-  --section-margin: var(--spacer-small);
-  --section-padding: var(--spacer-small);
+  --detail-margin: var(--spacer-small);
+  --detail-padding: var(--spacer-small);
+  --summary-margin-bottom: var(--spacer-2);
+  --paragraph-space: var(--spacer-small);
+  --border: #{$border-width-regular} solid var(--color-mt-grey);
 
   margin-top: var(--spacer-small);
   &:focus,
@@ -8,8 +13,16 @@ details {
     box-shadow: 0 0 0 0.25rem var(--color-primary-50);
   }
   summary {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: var(--border);
     color: var(--color-mt-blue);
+    list-style: none;
     cursor: pointer;
+
+    &::after {
+      content: url('data:image/svg+xml,%3Csvg%20width%3D%2212%22%20height%3D%228%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M10.59.4L6%204.85%201.41.4%200%201.77%206%207.6l6-5.83L10.59.4z%22%20fill%3D%22%23075B7A%22%2F%3E%3C%2Fsvg%3E');
+    }
     &:focus,
     &:focus-visible {
       outline: none;
@@ -18,23 +31,25 @@ details {
   }
   &[open] {
     summary {
-      margin-bottom: var(--spacer-small);
+      margin-bottom: var(--summary-margin-bottom);
       margin-left: 0;
       padding-left: 0;
       border-left: none;
+
+      &::after {
+        content: url('data:image/svg+xml,%3Csvg%20width%3D%2212%22%20height%3D%2212%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M10.866%206.931L6.061%202.126.996%206.93%22%20stroke%3D%22%23075B7A%22%20stroke-width%3D%222%22%2F%3E%3C%2Fsvg%3E');
+      }
     }
     > * {
-      margin-left: var(--section-margin);
-      padding-left: var(--section-padding);
-      border-left: 2px solid var(--color-mt-grey);
+      margin-left: var(--detail-margin);
+      padding-left: var(--detail-padding);
+      border-left: var(--border);
     }
     p {
-      padding-top: var(--spacer-small);
+      padding-top: var(--paragraph-space);
     }
 
     ul {
-      margin-top: 0;
-      margin-bottom: 0;
       padding-top: var(--spacer-small);
       padding-bottom: var(--spacer-small);
       padding-left: var(--spacer-large);
