@@ -40,27 +40,18 @@ details {
         content: url('data:image/svg+xml,%3Csvg%20width%3D%2212%22%20height%3D%2212%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M10.866%206.931L6.061%202.126.996%206.93%22%20stroke%3D%22%23075B7A%22%20stroke-width%3D%222%22%2F%3E%3C%2Fsvg%3E');
       }
     }
-    > * {
+    .summary-wrapper {
       margin-left: var(--detail-margin);
       padding-left: var(--detail-padding);
       border-left: var(--border);
-    }
-    p {
-      padding-top: var(--paragraph-space);
-    }
-
-    ul {
-      padding-top: var(--spacer-small);
-      padding-bottom: var(--spacer-small);
-      padding-left: var(--spacer-large);
-      + p {
-        margin-top: 0;
+      p {
+        padding-top: var(--paragraph-space);
       }
-    }
-
-    :nth-child(3),
-    :nth-child(2) {
-      padding-top: 0;
+      ul {
+        padding-top: var(--spacer-small);
+        padding-bottom: var(--spacer-small);
+        padding-left: var(--spacer-large);
+      }
     }
   }
 }
