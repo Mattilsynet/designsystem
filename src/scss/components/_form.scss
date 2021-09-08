@@ -1,9 +1,10 @@
 @use "../color-tokens" as *;
+@use "../theme" as *;
 
 //stylelint-disable no-descending-specificity
 $form-group-spacer: 'var(--spacer-large)' !default;
 $form-text-space: 'var(--spacer-small)' !default;
-$form-field-width: 40ch !default;
+$form-field-width: 100% !default;
 $form-text-color: 'var(--color-text)' !default;
 $form-border-color: $color-secondary !default;
 $form-border-radius: 0.25em !default;
@@ -257,12 +258,15 @@ label.form-label {
 
 .error-summary {
   margin-bottom: var(--form-group-spacer);
-  padding: 2rem;
-  border: 2px solid var(--color-error);
-  background-color: #fff;
+  padding: $spacer-small $spacer-3;
+  border-left: $border-width-regular solid var(--color-error);
+
+  h2 {
+    color: var(--color-error);
+  }
 
   ul {
-    margin-left: 1rem;
+    margin-left: var(--spacer-2);
     list-style: disc;
     li {
       color: var(--color-primary);
