@@ -97,7 +97,6 @@ h4,
 .h2,
 .h3,
 .h4 {
-  margin-bottom: 0.65em;
   font-weight: var(--font-weight-light);
   line-height: calc(2px + 2ex + 2px);
   // Help prevent overflow of long words/names/URLs
@@ -121,16 +120,6 @@ $content-spacer: 1em !default;
   ul:not([class]) li + li,
   ol:not([class]) li + li {
     margin-top: var(--content-spacer);
-  }
-
-  //:is(h2, h3:not(h2 + *)):not(:first-child) {
-  h2,
-  h3:not(h2 + *):not(:first-child) {
-    margin-top: 2em;
-  }
-
-  ul + p {
-    margin-top: calc(var(--content-spacer) * 2);
   }
 
   > a:not([class]) {
