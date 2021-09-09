@@ -14,3 +14,38 @@
     outline-offset: var(--outline-offset);
   }
 }
+
+@mixin disabled {
+  &:disabled,
+  &[disabled],
+  &.disabled {
+    pointer-events: none;
+    filter: none;
+    opacity: 0.5;
+  }
+}
+
+@mixin focus-shadow($shadow, $border) {
+  &:focus {
+    border-color: $border;
+    box-shadow: 0 0 0 0.25rem $shadow;
+  }
+}
+
+@mixin error-style {
+  &.error {
+    $error-focus-color: var(--color-error-50);
+
+    border-color: var(--color-error);
+
+    &:focus-visible,
+    &:focus {
+      border-color: var(--color-error);
+      outline: none;
+      box-shadow: 0 0 0 0.25rem $error-focus-color;
+    }
+    + label {
+      color: var(--color-error);
+    }
+  }
+}
