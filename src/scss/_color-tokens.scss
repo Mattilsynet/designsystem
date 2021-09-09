@@ -23,17 +23,16 @@ $color-mt-yellow: hsl(45,100%,68%) !default;
 $color-on-mt-yellow: hsl(45.30000000000001, 72.1%, 26.7%) !default;
 $color-mt-orange: hsl(33,94%,54%) !default;
 $color-on-mt-orange: hsl(28.600000000000023, 100%, 20.6%) !default;
-$color-mt-grey: hsl(216,3%,66%) !default;
-$color-on-mt-grey: hsl(200, 2.4%, 24.1%) !default;
+$color-mt-grey: hsl(216,3%,67%) !default;
+$color-on-mt-grey: hsl(220, 2.4%, 24.9%) !default;
 $color-mt-background: hsl(38,40%,96%) !default;
 $color-on-mt-background: hsl(40, 5.4%, 43.5%) !default;
 $color-mt-text-dark: hsl(0,1%,25%) !default;
 $color-on-mt-text-dark: rgb(170, 170, 170) !default;
-$color-error: hsl(3,76%,52%) !default;
-/* 🚫 Contrast fails against error */
+$color-error: hsl(3, 76%, 36%) !default;
 $color-on-error: hsl(0,0%,100%) !default;
-$color-error-50: hsl(3,76%,52%, 0.5) !default;
-$color-on-error-50: hsl(0, 100%, 5.1%) !default;
+$color-error-50: hsl(3, 76%, 36%, 0.5) !default;
+$color-on-error-50: hsl(3, 68.2%, 82.7%) !default;
 
 $base-color-tokens: ("primary", "primary-50", "secondary", "mt-red", "mt-blue", "mt-light-blue", "mt-green", "mt-brown", "mt-yellow", "mt-orange", "mt-grey", "mt-background", "mt-text-dark", "error", "error-50");
 
@@ -65,8 +64,7 @@ $color-tokens: (
   "color-mt-text-dark": $color-mt-text-dark,
   "color-on-mt-text-dark": $color-on-mt-text-dark,
   "color-error": $color-error,
-  /* 🚫 Contrast fails against error */
-"color-on-error": $color-on-error,
+  "color-on-error": $color-on-error,
   "color-error-50": $color-error-50,
   "color-on-error-50": $color-on-error-50
 ) !default;
@@ -99,8 +97,7 @@ $color-tokens: (
   --color-mt-text-dark: #{$color-mt-text-dark};
   --color-on-mt-text-dark: #{$color-on-mt-text-dark};
   --color-error: #{$color-error};
-  /* 🚫 Contrast fails against error */
---color-on-error: #{$color-on-error};
+  --color-on-error: #{$color-on-error};
   --color-error-50: #{$color-error-50};
   --color-on-error-50: #{$color-on-error-50};
 }

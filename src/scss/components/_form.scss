@@ -1,9 +1,11 @@
 @use "../color-tokens" as *;
+@use "../theme" as *;
+@use "../utilities/mixins" as *;
 
 //stylelint-disable no-descending-specificity
 $form-group-spacer: 'var(--spacer-large)' !default;
 $form-text-space: 'var(--spacer-small)' !default;
-$form-field-width: 40ch !default;
+$form-field-width: 100% !default;
 $form-text-color: 'var(--color-text)' !default;
 $form-border-color: $color-secondary !default;
 $form-border-radius: 0.25em !default;
@@ -134,31 +136,6 @@ label.form-label {
   }
 }
 
-@mixin error-style {
-  &.error {
-    $error-focus-color: rgba($color-error, 0.5);
-
-    border-color: var(--color-error);
-
-    &:focus-visible,
-    &:focus {
-      border-color: var(--color-error);
-      outline: none;
-      box-shadow: 0 0 0 0.25rem $error-focus-color;
-    }
-    + label {
-      color: var(--color-error);
-    }
-  }
-}
-
-@mixin focusable($shadow, $border) {
-  &:focus {
-    border-color: $border;
-    box-shadow: 0 0 0 0.25rem $shadow;
-  }
-}
-
 .form-control {
   --dimention: 1.5em;
 
@@ -200,7 +177,7 @@ label.form-label {
 .checkbox {
   .input__control {
     @include error-style;
-    @include focusable(var(--color-primary-50), var(--color-primary));
+    @include focus-shadow(var(--color-primary-50), var(--color-primary));
 
     border-radius: var(--border-radius);
     color: var(--color-primary);
@@ -221,7 +198,7 @@ label.form-label {
 .radio {
   .input__control {
     @include error-style;
-    @include focusable(var(--color-primary-50), var(--color-primary));
+    @include focus-shadow(var(--color-primary-50), var(--color-primary));
 
     border-radius: 50%;
     color: var(--color-primary);
@@ -248,7 +225,7 @@ label.form-label {
   color: var(--color-error);
 
   &::before {
-    content: url('data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22%23E23128%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M11%2015h2v2h-2v-2zm0-8h2v6h-2V7zm.99-5C6.47%202%202%206.48%202%2012s4.47%2010%209.99%2010C17.52%2022%2022%2017.52%2022%2012S17.52%202%2011.99%202zM12%2020c-4.42%200-8-3.58-8-8s3.58-8%208-8%208%203.58%208%208-3.58%208-8%208z%22%2F%3E%3C%2Fsvg%3E');
+    content: url('data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22%23A41D16%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M11%2015h2v2h-2v-2zm0-8h2v6h-2V7zm.99-5C6.47%202%202%206.48%202%2012s4.47%2010%209.99%2010C17.52%2022%2022%2017.52%2022%2012S17.52%202%2011.99%202zM12%2020c-4.42%200-8-3.58-8-8s3.58-8%208-8%208%203.58%208%208-3.58%208-8%208z%22%2F%3E%3C%2Fsvg%3E');
     display: inline-block;
     height: 26px;
     margin-right: var(--spacer-2);
@@ -257,12 +234,15 @@ label.form-label {
 
 .error-summary {
   margin-bottom: var(--form-group-spacer);
-  padding: 2rem;
-  border: 2px solid var(--color-error);
-  background-color: #fff;
+  padding: $spacer-small $spacer-3;
+  border-left: $border-width-regular solid var(--color-error);
+
+  h2 {
+    color: var(--color-error);
+  }
 
   ul {
-    margin-left: 1rem;
+    margin-left: var(--spacer-2);
     list-style: disc;
     li {
       color: var(--color-primary);

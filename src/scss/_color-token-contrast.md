@@ -27,7 +27,8 @@ title: Color Token Contrast
   - `color-on-mt-grey`
   - `color-on-mt-background`
   - `color-mt-text-dark`
-  - `color-on-error-50`
+  - `color-error`
+  - `color-error-50`
 
 ## color-primary-50
   - `color-on-primary`
@@ -49,12 +50,12 @@ title: Color Token Contrast
   - `color-on-mt-orange`
   - `color-on-mt-grey`
   - `color-mt-text-dark`
-  - `color-on-error-50`
+  - `color-error`
+  - `color-error-50`
 
 ## color-secondary
   - `color-on-mt-red`
   - `color-on-mt-grey`
-  - `color-on-error-50`
 
 ## color-on-secondary
   - `color-on-primary`
@@ -65,9 +66,11 @@ title: Color Token Contrast
   - `color-on-mt-brown`
   - `color-mt-yellow`
   - `color-mt-orange`
+  - `color-mt-grey`
   - `color-mt-background`
   - `color-on-mt-text-dark`
   - `color-on-error`
+  - `color-on-error-50`
 
 ## color-mt-red
   - No safe options
@@ -86,6 +89,7 @@ title: Color Token Contrast
   - `color-mt-background`
   - `color-on-mt-text-dark`
   - `color-on-error`
+  - `color-on-error-50`
 
 ## color-mt-blue
   - `color-on-primary`
@@ -107,7 +111,8 @@ title: Color Token Contrast
   - `color-on-mt-orange`
   - `color-on-mt-grey`
   - `color-mt-text-dark`
-  - `color-on-error-50`
+  - `color-error`
+  - `color-error-50`
 
 ## color-mt-light-blue
   - `color-on-secondary`
@@ -117,7 +122,6 @@ title: Color Token Contrast
   - `color-on-mt-orange`
   - `color-on-mt-grey`
   - `color-mt-text-dark`
-  - `color-on-error-50`
 
 ## color-on-mt-light-blue
   - `color-on-primary`
@@ -128,6 +132,7 @@ title: Color Token Contrast
   - `color-mt-yellow`
   - `color-mt-background`
   - `color-on-error`
+  - `color-on-error-50`
 
 ## color-mt-green
   - `color-on-secondary`
@@ -136,7 +141,6 @@ title: Color Token Contrast
   - `color-on-mt-orange`
   - `color-on-mt-grey`
   - `color-mt-text-dark`
-  - `color-on-error-50`
 
 ## color-on-mt-green
   - `color-on-primary`
@@ -148,6 +152,7 @@ title: Color Token Contrast
   - `color-mt-yellow`
   - `color-mt-background`
   - `color-on-error`
+  - `color-on-error-50`
 
 ## color-mt-brown
   - `color-on-primary`
@@ -168,7 +173,8 @@ title: Color Token Contrast
   - `color-on-mt-orange`
   - `color-on-mt-grey`
   - `color-mt-text-dark`
-  - `color-on-error-50`
+  - `color-error`
+  - `color-error-50`
 
 ## color-mt-yellow
   - `color-primary`
@@ -183,7 +189,8 @@ title: Color Token Contrast
   - `color-on-mt-orange`
   - `color-on-mt-grey`
   - `color-mt-text-dark`
-  - `color-on-error-50`
+  - `color-error`
+  - `color-error-50`
 
 ## color-on-mt-yellow
   - `color-on-primary`
@@ -197,7 +204,6 @@ title: Color Token Contrast
   - `color-on-mt-orange`
   - `color-on-mt-grey`
   - `color-mt-text-dark`
-  - `color-on-error-50`
 
 ## color-on-mt-orange
   - `color-on-primary`
@@ -210,10 +216,13 @@ title: Color Token Contrast
   - `color-mt-orange`
   - `color-mt-background`
   - `color-on-error`
+  - `color-on-error-50`
 
 ## color-mt-grey
+  - `color-on-secondary`
   - `color-on-mt-red`
-  - `color-on-error-50`
+  - `color-on-mt-grey`
+  - `color-mt-text-dark`
 
 ## color-on-mt-grey
   - `color-on-primary`
@@ -225,9 +234,11 @@ title: Color Token Contrast
   - `color-on-mt-brown`
   - `color-mt-yellow`
   - `color-mt-orange`
+  - `color-mt-grey`
   - `color-mt-background`
   - `color-on-mt-text-dark`
   - `color-on-error`
+  - `color-on-error-50`
 
 ## color-mt-background
   - `color-primary`
@@ -243,7 +254,8 @@ title: Color Token Contrast
   - `color-on-mt-grey`
   - `color-on-mt-background`
   - `color-mt-text-dark`
-  - `color-on-error-50`
+  - `color-error`
+  - `color-error-50`
 
 ## color-on-mt-background
   - `color-on-primary`
@@ -259,19 +271,27 @@ title: Color Token Contrast
   - `color-on-mt-brown`
   - `color-mt-yellow`
   - `color-mt-orange`
+  - `color-mt-grey`
   - `color-mt-background`
   - `color-on-mt-text-dark`
   - `color-on-error`
+  - `color-on-error-50`
 
 ## color-on-mt-text-dark
   - `color-on-secondary`
   - `color-on-mt-red`
   - `color-on-mt-grey`
   - `color-mt-text-dark`
-  - `color-on-error-50`
 
 ## color-error
-  - No safe options
+  - `color-on-primary`
+  - `color-on-primary-50`
+  - `color-on-mt-blue`
+  - `color-on-mt-brown`
+  - `color-mt-yellow`
+  - `color-mt-background`
+  - `color-on-error`
+  - `color-on-error-50`
 
 ## color-on-error
   - `color-primary`
@@ -287,22 +307,26 @@ title: Color Token Contrast
   - `color-on-mt-grey`
   - `color-on-mt-background`
   - `color-mt-text-dark`
-  - `color-on-error-50`
+  - `color-error`
+  - `color-error-50`
 
 ## color-error-50
-  - No safe options
-
-## color-on-error-50
   - `color-on-primary`
   - `color-on-primary-50`
-  - `color-secondary`
   - `color-on-mt-blue`
-  - `color-mt-light-blue`
-  - `color-mt-green`
   - `color-on-mt-brown`
   - `color-mt-yellow`
-  - `color-mt-orange`
-  - `color-mt-grey`
   - `color-mt-background`
-  - `color-on-mt-text-dark`
   - `color-on-error`
+  - `color-on-error-50`
+
+## color-on-error-50
+  - `color-on-secondary`
+  - `color-on-mt-red`
+  - `color-on-mt-light-blue`
+  - `color-on-mt-green`
+  - `color-on-mt-orange`
+  - `color-on-mt-grey`
+  - `color-mt-text-dark`
+  - `color-error`
+  - `color-error-50`

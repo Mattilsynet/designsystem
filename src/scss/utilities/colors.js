@@ -42,7 +42,7 @@ module.exports = [
   },
   {
     name: 'mt-grey',
-    color: 'hsl(216,3%,66%)'
+    color: 'hsl(216,3%,67%)'
   },
   {
     name: 'mt-background',
@@ -54,11 +54,11 @@ module.exports = [
   },
   {
     name: 'error',
-    color: 'hsl(3,76%,52%)',
+    color: 'hsl(3, 76%, 36%)',
     onColor: 'hsl(0,0%,100%)'
   },
   {
     name: 'error-50',
-    color: 'hsl(3,76%,52%, 0.5)'
+    color: 'hsl(3, 76%, 36%, 0.5)'
   }
 ];

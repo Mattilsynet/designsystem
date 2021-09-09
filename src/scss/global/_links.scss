@@ -1,8 +1,13 @@
 // stylelint-disable no-descending-specificity
+@use '../utilities/mixins' as *;
+
 a:not([class]) {
   color: var(--color-links);
 }
 a {
+  @include focus-outline();
+  @include disabled;
+
   &.back-arrow {
     display: flex;
     align-items: center;
@@ -15,11 +20,13 @@ a {
     }
   }
 }
-a,
+
 button,
 input,
 select,
 textarea {
+  @include disabled;
+
   --outline-color: currentColor;
 
   transition: box-shadow 0.15s ease-in-out;
@@ -38,12 +45,5 @@ textarea {
     border-color: inherit;
     outline: none;
     box-shadow: 0 0 0 0.25rem var(--color-primary-50);
-  }
-
-  &:disabled,
-  &[disabled] {
-    pointer-events: none;
-    filter: none;
-    opacity: 0.5;
   }
 }

@@ -69,6 +69,13 @@ $button-colors: 'error' !default;
       color: var(--color-mt-background);
       border-color: var(--color-mt-text-dark);
     }
+    &:disabled,
+    &[disabled],
+    &.disabled {
+      background-color: var(--color-mt-grey);
+      color: var(--color-mt-background);
+      border-color: var(--color-mt-grey);
+    }
     &:focus {
       box-shadow: 0 0 0 0.25rem var(--color-primary-50);
     }
