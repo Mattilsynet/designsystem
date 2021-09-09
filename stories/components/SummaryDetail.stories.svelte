@@ -18,7 +18,7 @@
 />
 
 <Story name="Normal" let:primary let:primaryLong let:disableCss let:disabled let:secondary>
-  <main class="container">
+  <main class="container layout-flex-col">
     <h1>Detail summary</h1>
     <div class="wrapper">
       <details>

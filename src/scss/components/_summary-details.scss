@@ -1,4 +1,5 @@
 @use '../theme' as *;
+@use '../utilities/mixins' as *;
 
 details {
   --detail-margin: var(--spacer-small);
@@ -13,6 +14,8 @@ details {
     box-shadow: 0 0 0 0.25rem var(--color-primary-50);
   }
   summary {
+    @include focus-outline();
+
     display: flex;
     justify-content: space-between;
     border-bottom: var(--border);
@@ -22,11 +25,6 @@ details {
 
     &::after {
       content: url('data:image/svg+xml,%3Csvg%20width%3D%2212%22%20height%3D%228%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M10.59.4L6%204.85%201.41.4%200%201.77%206%207.6l6-5.83L10.59.4z%22%20fill%3D%22%23075B7A%22%2F%3E%3C%2Fsvg%3E');
-    }
-    &:focus,
-    &:focus-visible {
-      outline: none;
-      box-shadow: 0 0 0 0.25rem var(--color-primary-50);
     }
   }
   &[open] {
