@@ -1,13 +1,11 @@
 // stylelint-disable no-descending-specificity
 @use '../utilities/mixins' as *;
 
-a:not([class]) {
-  color: var(--color-links);
-}
 a {
   @include focus-outline();
   @include disabled;
 
+  color: var(--color-links);
   &.back-arrow {
     display: flex;
     align-items: center;
@@ -25,6 +23,10 @@ a {
       display: inline-block;
       margin-left: 14px;
     }
+  }
+  &[aria-current="page"] {
+    text-decoration: none;
+    color: var(--color-mt-text-dark)
   }
 }
 
