@@ -1,3 +1,5 @@
+@use "../theme" as *;
+
 .breadcrumbs {
   ol {
     list-style: none;
@@ -5,7 +7,7 @@
     margin: 0;
     li {
       display: inline;
-      padding-right: 14px;
+      padding-right: $spacer-small;
     }
   }
 }
