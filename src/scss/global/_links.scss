@@ -1,13 +1,12 @@
 // stylelint-disable no-descending-specificity
 @use '../utilities/mixins' as *;
+@use "../theme" as *;
 
-a:not([class]) {
-  color: var(--color-links);
-}
 a {
   @include focus-outline();
   @include disabled;
 
+  color: var(--color-links);
   &.back-arrow {
     display: flex;
     align-items: center;
@@ -18,6 +17,17 @@ a {
       height: 15px;
       margin-right: var(--spacer-2);
     }
+  }
+  &.forward-arrow {
+    &::after {
+      content: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNiIgaGVpZ2h0PSIxMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNLjIgMS40MyAzLjY2MSA1IC4yIDguNTdsMS4wNjYgMS4wOTdMNS44IDUgMS4yNjYuMzMzLjIgMS40M1oiIGZpbGw9IiM0NjQ1NDUiLz48L3N2Zz4=');
+      display: inline-block;
+      margin-left: $spacer-2;
+    }
+  }
+  &[aria-current="page"] {
+    text-decoration: none;
+    color: var(--color-mt-text-dark)
   }
 }
 

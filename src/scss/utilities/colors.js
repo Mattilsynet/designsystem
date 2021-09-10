@@ -50,7 +50,7 @@ module.exports = [
   },
   {
     name: 'mt-text-dark',
-    color: 'hsl(0,1%,25%)'
+    color: 'hsla(0,1%,25%, 1)'
   },
   {
     name: 'error',

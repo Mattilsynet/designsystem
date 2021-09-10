@@ -62,7 +62,7 @@ ol:not([class]):not([role]) li {
 }
 
 /* A elements that don't have a class get default styles */
-a:not([class]) {
+a {
   text-decoration-skip-ink: auto;
   // 🟣 thickness and offset
   text-decoration-thickness: max(0.08em, 1px);

@@ -1,0 +1,13 @@
+@use "../theme" as *;
+
+.breadcrumbs {
+  ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      display: inline;
+      padding-right: $spacer-small;
+    }
+  }
+}
