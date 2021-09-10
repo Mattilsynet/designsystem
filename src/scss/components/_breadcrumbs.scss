@@ -1,17 +1,11 @@
 .breadcrumbs {
-  display: flex;
-  align-items: baseline;
-
-  a {
-    line-height: 1;
-
-    &:after {
-      content: url('data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iY2hldnJvbi1yaWdodCIgd2lkdGg9IjMwIiBoZWlnaHQ9IjMwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0yMi42NSA5TDE1IDE2LjQxNyA3LjM1IDkgNSAxMS4yODMgMTUgMjFsMTAtOS43MTdMMjIuNjUgOXoiIGZpbGw9IiM0NjQ1NDUiLz48L3N2Zz4=');
-      font-size: 18px;
-      transform: rotate(-90deg);
-      display: inline-block;
-      scale: 0.5;
-      vertical-align: -50%;
+  ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      display: inline;
+      padding-right: 14px;
     }
   }
 }

@@ -35,14 +35,18 @@
 />
 
 <Story name='Normal' let:breadcrumbs>
-  <nav class='breadcrumbs'>
+  <nav class='breadcrumbs' aria-label="breadcrumbs">
+    <ol>
     {#each breadcrumbs.items as item, index }
+      <li>
       {#if index + 1 < breadcrumbs.items.length}
-        <a href={item.url}>{item.title}</a>
+          <a class="forward-arrow" href={item.url} >{item.title}</a>
       {:else}
-        {item.title}
+          <a aria-current="page" href={item.url} >{item.title}</a>
       {/if}
+      </li>
     {/each}
+    </ol>
   </nav>
 </Story>
 
