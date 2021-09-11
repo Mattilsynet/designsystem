@@ -110,6 +110,10 @@ $button-colors: 'error' !default;
     }
   }
 
+  &--rounded {
+    border-radius: 2rem;
+  }
+
   &__icon {
     width: 1em;
     height: 1em;
