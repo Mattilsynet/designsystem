@@ -11,3 +11,9 @@ dl {
     font-weight: bold;
   }
 }
+
+ol.list-unstyled,
+ul.list-unstyled {
+  list-style: none;
+  padding-left: 0;
+}

@@ -40,6 +40,14 @@
   grid-auto-rows: min-content;
 }
 
+.justify-content-start {
+  justify-content: start;
+}
+
+.layout-full-width {
+  width: 100%;
+}
+
 .inclusively-hidden {
   position: absolute;
   width: 1px;
