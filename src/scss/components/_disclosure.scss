@@ -1,21 +1,36 @@
+@use '../theme' as *;
 .disclosure {
-  border-top: 1px solid lightgray;
-  border-bottom: 1px solid lightgray;
+  --disclosure-spacing: var(--spacer-2);
 
-  + .disclosure {
-    border-top: none;
-  }
+  border-bottom: $border-width-regular solid var(--color-secondary);
 
   .disclosure-header {
-    font-size: 16px;
-    font-weight: bold;
-    margin: 0;
+    display: flex;
+    justify-content: space-between;
     width: 100%;
-    padding: 1rem 0;
-    text-align: left;
-    letter-spacing: normal;
-    word-spacing: normal;
-    background: transparent;
+    margin: 0;
+    padding: var(--disclosure-spacing) 0;
     border: none;
+    background: transparent;
+    letter-spacing: normal;
+    text-align: left;
+    word-spacing: normal;
+    &::after {
+      content: url('data:image/svg+xml,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M19.841%2010l-1.734-1.735-6.877%206.865V.159H8.77v14.97L1.893%208.266.16%2010%2010%2019.841%2019.841%2010z%22%20fill%3D%22%23075B7A%22%2F%3E%3C%2Fsvg%3E');
+      display: inline-block;
+      height: 20px;
+      margin-right: var(--disclosure-spacing);
+    }
+    &[aria-expanded='true'] {
+      &::after {
+        content: url('data:image/svg+xml,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M.159%2010l1.734%201.735L8.77%204.87v14.971h2.46V4.871l6.877%206.864L19.84%2010%2010%20.159.159%2010z%22%20fill%3D%22%23075B7A%22%2F%3E%3C%2Fsvg%3E');
+        display: inline-block;
+        height: 20px;
+        margin-right: var(--disclosure-spacing);
+      }
+    }
+  }
+  .disclosure-panel {
+    padding: var(--disclosure-spacing) var(--spacer-large) var(--disclosure-spacing) var(--disclosure-spacing);
   }
 }
