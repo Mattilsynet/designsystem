@@ -29,7 +29,7 @@
   </div>
 </Story>
 
-<style lang="scss" global>
+<style lang="scss">
   @import 'src/scss/app';
   .layout-grid {
     background-color: #fff;
@@ -41,8 +41,6 @@
     padding: var(--spacer-small);
   }
   .colors {
-    width: 5rem;
     height: 5rem;
-    border-radius: 50%;
   }
 </style>
