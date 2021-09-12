@@ -1,5 +1,7 @@
+@use '../theme' as *;
+
 .intro {
+  font-size: $font-size-intro;
   font-weight: var(--font-weight-light);
-  font-size: 30px;
   line-height: 40px;
 }

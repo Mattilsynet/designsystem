@@ -1,4 +1,5 @@
 @use "sass:math";
+@use "../theme" as *;
 
 // Modular type scales
 // By: Tim Brown
@@ -143,4 +144,7 @@ $content-spacer: 1em !default;
 
 strong {
   font-weight: var(--font-weight-bold);
+}
+.text-small {
+  font-size: $font-size-small;
 }
