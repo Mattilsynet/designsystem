@@ -1,3 +1,5 @@
+@use '../theme' as *;
+
 .layout-grid {
   --gap: 1rem;
 
@@ -6,6 +8,14 @@
 
   &--column {
     grid-auto-flow: column;
+  }
+
+  &--column-3 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+
+    @media only screen and (min-width: $breakpoint-large) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
   }
 
   &--auto-fit {
