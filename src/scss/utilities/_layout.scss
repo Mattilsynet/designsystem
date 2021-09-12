@@ -21,7 +21,15 @@
     align-items: center;
   }
 }
+.layout-grid-3 {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--spacer-small);
 
+  @media only screen and (min-width: $breakpoint-large) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
 .layout-flex-col {
   --gap: var(--spacer-large);
 
