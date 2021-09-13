@@ -6,6 +6,7 @@ $button-colors: 'error' !default;
   --button-background: var(--color-#{$button-default-color});
   --button-color: var(--color-on-#{$button-default-color});
   --outline-color: transparent;
+  --gap: 0;
 
   // Reset for links
   text-decoration: none;
@@ -20,6 +21,7 @@ $button-colors: 'error' !default;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: var(--gap);
 
   // Visual
   border-radius: 0.25em;
@@ -110,10 +112,6 @@ $button-colors: 'error' !default;
     }
   }
 
-  &--rounded {
-    border-radius: 2rem;
-  }
-
   &__icon {
     width: 1em;
     height: 1em;
@@ -127,6 +125,10 @@ $button-colors: 'error' !default;
   &-icon {
     border-radius: 50%;
     min-width: unset;
+  }
+  &--space-between {
+    justify-content: space-between;
+    text-align: left;
   }
 }
 // stylelint-enable

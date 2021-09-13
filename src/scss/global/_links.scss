@@ -31,12 +31,13 @@ a {
     text-decoration: none;
   }
 
-  &.forward-arrow-front {
-    &:before {
+  &.forward-arrow-end {
+    padding: var(--spacer-2) var(--spacer-3);
+
+    &:after {
       content: url('data:image/svg+xml,%3Csvg%20width%3D%2221%22%20height%3D%2221%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M10.5.167%208.677%201.988l7.208%207.22H.166v2.584h15.72l-7.208%207.22%201.821%201.821L20.833%2010.5%2010.499.167Z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E');
       display: inline-block;
       height: 21px;
-      margin-right: var(--spacer-2);
     }
   }
   &.transport-card {
