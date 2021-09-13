@@ -5,7 +5,9 @@
 </script>
 
 <div class="notice">
-  <span class={`icon ${infoType}`} />
+  {#if infoType !== 'none'}
+    <span class={`${infoType}`} />
+  {/if}
   {#if iconText}
     <span class="inclusively-hidden">{iconText}</span>
   {/if}
