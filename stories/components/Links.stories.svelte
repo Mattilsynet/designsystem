@@ -46,7 +46,7 @@
 
 <Story name="Transport Card" let:transportCards1 let:transportCards2 let:disableCss let:disabled let:secondary>
   <h1>Transportkort</h1>
-  <div class="layout-grid-3" style="--gap: var(--spacer-small)">
+  <div class="layout-grid layout-grid--column-3" style="--gap: var(--spacer-small)">
     {#each transportCards1 as link}
       <a href={link.href} class="button button--primary transport-card">
         <svg width="61" height="61" viewBox="0 0 61 61" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -76,7 +76,7 @@
     {/each}
   </div>
   <hr />
-  <div class="layout-grid-3">
+  <div class="layout-grid layout-grid--column-3">
     {#each transportCards2 as link}
       <a href={link.href} class="button button--primary transport-card">
         <svg width="61" height="61" viewBox="0 0 61 61" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -110,10 +110,10 @@
 <style lang="scss" global>
   @import 'src/scss/app';
   hr,
-  .layout-grid-3 {
+  .layout-grid {
     margin-top: var(--spacer-large);
   }
-  .layout-grid-3 {
+  .layout-grid {
     width: min(70%, 80ch);
     margin-right: auto;
     margin-left: auto;

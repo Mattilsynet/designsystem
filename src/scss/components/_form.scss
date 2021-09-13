@@ -23,6 +23,10 @@ form {
   --form-text-space: #{$form-text-space};
 
   color: var(--form-text-color);
+
+  .hint {
+    font-size: $font-size-small;
+  }
 }
 form,
 fieldset {
@@ -224,6 +228,7 @@ label.form-label {
   display: flex;
   align-items: center;
   color: var(--color-error);
+  font-size: $font-size-small;
 
   &::before {
     content: url('data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22%23A41D16%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M11%2015h2v2h-2v-2zm0-8h2v6h-2V7zm.99-5C6.47%202%202%206.48%202%2012s4.47%2010%209.99%2010C17.52%2022%2022%2017.52%2022%2012S17.52%202%2011.99%202zM12%2020c-4.42%200-8-3.58-8-8s3.58-8%208-8%208%203.58%208%208-3.58%208-8%208z%22%2F%3E%3C%2Fsvg%3E');
