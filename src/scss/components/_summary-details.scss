@@ -5,7 +5,6 @@ details {
   --detail-margin: var(--spacer-small);
   --detail-padding: var(--spacer-small);
   --summary-margin-bottom: var(--spacer-2);
-  --paragraph-space: var(--spacer-small);
   --border: #{$border-width-regular} solid var(--color-mt-grey);
 
   margin-top: var(--spacer-small);
@@ -39,17 +38,11 @@ details {
       }
     }
     .summary-wrapper {
+      @include xp-html-area;
+
       margin-left: var(--detail-margin);
       padding-left: var(--detail-padding);
       border-left: var(--border);
-      p {
-        padding-top: var(--paragraph-space);
-      }
-      ul {
-        padding-top: var(--spacer-small);
-        padding-bottom: var(--spacer-small);
-        padding-left: var(--spacer-large);
-      }
     }
   }
 }
