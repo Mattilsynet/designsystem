@@ -1,3 +1,5 @@
+@use '../utilities/mixins' as *;
+
 .notice {
   display: flex;
   flex-direction: row;
@@ -15,5 +17,8 @@
       width: 2rem;
       height: 2rem;
     }
+  }
+  .text {
+    @include xp-html-area;
   }
 }

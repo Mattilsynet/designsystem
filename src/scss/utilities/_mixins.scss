@@ -49,3 +49,14 @@
     }
   }
 }
+
+@mixin xp-html-area {
+  p {
+    padding-top: var(--spacer-small);
+  }
+  ul {
+    padding-top: var(--spacer-small);
+    padding-bottom: var(--spacer-small);
+    padding-left: var(--spacer-large);
+  }
+}
