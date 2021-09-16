@@ -111,7 +111,7 @@ h4,
   font-weight: var(--font-weight-bold);
 }
 
-$content-selectors: 'article, .content' !default;
+$content-selectors: '.content' !default;
 $content-spacer: 1em !default;
 
 #{$content-selectors} {
