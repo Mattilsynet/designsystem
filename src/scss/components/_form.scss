@@ -43,13 +43,15 @@ fieldset {
 .button + .form-label,
 .form-field + .form-label,
 .form-field + button,
+.form-field + fieldset,
+fieldset + button,
 fieldset + .form-label {
   margin-top: var(--form-group-spacer);
 }
 
 [type='radio'] + .form-label,
 [type='checkbox'] + .form-label {
-  font-size: initial;
+  font-size: inherit;
   font-weight: normal;
 }
 
