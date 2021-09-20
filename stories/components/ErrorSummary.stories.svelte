@@ -39,7 +39,7 @@
     </h2>
     <ul role="list">
       {#each errors as error}
-        <li>
+        <li class="error-summary__list--link">
           <a href={`#${error.fieldName}`}>{error.message}</a>
         </li>
       {/each}
@@ -80,6 +80,21 @@
       aria-describedby="inputfield-hint inputfield-error"
     />
   </form>
+</Story>
+
+<Story name="Text only" let:errors let:label let:helpText let:heading let:disableCss let:errorMessage>
+  <div class="error-summary" role="alert" tabindex="-1" aria-labelledby="error-summary-heading-2">
+    <h2 id="error-summary-heading-2">
+      {heading}
+    </h2>
+    <ul role="list">
+      {#each errors as error}
+        <li>
+          {error.message}
+        </li>
+      {/each}
+    </ul>
+  </div>
 </Story>
 
 <style lang="scss" global>
