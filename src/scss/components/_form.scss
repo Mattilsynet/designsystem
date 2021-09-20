@@ -252,6 +252,9 @@ label.form-label {
   ul {
     margin-left: var(--spacer-2);
     list-style: disc;
+    li.error-summary__list--link {
+      color: var(--color-primary);
+    }
   }
   li + li {
     margin-top: 0.5em;
