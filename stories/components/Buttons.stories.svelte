@@ -1,5 +1,6 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf';
+  import {action} from '@storybook/addon-actions';
   import FileUploadButton from '../../src/svelte/FileUploadButton.svelte';
 </script>
 
@@ -17,7 +18,8 @@
     primary: {control: 'text'},
     disabled: {control: 'boolean'},
     disableJs: {control: 'boolean'},
-    disableCss: {control: 'boolean'}
+    disableCss: {control: 'boolean'},
+    removeFile: {action: 'removeFile'}
   }}
 />
 
@@ -32,7 +34,14 @@
 </Story>
 
 <Story name="FileUpload" parameters={{xstate: true}} let:disableJs>
-  <FileUploadButton name="file" id="file1" buttonText="Legg til fil" loadJs={!disableJs} multiple={true} />
+  <FileUploadButton
+    name="file"
+    id="file1"
+    buttonText="Legg til fil"
+    loadJs={!disableJs}
+    multiple={true}
+    on:removeFile={action('removeFile')}
+  />
 </Story>
 
 <style lang="scss" global>
