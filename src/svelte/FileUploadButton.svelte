@@ -1,7 +1,7 @@
 <script lang="ts">
   import {onMount} from 'svelte';
-  import {useMachine} from '@xstate/svelte/lib/fsm';
-  import {createMachine, assign} from '@xstate/fsm';
+  import {useMachine} from '@xstate/svelte';
+  import {createMachine, assign} from 'xstate';
   import type {UIError} from '../ts/types';
 
   export let loadJs: boolean = true;
