@@ -17,3 +17,35 @@ input[type="file"].form-field {
     box-shadow: 0 0 0 0.25rem var(--color-primary-50);
   }
 }
+
+.file-button {
+  &__file-list {
+    margin-top: $spacer-3;
+
+    li {
+      border-top: $border-width-small solid var(--color-secondary);
+      border-bottom: $border-width-small solid var(--color-secondary);
+      padding-top: $spacer-2;
+      padding-bottom: $spacer-2;
+      display: flex;
+      flex-direction: row;
+
+      + li {
+        margin-top: 0;
+        border-top: none;
+      }
+    }
+  }
+
+  &__file-name {
+    flex: 1;
+  }
+
+  &__file-remove {
+    all: unset;
+    cursor: pointer;
+    margin-right: $spacer-small;
+  }
+}
+
+
