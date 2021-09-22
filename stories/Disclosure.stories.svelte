@@ -21,6 +21,7 @@
 
 <Meta
   title="Components/Disclosure"
+  parameters={{xstate: true}}
   argTypes={{
     title: {control: 'text'},
     body: {control: 'text'},

@@ -1,11 +1,12 @@
-<script lang='ts' context='module'>
+<script lang="ts" context="module">
   let counter = 0;
 </script>
-<script lang='ts'>
+
+<script lang="ts">
   import {onMount} from 'svelte';
   import {slide} from 'svelte/transition';
-  import {useMachine} from '@xstate/svelte/lib/fsm';
-  import {createMachine, assign} from '@xstate/fsm';
+  import {useMachine} from '@xstate/svelte';
+  import {createMachine, assign} from 'xstate';
 
   export let loadJs: boolean = true;
   export let title: string;
@@ -14,14 +15,12 @@
     isOpen: boolean;
   }
 
-  type DisclosureEvent =
-    | {type: 'MOUNTED'}
-    | {type: 'TOGGLE'};
+  type DisclosureEvent = {type: 'MOUNTED'} | {type: 'TOGGLE'};
 
   type DisclosureState =
-    | { value: 'serverRendered'; context: DisclosureContext; }
-    | { value: 'closed'; context: DisclosureContext; }
-    | { value: 'open'; context: DisclosureContext; };
+    | {value: 'serverRendered'; context: DisclosureContext}
+    | {value: 'closed'; context: DisclosureContext}
+    | {value: 'open'; context: DisclosureContext};
 
   const bodyId = `ui-disclosure-${counter++}`;
   const disclosureMachine = createMachine<DisclosureContext, DisclosureEvent, DisclosureState>({
@@ -32,19 +31,19 @@
     },
     states: {
       serverRendered: {
-        on: { MOUNTED: 'closed' },
+        on: {MOUNTED: 'closed'}
       },
       closed: {
-        entry: assign<DisclosureContext, DisclosureEvent>({ isOpen: false }),
-        on: { TOGGLE: 'open' }
+        entry: assign<DisclosureContext, DisclosureEvent>({isOpen: false}),
+        on: {TOGGLE: 'open'}
       },
       open: {
-        entry: assign<DisclosureContext, DisclosureEvent>({ isOpen: true }),
-        on: { TOGGLE: 'closed'}
+        entry: assign<DisclosureContext, DisclosureEvent>({isOpen: true}),
+        on: {TOGGLE: 'closed'}
       }
     }
   });
-  const { state, send } = useMachine(disclosureMachine);
+  const {state, send} = useMachine(disclosureMachine);
 
   $: isOpen = $state.context.isOpen;
   $: onServer = $state.value === 'serverRendered';
@@ -54,26 +53,17 @@
   }
 </script>
 
-<div class='disclosure'>
-  {#if onServer }
-    <h3 class='disclosure-header'>{ title }</h3>
+<div class="disclosure">
+  {#if onServer}
+    <h3 class="disclosure-header">{title}</h3>
   {:else}
-    <button
-      class='disclosure-header'
-      aria-expanded={ isOpen }
-      aria-controls={ bodyId }
-      on:click={() => send('TOGGLE')}>
-
-      { title }
+    <button class="disclosure-header" aria-expanded={isOpen} aria-controls={bodyId} on:click={() => send('TOGGLE')}>
+      {title}
     </button>
   {/if}
 
-  {#if isOpen }
-    <div
-      id={ bodyId }
-      class='disclosure-panel'
-      transition:slide|local>
-
+  {#if isOpen}
+    <div id={bodyId} class="disclosure-panel" transition:slide|local>
       <slot />
     </div>
   {/if}

@@ -31,7 +31,7 @@
   <button class="button button--secondary" {disabled}>{secondary}</button>
 </Story>
 
-<Story name="FileUpload" let:disableJs>
+<Story name="FileUpload" parameters={{xstate: true}} let:disableJs>
   <FileUploadButton name="file" id="file1" buttonText="Legg til fil" loadJs={!disableJs} multiple={true} />
 </Story>
 
