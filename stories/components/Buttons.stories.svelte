@@ -2,7 +2,7 @@
   import {Meta, Story} from '@storybook/addon-svelte-csf';
   import {action} from '@storybook/addon-actions';
   import FileUploadButton from '../../src/svelte/FileUploadButton.svelte';
-  import Button from '../../src/svelte/Button.svelte';
+  import Button from '../../src/svelte/ButtonSpinner.svelte';
 </script>
 
 <Meta
@@ -46,7 +46,19 @@
 </Story>
 
 <Story name="Loading" >
-  <Button progressIndicator={true}>Send in skjema</Button>
+  <h1>Loading</h1>
+  <p class="description">Hovedknapp</p>
+  <Button formInProgressAriaLabel='Sender inn skjema, venter på svar.' spinnerPlacement='start' color='primary'>
+    Spinner placement start
+  </Button><br/>
+  <Button formInProgressAriaLabel='Sender inn skjema, venter på svar.' spinnerPlacement='end' color='primary'>
+    Spinner placement end
+  </Button>
+
+  <p class="description">Sekundær</p>
+  <Button formInProgressAriaLabel='Sender inn skjema, venter på svar.' spinnerPlacement='end' color='secondary'>
+    Send in skjema
+  </Button>
 </Story>
 
 <style lang="scss" global>
