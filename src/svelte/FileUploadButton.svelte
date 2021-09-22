@@ -4,13 +4,13 @@
   import {createMachine, assign} from 'xstate';
   import type {UIError} from '../ts/types';
 
-  export let loadJs: boolean = true;
+  export let loadJs = true;
   export let error: UIError | undefined;
   export let id: string;
   export let name: string;
-  export let multiple: boolean = false;
+  export let multiple = false;
   export let accept: string | undefined;
-  export let buttonText: string = 'Legg til fil';
+  export let buttonText = 'Legg til fil';
   export let fileName: string | Array<string> | undefined;
 
   const dispatch = createEventDispatcher();

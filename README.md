@@ -1,25 +1,30 @@
-# design-system-mattilsynet
-The designsystem for Mattilsynet
+# Design system for Mattilsynet
 
+[![npm version](https://badge.fury.io/js/@mattilsynet%2Fdesignsystem.svg)](https://badge.fury.io/js/@mattilsynet%2Fdesignsystem)
 
-## SCSS
-Basert på Design System fra workshop “Level Up with Modern CSS” med Stephanie Eckles  [@5t3ph](https://twitter.com/5t3ph) - author of [ModernCSS.dev](https://moderncss.dev), [SmolCSS.dev](https://smolcss.dev), and [StyleStage.dev](https://stylestage.dev) 
+## Opening in storybook
 
-### Nanvgivning
-BEM "light"???
-- ikke bruk modifiers som kan uttrykkes med normal universelt utformet html og css
+When you have cloned this repo to your computer, you can run the following commands, to view the project in 
+[StorybookJS](https://storybook.js.org/).
 
-### Struktur
-- components - styling for komponenter
-- global - global styling. Bla. lenker og typografi
-- utilites - nytte funksjonalite. Bla. layout og farger 
+```bash
+npm install
+npm run storybook
+```
 
-Bruk SASS Partials
-- _index.scss i hver folder ``@forward`` andre partials i samme folder
-- foldere inkluderes med ``@use`` i app.scss
+## Installation and usage
 
- 
-### Farger
-Farger er listet opp i src/scss/utilites/colors.js
+Install the design system from npm into your project, you can run the following command:
 
-[a11y-color-tokens](https://www.npmjs.com/package/a11y-color-tokens) pakken generer universelt utformede komplimenær farger til _color_tokens.scss
+```bash
+npm i --save @mattilsynet/designsystem
+```
+
+## Building and deploy to npm
+
+You can run the following command to build the scss into css files, and deploy package to npm:
+
+```bash
+npm run build
+npm publish
+```

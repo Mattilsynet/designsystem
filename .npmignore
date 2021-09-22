@@ -1,0 +1,10 @@
+tsconfig.json
+.idea
+.editorconfig
+.eslintrc.json
+.prettierrc
+.stylelintrc.json
+.storybook
+stories
+src/**/*.md
+*.cjs

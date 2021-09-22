@@ -1,12 +1,13 @@
 {
-  "name": "design-system-mattilsynet",
-  "version": "1.0.0",
-  "description": "",
+  "name": "@mattilsynet/designsystem",
+  "version": "0.0.1",
+  "description": "Design system for Mattilsynet",
   "main": "index.js",
+  "private": false,
   "scripts": {
     "tokens": "a11y-color-tokens --outputDirPath='src/scss' --colorTokensPath='src/scss/utilities/colors.js'",
-    "watch:sass": "sass  --no-source-map --watch src/scss:../mattilsynet-web/src/styles",
-    "build:sass": "sass --no-source-map src/scss:../mattilsynet-web/src/styles ",
+    "watch:sass": "sass --no-source-map --watch src/scss:./dist",
+    "build:sass": "sass --no-source-map src/scss:./dist ",
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
     "start": "npm-run-all tokens build:sass --parallel watch:*",
@@ -15,9 +16,10 @@
     "format": "prettier --write '{src,stories}/**/*{.ts,.svelte}'",
     "lint": "eslint --fix --quiet --ext .js,.svelte,.ts '{src,stories}/**/*{.ts,.svelte}'",
     "lint-style": "stylelint src/scss/**/*.scss src/scss/**/**/*.scss src/scss/**/**/**/*.scss",
-    "lint-style:fix": "npm run lint-style --fix"
+    "lint-style:fix": "npm run lint-style --fix",
+    "prepublishOnly": "npm run lint && npm run build"
   },
-  "keywords": [],
+  "keywords": ["Design system", "Mattilsynet", "Svelte", "Storybook", "xstate"],
   "author": "Tom Arild Jakobsen<tajakobsen@gmail.com>",
   "license": "MIT",
   "devDependencies": {

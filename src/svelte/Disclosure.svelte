@@ -8,7 +8,7 @@
   import {useMachine} from '@xstate/svelte';
   import {createMachine, assign} from 'xstate';
 
-  export let loadJs: boolean = true;
+  export let loadJs = true;
   export let title: string;
 
   interface DisclosureContext {
