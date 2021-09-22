@@ -6,7 +6,7 @@ $button-colors: 'error' !default;
   --button-background: var(--color-#{$button-default-color});
   --button-color: var(--color-on-#{$button-default-color});
   --outline-color: transparent;
-  --gap: 0;
+  --gap: 0.5rem;
 
   // Reset for links
   text-decoration: none;
@@ -130,5 +130,33 @@ $button-colors: 'error' !default;
     justify-content: space-between;
     text-align: left;
   }
+  &--spinner {
+    vertical-align: bottom;
+  }
+  .spinner::after {
+      content: '';
+      width: 17px;
+      height: 17px;
+      display: block;
+      border-width: 1.3px;
+      border-style: solid;
+      border-radius: 50%;
+      border-top-color: initial;
+      border-bottom-color: initial;
+      border-right-color: transparent;
+      border-left-color: initial;
+      border-image: initial;
+      animation: 1s linear 0s infinite normal none running rotate;
+  }
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
 }
 // stylelint-enable
