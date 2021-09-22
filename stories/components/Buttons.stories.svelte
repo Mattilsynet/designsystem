@@ -2,6 +2,7 @@
   import {Meta, Story} from '@storybook/addon-svelte-csf';
   import {action} from '@storybook/addon-actions';
   import FileUploadButton from '../../src/svelte/FileUploadButton.svelte';
+  import Button from '../../src/svelte/Button.svelte';
 </script>
 
 <Meta
@@ -42,6 +43,10 @@
     multiple={true}
     on:removeFile={action('removeFile')}
   />
+</Story>
+
+<Story name="Loading" >
+  <Button progressIndicator={true}>Send in skjema</Button>
 </Story>
 
 <style lang="scss" global>
