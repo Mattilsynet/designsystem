@@ -34,6 +34,10 @@
   <section class="content" use:wrapInShadowDom={args.disableCss}>
     <Disclosure title={args.title} loadJs={!args.disableJs}>
       {@html args.body}
+      <ul>
+        <li>Punkt 1</li>
+        <li>Punkt 2</li>
+      </ul>
     </Disclosure>
   </section>
 </Template>

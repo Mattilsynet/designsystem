@@ -21,7 +21,11 @@
     helpText: '',
     errorMessage: 'Fyll inn dette feltet.',
     heading: 'Feil oppstod',
-    errors: [{fieldName: 'email', message: 'Fyll inn epost feltet'}],
+    errors: [
+      {fieldName: 'name', message: 'Fyll inn navn'},
+      {fieldName: 'phone', message: 'Fyll inn telefonnummer'},
+      {fieldName: 'email', message: 'Fyll inn epost'}
+    ],
     disableCss: false
   }}
   argTypes={{
@@ -37,7 +41,7 @@
     <h2 id="error-summary-heading">
       {heading}
     </h2>
-    <ul role="list">
+    <ul>
       {#each errors as error}
         <li class="error-summary__list--link">
           <a href={`#${error.fieldName}`}>{error.message}</a>
@@ -87,7 +91,7 @@
     <h2 id="error-summary-heading-2">
       {heading}
     </h2>
-    <ul role="list">
+    <ul>
       {#each errors as error}
         <li>
           {error.message}

@@ -51,12 +51,18 @@
 }
 
 @mixin xp-html-area {
-  p {
-    padding-top: var(--spacer-small);
+  p + p,
+  ul + p,
+  ol + p {
+    padding-top: var(--spacer-2);
   }
   ul {
-    padding-top: var(--spacer-small);
-    padding-bottom: var(--spacer-small);
     padding-left: var(--spacer-large);
+    li {
+      line-height: 140%;
+      & + li {
+        margin-top: var(--spacer-small);
+      }
+    }
   }
 }
