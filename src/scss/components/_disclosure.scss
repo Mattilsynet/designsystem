@@ -1,4 +1,6 @@
 @use '../theme' as *;
+@use '../utilities/mixins' as *;
+
 .disclosure {
   --disclosure-spacing: var(--spacer-2);
 
@@ -35,6 +37,8 @@
     }
   }
   .disclosure-panel {
+    @include xp-html-area;
+
     padding: var(--disclosure-spacing) var(--spacer-large) var(--disclosure-spacing) var(--disclosure-spacing);
   }
 }
