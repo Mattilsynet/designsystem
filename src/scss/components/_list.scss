@@ -19,9 +19,7 @@ ul.list-unstyled {
 }
 
 ul,
-ol,
-ul[role='list'],
-ol[role='list'] {
+ol {
   margin-top: var(--spacer-2);
 
   li {
