@@ -1,10 +1,11 @@
 <script lang="ts">
   interface Breadcrumbs {
-    items: [{url: string; title: string}];
+    items: Array<{url: string; title: string}>;
+    ariaLabel?: string;
   }
 
-  export let breadcrumbs: Breadcrumbs;
-  export let ariaLabel: string = 'breadcrumbs';
+  export let breadcrumbs: Breadcrumbs = {items: []};
+  let ariaLabel = breadcrumbs.ariaLabel ?? 'breadcrumbs';
 </script>
 
 <nav class="breadcrumbs" aria-label={ariaLabel}>
