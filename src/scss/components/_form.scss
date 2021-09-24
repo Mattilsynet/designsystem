@@ -186,6 +186,9 @@ label.form-label {
     @include error-style;
     @include focus-shadow(var(--color-primary-50), var(--color-primary));
 
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
     border-radius: var(--border-radius);
     color: var(--color-primary);
   }
@@ -207,10 +210,12 @@ label.form-label {
     @include error-style;
     @include focus-shadow(var(--color-primary-50), var(--color-primary));
 
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
     border-radius: 50%;
     color: var(--color-primary);
   }
-
   .input__control::before {
     content: '';
     width: 0.5em;
