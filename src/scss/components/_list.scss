@@ -14,6 +14,20 @@ dl {
 
 ol.list-unstyled,
 ul.list-unstyled {
-  list-style: none;
   padding-left: 0;
+  list-style: none;
+}
+
+ul,
+ol,
+ul[role='list'],
+ol[role='list'] {
+  margin-top: var(--spacer-2);
+
+  li {
+    line-height: 140%;
+    & + li {
+      margin-top: var(--spacer-small);
+    }
+  }
 }

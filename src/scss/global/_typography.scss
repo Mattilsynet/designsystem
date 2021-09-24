@@ -112,14 +112,12 @@ h4,
 }
 
 $content-selectors: '.content' !default;
-$content-spacer: 1em !default;
+$content-spacer: $spacer-2 !default;
 
 #{$content-selectors} {
   --content-spacer: #{$content-spacer};
 
-  > * + *,
-  ul:not([class]) li + li,
-  ol:not([class]) li + li {
+  > * + * {
     margin-top: var(--content-spacer);
   }
 
@@ -128,8 +126,6 @@ $content-spacer: 1em !default;
   }
 
   blockquote {
-    margin-top: 2em;
-    margin-bottom: 2em;
     padding: 0.5em 1.5em;
     border-left: 2px solid var(--color-primary);
     font-size: 1rem * $type-scale-ratio;
