@@ -21,7 +21,11 @@
     helpText: '',
     errorMessage: 'Fyll inn dette feltet.',
     heading: 'Feil oppstod',
-    errors: [{fieldName: 'email', message: 'Fyll inn epost feltet'}],
+    errors: [
+      {fieldName: 'name', message: 'Fyll inn navn'},
+      {fieldName: 'phone', message: 'Fyll inn telefonnummer'},
+      {fieldName: 'email', message: 'Fyll inn epost'}
+    ],
     disableCss: false
   }}
   argTypes={{
