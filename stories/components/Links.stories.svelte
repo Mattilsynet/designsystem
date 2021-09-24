@@ -124,7 +124,7 @@
   </div>
 </Story>
 
-<style lang="scss" global>
+<style lang="scss">
   @import 'src/scss/app';
   hr,
   .layout-grid {
