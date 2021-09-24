@@ -43,6 +43,11 @@
   justify-self: start;
 }
 
+.self-end {
+  align-self: end;
+  justify-self: end;
+}
+
 .form-layout {
   display: grid;
   grid-auto-rows: min-content;
