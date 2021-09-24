@@ -1,4 +1,5 @@
 <script lang="ts">
+  import {countCharacters} from '../src/ts/count-characters';
   import {Meta, Story} from '@storybook/addon-svelte-csf';
 </script>
 
@@ -28,7 +29,14 @@
       </div>
     {/if}
 
-    <textarea id="inputfield" name="email" class="form-field" aria-describedby="inputfield-hint inputfield-error" />
+    <textarea
+      use:countCharacters
+      maxlength="100"
+      id="inputfield"
+      name="email"
+      class="form-field"
+      aria-describedby="inputfield-hint inputfield-error"
+    />
   </form>
 </Story>
 
