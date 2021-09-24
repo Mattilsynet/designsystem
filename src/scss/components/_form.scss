@@ -250,7 +250,8 @@ label.form-label {
   }
 
   ul {
-    margin-left: var(--spacer-2);
+    margin-left: 0;
+    padding-left: var(--spacer-2);
     list-style: disc;
     li.error-summary__list--link {
       color: var(--color-primary);
