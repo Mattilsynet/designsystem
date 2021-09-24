@@ -35,8 +35,8 @@
     <Disclosure title={args.title} loadJs={!args.disableJs}>
       {@html args.body}
       <ul>
-        <li>punk 1</li>
-        <li>punk 2</li>
+        <li>Punkt 1</li>
+        <li>Punkt 2</li>
       </ul>
     </Disclosure>
   </section>
