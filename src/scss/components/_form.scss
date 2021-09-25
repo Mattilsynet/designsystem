@@ -34,11 +34,6 @@ fieldset {
     margin-top: var(--form-text-space);
   }
 }
-.form-field.error {
-  &:focus-visible {
-    box-shadow: 0 0 0 0.25rem #e2312880;
-  }
-}
 
 .button + .form-label,
 .form-field + .form-label,
@@ -64,6 +59,8 @@ label.form-label {
 }
 
 .form-field {
+  @include error-style;
+
   --outline-style: var(--form-outline-style);
   --outline-color: var(--form-outline-color);
 
@@ -78,12 +75,6 @@ label.form-label {
 
   &:focus {
     border-color: var(--color-primary);
-  }
-
-  &.error {
-    --form-outline-color: var(--color-error);
-
-    border: 2px solid var(--color-error);
   }
 }
 
@@ -186,6 +177,9 @@ label.form-label {
     @include error-style;
     @include focus-shadow(var(--color-primary-50), var(--color-primary));
 
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
     border-radius: var(--border-radius);
     color: var(--color-primary);
   }
@@ -207,10 +201,12 @@ label.form-label {
     @include error-style;
     @include focus-shadow(var(--color-primary-50), var(--color-primary));
 
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
     border-radius: 50%;
     color: var(--color-primary);
   }
-
   .input__control::before {
     content: '';
     width: 0.5em;

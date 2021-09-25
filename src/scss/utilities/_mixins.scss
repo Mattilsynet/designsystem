@@ -6,6 +6,11 @@
 
   &.focus,
   &:focus {
+    outline: var(--outline-size) var(--outline-style) var(--outline-color);
+    outline-offset: var(--outline-offset);
+  }
+
+  &:focus:not(:focus-visible) {
     outline: none;
   }
 
@@ -38,7 +43,6 @@
 
     border-color: var(--color-error);
 
-    &:focus-visible,
     &:focus {
       border-color: var(--color-error);
       outline: none;
