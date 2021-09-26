@@ -1,4 +1,4 @@
-import {Action} from './types';
+import type {Action} from './types';
 
 export const countCharacters: Action<HTMLInputElement | HTMLTextAreaElement> = node => {
   const counterEl = document.createElement('div');
