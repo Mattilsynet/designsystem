@@ -24,7 +24,7 @@
 .layout-grid-3 {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: var(--spacer-small);
+  gap: var(--spacer-xx-small);
 
   @media only screen and (min-width: $breakpoint-large) {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -75,8 +75,8 @@ header,
 .header {
   display: grid;
   align-items: center;
-  padding-right: $spacer-small;
-  padding-left: $spacer-small;
+  padding-right: $spacer-xx-small;
+  padding-left: $spacer-xx-small;
   border-bottom: $border-red-regular;
 
   @media only screen and (min-width: $breakpoint-large) {
@@ -93,7 +93,7 @@ footer,
 .footer {
   display: flex;
   flex-direction: column;
-  padding: $spacer-3 $spacer-small;
+  padding: $spacer-3 $spacer-xx-small;
   gap: $spacer-3;
   border-top: $border-red-regular;
 

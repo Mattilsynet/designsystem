@@ -4,7 +4,7 @@
 
 //stylelint-disable no-descending-specificity
 $form-group-spacer: 'var(--spacer-large)' !default;
-$form-text-space: 'var(--spacer-small)' !default;
+$form-text-space: 'var(--spacer-xx-small)' !default;
 $form-field-width: 100% !default;
 $form-text-color: 'var(--color-text)' !default;
 $form-border-color: $color-secondary !default;
@@ -238,7 +238,7 @@ label.form-label {
 
 .error-summary {
   margin-bottom: var(--form-group-spacer);
-  padding: $spacer-small $spacer-3;
+  padding: $spacer-xx-small $spacer-3;
   border-left: $border-width-regular solid var(--color-error);
 
   h2 {

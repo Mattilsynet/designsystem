@@ -46,7 +46,7 @@
 
 <Story name="Transport List" let:transportCards1 let:transportCards2 let:disableCss let:disabled let:secondary>
   <h1>Transporlenkeliste</h1>
-  <ul class="layout-grid list-unstyled" style="--gap: var(--spacer-small)">
+  <ul class="layout-grid list-unstyled" style="--gap: var(--spacer-xx-small)">
     {#each transportCards1 as link}
       <li>
         <a
@@ -64,7 +64,7 @@
 <Story name="Transport Card" let:transportCards1 let:transportCards2 let:disableCss let:disabled let:secondary>
   <h1>Transportkort</h1>
   <div class="layout-grid layout-grid--column-3">
-    {#each transportCards2 as link}
+    {#each transportCards1 as link}
       <a href={link.href} class="button button--primary transport-card">
         <svg width="61" height="61" viewBox="0 0 61 61" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path

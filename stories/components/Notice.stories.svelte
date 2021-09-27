@@ -44,6 +44,6 @@
     --gap: var(--spacer-large);
   }
   section {
-    --gap: var(--spacer-small);
+    --gap: var(--spacer-xx-small);
   }
 </style>

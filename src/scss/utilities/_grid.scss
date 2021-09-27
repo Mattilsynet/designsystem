@@ -12,7 +12,7 @@
 
   &--column-3 {
     grid-template-columns: minmax(0, 1fr);
-    gap: var(--spacer-small);
+    gap: var(--spacer-xx-small);
 
     @media only screen and (min-width: $breakpoint-large) {
       grid-template-columns: repeat(3, minmax(0, 1fr));
