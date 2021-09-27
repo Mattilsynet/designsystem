@@ -131,7 +131,7 @@
     margin-top: var(--spacer-large);
   }
   .layout-grid {
-    width: min(70%, 80ch);
+    width: min(80%, 100ch);
     margin-right: auto;
     margin-left: auto;
   }
