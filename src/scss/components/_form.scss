@@ -53,7 +53,7 @@ fieldset + .form-label {
 legend.form-legend,
 label.form-label {
   display: block;
-  font-size: 1.75rem;
+  font-size: $font-size-label;
   font-weight: var(--font-weight-normal);
   line-height: 1;
 }
