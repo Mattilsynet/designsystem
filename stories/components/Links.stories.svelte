@@ -129,10 +129,11 @@
   hr,
   .layout-grid {
     margin-top: var(--spacer-large);
-  }
-  .layout-grid {
     width: min(80%, 100ch);
     margin-right: auto;
     margin-left: auto;
+  }
+  .layout-grid--column-3 {
+    gap: var(--spacer-small);
   }
 </style>
