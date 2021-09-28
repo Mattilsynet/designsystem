@@ -40,6 +40,7 @@ fieldset {
 .form-field + button,
 .form-field + fieldset,
 fieldset + button,
+fieldset + fieldset,
 fieldset + .form-label {
   margin-top: var(--form-group-spacer);
 }
@@ -57,7 +58,11 @@ label.form-label {
   font-weight: var(--font-weight-normal);
   line-height: 1;
 }
-
+.form-field.error {
+  &:focus-visible {
+    box-shadow: 0 0 0 0.25rem #e2312880;
+  }
+}
 .form-field {
   @include error-style;
 
@@ -168,7 +173,7 @@ label.form-label {
     place-content: center;
     width: var(--dimention);
     height: var(--dimention);
-    border: 0.15em solid var(--border-color);
+    border: $border-width-small solid var(--border-color);
   }
 }
 
@@ -176,6 +181,7 @@ label.form-label {
   .input__control {
     @include error-style;
     @include focus-shadow(var(--color-primary-50), var(--color-primary));
+    @include radio-check-error-style;
 
     appearance: none;
     -moz-appearance: none;
@@ -200,6 +206,7 @@ label.form-label {
   .input__control {
     @include error-style;
     @include focus-shadow(var(--color-primary-50), var(--color-primary));
+    @include radio-check-error-style;
 
     appearance: none;
     -moz-appearance: none;

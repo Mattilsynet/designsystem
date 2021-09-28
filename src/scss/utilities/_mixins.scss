@@ -1,3 +1,5 @@
+@use '../theme' as *;
+
 @mixin focus-outline() {
   --outline-color: var(--color-primary-50);
   --outline-size: 2px;
@@ -41,13 +43,18 @@
   &.error {
     $error-focus-color: var(--color-error-50);
 
-    border-color: var(--color-error);
+    border: $border-width-regular solid var(--color-error);
 
     &:focus {
       border-color: var(--color-error);
       outline: none;
       box-shadow: 0 0 0 0.25rem $error-focus-color;
     }
+  }
+}
+
+@mixin radio-check-error-style {
+  &.error {
     + label {
       color: var(--color-error);
     }
