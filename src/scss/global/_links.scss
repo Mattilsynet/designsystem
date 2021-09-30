@@ -15,8 +15,8 @@ a {
     &::before {
       content: url('data:image/svg+xml,%3Csvg%20width%3D%228%22%20height%3D%2212%22%20fill%3D%22%23075A78%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M7.41%201.41L6%200%200%206l6%206%201.41-1.41L2.83%206l4.58-4.59z%22%2F%3E%3C%2Fsvg%3E');
       display: inline-block;
-      height: 15px;
-      margin-right: var(--spacer-2);
+      height: 22px;
+      margin-right: var(--spacer-x-small);
     }
   }
 
@@ -24,7 +24,7 @@ a {
     &::after {
       content: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNiIgaGVpZ2h0PSIxMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNLjIgMS40MyAzLjY2MSA1IC4yIDguNTdsMS4wNjYgMS4wOTdMNS44IDUgMS4yNjYuMzMzLjIgMS40M1oiIGZpbGw9IiM0NjQ1NDUiLz48L3N2Zz4=');
       display: inline-block;
-      margin-left: var(--spacer-2);
+      margin-left: var(--spacer-x-small);
     }
   }
   &[aria-current='page'] {
@@ -33,7 +33,7 @@ a {
   }
 
   &.forward-arrow-end {
-    padding: var(--spacer-2) var(--spacer-3);
+    padding: var(--spacer-x-small) var(--spacer-small);
     font-size: $transport-card-list-font-size;
 
     &:after {
