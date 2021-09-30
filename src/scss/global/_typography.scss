@@ -98,27 +98,42 @@ h4,
 .h2,
 .h3,
 .h4 {
-  font-weight: var(--font-weight-light);
   line-height: calc(2px + 2ex + 2px);
   // Help prevent overflow of long words/names/URLs
   overflow-wrap: break-word;
   // Optional, not supported for all languages
   hyphens: auto;
 }
-
+h1,
+.h1,
+h2,
+.h2,
+.intro {
+  font-weight: var(--font-weight-light);
+}
+h3,
+.h3 {
+  font-weight: var(--font-weight-normal);
+}
 h4,
 .h4 {
   font-weight: var(--font-weight-bold);
 }
 
 $content-selectors: '.content' !default;
-$content-spacer: $spacer-2 !default;
+$content-spacer: $spacer-x-small !default;
 
 #{$content-selectors} {
   --content-spacer: #{$content-spacer};
 
   > * + * {
     margin-top: var(--content-spacer);
+  }
+
+  > * + h2,
+  > * + h3,
+  > * + h4 {
+    margin-top: var(--spacer-large);
   }
 
   > a:not([class]) {
