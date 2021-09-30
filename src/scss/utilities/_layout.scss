@@ -93,13 +93,13 @@ footer,
 .footer {
   display: flex;
   flex-direction: column;
-  padding: $spacer-3 $spacer-xx-small;
-  gap: $spacer-3;
+  padding: $spacer-x-small $spacer-small;
+  gap: $spacer-x-small;
   border-top: $border-red-regular;
 
   @media only screen and (min-width: $breakpoint-large) {
     flex-direction: row;
-    padding: $spacer-3 $spacer-large;
+    padding: $spacer-small $spacer-large;
   }
 
   svg {
@@ -111,7 +111,7 @@ footer,
     flex-basis: 0;
     flex-direction: column;
     flex-grow: 1;
-    gap: $spacer-2;
+    gap: $spacer-xx-small;
 
     h2,
     h3 {
