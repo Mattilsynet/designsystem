@@ -2,12 +2,12 @@
 @use '../utilities/mixins' as *;
 
 details {
-  --detail-margin: var(--spacer-small);
-  --detail-padding: var(--spacer-small);
+  --detail-margin: var(--spacer-xx-small);
+  --detail-padding: var(--spacer-xx-small);
   --summary-margin-bottom: var(--spacer-2);
   --border: #{$border-width-regular} solid var(--color-mt-grey);
 
-  margin-top: var(--spacer-small);
+  margin-top: var(--spacer-xx-small);
   &:focus,
   &:focus-visible {
     box-shadow: 0 0 0 0.25rem var(--color-primary-50);

@@ -38,7 +38,7 @@
   .layout-flex-col {
     --gap: var(--spacer-2);
 
-    padding: var(--spacer-small);
+    padding: var(--spacer-xx-small);
   }
   .colors {
     height: 5rem;

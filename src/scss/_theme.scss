@@ -18,16 +18,27 @@ $font-weight-medium: 500 !default;
 $font-weight-semi-bold: 600 !default;
 $font-weight-bold: 700 !default;
 
-$font-size-small: 1rem !default;
-$font-size-intro: 1.875rem !default;
-$font-size-body: 1.25rem !default;
+$font-size-h1: clamp(2.1154141273rem, 5.041920391vw + 1rem, 3.1573345183rem);
+$font-size-h2: clamp(1.5869573348rem, 4.7816357022vw + 1rem, 2.368593037rem);
+$font-size-h3: clamp(1.19051563rem, 4.58637337vw + 1rem, 1.776889rem);
+$font-size-h4: clamp(1rem, 4.333vw + 1rem, 1.333rem);
+$font-size-intro: 1.875rem !default; // 30px
+$font-size-body: 1.25rem !default; // 20px
+$font-size-small: 1rem !default; //16px
+$font-size-label: 1.5rem !default; //24px
 
 $height-header-regular: 6.25rem;
 
-$spacer-small: 0.625rem !default;
 $spacer-2: 1rem !default;
 $spacer-3: 1.5rem !default;
 $spacer-large: 3rem !default;
+
+$spacer-xx-small: 0.625rem !default; // 10px
+$spacer-x-small: 1.25rem !default; // 20px
+$spacer-small: 1.75rem !default; // 28px
+$spacer-medium: 2.5rem !default; // 40px
+$spacer-large: 3.5rem !default; // 56px
+$spacer-x-large: 5rem !default; // 80px
 
 :root {
   @include color-tokens();
@@ -39,8 +50,12 @@ $spacer-large: 3rem !default;
   --font-weight-light: #{$font-weight-light};
   --font-weight-normal: #{$font-weight-normal};
   --font-weight-bold: #{$font-weight-bold};
-  --spacer-large: #{$spacer-large};
+  --spacer-xx-small: #{$spacer-xx-small};
+  --spacer-x-small: #{$spacer-x-small};
   --spacer-small: #{$spacer-small};
+  --spacer-large: #{$spacer-large};
+  --spacer-medium: #{$spacer-medium};
+  --spacer-x-large: #{$spacer-x-large};
   --spacer-2: #{$spacer-2};
   --spacer-3: #{$spacer-3};
 }
