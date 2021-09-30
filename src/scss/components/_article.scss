@@ -1,11 +1,45 @@
 @use '../theme' as *;
+@use '../utilities/mixins' as *;
 
 .intro {
   font-size: $font-size-intro;
   font-weight: var(--font-weight-light);
-  line-height: 40px;
+  line-height: 140%;
 }
 .text-box {
   padding: 2rem;
   background-color: #fff;
+}
+
+.article {
+  @include children-spaced;
+
+  display: grid;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacer-xx-small);
+  font-size: $font-size-small;
+
+  @media only screen and (min-width: $breakpoint-large) {
+    display: inline-grid;
+    grid-template-columns: auto 1fr auto 2fr;
+    gap: 5px;
+  }
+
+  dd {
+    &::after {
+      content: ':';
+    }
+  }
+  dt {
+    margin-right: var(--spacer-large);
+    font-weight: normal;
+
+    @media only screen and (min-width: $breakpoint-large) {
+      margin-right: 0;
+    }
+  }
 }
