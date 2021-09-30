@@ -22,7 +22,7 @@ $font-size-h1: clamp(2.1154141273rem, 5.041920391vw + 1rem, 3.1573345183rem);
 $font-size-h2: clamp(1.5869573348rem, 4.7816357022vw + 1rem, 2.368593037rem);
 $font-size-h3: clamp(1.19051563rem, 4.58637337vw + 1rem, 1.776889rem);
 $font-size-h4: clamp(1rem, 4.333vw + 1rem, 1.333rem); // 20px
-$font-size-intro: clamp(1.5rem, 4.58637337vw + 1rem, 1.875rem) !default; // 30px
+$font-size-intro: clamp(1.5rem, 2vw + 1rem, 1.875rem) !default; // 30px
 $font-size-body: $font-size-h4 !default;
 $font-size-small: 1rem !default; //16px
 $font-size-label: clamp(1.1rem, 4.333vw + 1rem, 1.5rem) !default; //24px
