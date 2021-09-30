@@ -23,7 +23,7 @@
 
 <Story name="Normal" let:title let:intro let:disableCss let:publishFrom let:professionallyUpdated>
   <div class="container">
-    <article class="article">
+    <article class="article-page">
       <h1>{title}</h1>
       <div class="intro">
         <p>{intro}</p>
