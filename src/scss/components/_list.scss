@@ -28,4 +28,11 @@ ol {
       margin-top: var(--spacer-xx-small);
     }
   }
+  &.transport-list {
+    --gap: var(--spacer-x-small);
+
+    li {
+      margin-top: 0;
+    }
+  }
 }

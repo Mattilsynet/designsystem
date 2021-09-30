@@ -46,14 +46,10 @@
 
 <Story name="Transport List" let:transportCards1 let:transportCards2 let:disableCss let:disabled let:secondary>
   <h1>Transporlenkeliste</h1>
-  <ul class="layout-grid list-unstyled" style="--gap: var(--spacer-xx-small)">
+  <ul class="layout-grid list-unstyled transport-list">
     {#each transportCards1 as link}
       <li>
-        <a
-          href={link.href}
-          class="button button--primary button--space-between layout-full-width forward-arrow-end"
-          style="--gap: var(--spacer-2)"
-        >
+        <a href={link.href} class="button button--primary button--space-between layout-full-width forward-arrow-end">
           {link.text}
         </a>
       </li>
