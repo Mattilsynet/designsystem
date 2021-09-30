@@ -4,7 +4,7 @@
 details {
   --detail-margin: var(--spacer-xx-small);
   --detail-padding: var(--spacer-xx-small);
-  --summary-margin-bottom: var(--spacer-2);
+  --summary-margin-bottom: var(--spacer-x-small);
   --border: #{$border-width-regular} solid var(--color-mt-grey);
 
   margin-top: var(--spacer-xx-small);
@@ -17,6 +17,7 @@ details {
 
     display: flex;
     justify-content: space-between;
+    line-height: 140%;
     border-bottom: var(--border);
     color: var(--color-mt-blue);
     list-style: none;
