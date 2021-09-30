@@ -39,7 +39,7 @@
     <a
       href={link.href}
       class="button button--primary button--space-between layout-full-width forward-arrow-end"
-      style="--gap: var(--spacer-2)"
+      style="--gap: var(--spacer-x-small)"
     >
       Transportlenke
     </a>
@@ -97,10 +97,10 @@
   </div>
 </Story>
 
-<style lang="scss" global>
+<style lang="scss">
   @import 'src/scss/app';
   .layout-flex-col {
-    --gap: var(--spacer-2);
+    --gap: var(--spacer-x-small);
   }
   .layout-grid {
     width: 60%;
