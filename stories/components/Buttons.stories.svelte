@@ -45,18 +45,18 @@
   />
 </Story>
 
-<Story name="Loading" >
+<Story name="Loading">
   <h1>Loading</h1>
   <p class="description">Hovedknapp</p>
-  <Button formInProgressAriaLabel='Sender inn skjema, venter på svar.' spinnerPlacement='start' color='primary'>
+  <Button formInProgressAriaLabel="Sender inn skjema, venter på svar." spinnerPlacement="start" color="primary">
     Spinner placement start
-  </Button><br/>
-  <Button formInProgressAriaLabel='Sender inn skjema, venter på svar.' spinnerPlacement='end' color='primary'>
+  </Button><br />
+  <Button formInProgressAriaLabel="Sender inn skjema, venter på svar." spinnerPlacement="end" color="primary">
     Spinner placement end
   </Button>
 
   <p class="description">Sekundær</p>
-  <Button formInProgressAriaLabel='Sender inn skjema, venter på svar.' spinnerPlacement='end' color='secondary'>
+  <Button formInProgressAriaLabel="Sender inn skjema, venter på svar." spinnerPlacement="end" color="secondary">
     Send in skjema
   </Button>
 </Story>
@@ -66,7 +66,7 @@
 
   button {
     margin-top: 0.5rem;
-    margin-right: var(--spacer-2);
+    margin-right: var(--spacer-small);
   }
   .description {
     margin-top: 2rem;
