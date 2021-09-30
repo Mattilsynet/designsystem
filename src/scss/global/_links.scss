@@ -43,17 +43,11 @@ a {
     }
   }
   &.transport-card {
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    align-content: start;
+    display: flex;
+    flex-direction: column;
     padding: var(--spacer-medium);
     gap: var(--spacer-2);
 
-    svg,
-    .text {
-      justify-self: center;
-    }
     .text {
       display: flex;
       align-items: center;
