@@ -36,7 +36,7 @@
   }
 
   .layout-flex-col {
-    --gap: var(--spacer-2);
+    --gap: var(--spacer-x-small);
 
     padding: var(--spacer-xx-small);
   }
