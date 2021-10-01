@@ -1,0 +1,27 @@
+@use '../utilities/mixins' as *;
+@use '../theme' as *;
+
+.tasks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacer-x-small);
+
+  .task {
+    @include children-spaced(var(--spacer-x-small));
+
+    padding: var(--spacer-small);
+    background-color: var(--color-mt-white);
+
+    .title {
+      padding-bottom: var(--spacer-x-small);
+      border-bottom: $border-width-small solid var(--color-mt-beige);
+    }
+    .intro {
+      font-size: $font-size-body;
+      font-style: italic;
+    }
+    .text {
+      @include xp-html-area;
+    }
+  }
+}

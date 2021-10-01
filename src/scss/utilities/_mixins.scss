@@ -67,6 +67,12 @@
   }
 }
 
+@mixin children-spaced($spacer: $spacer-large) {
+  > * + * {
+    margin-top: $spacer;
+  }
+}
+
 @mixin xp-html-area {
   p + p,
   ul + p,
