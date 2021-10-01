@@ -28,6 +28,10 @@ module.exports = [
     color: 'hsl(216,3%,66%)'
   },
   {
+    name: 'mt-white',
+    color: 'hsl(0,0%,100%)'
+  },
+  {
     name: 'primary',
     alias: 'mt-blue',
     color: 'hsl(196, 89%, 25%)',
