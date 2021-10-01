@@ -1,0 +1,9 @@
+@use '../theme' as *;
+
+figure {
+  align-self: center;
+  figcaption {
+    margin-top: $spacer-x-small;
+    font-size: $font-size-small;
+  }
+}

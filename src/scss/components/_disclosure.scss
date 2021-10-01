@@ -2,7 +2,7 @@
 @use '../utilities/mixins' as *;
 
 .disclosure {
-  --disclosure-spacing: var(--spacer-2);
+  --disclosure-spacing: var(--spacer-x-small);
 
   border-top: $border-width-regular solid var(--color-secondary);
   border-bottom: $border-width-regular solid var(--color-secondary);

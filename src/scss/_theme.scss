@@ -21,17 +21,13 @@ $font-weight-bold: 700 !default;
 $font-size-h1: clamp(2.1154141273rem, 5.041920391vw + 1rem, 3.1573345183rem);
 $font-size-h2: clamp(1.5869573348rem, 4.7816357022vw + 1rem, 2.368593037rem);
 $font-size-h3: clamp(1.19051563rem, 4.58637337vw + 1rem, 1.776889rem);
-$font-size-h4: clamp(1rem, 4.333vw + 1rem, 1.333rem);
-$font-size-intro: 1.875rem !default; // 30px
-$font-size-body: 1.25rem !default; // 20px
+$font-size-h4: clamp(1rem, 4.333vw + 1rem, 1.333rem); // 20px
+$font-size-intro: clamp(1.5rem, 2vw + 1rem, 1.875rem) !default; // 30px
+$font-size-body: $font-size-h4 !default;
 $font-size-small: 1rem !default; //16px
-$font-size-label: 1.5rem !default; //24px
+$font-size-label: clamp(1.1rem, 4.333vw + 1rem, 1.5rem) !default; //24px
 
 $height-header-regular: 6.25rem;
-
-$spacer-2: 1rem !default;
-$spacer-3: 1.5rem !default;
-$spacer-large: 3rem !default;
 
 $spacer-xx-small: 0.625rem !default; // 10px
 $spacer-x-small: 1.25rem !default; // 20px
@@ -56,20 +52,18 @@ $spacer-x-large: 5rem !default; // 80px
   --spacer-large: #{$spacer-large};
   --spacer-medium: #{$spacer-medium};
   --spacer-x-large: #{$spacer-x-large};
-  --spacer-2: #{$spacer-2};
-  --spacer-3: #{$spacer-3};
 }
 
 body {
   display: grid;
   grid-template-rows: auto 1fr auto;
-  row-gap: $spacer-2;
+  row-gap: $spacer-medium;
   background-color: var(--color-mt-background);
   color: var(--color-mt-text-dark);
   font-family: $font-family;
   font-size: $font-size-body;
 
   footer {
-    margin-top: $spacer-3;
+    margin-top: $spacer-small;
   }
 }
