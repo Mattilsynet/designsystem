@@ -61,12 +61,6 @@
   }
 }
 
-@mixin children-spaced {
-  > * + * {
-    margin-top: $spacer-large;
-  }
-}
-
 @mixin children-spaced($spacer: $spacer-large) {
   > * + * {
     margin-top: $spacer;
