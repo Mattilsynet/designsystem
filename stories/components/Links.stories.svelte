@@ -46,7 +46,7 @@
 
 <Story name="Transport List" let:transportCards1 let:transportCards2 let:disableCss let:disabled let:secondary>
   <h1>Transporlenkeliste</h1>
-  <ul class="layout-grid list-unstyled transport-list">
+  <ul class="layout-flex-col list-unstyled space-by-parent" style="--gap: var(--spacer-x-small)">
     {#each transportCards1 as link}
       <li>
         <a href={link.href} class="button button--primary button--space-between layout-full-width forward-arrow-end">
@@ -59,7 +59,7 @@
 
 <Story name="Transport Card" let:transportCards1 let:transportCards2 let:disableCss let:disabled let:secondary>
   <h1>Transportkort</h1>
-  <div class="layout-grid layout-grid--column-3">
+  <div class="layout-grid layout-grid--column-3" style="--gap: var(--spacer-x-small)">
     {#each transportCards1 as link}
       <a href={link.href} class="button button--primary transport-card">
         <svg width="61" height="61" viewBox="0 0 61 61" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -128,8 +128,5 @@
     width: min(80%, 100ch);
     margin-right: auto;
     margin-left: auto;
-  }
-  .layout-grid--column-3 {
-    gap: var(--spacer-small);
   }
 </style>
