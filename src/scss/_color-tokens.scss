@@ -13,6 +13,8 @@ $color-mt-beige: hsl(54,19%,61%) !default;
 $color-on-mt-beige: hsl(57.10000000000002, 19.3%, 21.4%) !default;
 $color-mt-light-blue: hsl(193, 52%, 42%) !default;
 $color-on-mt-light-blue: hsl(132, 100%, 5.9%) !default;
+$color-mt-rationale-blue: hsl(193, 39%, 88%) !default;
+$color-on-mt-rationale-blue: hsl(193.79999999999995, 13.3%, 38.4%) !default;
 $color-mt-brown: hsla(0, 1%, 25%, 1) !default;
 $color-on-mt-brown: rgb(170, 170, 170) !default;
 $color-mt-grey: hsl(216,3%,66%) !default;
@@ -34,7 +36,7 @@ $color-on-error: hsl(0,0%,100%) !default;
 $color-error-50: hsl(3, 76%, 36%, 0.5) !default;
 $color-on-error-50: hsl(3, 68.2%, 82.7%) !default;
 
-$base-color-tokens: ("mt-blue", "mt-red", "mt-red-uu", "mt-beige", "mt-light-blue", "mt-brown", "mt-grey", "mt-white", "primary", "primary-50", "secondary", "mt-text-dark", "mt-background", "error", "error-50");
+$base-color-tokens: ("mt-blue", "mt-red", "mt-red-uu", "mt-beige", "mt-light-blue", "mt-rationale-blue", "mt-brown", "mt-grey", "mt-white", "primary", "primary-50", "secondary", "mt-text-dark", "mt-background", "error", "error-50");
 
 $color-tokens: (
   "color-mt-blue": $color-mt-blue,
@@ -47,6 +49,8 @@ $color-tokens: (
   "color-on-mt-beige": $color-on-mt-beige,
   "color-mt-light-blue": $color-mt-light-blue,
   "color-on-mt-light-blue": $color-on-mt-light-blue,
+  "color-mt-rationale-blue": $color-mt-rationale-blue,
+  "color-on-mt-rationale-blue": $color-on-mt-rationale-blue,
   "color-mt-brown": $color-mt-brown,
   "color-on-mt-brown": $color-on-mt-brown,
   "color-mt-grey": $color-mt-grey,
@@ -80,6 +84,8 @@ $color-tokens: (
   --color-on-mt-beige: #{$color-on-mt-beige};
   --color-mt-light-blue: #{$color-mt-light-blue};
   --color-on-mt-light-blue: #{$color-on-mt-light-blue};
+  --color-mt-rationale-blue: #{$color-mt-rationale-blue};
+  --color-on-mt-rationale-blue: #{$color-on-mt-rationale-blue};
   --color-mt-brown: #{$color-mt-brown};
   --color-on-mt-brown: #{$color-on-mt-brown};
   --color-mt-grey: #{$color-mt-grey};
