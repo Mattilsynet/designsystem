@@ -1,0 +1,33 @@
+@use '../utilities/mixins' as *;
+@use '../theme' as *;
+
+.form-intro {
+  @include children-spaced(var(--spacer-x-small));
+
+  padding: var(--spacer-small);
+  background-color: var(--color-mt-white);
+  > :first-child {
+    display: flex;
+    gap: var(--spacer-x-small);
+    &::before {
+      content: url('data:image/svg+xml,%3Csvg%20width%3D%2230%22%20height%3D%2230%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Ccircle%20cx%3D%2215%22%20cy%3D%2215%22%20r%3D%2215%22%20fill%3D%22%233F3E3E%22%2F%3E%3Cpath%20d%3D%22M7%2014h10M7%2018h5M7%2010h12%22%20stroke%3D%22%23F9F6F1%22%20stroke-width%3D%222%22%2F%3E%3Cpath%20d%3D%22m16.176%2020.722-.11%202.294a.162.162%200%200%200%20.25.144l1.932-1.241a.16.16%200%200%200%20.052-.056l5.684-9.844-2.103-1.214-5.684%209.844a.161.161%200%200%200-.021.073ZM24.39%2011.318l-2.104-1.214L23.42%208.14a.162.162%200%200%201%20.222-.06l1.822%201.053a.162.162%200%200%201%20.06.22l-1.134%201.964Z%22%20fill%3D%22%23F9F6F1%22%2F%3E%3C%2Fsvg%3E');
+      display: inline-block;
+      height: 22px;
+    }
+  }
+  h2,
+  h3,
+  h4 {
+    margin-bottom: var(--spacer-x-small);
+    padding-bottom: var(--spacer-x-small);
+    border-bottom: $border-width-small solid var(--color-mt-beige);
+    font-size: $font-size-h3;
+  }
+  .intro {
+    font-size: $font-size-body;
+    font-style: italic;
+  }
+  .text {
+    @include xp-html-area;
+  }
+}
