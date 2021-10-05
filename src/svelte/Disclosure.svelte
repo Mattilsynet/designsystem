@@ -11,6 +11,7 @@
   export let loadJs = true;
   export let title: string;
   export let size: string;
+  export let headerTag: 'h2' | 'h3' = 'h3'
 
   interface DisclosureContext {
     isOpen: boolean;
@@ -55,7 +56,9 @@
 </script>
 
 <div class="disclosure">
-  {#if onServer}
+  {#if onServer && headerTag === 'h2'}
+    <h2 class="disclosure-header {size}">{title}</h2>
+  {:else if onServer}
     <h3 class="disclosure-header {size}">{title}</h3>
   {:else}
     <button class="disclosure-header {size}" aria-expanded={isOpen} aria-controls={bodyId} on:click={() => send('TOGGLE')}>
@@ -65,6 +68,11 @@
 
   {#if isOpen}
     <div id={bodyId} class="disclosure-panel" transition:slide|local>
+      {#if headerTag === 'h2'}
+        <h2 class="inclusively-hidden">{title}</h2>
+      {:else}
+        <h3 class="inclusively-hidden">{title}</h3>
+      {/if}
       <slot />
     </div>
   {/if}

@@ -33,6 +33,7 @@
     title: {control: 'text'},
     body: {control: 'text'},
     size: {control: 'text'},
+    headerTag: {control: 'text'},
     disableJs: {control: 'boolean'},
     disableCss: {control: 'boolean'}
   }}
@@ -40,7 +41,7 @@
 
 <Template let:args>
   <section class="content" use:wrapInShadowDom={args.disableCss}>
-    <Disclosure title={args.title} loadJs={!args.disableJs} size={args.size}>
+    <Disclosure title={args.title} loadJs={!args.disableJs} size={args.size} headerTag={args.headerTag}>
       {@html args.body}
       <ul>
         <li>Punkt 1</li>
@@ -94,6 +95,7 @@
     title: disclosures[2].title,
     body: disclosures[2].body,
     size: 'large',
+    headerTag: 'h2',
     disableJs: false,
     disableCss: false
   }}
