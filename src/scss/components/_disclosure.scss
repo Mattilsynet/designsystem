@@ -35,6 +35,12 @@
         transform: rotate(-180deg);
       }
     }
+
+    &.large {
+      font-size: $font-size-h2;
+      font-weight: $font-weight-light;
+    }
+
   }
   .disclosure-panel {
     @include xp-html-area;

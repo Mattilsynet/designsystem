@@ -10,6 +10,7 @@
 
   export let loadJs = true;
   export let title: string;
+  export let size: string;
 
   interface DisclosureContext {
     isOpen: boolean;
@@ -55,9 +56,9 @@
 
 <div class="disclosure">
   {#if onServer}
-    <h3 class="disclosure-header">{title}</h3>
+    <h3 class="disclosure-header {size}">{title}</h3>
   {:else}
-    <button class="disclosure-header" aria-expanded={isOpen} aria-controls={bodyId} on:click={() => send('TOGGLE')}>
+    <button class="disclosure-header {size}" aria-expanded={isOpen} aria-controls={bodyId} on:click={() => send('TOGGLE')}>
       {title}
     </button>
   {/if}
