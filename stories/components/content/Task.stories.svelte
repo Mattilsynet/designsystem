@@ -28,6 +28,62 @@
             is that it ha
           </p>`,
         nextAction: {nextActionUrl: 'http://', nextActionLinkText: 'Link til tredje oppgave'}
+      },
+      {
+        title: 'Tredde oppgaven med headinger',
+        intro: ``,
+        text: `<h4>Geiter</h4>
+
+              <p>Når geiter flyttes til ei anna eller ny småfebesetning, skal dyreholderen sende med en attest fra en veterinær som har undersøkt dyra i avsenderbesetninga. Attesten skal bekrefte at dyra som flyttes,
+                  ikke har symptomer på smittsomme dyresjukdommer. Attesten skal også bekrefte at
+                  <a href="https://lovdata.no/dokument/SF/forskrift/2002-06-27-732#KAPITTEL_16">krava i Dyrehelseforskrifta,
+                  vedlegg VII er oppfylt</a>.
+              </p>
+
+              <h4>Sauer</h4>
+
+              <p>Kravet til veterinærattest gjelder også når sauer flyttes over fylkesgrenser til ei anna eller ny småfebesetning.</p>
+
+              <p>Unntak: Dette gjelder ikke for sauer som flyttes mellom Oslo og Akershus og mellom Rogaland og kommunene Sveio eller Etne i Hordaland.</p>
+
+              <p>Veterinærattestene skal ikke være eldre enn 7 dager når dyra flyttes. Attesten skal oppbevares i mottakerbesetninga i 5 år og legges fram når Mattilsynet ber om det.</p>
+
+              <ul>
+                <li>En eller to</li>
+                <li>tre og fire og fem og seks</li>
+                <li>sju</li>
+                <li>Åtte ni og</li>
+                <li>ti</li>
+              </ul>`,
+        nextAction: {nextActionUrl: 'http://', nextActionLinkText: 'Link til tredje oppgave'}
+      },
+      {
+        title: 'Fjerde oppgaven med headinger som ikke egentlig skal brukes',
+        intro: ``,
+        text: `<h2>Geiter</h2>
+
+              <p>Når geiter flyttes til ei anna eller ny småfebesetning, skal dyreholderen sende med en attest fra en veterinær som har undersøkt dyra i avsenderbesetninga. Attesten skal bekrefte at dyra som flyttes,
+                  ikke har symptomer på smittsomme dyresjukdommer. Attesten skal også bekrefte at
+                  <a href="https://lovdata.no/dokument/SF/forskrift/2002-06-27-732#KAPITTEL_16">krava i Dyrehelseforskrifta,
+                  vedlegg VII er oppfylt</a>.
+              </p>
+
+              <h3>Sauer</h3>
+
+              <p>Kravet til veterinærattest gjelder også når sauer flyttes over fylkesgrenser til ei anna eller ny småfebesetning.</p>
+
+              <p>Unntak: Dette gjelder ikke for sauer som flyttes mellom Oslo og Akershus og mellom Rogaland og kommunene Sveio eller Etne i Hordaland.</p>
+
+              <p>Veterinærattestene skal ikke være eldre enn 7 dager når dyra flyttes. Attesten skal oppbevares i mottakerbesetninga i 5 år og legges fram når Mattilsynet ber om det.</p>
+
+              <ul>
+                <li>En eller to</li>
+                <li>tre og fire og fem og seks</li>
+                <li>sju</li>
+                <li>Åtte ni og</li>
+                <li>ti</li>
+              </ul>`,
+        nextAction: {nextActionUrl: 'http://', nextActionLinkText: 'Link til tredje oppgave'}
       }
     ],
     disabled: false,

@@ -32,5 +32,11 @@
   }
   .text {
     @include xp-html-area;
+
+    p + h2,
+    p + h3,
+    p + h4 {
+      padding-top: var(--spacer-x-small);
+    }
   }
 }
