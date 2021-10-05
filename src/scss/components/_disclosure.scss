@@ -30,6 +30,9 @@
       height: 1.25rem;
       margin-right: var(--disclosure-spacing);
     }
+    &.h2::after {
+      height: 2.7rem;
+    }
     &[aria-expanded='true'] {
       &::after {
         transform: rotate(-180deg);
