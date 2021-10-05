@@ -21,7 +21,7 @@
       body: splitIntoParagraphs(
         `Alle har plikt til å vise nødvendig aktsomhet for å hindre at det oppstår fare for at smittsom dyresykdom utvikler seg eller sprer seg. Alle har også har plikt til å varsle Mattilsynet dersom de mistenker alvorlig smittsom dyresykdom.\nVi har en rekke regler for å forebygge alvorlige, smittsomme dyresykdommer. Disse reglene gjelder alle som driver virksomhet som kan bidra til at smitte spres til dyr. Dette gjelder en rekke virksomheter som dyreeiere, slakterier, importører, transportvirksomheter, veterinærer og mange andre.\nMattilsynet har ansvar for å føre tilsyn med at regelverket følges, sørge for forebyggende tiltak og overvåke sykdomstilstanden i landet. I tillegg har Mattilsynet ansvar for å ha beredskap for å bekjempe utbrudd av alvorlige smittsomme dyresykdommer. En rekke private og offentlige aktører har ansvar for å bistå Mattilsynet ved bekjempelsesarbeidet ved slike utbrudd.`
       ),
-      size: 'large'
+      headerTag: 'h2'
     }
   ];
 </script>
@@ -32,7 +32,6 @@
   argTypes={{
     title: {control: 'text'},
     body: {control: 'text'},
-    size: {control: 'text'},
     headerTag: {control: 'text'},
     disableJs: {control: 'boolean'},
     disableCss: {control: 'boolean'}
@@ -41,7 +40,7 @@
 
 <Template let:args>
   <section class="content" use:wrapInShadowDom={args.disableCss}>
-    <Disclosure title={args.title} loadJs={!args.disableJs} size={args.size} headerTag={args.headerTag}>
+    <Disclosure title={args.title} loadJs={!args.disableJs} headerTag={args.headerTag}>
       {@html args.body}
       <ul>
         <li>Punkt 1</li>
@@ -94,8 +93,7 @@
   args={{
     title: disclosures[2].title,
     body: disclosures[2].body,
-    size: 'large',
-    headerTag: 'h2',
+    headerTag: disclosures[2].headerTag,
     disableJs: false,
     disableCss: false
   }}
