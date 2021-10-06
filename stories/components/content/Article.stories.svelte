@@ -32,7 +32,8 @@
         <img src="" alt="Alternativ bildetekst" />
         <figcaption>Bildetekst</figcaption>
       </figure>
-      <div class="content">
+
+      <div class="text">
         <h2>Andre overskrift</h2>
         <p>Paragraf med tekst. Paragraf med tekst. <a href="">Paragraf med tekst.</a> Paragraf med tekst</p>
         <ul>
@@ -50,13 +51,16 @@
           </li>
         </ul>
         <p>Paragraf med tekst</p>
+
         <h2>Enda en overskrift</h2>
         <p>Paragraf med tekst</p>
         <p>Paragraf med tekst</p>
+
         <h3>Underoverskrift</h3>
         <p>Paragraf med tekst</p>
         <p>Paragraf med tekst</p>
       </div>
+
       <dl class="meta">
         <dd>Publisert</dd>
         <dt><time datetime={publishFrom}>{new Intl.DateTimeFormat('nb-NO').format(new Date(publishFrom))}</time></dt>
@@ -72,5 +76,5 @@
 </Story>
 
 <style lang="scss">
-  @import '../src/scss/app';
+  @use '../src/scss/app';
 </style>
