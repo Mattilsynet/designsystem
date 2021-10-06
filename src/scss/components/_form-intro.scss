@@ -2,10 +2,10 @@
 @use '../theme' as *;
 
 .form-intro {
-  @include children-spaced(var(--spacer-x-small));
+  @include card-article;
 
-  padding: var(--spacer-small);
   background-color: var(--color-mt-white);
+
   > :first-child {
     display: flex;
     gap: var(--spacer-x-small);
@@ -14,20 +14,5 @@
       display: inline-block;
       height: 22px;
     }
-  }
-  h2,
-  h3,
-  h4 {
-    margin-bottom: var(--spacer-x-small);
-    padding-bottom: var(--spacer-x-small);
-    border-bottom: $border-width-small solid var(--color-mt-beige);
-    font-size: $font-size-h3;
-  }
-  .intro {
-    font-size: $font-size-body;
-    font-style: italic;
-  }
-  .text {
-    @include xp-html-area;
   }
 }

@@ -10,15 +10,19 @@
       {
         title: 'Dette er første oppgave',
         intro: '',
-        text: `<p>Kommer du over sjukt eller skadet storvilt for eksempel elg hjelper du som regel best ved å <strong>ringe politiet på telefon 02800</strong>. Det samme gjelder sjøpattedyr. Politiet kobler om nødvendig inn kommunens viltforvaltning (viltnemnda). Du skal derimot avlive dyret selv dersom &nbsp;</p>
-
-<ol>
-	<li>dyret er hardt skadet,&nbsp;</li>
-	<li>politiet ikke kan yte hjelp innen rimelig tid, &nbsp;</li>
-	<li>og du har skytevåpen og vet hvordan du skal avlive dyret forsvarlig.&nbsp;</li>
-</ol>
-`,
-        nextAction: {nextActionUrl: 'http://', nextActionLinkText: 'Link til neste oppgave'}
+        text: `<p>
+        Det skal utarbeides skriftlige rutiner for etterlevelse av forskriftsfestede krav om å ivareta dyrenes velferd,
+        blant annet om
+      </p>
+      <ul>
+        <li>Kompetanse</li>
+        <li>fôring og stell</li>
+        <li>aktivisering og mosjon</li>
+        <li>tilrettelegging for utøvelse av naturlig atferd</li>
+      </ul>
+      <p>Utformingen av rutinene skal være tilpasset virksomhetens egenart.</p>`,
+        nextActionUrl: 'http://',
+        nextActionLinkText: 'Link til neste oppgave'
       },
       {
         title: 'Dette er andre oppgave',
@@ -28,7 +32,8 @@
             be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum
             is that it ha
           </p>`,
-        nextAction: {nextActionUrl: 'http://', nextActionLinkText: 'Link til tredje oppgave'}
+        nextActionUrl: 'http://',
+        nextActionLinkText: 'Link til tredje oppgave'
       },
       {
         title: 'Tredde oppgaven med headinger',
@@ -62,7 +67,7 @@
       {
         title: 'Fjerde oppgaven med headinger som ikke egentlig skal brukes',
         intro: ``,
-        text: `<h2>Geiter</h2>
+        text: `<h3>Geiter</h3>
 
               <p>Når geiter flyttes til ei anna eller ny småfebesetning, skal dyreholderen sende med en attest fra en veterinær som har undersøkt dyra i avsenderbesetninga. Attesten skal bekrefte at dyra som flyttes,
                   ikke har symptomer på smittsomme dyresjukdommer. Attesten skal også bekrefte at
@@ -70,7 +75,7 @@
                   vedlegg VII er oppfylt</a>.
               </p>
 
-              <h3>Sauer</h3>
+              <h4>Sauer</h4>
 
               <p>Kravet til veterinærattest gjelder også når sauer flyttes over fylkesgrenser til ei anna eller ny småfebesetning.</p>
 

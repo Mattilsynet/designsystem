@@ -2,10 +2,10 @@
 @use '../theme' as *;
 
 .legal-text {
-  @include xp-html-area;
+  @include card-article;
 
-  padding: var(--spacer-small);
   background-color: var(--color-mt-rationale-blue);
+
   > :first-child {
     display: flex;
     margin: 0;
@@ -15,13 +15,5 @@
       display: inline-block;
       height: 22px;
     }
-  }
-  h2,
-  h3,
-  h4 {
-    margin-bottom: var(--spacer-x-small);
-    padding-bottom: var(--spacer-x-small);
-    border-bottom: $border-width-small solid var(--color-mt-beige);
-    font-size: $font-size-h3;
   }
 }
