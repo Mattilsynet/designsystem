@@ -1,5 +1,6 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf';
+  import CardArticle from '../CardArticle.svelte';
 </script>
 
 <Meta
@@ -55,7 +56,8 @@
                 <li>Åtte ni og</li>
                 <li>ti</li>
               </ul>`,
-        nextAction: {nextActionUrl: 'http://', nextActionLinkText: 'Link til tredje oppgave'}
+        nextActionUrl: 'http://',
+        nextActionLinkText: 'Link til tredje oppgave'
       },
       {
         title: 'Fjerde oppgaven med headinger som ikke egentlig skal brukes',
@@ -83,7 +85,8 @@
                 <li>Åtte ni og</li>
                 <li>ti</li>
               </ul>`,
-        nextAction: {nextActionUrl: 'http://', nextActionLinkText: 'Link til tredje oppgave'}
+        nextActionUrl: 'http://',
+        nextActionLinkText: 'Link til tredje oppgave'
       }
     ],
     disabled: false,
@@ -96,29 +99,18 @@
 />
 
 <Story name="Normal" let:tasks>
-  <div class="container">
-    <ul class="tasks list-unstyled">
-      {#each tasks as task}
-        <li class="task">
-          <h3 class="title">{task.title}</h3>
-          {#if task.intro}
-            <div class="intro">
-              {@html task.intro}
-            </div>
-          {/if}
-          {#if task.text}
-            <div class="text">
-              {@html task.text}
-            </div>
-          {/if}
-          {#if task.nextAction.nextActionUrl}
-            <a href={task.nextAction.nextActionUrl} class="button button--primary">
-              {task.nextAction.nextActionLinkText}
-            </a>
-          {/if}
-        </li>
-      {/each}
-    </ul>
+  <div class="container layout-flex-col layout-flex-col--x-small">
+    {#each tasks as task}
+      <CardArticle
+        type="task"
+        linkText={task.nextActionLinkText}
+        linkUrl={task.nextActionUrl}
+        intro={task.intro}
+        title={task.title}
+        text={task.text}
+        id={task.title}
+      />
+    {/each}
   </div>
 </Story>
 
