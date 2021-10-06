@@ -1,11 +1,12 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf';
+  import CardArticle from '../CardArticle.svelte';
 </script>
 
 <Meta
-  title="Components/Innhold/Begrunnelse"
+  title="Components/Innhold/Lovtekst"
   args={{
-    title: `<h3>Forskrift om omsetning og midlertidig hold av dyr, § 5 andre ledd</h3>`,
+    title: `Forskrift om omsetning og midlertidig hold av dyr, § 5 andre ledd`,
     text: `<p>
         Det skal utarbeides skriftlige rutiner for etterlevelse av forskriftsfestede krav om å ivareta dyrenes velferd,
         blant annet om
@@ -26,10 +27,7 @@
 
 <Story name="Normal" let:disableCss let:title let:text>
   <div class="container">
-    <div class="rationale">
-      {@html title}
-      {@html text}
-    </div>
+    <CardArticle type="legal-text" {title} {text} id={title} />
   </div>
 </Story>
 
