@@ -12,9 +12,40 @@
 }
 
 .article-page {
-  @include children-spaced;
+  --section-space: var(--spacer-large);
+  --sub-section-space: var(--spacer-medium);
+  --content-space: var(--spacer-x-small);
 
-  display: grid;
+  > * + ul,
+  > * + ol,
+  .intro,
+  > * + p {
+    margin-top: var(--content-space);
+  }
+
+  figure {
+    margin-top: var(--content-space);
+  }
+
+  h2 {
+    margin-top: var(--section-space);
+    + h3 {
+      margin-top: var(--content-space);
+    }
+  }
+
+  > h3,
+  > h4 {
+    margin-top: var(--sub-section-space);
+  }
+
+  .text {
+    @include xp-html-area;
+  }
+  .meta,
+  .disclosure {
+    margin-top: var(--section-space);
+  }
 }
 
 .meta {
