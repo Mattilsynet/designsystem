@@ -55,7 +55,7 @@
   font-size: $font-size-small;
 
   @media only screen and (min-width: $breakpoint-large) {
-    display: inline-grid;
+    display: grid;
     grid-template-columns: auto 1fr auto 2fr;
     gap: 5px;
   }
