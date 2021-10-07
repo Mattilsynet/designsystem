@@ -68,33 +68,24 @@
 }
 
 @mixin xp-html-area {
+  @include children-spaced(var(--content-space));
+
   --section-space: var(--spacer-large);
   --sub-section-space: var(--spacer-medium);
   --content-space: var(--spacer-x-small);
-  :first-child {
-    margin-top: var(--spacer-x-small);
-  }
-  h2 {
+
+  > h2 {
     margin-top: var(--spacer-large);
-    + * {
-      margin-top: var(--spacer-xx-small);
-    }
-    + h3 {
-      margin-top: 0;
+    &.inclusively-hidden {
+      + h3 {
+        margin-top: 0;
+      }
     }
   }
 
-  h3,
-  h4 {
+  > h3,
+  > h4 {
     margin-top: var(--spacer-small);
-    + * {
-      margin-top: var(--spacer-xx-small);
-    }
-  }
-  p + p,
-  ul + p,
-  ol + p {
-    padding-top: var(--spacer-x-small);
   }
   ul {
     padding-left: var(--spacer-large);
