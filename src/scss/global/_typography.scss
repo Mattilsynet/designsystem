@@ -1,5 +1,6 @@
-@use "sass:math";
-@use "../theme" as *;
+@use 'sass:math';
+@use '../theme' as *;
+@use '../utilities/mixins' as *;
 
 // Modular type scales
 // By: Tim Brown
@@ -132,7 +133,9 @@ $content-spacer: $spacer-x-small !default;
 
   > * + h2,
   > * + h3,
-  > * + h4 {
+  > h3,
+  > * + h4,
+  > h4 {
     margin-top: var(--spacer-large);
   }
 
@@ -158,4 +161,8 @@ strong {
 }
 .text-small {
   font-size: $font-size-small;
+}
+
+.text {
+  @include xp-html-area;
 }

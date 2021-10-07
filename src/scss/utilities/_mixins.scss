@@ -68,10 +68,24 @@
 }
 
 @mixin xp-html-area {
-  p + p,
-  ul + p,
-  ol + p {
-    padding-top: var(--spacer-x-small);
+  @include children-spaced(var(--content-space));
+
+  --section-space: var(--spacer-large);
+  --sub-section-space: var(--spacer-medium);
+  --content-space: var(--spacer-x-small);
+
+  > h2 {
+    margin-top: var(--spacer-large);
+    &.inclusively-hidden {
+      + h3 {
+        margin-top: 0;
+      }
+    }
+  }
+
+  > h3,
+  > h4 {
+    margin-top: var(--spacer-small);
   }
   ul {
     padding-left: var(--spacer-large);
@@ -81,5 +95,26 @@
         margin-top: var(--spacer-xx-small);
       }
     }
+  }
+}
+
+@mixin card-article {
+  @include children-spaced(var(--spacer-x-small));
+
+  padding: var(--spacer-small);
+
+  .title {
+    margin-top: 0;
+    padding-bottom: var(--spacer-x-small);
+    border-bottom: $border-width-small solid var(--color-mt-beige);
+    font-size: $font-size-h3;
+  }
+  .intro {
+    font-size: $font-size-body;
+    font-style: italic;
+  }
+
+  .text {
+    @include xp-html-area;
   }
 }

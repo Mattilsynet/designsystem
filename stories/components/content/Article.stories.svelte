@@ -1,5 +1,6 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf';
+  import Published from '../../../src/svelte/Published.svelte';
 </script>
 
 <Meta
@@ -32,45 +33,38 @@
         <img src="" alt="Alternativ bildetekst" />
         <figcaption>Bildetekst</figcaption>
       </figure>
-      <div class="content">
-        <h2>Andre overskrift</h2>
-        <p>Paragraf med tekst. Paragraf med tekst. <a href="">Paragraf med tekst.</a> Paragraf med tekst</p>
-        <ul>
-          <li>Valget om å skaffe dyr må være godt gjennomtenkt. Er hele familien enige og innstilt på det?</li>
-          <li>
-            En voksen person må være hovedansvarlig for dyret. I følge dyrevelferdsloven kan barn under 16 år ikke ha et
-            selvstendig ansvar for dyr.
-          </li>
-          <li>
-            Barn kan miste interessen og dyr lever i mange år.
-            <ul>
-              <li>Under punkt</li>
-              <li>Under punkt</li>
-            </ul>
-          </li>
-        </ul>
-        <p>Paragraf med tekst</p>
-        <h2>Enda en overskrift</h2>
-        <p>Paragraf med tekst</p>
-        <p>Paragraf med tekst</p>
-        <h3>Underoverskrift</h3>
-        <p>Paragraf med tekst</p>
-        <p>Paragraf med tekst</p>
-      </div>
-      <dl class="meta">
-        <dd>Publisert</dd>
-        <dt><time datetime={publishFrom}>{new Intl.DateTimeFormat('nb-NO').format(new Date(publishFrom))}</time></dt>
-        <dd>Sist oppdatert</dd>
-        <dt>
-          <time datetime={professionallyUpdated}
-            >{new Intl.DateTimeFormat('nb-NO').format(new Date(professionallyUpdated))}</time
-          >
-        </dt>
-      </dl>
+
+      <h2>Andre overskrift</h2>
+      <p>Paragraf med tekst. Paragraf med tekst. <a href="">Paragraf med tekst.</a> Paragraf med tekst</p>
+      <ul>
+        <li>Valget om å skaffe dyr må være godt gjennomtenkt. Er hele familien enige og innstilt på det?</li>
+        <li>
+          En voksen person må være hovedansvarlig for dyret. I følge dyrevelferdsloven kan barn under 16 år ikke ha et
+          selvstendig ansvar for dyr.
+        </li>
+        <li>
+          Barn kan miste interessen og dyr lever i mange år.
+          <ul>
+            <li>Under punkt</li>
+            <li>Under punkt</li>
+          </ul>
+        </li>
+      </ul>
+      <p>Paragraf med tekst</p>
+
+      <h2>Enda en overskrift</h2>
+      <p>Paragraf med tekst</p>
+      <p>Paragraf med tekst</p>
+
+      <h3>Underoverskrift</h3>
+      <p>Paragraf med tekst</p>
+      <p>Paragraf med tekst</p>
+
+      <Published {publishFrom} {professionallyUpdated} />
     </article>
   </div>
 </Story>
 
 <style lang="scss">
-  @import '../src/scss/app';
+  @use '../src/scss/app';
 </style>

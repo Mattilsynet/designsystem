@@ -1,5 +1,6 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf';
+  import CardArticle from '../CardArticle.svelte';
 </script>
 
 <Meta
@@ -24,27 +25,7 @@
 
 <Story name="Normal" let:title let:intro let:text let:moreText let:formLinkUrl let:formLinkText>
   <div class="container">
-    <article class="form-intro">
-      <h3>{title}</h3>
-
-      {#if intro}
-        <div class="intro">
-          {@html intro}
-        </div>
-      {/if}
-
-      {#if text}
-        <div class="text">
-          {@html text}
-        </div>
-      {/if}
-
-      {#if formLinkUrl && formLinkText}
-        <a href={formLinkUrl} class="button button--primary self-start">
-          {formLinkText}
-        </a>
-      {/if}
-    </article>
+    <CardArticle type="form-intro" linkText={formLinkText} linkUrl={formLinkUrl} {intro} {title} {text} id={title} />
   </div>
 </Story>
 
