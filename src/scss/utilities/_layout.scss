@@ -93,13 +93,15 @@ footer,
 .footer {
   display: flex;
   flex-direction: column;
-  padding: $spacer-x-small $spacer-small;
+  justify-self: center;
+  width: min(1440px, 95vw);
+  padding: $spacer-small $spacer-small;
   gap: $spacer-x-small;
   border-top: $border-red-regular;
 
   @media only screen and (min-width: $breakpoint-large) {
     flex-direction: row;
-    padding: $spacer-small $spacer-large;
+    padding: $spacer-large 0;
   }
 
   svg {
@@ -115,7 +117,7 @@ footer,
 
     h2,
     h3 {
-      font-size: clamp(1rem, 4.333vw + 1rem, 1.333rem);
+      font-size: $font-size-body;
       font-weight: var(--font-weight-bold);
     }
   }
