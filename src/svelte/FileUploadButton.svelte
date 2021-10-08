@@ -3,6 +3,7 @@
   import {useMachine} from '@xstate/svelte';
   import {createMachine, assign} from 'xstate';
   import type {UIError} from '../ts/types';
+  import {createInputAriaDescribedby} from '../../stories/utils';
 
   export let loadJs = true;
   export let error: UIError | undefined;
@@ -122,7 +123,7 @@
   bind:this={fileInputElement}
   class:error
   class:inclusively-hidden={!onServer}
-  aria-describedby={`${name}-hint ${name}-error`}
+  aria-describedby={createInputAriaDescribedby(name, error)}
   aria-invalid={!!error}
   on:change={e => send({type: 'FILE_SELECTED', fileNames: getFileNames(e.target)})}
 />
