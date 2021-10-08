@@ -3,7 +3,7 @@
   import {useMachine} from '@xstate/svelte';
   import {createMachine, assign} from 'xstate';
   import type {UIError} from '../ts/types';
-  import {createInputAriaDescribedby} from '../../stories/utils';
+  import {createInputAriaDescribedby} from '../ts/utils';
 
   export let loadJs = true;
   export let error: UIError | undefined;
