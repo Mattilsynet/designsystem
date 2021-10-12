@@ -1,6 +1,6 @@
-@use "../color-tokens" as *;
-@use "../theme" as *;
-@use "../utilities/mixins" as *;
+@use '../color-tokens' as *;
+@use '../theme' as *;
+@use '../utilities/mixins' as *;
 
 //stylelint-disable no-descending-specificity
 $form-group-spacer: 'var(--spacer-large)' !default;
@@ -35,9 +35,12 @@ fieldset {
   }
 }
 
+ul + .form-label,
+ol + .form-label,
 .button + .form-label,
 .form-field + .form-label,
 .form-field + button,
+[type='hidden'] + button,
 .form-field + fieldset,
 fieldset + button,
 fieldset + fieldset,
