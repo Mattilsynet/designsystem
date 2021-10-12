@@ -4,27 +4,38 @@ dl {
   --spacer: 1rem;
 
   display: grid;
-  gap: 0;
-  word-break: break-word;
-
-  dt:first-child {
-    margin-top: 0;
+  grid-template-columns: 5fr 7fr;
+  gap: 2rem;
+  + dl {
+    margin-top: var(--spacer);
   }
-  :nth-child(odd) {
-    margin-top: $spacer-small;
-    line-height: 140%;
-  }
-
   dt {
     font-weight: bold;
   }
+  &.summary-list {
+    --spacer: 1rem;
 
-  @media only screen and (min-width: $breakpoint-large) {
-    grid-template-columns: 5fr 7fr;
-    gap: $spacer-small;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-column: 1 / span2;
+    gap: 0;
+    word-break: break-word;
 
-    :nth-child(odd) {
+    dt:first-child {
       margin-top: 0;
+    }
+    :nth-child(odd) {
+      margin-top: var(--spacer-small);
+      line-height: 140%;
+    }
+
+    @media only screen and (min-width: $breakpoint-large) {
+      grid-template-columns: 5fr 7fr;
+      gap: var(--spacer-small);
+
+      :nth-child(odd) {
+        margin-top: 0;
+      }
     }
   }
 }
