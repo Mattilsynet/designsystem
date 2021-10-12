@@ -5,7 +5,7 @@ details {
   --detail-margin: var(--spacer-xx-small);
   --detail-padding: var(--spacer-xx-small);
   --summary-margin-bottom: var(--spacer-x-small);
-  --border: #{$border-width-regular} solid var(--color-mt-grey);
+  --border: #{$border-width-regular} solid var(--color-mt-beige);
 
   margin-top: var(--spacer-xx-small);
   &:focus,
@@ -15,8 +15,7 @@ details {
   summary {
     @include focus-outline();
 
-    display: flex;
-    justify-content: space-between;
+    display: inline;
     line-height: 140%;
     border-bottom: var(--border);
     color: var(--color-mt-blue);
@@ -25,6 +24,11 @@ details {
 
     &::after {
       content: url('data:image/svg+xml,%3Csvg%20width%3D%2212%22%20height%3D%228%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M10.59.4L6%204.85%201.41.4%200%201.77%206%207.6l6-5.83L10.59.4z%22%20fill%3D%22%23075B7A%22%2F%3E%3C%2Fsvg%3E');
+      display: inline-block;
+      margin-left: var(--spacer-x-small);
+    }
+    &::-webkit-details-marker {
+      display: none;
     }
   }
   &[open] {
@@ -35,7 +39,7 @@ details {
       border-left: none;
 
       &::after {
-        content: url('data:image/svg+xml,%3Csvg%20width%3D%2212%22%20height%3D%2212%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M10.866%206.931L6.061%202.126.996%206.93%22%20stroke%3D%22%23075B7A%22%20stroke-width%3D%222%22%2F%3E%3C%2Fsvg%3E');
+        transform: rotateX(180deg);
       }
     }
     .summary-wrapper {
