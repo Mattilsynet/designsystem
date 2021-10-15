@@ -5,7 +5,7 @@
   export let text: string | undefined;
   export let linkUrl: string | undefined;
   export let linkText: string | undefined;
-  export let type: 'task' | 'form-intro' | 'legal-text' | '' = '';
+  export let type: 'task' | 'form-intro-module' | 'legal-text' | '' = '';
 </script>
 
 <article class={type} aria-labelledby={headingId}>
