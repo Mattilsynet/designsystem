@@ -8,14 +8,13 @@
     title: 'Varsle om piggtrådgjerder',
     intro: `<p>Dette er introen</p>`,
     text: `<p>Du bør varsle Mattilsynet hvis du oppdager</p>
-<ul>
- <li>at noen setter opp nye piggtrådgjerder</li>
- <li>eldre piggtrådgjerder som utgjør en risiko for at dyr blir skadet</li>
- </ul>`,
+           <ul>
+            <li>at noen setter opp nye piggtrådgjerder</li>
+            <li>eldre piggtrådgjerder som utgjør en risiko for at dyr blir skadet</li>
+           </ul>`,
     moreText: `<h2>Du bør varsle</h2>
- <p>At noen setter opp nye piggtrådgjerder</p>
- <p>Eldre piggtrådgjerder som utgjør en risiko for at dyr blir skadet</p>
- `,
+               <p>At noen setter opp nye piggtrådgjerder</p>
+               <p>Eldre piggtrådgjerder som utgjør en risiko for at dyr blir skadet</p>`,
     formLinkUrl: 'http://',
     formLinkText: 'Lenke til skjema',
     disableCss: false

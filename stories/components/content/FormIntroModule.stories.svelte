@@ -9,10 +9,10 @@
     title: 'Varsle om piggtrådgjerder',
     intro: '',
     text: `<p>Du bør varsle Mattilsynet hvis du oppdager</p>
-<ul>
- <li>at noen setter opp nye piggtrådgjerder</li>
- <li>eldre piggtrådgjerder som utgjør en risiko for at dyr blir skadet</li>
- </ul>`,
+           <ul>
+             <li>at noen setter opp nye piggtrådgjerder</li>
+             <li>eldre piggtrådgjerder som utgjør en risiko for at dyr blir skadet</li>
+           </ul>`,
     formLinkUrl: 'http://',
     formLinkText: 'Lenke til skjema',
     disableCss: false
