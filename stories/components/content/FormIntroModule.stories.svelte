@@ -1,6 +1,6 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf';
-  import CardArticle from '../CardArticle.svelte';
+  import CardArticle from '../../../src/svelte/CardArticle.svelte';
 </script>
 
 <Meta
