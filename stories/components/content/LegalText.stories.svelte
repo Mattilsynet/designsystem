@@ -4,7 +4,7 @@
 </script>
 
 <Meta
-  title="Components/Innhold/Lovtekst"
+  title="Innhold/Lovtekst"
   args={{
     title: `Forskrift om omsetning og midlertidig hold av dyr, § 5 andre ledd`,
     text: `<p>

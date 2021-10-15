@@ -4,7 +4,7 @@
 </script>
 
 <Meta
-  title="Components/Innhold/Oppgave"
+  title="Innhold/Oppgave"
   args={{
     tasks: [
       {

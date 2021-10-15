@@ -4,7 +4,7 @@
 </script>
 
 <Meta
-  title="Components/Innhold/Artikkel"
+  title="Innhold/Artikkel"
   args={{
     title: 'Dette er det viktig at du vet før du får kjæledyr',
     intro:

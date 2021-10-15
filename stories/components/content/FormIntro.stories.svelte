@@ -4,7 +4,7 @@
 </script>
 
 <Meta
-  title="Components/Innhold/Skjemaforside (modul)"
+  title="Innhold/Skjemaforside (modul)"
   args={{
     title: 'Varsle om piggtrådgjerder',
     intro: '',
