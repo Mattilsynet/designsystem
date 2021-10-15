@@ -1,12 +1,12 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf';
-  import CardArticle from '../CardArticle.svelte';
+  import CardArticle from '../../../src/svelte/CardArticle.svelte';
   import Disclosure from '../../../src/svelte/Disclosure.svelte';
   import Published from '../../../src/svelte/Published.svelte';
 </script>
 
 <Meta
-  title="Components/Innhold/Regelveiledning"
+  title="Innhold/Regelveiledning"
   args={{
     title: 'Dette er det viktig at du vet før du får kjæledyr',
     intro: 'Å anskaffe seg et dyr er et stort ansvar og det er tid- og ',
@@ -52,7 +52,7 @@
           linkText="Neste handling"
         />
         <CardArticle
-          type="form-intro"
+          type="form-intro-module"
           title="Dette er tittelen"
           text="Noe tekst i kroppen"
           linkUrl="http://"

@@ -2,6 +2,13 @@
 @use '../theme' as *;
 
 .form-intro {
+  button,
+  .button {
+    margin-top: var(--spacer-medium);
+  }
+}
+
+.form-intro-module {
   @include card-article;
 
   background-color: var(--color-mt-white);
