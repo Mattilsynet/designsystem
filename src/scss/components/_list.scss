@@ -21,10 +21,10 @@ dl {
     gap: 0;
     word-break: break-word;
 
-    dt:first-child {
-      margin-top: 0;
-    }
-    :nth-child(odd) {
+    dt {
+      &:first-child {
+        margin-top: 0;
+      }
       margin-top: var(--spacer-small);
       line-height: 140%;
     }
@@ -33,7 +33,7 @@ dl {
       grid-template-columns: 5fr 7fr;
       gap: var(--spacer-small);
 
-      :nth-child(odd) {
+      dt {
         margin-top: 0;
       }
     }
