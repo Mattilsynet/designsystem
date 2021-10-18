@@ -1,0 +1,17 @@
+.form-page,
+.multipage-form-view {
+  &.layout-flex-col {
+    gap: 0;
+
+    > * + * {
+      margin-top: var(--content-spacer);
+    }
+
+    h2 {
+      margin-top: var(--spacer-large);
+    }
+    .back-arrow {
+      margin-top: var(--spacer-medium);
+    }
+  }
+}

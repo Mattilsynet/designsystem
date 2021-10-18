@@ -2,7 +2,7 @@
   import {Meta, Story} from '@storybook/addon-svelte-csf';
   import {action} from '@storybook/addon-actions';
   import FileUploadButton from '../../src/svelte/FileUploadButton.svelte';
-  import Button from '../../src/svelte/ButtonSpinner.svelte';
+  import ButtonSpinner from '../../src/svelte/ButtonSpinner.svelte';
 </script>
 
 <Meta
@@ -48,17 +48,29 @@
 <Story name="Loading">
   <h1>Loading</h1>
   <p class="description">Hovedknapp</p>
-  <Button formInProgressAriaLabel="Sender inn skjema, venter på svar." spinnerPlacement="start" color="primary">
+  <ButtonSpinner
+    formInProgressAriaLabel="Sender inn skjema, venter på svar."
+    btnClassNames="button--primary"
+    spinnerPlacement="start"
+  >
     Spinner placement start
-  </Button><br />
-  <Button formInProgressAriaLabel="Sender inn skjema, venter på svar." spinnerPlacement="end" color="primary">
+  </ButtonSpinner><br />
+  <ButtonSpinner
+    formInProgressAriaLabel="Sender inn skjema, venter på svar."
+    btnClassNames="button--primary"
+    spinnerPlacement="end"
+  >
     Spinner placement end
-  </Button>
+  </ButtonSpinner>
 
   <p class="description">Sekundær</p>
-  <Button formInProgressAriaLabel="Sender inn skjema, venter på svar." spinnerPlacement="end" color="secondary">
+  <ButtonSpinner
+    formInProgressAriaLabel="Sender inn skjema, venter på svar."
+    btnClassNames="button--secondary"
+    spinnerPlacement="end"
+  >
     Send in skjema
-  </Button>
+  </ButtonSpinner>
 </Story>
 
 <style lang="scss" global>

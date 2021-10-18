@@ -1,3 +1,5 @@
+@use '../theme' as *;
+
 dl {
   --spacer: 1rem;
 
@@ -9,6 +11,32 @@ dl {
   }
   dt {
     font-weight: bold;
+  }
+  &.summary-list {
+    --spacer: 1rem;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-column: 1 / span2;
+    gap: 0;
+    word-break: break-word;
+
+    dt {
+      &:first-child {
+        margin-top: 0;
+      }
+      margin-top: var(--spacer-small);
+      line-height: 140%;
+    }
+
+    @media only screen and (min-width: $breakpoint-large) {
+      grid-template-columns: 5fr 7fr;
+      gap: var(--spacer-small);
+
+      dt {
+        margin-top: 0;
+      }
+    }
   }
 }
 
@@ -28,8 +56,8 @@ ol {
       margin-top: var(--spacer-xx-small);
     }
   }
-  &.transport-list {
-    --gap: var(--spacer-x-small);
+  &.no-space-top {
+    margin-top: 0;
 
     li {
       margin-top: 0;
