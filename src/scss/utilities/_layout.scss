@@ -75,6 +75,29 @@
   clip-path: inset(50%);
 }
 
+.visually-hidden-focusable {
+  background: var(--color-primary);
+  color: white;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  text-align: center;
+  padding: 4px;
+
+  &:not(:focus):not(:focus-within) {
+    border: 0 !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    white-space: nowrap;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+  }
+}
+
 header,
 .header {
   display: grid;
