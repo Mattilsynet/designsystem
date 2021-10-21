@@ -131,6 +131,10 @@ $content-spacer: $spacer-x-small !default;
     margin-top: var(--content-spacer);
   }
 
+  > main {
+    margin-top: var(--spacer-large);
+  }
+
   > * + h2,
   > * + h3,
   > h3,
