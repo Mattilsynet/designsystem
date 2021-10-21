@@ -83,6 +83,7 @@
   position: fixed;
   text-align: center;
   padding: 4px;
+  left: 0;
 
   &:not(:focus):not(:focus-within) {
     border: 0 !important;
