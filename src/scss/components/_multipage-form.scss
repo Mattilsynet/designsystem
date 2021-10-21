@@ -3,6 +3,10 @@
   &.layout-flex-col {
     gap: 0;
 
+    .steps {
+      margin-top: var(--spacer-small);
+    }
+
     > * + * {
       margin-top: var(--content-spacer);
     }
