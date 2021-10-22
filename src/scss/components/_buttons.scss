@@ -87,7 +87,7 @@ $button-colors: 'error' !default;
     --button-focus-inner: var(--button-background);
     --button-focus-outer: var(--button-color);
     --color: var(--button-background);
-    --background: var(--button-color);
+    --background: transparent;
 
     border-color: var(--color);
     color: var(--color);
@@ -134,19 +134,19 @@ $button-colors: 'error' !default;
     vertical-align: bottom;
   }
   .spinner::after {
-      content: '';
-      width: 17px;
-      height: 17px;
-      display: block;
-      border-width: 1.3px;
-      border-style: solid;
-      border-radius: 50%;
-      border-top-color: initial;
-      border-bottom-color: initial;
-      border-right-color: transparent;
-      border-left-color: initial;
-      border-image: initial;
-      animation: 1s linear 0s infinite normal none running rotate;
+    content: '';
+    width: 17px;
+    height: 17px;
+    display: block;
+    border-width: 1.3px;
+    border-style: solid;
+    border-radius: 50%;
+    border-top-color: initial;
+    border-bottom-color: initial;
+    border-right-color: transparent;
+    border-left-color: initial;
+    border-image: initial;
+    animation: 1s linear 0s infinite normal none running rotate;
   }
 
   @keyframes rotate {
@@ -157,6 +157,5 @@ $button-colors: 'error' !default;
       transform: rotate(360deg);
     }
   }
-
 }
 // stylelint-enable
