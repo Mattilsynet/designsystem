@@ -17,6 +17,12 @@
     .back-arrow {
       margin-top: var(--spacer-medium);
     }
+    .confirmation {
+      margin-top: var(--spacer-large);
+      .button {
+        margin-top: var(--spacer-large);
+      }
+    }
   }
 }
 .form-funnel-view {
