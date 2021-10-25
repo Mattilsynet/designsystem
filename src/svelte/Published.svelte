@@ -2,6 +2,8 @@
   export let publishFrom;
   export let professionallyUpdated;
   export let lang = 'nb-NO';
+  export let publishedText: string = 'Publisert';
+  export let lastPublishedText: string = 'Sist oppdatert';
 
   $: publishFromLocalized = displayDataTime(lang, publishFrom);
   $: lastUpdatedLocalized = displayDataTime(lang, professionallyUpdated);
@@ -13,9 +15,9 @@
 </script>
 
 <dl class="meta">
-  <dd>Publisert</dd>
+  <dd>{publishedText}</dd>
   <dt><time datetime={publishFrom}>{publishFromLocalized}</time></dt>
-  <dd>Sist oppdatert</dd>
+  <dd>{lastPublishedText}</dd>
   <dt>
     <time datetime={professionallyUpdated}>{lastUpdatedLocalized}</time>
   </dt>
