@@ -21,7 +21,8 @@
   }
   .text {
     @include xp-html-area;
-    :first-child {
+    :first-child,
+    :first-child + h2 {
       margin-top: 0;
     }
   }
