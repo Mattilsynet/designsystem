@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {Meta, Story, Template} from '@storybook/addon-svelte-csf';
+  import {Meta, Story} from '@storybook/addon-svelte-csf';
 </script>
 
 <Meta
@@ -7,12 +7,12 @@
   args={{
     primary: 'mattilsynet.no',
     cards: [
-      {href: '', text: 'Dyr og dyrehold'},
-      {href: '', text: 'Mat og vann'},
-      {href: '', text: 'Fisk og akvakultur'},
-      {href: '', text: 'Planter og dyrking'},
-      {href: '', text: 'Kosmetikk'},
-      {href: '', text: 'Kritikkverdige forhold på arbeidsplassen'}
+      {href: '#', text: 'Dyr og dyrehold'},
+      {href: '#', text: 'Mat og vann'},
+      {href: '#', text: 'Fisk og akvakultur'},
+      {href: '#', text: 'Planter og dyrking'},
+      {href: '#', text: 'Kosmetikk'},
+      {href: '#', text: 'Kritikkverdige forhold på arbeidsplassen'}
     ],
     secondary: 'Avbryt',
     disabled: false,
@@ -89,7 +89,6 @@
             <span class="text">{link.text}</span>
           </a>
         {/each}
-        <!--        </div>-->
       </section>
       <hr />
     {/each}
