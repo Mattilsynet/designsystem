@@ -20,6 +20,25 @@
   &--center-vertical {
     align-items: center;
   }
+  &--basis-3,
+  &--basis-2 {
+    > * {
+      flex-basis: 100%;
+    }
+  }
+
+  @media only screen and (min-width: $breakpoint-large) {
+    &--basis-3 {
+      > * {
+        flex-basis: min(20rem, 31.5%);
+      }
+    }
+    &--basis-2 {
+      > * {
+        flex-basis: 20rem;
+      }
+    }
+  }
 }
 .layout-grid-3 {
   display: grid;
