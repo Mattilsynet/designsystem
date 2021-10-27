@@ -87,7 +87,7 @@ $button-colors: 'error' !default;
     --button-focus-inner: var(--button-background);
     --button-focus-outer: var(--button-color);
     --color: var(--button-background);
-    --background: transparent;
+    --background: var(--color-mt-background);
 
     border-color: var(--color);
     color: var(--color);
