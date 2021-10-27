@@ -4,6 +4,7 @@
   "description": "Design system for Mattilsynet",
   "main": "index.js",
   "private": false,
+  "homepage": "https://mattilsynet.github.io/designsystem",
   "scripts": {
     "tokens": "a11y-color-tokens --outputDirPath='src/scss' --colorTokensPath='src/scss/utilities/colors.js'",
     "watch:sass": "sass --no-source-map --watch src/scss:./dist",
@@ -17,9 +18,17 @@
     "lint": "eslint --fix --quiet --ext .js,.svelte,.ts '{src,stories}/**/*{.ts,.svelte}'",
     "lint-style": "stylelint src/scss/**/*.scss src/scss/**/**/*.scss src/scss/**/**/**/*.scss",
     "lint-style:fix": "npm run lint-style --fix",
-    "prepublishOnly": "npm run lint && npm run build"
+    "prepublishOnly": "npm run lint && npm run build",
+    "predeploy": "npm run build-storybook",
+    "deploy-storybook": "gh-pages -d storybook-static"
   },
-  "keywords": ["Design system", "Mattilsynet", "Svelte", "Storybook", "xstate"],
+  "keywords": [
+    "Design system",
+    "Mattilsynet",
+    "Svelte",
+    "Storybook",
+    "xstate"
+  ],
   "author": "Mattilsynet<matsdrift@mattilsynet.no>",
   "license": "MIT",
   "devDependencies": {
@@ -60,6 +69,7 @@
   },
   "dependencies": {
     "@xstate/svelte": "^0.2.0",
+    "gh-pages": "^3.2.3",
     "xstate": "^4.25.0"
   }
 }
