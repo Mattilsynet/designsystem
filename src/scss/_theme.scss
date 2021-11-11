@@ -1,4 +1,4 @@
-@use "color-tokens" as *;
+@use 'color-tokens' as *;
 $border-width-small: 1px;
 $border-width-regular: 2px;
 
@@ -28,6 +28,7 @@ $font-size-small: 1rem !default; //16px
 $font-size-label: clamp(1.1rem, 4.333vw + 1rem, 1.5rem) !default; //24px
 
 $height-header-regular: 6.25rem;
+$height-header-mobile: 4.25rem;
 
 $spacer-xx-small: 0.625rem !default; // 10px
 $spacer-x-small: 1.25rem !default; // 20px
@@ -57,7 +58,7 @@ $spacer-x-large: 5rem !default; // 80px
 body {
   display: grid;
   grid-template-rows: auto 1fr auto;
-  row-gap: $spacer-medium;
+  row-gap: $spacer-x-small;
   background-color: var(--color-mt-background);
   color: var(--color-mt-text-dark);
   font-family: $font-family;
@@ -65,5 +66,9 @@ body {
 
   footer {
     margin-top: $spacer-small;
+  }
+
+  @media only screen and (min-width: $breakpoint-large) {
+    row-gap: $spacer-medium;
   }
 }

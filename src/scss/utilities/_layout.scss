@@ -126,13 +126,17 @@ header,
   padding-left: $spacer-xx-small;
   border-bottom: $border-red-regular;
 
+  &--regular {
+    height: $height-header-mobile;
+  }
+
   @media only screen and (min-width: $breakpoint-large) {
     padding-right: $spacer-large;
     padding-left: $spacer-large;
-  }
 
-  &--regular {
-    height: $height-header-regular;
+    &--regular {
+      height: $height-header-regular;
+    }
   }
 }
 
@@ -142,16 +146,12 @@ footer,
   flex-direction: column;
   justify-self: center;
   width: min(1440px, 95vw);
-  padding: $spacer-small $spacer-small;
+  padding: $spacer-small 0;
   gap: $spacer-x-small;
   border-top: $border-red-regular;
 
-  @media only screen and (min-width: $breakpoint-large) {
-    flex-direction: row;
-    padding: $spacer-large 0;
-  }
-
   svg {
+    margin-top: var(--spacer-medium);
     align-self: center;
   }
 
@@ -166,6 +166,17 @@ footer,
     h3 {
       font-size: $font-size-body;
       font-weight: var(--font-weight-bold);
+    }
+  }
+
+  @media only screen and (min-width: $breakpoint-large) {
+    flex-direction: row;
+    gap: $spacer-x-small;
+    padding: $spacer-large 0;
+
+    svg {
+      margin-top: 0;
+      align-self: flex-start;
     }
   }
 }
