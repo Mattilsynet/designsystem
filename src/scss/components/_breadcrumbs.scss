@@ -2,13 +2,25 @@
 
 .breadcrumbs {
   ol {
-    list-style: none;
+    display: grid;
+    grid-template-columns: max-content max-content max-content 1fr;
+    grid-gap: 5px;
     padding: 0;
-    margin: 0;
+    margin: 1px 0 0 0;
     li {
       display: inline;
       padding-right: $spacer-x-small;
       font-size: $font-size-small;
+      margin-top: 0;
+      &.ellipsis {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        display: inline-block;
+      }
+    }
+    &.expanded {
+      display: inline;
     }
   }
 }
