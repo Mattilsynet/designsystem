@@ -98,7 +98,6 @@
 </Story>
 
 <style lang="scss">
-  @import 'src/scss/app';
   .layout-flex-col {
     --gap: var(--spacer-x-small);
   }

@@ -74,8 +74,6 @@
 </Story>
 
 <style lang="scss" global>
-  @import 'src/scss/app';
-
   button {
     margin-top: 0.5rem;
     margin-right: var(--spacer-small);

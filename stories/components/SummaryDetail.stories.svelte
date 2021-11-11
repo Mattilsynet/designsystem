@@ -44,7 +44,3 @@
     </div>
   </main>
 </Story>
-
-<style lang="scss" global>
-  @import 'src/scss/app';
-</style>

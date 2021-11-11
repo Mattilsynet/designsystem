@@ -98,7 +98,3 @@
     disableCss: false
   }}
 />
-
-<style lang="scss" global>
-  @import '../src/scss/app';
-</style>

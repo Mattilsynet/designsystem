@@ -10,6 +10,8 @@ When you have cloned this repo to your computer, you can run the following comma
 ```bash
 npm install
 npm run storybook
+// also run in other terminal to build sass
+npm run start
 ```
 
 ## Installation and usage

@@ -30,7 +30,3 @@
     <CardArticle type="legal-text" {title} {text} id={title} />
   </div>
 </Story>
-
-<style lang="scss">
-  @import '../src/scss/app';
-</style>

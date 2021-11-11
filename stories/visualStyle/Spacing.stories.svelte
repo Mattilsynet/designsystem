@@ -143,7 +143,3 @@
     <footer class="footer" />
   </body>
 </Story>
-
-<style lang="scss">
-  @use 'src/scss/app';
-</style>

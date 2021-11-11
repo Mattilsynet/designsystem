@@ -71,7 +71,3 @@
     </article>
   </div>
 </Story>
-
-<style lang="scss">
-  @import '../src/scss/app';
-</style>
