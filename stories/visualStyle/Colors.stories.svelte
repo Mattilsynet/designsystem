@@ -30,7 +30,6 @@
 </Story>
 
 <style lang="scss">
-  @import 'src/scss/app';
   .layout-grid {
     background-color: #fff;
   }

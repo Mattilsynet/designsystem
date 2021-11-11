@@ -1,29 +1,25 @@
-<script lang='ts'>
+<script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf';
 
-  const steps = [
-    'Om bekymringen',
-    'Info om deg',
-    'Oppsummering',
-    'Bekreftelse'
-  ];
+  const steps = ['Om bekymringen', 'Info om deg', 'Oppsummering', 'Bekreftelse'];
 </script>
 
 <Meta
-  title='Components/Steps'
+  title="Components/Steps"
   args={{
     completed: 2
   }}
   argTypes={{
-    completed: {control: 'number'},
-  }} />
+    completed: {control: 'number'}
+  }}
+/>
 
-<Story name='Normal' let:completed>
-  <ol class='steps'>
+<Story name="Normal" let:completed>
+  <ol class="steps">
     {#each steps as step, index (step)}
-      <li class:steps__complete={ index < completed }>
-        {#if index < completed }
-          <span class='inclusively-hidden'>Ferdig: </span>
+      <li class:steps__complete={index < completed}>
+        {#if index < completed}
+          <span class="inclusively-hidden">Ferdig: </span>
         {/if}
 
         {step}
@@ -31,7 +27,3 @@
     {/each}
   </ol>
 </Story>
-
-<style lang='scss' global>
-  @import "../src/scss/app";
-</style>

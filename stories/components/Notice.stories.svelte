@@ -39,7 +39,6 @@
 </Story>
 
 <style lang="scss">
-  @import 'src/scss/app';
   main {
     --gap: var(--spacer-large);
   }

@@ -38,7 +38,3 @@
 <Story name="Normal" let:breadcrumbs>
   <Breadcrumbs {breadcrumbs} />
 </Story>
-
-<style lang="scss" global>
-  @import '../src/scss/app';
-</style>

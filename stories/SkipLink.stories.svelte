@@ -5,7 +5,7 @@
 <Meta
   title="Components/Skip Link"
   args={{
-    label: 'Hopp til hovedinnholdet',
+    label: 'Hopp til hovedinnholdet'
   }}
 />
 
@@ -14,7 +14,3 @@
   <h2>Hidden focusable link</h2>
   <p>Press tab to focus the link, and make it visible.</p>
 </Story>
-
-<style lang="scss" global>
-  @import '../src/scss/app';
-</style>
