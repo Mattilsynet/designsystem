@@ -1,14 +1,23 @@
 @use '../utilities/mixins' as *;
+@use '../theme' as *;
 
 .notice {
+  --notice-margin: 0;
+  --notice-padding: var(--spacer-x-small);
+
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-right: var(--notice-margin);
+  margin-left: var(--notice-margin);
+  padding: var(--notice-padding);
   gap: var(--spacer-x-small);
-  margin-right: var(--spacer-large);
-  margin-left: var(--spacer-large);
-  padding: var(--spacer-small);
   background-color: #fff;
+
+  @media only screen and (min-width: $breakpoint-large) {
+    --notice-margin: var(--spacer-large);
+    --notice-padding: var(--spacer-small);
+  }
 
   .important {
     align-self: flex-start;
