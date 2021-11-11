@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
   import {Meta, Story} from '@storybook/addon-svelte-csf';
   import ChapterMenu from '../../src/svelte/ChapterMenu.svelte';
   import {action} from '@storybook/addon-actions';
@@ -53,9 +53,7 @@
   </div>
 </Story>
 
-<style lang="scss" global>
-  @import 'src/scss/app';
-
+<style lang="scss">
   .chapter-menu-wrapper {
     display: inline-block;
     margin: 2rem;

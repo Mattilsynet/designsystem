@@ -9,7 +9,11 @@
   export let basePath: string;
   export let menuTitle: string;
 
-  const dispatch = createEventDispatcher();
+  interface ChapterChangeDetails {
+    index: number;
+  }
+
+  const dispatch = createEventDispatcher<{chapterChange: ChapterChangeDetails}>();
 </script>
 
 <nav class="chapter-menu" aria-labelledby="chapter-menu-title">
