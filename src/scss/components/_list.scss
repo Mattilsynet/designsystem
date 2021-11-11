@@ -44,6 +44,10 @@ ol.list-unstyled,
 ul.list-unstyled {
   padding-left: 0;
   list-style: none;
+
+  li {
+    margin-top: 0;
+  }
 }
 
 ul,

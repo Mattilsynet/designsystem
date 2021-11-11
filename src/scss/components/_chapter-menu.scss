@@ -1,0 +1,36 @@
+@use '../theme' as *;
+
+.chapter-menu {
+  background-color: var(--color-mt-blue);
+  color: white;
+  margin: var(--spacer-x-small);
+
+  li {
+    border-top: 1px solid var(--color-mt-background);
+
+    &:last-child {
+      border-bottom: 1px solid var(--color-mt-background);
+    }
+  }
+
+  a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    width: 100%;
+    padding: var(--spacer-xx-small) 0;
+    transition: padding-left ease-in-out 150ms;
+
+    &[aria-current='page'] {
+      background-color: #d6e8ed;
+      color: #075b7a;
+      font-weight: bold;
+      padding-left: var(--spacer-xx-small);
+    }
+
+    &:focus {
+      outline-offset: -1px;
+      outline: 2px solid var(--color-mt-beige);
+    }
+  }
+}
