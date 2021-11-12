@@ -43,6 +43,7 @@
 
 <Meta
   title="Components/Breadcrumbs"
+  parameters={{xstate: true}}
   args={{
     loadJs: true,
     breadcrumbsLong: {

@@ -1,12 +1,13 @@
 @use "../theme" as *;
 
 .breadcrumbs {
+  font-size: 1rem;
   ol {
     display: grid;
     grid-template-columns: max-content max-content max-content 1fr;
-    grid-gap: 5px;
+    grid-gap: var(--spacer-xx-small);
     padding: 0;
-    margin: 1px 0 0 0;
+    margin: 0;
     li {
       display: inline;
       padding-right: $spacer-x-small;
