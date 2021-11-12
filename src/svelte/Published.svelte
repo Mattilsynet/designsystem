@@ -2,8 +2,8 @@
   export let publishFrom;
   export let professionallyUpdated;
   export let lang = 'nb-NO';
-  export let publishedText: string = 'Publisert';
-  export let lastPublishedText: string = 'Sist oppdatert';
+  export let publishedText = 'Publisert';
+  export let lastPublishedText = 'Sist oppdatert';
 
   $: publishFromLocalized = displayDataTime(lang, publishFrom);
   $: lastUpdatedLocalized = displayDataTime(lang, professionallyUpdated);
