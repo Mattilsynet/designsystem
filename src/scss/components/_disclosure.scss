@@ -2,7 +2,7 @@
 @use '../utilities/mixins' as *;
 
 .disclosure {
-  --disclosure-spacing: var(--spacer-xx-small);
+  --disclosure-spacing: var(--spacer-x-small);
 
   border-top: $border-width-regular solid var(--color-secondary);
   border-bottom: $border-width-regular solid var(--color-secondary);
@@ -15,6 +15,7 @@
   .disclosure-header {
     display: flex;
     justify-content: space-between;
+    gap: var(--spacer-xx-small);
     width: 100%;
     margin: 0;
     padding: var(--disclosure-spacing) 0;
@@ -44,18 +45,10 @@
 
     --content-space: var(--spacer-xx-small);
 
-    padding: 0;
+    padding: 0 0 var(--spacer-x-small) 0;
 
     h3 {
-      margin-top: var(--spacer-xx-small);
-    }
-  }
-
-  @media only screen and (min-width: $breakpoint-large) {
-    --disclosure-spacing: var(--spacer-x-small);
-    .disclosure-panel {
-      // sjekk jira issue om denne skal være med
-      padding: var(--disclosure-spacing);
+      margin-top: var(--content-space);
     }
   }
 }
