@@ -1,0 +1,37 @@
+@use '../theme' as *;
+
+.chapter-menu {
+  background-color: var(--color-mt-blue);
+  color: var(--color-mt-white);
+  margin: var(--spacer-x-small);
+
+  li {
+    border-top: $border-width-small solid var(--color-mt-background);
+    margin-top: 0;
+
+    &:last-child {
+      border-bottom: $border-width-small solid var(--color-mt-background);
+    }
+  }
+
+  a {
+    display: block;
+    color: var(--color-mt-white);
+    text-decoration: none;
+    width: 100%;
+    padding: var(--spacer-xx-small) 0;
+    transition: padding-left ease-in-out 150ms;
+
+    &[aria-current='page'] {
+      background-color: var(--color-mt-rationale-blue);
+      color: var(--color-mt-blue);
+      font-weight: $font-weight-bold;
+      padding-left: var(--spacer-xx-small);
+    }
+
+    &:focus {
+      outline-offset: -1px;
+      outline: 2px solid var(--color-mt-beige);
+    }
+  }
+}
