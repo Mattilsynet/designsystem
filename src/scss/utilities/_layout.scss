@@ -122,10 +122,11 @@ header,
 .header {
   display: grid;
   align-items: center;
-  padding-right: $spacer-xx-small;
-  padding-left: $spacer-xx-small;
   border-bottom: $border-red-regular;
 
+  svg {
+    height: 1.8rem;
+  }
   &--regular {
     height: $height-header-mobile;
   }
@@ -133,6 +134,10 @@ header,
   @media only screen and (min-width: $breakpoint-large) {
     padding-right: $spacer-large;
     padding-left: $spacer-large;
+
+    svg {
+      height: 2.5rem;
+    }
 
     &--regular {
       height: $height-header-regular;
