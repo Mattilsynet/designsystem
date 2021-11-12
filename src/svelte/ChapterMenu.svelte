@@ -1,17 +1,10 @@
 <script lang="ts">
   import {createEventDispatcher} from 'svelte';
-  import {toKebabCase} from '../ts/utils';
-  export let chapters: Array<{
-    heading: string;
-    index: number;
-  }>;
-  export let currentChapterNumber = 0;
-  export let basePath: string;
-  export let menuTitle: string;
+  import type {Chapter, ChapterChangeDetails} from '../ts/types';
 
-  interface ChapterChangeDetails {
-    index: number;
-  }
+  export let chapters: Array<Chapter>;
+  export let currentChapterNumber = 0;
+  export let menuTitle: string;
 
   const dispatch = createEventDispatcher<{chapterChange: ChapterChangeDetails}>();
 </script>
@@ -24,7 +17,7 @@
       <li>
         <a
           on:click|preventDefault={dispatch('chapterChange', {index: chapter.index})}
-          href="{basePath}?kapittel={chapter.index}-{toKebabCase(chapter.heading)}"
+          href={chapter.url}
           aria-current={chapter.index === currentChapterNumber ? 'page' : undefined}
         >
           {chapter.heading}

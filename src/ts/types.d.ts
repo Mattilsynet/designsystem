@@ -10,3 +10,13 @@ export type Action<Node extends HTMLElement> = (
   update?: (parameters: any) => void;
   destroy?: () => void;
 } | void;
+
+export interface Chapter {
+  heading: string;
+  url: string;
+  index: number;
+}
+
+export interface ChapterChangeDetails {
+  index: number;
+}
