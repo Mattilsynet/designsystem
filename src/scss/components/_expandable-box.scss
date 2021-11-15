@@ -1,0 +1,34 @@
+@use '../theme' as *;
+@use '../utilities/mixins' as *;
+
+.expandableBox {
+  padding: 20px;
+  min-width: 331px;
+  text-align: right;
+  display: inline-block;
+
+  button {
+    font-size: $font-size-label;
+    font-weight: var(--font-weight-light);
+    text-decoration: none;
+  }
+
+  .alt-language {
+    text-align: left;
+    list-style: none;
+    padding: 0;
+    color:white;
+  }
+
+  &.visible {
+    background: var(--color-mt-blue);
+    color: white;
+
+    a {
+      color: white;
+      font-size: $font-size-h4;
+      font-weight: var(--font-weight-light);
+      padding: 0;
+    }
+  }
+}

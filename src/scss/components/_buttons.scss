@@ -190,5 +190,23 @@ $button-colors: 'error' !default;
       margin-right: var(--spacer-x-small);
     }
   }
+
+  &.chevron-down::after {
+    content: '';
+    width: 20px;
+    height: 14px;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTE4LjIxNCAwIDEwIDguMzY0IDEuNzg2IDAgMCAxLjgxOCAxMCAxMiAyMCAxLjgxOCAxOC4yMTQgMFoiIGZpbGw9IiMzRjNFM0UiLz48L3N2Zz4=");
+    background-repeat: no-repeat;
+  }
+
+  &.chevron-up::after {
+    content: '';
+    width: 20px;
+    height: 16px;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEuNzg2IDEyIDEwIDMuNjM2IDE4LjIxNCAxMiAyMCAxMC4xODIgMTAgMCAwIDEwLjE4MiAxLjc4NiAxMloiIGZpbGw9IiNmZmYiLz48L3N2Zz4=");
+    background-repeat: no-repeat;
+  }
+
+
 }
 // stylelint-enable
