@@ -15,6 +15,7 @@
   .disclosure-header {
     display: flex;
     justify-content: space-between;
+    gap: var(--spacer-xx-small);
     width: 100%;
     margin: 0;
     padding: var(--disclosure-spacing) 0;
@@ -42,6 +43,12 @@
   .disclosure-panel {
     @include xp-html-area;
 
-    padding: var(--disclosure-spacing) var(--spacer-large) var(--disclosure-spacing) var(--disclosure-spacing);
+    --content-space: var(--spacer-xx-small);
+
+    padding: 0 0 var(--spacer-x-small) 0;
+
+    h3 {
+      margin-top: var(--content-space);
+    }
   }
 }
