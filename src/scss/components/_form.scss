@@ -3,7 +3,7 @@
 @use '../utilities/mixins' as *;
 
 //stylelint-disable no-descending-specificity
-$form-group-spacer: 'var(--spacer-large)' !default;
+$form-group-spacer: 'var(--spacer-medium)' !default;
 $form-text-space: 'var(--spacer-xx-small)' !default;
 $form-field-width: 100% !default;
 $form-text-color: 'var(--color-text)' !default;
@@ -26,6 +26,10 @@ form {
 
   .hint {
     font-size: $font-size-small;
+  }
+
+  @media only screen and (min-width: $breakpoint-large) {
+    --form-group-spacer: var(--spacer-large);
   }
 }
 form,
