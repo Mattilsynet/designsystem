@@ -28,7 +28,7 @@
 
 <Meta
   title="Components/Disclosure"
-  parameters={{xstate: true}}
+  parameters={{xstate: true, inspectUrl: 'https://stately.ai/viz?inspect'}}
   argTypes={{
     title: {control: 'text'},
     body: {control: 'text'},
