@@ -10,10 +10,11 @@
 
   export let loadJs = true;
   export let title: string;
-  export let headerTag: 'h2' | 'h3' = 'h3'
+  export let headerTag: 'h2' | 'h3' = 'h3';
 
   interface DisclosureContext {
     isOpen: boolean;
+    isFirstRenderFinished: boolean;
   }
 
   type DisclosureEvent = {type: 'MOUNTED'} | {type: 'TOGGLE'};
@@ -28,18 +29,20 @@
     id: 'disclosure',
     initial: 'serverRendered',
     context: {
-      isOpen: true
+      isOpen: true,
+      isFirstRenderFinished: false
     },
     states: {
       serverRendered: {
         on: {MOUNTED: 'closed'}
       },
       closed: {
-        entry: assign<DisclosureContext, DisclosureEvent>({isOpen: false}),
+        entry: assign({isOpen: false}),
+        exit: assign({isFirstRenderFinished: true}),
         on: {TOGGLE: 'open'}
       },
       open: {
-        entry: assign<DisclosureContext, DisclosureEvent>({isOpen: true}),
+        entry: assign({isOpen: true}),
         on: {TOGGLE: 'closed'}
       }
     }
@@ -60,13 +63,22 @@
   {:else if onServer}
     <h3 class="disclosure-header">{title}</h3>
   {:else}
-    <button class="disclosure-header {headerTag === 'h2' ? 'h2' : ''}" aria-expanded={isOpen} aria-controls={bodyId} on:click={() => send('TOGGLE')}>
+    <button
+      class="disclosure-header {headerTag === 'h2' ? 'h2' : ''}"
+      aria-expanded={isOpen}
+      aria-controls={bodyId}
+      on:click={() => send('TOGGLE')}
+    >
       {title}
     </button>
   {/if}
 
   {#if isOpen}
-    <div id={bodyId} class="disclosure-panel" transition:slide|local>
+    <div
+      id={bodyId}
+      class="disclosure-panel"
+      transition:slide|local={{duration: $state.context.isFirstRenderFinished ? 300 : 0}}
+    >
       {#if !onServer && headerTag === 'h2'}
         <h2 class="inclusively-hidden">{title}</h2>
       {:else if !onServer}
