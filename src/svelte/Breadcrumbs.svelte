@@ -7,6 +7,7 @@
   const BUTTON_ELLIPSIS = Symbol()
   export let breadcrumbs: Breadcrumbs = {items: []};
   export let loadJs = false
+  export let limitBeforePartial = 3
 
   interface BreadcrumbsContext {
     breadcrumbsItems: Array<{url: string, title: string} | symbol>
@@ -16,35 +17,35 @@
 
   type BreadcrumbsState =
     | {value: 'serverRendered'; context: BreadcrumbsContext}
-    | {value: 'closed'; context: BreadcrumbsContext}
-    | {value: 'open'; context: BreadcrumbsContext};
+    | {value: 'partial'; context: BreadcrumbsContext}
+    | {value: 'full'; context: BreadcrumbsContext};
 
   const breadcrumbsMachine = createMachine<BreadcrumbsContext, BreadcrumbsEvent, BreadcrumbsState>({
     id: 'breadcrumbs',
     initial: 'serverRendered',
     context: {
-      breadcrumbsItems: []
+      breadcrumbsItems: breadcrumbs.items
     },
     states: {
       serverRendered: {
         on: {
           MOUNTED: [
             {
-              target: 'closed',
-              cond: (() => breadcrumbs.items.length > 3)
+              target: 'partial',
+              cond: ((context) => context.breadcrumbsItems.length > limitBeforePartial)
             },
             {
-              target: 'open'
+              target: 'full'
             }
           ]}
       },
-      closed: {
+      partial: {
         entry: 'prepareCollapsedBreadcrumbs',
-        on: { TOGGLE: 'open' }
+        on: { TOGGLE: 'full' }
       },
-      open: {
+      full: {
         entry: 'expandBreadcrumbs',
-        on: { TOGGLE: 'closed' }
+        on: { TOGGLE: 'partial' }
       }
     }
   }, {
@@ -65,11 +66,12 @@
   const {state, send} = useMachine(breadcrumbsMachine)
 
   let ariaLabel = breadcrumbs.ariaLabel ?? 'brødsmulesti';
-  let showAllBreadCrumbs = breadcrumbs.showAllAriaLabel ?? 'vis mer'
+  let showAllBreadCrumbsLabel = breadcrumbs.showAllAriaLabel ?? 'vis mer'
+  let homeLabel = breadcrumbs.homeLabel ?? 'Hjem'
 
-  $: isOpen = $state.value !== 'closed'
+  $: isFull = $state.value !== 'partial'
   $: onServer = $state.value === 'serverRendered'
-  $: bredcrumbs = $state.context.breadcrumbsItems
+  $: preparedBreadCrumbs = $state.context.breadcrumbsItems
 
   if(loadJs) {
     onMount(() => send('MOUNTED'))
@@ -77,20 +79,20 @@
 </script>
 
 <nav class="breadcrumbs" aria-label={ariaLabel}>
-  <ol class:expanded={isOpen}>
-    {#each bredcrumbs as item, index}
-      <li class:ellipsis={!isOpen && index +1 === bredcrumbs.length}>
+  <ol class:expanded={isFull}>
+    {#each preparedBreadCrumbs as item, index}
+      <li class:ellipsis={!isFull && index +1 === preparedBreadCrumbs.length}>
         {#if index === 0}
-          <a href={item.url}>Hjem</a>
-        {:else if item === BUTTON_ELLIPSIS && !onServer}
+          <a href={item.url}>{homeLabel}</a>
+        {:else if item === BUTTON_ELLIPSIS}
           <button
             type="button"
             aria-expanded="false"
-            aria-label={showAllBreadCrumbs}
+            aria-label={showAllBreadCrumbsLabel}
             class="button button--link forward-arrow"
             on:click={() => send('TOGGLE')}
           > ... </button>
-        {:else if index + 1 < bredcrumbs.length}
+        {:else if index + 1 < preparedBreadCrumbs.length}
           <a class="forward-arrow" href={item.url}>{item.title}</a>
         {:else}
           <a class="forward-arrow" aria-current="page" href={item.url}>{item.title}</a>

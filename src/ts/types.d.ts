@@ -15,6 +15,7 @@ export interface Breadcrumbs {
   items: Array<{url: string; title: string}>
   ariaLabel?: string
   showAllAriaLabel?: string
+  homeLabel?: string
 }
 
 export interface Chapter {
