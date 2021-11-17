@@ -11,6 +11,13 @@ export type Action<Node extends HTMLElement> = (
   destroy?: () => void;
 } | void;
 
+export interface Breadcrumbs {
+  items: Array<{url: string; title: string}>
+  ariaLabel?: string
+  showAllAriaLabel?: string
+  homeLabel?: string
+}
+
 export interface Chapter {
   heading: string;
   url: string;

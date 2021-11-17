@@ -32,6 +32,9 @@
 
   <p class="description">Sekundær</p>
   <button class="button button--secondary" {disabled}>{secondary}</button>
+
+  <p class="description">Lenkeknapp</p>
+  <button class="button button--link"> ... </button>
 </Story>
 
 <Story name="FileUpload" parameters={{xstate: true}} let:disableJs>
