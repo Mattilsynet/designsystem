@@ -11,6 +11,7 @@
     primary: 'Gå videre',
     primaryLong: 'Send inn til Mattilsynet',
     secondary: 'Avbryt',
+    uploadRequired: false,
     disabled: false,
     disableJs: false,
     disableCss: false
@@ -20,6 +21,7 @@
     disabled: {control: 'boolean'},
     disableJs: {control: 'boolean'},
     disableCss: {control: 'boolean'},
+    uploadRequired: {control: 'boolean'},
     removeFile: {action: 'removeFile'}
   }}
 />
@@ -34,13 +36,14 @@
   <button class="button button--secondary" {disabled}>{secondary}</button>
 </Story>
 
-<Story name="FileUpload" parameters={{xstate: true}} let:disableJs>
+<Story name="FileUpload" parameters={{xstate: true}} let:disableJs let:uploadRequired>
   <FileUploadButton
     name="file"
     id="file1"
     buttonText="Legg til fil"
     loadJs={!disableJs}
     multiple={true}
+    isRequired={uploadRequired}
     on:removeFile={action('removeFile')}
   />
 </Story>
