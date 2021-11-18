@@ -11,17 +11,14 @@
         title: 'Vis denne siden på nynorsk og samisk',
         url: '#',
         homeLabel: 'hjem',
-        ariaLabel: 'Les innhaldet på nynorsk'
       },
       {
         title: 'Show this page in English',
         url: '#"',
         homeLabel: 'home',
-        ariaLabel: 'Read this content in english'
       }
     ]
   }
-
 </script>
 
 <Meta
@@ -38,9 +35,7 @@
       <ol class="alt-language" aria-labelledby={args.bodyId} >
         {#each args.items as item}
           <li>
-            <a href={item.url} class="forward-arrow-small" aria-label={item.ariaLabel}>
-              {item.title}
-            </a>
+            <a href={item.url} class="forward-arrow-small">{item.title}</a>
           </li>
         {/each}
       </ol>
@@ -51,5 +46,11 @@
 <style>
   .preview-wrapper {
     text-align: right;
+  }
+  .alt-language {
+    text-align: left;
+    list-style: none;
+    padding: 0;
+    color: white;
   }
 </style>
