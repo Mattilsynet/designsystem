@@ -1,10 +1,11 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf';
-  import ExpandableBox from '../src/svelte/ExpandableBox.svelte';
+  import Dropdown from '../src/svelte/Dropdown.svelte';
 
   const config = {
     ariaLabel: 'Språk/language',
     disableJs: false,
+    bodyId: 'language-links',
     items: [
       {
         title: 'Vis denne siden på nynorsk og samisk',
@@ -24,7 +25,7 @@
 </script>
 
 <Meta
-  title="Components/Expandable box"
+  title="Components/Dropdown"
   argTypes={{
     title: {control: 'text'},
     disableJs: {control: 'boolean'}
@@ -33,8 +34,8 @@
 
 <Story name="Normal" args={config} let:args>
   <div class="preview-wrapper">
-    <ExpandableBox title="Språk/language" loadJs={!args.disableJs}>
-      <ol class="alt-language" >
+    <Dropdown title="Språk/language" bodyId={args.bodyId} loadJs={!args.disableJs}>
+      <ol class="alt-language" aria-labelledby={args.bodyId} >
         {#each args.items as item}
           <li>
             <a href={item.url} class="forward-arrow-small" aria-label={item.ariaLabel}>
@@ -43,7 +44,7 @@
           </li>
         {/each}
       </ol>
-    </ExpandableBox>
+    </Dropdown>
   </div>
 </Story>
 

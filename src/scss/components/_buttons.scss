@@ -13,7 +13,7 @@ $button-colors: 'error' !default;
 
   // Reset for buttons
   padding: 0.25em 1.25em;
-  border: 2px solid transparent;
+  border: 0.125rem solid transparent;
   font-family: inherit;
   cursor: pointer;
 
@@ -30,7 +30,7 @@ $button-colors: 'error' !default;
 
   // Size
   min-width: 10ch;
-  min-height: 44px;
+  min-height: 2.75rem;
 
   // Text
   text-align: center;
@@ -160,10 +160,10 @@ $button-colors: 'error' !default;
   }
   .spinner::after {
     content: '';
-    width: 17px;
-    height: 17px;
+    width: 1.0625rem;
+    height: 1.0625rem;
     display: block;
-    border-width: 1.3px;
+    border-width: 0.08125rem;
     border-style: solid;
     border-radius: 50%;
     border-top-color: initial;
@@ -190,23 +190,6 @@ $button-colors: 'error' !default;
       margin-right: var(--spacer-x-small);
     }
   }
-
-  &.chevron-down::after {
-    content: '';
-    width: 20px;
-    height: 14px;
-    background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTE4LjIxNCAwIDEwIDguMzY0IDEuNzg2IDAgMCAxLjgxOCAxMCAxMiAyMCAxLjgxOCAxOC4yMTQgMFoiIGZpbGw9IiMzRjNFM0UiLz48L3N2Zz4=");
-    background-repeat: no-repeat;
-  }
-
-  &.chevron-up::after {
-    content: '';
-    width: 20px;
-    height: 16px;
-    background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEuNzg2IDEyIDEwIDMuNjM2IDE4LjIxNCAxMiAyMCAxMC4xODIgMTAgMCAwIDEwLjE4MiAxLjc4NiAxMloiIGZpbGw9IiNmZmYiLz48L3N2Zz4=");
-    background-repeat: no-repeat;
-  }
-
 
 }
 // stylelint-enable
