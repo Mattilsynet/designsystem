@@ -11,6 +11,7 @@
   export let label: string;
   export let helpText: string | undefined;
   export let textOptional: string | undefined;
+  export let hiddenErrorText: string | undefined;
 
   export let maxlength: number | undefined;
   export let placeholder: string | undefined;
@@ -28,7 +29,7 @@
 {/if}
 
 {#if error}
-  <InputError {...error} />
+  <InputError {...error} {hiddenErrorText} />
 {/if}
 
 <input

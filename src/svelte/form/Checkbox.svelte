@@ -1,6 +1,5 @@
 <script lang="ts">
   import InputError from './InputErrorMessage.svelte';
-  import {toKebabCase, createInputAriaDescribedby} from '../../ts/utils';
   import type {ErrorDetail} from '../../ts/types';
 
   export let value;
@@ -11,6 +10,7 @@
   export let options: Array<{value: string; text: string}> = [];
   export let isRequired: boolean | undefined;
   export let textOptional: string | undefined = 'valgfitt felt';
+  export let hiddenErrorText: string | undefined;
 </script>
 
 <fieldset id={name} aria-describedby={`${name}-hint ${name}-error`} class="form-fieldset">
@@ -25,6 +25,10 @@
     <div class="hint">
       {@html helpText}
     </div>
+  {/if}
+
+  {#if error}
+    <InputError {...error} {hiddenErrorText} />
   {/if}
 
   {#each options as radio (radio.value)}

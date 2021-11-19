@@ -11,6 +11,7 @@
   export let options: Array<{value: string; text: string}> = [];
   export let isRequired: boolean | undefined;
   export let textOptional: string | undefined = 'valgfitt felt';
+  export let hiddenErrorText: string | undefined;
 </script>
 
 <fieldset id={name} aria-describedby={`${name}-hint ${name}-error`} aria-required={isRequired} class="form-fieldset">
@@ -28,7 +29,7 @@
   {/if}
 
   {#if error}
-    <InputError {...error} />
+    <InputError {...error} {hiddenErrorText} />
   {/if}
 
   {#each options as radio (radio.value)}

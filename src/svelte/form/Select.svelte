@@ -7,15 +7,16 @@
   import type {ErrorDetail} from '../../ts/types';
   import {createInputAriaDescribedby} from '../../ts/utils';
   import Label from './Label.svelte';
-  export let value: string | undefined;
-  export let error: ErrorDetail | undefined;
   export let name: string;
   export let label: string;
+  export let idPrefix: string;
+  export let value: string | undefined;
+  export let error: ErrorDetail | undefined;
   export let helpText: string | undefined;
   export let options: Array<{value: string; text: string}> = [];
   export let isRequired: boolean | undefined;
   export let textOptional: string | undefined;
-  export let idPrefix: string;
+  export let hiddenErrorText: string | undefined;
 
   const selectId = `${idPrefix}-${instanceCounter++}-`;
 </script>
@@ -29,7 +30,7 @@
 {/if}
 
 {#if error}
-  <InputError {...error} />
+  <InputError {...error} {hiddenErrorText} />
 {/if}
 
 <select

@@ -10,6 +10,7 @@
   export let label: string;
   export let helpText: string | undefined;
   export let textOptional: string | undefined;
+  export let hiddenErrorText: string | undefined;
 
   export let rows: number | undefined = 5;
   export let cols: number;
@@ -29,7 +30,7 @@
 {/if}
 
 {#if error}
-  <InputError {...error} />
+  <InputError {...error} {hiddenErrorText} />
 {/if}
 
 <textarea
