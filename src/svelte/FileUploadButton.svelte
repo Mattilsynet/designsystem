@@ -13,6 +13,7 @@
   export let accept: string | undefined;
   export let buttonText = 'Legg til fil';
   export let fileName: string | Array<string> | undefined;
+  export let isRequired: boolean;
 
   const dispatch = createEventDispatcher();
 
@@ -126,6 +127,7 @@
   aria-describedby={createInputAriaDescribedby(name, error)}
   aria-invalid={!!error}
   on:change={e => send({type: 'FILE_SELECTED', fileNames: getFileNames(e.target)})}
+  aria-required={isRequired || undefined}
 />
 
 {#if !onServer}
