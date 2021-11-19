@@ -1,6 +1,6 @@
-import type {UIError} from './types';
+import type {ErrorDetail} from './types';
 
-export function createInputAriaDescribedby(name: string, error: UIError | undefined): string {
+export function createInputAriaDescribedby(name: string, error: ErrorDetail | undefined): string {
   return error ? `${name}-hint ${name}-error` : `${name}-hint`;
 }
 
