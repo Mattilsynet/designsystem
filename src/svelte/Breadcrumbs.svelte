@@ -6,7 +6,7 @@
 
   const BUTTON_ELLIPSIS = Symbol();
   export let breadcrumbs: Breadcrumbs = {items: []};
-  export let loadJs = false;
+  export let loadJs = true;
   const LIMIT_BEFORE_PARTIAL = 3;
 
   interface BreadcrumbsContext {
