@@ -1,5 +1,6 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf';
+  import Select from '../../../src/svelte/form/Select.svelte';
 </script>
 
 <Meta
@@ -17,19 +18,16 @@
 
 <Story name="Normal" let:label let:helpText>
   <form>
-    <label class="form-label" for="selectfield">
+    <Select
+      options={[
+        {text: 'Hund', value: 'dog'},
+        {text: 'Cat', value: 'cat'}
+      ]}
       {label}
-    </label>
-
-    {#if helpText}
-      <div class="hint">
-        {@html helpText}
-      </div>
-    {/if}
-
-    <select id="selectfield" name="animal" class="form-field" aria-describedby="inputfield-hint inputfield-error">
-      <option>Dog</option>
-      <option>Hamster</option>
-    </select>
+      {helpText}
+      name="animal"
+      error={undefined}
+      idPrefix="select-box-"
+    />
   </form>
 </Story>
