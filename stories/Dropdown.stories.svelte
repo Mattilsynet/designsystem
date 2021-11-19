@@ -10,18 +10,17 @@
       {
         title: 'Vis denne siden på nynorsk og samisk',
         url: '#',
-        homeLabel: 'hjem',
       },
       {
         title: 'Show this page in English',
         url: '#"',
-        homeLabel: 'home',
       }
     ]
   }
 </script>
 
 <Meta
+  parameters={{xstate: true, inspectUrl: 'https://stately.ai/viz?inspect'}}
   title="Components/Dropdown"
   argTypes={{
     title: {control: 'text'},

@@ -1,7 +1,7 @@
 @use 'color-tokens' as *;
 $border-width-small: 1px;
 $border-width-regular: 2px;
-
+$border-radius: 0.25em !default;
 $border-red-regular: $border-width-regular solid $color-mt-red;
 
 $breakpoint-large: 768px;
@@ -30,6 +30,7 @@ $font-size-label: clamp(1.1rem, 4.333vw + 1rem, 1.5rem) !default; //24px
 $height-header-regular: 6.25rem;
 $height-header-mobile: 3.75rem;
 
+$spacer-xxx-small: 0.375rem !default; // 6px
 $spacer-xx-small: 0.625rem !default; // 10px
 $spacer-x-small: 1.25rem !default; // 20px
 $spacer-small: 1.75rem !default; // 28px
@@ -47,12 +48,16 @@ $spacer-x-large: 5rem !default; // 80px
   --font-weight-light: #{$font-weight-light};
   --font-weight-normal: #{$font-weight-normal};
   --font-weight-bold: #{$font-weight-bold};
+  --spacer-xxx-small: #{$spacer-xxx-small};
   --spacer-xx-small: #{$spacer-xx-small};
   --spacer-x-small: #{$spacer-x-small};
   --spacer-small: #{$spacer-small};
   --spacer-large: #{$spacer-large};
   --spacer-medium: #{$spacer-medium};
   --spacer-x-large: #{$spacer-x-large};
+  --border-radius: #{$border-radius};
+  --border-width-small: #{$border-width-small};
+  --border-width-regular: #{$border-width-regular};
 }
 
 body {

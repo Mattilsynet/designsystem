@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {createMachine} from 'xstate';
+  import {assign, createMachine} from 'xstate';
   import {useMachine} from '@xstate/svelte';
   import {onMount} from 'svelte';
   import {slide} from 'svelte/transition';
@@ -8,7 +8,9 @@
   export let bodyId = '';
   export let loadJs = false;
 
-  interface DropdownContext {}
+  interface DropdownContext {
+    isFirstRenderFinished: boolean
+  }
 
   type DropdownEvent = {type: 'MOUNT'} | {type: 'TOGGLE'};
 
@@ -20,11 +22,15 @@
   const DropdownMachine = createMachine<DropdownContext, DropdownEvent, DropdownState>({
     id: 'dropdown',
     initial: 'serverRendered',
+    context: {
+      isFirstRenderFinished: false
+    },
     states: {
       serverRendered: {
         on: {MOUNT: 'closed'}
       },
       closed: {
+        exit: assign({isFirstRenderFinished: true}),
         on: {TOGGLE: 'open'}
       },
       open: {
@@ -47,7 +53,7 @@
     {title}
   {:else}
     <button
-      class="button button--link chevron"
+      class="button button--link"
       aria-haspopup="true"
       aria-expanded={isOpen}
       aria-controls={bodyId}

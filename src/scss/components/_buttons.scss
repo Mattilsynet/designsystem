@@ -13,7 +13,7 @@ $button-colors: 'error' !default;
 
   // Reset for buttons
   padding: 0.25em 1.25em;
-  border: 0.125rem solid transparent;
+  border: var(--border-width-regular) solid transparent;
   font-family: inherit;
   cursor: pointer;
 
