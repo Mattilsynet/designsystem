@@ -21,6 +21,6 @@
     currentText="Gjeldene side"
     labels={steps}
     {completed}
-    ariaValueText={`Steg ${completed} av ${steps.length}`}
+    ariaValueText={`${steps[completed]}: Steg ${completed} av ${steps.length}`}
   />
 </Story>
