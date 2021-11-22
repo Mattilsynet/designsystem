@@ -112,6 +112,16 @@ $button-colors: 'error' !default;
     }
   }
 
+  &--unstyled {
+    background: transparent;
+    letter-spacing: normal;
+    text-align: left;
+    word-spacing: normal;
+    cursor: pointer;
+    border: 0;
+    color: var(--color);
+  }
+
   &--link {
     border: 0 none;
     background: transparent;

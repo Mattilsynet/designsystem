@@ -10,7 +10,8 @@
 
   export let loadJs = true;
   export let title: string;
-  export let headerTag: 'h2' | 'h3' = 'h3';
+  export let headerTag: 'h2' | 'h3' | 'h4' = 'h3';
+  export let theme: 'bordered' | 'links' = 'bordered';
 
   interface DisclosureContext {
     isOpen: boolean;
@@ -57,14 +58,14 @@
   }
 </script>
 
-<div class="disclosure">
+<div class="disclosure disclosure-{theme}">
   {#if onServer && headerTag === 'h2'}
     <h2 class="disclosure-header">{title}</h2>
   {:else if onServer}
     <h3 class="disclosure-header">{title}</h3>
   {:else}
     <button
-      class="disclosure-header {headerTag === 'h2' ? 'h2' : ''}"
+      class="button--unstyled disclosure-header {headerTag}"
       aria-expanded={isOpen}
       aria-controls={bodyId}
       on:click={() => send('TOGGLE')}
