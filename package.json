@@ -10,7 +10,7 @@
     "watch:sass": "sass --no-source-map --watch src/scss:./dist",
     "build:sass": "sass --no-source-map src/scss:./dist ",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -s ./static -p 6006",
     "start": "npm-run-all tokens build:sass --parallel watch:*",
     "build": "npm-run-all tokens build:sass",
     "build-storybook": "build-storybook",
