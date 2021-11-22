@@ -12,31 +12,37 @@
 }
 
 .article-page {
-  --section-space: var(--spacer-large);
-  --sub-section-space: var(--spacer-medium);
-  --content-space: var(--spacer-x-small);
+  --space-section: var(--spacer-medium);
+  --space-sub-section: var(--spacer-small);
+  --space-content: var(--spacer-x-small);
+
+  @media only screen and (min-width: $breakpoint-large) {
+    --space-section: var(--spacer-large);
+    --space-sub-section: var(--spacer-medium);
+    --space-content: var(--spacer-x-small);
+  }
 
   > * + ul,
   > * + ol,
   .intro,
   > * + p {
-    margin-top: var(--content-space);
+    margin-top: var(--space-content);
   }
 
   figure {
-    margin-top: var(--content-space);
+    margin-top: var(--space-content);
   }
 
   h2 {
-    margin-top: var(--section-space);
+    margin-top: var(--space-section);
     + h3 {
-      margin-top: var(--content-space);
+      margin-top: var(--space-content);
     }
   }
 
   > h3,
   > h4 {
-    margin-top: var(--sub-section-space);
+    margin-top: var(--space-sub-section);
   }
 
   .text {
@@ -44,7 +50,7 @@
   }
   .meta,
   .disclosure {
-    margin-top: var(--section-space);
+    margin-top: var(--space-section);
   }
 }
 
