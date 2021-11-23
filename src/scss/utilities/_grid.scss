@@ -24,80 +24,29 @@
 
     grid-auto-rows: min-content;
 
-    .breadcrumbs {
+    .col-3-span-8,
+    .col-2-span-10,
+    .col-1-span-12 {
       grid-column: span 12;
     }
-    main {
-      grid-column: span 12;
-      display: grid;
-      grid-template-columns: repeat(12, minmax(0, 1fr));
+    .row-gap {
+      --space-section: var(--spacer-small);
+      row-gap: var(--space-section);
 
-      .form-page {
-        grid-column: span 12;
-      }
-
-      > [data-portal-region='main'] {
-        --space-section: var(--spacer-small);
-        grid-column: span 12;
-
-        display: grid;
-        grid-template-columns: repeat(12, minmax(0, 1fr));
-        row-gap: var(--space-section);
-
-        > * {
-          grid-column: span 12;
-          display: grid;
-          grid-template-columns: repeat(12, minmax(0, 1fr));
-          & > * {
-            grid-column: span 12;
-          }
-        }
+      @media only screen and (min-width: $breakpoint-large) {
+        --space-section: var(--spacer-large);
       }
     }
 
     @media only screen and (min-width: $breakpoint-large) {
-      .breadcrumbs {
+      .col-3-span-8 {
         grid-column: 3 / span 8;
       }
-      main {
+      .col-2-span-10 {
+        grid-column: 2 / span 10;
+      }
+      .col-1-span-12 {
         grid-column: span 12;
-        display: grid;
-
-        > .form-page {
-          grid-column: 3 / span 8;
-        }
-
-        > [data-portal-region='main'] {
-          --space-section: var(--spacer-large);
-          grid-column: span 12;
-
-          > * {
-            grid-column: 3 / span 8;
-          }
-
-          > .card-grid {
-            grid-column: 2 / span 10;
-          }
-
-          > .professional-advice-view,
-          > .legal-guidance-view,
-          > .article-view {
-            grid-column: span 12;
-
-            .article-page {
-              grid-column: span 12;
-              display: grid;
-              grid-template-columns: repeat(12, minmax(0, 1fr));
-
-              & > * {
-                grid-column: 3 / span 8;
-              }
-              figure {
-                grid-column: 2 / span 10;
-              }
-            }
-          }
-        }
       }
     }
   }
