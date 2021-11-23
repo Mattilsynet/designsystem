@@ -75,15 +75,15 @@
   <body>
     <header class="header header--regular" />
     <div class="container content layout-grid layout-grid--column-12">
-      <Breadcrumbs {breadcrumbs} />
-      <main id="main">
-        <div data-portal-region="main">
-          <div>
-            <section class="content">
+      <Breadcrumbs {breadcrumbs} classNames="col-3-span-8" />
+      <main id="main" class="layout-grid layout-grid--column-12 col-1-span-12">
+        <div data-portal-region="main" class="layout-grid layout-grid--column-12 col-1-span-12 row-gap">
+          <div class="layout-grid layout-grid--column-12 col-1-span-12">
+            <section class="content col-3-span-8">
               <h1>Varsle Mattilsynet</h1>
             </section>
           </div>
-          <div class="card-grid">
+          <div class="card-grid col-2-span-10">
             <div class="layout-grid layout-grid--column-3">
               {#each transportCards as card}
                 <a href={card.href} class="button button--primary transport-card">
@@ -116,8 +116,8 @@
               {/each}
             </div>
           </div>
-          <div>
-            <section class="content">
+          <div class="layout-grid layout-grid--column-12 col-1-span-12">
+            <section class="content col-3-span-8">
               <h2>Nyttig å vite</h2>
               <Disclosure title={'Kan jeg være anonym?'}>
                 <p>
@@ -141,8 +141,8 @@
               </Disclosure>
             </section>
           </div>
-          <div class="article-view">
-            <article class="article-page">
+          <div class="article-view layout-grid layout-grid--column-12 col-1-span-12">
+            <article class="article-page col-1-span-12">
               <p>
                 <strong>Takk for at du meldte fra til oss!</strong>
               </p>
