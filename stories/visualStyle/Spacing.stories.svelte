@@ -75,7 +75,7 @@
   <body>
     <header class="header header--regular" />
     <div class="container content layout-grid layout-grid--column-12">
-      <Breadcrumbs {breadcrumbs} classNames="col-3-span-8" />
+      <Breadcrumbs {breadcrumbs} class="col-3-span-8" />
       <main id="main" class="layout-grid layout-grid--column-12 col-1-span-12">
         <div data-portal-region="main" class="layout-grid layout-grid--column-12 col-1-span-12 row-gap">
           <div class="layout-grid layout-grid--column-12 col-1-span-12">
