@@ -9,7 +9,7 @@
   import Label from './Label.svelte';
   export let name: string;
   export let label: string;
-  export let idPrefix: string;
+  export let idPrefix: string | undefined;
   export let value: string | undefined;
   export let error: ErrorDetail | undefined;
   export let helpText: string | undefined;
