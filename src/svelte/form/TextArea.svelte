@@ -13,12 +13,12 @@
   export let hiddenErrorText: string | undefined;
 
   export let rows: number | undefined = 5;
-  export let cols: number;
+  export let cols: number | undefined;
   export let maxlength: number | undefined;
   export let placeholder: string | undefined;
   export let isRequired: boolean | undefined = undefined;
-  export let inputmode: InputModeType;
-  export let autocomplete: AutocompleteType;
+  export let inputmode: InputModeType | undefined;
+  export let autocomplete: AutocompleteType | undefined;
 </script>
 
 <Label htmlFor={name} {isRequired} {textOptional}>{label}</Label>

@@ -15,9 +15,9 @@
 
   export let maxlength: number | undefined;
   export let placeholder: string | undefined;
-  export let isRequired: boolean;
-  export let inputmode: InputModeType;
-  export let autocomplete: AutocompleteType;
+  export let isRequired: boolean | undefined;
+  export let inputmode: InputModeType | undefined;
+  export let autocomplete: AutocompleteType | undefined;
 </script>
 
 <Label htmlFor={name} {isRequired} {textOptional}>{label}</Label>
