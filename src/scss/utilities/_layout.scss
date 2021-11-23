@@ -86,6 +86,17 @@
   clip-path: inset(50%);
 }
 
+/*
+Only use if it does NOT affect accessibility
+*/
+.responsive-hide {
+  display: none;
+
+  @media only screen and (min-width: $breakpoint-large) {
+    display: inline-block;
+  }
+}
+
 .visually-hidden-focusable {
   background: var(--color-primary);
   color: white;

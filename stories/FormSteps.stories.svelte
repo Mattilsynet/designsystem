@@ -1,5 +1,6 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf';
+  import FormSteps from '../src/svelte/FormSteps.svelte';
 
   const steps = ['Om bekymringen', 'Info om deg', 'Oppsummering', 'Bekreftelse'];
 </script>
@@ -15,15 +16,11 @@
 />
 
 <Story name="Normal" let:completed>
-  <ol class="steps">
-    {#each steps as step, index (step)}
-      <li class:steps__complete={index < completed}>
-        {#if index < completed}
-          <span class="inclusively-hidden">Ferdig: </span>
-        {/if}
-
-        {step}
-      </li>
-    {/each}
-  </ol>
+  <FormSteps
+    completedText="Utført"
+    currentText="Gjeldene side"
+    labels={steps}
+    {completed}
+    ariaValueText={`${steps[completed]}: Steg ${completed + 1} av ${steps.length}`}
+  />
 </Story>

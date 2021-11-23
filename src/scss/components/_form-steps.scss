@@ -20,9 +20,9 @@ ol.steps {
     font-size: $font-size-small;
 
     &:before {
-      margin-right: $spacer-x-small;
+      margin-right: 0;
       display: inline-flex;
-      border: 2px solid var(--color-mt-brown);
+      border: 2px dotted var(--color-mt-brown);
       counter-increment: step;
       content: counter(step);
       background-color: transparent;
@@ -37,13 +37,24 @@ ol.steps {
     &:not(:last-of-type):after {
       content: url('data:image/svg+xml,%3Csvg%20width%3D%2210%22%20height%3D%2214%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M.907%201.645L6.328%207l-5.42%205.355L2.575%2014l7.102-7-7.102-7L.907%201.645z%22%20fill%3D%22%23403F3F%22%2F%3E%3C%2Fsvg%3E');
       margin-left: $spacer-x-small;
-      height: 12px;
+      height: 1rem;
       display: inline-block;
     }
 
     &.steps__complete:before {
       color: var(--color-mt-background);
       background-color: var(--color-mt-brown);
+    }
+    &.steps__current:before {
+      border-style: solid;
+    }
+  }
+
+  @media only screen and (min-width: $breakpoint-large) {
+    li {
+      &:before {
+        margin-right: $spacer-x-small;
+      }
     }
   }
 }
