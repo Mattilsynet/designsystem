@@ -16,12 +16,12 @@
   .disclosure-panel {
     @include xp-html-area;
 
-    --content-space: var(--spacer-xx-small);
+    --space-content: var(--spacer-xx-small);
 
     padding: 0 0 var(--spacer-x-small) 0;
 
     h3 {
-      margin-top: var(--content-space);
+      margin-top: var(--space-content);
     }
   }
 
@@ -50,7 +50,6 @@
       transform: rotate(-180deg);
     }
   }
-
 
   &.disclosure-links {
     .disclosure-header {
