@@ -7,6 +7,7 @@
   const BUTTON_ELLIPSIS = Symbol();
   export let breadcrumbs: Breadcrumbs = {items: []};
   export let loadJs = true;
+  export let classNames = '';
   const LIMIT_BEFORE_PARTIAL = 3;
 
   interface BreadcrumbsContext {
@@ -83,7 +84,7 @@
   }
 </script>
 
-<nav class="breadcrumbs" aria-label={ariaLabel}>
+<nav class={`breadcrumbs ${classNames}`} aria-label={ariaLabel}>
   <ol class:expanded={isFull}>
     {#each preparedBreadCrumbs as item, index}
       <li class:ellipsis={!isFull && index + 1 === preparedBreadCrumbs.length}>
