@@ -16,12 +16,17 @@
   --space-sub-section: var(--spacer-small);
   --space-content: var(--spacer-x-small);
 
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+
   @media only screen and (min-width: $breakpoint-large) {
     --space-section: var(--spacer-large);
     --space-sub-section: var(--spacer-medium);
     --space-content: var(--spacer-x-small);
   }
-
+  > * {
+    grid-column: span 12;
+  }
   > * + ul,
   > * + ol,
   .intro,
@@ -51,6 +56,16 @@
   .meta,
   .disclosure {
     margin-top: var(--space-section);
+  }
+
+  @media only screen and (min-width: $breakpoint-large) {
+    > * {
+      grid-column: 3 / span 8;
+    }
+
+    > figure {
+      grid-column: 2 / span 10;
+    }
   }
 }
 
