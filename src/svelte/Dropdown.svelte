@@ -1,15 +1,21 @@
+<script context="module">
+  let counter = 0;
+</script>
+
 <script lang="ts">
   import {assign, createMachine} from 'xstate';
   import {useMachine} from '@xstate/svelte';
   import {onMount} from 'svelte';
   import {slide} from 'svelte/transition';
+  import {sineIn} from 'svelte/easing';
 
   export let title = '';
-  export let bodyId = '';
+  const bodyId = `ui-dropdown-${counter++}`;
   export let loadJs = false;
+  export let titleId = `${bodyId}-title`;
 
   interface DropdownContext {
-    isFirstRenderFinished: boolean
+    isFirstRenderFinished: boolean;
   }
 
   type DropdownEvent = {type: 'MOUNT'} | {type: 'TOGGLE'};
@@ -53,6 +59,7 @@
     {title}
   {:else}
     <button
+      id={titleId}
       class="button button--link"
       aria-haspopup="true"
       aria-expanded={isOpen}
@@ -64,7 +71,7 @@
   {/if}
 
   {#if isOpen || onServer}
-    <div id={bodyId} transition:slide|local={{duration: $state.context.isFirstRenderFinished ? 300 : 0}}>
+    <div id={bodyId} in:slide={{duration: 100, easing: sineIn}}>
       <slot />
     </div>
   {/if}

@@ -1,22 +1,37 @@
 <script lang="ts">
-  import {Meta, Story} from '@storybook/addon-svelte-csf';
+  import {Meta, Template, Story} from '@storybook/addon-svelte-csf';
   import Dropdown from '../src/svelte/Dropdown.svelte';
 
-  const config = {
-    ariaLabel: 'Språk/language',
-    disableJs: false,
-    bodyId: 'language-links',
-    items: [
-      {
-        title: 'Vis denne siden på nynorsk og samisk',
-        url: '#',
-      },
-      {
-        title: 'Show this page in English',
-        url: '#"',
-      }
-    ]
-  }
+  const configs = [
+    {
+      buttonLabel: 'Språk/language',
+      disableJs: false,
+      items: [
+        {
+          title: 'Vis denne siden på nynorsk',
+          url: '#'
+        },
+        {
+          title: 'Show this page in English',
+          url: '#"'
+        }
+      ]
+    },
+    {
+      buttonLabel: 'En annen tekst',
+      disableJs: false,
+      items: [
+        {
+          title: 'En kort lenke',
+          url: '#'
+        },
+        {
+          title: 'En lengere lenke, med komma',
+          url: '#"'
+        }
+      ]
+    }
+  ];
 </script>
 
 <Meta
@@ -28,10 +43,10 @@
   }}
 />
 
-<Story name="Normal" args={config} let:args>
-  <div class="preview-wrapper">
-    <Dropdown title="Språk/language" bodyId={args.bodyId} loadJs={!args.disableJs}>
-      <ol class="alt-language" aria-labelledby={args.bodyId} >
+<Template let:args>
+  <section class="preview-wrapper">
+    <Dropdown title={args.buttonLabel} loadJs={!args.disableJs} let:titleId>
+      <ol class="alt-language" aria-labelledby={titleId}>
         {#each args.items as item}
           <li>
             <a href={item.url} class="forward-arrow-small">{item.title}</a>
@@ -39,12 +54,33 @@
         {/each}
       </ol>
     </Dropdown>
-  </div>
+  </section>
+</Template>
+
+<Story name="Normal" args={configs[0]} let:args />
+
+<Story name="Multiple" args={configs} let:args>
+  {#each configs as args, i}
+    <section class={`preview-wrapper preview-wrapper-${i}`} style={`z-index:${configs.length - i}`}>
+      <Dropdown title={args.buttonLabel} bodyId={args.bodyId} loadJs={!args.disableJs}>
+        <ol class="alt-language" aria-labelledby={args.bodyId}>
+          {#each args.items as item}
+            <li>
+              <a href={item.url} class="forward-arrow-small">{item.title}</a>
+            </li>
+          {/each}
+        </ol>
+      </Dropdown>
+    </section>
+  {/each}
 </Story>
 
 <style>
   .preview-wrapper {
     text-align: right;
+    position: relative;
+    height: 70px;
+    margin: var(--spacer-small) 0;
   }
   .alt-language {
     text-align: left;
