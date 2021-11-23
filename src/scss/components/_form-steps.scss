@@ -17,11 +17,12 @@ ol.steps {
     display: flex;
     align-items: center;
     margin-top: 0;
+    font-size: $font-size-small;
 
     &:before {
       margin-right: 0;
       display: inline-flex;
-      border: 2px solid var(--color-mt-brown);
+      border: 2px dotted var(--color-mt-brown);
       counter-increment: step;
       content: counter(step);
       background-color: transparent;
@@ -43,6 +44,9 @@ ol.steps {
     &.steps__complete:before {
       color: var(--color-mt-background);
       background-color: var(--color-mt-brown);
+    }
+    &.steps__current:before {
+      border-style: solid;
     }
   }
 

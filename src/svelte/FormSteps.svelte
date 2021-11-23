@@ -13,7 +13,7 @@
 >
   <ol class="steps" aria-hidden="true">
     {#each labels as label, index (label)}
-      <li class:steps__complete={index <= completed}>
+      <li class:steps__complete={index < completed} class:steps__current={index === completed}>
         <span class="responsive-hide">{label}</span>
       </li>
     {/each}
