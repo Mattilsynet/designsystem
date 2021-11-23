@@ -17,7 +17,6 @@ ol.steps {
     display: flex;
     align-items: center;
     margin-top: 0;
-    font-size: 0;
 
     &:before {
       margin-right: 0;
@@ -32,7 +31,6 @@ ol.steps {
       align-items: center;
       justify-content: center;
       transition: background-color 0.5s linear;
-      font-size: $font-size-small;
     }
 
     &:not(:last-of-type):after {
@@ -50,8 +48,6 @@ ol.steps {
 
   @media only screen and (min-width: $breakpoint-large) {
     li {
-      font-size: $font-size-small;
-
       &:before {
         margin-right: $spacer-x-small;
       }
