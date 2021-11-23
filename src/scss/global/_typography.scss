@@ -130,7 +130,9 @@ $content-spacer: $spacer-x-small !default;
   }
 
   > main {
-    margin-top: var(--spacer-large);
+    @media only screen and (min-width: $breakpoint-large) {
+      margin-top: var(--spacer-large);
+    }
   }
 
   > * + h2,

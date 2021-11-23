@@ -10,7 +10,7 @@
     "watch:sass": "sass --no-source-map --watch src/scss:./dist",
     "build:sass": "sass --no-source-map src/scss:./dist ",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -s ./static -p 6006",
     "start": "npm-run-all tokens build:sass --parallel watch:*",
     "build": "npm-run-all tokens build:sass",
     "build-storybook": "build-storybook",
@@ -20,7 +20,8 @@
     "lint-style:fix": "npm run lint-style --fix",
     "prepublishOnly": "npm run lint && npm run build",
     "predeploy": "npm run build-storybook",
-    "deploy-storybook": "gh-pages -d storybook-static"
+    "deploy-storybook": "gh-pages -d storybook-static",
+    "percy": "percy storybook http://localhost:6006"
   },
   "keywords": [
     "Design system",
@@ -33,6 +34,8 @@
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.16.0",
+    "@percy/cli": "^1.0.0-beta.70",
+    "@percy/storybook": "^4.1.0",
     "@storybook/addon-a11y": "^6.3.12",
     "@storybook/addon-actions": "^6.3.12",
     "@storybook/addon-essentials": "^6.3.12",

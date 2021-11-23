@@ -68,11 +68,11 @@
 }
 
 @mixin xp-html-area {
-  @include children-spaced(var(--content-space));
+  @include children-spaced(var(--space-content));
 
-  --section-space: var(--spacer-large);
-  --sub-section-space: var(--spacer-medium);
-  --content-space: var(--spacer-x-small);
+  --space-section: var(--spacer-large);
+  --space-sub-section: var(--spacer-medium);
+  --space-content: var(--spacer-x-small);
 
   > h2 {
     margin-top: var(--spacer-large);

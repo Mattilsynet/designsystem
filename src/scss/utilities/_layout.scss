@@ -2,7 +2,7 @@
 @use '../global/typography' as *;
 
 .container {
-  width: min(70ch, 95vw);
+  width: min(90rem, 95vw); //1440px - figma grid width
   margin-right: auto;
   margin-left: auto;
 }
@@ -30,7 +30,7 @@
   @media only screen and (min-width: $breakpoint-large) {
     &--basis-3 {
       > * {
-        flex-basis: min(20rem, 31.5%);
+        flex-basis: min(25rem, 31.5%);
       }
     }
     &--basis-2 {
@@ -40,15 +40,7 @@
     }
   }
 }
-.layout-grid-3 {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: var(--spacer-xx-small);
 
-  @media only screen and (min-width: $breakpoint-large) {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
 .layout-flex-col {
   --gap: var(--spacer-large);
 

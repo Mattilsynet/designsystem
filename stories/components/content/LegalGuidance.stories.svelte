@@ -32,8 +32,8 @@
 />
 
 <Story name="Normal" let:title let:intro let:disableCss let:publishFrom let:professionallyUpdated let:text>
-  <div class="container">
-    <article class="article-page">
+  <div class="container layout-grid layout-grid--column-12">
+    <article class="article-page col-1-span-12">
       <h1>{title}</h1>
       <div class="intro">
         <p>{intro}</p>

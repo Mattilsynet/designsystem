@@ -26,8 +26,8 @@
 />
 
 <Story name="Normal" let:title let:intro let:text let:moreText let:formLinkUrl let:formLinkText>
-  <div class="container">
-    <div class="layout-flex-col form-intro">
+  <div class="container layout-grid layout-grid--column-12">
+    <div class="layout-flex-col form-intro col-3-span-8">
       <article class="content">
         <h1>{title}</h1>
 

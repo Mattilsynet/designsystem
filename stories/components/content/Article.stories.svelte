@@ -1,6 +1,7 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf';
   import Published from '../../../src/svelte/Published.svelte';
+  import imageFile from '../../../.static/testbilde.jpg';
 </script>
 
 <Meta
@@ -23,14 +24,14 @@
 />
 
 <Story name="Normal" let:title let:intro let:disableCss let:publishFrom let:professionallyUpdated>
-  <div class="container">
-    <article class="article-page">
+  <div class="container layout-grid layout-grid--column-12">
+    <article class="article-page col-1-span-12">
       <h1>{title}</h1>
       <div class="intro">
         <p>{intro}</p>
       </div>
       <figure>
-        <img src="" alt="Alternativ bildetekst" />
+        <img src={imageFile} alt="Alternativ bildetekst" />
         <figcaption>Bildetekst</figcaption>
       </figure>
 
@@ -64,3 +65,9 @@
     </article>
   </div>
 </Story>
+
+<style>
+  img {
+    width: 100%;
+  }
+</style>

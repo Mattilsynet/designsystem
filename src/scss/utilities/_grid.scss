@@ -18,6 +18,38 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
+  &--column-12 {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 0;
+
+    grid-auto-rows: min-content;
+
+    .col-3-span-8,
+    .col-2-span-10,
+    .col-1-span-12 {
+      grid-column: span 12;
+    }
+    .row-gap {
+      --space-section: var(--spacer-small);
+      row-gap: var(--space-section);
+
+      @media only screen and (min-width: $breakpoint-large) {
+        --space-section: var(--spacer-large);
+      }
+    }
+
+    @media only screen and (min-width: $breakpoint-large) {
+      .col-3-span-8 {
+        grid-column: 3 / span 8;
+      }
+      .col-2-span-10 {
+        grid-column: 2 / span 10;
+      }
+      .col-1-span-12 {
+        grid-column: span 12;
+      }
+    }
+  }
 
   &--auto-fit {
     --min: 20ch;
