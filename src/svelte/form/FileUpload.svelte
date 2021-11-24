@@ -5,17 +5,18 @@
   import Label from './Label.svelte';
 
   export let value;
-  export let fileName: string | undefined;
-  export let error: ErrorDetail | undefined;
   export let name: string;
   export let label: string;
-  export let helpText: string | undefined;
-  export let isRequired: boolean;
-  export let accept: string | undefined;
-  export let multiple: boolean;
-  export let textOptional: string | undefined;
   export let fileInputName: string;
   export let fileNameInputName: string;
+  export let helpText: string | undefined;
+  export let fileName: string | undefined;
+  export let error: ErrorDetail | undefined;
+  export let isRequired: boolean = false;
+  export let accept: string | undefined;
+  export let multiple: boolean | undefined;
+  export let textOptional: string | undefined;
+  export let hiddenErrorText: string | undefined;
 
   let uuidInput: HTMLInputElement;
   let nameInput: HTMLInputElement;
@@ -35,7 +36,7 @@
 {/if}
 
 {#if error}
-  <InputError message={error.message} key={fileInputName} />
+  <InputError message={error.message} key={fileInputName} {hiddenErrorText} />
 {/if}
 
 <input type="hidden" bind:this={uuidInput} {name} value={value || ''} />

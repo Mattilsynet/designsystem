@@ -6,16 +6,16 @@
   import Label from './Label.svelte';
 
   export let value;
-  export let error: ErrorDetail | undefined;
   export let name: string;
   export let label: string;
+  export let error: ErrorDetail | undefined;
   export let helpText: string | undefined;
   export let textOptional: string | undefined;
   export let hiddenErrorText: string | undefined;
 
   export let maxlength: number | undefined;
   export let placeholder: string | undefined;
-  export let isRequired: boolean | undefined;
+  export let isRequired: boolean = false;
   export let inputmode: InputModeType | undefined;
   export let autocomplete: AutocompleteType | undefined;
 </script>

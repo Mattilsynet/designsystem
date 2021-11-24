@@ -13,8 +13,8 @@
   export let value: string | undefined;
   export let error: ErrorDetail | undefined;
   export let helpText: string | undefined;
+  export let isRequired: boolean = false;
   export let options: Array<{value: string; text: string}> = [];
-  export let isRequired: boolean | undefined;
   export let textOptional: string | undefined;
   export let hiddenErrorText: string | undefined;
 

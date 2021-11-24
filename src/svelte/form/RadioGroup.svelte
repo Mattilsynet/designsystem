@@ -4,13 +4,13 @@
   import type {ErrorDetail} from '../../ts/types';
 
   export let value;
-  export let error: ErrorDetail | undefined;
   export let name: string;
   export let label: string;
   export let helpText: string | undefined;
+  export let error: ErrorDetail | undefined;
   export let options: Array<{value: string; text: string}> = [];
-  export let isRequired: boolean | undefined;
-  export let textOptional: string | undefined = 'valgfitt felt';
+  export let isRequired: boolean = false;
+  export let textOptional: string = 'valgfitt felt';
   export let hiddenErrorText: string | undefined;
 </script>
 

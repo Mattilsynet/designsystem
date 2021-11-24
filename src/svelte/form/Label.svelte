@@ -1,7 +1,7 @@
 <script lang="ts">
   export let htmlFor: string;
   export let textOptional: string | undefined = 'valgfitt felt';
-  export let isRequired: boolean;
+  export let isRequired: boolean = false;
 </script>
 
 <label class="form-label" for={htmlFor}>

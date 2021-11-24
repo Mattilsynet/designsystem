@@ -2,8 +2,8 @@
   import type {ErrorDetail} from '../../ts/types';
 
   export let value;
-  export let error: ErrorDetail | undefined;
   export let name: string;
+  export let error: ErrorDetail | undefined;
 </script>
 
 <input
