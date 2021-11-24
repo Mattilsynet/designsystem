@@ -13,7 +13,7 @@
   export let hiddenErrorText: string | undefined;
 </script>
 
-<fieldset id={name} aria-describedby={`${name}-hint ${name}-error`} class="form-fieldset">
+<fieldset id={name} aria-describedby={`${name}-hint ${name}-error`} aria-required={isRequired} class="form-fieldset">
   <legend class="form-legend">
     {label}
     {#if !isRequired}
