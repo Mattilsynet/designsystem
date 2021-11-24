@@ -12,7 +12,7 @@
   export let helpText: string | undefined;
   export let fileName: string | undefined;
   export let error: ErrorDetail | undefined;
-  export let isRequired: boolean = false;
+  export let isRequired: boolean | undefined = undefined;
   export let accept: string | undefined;
   export let multiple: boolean | undefined;
   export let textOptional: string | undefined;

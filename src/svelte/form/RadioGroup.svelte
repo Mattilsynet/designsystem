@@ -9,7 +9,7 @@
   export let helpText: string | undefined;
   export let error: ErrorDetail | undefined;
   export let options: Array<{value: string; text: string}> = [];
-  export let isRequired: boolean = false;
+  export let isRequired: boolean | undefined = undefined;
   export let textOptional: string = 'valgfitt felt';
   export let hiddenErrorText: string | undefined;
 </script>

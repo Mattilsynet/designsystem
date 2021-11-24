@@ -6,9 +6,9 @@
   import {createInputAriaDescribedby} from '../ts/utils';
 
   export let loadJs = true;
-  export let error: ErrorDetail | undefined;
   export let id: string;
   export let name: string;
+  export let error: ErrorDetail | undefined;
   export let multiple = false;
   export let accept: string | undefined;
   export let buttonText = 'Legg til fil';

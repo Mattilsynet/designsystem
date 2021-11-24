@@ -15,7 +15,7 @@
 
   export let maxlength: number | undefined;
   export let placeholder: string | undefined;
-  export let isRequired: boolean = false;
+  export let isRequired: boolean | undefined = undefined;
   export let inputmode: InputModeType | undefined;
   export let autocomplete: AutocompleteType | undefined;
 </script>
