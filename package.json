@@ -47,10 +47,10 @@
     "@storybook/theming": "^6.3.12",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
-    "@xstate/inspect": "^0.5.1",
+    "@xstate/inspect": "^0.5.2",
     "a11y-color-tokens": "^0.5.0",
     "babel-loader": "^8.2.3",
-    "eslint": "^8.2.0",
+    "eslint": "^8.3.0",
     "eslint-config-prettier": "^8.2.0",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-prettier": "^4.0.0",
@@ -65,14 +65,14 @@
     "stylelint-config-standard": "^24.0.0",
     "stylelint-order": "^5.0.0",
     "stylelint-scss": "^4.0.0",
-    "svelte": "^3.44.1",
+    "svelte": "^3.44.2",
     "svelte-loader": "^3.1.2",
     "svelte-preprocess": "^4.9.5",
-    "typescript": "^4.4.4"
+    "typescript": "^4.5.2"
   },
   "dependencies": {
     "@xstate/svelte": "^0.2.0",
     "gh-pages": "^3.2.3",
-    "xstate": "^4.26.0"
+    "xstate": "^4.26.1"
   }
 }
