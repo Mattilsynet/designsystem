@@ -4,15 +4,26 @@
 .dropdown {
   background: var(--color-mt-background);
   padding: var(--spacer-x-small);
-  min-width: 331px;
   text-align: right;
   display: inline-block;
+  position: relative;
+
+  .dropdown-content {
+    position: absolute;
+    top: 0;
+    padding: var(--spacer-large) 18px 18px;
+    background-color: var(--color-mt-blue);
+    z-index: 1000;
+    right: 0;
+  }
 
   button {
     font-size: $font-size-label;
     font-weight: var(--font-weight-light);
     text-decoration: none;
     padding: 0.1875rem;
+    z-index: 1001;
+    position: relative;
 
     &[aria-expanded]::after {
       transition: transform 0.3s ease;
@@ -26,22 +37,25 @@
   }
 
   &.visible {
-    background: var(--color-mt-blue);
+
     color: var(--color-mt-white);
 
     button:focus {
-      box-shadow: 0 0 0 0.25rem var(--color-mt-white);
+      box-shadow: 0 0 0 0.15rem var(--color-mt-light-blue);
+    }
+
+    .alt-language {
+      width: max-content;
     }
 
     a {
       color: var(--color-mt-white);
       font-size: $font-size-h4;
       font-weight: var(--font-weight-light);
-      border-radius: var(--border-radius);
       padding: var(--spacer-xxx-small);
 
       &:focus {
-        box-shadow: 0 0 0 0.25rem var(--color-mt-white);
+        box-shadow: 0 0 0 0.15rem var(--color-mt-light-blue);
       }
     }
   }

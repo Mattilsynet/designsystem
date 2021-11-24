@@ -78,8 +78,6 @@
 <style>
   .preview-wrapper {
     text-align: right;
-    position: relative;
-    height: 70px;
     margin: var(--spacer-small) 0;
   }
   .alt-language {

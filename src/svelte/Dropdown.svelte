@@ -54,7 +54,7 @@
   }
 </script>
 
-<nav aria-label={title} class="dropdown" class:visible={isOpen}>
+<div aria-label={title} class="dropdown" class:visible={isOpen}>
   {#if onServer}
     {title}
   {:else}
@@ -71,8 +71,8 @@
   {/if}
 
   {#if isOpen || onServer}
-    <div id={bodyId} in:slide={{duration: 100, easing: sineIn}}>
+    <div class="dropdown-content" id={bodyId} in:slide={{duration: 100, easing: sineIn}}>
       <slot />
     </div>
   {/if}
-</nav>
+</div>
