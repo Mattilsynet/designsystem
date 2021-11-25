@@ -9,7 +9,6 @@
   import Label from './Label.svelte';
   export let name: string;
   export let label: string;
-  export let idPrefix: string | undefined;
   export let value: string | undefined;
   export let error: ErrorDetail | undefined;
   export let helpText: string | undefined;
@@ -18,10 +17,10 @@
   export let textOptional: string | undefined;
   export let hiddenErrorText: string | undefined;
 
-  const selectId = `${idPrefix}-${instanceCounter++}-`;
+  const selectId = `ui-select-${instanceCounter++}`;
 </script>
 
-<Label htmlFor={`${selectId}${name}`} {isRequired} {textOptional}>{label}</Label>
+<Label htmlFor={selectId} {isRequired} {textOptional}>{label}</Label>
 
 {#if helpText}
   <div id={`${name}-hint`} class="hint">
@@ -35,7 +34,7 @@
 
 <select
   {name}
-  id={`${selectId}${name}`}
+  id={selectId}
   bind:value
   class="form-field"
   aria-required={isRequired}
