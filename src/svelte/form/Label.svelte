@@ -1,5 +1,6 @@
 <script lang="ts">
-  export let htmlFor: string;
+  let htmlFor: string;
+  export {htmlFor as for};
   export let textOptional: string | undefined = 'valgfitt felt';
   export let isRequired: boolean | undefined = undefined;
 </script>
