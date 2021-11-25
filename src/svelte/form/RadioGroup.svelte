@@ -15,8 +15,8 @@
 </script>
 
 <fieldset id={name} aria-describedby={`${name}-hint ${name}-error`} aria-required={isRequired} class="form-fieldset">
-  <legend class="form-legend"
-    >{label}
+  <legend class="form-legend">
+    {label}
     {#if !isRequired}
       <span class="text-small">({textOptional})</span>
     {/if}
