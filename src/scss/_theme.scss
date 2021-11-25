@@ -38,6 +38,17 @@ $spacer-medium: 2.5rem !default; // 40px
 $spacer-large: 3.5rem !default; // 56px
 $spacer-x-large: 5rem !default; // 80px
 
+
+$zindex-dropdown:                   1000 !default;
+$zindex-sticky:                     1020 !default;
+$zindex-fixed:                      1030 !default;
+$zindex-offcanvas-backdrop:         1040 !default;
+$zindex-offcanvas:                  1045 !default;
+$zindex-modal-backdrop:             1050 !default;
+$zindex-modal:                      1055 !default;
+$zindex-popover:                    1070 !default;
+$zindex-tooltip:                    1080 !default;
+
 :root {
   @include color-tokens();
 
@@ -58,6 +69,7 @@ $spacer-x-large: 5rem !default; // 80px
   --border-radius: #{$border-radius};
   --border-width-small: #{$border-width-small};
   --border-width-regular: #{$border-width-regular};
+  --z-index-dropdown: #{$zindex-dropdown};
 }
 
 body {

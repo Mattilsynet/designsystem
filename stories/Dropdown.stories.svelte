@@ -59,11 +59,11 @@
 
 <Story name="Normal" args={configs[0]} let:args />
 
-<Story name="Multiple" args={configs} let:args>
+<Story name="Multiple" args={configs} let:args let:titleId>
   {#each configs as args, i}
-    <section class={`preview-wrapper preview-wrapper-${i}`} style={`z-index:${configs.length - i}`}>
-      <Dropdown title={args.buttonLabel} bodyId={args.bodyId} loadJs={!args.disableJs}>
-        <ol class="alt-language" aria-labelledby={args.bodyId}>
+    <section class={`preview-wrapper`}>
+      <Dropdown title={args.buttonLabel} loadJs={!args.disableJs}>
+        <ol class="alt-language" aria-labelledby={titleId}>
           {#each args.items as item}
             <li>
               <a href={item.url} class="forward-arrow-small">{item.title}</a>
