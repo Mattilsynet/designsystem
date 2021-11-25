@@ -71,18 +71,11 @@
     </button>
   {/if}
 
-  {#if isOpen || onServer}
-    <div class="dropdown-content" id={bodyId} in:slide={{duration: 300, easing: sineIn}}>
-      <button
-        class="button button--link"
-        aria-haspopup="true"
-        aria-expanded={isOpen}
-        aria-controls={bodyId}
-        on:click={() => send('TOGGLE')}
-      >
-        {title}
-      </button>
-      <slot />
+  {#key isOpen}
+    <div class="dropdown-content" id={bodyId}>
+      <div in:slide={{duration: 300, easing: sineIn}}>
+        <slot />
+      </div>
     </div>
-  {/if}
+  {/key}
 </div>
