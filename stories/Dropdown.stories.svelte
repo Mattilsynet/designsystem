@@ -38,7 +38,7 @@
   parameters={{xstate: true, inspectUrl: 'https://stately.ai/viz?inspect'}}
   title="Components/Dropdown"
   argTypes={{
-    title: {control: 'text'},
+    buttonLabel: {control: 'text'},
     disableJs: {control: 'boolean'}
   }}
 />
@@ -57,12 +57,12 @@
   </section>
 </Template>
 
-<Story name="Normal" args={configs[0]} let:args />
+<Story name="Normal" args={configs[0]} />
 
-<Story name="Multiple" args={configs} let:args let:titleId>
+<Story name="Multiple" args={configs} let:args>
   {#each configs as args, i}
     <section class={`preview-wrapper`}>
-      <Dropdown title={args.buttonLabel} loadJs={!args.disableJs}>
+      <Dropdown title={args.buttonLabel} loadJs={!args.disableJs} let:titleId>
         <ol class="alt-language" aria-labelledby={titleId}>
           {#each args.items as item}
             <li>

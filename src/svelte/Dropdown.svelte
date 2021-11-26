@@ -5,10 +5,8 @@
 <script lang="ts">
   import {assign, createMachine} from 'xstate';
   import {useMachine} from '@xstate/svelte';
-  import {onMount, tick} from 'svelte';
+  import {onMount} from 'svelte';
   import {slide} from 'svelte/transition';
-  import {sineIn} from 'svelte/easing';
-  import {HtmlTag, HtmlTagHydration} from 'svelte/internal';
 
   export let title = '';
   const bodyId = `ui-dropdown-${counter++}`;
@@ -55,9 +53,9 @@
   }
 </script>
 
-<div aria-label={title} class="dropdown" class:visible={isOpen}>
+<div aria-label={title} class="dropdown" class:visible={isOpen || onServer}>
   {#if onServer}
-    {title}
+    <div class="dropdown-title">{title}</div>
   {:else}
     <button
       id={titleId}
@@ -73,7 +71,7 @@
 
   {#key isOpen}
     <div class="dropdown-content" id={bodyId}>
-      <div in:slide={{duration: 300, easing: sineIn}}>
+      <div in:slide={{duration: 300}}>
         <slot />
       </div>
     </div>

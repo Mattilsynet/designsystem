@@ -21,6 +21,7 @@
     }
   }
 
+  .dropdown-title,
   button {
     font-size: $font-size-label;
     font-weight: var(--font-weight-light);
@@ -47,6 +48,7 @@
       display: inline-block;
     }
 
+    .dropdown-title,
     button {
       z-index: 2000;
     }
@@ -72,10 +74,6 @@
   }
 }
 
-.dropdown-wrapper {
-  text-align: right;
-  margin: var(--spacer-small) 0;
-}
 
 .alt-language {
   text-align: left;
