@@ -13,7 +13,7 @@ $button-colors: 'error' !default;
 
   // Reset for buttons
   padding: 0.25em 1.25em;
-  border: 2px solid transparent;
+  border: var(--border-width-regular) solid transparent;
   font-family: inherit;
   cursor: pointer;
 
@@ -30,7 +30,7 @@ $button-colors: 'error' !default;
 
   // Size
   min-width: 10ch;
-  min-height: 44px;
+  min-height: 2.75rem;
 
   // Text
   text-align: center;
@@ -131,9 +131,13 @@ $button-colors: 'error' !default;
     min-height: auto;
     margin: 0;
     padding: 0;
+
     &:hover {
       background: transparent;
       color: var(--color);
+    }
+    &:focus {
+      box-shadow: 0 0 0 0.15rem var(--color-mt-light-blue)
     }
   }
 
@@ -160,10 +164,10 @@ $button-colors: 'error' !default;
   }
   .spinner::after {
     content: '';
-    width: 17px;
-    height: 17px;
+    width: 1.0625rem;
+    height: 1.0625rem;
     display: block;
-    border-width: 1.3px;
+    border-width: 0.08125rem;
     border-style: solid;
     border-radius: 50%;
     border-top-color: initial;
@@ -187,8 +191,9 @@ $button-colors: 'error' !default;
     &::before {
       content: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNiIgaGVpZ2h0PSIxMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNLjIgMS40MyAzLjY2MSA1IC4yIDguNTdsMS4wNjYgMS4wOTdMNS44IDUgMS4yNjYuMzMzLjIgMS40M1oiIGZpbGw9IiM0NjQ1NDUiLz48L3N2Zz4=');
       display: inline-block;
-      margin-right: var(--spacer-x-small);
+      margin-right: var(--spacer-xx-small);
     }
   }
+
 }
 // stylelint-enable
