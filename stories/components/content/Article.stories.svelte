@@ -30,7 +30,8 @@
       <div class="intro">
         <p>{intro}</p>
       </div>
-      <figure>
+
+      <figure class="col-2-span-10">
         <img src={imageFile} alt="Alternativ bildetekst" />
         <figcaption>Bildetekst</figcaption>
       </figure>
