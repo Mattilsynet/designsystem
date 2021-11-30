@@ -118,3 +118,29 @@
     disableCss: false
   }}
 />
+
+<Story
+  name="In Grid"
+  args={{
+    disableJs: false,
+    disableCss: false
+  }}
+  let:args
+>
+  <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading2">
+    <h2 id="heading3">Heading for accordion</h2>
+    {#each disclosures as disclosure}
+      <Disclosure
+        title={disclosure.title}
+        loadJs={!args.disableJs}
+        theme="links"
+        headerTag={disclosure.headerTag}
+        class="layout-grid layout-grid--column-12"
+        headerClass="col-3-span-8"
+        panelClass="col-3-span-8"
+      >
+        {@html disclosure.body}
+      </Disclosure>
+    {/each}
+  </section>
+</Story>
