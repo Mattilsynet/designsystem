@@ -1,6 +1,7 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf';
   import RadioGroup from '../../../src/svelte/form/RadioGroup.svelte';
+  import {wrapInShadowDom} from '../../utils';
 
   const name = 'radiobuttons';
   const options = [
@@ -33,20 +34,24 @@
 />
 
 <Story name="Normal" let:label let:helpText let:disableCss>
-  <form class="form-layout">
-    <RadioGroup {options} {name} {helpText} {label} error={undefined} textOptional="valgfritt" />
-  </form>
+  <div use:wrapInShadowDom={disableCss}>
+    <form class="form-layout">
+      <RadioGroup {options} {name} {helpText} {label} error={undefined} textOptional="valgfritt" />
+    </form>
+  </div>
 </Story>
 
 <Story name="Radio with error" let:label let:helpText let:disableCss let:errorMessage>
-  <form class="form-layout">
-    <RadioGroup
-      {options}
-      {name}
-      {helpText}
-      {label}
-      error={{key: name, message: errorMessage}}
-      textOptional="valgfritt"
-    />
-  </form>
+  <div use:wrapInShadowDom={disableCss}>
+    <form class="form-layout">
+      <RadioGroup
+        {options}
+        {name}
+        {helpText}
+        {label}
+        error={{key: name, message: errorMessage}}
+        textOptional="valgfritt"
+      />
+    </form>
+  </div>
 </Story>

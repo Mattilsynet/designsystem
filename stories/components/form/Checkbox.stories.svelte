@@ -1,6 +1,7 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf';
   import Checkbox from '../../../src/svelte/form/Checkbox.svelte';
+  import {wrapInShadowDom} from '../../utils';
 
   const name = 'checkbox';
   const options = [
@@ -33,13 +34,17 @@
 />
 
 <Story name="Normal" let:label let:helpText let:disableCss>
-  <form>
-    <Checkbox {name} {label} {helpText} {options} />
-  </form>
+  <div use:wrapInShadowDom={disableCss}>
+    <form>
+      <Checkbox {name} {label} {helpText} {options} />
+    </form>
+  </div>
 </Story>
 
 <Story name="Checkbox with error" let:label let:helpText let:disableCss let:errorMessage>
-  <form>
-    <Checkbox {name} {label} {helpText} {options} error={{key: name, message: errorMessage}} />
-  </form>
+  <div use:wrapInShadowDom={disableCss}>
+    <form>
+      <Checkbox {name} {label} {helpText} {options} error={{key: name, message: errorMessage}} />
+    </form>
+  </div>
 </Story>
