@@ -12,6 +12,10 @@
   export let title: string;
   export let headerTag: 'h2' | 'h3' | 'h4' = 'h3';
   export let theme: 'bordered' | 'links' = 'bordered';
+  export let headerClass: string | undefined;
+  export let panelClass: string | undefined;
+  let disclosureClass: string | undefined;
+  export {disclosureClass as class};
 
   interface DisclosureContext {
     isOpen: boolean;
@@ -58,14 +62,14 @@
   }
 </script>
 
-<div class="disclosure disclosure-{theme}">
+<div class="disclosure disclosure-{theme} {disclosureClass || ''}">
   {#if onServer && headerTag === 'h2'}
-    <h2 class="disclosure-header">{title}</h2>
+    <h2 class="disclosure-header {headerClass || ''}">{title}</h2>
   {:else if onServer}
-    <h3 class="disclosure-header">{title}</h3>
+    <h3 class="disclosure-header {headerClass || ''}">{title}</h3>
   {:else}
     <button
-      class="button--unstyled disclosure-header {headerTag}"
+      class="button--unstyled disclosure-header {headerTag} {headerClass || ''}"
       aria-expanded={isOpen}
       aria-controls={bodyId}
       on:click={() => send('TOGGLE')}
@@ -77,7 +81,7 @@
   {#if isOpen}
     <div
       id={bodyId}
-      class="disclosure-panel"
+      class="disclosure-panel {panelClass || ''}"
       transition:slide|local={{duration: $state.context.isFirstRenderFinished ? 300 : 0}}
     >
       {#if !onServer && headerTag === 'h2'}
