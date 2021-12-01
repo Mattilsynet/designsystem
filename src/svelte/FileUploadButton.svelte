@@ -2,13 +2,13 @@
   import {onMount, createEventDispatcher} from 'svelte';
   import {useMachine} from '@xstate/svelte';
   import {createMachine, assign} from 'xstate';
-  import type {UIError} from '../ts/types';
+  import type {ErrorDetail} from '../ts/types';
   import {createInputAriaDescribedby} from '../ts/utils';
 
   export let loadJs = true;
-  export let error: UIError | undefined;
   export let id: string;
   export let name: string;
+  export let error: ErrorDetail | undefined;
   export let multiple = false;
   export let accept: string | undefined;
   export let buttonText = 'Legg til fil';

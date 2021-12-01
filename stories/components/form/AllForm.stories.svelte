@@ -1,6 +1,11 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf';
   import {countCharacters} from '../../../src/ts/count-characters';
+  import TextInput from '../../../src/svelte/form/TextInput.svelte';
+  import {wrapInShadowDom} from '../../utils';
+  import TextArea from '../../../src/svelte/form/TextArea.svelte';
+  import RadioGroup from '../../../src/svelte/form/RadioGroup.svelte';
+  import Checkbox from '../../../src/svelte/form/Checkbox.svelte';
   const radioName = 'radiobuttons';
   const checkboxName = 'checkboxes';
   const radioOptions = [
@@ -32,211 +37,112 @@
     radioLabel: 'Kan vi kontakte deg?',
     checkboxLabel: 'Hva liker du?',
     helpText: 'Skriv når hendelsen skjedde og om det har pågått over lengere periode.',
-    errorMessage: 'Fyll inn dette feltet.'
+    errorMessage: 'Fyll inn dette feltet.',
+    disableCss: false
   }}
   argTypes={{
-    title: {control: 'text'},
+    label: {control: 'text'},
+    radioLabel: {control: 'text'},
+    checkboxLabel: {control: 'text'},
+    helpText: {control: 'text'},
+    checkboxLabel: {control: 'text'},
     disableCss: {control: 'boolean'}
   }}
 />
 
-<Story name="Normal" let:label let:helpText let:radioLabel let:checkboxLabel>
-  <form class="form-layout">
-    <!--    TextInput-->
-    <label class="form-label" for="inputfield">
-      {label}
-    </label>
+<Story name="Normal" let:label let:helpText let:radioLabel let:checkboxLabel let:args>
+  <div use:wrapInShadowDom={args.disableCss}>
+    <form class="form-layout">
+      <TextInput
+        name="inputfield"
+        {label}
+        {helpText}
+        error={undefined}
+        isRequired={true}
+        textOptional="valgfritt felt"
+        inputmode="text"
+        placeholder=""
+        autocomplete=""
+      />
 
-    {#if helpText}
-      <div class="hint">
-        {@html helpText}
-      </div>
-    {/if}
+      <!-- TextArea   -->
+      <TextArea
+        name="email"
+        {label}
+        {helpText}
+        error={undefined}
+        isRequired={true}
+        textOptional="valgfritt felt"
+        inputmode="text"
+        maxlength="300"
+        rows="3"
+        cols="5"
+      />
 
-    <input id="inputfield" name="email" class="form-field" aria-describedby="inputfield-hint inputfield-error" />
-    <!--TextInput end-->
-    <!-- TextArea   -->
-    <label class="form-label" for="inputfield">
-      {label}
-    </label>
+      <!--  Radio -->
+      <RadioGroup
+        options={radioOptions}
+        name={radioName}
+        error={undefined}
+        {helpText}
+        label={radioLabel}
+        isRequired={true}
+        textOptional="valgfritt"
+      />
 
-    {#if helpText}
-      <div class="hint">
-        {@html helpText}
-      </div>
-    {/if}
-
-    <textarea
-      use:countCharacters
-      maxlength="100"
-      id="inputfield"
-      name="email"
-      class="form-field"
-      aria-describedby="inputfield-hint inputfield-error"
-    />
-    <!--TextArea end-->
-    <!--Radio-->
-    <fieldset id={radioName} aria-describedby={`${radioName}-hint ${radioName}-error`} class="form-fieldset">
-      <legend class="form-legend">{radioLabel}</legend>
-
-      {#if helpText}
-        <div id={`${radioName}-hint`} class="hint">
-          {@html helpText}
-        </div>
-      {/if}
-
-      {#each radioOptions as radio (radio.value)}
-        <div class="form-control radio">
-          <input type="radio" class="input__control" id={radio.value} name={radioName} value={radio.value} />
-
-          <label for={radio.value}>
-            {radio.text}
-          </label>
-        </div>
-      {/each}
-    </fieldset>
-    <!-- Radio end -->
-    <!-- Checkbox -->
-    <fieldset id={checkboxName} aria-describedby={`${checkboxName}-hint ${checkboxName}-error`} class="form-fieldset">
-      <legend class="form-legend">{checkboxLabel}</legend>
-
-      {#if helpText}
-        <div id={`${checkboxName}-hint`} class="hint">
-          {@html helpText}
-        </div>
-      {/if}
-
-      {#each checkBoxOptions as checkbox (checkbox.value)}
-        <div class="form-control checkbox">
-          <input
-            type="checkbox"
-            class="input__control"
-            id={checkbox.value}
-            name={checkboxName}
-            value={checkbox.value}
-          />
-          <label for={checkbox.value}>
-            {checkbox.text}
-          </label>
-        </div>
-      {/each}
-    </fieldset>
-    <!-- Checkbox end-->
-  </form>
+      <!-- Checkbox -->
+      <Checkbox name={checkboxName} label={checkboxLabel} {helpText} options={checkBoxOptions} />
+    </form>
+  </div>
 </Story>
 
-<Story name="Input with error" let:label let:helpText let:errorMessage let:radioLabel let:checkboxLabel>
-  <form class="form-layout">
-    <!-- TextInput-->
-    <label class="form-label" for="inputfield">
-      {label}
-    </label>
+<Story name="Input with error" let:label let:helpText let:errorMessage let:radioLabel let:checkboxLabel let:args>
+  <div use:wrapInShadowDom={args.disableCss}>
+    <form class="form-layout">
+      <TextInput
+        name="name"
+        {label}
+        {helpText}
+        error={{key: 'name', message: errorMessage}}
+        isRequired={true}
+        textOptional="valgfritt felt"
+        inputmode="text"
+        placeholder=""
+        autocomplete=""
+      />
 
-    {#if helpText}
-      <div class="hint">
-        {@html helpText}
-      </div>
-    {/if}
+      <TextArea
+        name="textfield"
+        {label}
+        {helpText}
+        error={{key: 'textfield', message: errorMessage}}
+        isRequired={true}
+        textOptional="valgfritt felt"
+        inputmode="text"
+        maxlength="300"
+        rows="3"
+        cols="5"
+      />
 
-    <span id="inputfield-error" class="form-error">
-      <span class="inclusively-hidden">Feilmelding:</span>
-      {errorMessage}
-    </span>
+      <!--  Radio -->
+      <RadioGroup
+        options={radioOptions}
+        name={radioName}
+        error={{key: radioName, message: errorMessage}}
+        {helpText}
+        label={radioLabel}
+        isRequired="true"
+        textOptional="valgfritt"
+      />
 
-    <input
-      id="inputfield"
-      name="email"
-      class="form-field error"
-      aria-invalid="true"
-      aria-describedby="inputfield-hint inputfield-error"
-    />
-    <!-- TextInput end-->
-    <!-- TextArea -->
-    <label class="form-label" for="textfield">
-      {label}
-    </label>
-
-    {#if helpText}
-      <div class="hint">
-        {@html helpText}
-      </div>
-    {/if}
-
-    <span id="textfield-error" class="form-error">
-      <span class="inclusively-hidden">Feilmelding:</span>
-      {errorMessage}
-    </span>
-
-    <textarea
-      id="textfield"
-      name="email"
-      class="form-field error"
-      aria-invalid="true"
-      aria-describedby="textfield-hint textfield-error"
-    />
-    <!-- TextArea end-->
-
-    <!--  Radio -->
-    <fieldset id={radioName} aria-describedby={`${radioName}-hint ${radioName}-error`} class="form-fieldset">
-      <legend class="form-legend">{radioLabel}</legend>
-
-      {#if helpText}
-        <div id={`${radioName}-hint`} class="hint">
-          {@html helpText}
-        </div>
-      {/if}
-
-      <span id="inputfield-error" class="form-error">
-        <span class="inclusively-hidden">Feilmelding:</span>
-        {errorMessage}
-      </span>
-
-      {#each radioOptions as radio (radio.value)}
-        <div class="form-control radio">
-          <input type="radio" class="input__control error" id={radio.value} name={radioName} value={radio.value} />
-
-          <label for={radio.value}>
-            {radio.text}
-          </label>
-        </div>
-      {/each}
-    </fieldset>
-    <!--   Radio end-->
-
-    <!--    Checkbox-->
-    <fieldset
-      id={checkboxName}
-      aria-describedby={`${checkboxName}-hint ${checkboxName}-error`}
-      class="form-fieldset error"
-    >
-      <legend class="form-legend">{checkboxLabel}</legend>
-
-      {#if helpText}
-        <div id={`${checkboxName}-hint`} class="hint">
-          {@html helpText}
-        </div>
-      {/if}
-
-      <span id="inputfield-error" class="form-error">
-        <span class="inclusively-hidden">Feilmelding:</span>
-        {errorMessage}
-      </span>
-
-      {#each checkBoxOptions as checkbox (checkbox.value)}
-        <div class="form-control checkbox">
-          <input
-            type="checkbox"
-            class="input__control error"
-            id={checkbox.value}
-            {checkboxName}
-            value={checkbox.value}
-          />
-          <label for={checkbox.value}>
-            {checkbox.text}
-          </label>
-        </div>
-      {/each}
-    </fieldset>
-    <!--    Checkbox end-->
-  </form>
+      <!--    Checkbox-->
+      <Checkbox
+        name={checkboxName}
+        label={checkboxLabel}
+        {helpText}
+        options={checkBoxOptions}
+        error={{key: checkboxName, message: errorMessage}}
+      />
+    </form>
+  </div>
 </Story>
