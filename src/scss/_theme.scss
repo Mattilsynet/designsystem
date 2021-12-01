@@ -5,6 +5,7 @@ $border-radius: 0.25em !default;
 $border-red-regular: $border-width-regular solid $color-mt-red;
 
 $breakpoint-large: 768px;
+$breakpoint-x-large: 1024px;
 
 $color-links: 'var(--color-primary)' !default;
 $color-grey-hue: $color-primary !default;
@@ -38,6 +39,7 @@ $spacer-medium: 2.5rem !default; // 40px
 $spacer-large: 3.5rem !default; // 56px
 $spacer-x-large: 5rem !default; // 80px
 
+$container-width: 90rem;
 
 $zindex-dropdown:                   1000 !default;
 $zindex-sticky:                     1020 !default;

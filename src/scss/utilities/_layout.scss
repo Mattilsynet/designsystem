@@ -2,7 +2,7 @@
 @use '../global/typography' as *;
 
 .container {
-  width: min(90rem, 95vw); //1440px - figma grid width
+  width: min(#{$container-width}, 95vw); //1440px - figma grid width
   margin-right: auto;
   margin-left: auto;
 }
