@@ -7,7 +7,7 @@
   export let value;
   export let name: string;
   export let label: string;
-  export let countCharactersLeftLabel: string;
+  export let countCharactersLeftLabel: string | undefined;
   export let error: ErrorDetail | undefined;
   export let helpText: string | undefined;
   export let textOptional: string | undefined;
