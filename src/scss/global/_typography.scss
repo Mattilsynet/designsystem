@@ -166,6 +166,9 @@ strong {
 .text-small {
   font-size: $font-size-small;
 }
+.text-body {
+  font-size: $font-size-body;
+}
 
 .text {
   @include xp-html-area;

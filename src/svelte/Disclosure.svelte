@@ -64,12 +64,13 @@
 
 <div class="disclosure disclosure-{theme} {disclosureClass}">
   {#if onServer && headerTag === 'h2'}
-    <h2 class="disclosure-header {headerClass}">{title}</h2>
+    <h2 class="disclosure-header {headerClass}" class:text-body={theme === 'bordered'}>{title}</h2>
   {:else if onServer}
-    <h3 class="disclosure-header {headerClass}">{title}</h3>
+    <h3 class="disclosure-header {headerClass}" class:text-body={theme === 'bordered'}>{title}</h3>
   {:else}
     <button
       class="button--unstyled disclosure-header {headerTag} {headerClass}"
+      class:text-body={theme === 'bordered'}
       aria-expanded={isOpen}
       aria-controls={bodyId}
       on:click={() => send('TOGGLE')}
