@@ -37,7 +37,7 @@
 <textarea
   id={name}
   {name}
-  use:countCharacters={countCharactersLeftLabel}
+  use:countCharacters={countCharactersLeftLabel ? {countCharactersLeftLabel} : undefined}
   class="form-field"
   bind:value
   {maxlength}
