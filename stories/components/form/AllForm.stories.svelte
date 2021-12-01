@@ -38,6 +38,7 @@
     checkboxLabel: 'Hva liker du?',
     helpText: 'Skriv når hendelsen skjedde og om det har pågått over lengere periode.',
     errorMessage: 'Fyll inn dette feltet.',
+    countCharactersLeftLabel: 'karakterer igjen',
     disableCss: false
   }}
   argTypes={{
@@ -45,11 +46,13 @@
     radioLabel: {control: 'text'},
     checkboxLabel: {control: 'text'},
     helpText: {control: 'text'},
+    checkboxLabel: {control: 'text'},
+    countCharactersLeftLabel: {control: 'text'},
     disableCss: {control: 'boolean'}
   }}
 />
 
-<Story name="Normal" let:label let:helpText let:radioLabel let:checkboxLabel let:args>
+<Story name="Normal" let:label let:helpText let:radioLabel let:checkboxLabel let:countCharactersLeftLabel let:args>
   <div use:wrapInShadowDom={args.disableCss}>
     <form class="form-layout">
       <TextInput
@@ -69,6 +72,7 @@
         name="email"
         {label}
         {helpText}
+        {countCharactersLeftLabel}
         error={undefined}
         isRequired={true}
         textOptional="valgfritt felt"
@@ -102,6 +106,7 @@
         name="name"
         {label}
         {helpText}
+        {countCharactersLeftLabel}
         error={{key: 'name', message: errorMessage}}
         isRequired={true}
         textOptional="valgfritt felt"
