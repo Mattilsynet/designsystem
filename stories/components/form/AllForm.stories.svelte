@@ -45,7 +45,6 @@
     radioLabel: {control: 'text'},
     checkboxLabel: {control: 'text'},
     helpText: {control: 'text'},
-    checkboxLabel: {control: 'text'},
     disableCss: {control: 'boolean'}
   }}
 />

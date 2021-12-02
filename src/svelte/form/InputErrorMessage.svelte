@@ -1,7 +1,7 @@
 <script lang="ts">
   export let key: string;
   export let message: string;
-  export let hiddenErrorText: string = 'Feilmelding';
+  export let hiddenErrorText = 'Feilmelding';
 </script>
 
 <span id={`${key}-error`} class="form-error">
