@@ -10,6 +10,7 @@
     label: 'Når skjedde det?',
     helpText: 'Skriv når hendelsen skjedde og om det har pågått over lengere periode.',
     errorMessage: 'Fyll inn dette feltet.',
+    countCharactersLeftLabel: 'karakterer igjen',
     disableCss: false
   }}
   argTypes={{
@@ -36,16 +37,18 @@
   </div>
 </Story>
 
-<Story name="Input with error" let:label let:helpText let:errorMessage let:disableCss>
+<Story name="Input with error" let:label let:helpText let:errorMessage let:disableCss let:countCharactersLeftLabel>
   <div use:wrapInShadowDom={disableCss}>
     <form class="form-layout">
       <TextInput
         name="inputfield"
         {label}
         {helpText}
+        {countCharactersLeftLabel}
         error={{key: 'inputfield', message: errorMessage}}
         textOptional="valgfritt felt"
         inputmode="text"
+        maxlength={10}
         placeholder=""
         autocomplete=""
       />
