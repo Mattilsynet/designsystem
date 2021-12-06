@@ -8,11 +8,11 @@
       disableJs: false,
       items: [
         {
-          title: 'Vis denne siden på nynorsk',
+          title: 'Vis siden på nynorsk',
           url: '#'
         },
         {
-          title: 'Show this page in English',
+          title: 'Show page in English',
           url: '#"'
         }
       ]

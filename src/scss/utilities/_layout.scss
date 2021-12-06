@@ -14,6 +14,11 @@
   display: flex;
   flex-wrap: var(--wrap);
   gap: var(--gap);
+
+  &--space-between {
+    justify-content: space-between;
+  }
+
   &--centered {
     place-content: center;
   }
@@ -123,7 +128,8 @@ Only use if it does NOT affect accessibility
 
 header,
 .header {
-  display: grid;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   border-bottom: $border-red-regular;
 
