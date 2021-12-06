@@ -10,7 +10,7 @@
 
   export let title = '';
   const bodyId = `ui-dropdown-${counter++}`;
-  export let loadJs = false;
+  export let loadJs = true;
   export let titleId = `${bodyId}-title`;
 
   interface DropdownContext {
