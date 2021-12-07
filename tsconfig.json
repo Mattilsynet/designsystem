@@ -12,5 +12,14 @@
     "noUnusedParameters": true,
     "module": "ES6",
     "moduleResolution": "node",
-  }
+    "esModuleInterop": true,
+    "types": ["jest", "@testing-library/jest-dom", "svelte"]
+  },
+  "include": [
+    "src/**/*.d.ts",
+    "src/**/*.js",
+    "src/**/*.ts",
+    "src/**/*.test.ts",
+    "src/**/*.svelte"
+  ]
 }
