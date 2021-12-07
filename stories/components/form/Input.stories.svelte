@@ -32,6 +32,29 @@
         placeholder=""
         autocomplete=""
       />
+
+      <TextInput
+        name="inputfield2"
+        {label}
+        {helpText}
+        textOptional="valgfritt felt"
+        inputmode="text"
+        isRequired={true}
+        placeholder="Skriv noe"
+        autocomplete=""
+      />
+
+      <TextInput
+        name="inputfield3"
+        {label}
+        {helpText}
+        textOptional="valgfritt felt"
+        inputmode="text"
+        isRequired={true}
+        placeholder=""
+        autocomplete=""
+        maxlength={30}
+      />
     </form>
   </div>
 </Story>
