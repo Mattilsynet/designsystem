@@ -1,19 +1,26 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf';
+  import Dropdown from '../src/svelte/Dropdown.svelte';
 </script>
 
 <Meta
   title="Components/Header"
   parameters={{layout: 'fullscreen'}}
   args={{
+    items: [
+      {title: 'Test', url: 'http://'},
+      {title: 'Another test', url: 'http://'},
+      {title: 'Another test with super super longer text', url: 'http://'}
+    ],
     disableCss: false
   }}
   argTypes={{
+    items: {control: 'array'},
     disableCss: {control: 'boolean'}
   }}
 />
 
-<Story name="Normal" let:title let:disableCss>
+<Story name="Normal" let:title let:disableCss let:args>
   <header class="header header--regular">
     <a href="https://mattilsynet.no/">
       <svg width="184" height="36" viewBox="0 0 184 36" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -64,5 +71,14 @@
         />
       </svg>
     </a>
+    <Dropdown title="Språk/language" loadJs={true} let:titleId>
+      <ol class="alt-language" aria-labelledby={titleId}>
+        {#each args.items as item}
+          <li>
+            <a href={item.url} class="forward-arrow-small">{item.title}</a>
+          </li>
+        {/each}
+      </ol>
+    </Dropdown>
   </header>
 </Story>

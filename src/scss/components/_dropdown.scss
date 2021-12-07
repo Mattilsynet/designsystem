@@ -10,6 +10,7 @@
   .dropdown-content {
     display: none;
     position: absolute;
+    width: 0;
     top: 0;
     padding: 4.125rem var(--spacer-x-small) var(--spacer-x-small);
     background-color: var(--color-mt-blue);
@@ -46,6 +47,7 @@
 
     .dropdown-content {
       display: inline-block;
+      min-width: min(100vw, 20rem);
     }
 
     .dropdown-title,
@@ -57,27 +59,36 @@
       box-shadow: 0 0 0 0.15rem var(--color-mt-light-blue);
     }
 
-    .alt-language {
-      width: max-content;
-    }
-
     a {
       color: var(--color-mt-white);
       font-size: $font-size-h4;
       font-weight: var(--font-weight-light);
-      padding: var(--spacer-xxx-small);
 
       &:focus {
         box-shadow: 0 0 0 0.15rem var(--color-mt-light-blue);
       }
     }
   }
-}
 
+  @media only screen and (min-width: $breakpoint-large) {
+    .dropdown-content {
+      min-width: 20rem;
+    }
+  }
+}
 
 .alt-language {
   text-align: left;
   list-style: none;
   padding: 0;
+  margin-top: 0;
   color: white;
+
+  li {
+    display: flex;
+    flex-direction: column;
+  }
+  li + li {
+    margin-top: var(--spacer-x-small);
+  }
 }
