@@ -27,7 +27,7 @@
   }
 </script>
 
-<Label htmlFor={name} {isRequired} {textOptional}>{label}</Label>
+<Label for={name} {isRequired} {textOptional}>{label}</Label>
 
 {#if helpText}
   <div id={`${fileInputName}-hint`} class="hint">
