@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {onMount} from 'svelte';
+  import {onMount, afterUpdate} from 'svelte';
   import type {Breadcrumbs} from '../ts/types';
   import {useMachine} from '@xstate/svelte';
   import {createMachine} from 'xstate';
@@ -15,27 +15,29 @@
     breadcrumbsItems: Array<{url: string; title: string} | symbol>;
   }
 
-  type BreadcrumbsEvent = {type: 'MOUNTED'} | {type: 'TOGGLE'};
+  type BreadcrumbsEvent = {type: 'MOUNTED'} | {type: 'TOGGLE'} | {type: 'RESET'};
 
   type BreadcrumbsState =
     | {value: 'serverRendered'; context: BreadcrumbsContext}
     | {value: 'partial'; context: BreadcrumbsContext}
-    | {value: 'full'; context: BreadcrumbsContext};
+    | {value: 'full'; context: BreadcrumbsContext}
+    | {value: 'reset'; context: BreadcrumbsContext};
 
   const breadcrumbsMachine = createMachine<BreadcrumbsContext, BreadcrumbsEvent, BreadcrumbsState>(
     {
       id: 'breadcrumbs',
       initial: 'serverRendered',
       context: {
-        breadcrumbsItems: breadcrumbs.items
+        breadcrumbsItems: []
       },
       states: {
         serverRendered: {
+          entry: 'expandBreadcrumbs',
           on: {
             MOUNTED: [
               {
                 target: 'partial',
-                cond: context => context.breadcrumbsItems.length > LIMIT_BEFORE_PARTIAL
+                cond: 'showPartial'
               },
               {
                 target: 'full'
@@ -45,11 +47,27 @@
         },
         partial: {
           entry: 'prepareCollapsedBreadcrumbs',
-          on: {TOGGLE: 'full'}
+          on: {
+            TOGGLE: 'full',
+            RESET: 'reset'
+          }
         },
         full: {
           entry: 'expandBreadcrumbs',
-          on: {TOGGLE: 'partial'}
+          on: {
+            RESET: 'reset'
+          }
+        },
+        reset: {
+          always: [
+            {
+              target: 'partial',
+              cond: 'showPartial'
+            },
+            {
+              target: 'full'
+            }
+          ]
         }
       }
     },
@@ -66,6 +84,9 @@
         expandBreadcrumbs: context => {
           context.breadcrumbsItems = breadcrumbs.items;
         }
+      },
+      guards: {
+        showPartial: () => breadcrumbs.items > LIMIT_BEFORE_PARTIAL
       }
     }
   );
@@ -78,7 +99,8 @@
 
   $: isFull = $state.value !== 'partial';
   $: onServer = $state.value === 'serverRendered';
-  $: preparedBreadCrumbs = $state.context.breadcrumbsItems;
+
+  afterUpdate(() => send({type: 'RESET'}));
 
   if (loadJs) {
     onMount(() => send('MOUNTED'));
@@ -87,8 +109,8 @@
 
 <nav class="breadcrumbs {classNames}" aria-label={ariaLabel}>
   <ol class:expanded={isFull}>
-    {#each preparedBreadCrumbs as item, index}
-      <li class:ellipsis={!isFull && index + 1 === preparedBreadCrumbs.length}>
+    {#each $state.context.breadcrumbsItems as item, index}
+      <li class:ellipsis={!isFull && index + 1 === $state.context.breadcrumbsItems.length}>
         {#if index === 0}
           <a href={item.url}>{homeLabel}</a>
         {:else if item === BUTTON_ELLIPSIS}
@@ -101,7 +123,7 @@
           >
             ...
           </button>
-        {:else if index + 1 < preparedBreadCrumbs.length}
+        {:else if index + 1 < $state.context.breadcrumbsItems.length}
           <a class="forward-arrow" href={item.url}>{item.title}</a>
         {:else}
           <a class="forward-arrow" aria-current="page" href={item.url}>{item.title}</a>
