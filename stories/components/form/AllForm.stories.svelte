@@ -99,7 +99,16 @@
   </div>
 </Story>
 
-<Story name="Input with error" let:label let:helpText let:errorMessage let:radioLabel let:checkboxLabel let:args>
+<Story
+  name="Input with error"
+  let:label
+  let:helpText
+  let:errorMessage
+  let:radioLabel
+  let:checkboxLabel
+  let:args
+  let:countCharactersLeftLabel
+>
   <div use:wrapInShadowDom={args.disableCss}>
     <form class="form-layout">
       <TextInput
