@@ -10,7 +10,7 @@
   export let error: ErrorDetail | undefined;
   export let options: Array<{value: string; text: string}> = [];
   export let isRequired: boolean | undefined = undefined;
-  export let textOptional = 'valgfitt felt';
+  export let textOptional = 'valgfritt felt';
   export let hiddenErrorText: string | undefined;
 </script>
 
