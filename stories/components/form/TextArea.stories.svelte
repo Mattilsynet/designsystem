@@ -12,7 +12,7 @@
       'Beskriv kort og konkret hva du har observert og hvor alvorlig hendelsen er. Vær oppmerksom på den ansvarlige ofte får se meldingen.',
     errorMessage: 'Fyll inn dette feltet.',
     disableCss: false,
-    countCharactersLeftLabel: 'Karakterer igjen'
+    countCharactersLeftLabel: 'karakterer igjen'
   }}
   argTypes={{
     label: {control: 'text'},
