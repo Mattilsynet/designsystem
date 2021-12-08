@@ -11,23 +11,26 @@
     helpText:
       'Beskriv kort og konkret hva du har observert og hvor alvorlig hendelsen er. Vær oppmerksom på den ansvarlige ofte får se meldingen.',
     errorMessage: 'Fyll inn dette feltet.',
-    disableCss: false
+    disableCss: false,
+    countCharactersLeftLabel: 'karakterer igjen'
   }}
   argTypes={{
     label: {control: 'text'},
     helpText: {control: 'text'},
+    countCharactersLeft: {control: 'text'},
     errorMessage: {control: 'text'},
     disableCss: {control: 'boolean'}
   }}
 />
 
-<Story name="TextArea normal" let:label let:helpText let:disableCss>
+<Story name="TextArea normal" let:label let:helpText let:disableCss let:countCharactersLeftLabel>
   <div use:wrapInShadowDom={disableCss}>
     <form class="form-layout">
       <TextArea
         name="email"
         {label}
         {helpText}
+        {countCharactersLeftLabel}
         textOptional="valgfritt felt"
         inputmode="text"
         maxlength={300}
