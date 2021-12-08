@@ -42,7 +42,7 @@
 
 <Template let:args>
   <section class="content" use:wrapInShadowDom={args.disableCss}>
-    <Disclosure title={args.title} loadJs={!args.disableJs} headerTag={args.headerTag}>
+    <Disclosure title={args.title} loadJs={!args.disableJs} headerTag={args.headerTag} headerClass={args.headerClass}>
       {@html args.body}
       <ul>
         <li>Punkt 1</li>
@@ -57,6 +57,7 @@
   args={{
     title: disclosures[0].title,
     body: disclosures[0].body,
+    headerClass: 'text-body',
     disableJs: false,
     disableCss: false
   }}
@@ -65,6 +66,7 @@
 <Story
   name="Multiple"
   args={{
+    headerClass: 'text-body',
     disableJs: false,
     disableCss: false
   }}
@@ -73,7 +75,7 @@
   <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading">
     <h2 id="heading">Heading for accordion</h2>
     {#each disclosures as disclosure}
-      <Disclosure title={disclosure.title} loadJs={!args.disableJs}>
+      <Disclosure title={disclosure.title} loadJs={!args.disableJs} headerClass={args.headerClass}>
         {@html disclosure.body}
       </Disclosure>
     {/each}

@@ -36,6 +36,11 @@
 
     .disclosure-header {
       justify-content: space-between;
+      transition: padding-left ease-in-out 150ms;
+
+      &:hover {
+        padding-left: var(--spacer-xx-small);
+      }
     }
 
     [aria-expanded].disclosure-header::after {
@@ -48,6 +53,10 @@
 
     [aria-expanded='true'].disclosure-header::after {
       transform: rotate(-180deg);
+    }
+
+    [aria-expanded='true'].disclosure-header {
+      padding-left: var(--spacer-xx-small);
     }
   }
 
