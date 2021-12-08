@@ -38,12 +38,12 @@
       url: '/site/default/draft/mattilsynet/mat-og-vann/dyr/mishandling-eller-vanstell/varsel-om-mishandling-eller-vannstell',
       type: 'no.mattilsynet.app:article'
     }
-  ]
+  ];
 </script>
 
 <Meta
   title="Components/Breadcrumbs"
-  parameters={{xstate: true}}
+  parameters={{xstate: true, inspectUrl: 'https://stately.ai/viz?inspect'}}
   args={{
     loadJs: true,
     breadcrumbsLong: {
@@ -54,14 +54,14 @@
     breadcrumbsShort: {
       ariaLabel: 'breadcrumbs',
       showAllLabel: 'show all',
-      items: breadcrumbsItems.slice(0,3)
+      items: breadcrumbsItems.slice(0, 3)
     }
   }}
 />
 
 <Story name="Normal" let:breadcrumbsLong let:breadcrumbsShort let:loadJs>
   <p class="description">Brødsmuler med 4 eller fler elementer</p>
-  <Breadcrumbs breadcrumbs={breadcrumbsLong} loadJs={loadJs}/>
+  <Breadcrumbs breadcrumbs={breadcrumbsLong} {loadJs} />
   <p class="description">Brødsmuler med 3 eller færre elementer</p>
-  <Breadcrumbs breadcrumbs={breadcrumbsShort} loadJs={loadJs}/>
+  <Breadcrumbs breadcrumbs={breadcrumbsShort} {loadJs} />
 </Story>
