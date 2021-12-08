@@ -40,7 +40,6 @@
 
       &:hover {
         padding-left: var(--spacer-xx-small);
-        font-weight: $font-weight-bold;
       }
     }
 
@@ -57,7 +56,6 @@
     }
 
     [aria-expanded='true'].disclosure-header {
-      font-weight: $font-weight-bold;
       padding-left: var(--spacer-xx-small);
     }
   }
