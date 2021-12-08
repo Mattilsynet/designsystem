@@ -68,7 +68,6 @@
   {:else if onServer}
     <h3 class="disclosure-header {headerClass}">{title}</h3>
   {:else}
-  {:else}
     <button
       class="button--unstyled disclosure-header {headerTag} {headerClass}"
       aria-expanded={isOpen}
