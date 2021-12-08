@@ -20,7 +20,7 @@
   const selectId = `ui-select-${instanceCounter++}`;
 </script>
 
-<Label htmlFor={selectId} {isRequired} {textOptional}>{label}</Label>
+<Label for={selectId} {isRequired} {textOptional}>{label}</Label>
 
 {#if helpText}
   <div id={`${name}-hint`} class="hint">

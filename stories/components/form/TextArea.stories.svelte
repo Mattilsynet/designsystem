@@ -34,6 +34,19 @@
         rows="3"
         cols="5"
       />
+
+      <TextArea
+        name="email2"
+        {label}
+        {helpText}
+        textOptional="valgfritt felt"
+        inputmode="text"
+        maxlength={300}
+        isRequired={true}
+        placeholder="Skriv inn tekst her"
+        rows="3"
+        cols="5"
+      />
     </form>
   </div>
 </Story>

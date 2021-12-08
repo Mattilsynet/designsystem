@@ -1,7 +1,7 @@
 <script lang="ts">
   let htmlFor: string;
   export {htmlFor as for};
-  export let textOptional: string | undefined = 'valgfitt felt';
+  export let textOptional: string | undefined = 'valgfritt felt';
   export let isRequired: boolean | undefined = undefined;
 </script>
 
