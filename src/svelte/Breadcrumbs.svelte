@@ -86,7 +86,7 @@
         }
       },
       guards: {
-        showPartial: () => breadcrumbs.items > LIMIT_BEFORE_PARTIAL
+        showPartial: () => breadcrumbs.items.length > LIMIT_BEFORE_PARTIAL
       }
     }
   );
@@ -99,8 +99,7 @@
 
   $: isFull = $state.value !== 'partial';
   $: onServer = $state.value === 'serverRendered';
-
-  afterUpdate(() => send({type: 'RESET'}));
+  $: breadcrumbs, send({type: 'RESET'});
 
   if (loadJs) {
     onMount(() => send('MOUNTED'));
