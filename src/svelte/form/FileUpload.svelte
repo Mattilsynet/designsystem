@@ -7,6 +7,7 @@
   export let value;
   export let name: string;
   export let label: string;
+  export let buttonText: string;
   export let fileInputName: string;
   export let fileNameInputName: string;
   export let helpText: string | undefined;
@@ -46,6 +47,7 @@
   {error}
   id={name}
   name={fileInputName}
+  {buttonText}
   {multiple}
   {accept}
   {fileName}
