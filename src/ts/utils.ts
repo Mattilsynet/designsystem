@@ -10,3 +10,7 @@ export function toKebabCase(text: string): string {
     .replace(/ /g, '-')
     .toLowerCase();
 }
+export function displayDataTime(lang: string, isoDate?: string): string {
+  if (!isoDate) return '';
+  return new Intl.DateTimeFormat(lang).format(new Date(isoDate));
+}
