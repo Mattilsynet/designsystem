@@ -30,6 +30,7 @@
       <div class="intro">
         <p>{intro}</p>
       </div>
+      <Published {publishFrom} {professionallyUpdated} />
 
       <figure class="col-2-span-10">
         <img src={imageFile} alt="Alternativ bildetekst" />
@@ -61,8 +62,6 @@
       <h3>Underoverskrift</h3>
       <p>Paragraf med tekst</p>
       <p>Paragraf med tekst</p>
-
-      <Published {publishFrom} {professionallyUpdated} />
     </article>
   </div>
 </Story>

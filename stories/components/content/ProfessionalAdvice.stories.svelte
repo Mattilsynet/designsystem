@@ -42,6 +42,8 @@
       <div class="intro">
         <p>{intro}</p>
       </div>
+      <Published {publishFrom} {professionallyUpdated} />
+
       {@html text}
 
       <section class="layout-flex-col layout-flex-col--x-small" aria-labelledby="how-to-heading">
@@ -66,8 +68,6 @@
       <Disclosure title={'Begrunnelse'} headerTag="h2">
         <p>Her kommer begrunnelsen</p>
       </Disclosure>
-
-      <Published {publishFrom} {professionallyUpdated} />
     </article>
   </div>
 </Story>

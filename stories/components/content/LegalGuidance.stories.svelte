@@ -38,6 +38,7 @@
       <div class="intro">
         <p>{intro}</p>
       </div>
+      <Published {publishFrom} {professionallyUpdated} />
 
       {@html text}
 
@@ -97,8 +98,6 @@
       <Disclosure title="Varsle Mattilsynet" headerTag="h2">
         <p>Tekst for varsle Mattilsynet</p>
       </Disclosure>
-
-      <Published {publishFrom} {professionallyUpdated} />
     </article>
   </div>
 </Story>
