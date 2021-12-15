@@ -61,11 +61,11 @@
   }
 
   &.disclosure-links {
-    .disclosure-header {
+    > .disclosure-header {
       color: var(--color-mt-blue);
     }
 
-    [aria-expanded].disclosure-header {
+    > [aria-expanded].disclosure-header {
       transition: color 0.3s ease;
       &::before {
         display: flex;
