@@ -34,8 +34,9 @@
     margin-top: var(--space-content);
   }
 
+  > .meta + p,
   figure {
-    margin-top: var(--space-content);
+    margin-top: var(--spacer-medium);
   }
 
   h2 {
@@ -53,7 +54,11 @@
   .text {
     @include xp-html-area;
   }
-  .meta,
+
+  .meta {
+    margin-top: var(--spacer-small);
+  }
+
   .disclosure {
     margin-top: var(--space-section);
   }
@@ -69,11 +74,11 @@
   display: grid;
   grid-template-columns: auto 1fr;
   font-size: $font-size-small;
+  row-gap: var(--spacer-xxx-small);
 
   @media only screen and (min-width: $breakpoint-large) {
-    display: grid;
-    grid-template-columns: auto 1fr auto 5fr;
-    gap: 5px;
+    display: flex;
+    gap: var(--spacer-xxx-small);
   }
 
   dd {
@@ -85,8 +90,16 @@
     margin-right: var(--spacer-large);
     font-weight: normal;
 
+    time {
+      padding-right: var(--spacer-xxx-small);
+    }
+
     @media only screen and (min-width: $breakpoint-large) {
       margin-right: 0;
+
+      &:nth-child(2) {
+        border-right: $border-width-small solid var(--color-mt-beige);
+      }
     }
   }
 }
