@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {displayDataTime} from '../ts/utils';
+  import type {displayDataTime} from '../ts/utils';
 
   let url = '';
   let className = '';
