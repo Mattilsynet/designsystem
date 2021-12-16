@@ -123,7 +123,7 @@
   class="form-field"
   bind:this={fileInputElement}
   class:error
-  class:inclusively-hidden={!onServer}
+  class:inclusively-hidden-fixed={!onServer}
   aria-describedby={createInputAriaDescribedby(name, error)}
   aria-invalid={!!error}
   on:change={e => send({type: 'FILE_SELECTED', fileNames: getFileNames(e.target)})}
