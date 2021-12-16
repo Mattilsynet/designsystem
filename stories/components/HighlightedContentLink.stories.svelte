@@ -25,7 +25,7 @@
 
 <Story name="Normal" let:text let:disableCss let:heading let:date>
   <main class="container layout-flex-col">
-    <h1>Fremhevet innhold</h1>
+    <h1>Fremhevet innhold med bilde</h1>
     <section class="layout-flex-col">
       <HighlightedContentLink
         href="https://www.mattilsyent.no"
@@ -37,12 +37,22 @@
         {@html text}
       </HighlightedContentLink>
     </section>
+
+    <h2>Fremhevet innhold uten bilde</h2>
+    <section class="layout-flex-col">
+      <HighlightedContentLink href="https://www.mattilsyent.no" headingClass="h3" {date} heading="Dette er tittelen">
+        {@html text}
+      </HighlightedContentLink>
+    </section>
   </main>
 </Story>
 
 <style lang="scss">
   main {
-    --gap: var(--spacer-large);
+    --gap: var(--spacer-small);
+  }
+  h2 {
+    margin-top: var(--spacer-medium);
   }
   section {
     --gap: var(--spacer-xx-small);
