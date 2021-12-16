@@ -67,7 +67,6 @@
               },
               actions: (context, event) => {
                 removeFileFromFileList(event.fileName);
-                console.log('Scrolling action empty');
                 fileInputElement.focus();
                 dispatch('removeFile', {fileName: event.fileName});
               }
@@ -76,7 +75,6 @@
               target: 'selected',
               actions: (context, event) => {
                 removeFileFromFileList(event.fileName);
-                console.log('Scrolling action selected');
                 fileInputElement.focus();
                 dispatch('removeFile', {fileName: event.fileName});
               }
