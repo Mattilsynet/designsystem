@@ -18,7 +18,7 @@
   {#if image}
     <img src={image.src} alt={image.alt} />
   {/if}
-  <div class="layout-flex layout-flex-col highlighted" style="gap:0">
+  <div class="layout-flex layout-flex-col highlighted-text" style="gap:0">
     {#if date}
       <time class="text-small" datetime={date}>{displayDate}</time>
     {/if}

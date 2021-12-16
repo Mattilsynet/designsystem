@@ -102,7 +102,7 @@ a {
     --content-padding: var(--spacer-x-small);
 
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     align-items: flex-start;
     margin-left: var(--content-margin);
     padding: var(--content-padding);
@@ -113,7 +113,7 @@ a {
     img {
       width: 100%;
     }
-    .highlighted {
+    .highlighted-text {
       color: var(--color-mt-text-dark);
 
       .heading {
