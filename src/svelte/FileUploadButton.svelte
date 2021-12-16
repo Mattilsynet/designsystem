@@ -67,6 +67,7 @@
               },
               actions: (context, event) => {
                 removeFileFromFileList(event.fileName);
+                console.log('Scrolling action empty');
                 fileInputElement.focus();
                 dispatch('removeFile', {fileName: event.fileName});
               }
@@ -75,6 +76,7 @@
               target: 'selected',
               actions: (context, event) => {
                 removeFileFromFileList(event.fileName);
+                console.log('Scrolling action selected');
                 fileInputElement.focus();
                 dispatch('removeFile', {fileName: event.fileName});
               }
@@ -123,7 +125,7 @@
   class="form-field"
   bind:this={fileInputElement}
   class:error
-  class:inclusively-hidden={!onServer}
+  class:inclusively-hidden-fixed={!onServer}
   aria-describedby={createInputAriaDescribedby(name, error)}
   aria-invalid={!!error}
   on:change={e => send({type: 'FILE_SELECTED', fileNames: getFileNames(e.target)})}
