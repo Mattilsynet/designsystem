@@ -16,7 +16,7 @@
   rel={isExternal ? 'external' : undefined}
   data-testid="hightlighted-content-link"
 >
-  {#if image?.src}
+  {#if image && image.src}
     <img src={image.src} alt={image.alt} />
   {/if}
   <div class="layout-flex layout-flex-col highlighted-text" style="gap:0">
