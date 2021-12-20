@@ -3,7 +3,7 @@ module.exports = {
     const svelteLoader = config.module.rules.find(r => r.loader && r.loader.includes('svelte-loader'));
     svelteLoader.options.preprocess = require('svelte-preprocess')({});
     /* TODO: remove this to see warnings again*/
-    config.entry = config.entry.filter(singleEntry => !singleEntry.includes('/webpack-hot-middleware/'))
+    config.entry = config.entry.filter(singleEntry => !singleEntry.includes('/webpack-hot-middleware/'));
     return config;
   },
 
@@ -15,5 +15,6 @@ module.exports = {
     '@storybook/addon-a11y',
     '@storybook/addon-postcss',
     'storybook-xstate-addon/preset'
-  ]
+  ],
+  staticDirs: ['../.static']
 };

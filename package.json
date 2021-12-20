@@ -11,7 +11,7 @@
     "build:sass": "sass --no-source-map src/scss:./dist ",
     "test": "jest --env=jsdom src",
     "test:watch": "npm run test -- --watch",
-    "storybook": "start-storybook -s ./static -p 6006",
+    "storybook": "start-storybook -p 6006",
     "start": "npm-run-all tokens build:sass --parallel watch:*",
     "build": "npm-run-all tokens build:sass",
     "build-storybook": "build-storybook",
