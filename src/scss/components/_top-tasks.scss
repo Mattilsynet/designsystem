@@ -1,0 +1,12 @@
+@use '../theme' as *;
+
+.top-tasks-container {
+  padding: var(--spacer-large) var(--spacer-medium);
+
+  h2 + p {
+    margin-top: var(--spacer-x-small);
+  }
+  .tasks-layout {
+    margin-top: var(--spacer-medium);
+  }
+}

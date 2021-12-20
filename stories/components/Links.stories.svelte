@@ -20,6 +20,8 @@
   }}
   argTypes={{
     primary: {control: 'text'},
+    cards: {control: 'array'},
+    secondary: {control: 'string'},
     disabled: {control: 'boolean'},
     disableCss: {control: 'boolean'}
   }}

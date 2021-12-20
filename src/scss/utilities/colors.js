@@ -20,6 +20,10 @@ module.exports = [
     color: 'hsl(193, 52%, 42%)'
   },
   {
+    name: 'mt-lighter-light-blue',
+    color: 'hsl(193,39%,88%)'
+  },
+  {
     name: 'mt-rationale-blue',
     color: 'hsl(193, 39%, 88%)'
   },
