@@ -5,6 +5,8 @@
 <Meta
   title="Innhold/Toppoppgaver"
   args={{
+    title: 'Dette er tittelen til toppoppgavene',
+    intro: 'Her kommer introen til oppgavene',
     topTasks: [
       {href: '#', heading: 'Dyr og dyrehold', text: 'Dette er innholdsteksten for dyr og dyrehold'},
       {href: '#', heading: 'Mat og vann', text: 'Dette er innholdsteksten for mat og vann'},
@@ -21,17 +23,19 @@
     disableCss: false
   }}
   argTypes={{
+    title: {control: 'string'},
+    intro: {control: 'string'},
     topTasks: {control: 'array'},
     disabled: {control: 'boolean'},
     disableCss: {control: 'boolean'}
   }}
 />
 
-<Story name="Normal" let:topTasks let:icon let:disableCss>
+<Story name="Normal" let:topTasks let:icon let:disableCss let:title let:intro>
   <h1>Toppoppgaver</h1>
   <div class="container bg-light-light-blue top-tasks-container">
-    <h2 class="top-tasks-text">Tittel for toppoppgaver</h2>
-    <p class="top-tasks-text">Ingress for toppoppgaver</p>
+    <h2 class="top-tasks-text">{title}</h2>
+    <p class="top-tasks-text">{intro}</p>
     {#each topTasks as task, index}
       <section
         class="layout-flex layout-flex--centered tasks-layout"
