@@ -14,24 +14,14 @@
       {href: '#', text: 'Kosmetikk'},
       {href: '#', text: 'Kritikkverdige forhold på arbeidsplassen'}
     ],
-    topTasks: [
-      {href: '#', heading: 'Dyr og dyrehold', text: 'Dette er innholdsteksten for dyr og dyrehold'},
-      {href: '#', heading: 'Mat og vann', text: 'Dette er innholdsteksten for mat og vann'},
-      {href: '#', heading: 'Fisk og akvakultur', text: 'Dette er innholdsteksten for fisk og akvakultur'},
-      {href: '#', heading: 'Planter og dyrking', text: 'Dette er innholdsteksten for planter og dyrking'},
-      {href: '#', heading: 'Kosmetikk', text: 'Dette er innholdsteksten for kosmetikk'},
-      {
-        href: '#',
-        heading: 'Kritikkverdige forhold på arbeidsplassen',
-        text: 'Dette er innholdsteksten kritikkverdige forhold på arbeidsplassen'
-      }
-    ],
     secondary: 'Avbryt',
     disabled: false,
     disableCss: false
   }}
   argTypes={{
     primary: {control: 'text'},
+    cards: {control: 'array'},
+    secondary: {control: 'string'},
     disabled: {control: 'boolean'},
     disableCss: {control: 'boolean'}
   }}
@@ -98,29 +88,6 @@
                 fill="white"
               />
             </svg>
-            <span class="text">{link.text}</span>
-          </a>
-        {/each}
-      </section>
-      <hr />
-    {/each}
-  </div>
-</Story>
-
-<Story name="Toppoppgave" let:topTasks let:icon let:disableCss let:disabled let:secondary>
-  <div class="container">
-    <h1>Toppoppgave</h1>
-    {#each topTasks as task, index}
-      <section
-        class="layout-flex layout-flex--centered"
-        class:layout-flex--basis-3={index === 0 || index === 1 || index === 3}
-        class:layout-flex--basis-2={index !== 0 && index !== 1 && index !== 3}
-        aria-labelledby={''}
-        style="gap: var(--spacer-x-small);"
-      >
-        {#each topTasks.slice(0, 6 - index) as link}
-          <a href={link.href} class="button button--primary top-task">
-            <h3 class="heading">{link.heading}</h3>
             <span class="text">{link.text}</span>
           </a>
         {/each}
