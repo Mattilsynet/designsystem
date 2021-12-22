@@ -1,8 +1,8 @@
 <script lang="ts">
   import {displayDataTime} from '../ts/utils';
 
-  export let publishFrom;
-  export let professionallyUpdated;
+  export let publishFrom: string | undefined;
+  export let professionallyUpdated: string | undefined;
   export let lang = 'nb-NO';
   export let publishedText = 'Publisert';
   export let lastPublishedText = 'Sist oppdatert';
@@ -12,10 +12,14 @@
 </script>
 
 <dl class="meta">
-  <dd>{publishedText}</dd>
-  <dt><time datetime={publishFrom}>{publishFromLocalized}</time></dt>
-  <dd>{lastPublishedText}</dd>
-  <dt>
-    <time datetime={professionallyUpdated}>{lastUpdatedLocalized}</time>
-  </dt>
+  {#if publishFrom}
+    <dd>{publishedText}</dd>
+    <dt><time datetime={publishFrom}>{publishFromLocalized}</time></dt>
+  {/if}
+  {#if professionallyUpdated}
+    <dd>{lastPublishedText}</dd>
+    <dt>
+      <time datetime={professionallyUpdated}>{lastUpdatedLocalized}</time>
+    </dt>
+  {/if}
 </dl>
