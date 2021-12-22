@@ -7,8 +7,8 @@
   export let publishedText = 'Publisert';
   export let lastPublishedText = 'Sist oppdatert';
 
-  $: publishFromLocalized = displayDataTime(lang, publishFrom);
-  $: lastUpdatedLocalized = displayDataTime(lang, professionallyUpdated);
+  $: publishFromLocalized = publishFrom ? displayDataTime(lang, publishFrom) : '';
+  $: lastUpdatedLocalized = professionallyUpdated ? displayDataTime(lang, professionallyUpdated) : '';
 </script>
 
 <dl class="meta">

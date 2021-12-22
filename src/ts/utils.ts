@@ -11,7 +11,6 @@ export function toKebabCase(text: string): string {
     .toLowerCase();
 }
 
-export function displayDataTime(lang: string, isoDate?: string): string {
-  if (!isoDate) return '';
+export function displayDataTime(lang: string, isoDate: string): string {
   return new Intl.DateTimeFormat(lang).format(new Date(isoDate));
 }
