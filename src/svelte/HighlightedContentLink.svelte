@@ -19,12 +19,12 @@
   {#if image && image.src}
     <img src={image.src} alt={image.alt} />
   {/if}
-  <div class="layout-flex layout-flex-col highlighted-text" style="gap:0">
+  <span class="layout-flex layout-flex-col highlighted-text" style="gap:0">
     {#if heading}
       <h3 class={`heading ${headingClass}`}>
         {heading}
       </h3>
     {/if}
     <slot />
-  </div>
+  </span>
 </a>
