@@ -6,7 +6,7 @@
   display: grid;
   padding: var(--spacer-small);
   grid-template-columns: min-content auto;
-  grid-template-areas: 'icon heading' 'text text' 'actions actions' 'link link';
+  grid-template-areas: 'icon heading' 'date date' 'text text' 'actions actions' 'link link';
 
   h1,
   h2,
@@ -14,6 +14,9 @@
   h4 {
     grid-area: heading;
     margin-top: 0;
+    & + .text {
+      margin-top: var(--spacer-x-small);
+    }
   }
   .important {
     grid-area: icon;
@@ -28,10 +31,13 @@
       height: 2rem;
     }
   }
+  time {
+    grid-area: date;
+    margin-top: var(--spacer-x-small);
+  }
   .text {
     grid-area: text;
     @include xp-html-area;
-    margin-top: var(--spacer-x-small);
   }
   .action {
     grid-area: actions;

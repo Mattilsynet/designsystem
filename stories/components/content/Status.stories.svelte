@@ -48,6 +48,7 @@
         {linkUrl}
         {linkText}
         {linkIsExternal}
+        updatedDate={professionallyUpdated}
         statusType="important">
         <h2 slot="heading">{title}</h2>
       </Status>

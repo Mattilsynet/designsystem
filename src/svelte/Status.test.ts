@@ -12,13 +12,15 @@ describe('Status', () => {
     statusType: 'important',
     linkUrl: 'https://www.mattilsynet.no',
     linkText: 'Link text',
-    linkIsExternal: true
+    linkIsExternal: true,
+    updatedDate: '2021-06-24T11:40:02.889Z'
   }
 
   test('Renders', () => {
     const {getByText, getByTestId} = render(Status, componentOptions)
     expect(getByText('Dette er det Mattilsynet vil informere om')).toBeInTheDocument()
     expect(getByText('Dette er det Mattilsynet gjør med saken')).toBeInTheDocument()
+    expect(getByText('24.6.2021')).toBeInTheDocument()
     const link = getByText('Link text')
     expect(link).toBeInTheDocument()
     expect(link.getAttribute('rel')).toEqual('external')
