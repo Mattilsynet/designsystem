@@ -1,6 +1,6 @@
 {
   "name": "@mattilsynet/designsystem",
-  "version": "0.0.40",
+  "version": "0.0.41",
   "description": "Design system for Mattilsynet",
   "main": "index.js",
   "private": false,
