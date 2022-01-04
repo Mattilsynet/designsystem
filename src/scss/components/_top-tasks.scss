@@ -3,7 +3,7 @@
 .top-tasks-container {
   padding: var(--spacer-large) var(--spacer-medium);
 
-  h2 + p {
+  h2 + .top-tasks-text {
     margin-top: var(--spacer-x-small);
   }
   .tasks-layout {
