@@ -14,7 +14,3 @@ export function toKebabCase(text: string): string {
 export function displayDataTime(lang: string, isoDate: string): string {
   return new Intl.DateTimeFormat(lang).format(new Date(isoDate))
 }
-
-export function displayDataTime(lang: string, isoDate: string): string {
-  return new Intl.DateTimeFormat(lang).format(new Date(isoDate));
-}
