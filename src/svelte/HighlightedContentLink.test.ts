@@ -7,7 +7,7 @@ import HighlightedContent from './HighlightedContentLink.svelte';
 
 describe('Highlighted content', () => {
   test('Renders', () => {
-    let componentOptions = {
+    const componentOptions = {
       heading: 'This is the heading',
       isExternal: true,
       image: {src: 'test', alt: 'alt text'}
