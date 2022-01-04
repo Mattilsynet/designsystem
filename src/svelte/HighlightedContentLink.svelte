@@ -7,7 +7,7 @@
   export let lang = 'nb-NO';
   export let heading: string | undefined;
   export let isExternal = false;
-  export let headingClass: string = '';
+  export let headingClass = '';
 </script>
 
 <a

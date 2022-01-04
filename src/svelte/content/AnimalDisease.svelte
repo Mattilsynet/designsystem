@@ -8,7 +8,7 @@
   export let routesOfInfection: string;
   export let infectionToHumansHeading: string;
   export let infectionToHumans: string;
-  export let disclosureHeadClass: string = '';
+  export let disclosureHeadClass = '';
   export let loadJs: boolean;
   export let imageUrl: string | undefined;
   export let imageAltText: string | undefined;

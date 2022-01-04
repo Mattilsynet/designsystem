@@ -6,7 +6,7 @@ import {render} from '@testing-library/svelte'
 import Status from './Status.svelte'
 
 describe('Status', () => {
-  let componentOptions = {
+  const componentOptions = {
     text: `<p>Dette er det Mattilsynet vil informere om</p>`,
     actionsTakenByMattilsynet: `<p>Dette er det Mattilsynet gjør med saken</p>`,
     statusType: 'important',

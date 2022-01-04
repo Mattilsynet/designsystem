@@ -7,7 +7,7 @@ import Published from './Published.svelte';
 
 describe('Highlighted content', () => {
   test('Renders', () => {
-    let componentOptions = {
+    const componentOptions = {
       publishFrom: '2021-06-24T11:40:02.889Z',
       professionallyUpdated: '2021-06-25T11:32:22Z'
     };
