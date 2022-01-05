@@ -1,8 +1,8 @@
 /**
  * @jest-environment jsdom
  */
-import {render} from '@testing-library/svelte';
-import AnimalDisease from './AnimalDisease.svelte';
+import {render} from '@testing-library/svelte'
+import AnimalDisease from './AnimalDisease.svelte'
 
 describe('Animal disease', () => {
   const componentOptions = {
@@ -17,33 +17,36 @@ describe('Animal disease', () => {
     imageUrl: 'http://localhost:3003',
     imageAltText: 'Alt text',
     caption: 'Figure caption'
-  };
+  }
 
   test('Renders', () => {
-    const {getByText} = render(AnimalDisease, componentOptions);
-    expect(getByText('Symptomer')).toBeInTheDocument();
-    expect(getByText('Hvordan smitter sykdommen?')).toBeInTheDocument();
-    expect(getByText('Kan sykdommen smitte til mennesker?')).toBeInTheDocument();
-    expect(getByText('Describing the symptoms')).toBeInTheDocument();
-    expect(getByText('Describing the routes of the infaction')).toBeInTheDocument();
-    expect(getByText('Mattilsynet')).toBeInTheDocument();
-  });
+    const {getByText} = render(AnimalDisease, componentOptions)
+    expect(getByText('Symptomer')).toBeInTheDocument()
+    expect(getByText('This is some text about the disease')).toBeInTheDocument()
+    expect(getByText('Hvordan smitter sykdommen?')).toBeInTheDocument()
+    expect(getByText('Kan sykdommen smitte til mennesker?')).toBeInTheDocument()
+    expect(getByText('Describing the symptoms')).toBeInTheDocument()
+    expect(getByText('Describing the routes of the infaction')).toBeInTheDocument()
+    expect(getByText('Mattilsynet')).toBeInTheDocument()
+  })
 
   test('Does not render accordion when body not defined', () => {
     const {getByText, queryByText} = render(AnimalDisease, {
       ...componentOptions,
+      text: null,
       routesOfInfection: null,
       infectionToHumans: null
-    });
-    expect(getByText('Symptomer')).toBeInTheDocument();
-    expect(queryByText('Hvordan smitter sykdommen?')).not.toBeInTheDocument();
-    expect(queryByText('Kan sykdommen smitte til mennesker?')).not.toBeInTheDocument();
-  });
+    })
+    expect(getByText('Symptomer')).toBeInTheDocument()
+    expect(queryByText('This is some text about the disease')).not.toBeInTheDocument()
+    expect(queryByText('Hvordan smitter sykdommen?')).not.toBeInTheDocument()
+    expect(queryByText('Kan sykdommen smitte til mennesker?')).not.toBeInTheDocument()
+  })
 
   test('Render properties when not defined', () => {
-    const {queryByText} = render(AnimalDisease, {});
-    expect(queryByText('Symptomer')).not.toBeInTheDocument();
-    expect(queryByText('Hvordan smitter sykdommen?')).not.toBeInTheDocument();
-    expect(queryByText('Kan sykdommen smitte mennesker?')).not.toBeInTheDocument();
-  });
-});
+    const {queryByText} = render(AnimalDisease, {})
+    expect(queryByText('Symptomer')).not.toBeInTheDocument()
+    expect(queryByText('Hvordan smitter sykdommen?')).not.toBeInTheDocument()
+    expect(queryByText('Kan sykdommen smitte mennesker?')).not.toBeInTheDocument()
+  })
+})
