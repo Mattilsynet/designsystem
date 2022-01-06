@@ -26,6 +26,7 @@
 
     .col-1-span-5,
     .col-1-span-6,
+    .col-1-span-10,
     .col-7-span-6,
     .col-4-span-6,
     .col-3-span-8,
@@ -48,6 +49,9 @@
       }
       .col-1-span-6 {
         grid-column: 1 / span 6;
+      }
+      .col-1-span-10 {
+        grid-column: 1 / span 10;
       }
       .col-7-span-6 {
         grid-column: 7 / span 6;
