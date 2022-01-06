@@ -16,6 +16,10 @@ module.exports = [
     color: 'hsl(54,19%,61%)'
   },
   {
+    name: 'mt-light-beige',
+    color: 'hsl(37, 39%, 91%)'
+  },
+  {
     name: 'mt-light-blue',
     color: 'hsl(193, 52%, 42%)'
   },
@@ -73,4 +77,4 @@ module.exports = [
     name: 'error-50',
     color: 'hsl(3, 76%, 36%, 0.5)'
   }
-];
+]
