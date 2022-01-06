@@ -4,8 +4,8 @@
   .intro {
     margin-top: $spacer-small;
     font-size: $font-size-body;
-    & + .disclosure {
-      margin-top: $spacer-small;
-    }
+  }
+  .disclosure {
+    margin-top: $spacer-small;
   }
 }
