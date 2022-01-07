@@ -11,6 +11,8 @@ $color-mt-red-uu: hsl(3, 76%, 36%) !default;
 $color-on-mt-red-uu: hsl(3, 68.2%, 82.7%) !default;
 $color-mt-beige: hsl(54,19%,61%) !default;
 $color-on-mt-beige: hsl(57.10000000000002, 19.3%, 21.4%) !default;
+$color-mt-light-beige: hsl(37, 39%, 91%) !default;
+$color-on-mt-light-beige: hsl(35.5, 10.7%, 40.4%) !default;
 $color-mt-light-blue: hsl(193, 52%, 42%) !default;
 $color-on-mt-light-blue: hsl(132, 100%, 5.9%) !default;
 $color-mt-lighter-light-blue: hsl(193,39%,88%) !default;
@@ -38,7 +40,7 @@ $color-on-error: hsl(0,0%,100%) !default;
 $color-error-50: hsl(3, 76%, 36%, 0.5) !default;
 $color-on-error-50: hsl(3, 68.2%, 82.7%) !default;
 
-$base-color-tokens: ("mt-blue", "mt-red", "mt-red-uu", "mt-beige", "mt-light-blue", "mt-lighter-light-blue", "mt-rationale-blue", "mt-brown", "mt-grey", "mt-white", "primary", "primary-50", "secondary", "mt-text-dark", "mt-background", "error", "error-50");
+$base-color-tokens: ("mt-blue", "mt-red", "mt-red-uu", "mt-beige", "mt-light-beige", "mt-light-blue", "mt-lighter-light-blue", "mt-rationale-blue", "mt-brown", "mt-grey", "mt-white", "primary", "primary-50", "secondary", "mt-text-dark", "mt-background", "error", "error-50");
 
 $color-tokens: (
   "color-mt-blue": $color-mt-blue,
@@ -49,6 +51,8 @@ $color-tokens: (
   "color-on-mt-red-uu": $color-on-mt-red-uu,
   "color-mt-beige": $color-mt-beige,
   "color-on-mt-beige": $color-on-mt-beige,
+  "color-mt-light-beige": $color-mt-light-beige,
+  "color-on-mt-light-beige": $color-on-mt-light-beige,
   "color-mt-light-blue": $color-mt-light-blue,
   "color-on-mt-light-blue": $color-on-mt-light-blue,
   "color-mt-lighter-light-blue": $color-mt-lighter-light-blue,
@@ -86,6 +90,8 @@ $color-tokens: (
   --color-on-mt-red-uu: #{$color-on-mt-red-uu};
   --color-mt-beige: #{$color-mt-beige};
   --color-on-mt-beige: #{$color-on-mt-beige};
+  --color-mt-light-beige: #{$color-mt-light-beige};
+  --color-on-mt-light-beige: #{$color-on-mt-light-beige};
   --color-mt-light-blue: #{$color-mt-light-blue};
   --color-on-mt-light-blue: #{$color-on-mt-light-blue};
   --color-mt-lighter-light-blue: #{$color-mt-lighter-light-blue};
