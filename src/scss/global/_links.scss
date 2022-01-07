@@ -42,6 +42,18 @@ a {
       height: 1.3125rem;
     }
   }
+
+  &.forward-arrow-end-link {
+    font-size: $font-size-body;
+
+    &:after {
+      content: url('data:image/svg+xml,%3Csvg%20width%3D%2214%22%20height%3D%2214%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M7.002.11%205.788%201.325l4.805%204.813H.113V7.86h10.48l-4.805%204.814%201.214%201.214L13.892%207%207.001.11Z%22%20fill%3D%22%23075B7A%22%2F%3E%3C%2Fsvg%3E');
+      display: inline-block;
+      height: 1.3125rem;
+      margin-left: var(--spacer-xx-small);
+    }
+  }
+
   &.forward-arrow-small {
     &:after {
       content: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0ibTYgLjA5NS0xLjA0IDEuMDQgNC4xMTggNC4xMjdILjA5NXYxLjQ3Nmg4Ljk4M2wtNC4xMTkgNC4xMjZMNiAxMS45MDQgMTEuOTA1IDYgNiAuMDk1WiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==');
