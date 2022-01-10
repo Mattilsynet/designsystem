@@ -26,7 +26,7 @@
     {@html text}
   </div>
   {#if actionsTakenByMattilsynet}
-    <div class="action">
+    <div class="text action">
       {@html actionsTakenByMattilsynet}
     </div>
   {/if}

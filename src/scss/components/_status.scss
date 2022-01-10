@@ -13,10 +13,6 @@
   h3,
   h4 {
     grid-area: heading;
-    margin-top: 0;
-    & + .text {
-      margin-top: var(--spacer-x-small);
-    }
   }
   .important {
     grid-area: icon;
@@ -37,11 +33,12 @@
   }
   .text {
     grid-area: text;
-    @include xp-html-area;
+    :first-child:not(h2):not(h3):not(h4) {
+      margin-top: var(--spacer-small);
+    }
   }
   .action {
     grid-area: actions;
-    margin-top: var(--spacer-small);
   }
   a {
     grid-area: link;
