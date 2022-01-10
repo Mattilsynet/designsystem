@@ -1,8 +1,10 @@
 <script lang="ts">
   import {displayDataTime} from '../ts/utils'
+  import Published from './Published.svelte'
 
   export let text: string
   export let updatedDate: string
+  export let publishedText = 'Oppdatert'
   export let actionsTakenByMattilsynet: string
   export let statusType: 'important' | 'none'
   export let linkUrl: string
@@ -20,7 +22,7 @@
   <slot name="heading" />
 
   {#if updatedDate && statusType === 'important'}
-    <time datetime={updatedDate} data-testid="updated-date">{updatedDateLocalized}</time>
+    <Published publishFrom={updatedDate} {publishedText} />
   {/if}
   <div class="text">
     {@html text}
