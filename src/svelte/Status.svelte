@@ -19,8 +19,8 @@
   <span class={statusType} data-testid="status-type" />
   <slot name="heading" />
 
-  {#if updatedDate}
-    <time datetime={updatedDate}>{updatedDateLocalized}</time>
+  {#if updatedDate && statusType === 'important'}
+    <time datetime={updatedDate} data-testid="updated-date">{updatedDateLocalized}</time>
   {/if}
   <div class="text">
     {@html text}

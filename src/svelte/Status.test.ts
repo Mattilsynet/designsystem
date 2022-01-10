@@ -27,10 +27,11 @@ describe('Status', () => {
     const statusType = getByTestId('status-type')
     expect(statusType).toBeInTheDocument()
     expect(statusType.classList[0]).toEqual('important')
+    expect(getByTestId('updated-date')).toBeInTheDocument()
   })
 
   test('Renders message only', () => {
-    const {getByText, getByTestId, queryByText} = render(Status, {
+    const {getByText, getByTestId, queryByText, queryByTestId} = render(Status, {
       ...componentOptions,
       statusType: 'none',
       linkUrl: null,
@@ -44,6 +45,7 @@ describe('Status', () => {
     const statusType = getByTestId('status-type')
     expect(statusType).toBeInTheDocument()
     expect(statusType.classList[0]).toEqual('none')
+    expect(queryByTestId('updated-date')).not.toBeInTheDocument()
   })
 
   test('Renders without props', () => {
