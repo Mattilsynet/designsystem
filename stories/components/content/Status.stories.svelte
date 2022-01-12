@@ -7,8 +7,9 @@
   title="Innhold/Status"
   args={{
     title: 'Dette er viktig',
-    text: 'Dette er en melding om at det har skjedd noe',
-    actionsTakenByMattilsynet: 'Dette er gjør Mattilsynet',
+    text: '<p>Dette er en melding om at det har skjedd noe</p><h3>Overkrift</h3><p>Mer tekst kommer her</p>',
+    actionsTakenByMattilsynet:
+      '<p>Dette er gjør Mattilsynet</p><h3>Overkrift</h3><p>Mer tekst kommer her</p>',
     statusType: 'important',
     linkUrl: 'https://www.mattilsynet.no',
     linkText: 'Mattilsynet',
@@ -40,7 +41,7 @@
   let:publishFrom
   let:professionallyUpdated>
   <div class="container layout-grid layout-grid--column-12">
-    <article class="article-page col-1-span-12">
+    <article class="col-3-span-8">
       <h1>Status med tekst, "hva gjør Mattilsynet" og link</h1>
       <Status
         {text}
