@@ -79,6 +79,11 @@
   @media only screen and (min-width: $breakpoint-large) {
     display: flex;
     gap: var(--spacer-xxx-small);
+
+    :nth-child(3) {
+      padding-left: var(--spacer-xxx-small);
+      border-left: $border-width-small solid var(--color-mt-beige);
+    }
   }
 
   dd {
@@ -90,16 +95,8 @@
     margin-right: var(--spacer-large);
     font-weight: normal;
 
-    time {
-      padding-right: var(--spacer-xxx-small);
-    }
-
     @media only screen and (min-width: $breakpoint-large) {
       margin-right: 0;
-
-      &:nth-child(2) {
-        border-right: $border-width-small solid var(--color-mt-beige);
-      }
     }
   }
 }
