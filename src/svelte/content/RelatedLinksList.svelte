@@ -8,16 +8,16 @@
 </script>
 
 <div class="{leftColClass} layout-flex-col" style="gap: 0" data-testid="left-col">
-  <h2>{title}</h2>
+  <h2>{@html title ? title : ''}</h2>
 </div>
 <div class="{rightColClass} layout-flex-col link-group" style="gap: 0" data-testid="right-col">
   {#each linkGroups as group}
-    <h3 id={toKebabCase(group.title ? group.title : '')}>{group.title}</h3>
+    <h3 id={toKebabCase(group.title ? group.title : '')}>{@html group.title}</h3>
     <ul class="list-unstyled" aria-labelledby={toKebabCase(group.title ? group.title : '')}>
       {#each group.links as link}
         {#if link.url && link.text}
           <li>
-            <a href={link.url} class="forward-arrow-end-link">{link.text}</a>
+            <a href={link.url} class="forward-arrow-end-link">{@html link.text}</a>
           </li>
         {/if}
       {/each}
