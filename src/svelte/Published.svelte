@@ -15,14 +15,14 @@
 
 <dl class="meta">
   {#if publishFrom}
-    <dd>{publishedText}</dd>
-    <dt><time datetime={publishFrom} data-testid="published-date">{publishFromLocalized}</time></dt>
+    <dt>{publishedText}</dt>
+    <dd><time datetime={publishFrom} data-testid="published-date">{publishFromLocalized}</time></dd>
   {/if}
   {#if professionallyUpdated}
-    <dd>{lastPublishedText}</dd>
-    <dt>
+    <dt>{lastPublishedText}</dt>
+    <dd>
       <time datetime={professionallyUpdated} data-testid="updated-date"
         >{lastUpdatedLocalized}</time>
-    </dt>
+    </dd>
   {/if}
 </dl>
