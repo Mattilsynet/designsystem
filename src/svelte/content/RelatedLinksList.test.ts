@@ -36,6 +36,12 @@ describe('Related links list', () => {
     expect(rightCol.children[0].innerHTML).toEqual('Overskrift 1')
   })
 
+  test('Render properties when no main title, no group title', () => {
+    const {getByTestId} = render(RelatedLinksList, {linkGroups: [{links: []}]})
+    expect(getByTestId('left-col')).toBeInTheDocument()
+    expect(getByTestId('right-col')).toBeInTheDocument()
+  })
+
   test('Render properties when not defined', () => {
     const {getByTestId} = render(RelatedLinksList, {})
     expect(getByTestId('left-col')).toBeInTheDocument()
