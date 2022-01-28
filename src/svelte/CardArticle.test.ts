@@ -23,9 +23,8 @@ describe('Card Article', () => {
 
     const {getByText} = render(CardArticle, {props: componentOptions})
     expect(getByText('Varsle om piggtrådgjerder')).toBeInTheDocument()
-    expect(getByText('Varsle om piggtrådgjerder')).toMatchSnapshot(
-      '<h3 class="title" id="testId">Varsle om piggtrådgjerder</h3>'
-    )
+    const headerElement = getByText('Varsle om piggtrådgjerder')
+    expect(headerElement.tagName).toEqual('H3')
   })
   test('Renders with h2 heading', () => {
     const componentOptions = {
@@ -45,8 +44,7 @@ describe('Card Article', () => {
 
     const {getByText} = render(CardArticle, {props: componentOptions})
     expect(getByText('Varsle om piggtrådgjerder')).toBeInTheDocument()
-    expect(getByText('Varsle om piggtrådgjerder')).toMatchSnapshot(
-      '<h2 class="title" id="testId">Varsle om piggtrådgjerder</h2>'
-    )
+    const headerElement = getByText('Varsle om piggtrådgjerder')
+    expect(headerElement.tagName).toEqual('H2')
   })
 })
