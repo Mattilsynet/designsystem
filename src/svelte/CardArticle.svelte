@@ -11,7 +11,7 @@
 
 <article class={type} aria-labelledby={headingId}>
   {#if headerTag === 'h2'}
-    <h2 id={headingId} class="title">{title}</h2>
+    <h2 id={headingId} class="title h3">{title}</h2>
   {:else}
     <h3 id={headingId} class="title">{title}</h3>
   {/if}
