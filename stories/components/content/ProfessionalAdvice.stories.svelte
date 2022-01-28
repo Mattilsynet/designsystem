@@ -1,8 +1,8 @@
 <script lang="ts">
-  import {Meta, Story} from '@storybook/addon-svelte-csf';
-  import CardArticle from '../../../src/svelte/CardArticle.svelte';
-  import Disclosure from '../../../src/svelte/Disclosure.svelte';
-  import Published from '../../../src/svelte/Published.svelte';
+  import {Meta, Story} from '@storybook/addon-svelte-csf'
+  import CardArticle from '../../../src/svelte/CardArticle.svelte'
+  import Disclosure from '../../../src/svelte/Disclosure.svelte'
+  import Published from '../../../src/svelte/Published.svelte'
 </script>
 
 <Meta
@@ -32,10 +32,16 @@
     helpText: {control: 'text'},
     errorMessage: {control: 'text'},
     disableCss: {control: 'boolean'}
-  }}
-/>
+  }} />
 
-<Story name="Normal" let:title let:intro let:disableCss let:publishFrom let:professionallyUpdated let:text>
+<Story
+  name="Normal"
+  let:title
+  let:intro
+  let:disableCss
+  let:publishFrom
+  let:professionallyUpdated
+  let:text>
   <div class="container">
     <article class="article-page">
       <h1>{title}</h1>
@@ -51,18 +57,17 @@
         <p>Litt tekst her</p>
         <CardArticle
           type="task"
-          title="Dette er tittelen"
+          title="Dette er en h2 tittel"
           text="Noe tekst i kroppen"
           linkUrl="http://"
           linkText="Neste handling"
-        />
+          headerTag="h2" />
         <CardArticle
           type="task"
-          title="Dette er tittelen"
+          title="Dette er en h3 tittel"
           text="Noe tekst i kroppen"
           linkUrl="http://"
-          linkText="Neste handling"
-        />
+          linkText="Neste handling" />
       </section>
 
       <Disclosure title={'Begrunnelse'} headerTag="h2">
