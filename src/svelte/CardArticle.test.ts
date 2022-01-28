@@ -2,8 +2,8 @@
  * @jest-environment jsdom
  */
 
-import {getByTestId, render} from '@testing-library/svelte'
-import CardArticle, {headerTag} from './CardArticle.svelte'
+import {render} from '@testing-library/svelte'
+import CardArticle from './CardArticle.svelte'
 
 describe('Card Article', () => {
   const componentOptions = {
