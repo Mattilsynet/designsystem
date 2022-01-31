@@ -1,15 +1,20 @@
 <script lang="ts">
-  export let headingId: string;
-  export let title: string;
-  export let intro: string | undefined;
-  export let text: string | undefined;
-  export let linkUrl: string | undefined;
-  export let linkText: string | undefined;
-  export let type: 'task' | 'form-intro-module' | 'legal-text' | '' = '';
+  export let headingId: string
+  export let title: string
+  export let intro: string | undefined
+  export let text: string | undefined
+  export let linkUrl: string | undefined
+  export let linkText: string | undefined
+  export let type: 'task' | 'form-intro-module' | 'legal-text' | '' = ''
+  export let headerTag: 'h2' | 'h3' = 'h3'
 </script>
 
 <article class={type} aria-labelledby={headingId}>
-  <h3 id={headingId} class="title">{title}</h3>
+  {#if headerTag === 'h2'}
+    <h2 id={headingId} class="title h3">{title}</h2>
+  {:else}
+    <h3 id={headingId} class="title">{title}</h3>
+  {/if}
 
   {#if intro}
     <div class="intro">
