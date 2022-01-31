@@ -12,8 +12,8 @@
 </div>
 <div class="{rightColClass} layout-flex-col link-group" style="gap: 0" data-testid="right-col">
   {#each linkGroups as group}
-    <h3 id={toKebabCase(group.title ?? '')}>{group.title}</h3>
-    <ul class="list-unstyled" aria-labelledby={toKebabCase(group.title ?? '')}>
+    <h3 id={toKebabCase(group.title ? group.title : '')}>{group.title}</h3>
+    <ul class="list-unstyled" aria-labelledby={toKebabCase(group.title ? group.title : '')}>
       {#each group.links as link}
         {#if link.url && link.text}
           <li>
