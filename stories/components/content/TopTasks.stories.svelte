@@ -23,7 +23,7 @@
       {href: '#', heading: 'Kosmetikk', text: 'Dette er innholdsteksten for kosmetikk'},
       {
         href: '#',
-        heading: 'Kritikkverdige forhold på arbeidsplassen',
+        heading: 'Kritikkverdige forhold på arbeids&shy;plassen',
         text: 'Dette er innholdsteksten kritikkverdige forhold på arbeidsplassen'
       }
     ],
@@ -52,7 +52,7 @@
         style="gap: var(--spacer-x-small);">
         {#each topTasks.slice(0, 6 - index) as link}
           <a href={link.href} class="button button--primary top-task">
-            <h3 class="heading">{link.heading}</h3>
+            <h3 class="heading">{@html link.heading}</h3>
             <span class="text">{link.text}</span>
           </a>
         {/each}

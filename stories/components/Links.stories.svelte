@@ -12,7 +12,7 @@
       {href: '#', text: 'Fisk og akvakultur'},
       {href: '#', text: 'Planter og dyrking'},
       {href: '#', text: 'Kosmetikk'},
-      {href: '#', text: 'Kritikkverdige forhold på arbeidsplassen'}
+      {href: '#', text: 'Kritikk&shy;verdige forhold på arbeids&shy;plassen'}
     ],
     secondary: 'Avbryt',
     disabled: false,
@@ -45,7 +45,7 @@
     {#each cards as link}
       <li>
         <a href={link.href} class="forward-arrow-end-link">
-          {link.text}
+          {@html link.text}
         </a>
       </li>
     {/each}
@@ -60,7 +60,7 @@
         <a
           href={link.href}
           class="button button--primary button--space-between layout-full-width forward-arrow-end">
-          {link.text}
+          {@html link.text}
         </a>
       </li>
     {/each}
@@ -101,7 +101,7 @@
                 d="M44.0727 37.7692C41.8615 35.1767 40.006 32.9654 37.7694 30.3729C36.6002 29.0004 35.1006 27.6279 33.3215 27.0179C33.0419 26.9163 32.7623 26.84 32.4827 26.7892C31.8473 26.6875 31.1611 26.6875 30.5002 26.6875C29.8394 26.6875 29.1531 26.6875 28.4923 26.8146C28.2127 26.8654 27.9331 26.9417 27.6536 27.0433C25.8744 27.6533 24.4002 29.0258 23.2056 30.3983C20.9944 32.9908 19.139 35.2021 16.9023 37.7946C13.5727 41.1242 9.48064 44.8096 10.2431 49.9692C10.9802 52.5617 12.8356 55.1287 16.1652 55.8658C18.0206 56.2471 23.9427 54.7475 30.246 54.7475H30.7036C37.0069 54.7475 42.929 56.2217 44.7844 55.8658C48.114 55.1287 49.9694 52.5362 50.7065 49.9692C51.4944 44.7842 47.4023 41.0987 44.0727 37.7692Z"
                 fill="white" />
             </svg>
-            <span class="text">{link.text}</span>
+            <span class="text">{@html link.text}</span>
           </a>
         {/each}
       </section>

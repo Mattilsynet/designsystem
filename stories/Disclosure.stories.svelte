@@ -1,11 +1,11 @@
 <script lang="ts">
-  import {Meta, Template, Story} from '@storybook/addon-svelte-csf';
-  import {splitIntoParagraphs, wrapInShadowDom} from './utils';
-  import Disclosure from '../src/svelte/Disclosure';
+  import {Meta, Template, Story} from '@storybook/addon-svelte-csf'
+  import {splitIntoParagraphs, wrapInShadowDom} from './utils'
+  import Disclosure from '../src/svelte/Disclosure'
 
   const disclosures = [
     {
-      title: 'Smittsomme dyresykdommer',
+      title: 'Smittsomme dyre&shy;sykdommer',
       body: splitIntoParagraphs(
         'Norge er i stor grad forskånet for de aller mest alvorlige smittsomme dyresykdommene.\nHvis smitte av disse sykdommene kommer inn i landet kan de spre seg uhyre og gjøre dyr, og i noen tilfeller mennesker, alvorlig syke. Noen av sykdommene kan også gjøre mennesker syke i ulik grad. Et utbrudd av slike dyresykdommer kan innebære svært store konsekvenser, både for produsenter, myndigheter, industrien og befolkningen.'
       ),
@@ -25,7 +25,7 @@
       ),
       headerTag: 'h4'
     }
-  ];
+  ]
 </script>
 
 <Meta
@@ -37,12 +37,15 @@
     headerTag: {control: 'text'},
     disableJs: {control: 'boolean'},
     disableCss: {control: 'boolean'}
-  }}
-/>
+  }} />
 
 <Template let:args>
   <section class="content" use:wrapInShadowDom={args.disableCss}>
-    <Disclosure title={args.title} loadJs={!args.disableJs} headerTag={args.headerTag} headerClass={args.headerClass}>
+    <Disclosure
+      title={args.title}
+      loadJs={!args.disableJs}
+      headerTag={args.headerTag}
+      headerClass={args.headerClass}>
       {@html args.body}
       <ul>
         <li>Punkt 1</li>
@@ -60,8 +63,7 @@
     headerClass: 'text-body',
     disableJs: false,
     disableCss: false
-  }}
-/>
+  }} />
 
 <Story
   name="Multiple"
@@ -70,8 +72,7 @@
     disableJs: false,
     disableCss: false
   }}
-  let:args
->
+  let:args>
   <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading">
     <h2 id="heading">Heading for accordion</h2>
     {#each disclosures as disclosure}
@@ -88,12 +89,15 @@
     disableJs: false,
     disableCss: false
   }}
-  let:args
->
+  let:args>
   <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading2">
     <h2 id="heading2">Heading for accordion</h2>
     {#each disclosures as disclosure}
-      <Disclosure title={disclosure.title} loadJs={!args.disableJs} theme="links" headerTag={disclosure.headerTag}>
+      <Disclosure
+        title={disclosure.title}
+        loadJs={!args.disableJs}
+        theme="links"
+        headerTag={disclosure.headerTag}>
         {@html disclosure.body}
       </Disclosure>
     {/each}
@@ -107,8 +111,7 @@
     body: disclosures[1].body,
     disableJs: true,
     disableCss: true
-  }}
-/>
+  }} />
 
 <Story
   name="Large size"
@@ -118,8 +121,7 @@
     headerTag: disclosures[0].headerTag,
     disableJs: false,
     disableCss: false
-  }}
-/>
+  }} />
 
 <Story
   name="In Grid"
@@ -127,8 +129,7 @@
     disableJs: false,
     disableCss: false
   }}
-  let:args
->
+  let:args>
   <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading2">
     <h2 id="heading3">Heading for accordion</h2>
     {#each disclosures as disclosure}
@@ -139,8 +140,7 @@
         headerTag={disclosure.headerTag}
         class="layout-grid layout-grid--column-12"
         headerClass="col-3-span-8"
-        panelClass="col-3-span-8"
-      >
+        panelClass="col-3-span-8">
         {@html disclosure.body}
       </Disclosure>
     {/each}
