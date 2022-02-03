@@ -105,6 +105,23 @@
 </Story>
 
 <Story
+  name="Regelverk"
+  args={{
+    disableJs: false,
+    disableCss: false
+  }}
+  let:args>
+  <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading2">
+    <h2 id="heading2">Heading for legal text accordion</h2>
+    {#each disclosures as disclosure}
+      <Disclosure title={disclosure.title} loadJs={!args.disableJs} theme="legal-text">
+        {@html disclosure.body}
+      </Disclosure>
+    {/each}
+  </section>
+</Story>
+
+<Story
   name="Server rendered"
   args={{
     title: disclosures[1].title,

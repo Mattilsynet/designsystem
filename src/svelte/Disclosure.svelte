@@ -11,7 +11,7 @@
   export let loadJs = true
   export let title: string
   export let headerTag: 'h2' | 'h3' | 'h4' = 'h3'
-  export let theme: 'bordered' | 'links' = 'bordered'
+  export let theme: 'bordered' | 'links' | 'legal-text' = 'bordered'
   export let headerClass = ''
   export let panelClass = ''
   let disclosureClass = ''

@@ -1,6 +1,7 @@
 <script lang="ts">
-  import {Meta, Story} from '@storybook/addon-svelte-csf';
-  import CardArticle from '../../../src/svelte/CardArticle.svelte';
+  import {Meta, Story} from '@storybook/addon-svelte-csf'
+  import CardArticle from '../../../src/svelte/CardArticle.svelte'
+  import Disclosure from '../../../src/svelte/Disclosure.svelte'
 </script>
 
 <Meta
@@ -22,11 +23,14 @@
   }}
   argTypes={{
     disableCss: {control: 'boolean'}
-  }}
-/>
+  }} />
 
 <Story name="Normal" let:disableCss let:title let:text>
   <div class="container">
     <CardArticle type="legal-text" {title} {text} id={title} />
+    <hr />
+    <Disclosure theme="legal-text" {title}>
+      {@html text}
+    </Disclosure>
   </div>
 </Story>
