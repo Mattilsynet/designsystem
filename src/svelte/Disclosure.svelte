@@ -11,7 +11,8 @@
   export let loadJs = true
   export let title: string
   export let headerTag: 'h2' | 'h3' | 'h4' = 'h3'
-  export let theme: 'bordered' | 'links' = 'bordered'
+  export let theme: 'bordered' | 'links' | 'light-blue' = 'bordered'
+  export let icon: string | undefined = undefined
   export let headerClass = ''
   export let panelClass = ''
   let disclosureClass = ''
@@ -73,6 +74,9 @@
       aria-expanded={isOpen}
       aria-controls={bodyId}
       on:click={() => send('TOGGLE')}>
+      {#if icon}
+        {@html icon}
+      {/if}
       {@html title}
     </button>
   {/if}
@@ -80,7 +84,7 @@
   {#if isOpen}
     <div
       id={bodyId}
-      class="disclosure-panel {panelClass}"
+      class="disclosure-panel {panelClass} {onServer ? 'on-server' : ''}"
       transition:slide|local={{duration: $state.context.isFirstRenderFinished ? 300 : 0}}>
       {#if !onServer && headerTag === 'h2'}
         <h2 class="inclusively-hidden">{title}</h2>
