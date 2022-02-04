@@ -116,6 +116,11 @@
       border-top: $border-width-small solid var(--color-secondary);
       margin: 0 var(--spacer-small);
 
+      &.on-server {
+        :first-child {
+          margin-top: var(--spacer-x-small);
+        }
+      }
       :nth-child(2) {
         margin-top: var(--spacer-x-small);
       }

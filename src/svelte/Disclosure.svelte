@@ -84,7 +84,7 @@
   {#if isOpen}
     <div
       id={bodyId}
-      class="disclosure-panel {panelClass}"
+      class="disclosure-panel {panelClass} {onServer ? 'on-server' : ''}"
       transition:slide|local={{duration: $state.context.isFirstRenderFinished ? 300 : 0}}>
       {#if !onServer && headerTag === 'h2'}
         <h2 class="inclusively-hidden">{title}</h2>
