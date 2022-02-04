@@ -11,7 +11,8 @@
   export let loadJs = true
   export let title: string
   export let headerTag: 'h2' | 'h3' | 'h4' = 'h3'
-  export let theme: 'bordered' | 'links' | 'legal-text' = 'bordered'
+  export let theme: 'bordered' | 'links' | 'light-blue' = 'bordered'
+  export let icon: string | undefined = undefined
   export let headerClass = ''
   export let panelClass = ''
   let disclosureClass = ''
@@ -73,6 +74,9 @@
       aria-expanded={isOpen}
       aria-controls={bodyId}
       on:click={() => send('TOGGLE')}>
+      {#if icon}
+        {@html icon}
+      {/if}
       {@html title}
     </button>
   {/if}
