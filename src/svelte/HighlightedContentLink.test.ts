@@ -17,6 +17,8 @@ describe('Highlighted content', () => {
     expect(getByAltText('alt text')).toBeInTheDocument()
     const link = getByTestId('hightlighted-content-link')
     expect(link.getAttribute('rel')).toEqual('external')
+    const headerElement = getByText('This is the heading')
+    expect(headerElement.tagName).toEqual('H2')
   })
   test('Renders without props', () => {
     const {queryByText, queryByAltText, getByTestId} = render(HighlightedContent, {})
@@ -24,5 +26,16 @@ describe('Highlighted content', () => {
     expect(queryByAltText('alt text')).not.toBeInTheDocument()
     const link = getByTestId('hightlighted-content-link')
     expect(link.getAttribute('rel')).toEqual(null)
+  })
+  test('Render with h3 title', () => {
+    const componentOptions = {
+      heading: 'This is the heading',
+      isExternal: true,
+      image: {src: 'test', alt: 'alt text'},
+      headerTag: 'h3'
+    }
+    const {getByText} = render(HighlightedContent, componentOptions)
+    const headerElement = getByText('This is the heading')
+    expect(headerElement.tagName).toEqual('H3')
   })
 })
