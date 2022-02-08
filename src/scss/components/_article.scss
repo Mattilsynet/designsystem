@@ -63,6 +63,12 @@
     margin-top: var(--space-section);
   }
 
+  section {
+    .inclusively-hidden + * {
+      margin-top: var(--space-section);
+    }
+  }
+
   &.children-full-width {
     @media only screen and (min-width: $breakpoint-large) {
       > * {
