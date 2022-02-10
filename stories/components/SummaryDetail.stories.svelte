@@ -6,7 +6,7 @@
 <Meta
   title="Components/Summary Detail"
   args={{
-    title:'Eksempel på summary details',
+    title:'Eksempel på oppsummering og detaljer',
   }}
 />
 
