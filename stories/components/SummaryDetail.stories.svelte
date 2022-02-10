@@ -12,7 +12,7 @@
 
 <Story name="Normal" let:args >
   <main class="container layout-flex-col">
-    <h1>Detail summary</h1>
+    <h1>Oppsummering og detaljer</h1>
     <SummaryDetail title={args.title}>
       <p>
         For at meldingen skal kunne følges opp, må den inneholde opplysninger som tyder på alvorlig brudd på
