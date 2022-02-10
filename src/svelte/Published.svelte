@@ -1,28 +1,23 @@
 <script lang="ts">
-  import {displayDataTime} from '../ts/utils'
+  import {compareDates} from '../ts/utils'
 
   export let publishFrom: string | undefined
   export let professionallyUpdated: string | undefined
   export let lang = 'nb-NO'
   export let publishedText = 'Publisert'
-  export let lastPublishedText = 'Sist oppdatert'
-
-  $: publishFromLocalized = publishFrom ? displayDataTime(lang, publishFrom) : ''
-  $: lastUpdatedLocalized = professionallyUpdated
-    ? displayDataTime(lang, professionallyUpdated)
-    : ''
+  export let lastPublishedText = 'Faglig oppdatert'
+  $: dateObject = compareDates({
+    lang,
+    publishFrom,
+    professionallyUpdated,
+    publishedFromLabel: publishedText,
+    professionallyUpdatedLabel: lastPublishedText
+  })
 </script>
 
 <dl class="meta">
-  {#if publishFrom}
-    <dt>{publishedText}</dt>
-    <dd><time datetime={publishFrom} data-testid="published-date">{publishFromLocalized}</time></dd>
-  {/if}
-  {#if professionallyUpdated}
-    <dt>{lastPublishedText}</dt>
-    <dd>
-      <time datetime={professionallyUpdated} data-testid="updated-date"
-        >{lastUpdatedLocalized}</time>
-    </dd>
+  {#if dateObject}
+    <dt>{dateObject.label}</dt>
+    <dd><time datetime={dateObject.iso} data-testid="published-date">{dateObject.date}</time></dd>
   {/if}
 </dl>
