@@ -1,0 +1,8 @@
+@use '../theme' as *;
+
+.legal-collection {
+  &__border-top{
+    border-top: $border-width-regular solid var(--color-mt-beige);
+    margin: var(--spacer-medium) 0;
+  }
+}
