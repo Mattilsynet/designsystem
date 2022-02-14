@@ -2,6 +2,7 @@ import type {ErrorDetail} from './types'
 import isAfter from 'date-fns/isAfter'
 import intlFormat from 'date-fns/intlFormat'
 import parseISO from 'date-fns/parseISO'
+import {isEqual} from 'date-fns'
 
 export function createInputAriaDescribedby(name: string, error: ErrorDetail | undefined): string {
   return error ? `${name}-hint ${name}-error` : `${name}-hint`
@@ -42,7 +43,8 @@ export function compareDates({
   const publishFromDate = publishFrom ? parseISO(publishFrom) : null
   const professionallyUpdatedDate = professionallyUpdated ? parseISO(professionallyUpdated) : null
   if (!!publishFromDate && !!professionallyUpdatedDate) {
-    return isAfter(publishFromDate, professionallyUpdatedDate)
+    return isAfter(publishFromDate, professionallyUpdatedDate) ||
+      isEqual(publishFromDate, professionallyUpdatedDate)
       ? {
           date: format(publishFromDate, lang),
           iso: publishFrom,
