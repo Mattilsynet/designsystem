@@ -1,7 +1,7 @@
 <script lang="ts">
   import {toKebabCase} from '../../ts/utils'
 
-  export let title: string = ''
+  export let title = ''
   export let linkGroups: Array<{title: string; links: Array<{url: string; text: string}>}> = []
   export let leftColClass = ''
   export let rightColClass = ''
