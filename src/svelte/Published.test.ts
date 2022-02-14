@@ -5,11 +5,11 @@
 import {render} from '@testing-library/svelte'
 import Published from './Published.svelte'
 
-describe('Highlighted content', () => {
+describe('Publised', () => {
   test('Renders published when published and professionallyUpdated is same', () => {
     const componentOptions = {
       publishFrom: '2021-06-24T11:40:02.889Z',
-      professionallyUpdated: '2021-06-24T11:32:22Z'
+      professionallyUpdated: '2021-06-24T11:40:02.889Z'
     }
     const {getByText, queryByText} = render(Published, componentOptions)
     expect(getByText('Publisert')).toBeInTheDocument()
