@@ -179,5 +179,9 @@
     .inclusively-hidden + * {
       margin-top: var(--space-section);
     }
+
+    > h3 {
+      margin-top: var(--space-content);
+    }
   }
 }
