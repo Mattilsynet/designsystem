@@ -22,7 +22,7 @@ describe('Status', () => {
     expect(getByText('Dette er det Mattilsynet vil informere om')).toBeInTheDocument()
     expect(getByText('Dette er det Mattilsynet gjør med saken')).toBeInTheDocument()
     expect(getByText('Updated')).toBeInTheDocument()
-    expect(getByText('24.6.2021')).toBeInTheDocument()
+    expect(getByText('24.06.2021')).toBeInTheDocument()
     const link = getByText('Link text')
     expect(link).toBeInTheDocument()
     expect(link.getAttribute('rel')).toEqual('external')
