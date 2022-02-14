@@ -12,62 +12,7 @@
 }
 
 .article-page {
-  --space-section: var(--spacer-medium);
-  --space-sub-section: var(--spacer-small);
-  --space-content: var(--spacer-x-small);
-
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-
-  @media only screen and (min-width: $breakpoint-large) {
-    --space-section: var(--spacer-large);
-    --space-sub-section: var(--spacer-medium);
-    --space-content: var(--spacer-x-small);
-  }
-  > * {
-    grid-column: span 12;
-  }
-  > * + ul,
-  > * + ol,
-  .intro,
-  > * + p {
-    margin-top: var(--space-content);
-  }
-
-  > .meta + p,
-  figure {
-    margin-top: var(--spacer-medium);
-  }
-
-  h2 {
-    margin-top: var(--space-section);
-    + h3 {
-      margin-top: var(--space-content);
-    }
-  }
-
-  > h3,
-  > h4 {
-    margin-top: var(--space-sub-section);
-  }
-
-  .text {
-    @include xp-html-area;
-  }
-
-  .meta {
-    margin-top: var(--spacer-small);
-  }
-
-  section + .disclosure {
-    margin-top: var(--space-section);
-  }
-
-  section {
-    .inclusively-hidden + * {
-      margin-top: var(--space-section);
-    }
-  }
+  @include article-spacing;
 
   &.children-full-width {
     @media only screen and (min-width: $breakpoint-large) {
