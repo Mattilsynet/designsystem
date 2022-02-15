@@ -1,8 +1,5 @@
 import type {ErrorDetail} from './types'
-import isAfter from 'date-fns/isAfter'
-import intlFormat from 'date-fns/intlFormat'
-import parseISO from 'date-fns/parseISO'
-import {isEqual} from 'date-fns'
+import {isAfter, isEqual, parseISO, intlFormat} from 'date-fns'
 
 export function createInputAriaDescribedby(name: string, error: ErrorDetail | undefined): string {
   return error ? `${name}-hint ${name}-error` : `${name}-hint`
