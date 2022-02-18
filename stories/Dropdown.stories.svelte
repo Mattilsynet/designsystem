@@ -1,11 +1,18 @@
 <script lang="ts">
-  import {Meta, Template, Story} from '@storybook/addon-svelte-csf';
-  import Dropdown from '../src/svelte/Dropdown.svelte';
+  import {Meta, Template, Story} from '@storybook/addon-svelte-csf'
+  import Dropdown from '../src/svelte/Dropdown.svelte'
+  import CardArticle from '../src/svelte/CardArticle.svelte'
 
   const configs = [
     {
       buttonLabel: 'Språk/language',
       disableJs: false,
+      cardArticle: {
+        headingId: 'testarticle',
+        title: 'Det er mulig å klikke utenfor',
+        intro: 'Du kan klikke utenfor den blå rammen når dropdown er åpen for å lukke den.',
+        text: '<p>Du kan teste det. En liten tekst med en lenke til <a href="https://mattilsynet.no">Mattilsynet</a>.</p>'
+      },
       items: [
         {
           title: 'Vis siden på nynorsk',
@@ -31,7 +38,7 @@
         }
       ]
     }
-  ];
+  ]
 </script>
 
 <Meta
@@ -40,8 +47,7 @@
   argTypes={{
     buttonLabel: {control: 'text'},
     disableJs: {control: 'boolean'}
-  }}
-/>
+  }} />
 
 <Template let:args>
   <section class="preview-wrapper">
@@ -54,6 +60,13 @@
         {/each}
       </ol>
     </Dropdown>
+  </section>
+  <section class="layout-flex-col layout-flex-col--x-small" aria-labelledby="how-to-heading">
+    <CardArticle
+      headingId={args.cardArticle.headingId}
+      title={args.cardArticle.title}
+      intro={args.cardArticle.intro}
+      text={args.cardArticle.text} />
   </section>
 </Template>
 
