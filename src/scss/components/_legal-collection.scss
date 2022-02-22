@@ -4,6 +4,10 @@
 .legal-collection {
   @include article-spacing;
 
+  .intro {
+    font-size: $font-size-label; // 24 px
+  }
+
   &__border-top {
     border-top: $border-width-regular solid var(--color-mt-beige);
     margin: var(--spacer-medium) 0;
