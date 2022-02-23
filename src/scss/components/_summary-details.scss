@@ -47,5 +47,11 @@ details {
     .summary-wrapper {
       @include xp-html-area;
     }
+
+    .border-left {
+      margin-left: var(--detail-margin);
+      padding-left: var(--detail-padding);
+      border-left: var(--border);
+    }
   }
 }

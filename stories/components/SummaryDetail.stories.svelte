@@ -26,3 +26,11 @@
     </SummaryDetail>
   </main>
 </Story>
+
+<Story name="Med linje på venstre side" let:args >
+  <main class="container layout-flex-col">
+    <SummaryDetail title={args.title} detailsClass="border-left">
+      {@html args.content}
+    </SummaryDetail>
+  </main>
+</Story>
