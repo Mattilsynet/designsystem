@@ -15,7 +15,6 @@ export const countCharacters: Action<HTMLInputElement | HTMLTextAreaElement> = (
   if (node.hasAttribute('maxlength')) {
     updateCounter();
     node.after(counterEl);
-    node.addEventListener('input', updateCounter);
 
     return {
       destroy() {

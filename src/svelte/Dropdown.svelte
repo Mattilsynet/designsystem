@@ -53,11 +53,6 @@
     onMount(() => send('MOUNT'))
   }
 
-  function something() {
-    console.log('clicked onclick')
-    send('TOGGLE')
-  }
-
   function handleClickOutside(event) {
     if (isOpen) {
       send('TOGGLE')
