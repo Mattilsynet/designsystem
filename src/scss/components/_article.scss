@@ -14,6 +14,11 @@
 .article-page {
   @include article-spacing;
 
+  section > details,
+  section + .disclosure {
+    margin-top: var(--space-section);
+  }
+
   &.children-full-width {
     @media only screen and (min-width: $breakpoint-large) {
       > * {
