@@ -76,8 +76,8 @@
         prepareCollapsedBreadcrumbs: context => {
           context.breadcrumbsItems = [
             breadcrumbs.items[0],
-            breadcrumbs.items[1],
             BUTTON_ELLIPSIS,
+            breadcrumbs.items[breadcrumbs.items.length - 2],
             breadcrumbs.items[breadcrumbs.items.length - 1]
           ]
         },
