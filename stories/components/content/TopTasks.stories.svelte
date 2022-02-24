@@ -5,8 +5,9 @@
 <Meta
   title="Innhold/Toppoppgaver"
   args={{
-    title: 'Dette er tittelen til toppoppgavene',
-    intro: 'Her kommer introen til oppgavene',
+    title: 'Flytting av sau og geit og høner og ørn og maur og bier og kuer.',
+    intro:
+      'Det er strenge regler for flytting av småfe for å unngå smitte mellom besetninger. Hovedregelen er forbud mot å flytte hunndyr mellom besetninger og forbud mot å flytte småfe mellom regioner.',
     topTasks: [
       {href: '#', heading: 'Dyr og dyrehold', text: 'Dette er innholdsteksten for dyr og dyrehold'},
       {href: '#', heading: 'Mat og vann', text: 'Dette er innholdsteksten for mat og vann'},
