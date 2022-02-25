@@ -8,9 +8,10 @@ details {
   --border: #{$border-width-regular} solid var(--color-mt-beige);
 
   margin-top: var(--spacer-xx-small);
+
   &:focus,
   &:focus-visible {
-    box-shadow: 0 0 0 0.25rem var(--color-primary-50);
+    box-shadow: 0 0 0 0.25rem var(--color-mt-blue-medium);
   }
   summary {
     @include focus-outline();
@@ -18,6 +19,7 @@ details {
     display: inline;
     line-height: 140%;
     border-bottom: var(--border);
+    border-radius: var(--border-radius-small);
     color: var(--color-mt-blue);
     list-style: none;
     cursor: pointer;

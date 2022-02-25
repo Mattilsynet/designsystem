@@ -1,7 +1,7 @@
 @use '../theme' as *;
 
 @mixin focus-outline() {
-  --outline-color: var(--color-primary-50);
+  --outline-color: var(--color-mt-blue-medium);
   --outline-size: 2px;
   --outline-style: solid;
   --outline-offset: 0.2em;
@@ -166,7 +166,7 @@
     margin-top: var(--spacer-small);
   }
 
-  section > details > .summary-wrapper{
+  section > details > .summary-wrapper {
     padding-top: var(--space-content);
   }
 

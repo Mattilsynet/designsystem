@@ -8,6 +8,8 @@ a {
   $transport-card-list-font-size: $font-size-label;
 
   color: var(--color-links);
+  border-radius: var(--border-radius-small);
+
   &.back-arrow {
     display: flex;
     align-items: center;
@@ -174,7 +176,7 @@ textarea {
   &:focus {
     border-color: inherit;
     outline: none;
-    box-shadow: 0 0 0 0.25rem var(--color-primary-50);
+    box-shadow: 0 0 0 0.25rem var(--color-mt-blue-medium);
   }
 
   &:focus:not(:focus-visible) {
@@ -184,6 +186,6 @@ textarea {
   &:focus-visible {
     border-color: inherit;
     outline: none;
-    box-shadow: 0 0 0 0.25rem var(--color-primary-50);
+    box-shadow: 0 0 0 0.25rem var(--color-mt-blue-medium);
   }
 }
