@@ -6,7 +6,6 @@
 
   .intro {
     font-size: $font-size-medium; // 22 px
-    color:red;
     @media only screen and (min-width: $breakpoint-large) {
       font-size: $font-size-label;
     }
