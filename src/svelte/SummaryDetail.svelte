@@ -3,9 +3,9 @@
   export let detailsClass: string = '';
 </script>
 
-<details>
-  <summary>{title}</summary>
-  <div class="summary-wrapper {detailsClass}">
+<details class="{detailsClass}">
+  <summary >{title}</summary>
+  <div class="summary-wrapper">
     <slot />
   </div>
 </details>

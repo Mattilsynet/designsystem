@@ -19,8 +19,8 @@
 />
 
 <Story name="Normal" let:args >
+  <p>Oppsummering og detaljer</p>
   <main class="container layout-flex-col">
-    <h1>Oppsummering og detaljer</h1>
     <SummaryDetail title={args.title}>
       {@html args.content}
     </SummaryDetail>
@@ -28,8 +28,18 @@
 </Story>
 
 <Story name="Med linje på venstre side" let:args >
+  <p>Oppsummering og detaljer med linje på venstre side</p>
   <main class="container layout-flex-col">
-    <SummaryDetail title={args.title} detailsClass="border-left">
+    <SummaryDetail title={args.title} detailsClass="with-border">
+      {@html args.content}
+    </SummaryDetail>
+  </main>
+</Story>
+
+<Story name="Med ikon" let:args >
+  <p>Oppsummering og detaljer med ikon</p>
+  <main class="container layout-flex-col">
+    <SummaryDetail title={args.title} detailsClass="with-icon">
       {@html args.content}
     </SummaryDetail>
   </main>
