@@ -5,7 +5,11 @@
   @include article-spacing;
 
   .intro {
-    font-size: $font-size-label; // 24 px
+    font-size: $font-size-medium; // 22 px
+    color:red;
+    @media only screen and (min-width: $breakpoint-large) {
+      font-size: $font-size-label;
+    }
   }
 
   &__border-top {
