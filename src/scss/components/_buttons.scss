@@ -7,7 +7,7 @@ $button-colors: 'error' !default;
   --button-color: var(--color-on-#{$button-default-color});
   --outline-color: transparent;
   --gap: 0.5rem;
-  ''--focus-box-shadow: 0 0 0 2px var(--color-mt-background),
+  --focus-box-shadow: 0 0 0 2px var(--color-mt-background),
     0 0 0 0.35rem var(--color-mt-blue-medium);
   // Reset for links
   text-decoration: none;
