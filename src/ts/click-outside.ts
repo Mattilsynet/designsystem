@@ -1,7 +1,8 @@
 /** Dispatch event on click outside of node */
-export function clickOutside(node: Node): {destroy(): void} {
+export let buttonId: string
+export function clickOutside(node: Node, buttonId: string): {destroy(): void} {
   const handleClick = event => {
-    if (!node.contains(event.target)) {
+    if (!node.contains(event.target) && event.target.id !== buttonId) {
       node.dispatchEvent(new CustomEvent('clickOutside'))
     }
   }

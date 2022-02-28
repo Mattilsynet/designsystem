@@ -53,10 +53,8 @@
     onMount(() => send('MOUNT'))
   }
 
-  function handleClickOutside(event) {
-    if (isOpen) {
-      send('TOGGLE')
-    }
+  function toggleMenu() {
+    send('TOGGLE')
   }
 </script>
 
@@ -70,16 +68,18 @@
       aria-haspopup="true"
       aria-expanded={isOpen}
       aria-controls={bodyId}
-      on:click={something}>
+      on:click={toggleMenu}>
       {@html title}
     </button>
   {/if}
 
-  {#key isOpen}
-    <div class="dropdown-content" id={bodyId} use:clickOutside on:clickOutside={handleClickOutside}>
-      <div in:slide={{duration: 300}}>
-        <slot />
-      </div>
+  <div
+    class="dropdown-content"
+    id={bodyId}
+    use:clickOutside={titleId}
+    on:clickOutside={() => isOpen && toggleMenu()}>
+    <div in:slide={{duration: 300}}>
+      <slot />
     </div>
-  {/key}
+  </div>
 </div>
