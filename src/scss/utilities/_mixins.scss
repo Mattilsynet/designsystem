@@ -170,11 +170,6 @@
     padding-top: var(--space-content);
   }
 
-  section > details,
-  section + .disclosure {
-    margin-top: var(--space-section);
-  }
-
   section {
     .inclusively-hidden + * {
       margin-top: var(--space-section);
