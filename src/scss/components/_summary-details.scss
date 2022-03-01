@@ -11,6 +11,11 @@
     border-left: var(--border);
   }
 }
+.with-bold {
+  & summary {
+    font-weight: $font-weight-bold;
+  }
+}
 
 .with-icon {
   & summary{

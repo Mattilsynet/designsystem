@@ -44,3 +44,12 @@
     </SummaryDetail>
   </main>
 </Story>
+
+<Story name="Med fet skrift" let:args >
+  <p>Oppsummering og detaljer med fet skrift</p>
+  <main class="container layout-flex-col">
+    <SummaryDetail title={args.title} detailsClass="with-bold">
+      {@html args.content}
+    </SummaryDetail>
+  </main>
+</Story>
