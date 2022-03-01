@@ -8,6 +8,7 @@
   import {onMount} from 'svelte'
   import {slide} from 'svelte/transition'
   import {clickOutside} from '../ts/click-outside'
+  import * as events from 'events'
 
   export let title = ''
   const bodyId = `ui-dropdown-${counter++}`
@@ -52,10 +53,6 @@
   if (loadJs) {
     onMount(() => send('MOUNT'))
   }
-
-  function toggleMenu() {
-    send('TOGGLE')
-  }
 </script>
 
 <div aria-label={title} class="dropdown" class:visible={isOpen || onServer}>
@@ -68,7 +65,7 @@
       aria-haspopup="true"
       aria-expanded={isOpen}
       aria-controls={bodyId}
-      on:click={toggleMenu}>
+      on:click={() => send('TOGGLE')}>
       {@html title}
     </button>
   {/if}
@@ -77,7 +74,7 @@
     class="dropdown-content"
     id={bodyId}
     use:clickOutside={titleId}
-    on:clickOutside={() => isOpen && toggleMenu()}>
+    on:clickOutside={() => isOpen && send('TOGGLE')}>
     <div in:slide={{duration: 300}}>
       <slot />
     </div>
