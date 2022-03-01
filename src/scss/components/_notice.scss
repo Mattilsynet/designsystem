@@ -4,35 +4,54 @@
 .notice {
   --notice-margin: 0;
   --notice-padding: var(--spacer-x-small);
-
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  font-size: $font-size-small;
   margin-right: var(--notice-margin);
   margin-left: var(--notice-margin);
   padding: var(--notice-padding);
-  gap: var(--spacer-x-small);
   background-color: #fff;
 
   @media only screen and (min-width: $breakpoint-large) {
     --notice-margin: var(--spacer-large);
     --notice-padding: var(--spacer-small);
+
+    font-size: inherit;
   }
 
-  .important {
-    align-self: flex-start;
+  @include xp-html-area;
+
+  :first-child + h2 {
+    margin-top: 0;
+  }
+
+  &.important > :first-child {
+    margin-top: 0;
+
     &::before {
-      content: url('data:image/svg+xml,%3Csvg%20width%3D%2230%22%20height%3D%2230%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Ccircle%20cx%3D%2215%22%20cy%3D%2215%22%20r%3D%2215%22%20fill%3D%22%23E23128%22%2F%3E%3Cpath%20d%3D%22M13.367%207.654h3.057v3.653l-.791%206.718h-1.455l-.81-6.718V7.654zm.068%2011.524h2.91V22h-2.91v-2.822z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E');
-      display: inline-block;
-      width: 2rem;
-      height: 2rem;
+      // 20 x 20 size image
+      content: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8Y2lyY2xlIGN4PSIxNSIgY3k9IjE1IiByPSIxNSIgZmlsbD0iI0UyMzEyOCIvPgogIDxwYXRoIGQ9Ik0xMy4zNjcgNy42NTRoMy4wNTd2My42NTNsLS43OTEgNi43MThoLTEuNDU1bC0uODEtNi43MThWNy42NTRabS4wNjggMTEuNTI0aDIuOTFWMjJoLTIuOTF2LTIuODIyWiIgZmlsbD0iI2ZmZiIvPgo8L3N2Zz4K');
+      width: 1.4rem;
+      height: 1.2rem;
+      float: left;
+      margin-top: -0.12rem;
+      margin-right: var(--spacer-xxx-small);
+
+      @media only screen and (min-width: $breakpoint-large) {
+        // 30 x 30 size image
+        content: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTUiIGN5PSIxNSIgcj0iMTUiIGZpbGw9IiNFMjMxMjgiLz4KPHBhdGggZD0iTTEzLjM2NzIgNy42NTQzSDE2LjQyMzhWMTEuMzA2NkwxNS42MzI4IDE4LjAyNTRIMTQuMTc3N0wxMy4zNjcyIDExLjMwNjZWNy42NTQzWk0xMy40MzU1IDE5LjE3NzdIMTYuMzQ1N1YyMkgxMy40MzU1VjE5LjE3NzdaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K');
+        width: 2rem;
+        height: 2rem;
+        margin-top: -0.25rem;
+      }
     }
   }
-  .text {
-    @include xp-html-area;
-    :first-child,
-    :first-child + h2 {
+
+  ul, ol {
+    margin-top: $spacer-xx-small;
+    padding-left: var(--spacer-small);
+
+    li, li + li {
       margin-top: 0;
     }
   }
+
 }
