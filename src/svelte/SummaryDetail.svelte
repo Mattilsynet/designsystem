@@ -1,8 +1,9 @@
 <script lang="ts">
   export let title: string;
+  export let detailsClass: string = '';
 </script>
 
-<details>
+<details class="{detailsClass}">
   <summary>{title}</summary>
   <div class="summary-wrapper">
     <slot />
