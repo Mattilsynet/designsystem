@@ -52,7 +52,7 @@
 <Story name="Normal" let:topTasks let:icon let:disableCss let:title let:intro let:path>
   <div class="layout-grid layout-grid--column-12 top-tasks-container">
     <h2 id={path} class="top-tasks-text col-1-span-12">
-      {title}
+      {@html title}
     </h2>
     {#if intro}
       <div class="top-tasks-text col-1-span-7">{@html intro}</div>
@@ -66,7 +66,7 @@
       {#each topTasks as task, index}
         {#if task && task.url}
           <a href={task.url} class="button button--primary top-task">
-            <h3 class="heading">{task.title}</h3>
+            <h3 class="heading">{@html task.title}</h3>
             <span class="text">{@html task.intro}</span>
           </a>
         {/if}
