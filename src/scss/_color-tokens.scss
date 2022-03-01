@@ -27,8 +27,8 @@ $color-mt-white: hsl(0,0%,100%) !default;
 $color-on-mt-white: rgb(118, 118, 118) !default;
 $color-primary: hsl(196, 89%, 25%) !default;
 $color-on-primary: hsl(0,0%,100%) !default;
-$color-primary-50: hsl(196,89%,25%, .5) !default;
-$color-on-primary-50: hsl(195.5, 46%, 75.3%) !default;
+$color-mt-blue-medium: hsl(193,52%,42%) !default;
+$color-on-mt-blue-medium: hsl(132, 100%, 5.9%) !default;
 $color-secondary: hsl(54,19%,61%) !default;
 $color-on-secondary: hsl(57.10000000000002, 19.3%, 21.4%) !default;
 $color-mt-text-dark: hsla(0,1%,25%, 1) !default;
@@ -40,7 +40,7 @@ $color-on-error: hsl(0,0%,100%) !default;
 $color-error-50: hsl(3, 76%, 36%, 0.5) !default;
 $color-on-error-50: hsl(3, 68.2%, 82.7%) !default;
 
-$base-color-tokens: ("mt-blue", "mt-red", "mt-red-uu", "mt-beige", "mt-light-beige", "mt-light-blue", "mt-lighter-light-blue", "mt-rationale-blue", "mt-brown", "mt-grey", "mt-white", "primary", "primary-50", "secondary", "mt-text-dark", "mt-background", "error", "error-50");
+$base-color-tokens: ("mt-blue", "mt-red", "mt-red-uu", "mt-beige", "mt-light-beige", "mt-light-blue", "mt-lighter-light-blue", "mt-rationale-blue", "mt-brown", "mt-grey", "mt-white", "primary", "mt-blue-medium", "secondary", "mt-text-dark", "mt-background", "error", "error-50");
 
 $color-tokens: (
   "color-mt-blue": $color-mt-blue,
@@ -67,8 +67,8 @@ $color-tokens: (
   "color-on-mt-white": $color-on-mt-white,
   "color-primary": $color-primary,
   "color-on-primary": $color-on-primary,
-  "color-primary-50": $color-primary-50,
-  "color-on-primary-50": $color-on-primary-50,
+  "color-mt-blue-medium": $color-mt-blue-medium,
+  "color-on-mt-blue-medium": $color-on-mt-blue-medium,
   "color-secondary": $color-secondary,
   "color-on-secondary": $color-on-secondary,
   "color-mt-text-dark": $color-mt-text-dark,
@@ -106,8 +106,8 @@ $color-tokens: (
   --color-on-mt-white: #{$color-on-mt-white};
   --color-primary: #{$color-primary};
   --color-on-primary: #{$color-on-primary};
-  --color-primary-50: #{$color-primary-50};
-  --color-on-primary-50: #{$color-on-primary-50};
+  --color-mt-blue-medium: #{$color-mt-blue-medium};
+  --color-on-mt-blue-medium: #{$color-on-mt-blue-medium};
   --color-secondary: #{$color-secondary};
   --color-on-secondary: #{$color-on-secondary};
   --color-mt-text-dark: #{$color-mt-text-dark};

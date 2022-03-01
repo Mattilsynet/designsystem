@@ -10,7 +10,7 @@ $form-text-color: 'var(--color-text)' !default;
 $form-border-color: $color-secondary !default;
 $form-border-radius: 0.25em !default;
 $form-outline-style: solid !default;
-$form-outline-color: $color-primary-50 !default;
+$form-outline-color: $color-mt-blue-medium !default;
 
 form {
   --form-group-spacer: #{$form-group-spacer};
@@ -187,7 +187,7 @@ label.form-label {
 .checkbox {
   .input__control {
     @include error-style;
-    @include focus-shadow(var(--color-primary-50), var(--color-primary));
+    @include focus-shadow(var(--color-mt-blue-medium), var(--color-primary));
     @include radio-check-error-style;
 
     appearance: none;
@@ -212,7 +212,7 @@ label.form-label {
 .radio {
   .input__control {
     @include error-style;
-    @include focus-shadow(var(--color-primary-50), var(--color-primary));
+    @include focus-shadow(var(--color-mt-blue-medium), var(--color-primary));
     @include radio-check-error-style;
 
     appearance: none;

@@ -50,8 +50,8 @@ module.exports = [
     onColor: 'hsl(0,0%,100%)'
   },
   {
-    name: 'primary-50',
-    color: 'hsl(196,89%,25%, .5)'
+    name: 'mt-blue-medium',
+    color: 'hsl(193,52%,42%)'
   },
   {
     name: 'secondary',

@@ -1,6 +1,7 @@
 @use 'color-tokens' as *;
 $border-width-small: 1px;
 $border-width-regular: 2px;
+$border-radius-small: 0.01em !default;
 $border-radius: 0.25em !default;
 $border-red-regular: $border-width-regular solid $color-mt-red;
 
@@ -41,12 +42,12 @@ $spacer-x-large: 5rem !default; // 80px
 
 $container-width: 90rem;
 
-$zindex-dropdown:                   1000 !default;
-$zindex-sticky:                     1020 !default;
-$zindex-fixed:                      1030 !default;
-$zindex-offcanvas-backdrop:         1040 !default;
-$zindex-offcanvas:                  1045 !default;
-$zindex-modal-backdrop:             1050 !default;
-$zindex-modal:                      1055 !default;
-$zindex-popover:                    1070 !default;
-$zindex-tooltip:                    1080 !default;
+$zindex-dropdown: 1000 !default;
+$zindex-sticky: 1020 !default;
+$zindex-fixed: 1030 !default;
+$zindex-offcanvas-backdrop: 1040 !default;
+$zindex-offcanvas: 1045 !default;
+$zindex-modal-backdrop: 1050 !default;
+$zindex-modal: 1055 !default;
+$zindex-popover: 1070 !default;
+$zindex-tooltip: 1080 !default;
