@@ -7,6 +7,7 @@
   import {useMachine} from '@xstate/svelte'
   import {onMount} from 'svelte'
   import {slide} from 'svelte/transition'
+  import {clickOutside} from '../ts/click-outside'
 
   export let title = ''
   const bodyId = `ui-dropdown-${counter++}`
@@ -68,11 +69,13 @@
     </button>
   {/if}
 
-  {#key isOpen}
-    <div class="dropdown-content" id={bodyId}>
-      <div in:slide={{duration: 300}}>
-        <slot />
-      </div>
+  <div
+    class="dropdown-content"
+    id={bodyId}
+    use:clickOutside={titleId}
+    on:clickOutside={() => isOpen && send('TOGGLE')}>
+    <div in:slide={{duration: 300}}>
+      <slot />
     </div>
-  {/key}
+  </div>
 </div>
