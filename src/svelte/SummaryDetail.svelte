@@ -4,7 +4,7 @@
 </script>
 
 <details class="{detailsClass}">
-  <summary >{title}</summary>
+  <summary>{title}</summary>
   <div class="summary-wrapper">
     <slot />
   </div>
