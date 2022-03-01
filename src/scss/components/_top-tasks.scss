@@ -1,10 +1,6 @@
 @use '../theme' as *;
 
 .top-tasks-container {
-  h2,
-  .top-tasks-text {
-    max-width: 760px;
-  }
   h2 + .top-tasks-text {
     margin-top: var(--spacer-x-small);
   }

@@ -5,27 +5,37 @@
 <Meta
   title="Innhold/Toppoppgaver"
   args={{
+    path: '/dyr-og-dyrehold/sei-og-geit/flytting-av-sei',
     title: 'Flytting av sau og geit og høner og ørn og maur og bier og kuer.',
     intro:
-      'Det er strenge regler for flytting av småfe for å unngå smitte mellom besetninger. Hovedregelen er forbud mot å flytte hunndyr mellom besetninger og forbud mot å flytte småfe mellom regioner.',
+      'Det er strenge regler for flytting av småfe for å unngå smitte mellom besetninger. ' +
+      'Hovedregelen er forbud mot å flytte hunndyr mellom besetninger og forbud mot å flytte småfe mellom regioner.',
     topTasks: [
-      {href: '#', heading: 'Dyr og dyrehold', text: 'Dette er innholdsteksten for dyr og dyrehold'},
-      {href: '#', heading: 'Mat og vann', text: 'Dette er innholdsteksten for mat og vann'},
       {
-        href: '#',
-        heading: 'Fisk og akvakultur',
-        text: 'Dette er innholdsteksten for fisk og akvakultur'
+        url: '#',
+        title: 'Dyr og dyrehold',
+        intro: 'Dette er innholdsteksten for dyr og dyrehold'
       },
       {
-        href: '#',
-        heading: 'Planter og dyrking',
-        text: 'Dette er innholdsteksten for planter og dyrking'
+        url: '#',
+        title: 'Mat og vann',
+        intro: 'Dette er innholdsteksten for mat og vann'
       },
-      {href: '#', heading: 'Kosmetikk', text: 'Dette er innholdsteksten for kosmetikk'},
       {
-        href: '#',
-        heading: 'Kritikkverdige forhold på arbeids&shy;plassen',
-        text: 'Dette er innholdsteksten kritikkverdige forhold på arbeidsplassen'
+        url: '#',
+        title: 'Fisk og akvakultur',
+        intro: 'Dette er innholdsteksten for fisk og akvakultur'
+      },
+      {
+        url: '#',
+        title: 'Planter og dyrking',
+        intro: 'Dette er innholdsteksten for planter og dyrking'
+      },
+      {url: '#', title: 'Kosmetikk', intro: 'Dette er innholdsteksten for kosmetikk'},
+      {
+        url: '#',
+        title: 'Kritikkverdige forhold på arbeids&shy;plassen',
+        intro: 'Dette er innholdsteksten kritikkverdige forhold på arbeidsplassen'
       }
     ],
     disabled: false,
@@ -39,27 +49,29 @@
     disableCss: {control: 'boolean'}
   }} />
 
-<Story name="Normal" let:topTasks let:icon let:disableCss let:title let:intro>
-  <h1>Toppoppgaver</h1>
-  <div class="container bg-light-light-blue top-tasks-container">
-    <h2 class="top-tasks-text" id="toptask">{title}</h2>
-    <p class="top-tasks-text">{intro}</p>
-    {#each topTasks as task, index}
-      <section
-        class="layout-flex layout-flex--centered tasks-layout"
-        class:layout-flex--basis-3={index === 0 || index === 1 || index === 3}
-        class:layout-flex--basis-2={index !== 0 && index !== 1 && index !== 3}
-        aria-labelledby={'toptask'}
-        style="gap: var(--spacer-x-small);">
-        {#each topTasks.slice(0, 6 - index) as link}
-          <a href={link.href} class="button button--primary top-task">
-            <h3 class="heading">{@html link.heading}</h3>
-            <span class="text">{link.text}</span>
+<Story name="Normal" let:topTasks let:icon let:disableCss let:title let:intro let:path>
+  <div class="layout-grid layout-grid--column-12 top-tasks-container">
+    <h2 id={path} class="top-tasks-text col-1-span-12">
+      {title}
+    </h2>
+    {#if intro}
+      <div class="top-tasks-text col-1-span-7">{@html intro}</div>
+    {/if}
+    <section
+      class="layout-flex layout-flex--centered col-1-span-12 tasks-layout"
+      class:layout-flex--basis-3={topTasks.length !== 2 && topTasks.length !== 4}
+      class:layout-flex--basis-2={topTasks.length === 2 || topTasks.length === 4}
+      aria-labelledby={path}
+      style="gap: var(--spacer-x-small);">
+      {#each topTasks as task, index}
+        {#if task && task.url}
+          <a href={task.url} class="button button--primary top-task">
+            <h3 class="heading">{task.title}</h3>
+            <span class="text">{@html task.intro}</span>
           </a>
-        {/each}
-      </section>
-      <hr />
-    {/each}
+        {/if}
+      {/each}
+    </section>
   </div>
 </Story>
 
