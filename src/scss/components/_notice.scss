@@ -33,7 +33,7 @@
       height: 1.2rem;
       float: left;
       margin-top: -0.12rem;
-      margin-right: 0.312rem;
+      margin-right: var(--spacer-xxx-small);
 
       @media only screen and (min-width: $breakpoint-large) {
         // 30 x 30 size image
@@ -47,7 +47,7 @@
 
   ul, ol {
     margin-top: $spacer-xx-small;
-    padding-left: 1.1875rem;
+    padding-left: var(--spacer-small);
 
     li, li + li {
       margin-top: 0;
