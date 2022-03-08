@@ -1,4 +1,6 @@
 import Intl from 'intl';
+import 'intl/locale-data/jsonp/nb-NO'
+
 import type { ErrorDetail } from './types'
 
 export function createInputAriaDescribedby(
