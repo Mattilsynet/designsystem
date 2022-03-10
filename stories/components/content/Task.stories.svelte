@@ -98,7 +98,7 @@
         headerTag: ''
       },
       {
-        title: 'Oppgave 5 med tittel inni en h4 tagg',
+        title: 'Oppgave 5 med tittel inni en h4-tag',
         intro: ``,
         text: 'Noe tekst i kroppen',
         nextActionUrl: 'http://',
