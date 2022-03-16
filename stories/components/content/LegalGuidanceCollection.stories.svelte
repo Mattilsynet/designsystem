@@ -100,7 +100,6 @@
           </section>
 
           <section class="layout-flex-col layout-flex-col--x-small">
-              <SummaryDetail title="Regelverk">
                 <CardArticle
                   type="legal-text"
                   title="Dette er tittelen"
@@ -114,6 +113,7 @@
                   linkUrl="http://"
                   linkText="Last ned mal for internkontroll" />
               </SummaryDetail>
+            <SummaryDetail title="Regelverk" detailsClass="with-icon with-bold">
           </section>
         </article>
       {/each}
