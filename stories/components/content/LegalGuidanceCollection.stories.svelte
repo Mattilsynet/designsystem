@@ -2,7 +2,6 @@
   import {Meta, Story} from '@storybook/addon-svelte-csf'
   import CardArticle from '../../../src/svelte/CardArticle.svelte'
   import SummaryDetail from '../../../src/svelte/SummaryDetail.svelte'
-
 </script>
 
 <Meta
@@ -20,9 +19,9 @@
         </li>
       </ul>`,
     disableCss: false,
-    legalItems:[
+    legalItems: [
       {
-        title:'Første regelveiledning',
+        title: 'Første regelveiledning',
         intro: 'Første regelveiledning intro tekst.',
         text: `<h2>Andre overskrift</h2>
           <p>Paragraf med tekst. Paragraf med tekst. <a href="">Paragraf med tekst.</a> Paragraf med tekst</p>
@@ -33,11 +32,11 @@
               selvstendig ansvar for dyr.
             </li>
           </ul>`,
-          howToDoItTitle:'Slik gjør du',
-          howToDoIt:`<p>Slik gjør du beskrivelse</p>`,
+        howToDoItTitle: 'Slik gjør du',
+        howToDoIt: `<p>Slik gjør du beskrivelse</p>`
       },
       {
-        title:'Andre regelveiledning',
+        title: 'Andre regelveiledning',
         intro: 'Andre regelveiledning intro tekst.',
         text: `<h2>Andre overskrift</h2>
           <p>Paragraf med tekst. Paragraf med tekst. <a href="">Paragraf med tekst.</a> Paragraf med tekst</p>
@@ -48,8 +47,8 @@
               selvstendig ansvar for dyr.
             </li>
           </ul>`,
-          howToDoItTitle:'Slik gjør du',
-          howToDoIt:`<p>Slik gjør du beskrivelse</p>`,
+        howToDoItTitle: 'Slik gjør du',
+        howToDoIt: `<p>Slik gjør du beskrivelse</p>`
       }
     ]
   }}
@@ -57,15 +56,10 @@
     label: {control: 'text'},
     helpText: {control: 'text'},
     errorMessage: {control: 'text'},
-    disableCss: {control: 'boolean'},
+    disableCss: {control: 'boolean'}
   }} />
 
-<Story
-  name="Normal"
-  let:title
-  let:intro
-  let:legalItems
-  let:text>
+<Story name="Normal" let:title let:intro let:legalItems let:text>
   <div class="container layout-grid layout-grid--column-12">
     <article class="article-page col-1-span-12 legal-guidance">
       <h1>{title}</h1>
@@ -77,16 +71,19 @@
 
       {#each legalItems as legal}
         <article
-          class="legal-collection legal-collection__border-top col-3-span-8"  aria-labelledby="collection-title-1">
+          class="legal-collection legal-collection__border-top col-3-span-8"
+          aria-labelledby="collection-title-1">
           <h2 id="collection-title-1">{legal.title}</h2>
 
           <div class="intro">
             {legal.intro}
           </div>
 
-          {@html legal.text }
+          {@html legal.text}
 
-          <section class="layout-flex-col layout-flex-col--x-small"  aria-labelledby="how-to-heading-1">
+          <section
+            class="layout-flex-col layout-flex-col--x-small"
+            aria-labelledby="how-to-heading-1">
             <h3 id="how-to-heading-1">
               {legal.howToDoItTitle}
             </h3>
@@ -100,24 +97,23 @@
           </section>
 
           <section class="layout-flex-col layout-flex-col--x-small">
-              <SummaryDetail title="Regelverk">
-                <CardArticle
-                  type="legal-text"
-                  title="Dette er tittelen"
-                  text="Noe tekst i kroppen"
-                  linkUrl="http://"
-                  linkText="Last ned mal for internkontroll" />
-                <CardArticle
-                  type="legal-text"
-                  title="Dette er tittelen"
-                  text="Noe tekst i kroppen"
-                  linkUrl="http://"
-                  linkText="Last ned mal for internkontroll" />
-              </SummaryDetail>
+            <SummaryDetail title="Regelverk" detailsClass="with-icon with-bold">
+              <CardArticle
+                type="legal-text"
+                title="Dette er tittelen"
+                text="Noe tekst i kroppen"
+                linkUrl="http://"
+                linkText="Last ned mal for internkontroll" />
+              <CardArticle
+                type="legal-text"
+                title="Dette er tittelen"
+                text="Noe tekst i kroppen"
+                linkUrl="http://"
+                linkText="Last ned mal for internkontroll" />
+            </SummaryDetail>
           </section>
         </article>
       {/each}
-
     </article>
   </div>
 </Story>
