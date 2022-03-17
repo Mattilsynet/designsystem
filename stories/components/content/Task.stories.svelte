@@ -1,6 +1,6 @@
 <script lang="ts">
-  import {Meta, Story} from '@storybook/addon-svelte-csf';
-  import CardArticle from '../../../src/svelte/CardArticle.svelte';
+  import {Meta, Story} from '@storybook/addon-svelte-csf'
+  import CardArticle from '../../../src/svelte/CardArticle.svelte'
 </script>
 
 <Meta
@@ -22,7 +22,8 @@
       </ul>
       <p>Utformingen av rutinene skal være tilpasset virksomhetens egenart.</p>`,
         nextActionUrl: 'http://',
-        nextActionLinkText: 'Link til neste oppgave'
+        nextActionLinkText: 'Link til neste oppgave',
+        headerTag: ''
       },
       {
         title: 'Dette er andre oppgave',
@@ -33,7 +34,8 @@
             is that it ha
           </p>`,
         nextActionUrl: 'http://',
-        nextActionLinkText: 'Link til tredje oppgave'
+        nextActionLinkText: 'Link til tredje oppgave',
+        headerTag: ''
       },
       {
         title: 'Tredde oppgaven med headinger',
@@ -62,7 +64,8 @@
                 <li>ti</li>
               </ul>`,
         nextActionUrl: 'http://',
-        nextActionLinkText: 'Link til tredje oppgave'
+        nextActionLinkText: 'Link til tredje oppgave',
+        headerTag: ''
       },
       {
         title: 'Fjerde oppgaven med headinger som ikke egentlig skal brukes',
@@ -91,7 +94,16 @@
                 <li>ti</li>
               </ul>`,
         nextActionUrl: 'http://',
-        nextActionLinkText: 'Link til tredje oppgave'
+        nextActionLinkText: 'Link til tredje oppgave',
+        headerTag: ''
+      },
+      {
+        title: 'Oppgave 5 med tittel inni en h4-tag',
+        intro: ``,
+        text: 'Noe tekst i kroppen',
+        nextActionUrl: 'http://',
+        nextActionLinkText: 'Last ned mal for internkontroll',
+        headerTag: 'h4'
       }
     ],
     disabled: false,
@@ -100,8 +112,7 @@
   argTypes={{
     disabled: {control: 'boolean'},
     disableCss: {control: 'boolean'}
-  }}
-/>
+  }} />
 
 <Story name="Normal" let:tasks>
   <div class="container layout-flex-col layout-flex-col--x-small">
@@ -114,7 +125,7 @@
         title={task.title}
         text={task.text}
         id={task.title}
-      />
+        headerTag={task.headerTag} />
     {/each}
   </div>
 </Story>
