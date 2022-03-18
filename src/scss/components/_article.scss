@@ -22,14 +22,14 @@
   &.children-full-width {
     @media only screen and (min-width: $breakpoint-large) {
       > * {
-        grid-column: span 12;
+        grid-column: 3 / span 6;
       }
     }
   }
 
   @media only screen and (min-width: $breakpoint-large) {
     > * {
-      grid-column: 3 / span 8;
+      grid-column: 3 / span 6;
     }
   }
 }
