@@ -71,7 +71,7 @@
 
       {#each legalItems as legal}
         <article
-          class="legal-collection legal-collection__border-top col-3-span-8"
+          class="legal-collection legal-collection__border-top col-3-span-6"
           aria-labelledby="collection-title-1">
           <h2 id="collection-title-1">{legal.title}</h2>
 
