@@ -9,6 +9,7 @@ a {
 
   color: var(--color-links);
   border-radius: var(--border-radius-small);
+  padding: var(--border-width-regular);
 
   &.back-arrow {
     display: flex;
