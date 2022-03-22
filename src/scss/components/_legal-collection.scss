@@ -3,6 +3,12 @@
 
 .legal-collection {
   @include article-spacing;
+  h2 {
+    margin-top: var(--spacer-medium);
+    @media only screen and (min-width: $breakpoint-large) {
+      margin-top: var(--spacer-large);
+    }
+  }
 
   section > details,
   section + .disclosure {
@@ -17,6 +23,9 @@
 
   &__border-top {
     border-top: $border-width-regular solid var(--color-mt-beige);
-    margin: var(--spacer-small) 0;
+    margin-top: var(--spacer-medium);
+    @media only screen and (min-width: $breakpoint-large) {
+      margin-top: var(--spacer-large);
+    }
   }
 }
