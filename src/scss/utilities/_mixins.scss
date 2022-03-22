@@ -8,8 +8,9 @@
 
   &.focus,
   &:focus {
-    outline: var(--outline-size) var(--outline-style) var(--outline-color);
-    outline-offset: var(--outline-offset);
+    border-color: inherit;
+    outline: none;
+    box-shadow: 0 0 0 0.25rem var(--color-mt-blue-medium);
   }
 
   &:focus:not(:focus-visible) {
@@ -17,8 +18,9 @@
   }
 
   &:focus-visible {
-    outline: var(--outline-size) var(--outline-style) var(--outline-color);
-    outline-offset: var(--outline-offset);
+    border-color: inherit;
+    outline: none;
+    box-shadow: 0 0 0 0.25rem var(--color-mt-blue-medium);
   }
 }
 
