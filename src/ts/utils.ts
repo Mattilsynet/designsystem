@@ -1,7 +1,18 @@
 import type {ErrorDetail} from './types'
 
-export function createInputAriaDescribedby(name: string, error: ErrorDetail | undefined): string {
-  return error ? `${name}-hint ${name}-error` : `${name}-hint`
+export function createInputAriaDescribedby(
+  name: string,
+  error: ErrorDetail | undefined,
+  maxlength: number | undefined
+): string {
+  let describedBy = `${name}-hint`
+  if (error) {
+    describedBy = `${describedBy} ${name}-error`
+  }
+  if (maxlength) {
+    describedBy = `${describedBy} ${name}-maxlength`
+  }
+  return describedBy
 }
 
 export function toKebabCase(text: string): string {

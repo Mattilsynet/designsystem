@@ -1,7 +1,7 @@
 <script lang="ts">
-  import {Meta, Story} from '@storybook/addon-svelte-csf';
-  import TextInput from '../../../src/svelte/form/TextInput.svelte';
-  import {wrapInShadowDom} from '../../utils';
+  import {Meta, Story} from '@storybook/addon-svelte-csf'
+  import TextInput from '../../../src/svelte/form/TextInput.svelte'
+  import {wrapInShadowDom} from '../../utils'
 </script>
 
 <Meta
@@ -18,8 +18,7 @@
     helpText: {control: 'text'},
     errorMessage: {control: 'text'},
     disableCss: {control: 'boolean'}
-  }}
-/>
+  }} />
 
 <Story name="Input" let:label let:helpText let:disableCss>
   <div use:wrapInShadowDom={disableCss}>
@@ -31,8 +30,7 @@
         textOptional="valgfritt felt"
         inputmode="text"
         placeholder=""
-        autocomplete=""
-      />
+        autocomplete="" />
 
       <TextInput
         name="inputfield2"
@@ -42,8 +40,7 @@
         inputmode="text"
         isRequired={true}
         placeholder="Skriv noe"
-        autocomplete=""
-      />
+        autocomplete="" />
 
       <TextInput
         name="inputfield3"
@@ -54,27 +51,31 @@
         isRequired={true}
         placeholder=""
         autocomplete=""
-        maxlength={30}
-      />
+        maxlength={30} />
     </form>
   </div>
 </Story>
 
-<Story name="Input with error" let:label let:helpText let:errorMessage let:disableCss let:countCharactersLeftLabel>
+<Story
+  name="Input with error"
+  let:label
+  let:helpText
+  let:errorMessage
+  let:disableCss
+  let:countCharactersLeftLabel>
   <div use:wrapInShadowDom={disableCss}>
     <form class="form-layout">
       <TextInput
         name="inputfield"
         {label}
         {helpText}
-        {countCharactersLeftLabel}
+        countCharactersLeftLabel="karakterer igjen"
         error={{key: 'inputfield', message: errorMessage}}
         textOptional="valgfritt felt"
         inputmode="text"
         maxlength={10}
         placeholder=""
-        autocomplete=""
-      />
+        autocomplete="" />
     </form>
   </div>
 </Story>
