@@ -41,12 +41,27 @@
       content: url("data:image/svg+xml,%3Csvg width='20' height='12' fill='white' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18.214 0 10 8.364 1.786 0 0 1.818 10 12 20 1.818 18.214 0Z' /%3E%3C/svg%3E");
     }
   }
+  // Currently used in the header
   &.button__small-text {
     button{
       font-size: $font-size-small ;
+      &[aria-expanded]::after {
+        margin-top: 0.313rem; // 5px
+        content: url("data:image/svg+xml,%3Csvg width='16' height='16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.9741 3.6363 8.0001 9.719 2.026 3.6364.7273 4.9587 8 12.3636l7.2727-7.405-1.2986-1.3223Z' fill='%233F3E3E'/%3E%3C/svg%3E");
+      }
+      &[aria-expanded='true']::after {
+        margin-top: -0.313rem; // -5px
+        content: url("data:image/svg+xml,%3Csvg width='16' height='16' fill='white' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.9741 3.6363 8.0001 9.719 2.026 3.6364.7273 4.9587 8 12.3636l7.2727-7.405-1.2986-1.3223Z' /%3E%3C/svg%3E");
+      }
 
       @media only screen and (min-width: $breakpoint-large) {
         font-size: $font-size-label;
+        &[aria-expanded]::after {
+          content: url("data:image/svg+xml,%3Csvg width='20' height='12'  xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18.214 0 10 8.364 1.786 0 0 1.818 10 12 20 1.818 18.214 0Z' /%3E%3C/svg%3E");
+        }
+        &[aria-expanded='true']::after {
+          content: url("data:image/svg+xml,%3Csvg width='20' height='12' fill='white' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18.214 0 10 8.364 1.786 0 0 1.818 10 12 20 1.818 18.214 0Z' /%3E%3C/svg%3E");
+        }
       }
     }
   }
