@@ -13,7 +13,7 @@
   {#if headerTag === 'h2'}
     <h2 id={headingId} class="title h3">{@html title}</h2>
   {:else if headerTag === 'h4'}
-    <h4 id={headingId}>{@html title}</h4>
+    <h4 id={headingId} class="title">{@html title}</h4>
   {:else}
     <h3 id={headingId} class="title">{@html title}</h3>
   {/if}
