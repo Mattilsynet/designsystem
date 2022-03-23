@@ -41,6 +41,15 @@
       content: url("data:image/svg+xml,%3Csvg width='20' height='12' fill='white' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18.214 0 10 8.364 1.786 0 0 1.818 10 12 20 1.818 18.214 0Z' /%3E%3C/svg%3E");
     }
   }
+  &.button__small-text {
+    button{
+      font-size: $font-size-small ;
+
+      @media only screen and (min-width: $breakpoint-large) {
+        font-size: $font-size-label;
+      }
+    }
+  }
 
   &.visible {
     color: var(--color-mt-white);
