@@ -38,7 +38,7 @@
         headerTag: ''
       },
       {
-        title: 'Tredde oppgaven med headinger',
+        title: 'Næringsmiddelhygieneforordningens vedlegg II kap VIII',
         intro: ``,
         text: `<h4>Geiter</h4>
 

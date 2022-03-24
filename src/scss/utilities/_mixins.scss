@@ -109,6 +109,8 @@
     margin-top: 0;
     padding-bottom: var(--spacer-x-small);
     border-bottom: $border-width-small solid var(--color-mt-beige);
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
   .intro {
     font-size: $font-size-body;
