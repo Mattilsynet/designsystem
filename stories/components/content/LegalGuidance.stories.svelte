@@ -77,14 +77,24 @@
         class="layout-flex-col layout-flex-col--x-small"
         aria-labelledby="regulations-heading">
         <h2 id="regulations-heading">Regelverk</h2>
-        <Disclosure title="Lov/Forskrift" headerTag="h3" theme="light-blue" {icon}>
+        <Disclosure
+          title="Lov/Forskrift"
+          headerTag="h3"
+          theme="no-border"
+          class="background-mt-rationale-blue"
+          {icon}>
           <p>Begrunnelsen kommer her</p>
           <ul>
             <li>Punkt 1</li>
             <li>Punkt 2</li>
           </ul>
         </Disclosure>
-        <Disclosure title="Lov/Forskrift" headerTag="h3" theme="light-blue" {icon}>
+        <Disclosure
+          title="Lov/Forskrift"
+          headerTag="h3"
+          theme="no-border"
+          class="background-mt-rationale-blue"
+          {icon}>
           <p>Begrunnelsen kommer her</p>
           <ul>
             <li>Punkt 1</li>

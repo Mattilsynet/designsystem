@@ -127,7 +127,32 @@
       <Disclosure
         title={disclosure.title}
         loadJs={!args.disableJs}
-        theme="light-blue"
+        theme="no-border"
+        class="background-mt-rationale-blue"
+        icon={i !== 2 ? icon : undefined}>
+        {@html disclosure.body}
+      </Disclosure>
+    {/each}
+  </section>
+</Story>
+
+<Story
+  name="Hvit"
+  args={{
+    icon,
+    disableJs: false,
+    disableCss: false
+  }}
+  let:args>
+  <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading2">
+    <h2 id="heading2">Tittel for hvit trekkspill</h2>
+    {#each disclosures as disclosure, i}
+      <Disclosure
+        title={disclosure.title}
+        loadJs={!args.disableJs}
+        theme="no-border"
+        class="background-mt-white"
+        startOpen={i === 1}
         icon={i !== 2 ? icon : undefined}>
         {@html disclosure.body}
       </Disclosure>

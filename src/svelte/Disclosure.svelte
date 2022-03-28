@@ -11,10 +11,11 @@
   export let loadJs = true
   export let title: string
   export let headerTag: 'h2' | 'h3' | 'h4' = 'h3'
-  export let theme: 'bordered' | 'links' | 'light-blue' = 'bordered'
+  export let theme: 'bordered' | 'links' | 'no-border' = 'bordered'
   export let icon: string | undefined = undefined
   export let headerClass = ''
   export let panelClass = ''
+  export let startOpen = false
   let disclosureClass = ''
   export {disclosureClass as class}
 
@@ -60,6 +61,9 @@
 
   if (loadJs) {
     onMount(() => send('MOUNTED'))
+    if (startOpen) {
+      onMount(() => send('TOGGLE'))
+    }
   }
 </script>
 
