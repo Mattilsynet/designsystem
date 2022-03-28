@@ -12,7 +12,11 @@
       {href: '#', text: 'Fisk og akvakultur'},
       {href: '#', text: 'Planter og dyrking'},
       {href: '#', text: 'Kosmetikk'},
-      {href: '#', text: 'Kritikk&shy;verdige forhold på arbeids&shy;plassen'}
+      {href: '#', text: 'Kritikk&shy;verdige forhold på arbeids&shy;plassen'},
+      {
+        href: '#',
+        text: 'Kritikk&shy;verdige forhold på arbeids&shy;plassen hvor lenken går over flere linjer og samtidig skal ha animasjon'
+      }
     ],
     secondary: 'Avbryt',
     disabled: false,
