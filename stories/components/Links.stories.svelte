@@ -1,5 +1,6 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf'
+  import Link from '../../src/svelte/Link.svelte'
 </script>
 
 <Meta
@@ -33,14 +34,23 @@
 <Story name="Normal" let:primary let:disableCss let:disabled let:secondary>
   <h1>Lenker</h1>
   <p>Bruk alene:</p>
-  <a href="https://mattilsynet.no/">{primary}</a>
+  <Link linkText={primary} href="https://mattilsynet.no/" />
   <hr />
   <p>Bruk i text:</p>
-  <p>Les mer om <a href="https://mattilsynet.no/">mattilsynet</a> her.</p>
+  <p>Les mer om <Link href="https://mattilsynet.no/" linkText="mattilsynet" /> her.</p>
 
   <hr />
   <p>Tilbakelenke</p>
-  <a href="https://mattilsynet.no/" class="back-arrow">Tilbake</a>
+  <Link href="https://mattilsynet.no/" class="back-arrow" linkText="Tilbake" />
+
+  <hr />
+  <p>Pdf lenke</p>
+  <Link href="https://mattilsynet.no/some.pdf" class="document" linkText="thisIsAPdf" />
+  <Link
+    href="https://mattilsynet.no/some.pdf"
+    class="document"
+    linkText="thisIsAPdf"
+    fileName="thisIsAPdf.pdf" />
 </Story>
 
 <Story name="Lenke liste" let:cards let:disableCss let:disabled let:secondary>
@@ -48,9 +58,7 @@
   <ul class="layout-grid list-unstyled">
     {#each cards as link}
       <li>
-        <a href={link.href} class="forward-arrow-end-link">
-          {@html link.text}
-        </a>
+        <Link href={link.href} class="forward-arrow-end-link" linkText={link.text} />
       </li>
     {/each}
   </ul>
@@ -61,11 +69,10 @@
   <ul class="layout-grid list-unstyled transport-list">
     {#each cards as link}
       <li>
-        <a
+        <Link
           href={link.href}
-          class="button button--primary button--space-between layout-full-width forward-arrow-end">
-          {@html link.text}
-        </a>
+          class="button button--primary button--space-between layout-full-width forward-arrow-end"
+          linkText={link.text} />
       </li>
     {/each}
   </ul>
