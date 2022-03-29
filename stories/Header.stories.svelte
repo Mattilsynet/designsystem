@@ -71,7 +71,7 @@
         />
       </svg>
     </a>
-    <Dropdown title="Språk/language" loadJs={true} let:titleId>
+    <Dropdown title="Språk/language" loadJs={true} class="button__small-text" let:titleId>
       <ol class="alt-language" aria-labelledby={titleId}>
         {#each args.items as item}
           <li>

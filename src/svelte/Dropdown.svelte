@@ -13,6 +13,8 @@
   const bodyId = `ui-dropdown-${counter++}`
   export let loadJs = false
   export let titleId = `${bodyId}-title`
+  let className = ''
+  export {className as class}
 
   interface DropdownContext {
     isFirstRenderFinished: boolean
@@ -54,7 +56,7 @@
   }
 </script>
 
-<div aria-label={title} class="dropdown" class:visible={isOpen || onServer}>
+<div aria-label={title} class="dropdown {className}" class:visible={isOpen || onServer}>
   {#if onServer}
     <div class="dropdown-title">{@html title}</div>
   {:else}
