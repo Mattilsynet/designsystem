@@ -12,7 +12,7 @@ export function toKebabCase(text: string): string {
 }
 
 export function displayDataTime(lang: string, isoDate: string): string {
-  return new Intl.DateTimeFormat(lang, {day: '2-digit', month: '2-digit', year: '2-digit'}).format(
+  return new Intl.DateTimeFormat(lang, {day: '2-digit', month: '2-digit', year: 'numeric'}).format(
     new Date(isoDate)
   )
 }
@@ -75,4 +75,12 @@ export function compareDates({
     }
   }
   return null
+}
+
+export function getFileExtension(fileName?: string): string | null {
+  if (!fileName) {
+    return null
+  }
+  const lastDotIndex = fileName.lastIndexOf('.')
+  return lastDotIndex !== -1 ? fileName.substring(lastDotIndex + 1).toUpperCase() : null
 }
