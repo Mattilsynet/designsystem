@@ -1,0 +1,54 @@
+@use '../theme' as *;
+
+.report {
+  .disclosure {
+    margin-top: $spacer-small;
+    .disclosure-panel {
+      .text + .report-list {
+        margin-top: var(--spacer-x-small);
+      }
+      &.on-server > :first-child {
+        margin-top: 0;
+      }
+
+      .text + .report-list {
+        border-top: $border-radius-small solid var(--color-secondary);
+      }
+
+      .report-list {
+        margin-top: 0;
+        gap: 0;
+        display: flex;
+        flex-direction: column;
+
+        dt {
+          padding-top: var(--spacer-x-small);
+        }
+
+        dd:not(:last-child) {
+          padding-bottom: var(--spacer-x-small);
+          border-bottom: $border-radius-small solid var(--color-secondary);
+        }
+
+        @media only screen and (min-width: $breakpoint-large) {
+          display: grid;
+
+          dt:not(:nth-last-child(2)) {
+            padding-right: var(--spacer-x-small);
+            border-bottom: $border-radius-small solid var(--color-secondary);
+          }
+          dt,
+          dd {
+            padding-top: var(--spacer-x-small);
+            padding-bottom: var(--spacer-x-small);
+          }
+          dd {
+            p {
+              margin-top: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

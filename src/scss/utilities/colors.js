@@ -29,7 +29,8 @@ module.exports = [
   },
   {
     name: 'mt-rationale-blue',
-    color: 'hsl(193, 39%, 88%)'
+    color: 'hsl(193, 39%, 88%)',
+    onColor: 'hsla(0,1%,25%, 1)'
   },
   {
     name: 'mt-brown',
@@ -41,7 +42,8 @@ module.exports = [
   },
   {
     name: 'mt-white',
-    color: 'hsl(0,0%,100%)'
+    color: 'hsl(0,0%,100%)',
+    onColor: 'hsla(0,1%,25%, 1)'
   },
   {
     name: 'primary',

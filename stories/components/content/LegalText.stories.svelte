@@ -31,7 +31,7 @@
   <div class="container">
     <CardArticle type="legal-text" {title} {text} id={title} />
     <hr />
-    <Disclosure theme="light-blue" {title} {icon}>
+    <Disclosure theme="no-border" class="background-mt-rationale-blue" {title} {icon}>
       {@html text}
     </Disclosure>
   </div>
