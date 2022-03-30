@@ -3,7 +3,7 @@
 figure {
   align-self: center;
   figcaption {
-    margin-top: $spacer-xx-small;
+    margin-top: var(--spacer-xxx-small);
     font-size: $font-size-small;
   }
 }

@@ -4,11 +4,11 @@ input[type='file'].form-field {
   background-color: transparent;
 
   &.inclusively-hidden + label.button--primary {
-    padding-right: $spacer-large;
+    padding-right: var(--spacer-medium);
 
     &:before {
       content: url('data:image/svg+xml,%3Csvg%20width%3D%2223%22%20height%3D%2224%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M21.51%2010.46L11.312%2020.537c-1.979%201.949-5.197%201.949-7.175%200a4.956%204.956%200%20010-7.072L14.921%202.879a3.079%203.079%200%20014.305%200%202.972%202.972%200%20010%204.242l-8.63%208.464c-.396.39-1.04.39-1.435%200a.99.99%200%20010-1.414l7.196-7.05-1.436-1.414-7.196%207.049a2.971%202.971%200%20000%204.244%203.076%203.076%200%20004.304%200l8.63-8.464A4.946%204.946%200%200022.146%205c0-2.77-2.279-5-5.073-5a5.094%205.094%200%2000-3.587%201.466L2.703%2012.049a6.934%206.934%200%2000-2.08%204.95c0%203.864%203.176%207%207.102%207a7.136%207.136%200%20005.022-2.05l10.197-10.074-1.435-1.414z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E');
-      margin-right: $spacer-xx-small;
+      margin-right: var(--spacer-xxx-small);
     }
   }
 
@@ -20,13 +20,13 @@ input[type='file'].form-field {
 
 .file-button {
   &__file-list {
-    margin-top: $spacer-x-small;
+    margin-top: var(--spacer-xx-small);
 
     li {
       border-top: $border-width-small solid var(--color-secondary);
       border-bottom: $border-width-small solid var(--color-secondary);
-      padding-top: $spacer-x-small;
-      padding-bottom: $spacer-x-small;
+      padding-top: var(--spacer-xx-small);
+      padding-bottom: var(--spacer-xx-small);
       display: flex;
       flex-direction: row;
 
@@ -44,6 +44,6 @@ input[type='file'].form-field {
   &__file-remove {
     all: unset;
     cursor: pointer;
-    margin-right: $spacer-xx-small;
+    margin-right: var(--spacer-xxx-small);
   }
 }

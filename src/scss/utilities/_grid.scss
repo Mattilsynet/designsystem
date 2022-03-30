@@ -44,10 +44,6 @@
     .row-gap {
       --space-section: var(--spacer-small);
       row-gap: var(--space-section);
-
-      @media only screen and (min-width: $breakpoint-large) {
-        --space-section: var(--spacer-large);
-      }
     }
 
     @media only screen and (min-width: $breakpoint-large) {

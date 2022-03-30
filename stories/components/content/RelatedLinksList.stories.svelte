@@ -44,6 +44,6 @@
 
 <style lang="scss">
   .margin-top {
-    margin-top: var(--spacer-large);
+    margin-top: var(--spacer-medium);
   }
 </style>

@@ -120,10 +120,9 @@ h4,
 }
 
 $content-selectors: '.content' !default;
-$content-spacer: $spacer-x-small !default;
 
 #{$content-selectors} {
-  --content-spacer: #{$content-spacer};
+  --content-spacer: var(--spacer-xx-small);
 
   > * + * {
     margin-top: var(--content-spacer);
@@ -131,7 +130,7 @@ $content-spacer: $spacer-x-small !default;
 
   > main {
     @media only screen and (min-width: $breakpoint-large) {
-      margin-top: var(--spacer-large);
+      margin-top: var(--spacer-x-small);
     }
   }
 
@@ -140,7 +139,7 @@ $content-spacer: $spacer-x-small !default;
   > h3,
   > * + h4,
   > h4 {
-    margin-top: var(--spacer-large);
+    margin-top: var(--spacer-medium);
   }
 
   > a:not([class]) {

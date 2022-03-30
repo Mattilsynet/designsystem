@@ -1,16 +1,16 @@
 @use '../theme' as *;
 
 .page-summary {
-  --gap: var(--spacer-x-small);
+  --gap: var(--spacer-xx-small);
   --border: 2px solid var(--color-mt-beige);
-  --heading-padding-bottom: var(--spacer-xx-small);
-  --space-section: var(--spacer-medium);
+  --heading-padding-bottom: var(--spacer-xxx-small);
+  --space-section: var(--spacer-small);
 
   display: grid;
   grid-template-areas: 'heading link';
   grid-template-columns: 1fr min-content;
   row-gap: var(--gap);
-  margin-top: var(--spacer-small);
+  margin-top: var(--spacer-x-small);
 
   + .page-summary {
     margin-top: var(--space-section);
@@ -33,9 +33,5 @@
     dd {
       white-space: pre-wrap;
     }
-  }
-
-  @media only screen and (min-width: $breakpoint-large) {
-    --space-section: var(--spacer-large);
   }
 }
