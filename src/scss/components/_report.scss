@@ -1,21 +1,28 @@
 @use '../theme' as *;
 
-.report-series {
+.report {
   .disclosure {
     margin-top: $spacer-small;
     .disclosure-panel {
       .text + .report-list {
         margin-top: var(--spacer-x-small);
       }
+      &.on-server > :first-child {
+        margin-top: 0;
+      }
+
+      .text + .report-list {
+        border-top: $border-radius-small solid var(--color-secondary);
+      }
+
       .report-list {
         margin-top: 0;
         gap: 0;
         display: flex;
         flex-direction: column;
 
-        border-top: $border-radius-small solid var(--color-secondary);
         dt {
-          margin-top: var(--spacer-x-small);
+          padding-top: var(--spacer-x-small);
         }
 
         dd:not(:last-child) {
@@ -25,13 +32,14 @@
 
         @media only screen and (min-width: $breakpoint-large) {
           display: grid;
+
           dt:not(:nth-last-child(2)) {
             padding-right: var(--spacer-x-small);
             border-bottom: $border-radius-small solid var(--color-secondary);
           }
           dt,
           dd {
-            margin-top: var(--spacer-x-small);
+            padding-top: var(--spacer-x-small);
             padding-bottom: var(--spacer-x-small);
           }
           dd {
