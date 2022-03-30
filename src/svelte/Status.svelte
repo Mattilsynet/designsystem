@@ -12,7 +12,7 @@
   export let linkIsExternal: boolean
   let className: string
   export {className as class}
-  export let lang = 'nb-NO'
+  export let lang = 'NO-nb'
 
   $: updatedDateLocalized = updatedDate ? displayDataTime(lang, updatedDate) : null
 </script>

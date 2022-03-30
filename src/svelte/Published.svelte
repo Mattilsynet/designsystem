@@ -3,7 +3,7 @@
 
   export let publishFrom: string | undefined
   export let professionallyUpdated: string | undefined
-  export let lang = 'nb-NO'
+  export let lang = 'NO-nb'
   export let publishedText = 'Publisert'
   export let lastPublishedText = 'Faglig oppdatert'
   $: dateObject = compareDates({
