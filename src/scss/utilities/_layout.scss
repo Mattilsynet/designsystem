@@ -29,9 +29,6 @@
   }
 }
 [data-portal-component-type] {
-  //display: flex; //todo
-
-  //& + [data-portal-component-type='layout'] {
   & + [data-portal-component-type] {
     margin-top: var(--spacer-medium);
   }
@@ -84,8 +81,6 @@
 }
 
 .layout-flex-col {
-  //--gap: var(--spacer-medium);
-
   display: flex;
   flex-direction: column;
   gap: var(--gap);
