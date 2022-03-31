@@ -18,7 +18,7 @@
 <slot />
 
 {#if text}
-  <div class="intro">
+  <div class="text">
     {@html text}
   </div>
 {/if}
