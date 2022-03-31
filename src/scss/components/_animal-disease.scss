@@ -2,9 +2,9 @@
 
 .animal-disease {
   .text {
-    margin-top: $spacer-small;
+    margin-top: var(--spacer-x-small);
   }
   .disclosure {
-    margin-top: $spacer-small;
+    margin-top: var(--spacer-x-small);
   }
 }
