@@ -11,8 +11,7 @@
   background-color: #fff;
 
   @media only screen and (min-width: $breakpoint-large) {
-    --notice-margin: var(--spacer-large);
-    --notice-padding: var(--spacer-small);
+    --notice-margin: var(--spacer-medium);
 
     font-size: inherit;
   }
@@ -45,13 +44,14 @@
     }
   }
 
-  ul, ol {
-    margin-top: $spacer-xx-small;
-    padding-left: var(--spacer-small);
+  ul,
+  ol {
+    margin-top: var(--spacer-xxx-small);
+    padding-left: var(--spacer-x-small);
 
-    li, li + li {
+    li,
+    li + li {
       margin-top: 0;
     }
   }
-
 }

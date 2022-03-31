@@ -41,7 +41,7 @@
 
 <style lang="scss">
   main {
-    --gap: var(--spacer-large);
+    --gap: var(--spacer-medium);
   }
   section {
     --gap: var(--spacer-xx-small);

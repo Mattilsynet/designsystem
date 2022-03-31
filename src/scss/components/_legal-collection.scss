@@ -4,15 +4,12 @@
 .legal-collection {
   @include article-spacing;
   h2 {
-    margin-top: var(--spacer-medium);
-    @media only screen and (min-width: $breakpoint-large) {
-      margin-top: var(--spacer-large);
-    }
+    margin-top: var(--spacer-small);
   }
 
   section > details,
   section + .disclosure {
-    margin-top: var(--spacer-medium);
+    margin-top: var(--spacer-small);
   }
   .intro {
     font-size: $font-size-medium; // 22 px
@@ -23,9 +20,6 @@
 
   &__border-top {
     border-top: $border-width-regular solid var(--color-mt-beige);
-    margin-top: var(--spacer-medium);
-    @media only screen and (min-width: $breakpoint-large) {
-      margin-top: var(--spacer-large);
-    }
+    margin-top: var(--spacer-small);
   }
 }

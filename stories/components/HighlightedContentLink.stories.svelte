@@ -1,7 +1,7 @@
 <script lang="ts">
-  import {Meta, Story} from '@storybook/addon-svelte-csf';
-  import HighlightedContentLink from '../../src/svelte/HighlightedContentLink.svelte';
-  import imageFile from '../../.static/testbilde.jpg';
+  import {Meta, Story} from '@storybook/addon-svelte-csf'
+  import HighlightedContentLink from '../../src/svelte/HighlightedContentLink.svelte'
+  import imageFile from '../../.static/testbilde.jpg'
 </script>
 
 <Meta
@@ -17,8 +17,7 @@
     heading: {control: 'string'},
     disableJs: {control: 'boolean'},
     disableCss: {control: 'boolean'}
-  }}
-/>
+  }} />
 
 <Story name="Normal" let:text let:disableCss let:heading let:date>
   <main class="container layout-flex-col">
@@ -28,15 +27,17 @@
         href="https://www.mattilsyent.no"
         image={{src: imageFile, alt: 'Her er alt tekst til bildet'}}
         headingClass="h3"
-        heading="Dette er tittelen"
-      >
+        heading="Dette er tittelen">
         {@html text}
       </HighlightedContentLink>
     </section>
 
     <h2>Fremhevet innhold uten bilde</h2>
     <section class="layout-flex-col">
-      <HighlightedContentLink href="https://www.mattilsyent.no" headingClass="h3" heading="Dette er tittelen">
+      <HighlightedContentLink
+        href="https://www.mattilsyent.no"
+        headingClass="h3"
+        heading="Dette er tittelen">
         {@html text}
       </HighlightedContentLink>
     </section>
@@ -45,10 +46,10 @@
 
 <style lang="scss">
   main {
-    --gap: var(--spacer-small);
+    --gap: var(--spacer-x-small);
   }
   h2 {
-    margin-top: var(--spacer-medium);
+    margin-top: var(--spacer-small);
   }
   section {
     --gap: var(--spacer-xx-small);

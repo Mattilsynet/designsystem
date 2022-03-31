@@ -1,4 +1,4 @@
-@use "../theme" as *;
+@use '../theme' as *;
 
 .breadcrumbs {
   font-size: 1rem;
@@ -10,7 +10,7 @@
     margin: 0;
     li {
       display: inline;
-      padding-right: $spacer-x-small;
+      padding-right: var(--spacer-xx-small);
       font-size: $font-size-small;
       margin-top: 0;
       &.ellipsis {

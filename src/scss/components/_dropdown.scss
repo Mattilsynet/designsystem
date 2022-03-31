@@ -2,7 +2,7 @@
 @use '../utilities/mixins' as *;
 
 .dropdown {
-  padding: var(--spacer-x-small);
+  padding: var(--spacer-xx-small);
   text-align: right;
   display: inline-block;
   position: relative;
@@ -12,7 +12,7 @@
     position: absolute;
     width: 0;
     top: 0;
-    padding: 4.125rem var(--spacer-x-small) var(--spacer-x-small);
+    padding: 4.125rem var(--spacer-xx-small) var(--spacer-xx-small);
     background-color: var(--color-mt-blue);
     z-index: var(--z-index-dropdown);
     right: 0;
@@ -43,8 +43,8 @@
   }
   // Currently used in the header
   &.button__small-text {
-    button{
-      font-size: $font-size-small ;
+    button {
+      font-size: $font-size-small;
       &[aria-expanded]::after {
         margin-top: 0.313rem; // 5px
         content: url("data:image/svg+xml,%3Csvg width='16' height='16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.9741 3.6363 8.0001 9.719 2.026 3.6364.7273 4.9587 8 12.3636l7.2727-7.405-1.2986-1.3223Z' fill='%233F3E3E'/%3E%3C/svg%3E");
@@ -113,6 +113,6 @@
     flex-direction: column;
   }
   li + li {
-    margin-top: var(--spacer-x-small);
+    margin-top: var(--spacer-xx-small);
   }
 }

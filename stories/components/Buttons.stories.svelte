@@ -1,8 +1,8 @@
 <script lang="ts">
-  import {Meta, Story} from '@storybook/addon-svelte-csf';
-  import {action} from '@storybook/addon-actions';
-  import FileUploadButton from '../../src/svelte/FileUploadButton.svelte';
-  import ButtonSpinner from '../../src/svelte/ButtonSpinner.svelte';
+  import {Meta, Story} from '@storybook/addon-svelte-csf'
+  import {action} from '@storybook/addon-actions'
+  import FileUploadButton from '../../src/svelte/FileUploadButton.svelte'
+  import ButtonSpinner from '../../src/svelte/ButtonSpinner.svelte'
 </script>
 
 <Meta
@@ -23,8 +23,7 @@
     disableCss: {control: 'boolean'},
     uploadRequired: {control: 'boolean'},
     removeFile: {action: 'removeFile'}
-  }}
-/>
+  }} />
 
 <Story name="Normal" let:primary let:primaryLong let:disableCss let:disabled let:secondary>
   <h1>Knapper</h1>
@@ -47,8 +46,7 @@
     loadJs={!disableJs}
     multiple={true}
     isRequired={uploadRequired}
-    on:removeFile={action('removeFile')}
-  />
+    on:removeFile={action('removeFile')} />
 </Story>
 
 <Story name="Loading">
@@ -57,15 +55,13 @@
   <ButtonSpinner
     formInProgressAriaLabel="Sender inn skjema, venter på svar."
     btnClassNames="button--primary"
-    spinnerPlacement="start"
-  >
+    spinnerPlacement="start">
     Spinner placement start
   </ButtonSpinner><br />
   <ButtonSpinner
     formInProgressAriaLabel="Sender inn skjema, venter på svar."
     btnClassNames="button--primary"
-    spinnerPlacement="end"
-  >
+    spinnerPlacement="end">
     Spinner placement end
   </ButtonSpinner>
 
@@ -73,8 +69,7 @@
   <ButtonSpinner
     formInProgressAriaLabel="Sender inn skjema, venter på svar."
     btnClassNames="button--secondary"
-    spinnerPlacement="end"
-  >
+    spinnerPlacement="end">
     Send in skjema
   </ButtonSpinner>
 </Story>
@@ -82,7 +77,7 @@
 <style lang="scss" global>
   button {
     margin-top: 0.5rem;
-    margin-right: var(--spacer-small);
+    margin-right: var(--spacer-x-small);
   }
   .description {
     margin-top: 2rem;

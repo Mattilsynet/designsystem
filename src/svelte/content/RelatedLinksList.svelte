@@ -26,10 +26,7 @@
 </div>
 
 <style lang="scss">
-  .link-group > :first-child {
-    margin-top: var(--spacer-xx-small);
-  }
   ul + h3 {
-    margin-top: var(--spacer-medium);
+    margin-top: var(--spacer-small);
   }
 </style>

@@ -63,7 +63,7 @@
   }
 }
 
-@mixin children-spaced($spacer: $spacer-large) {
+@mixin children-spaced($spacer: var(--spacer-large)) {
   > * + * {
     margin-top: $spacer;
   }
@@ -72,12 +72,12 @@
 @mixin xp-html-area {
   @include children-spaced(var(--space-content));
 
-  --space-section: var(--spacer-large);
-  --space-sub-section: var(--spacer-medium);
-  --space-content: var(--spacer-x-small);
+  --space-section: var(--spacer-medium);
+  --space-sub-section: var(--spacer-small);
+  --space-content: var(--spacer-xx-small);
 
   > h2 {
-    margin-top: var(--spacer-large);
+    margin-top: var(--spacer-medium);
     &.inclusively-hidden {
       + h3 {
         margin-top: 0;
@@ -87,10 +87,10 @@
 
   > h3,
   > h4 {
-    margin-top: var(--spacer-small);
+    margin-top: var(--spacer-x-small);
   }
   ul {
-    padding-left: var(--spacer-large);
+    padding-left: var(--spacer-medium);
     li {
       line-height: 140%;
       & + li {
@@ -103,11 +103,11 @@
 @mixin card-article {
   @include children-spaced(var(--spacer-x-small));
 
-  padding: var(--spacer-small);
+  padding: var(--spacer-x-small);
 
   .title {
     margin-top: 0;
-    padding-bottom: var(--spacer-x-small);
+    padding-bottom: var(--spacer-xx-small);
     border-bottom: $border-width-small solid var(--color-mt-beige);
     overflow-wrap: anywhere;
     word-break: break-word;
@@ -122,18 +122,13 @@
   }
 }
 @mixin article-spacing {
-  --space-section: var(--spacer-medium);
-  --space-sub-section: var(--spacer-small);
+  --space-section: var(--spacer-small);
+  --space-sub-section: var(--spacer-x-small);
   --space-content: var(--spacer-x-small);
 
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
 
-  @media only screen and (min-width: $breakpoint-large) {
-    --space-section: var(--spacer-large);
-    --space-sub-section: var(--spacer-medium);
-    --space-content: var(--spacer-x-small);
-  }
   > * {
     grid-column: span 12;
   }
@@ -146,7 +141,7 @@
 
   > .meta + p,
   figure {
-    margin-top: var(--spacer-medium);
+    margin-top: var(--spacer-x-small);
   }
 
   h2 {
@@ -166,7 +161,7 @@
   }
 
   .meta {
-    margin-top: var(--spacer-small);
+    margin-top: var(--spacer-x-small);
   }
 
   section > details > .summary-wrapper {

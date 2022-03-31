@@ -3,8 +3,6 @@
 @use '../utilities/mixins' as *;
 
 //stylelint-disable no-descending-specificity
-$form-group-spacer: 'var(--spacer-medium)' !default;
-$form-text-space: 'var(--spacer-xx-small)' !default;
 $form-field-width: 100% !default;
 $form-text-color: 'var(--color-text)' !default;
 $form-border-color: $color-secondary !default;
@@ -13,23 +11,19 @@ $form-outline-style: solid !default;
 $form-outline-color: $color-mt-blue-medium !default;
 
 form {
-  --form-group-spacer: #{$form-group-spacer};
+  --form-group-spacer: var(--spacer-small);
   --form-field-width: #{$form-field-width};
   --form-text-color: #{$form-text-color};
   --border-color: #{$form-border-color};
   --border-radius: #{$form-border-radius};
   --form-outline-style: #{$form-outline-style};
   --form-outline-color: #{$form-outline-color};
-  --form-text-space: #{$form-text-space};
+  --form-text-space: var(--spacer-xxx-small);
 
   color: var(--form-text-color);
 
   .hint {
     font-size: $font-size-small;
-  }
-
-  @media only screen and (min-width: $breakpoint-large) {
-    --form-group-spacer: var(--spacer-large);
   }
 }
 form,
@@ -252,7 +246,7 @@ label.form-label {
 
 .error-summary {
   margin-bottom: var(--form-group-spacer);
-  padding: $spacer-xx-small $spacer-x-small;
+  padding: var(--spacer-xxx-small) var(--spacer-xx-small);
   border-left: $border-width-regular solid var(--color-error);
 
   h2 {
@@ -261,7 +255,7 @@ label.form-label {
 
   ul {
     margin-left: 0;
-    padding-left: var(--spacer-x-small);
+    padding-left: var(--spacer-xx-small);
     list-style: disc;
     li.error-summary__list--link {
       color: var(--color-primary);
