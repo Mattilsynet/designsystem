@@ -36,8 +36,21 @@ describe('Related links list', () => {
     expect(rightCol.children[0].innerHTML).toEqual('Overskrift 1')
   })
 
+  test('Does not render title when list of links is empty', () => {
+    const {getByTestId, queryByText, getByText} = render(RelatedLinksList, {
+      title: 'This is the title',
+      linkGroups: [{title: 'This is the group heading', links: []}]
+    })
+    expect(getByText('This is the title')).toBeInTheDocument()
+    expect(queryByText('This is the group heading')).not.toBeInTheDocument()
+    expect(getByTestId('left-col')).toBeInTheDocument()
+    expect(getByTestId('right-col')).toBeInTheDocument()
+  })
+
   test('Render properties when no main title, no group title', () => {
-    const {getByTestId} = render(RelatedLinksList, {linkGroups: [{links: []}]})
+    const {getByTestId} = render(RelatedLinksList, {
+      linkGroups: [{links: []}]
+    })
     expect(getByTestId('left-col')).toBeInTheDocument()
     expect(getByTestId('right-col')).toBeInTheDocument()
   })
