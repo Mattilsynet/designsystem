@@ -1,7 +1,7 @@
 <script lang="ts">
-  import {Meta, Story} from '@storybook/addon-svelte-csf';
-  import AnimalDisease from '../../../src/svelte/content/AnimalDisease.svelte';
-  import imageFile from '../../../.static/testbilde.jpg';
+  import {Meta, Story} from '@storybook/addon-svelte-csf'
+  import AnimalDisease from '../../../src/svelte/content/AnimalDisease.svelte'
+  import imageFile from '../../../.static/testbilde.jpg'
 </script>
 
 <Meta
@@ -9,7 +9,7 @@
   args={{
     title: 'Om sykdommen',
     intro:
-      'Å anskaffe seg et dyr er et stort ansvar og det er tid- og ressurskrevende å sørge for at dyrene får et fullverdig liv. Det gjelder alle typer dyr, også små kjæledyr som hamster, marsvin, kanin, ilder, fugler eller akvariefisk',
+      '<p>Å anskaffe seg et dyr er et stort ansvar og det er tid- og ressurskrevende å sørge for at dyrene får et fullverdig liv.</p><p>Det gjelder alle typer dyr, også små kjæledyr som hamster, marsvin, kanin, ilder, fugler eller akvariefisk</p>',
     symptoms: `<p>Dette beskriver symptomene for sykdommen</p>`,
     routesOfInfection: `<p>Dette beskriver symptomene for sykdommen</p>`,
     infectionToHumans: `<p>Dette beskriver symptomene for sykdommen</p>`,
@@ -22,8 +22,7 @@
     helpText: {control: 'text'},
     errorMessage: {control: 'text'},
     disableCss: {control: 'boolean'}
-  }}
-/>
+  }} />
 
 <Story
   name="Normal"
@@ -34,8 +33,7 @@
   let:infectionToHumans
   let:disableCss
   let:publishFrom
-  let:professionallyUpdated
->
+  let:professionallyUpdated>
   <div class="container layout-grid layout-grid--column-12">
     <article class="col-7-span-6 animal-disease">
       <AnimalDisease
@@ -49,8 +47,7 @@
         imageAltText="Alternative text"
         caption="This is the caption"
         routesOfInfectionHeading="Hvordan smitter sykdommen?"
-        disclosureHeadClass="text-body"
-      >
+        disclosureHeadClass="text-body">
         <h2>{title}</h2>
       </AnimalDisease>
     </article>
