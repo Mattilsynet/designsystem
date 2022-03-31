@@ -4,7 +4,7 @@
   export {url as href}
   export {className as class}
   export let image: {src: string; alt: string | undefined} | undefined = undefined
-  export let lang = 'nb-NO'
+  export let lang = 'NO-nb'
   export let heading: string | undefined
   export let isExternal = false
   export let headingClass = ''

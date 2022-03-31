@@ -1,4 +1,4 @@
-import type {ErrorDetail} from './types'
+import type { ErrorDetail } from './types'
 
 export function createInputAriaDescribedby(
   name: string,
