@@ -30,6 +30,7 @@
   <p class="description">Hovedknapp</p>
   <button class="button button--primary" {disabled}>{primary}</button>
   <button class="button button--primary" {disabled}>{primaryLong}</button>
+  <button class="button button--primary" {disabled} style="width: 15rem">{primaryLong}</button>
 
   <p class="description">Sekundær</p>
   <button class="button button--secondary" {disabled}>{secondary}</button>
@@ -76,7 +77,6 @@
 
 <style lang="scss" global>
   button {
-    margin-top: 0.5rem;
     margin-right: var(--spacer-x-small);
   }
   .description {
