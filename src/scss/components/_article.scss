@@ -42,7 +42,6 @@
 
   @media only screen and (min-width: $breakpoint-large) {
     display: flex;
-    gap: var(--spacer-xxx-small);
 
     :nth-child(3) {
       padding-left: var(--spacer-xxx-small);
