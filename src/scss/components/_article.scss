@@ -38,7 +38,7 @@
   display: grid;
   grid-template-columns: auto 1fr;
   font-size: $font-size-small;
-  row-gap: var(--spacer-xxx-small);
+  gap: var(--spacer-xxx-small);
 
   @media only screen and (min-width: $breakpoint-large) {
     display: flex;
