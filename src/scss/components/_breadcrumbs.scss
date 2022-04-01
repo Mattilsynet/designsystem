@@ -3,9 +3,9 @@
 .breadcrumbs {
   font-size: 1rem;
   ol {
-    display: grid;
-    grid-template-columns: max-content max-content max-content 1fr;
-    grid-gap: var(--spacer-xx-small);
+    display: flex;
+    //flex-wrap: wrap;
+    align-items: center;
     padding: 0;
     margin: 0;
     li {
@@ -18,6 +18,9 @@
         white-space: nowrap;
         overflow: hidden;
         display: inline-block;
+      }
+      a::before {
+        margin-right: var(--spacer-xx-small);
       }
     }
     &.expanded {
