@@ -109,7 +109,7 @@
 <nav class="breadcrumbs {classNames}" aria-label={ariaLabel}>
   <ol class:expanded={isFull}>
     {#each $state.context.breadcrumbsItems as item, index}
-      <li class:ellipsis={!isFull && index + 1 === $state.context.breadcrumbsItems.length}>
+      <li class:ellipsis={!isFull && index + 1 > 2}>
         {#if index === 0}
           <a href={item.url} rel="external">{homeLabel}</a>
         {:else if item === BUTTON_ELLIPSIS}

@@ -3,21 +3,37 @@
 .breadcrumbs {
   font-size: 1rem;
   ol {
-    display: grid;
-    grid-template-columns: max-content max-content max-content 1fr;
-    grid-gap: var(--spacer-xx-small);
+    display: flex;
+    align-items: center;
     padding: 0;
     margin: 0;
     li {
-      display: inline;
+      display: none;
       padding-right: var(--spacer-xx-small);
       font-size: $font-size-small;
       margin-top: 0;
+      &:nth-last-child(2) {
+        display: inline;
+        a::before {
+          transform: rotateY(180deg);
+        }
+      }
       &.ellipsis {
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;
-        display: inline-block;
+      }
+      a::before {
+        margin-right: var(--spacer-xx-small);
+      }
+
+      @media only screen and (min-width: $breakpoint-large) {
+        display: inline;
+        &:nth-last-child(2) {
+          a::before {
+            transform: rotateY(0);
+          }
+        }
       }
     }
     &.expanded {
