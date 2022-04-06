@@ -15,9 +15,7 @@
   @include article-spacing;
 
   section > details,
-  section + .disclosure,
-  .task,
-  .form-intro-module {
+  section + .disclosure {
     margin-top: var(--space-section);
   }
 
