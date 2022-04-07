@@ -22,6 +22,10 @@
           {url: 'https://www.mattilsynet.no', text: 'mattilsynet.no'},
           {url: 'https://www.mattilsynet.no', text: 'Annen link'}
         ]
+      },
+      {
+        title: 'Overskrift 3',
+        links: []
       }
     ],
     disableCss: false

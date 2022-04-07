@@ -12,16 +12,18 @@
 </div>
 <div class="{rightColClass} layout-flex-col link-group" style="gap: 0" data-testid="right-col">
   {#each linkGroups as group}
-    <h3 id={toKebabCase(group.title ? group.title : '')}>{@html group.title}</h3>
-    <ul class="list-unstyled" aria-labelledby={toKebabCase(group.title ? group.title : '')}>
-      {#each group.links as link}
-        {#if link.url && link.text}
-          <li>
-            <a href={link.url} class="forward-arrow-end-link">{@html link.text}</a>
-          </li>
-        {/if}
-      {/each}
-    </ul>
+    {#if group.links?.length > 0}
+      <h3 id={toKebabCase(group.title ? group.title : '')}>{@html group.title}</h3>
+      <ul class="list-unstyled" aria-labelledby={toKebabCase(group.title ? group.title : '')}>
+        {#each group.links as link}
+          {#if link.url && link.text}
+            <li>
+              <a href={link.url} class="forward-arrow-end-link">{@html link.text}</a>
+            </li>
+          {/if}
+        {/each}
+      </ul>
+    {/if}
   {/each}
 </div>
 

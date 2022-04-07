@@ -36,6 +36,17 @@ describe('Related links list', () => {
     expect(rightCol.children[0].innerHTML).toEqual('Overskrift 1')
   })
 
+  test('Dont show group if no links', () => {
+    componentOptions.linkGroups = componentOptions.linkGroups.concat({
+      title: 'Overskrift 3',
+      links: []
+    })
+    const {getByText, queryByText} = render(RelatedLinksList, componentOptions)
+    expect(getByText('Overskrift 1')).toBeInTheDocument()
+    expect(getByText('Overskrift 2')).toBeInTheDocument()
+    expect(queryByText('Overskrift 3')).not.toBeInTheDocument()
+  })
+
   test('Render properties when no main title, no group title', () => {
     const {getByTestId} = render(RelatedLinksList, {linkGroups: [{links: []}]})
     expect(getByTestId('left-col')).toBeInTheDocument()
