@@ -5,8 +5,8 @@
   border: $border-width-small solid var(--color-mt-brown);
   display: grid;
   padding: var(--spacer-x-small);
-  grid-template-columns: min-content auto;
-  grid-template-areas: 'icon heading' 'date date' 'text text' 'actions actions' 'link link';
+  grid-template-columns: minmax(0, min-content) auto;
+  grid-template-areas: 'icon heading' 'text text' 'actions actions' 'link link' 'date date';
 
   h1,
   h2,
