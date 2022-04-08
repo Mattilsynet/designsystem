@@ -29,10 +29,10 @@
       {@html actionsTakenByMattilsynet}
     </div>
   {/if}
-  {#if updatedDate && statusType === 'important'}
-    <Published publishFrom={updatedDate} {publishedText} />
-  {/if}
   {#if linkUrl}
     <a href={linkUrl} rel={linkIsExternal ? 'external' : undefined}>{linkText}</a>
+  {/if}
+  {#if updatedDate && statusType === 'important'}
+    <Published publishFrom={updatedDate} {publishedText} />
   {/if}
 </div>
