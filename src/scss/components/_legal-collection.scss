@@ -3,9 +3,6 @@
 
 .legal-collection {
   @include article-spacing;
-  h2 {
-    margin-top: var(--spacer-small);
-  }
 
   section > details,
   section + .disclosure {

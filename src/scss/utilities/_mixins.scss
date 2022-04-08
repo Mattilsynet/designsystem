@@ -124,7 +124,7 @@
 @mixin article-spacing {
   --space-section: var(--spacer-small);
   --space-sub-section: var(--spacer-x-small);
-  --space-content: var(--spacer-x-small);
+  --space-content: var(--spacer-xx-small);
 
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -133,6 +133,9 @@
     grid-column: span 12;
   }
   .intro,
+  .task,
+  .form-intro-module,
+  .disclosure,
   > * + p {
     margin-top: var(--space-content);
   }
@@ -169,9 +172,6 @@
   section {
     .inclusively-hidden + * {
       margin-top: var(--space-section);
-    }
-    > h3 {
-      margin-top: var(--space-content);
     }
   }
 }
