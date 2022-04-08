@@ -12,6 +12,8 @@
     margin: 0;
     padding: var(--disclosure-spacing) 0;
     border-radius: var(--border-radius-small);
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
   [aria-expanded='true'].disclosure-header {
     font-weight: var(--font-weight-bold);

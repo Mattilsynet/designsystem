@@ -78,7 +78,7 @@
         aria-labelledby="regulations-heading">
         <h2 id="regulations-heading">Regelverk</h2>
         <Disclosure
-          title="Lov/Forskrift"
+          title="Næringsmiddelhygieneforordningens vedlegg II, kap. I nr. 3"
           headerTag="h3"
           theme="no-border"
           class="background-mt-rationale-blue"
