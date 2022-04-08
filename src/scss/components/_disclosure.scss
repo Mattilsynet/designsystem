@@ -2,7 +2,11 @@
 @use '../utilities/mixins' as *;
 
 .disclosure {
-  --disclosure-spacing: var(--spacer-xx-small);
+  --disclosure-spacing: var(--spacer-x-small);
+
+  @media only screen and (min-width: $breakpoint-large) {
+    --disclosure-spacing: var(--spacer-xx-small);
+  }
 
   .disclosure-header {
     display: flex;
