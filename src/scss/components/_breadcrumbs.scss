@@ -28,10 +28,12 @@
       }
 
       @media only screen and (min-width: $breakpoint-large) {
+        padding-right: var(--spacer-xxx-small);
         display: inline;
         &:nth-last-child(2) {
           a::before {
             transform: rotateY(0);
+            margin-right: var(--spacer-xxx-small);
           }
         }
       }
