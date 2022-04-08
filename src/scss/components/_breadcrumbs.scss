@@ -12,6 +12,13 @@
       padding-right: var(--spacer-xx-small);
       font-size: $font-size-small;
       margin-top: 0;
+      &:first-child {
+        a::before {
+          content: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNiIgaGVpZ2h0PSIxMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNLjIgMS40MyAzLjY2MSA1IC4yIDguNTdsMS4wNjYgMS4wOTdMNS44IDUgMS4yNjYuMzMzLjIgMS40M1oiIGZpbGw9IiM0NjQ1NDUiLz48L3N2Zz4=');
+          display: inline-block;
+          margin-right: var(--spacer-xx-small);
+        }
+      }
       &:nth-last-child(2) {
         display: inline;
         a::before {
@@ -30,6 +37,13 @@
       @media only screen and (min-width: $breakpoint-large) {
         padding-right: var(--spacer-xxx-small);
         display: inline;
+
+        &:first-child {
+          a::before {
+            content: none;
+          }
+        }
+
         &:nth-last-child(2) {
           a::before {
             transform: rotateY(0);
