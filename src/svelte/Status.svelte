@@ -21,9 +21,6 @@
   <span class={statusType} data-testid="status-type" />
   <slot name="heading" />
 
-  {#if updatedDate && statusType === 'important'}
-    <Published publishFrom={updatedDate} {publishedText} />
-  {/if}
   <div class="text">
     {@html text}
   </div>
@@ -34,5 +31,8 @@
   {/if}
   {#if linkUrl}
     <a href={linkUrl} rel={linkIsExternal ? 'external' : undefined}>{linkText}</a>
+  {/if}
+  {#if updatedDate && statusType === 'important'}
+    <Published publishFrom={updatedDate} {publishedText} />
   {/if}
 </div>
