@@ -64,6 +64,18 @@
   </ul>
 </Story>
 
+<Story name="Dokument lenke" let:cards let:disableCss let:disabled let:secondary>
+  <h1>Dokumentlenker</h1>
+  <ul class="layout-grid list-unstyled">
+    <li>
+      <Link href={cards[3].href} class="document forward-arrow-end-link" linkText={cards[3].text} />
+    </li>
+    <li>
+      <Link href={cards[6].href} class="document forward-arrow-end-link" linkText={cards[6].text} />
+    </li>
+  </ul>
+</Story>
+
 <Story name="Transport List" let:cards let:disableCss let:disabled let:secondary>
   <h1>Transporlenkeliste</h1>
   <ul class="layout-grid list-unstyled transport-list">

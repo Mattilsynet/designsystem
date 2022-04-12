@@ -7,7 +7,7 @@
   export {className as class}
   export let fileName = ''
 
-  $: fileType = fileName !== '' ? `(${getFileExtension(fileName)})` : ''
+  $: fileType = getFileExtension(fileName) ? `(${getFileExtension(fileName)})` : ''
 </script>
 
 <a class={className} {href}>{@html linkText} {fileType}</a>
