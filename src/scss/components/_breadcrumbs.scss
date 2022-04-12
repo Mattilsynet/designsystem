@@ -47,8 +47,10 @@
         &:nth-last-child(2) {
           a::before {
             transform: rotateY(0);
-            margin-right: var(--spacer-xxx-small);
           }
+        }
+        a::before {
+          margin-right: var(--spacer-xxx-small);
         }
       }
     }
