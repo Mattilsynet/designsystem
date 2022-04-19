@@ -173,5 +173,8 @@
     .inclusively-hidden + * {
       margin-top: var(--space-section);
     }
+    &.table-of-contents {
+      margin: var(--spacer-small) 0 var(--spacer-large)
+    }
   }
 }

@@ -15,7 +15,7 @@
   @include article-spacing;
 
   section > details,
-  section + .disclosure {
+  section + .disclosure{
     margin-top: var(--space-section);
   }
 

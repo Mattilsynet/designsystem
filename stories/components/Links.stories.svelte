@@ -44,6 +44,13 @@
   <Link href="https://mattilsynet.no/" class="back-arrow" linkText="Tilbake" />
 
   <hr />
+  <p>Ankerlenke</p>
+  <Link
+    href="https://mattilsynet.no/"
+    class="down-arrow"
+    linkText="Til innhold der nede ett sted" />
+
+  <hr />
   <p>Pdf lenke</p>
   <Link href="https://mattilsynet.no/some.pdf" class="document" linkText="thisIsAPdf" />
   <Link
