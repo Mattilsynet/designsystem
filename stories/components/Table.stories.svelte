@@ -67,9 +67,7 @@
         {@html intro}
       </div>
       <Published {publishFrom} {professionallyUpdated} />
-      <!--      <div class="text">-->
       {@html text}
-      <!--      </div>-->
     </article>
   </div>
 </Story>
