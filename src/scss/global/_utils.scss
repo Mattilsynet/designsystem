@@ -7,3 +7,22 @@
 .bg-lighter-light-blue {
   background-color: var(--color-mt-lighter-light-blue);
 }
+.m-t-l {
+  margin-top: var(--spacer-large);
+}
+.m-t-m {
+  margin-top: var(--spacer-medium);
+}
+.p-xs {
+  padding: var(--spacer-x-small);
+}
+.p-t-xs {
+  padding-top: var(--spacer-x-small);
+}
+.p-b-xs {
+  padding-bottom: var(--spacer-x-small);
+}
+.p-lr-xs {
+  padding-left: var(--spacer-x-small);
+  padding-right: var(--spacer-x-small);
+}
