@@ -30,9 +30,6 @@
         white-space: nowrap;
         overflow: hidden;
       }
-      a::before {
-        margin-right: var(--spacer-xx-small);
-      }
 
       @media only screen and (min-width: $breakpoint-large) {
         padding-right: var(--spacer-xxx-small);
