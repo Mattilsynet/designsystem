@@ -1,4 +1,6 @@
 <script lang="ts">
+  import HeadingLevel from './HeadingLevel.svelte'
+
   export let headingId: string
   export let title: string
   export let intro: string | undefined
@@ -6,17 +8,16 @@
   export let linkUrl: string | undefined
   export let linkText: string | undefined
   export let type: 'task' | 'form-intro-module' | 'legal-text' | '' = ''
-  export let headerTag: 'h2' | 'h4' | 'h3' = 'h3' // Fallback is h3
+  export let headerTag: 'h2' | 'h3' | 'h4' | 'h5' | 'h6' = 'h3' // Fallback is h3
 </script>
 
 <article class={type} aria-labelledby={headingId}>
-  {#if headerTag === 'h2'}
-    <h2 id={headingId} class="title h3">{@html title}</h2>
-  {:else if headerTag === 'h4'}
-    <h4 id={headingId} class="title">{@html title}</h4>
-  {:else}
-    <h3 id={headingId} class="title">{@html title}</h3>
-  {/if}
+  <HeadingLevel
+    id={headingId}
+    class="title {headerTag === 'h2' ? 'h3' : ''}"
+    headingLevel={+headerTag.charAt(1)}>
+    {@html title}
+  </HeadingLevel>
 
   {#if intro}
     <div class="intro">
