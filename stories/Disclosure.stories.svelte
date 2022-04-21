@@ -83,6 +83,7 @@
       <Disclosure
         title={disclosure.title}
         loadJs={!args.disableJs}
+        headerTag={disclosure.headerTag}
         icon={i === 2 ? icon : undefined}
         headerClass={args.headerClass}>
         {@html disclosure.body}
@@ -129,6 +130,7 @@
         loadJs={!args.disableJs}
         theme="no-border"
         class="background-mt-rationale-blue"
+        headerTag={disclosure.headerTag}
         icon={i !== 2 ? icon : undefined}>
         {@html disclosure.body}
       </Disclosure>
@@ -153,6 +155,7 @@
         theme="no-border"
         class="background-mt-white"
         startOpen={i === 1}
+        headerTag={disclosure.headerTag}
         icon={i !== 2 ? icon : undefined}>
         {@html disclosure.body}
       </Disclosure>
@@ -165,6 +168,7 @@
   args={{
     title: disclosures[1].title,
     body: disclosures[1].body,
+    headerTag: disclosures[1].headerTag,
     disableJs: true,
     disableCss: true
   }} />
