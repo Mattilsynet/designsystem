@@ -1,4 +1,6 @@
 <script lang="ts">
+  import HeadingLevel from './HeadingLevel.svelte'
+
   let url = ''
   let className = ''
   export {url as href}
@@ -21,15 +23,9 @@
   {/if}
   <span class="layout-flex layout-flex-col highlighted-text" style="gap:0">
     {#if heading}
-      {#if headerTag === 'h2'}
-        <h2 class={`heading ${headingClass}`}>
-          {heading}
-        </h2>
-      {:else}
-        <h3 class={`heading ${headingClass}`}>
-          {heading}
-        </h3>
-      {/if}
+      <HeadingLevel class="heading {headingClass}" headingLevel={+headerTag.charAt(1)}>
+        {heading}
+      </HeadingLevel>
     {/if}
     <slot />
   </span>

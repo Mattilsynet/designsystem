@@ -7,10 +7,11 @@
   import {slide} from 'svelte/transition'
   import {useMachine} from '@xstate/svelte'
   import {createMachine, assign} from 'xstate'
+  import HeadingLevel from './HeadingLevel.svelte'
 
   export let loadJs = true
   export let title: string
-  export let headerTag: 'h2' | 'h3' | 'h4' = 'h3'
+  export let headerTag: 'h2' | 'h3' | 'h4' | 'h5' | 'h6' = 'h3'
   export let theme: 'bordered' | 'links' | 'no-border' = 'bordered'
   export let icon: string | undefined = undefined
   export let headerClass = ''
@@ -68,10 +69,10 @@
 </script>
 
 <div class="disclosure disclosure-{theme} {disclosureClass}">
-  {#if onServer && headerTag === 'h2'}
-    <h2 class="disclosure-header {headerClass}">{@html title}</h2>
-  {:else if onServer}
-    <h3 class="disclosure-header {headerClass}">{@html title}</h3>
+  {#if onServer}
+    <HeadingLevel class="disclosure-header {headerClass}" headingLevel={+headerTag.charAt(1)}>
+      {@html title}
+    </HeadingLevel>
   {:else}
     <button
       class="button--unstyled disclosure-header {headerTag} {headerClass}"
@@ -90,10 +91,10 @@
       id={bodyId}
       class="disclosure-panel {panelClass} {onServer ? 'on-server' : ''}"
       transition:slide|local={{duration: $state.context.isFirstRenderFinished ? 300 : 0}}>
-      {#if !onServer && headerTag === 'h2'}
-        <h2 class="inclusively-hidden">{title}</h2>
-      {:else if !onServer}
-        <h3 class="inclusively-hidden">{title}</h3>
+      {#if !onServer}
+        <HeadingLevel class="inclusively-hidden" headingLevel={+headerTag.charAt(1)}>
+          {@html title}
+        </HeadingLevel>
       {/if}
       <slot />
     </div>

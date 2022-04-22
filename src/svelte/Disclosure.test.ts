@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-import {render} from '@testing-library/svelte'
+import {fireEvent, render} from '@testing-library/svelte'
 import Disclosure from './Disclosure.svelte'
 
 describe('Disclosure', () => {
@@ -43,5 +43,38 @@ describe('Disclosure', () => {
       return el.tagName === 'BUTTON'
     })
     expect(btn.getAttribute('aria-expanded')).toEqual('true')
+  })
+
+  test('Render correct heading level - h2', async () => {
+    const {getByText, getAllByText} = render(Disclosure, {
+      props: {...componentOptions, headerTag: 'h2'}
+    })
+    const heading = getByText('Varsle om piggtrådgjerder')
+    await fireEvent.click(heading)
+
+    const all = getAllByText('Varsle om piggtrådgjerder')
+    expect(all[1].tagName).toEqual('H2')
+  })
+
+  test('Render correct heading level - h3', async () => {
+    const {getByText, getAllByText} = render(Disclosure, {
+      props: {...componentOptions, headerTag: 'h3'}
+    })
+    const heading = getByText('Varsle om piggtrådgjerder')
+    await fireEvent.click(heading)
+
+    const all = getAllByText('Varsle om piggtrådgjerder')
+    expect(all[1].tagName).toEqual('H3')
+  })
+
+  test('Render correct heading level - h4', async () => {
+    const {getByText, getAllByText} = render(Disclosure, {
+      props: {...componentOptions, headerTag: 'h4'}
+    })
+    const heading = getByText('Varsle om piggtrådgjerder')
+    await fireEvent.click(heading)
+
+    const all = getAllByText('Varsle om piggtrådgjerder')
+    expect(all[1].tagName).toEqual('H4')
   })
 })
