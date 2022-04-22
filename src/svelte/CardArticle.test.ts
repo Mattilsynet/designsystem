@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-import { render } from '@testing-library/svelte'
+import {render} from '@testing-library/svelte'
 import CardArticle from './CardArticle.svelte'
 
 describe('Card Article', () => {
@@ -18,32 +18,32 @@ describe('Card Article', () => {
     formLinkUrl: 'http://',
     formLinkText: 'Lenke til skjema',
     disableCss: false,
-    headerTag: ''
+    headerTag: undefined
   }
 
   test('Renders', () => {
-    const { getByText } = render(CardArticle, { props: componentOptions })
+    const {getByText} = render(CardArticle, {props: componentOptions})
     expect(getByText('Varsle om piggtrådgjerder')).toBeInTheDocument()
     const headerElement = getByText('Varsle om piggtrådgjerder')
     expect(headerElement.tagName).toEqual('H3')
   })
   test('Renders with h2 heading', () => {
     componentOptions.headerTag = 'h2'
-    const { getByText } = render(CardArticle, { props: componentOptions })
+    const {getByText} = render(CardArticle, {props: componentOptions})
     expect(getByText('Varsle om piggtrådgjerder')).toBeInTheDocument()
     const headerElement = getByText('Varsle om piggtrådgjerder')
     expect(headerElement.tagName).toEqual('H2')
   })
   test('Renders with h3 heading', () => {
     componentOptions.headerTag = 'h3'
-    const { getByText } = render(CardArticle, { props: componentOptions })
+    const {getByText} = render(CardArticle, {props: componentOptions})
     expect(getByText('Varsle om piggtrådgjerder')).toBeInTheDocument()
     const headerElement = getByText('Varsle om piggtrådgjerder')
     expect(headerElement.tagName).toEqual('H3')
   })
   test('Renders with h4 heading', () => {
     componentOptions.headerTag = 'h4'
-    const { getByText } = render(CardArticle, { props: componentOptions })
+    const {getByText} = render(CardArticle, {props: componentOptions})
     expect(getByText('Varsle om piggtrådgjerder')).toBeInTheDocument()
     const headerElement = getByText('Varsle om piggtrådgjerder')
     expect(headerElement.tagName).toEqual('H4')
