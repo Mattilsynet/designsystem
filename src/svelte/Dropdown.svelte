@@ -56,7 +56,7 @@
   }
 </script>
 
-<div aria-label={title} class="dropdown {className}" class:visible={isOpen || onServer}>
+<div class="dropdown {className}" class:visible={isOpen || onServer}>
   {#if onServer}
     <div class="dropdown-title">{@html title}</div>
   {:else}
