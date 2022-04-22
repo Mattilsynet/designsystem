@@ -13,11 +13,19 @@ module.exports = [
   },
   {
     name: 'mt-beige',
-    color: 'hsl(54,19%,61%)'
+    color: 'hsl(55,19%,61%)'
+  },
+  {
+    name: 'mt-beige-50',
+    color: 'hsla(55,18%,61%,0.5)'
   },
   {
     name: 'mt-light-beige',
     color: 'hsl(37, 39%, 91%)'
+  },
+  {
+    name: 'mt-background',
+    color: 'hsl(38,40%,96%)'
   },
   {
     name: 'mt-light-blue',
@@ -64,10 +72,6 @@ module.exports = [
     name: 'mt-text-dark',
     alias: 'mt-brown',
     color: 'hsla(0,1%,25%, 1)'
-  },
-  {
-    name: 'mt-background',
-    color: 'hsl(38,40%,96%)'
   },
   {
     name: 'error',

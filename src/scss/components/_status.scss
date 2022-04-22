@@ -13,6 +13,7 @@
   h3,
   h4 {
     grid-area: heading;
+    overflow-wrap: anywhere;
   }
   .important {
     grid-area: icon;

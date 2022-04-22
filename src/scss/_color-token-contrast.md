@@ -7,11 +7,11 @@ title: Color Token Contrast
 ## color-mt-blue
   - `color-on-mt-blue`
   - `color-mt-light-beige`
+  - `color-mt-background`
   - `color-mt-lighter-light-blue`
   - `color-mt-rationale-blue`
   - `color-mt-white`
   - `color-on-primary`
-  - `color-mt-background`
   - `color-on-error`
 
 ## color-on-mt-blue
@@ -19,6 +19,7 @@ title: Color Token Contrast
   - `color-on-mt-red`
   - `color-mt-red-uu`
   - `color-on-mt-beige`
+  - `color-on-mt-beige-50`
   - `color-on-mt-light-blue`
   - `color-on-mt-rationale-blue`
   - `color-mt-brown`
@@ -38,7 +39,9 @@ title: Color Token Contrast
   - `color-on-mt-blue`
   - `color-on-mt-red-uu`
   - `color-mt-beige`
+  - `color-mt-beige-50`
   - `color-mt-light-beige`
+  - `color-mt-background`
   - `color-mt-light-blue`
   - `color-mt-lighter-light-blue`
   - `color-mt-rationale-blue`
@@ -49,7 +52,6 @@ title: Color Token Contrast
   - `color-mt-blue-medium`
   - `color-secondary`
   - `color-on-mt-text-dark`
-  - `color-mt-background`
   - `color-on-error`
   - `color-on-error-50`
 
@@ -57,11 +59,11 @@ title: Color Token Contrast
   - `color-on-mt-blue`
   - `color-on-mt-red-uu`
   - `color-mt-light-beige`
+  - `color-mt-background`
   - `color-mt-lighter-light-blue`
   - `color-mt-rationale-blue`
   - `color-mt-white`
   - `color-on-primary`
-  - `color-mt-background`
   - `color-on-error`
   - `color-on-error-50`
 
@@ -69,6 +71,7 @@ title: Color Token Contrast
   - `color-on-mt-red`
   - `color-mt-red-uu`
   - `color-on-mt-beige`
+  - `color-on-mt-beige-50`
   - `color-on-mt-light-blue`
   - `color-on-mt-rationale-blue`
   - `color-mt-brown`
@@ -82,21 +85,49 @@ title: Color Token Contrast
 
 ## color-mt-beige
   - `color-on-mt-red`
+  - `color-on-mt-beige`
+  - `color-on-mt-beige-50`
   - `color-on-mt-light-blue`
   - `color-on-mt-grey`
   - `color-on-mt-blue-medium`
+  - `color-on-secondary`
 
 ## color-on-mt-beige
   - `color-on-mt-blue`
   - `color-on-mt-red-uu`
+  - `color-mt-beige`
   - `color-mt-light-beige`
+  - `color-mt-background`
   - `color-mt-lighter-light-blue`
   - `color-mt-rationale-blue`
   - `color-on-mt-brown`
   - `color-mt-white`
   - `color-on-primary`
   - `color-on-mt-text-dark`
+  - `color-on-error`
+  - `color-on-error-50`
+
+## color-mt-beige-50
+  - `color-on-mt-red`
+  - `color-on-mt-beige-50`
+  - `color-on-mt-light-blue`
+  - `color-on-mt-grey`
+  - `color-on-mt-blue-medium`
+
+## color-on-mt-beige-50
+  - `color-on-mt-blue`
+  - `color-on-mt-red-uu`
+  - `color-mt-beige`
+  - `color-mt-beige-50`
+  - `color-mt-light-beige`
   - `color-mt-background`
+  - `color-mt-lighter-light-blue`
+  - `color-mt-rationale-blue`
+  - `color-on-mt-brown`
+  - `color-mt-white`
+  - `color-on-primary`
+  - `color-secondary`
+  - `color-on-mt-text-dark`
   - `color-on-error`
   - `color-on-error-50`
 
@@ -105,6 +136,7 @@ title: Color Token Contrast
   - `color-on-mt-red`
   - `color-mt-red-uu`
   - `color-on-mt-beige`
+  - `color-on-mt-beige-50`
   - `color-on-mt-light-beige`
   - `color-on-mt-light-blue`
   - `color-on-mt-lighter-light-blue`
@@ -121,9 +153,36 @@ title: Color Token Contrast
 
 ## color-on-mt-light-beige
   - `color-mt-light-beige`
+  - `color-mt-background`
   - `color-mt-white`
   - `color-on-primary`
+  - `color-on-error`
+
+## color-mt-background
+  - `color-mt-blue`
+  - `color-on-mt-red`
+  - `color-mt-red-uu`
+  - `color-on-mt-beige`
+  - `color-on-mt-beige-50`
+  - `color-on-mt-light-beige`
+  - `color-on-mt-background`
+  - `color-on-mt-light-blue`
+  - `color-on-mt-lighter-light-blue`
+  - `color-on-mt-rationale-blue`
+  - `color-mt-brown`
+  - `color-on-mt-grey`
+  - `color-on-mt-white`
+  - `color-primary`
+  - `color-on-mt-blue-medium`
+  - `color-on-secondary`
+  - `color-mt-text-dark`
+  - `color-error`
+  - `color-error-50`
+
+## color-on-mt-background
   - `color-mt-background`
+  - `color-mt-white`
+  - `color-on-primary`
   - `color-on-error`
 
 ## color-mt-light-blue
@@ -133,7 +192,9 @@ title: Color Token Contrast
   - `color-on-mt-blue`
   - `color-on-mt-red-uu`
   - `color-mt-beige`
+  - `color-mt-beige-50`
   - `color-mt-light-beige`
+  - `color-mt-background`
   - `color-mt-lighter-light-blue`
   - `color-mt-rationale-blue`
   - `color-on-mt-brown`
@@ -142,7 +203,6 @@ title: Color Token Contrast
   - `color-on-primary`
   - `color-secondary`
   - `color-on-mt-text-dark`
-  - `color-mt-background`
   - `color-on-error`
   - `color-on-error-50`
 
@@ -151,6 +211,7 @@ title: Color Token Contrast
   - `color-on-mt-red`
   - `color-mt-red-uu`
   - `color-on-mt-beige`
+  - `color-on-mt-beige-50`
   - `color-on-mt-light-blue`
   - `color-on-mt-lighter-light-blue`
   - `color-on-mt-rationale-blue`
@@ -166,11 +227,11 @@ title: Color Token Contrast
 
 ## color-on-mt-lighter-light-blue
   - `color-mt-light-beige`
+  - `color-mt-background`
   - `color-mt-lighter-light-blue`
   - `color-mt-rationale-blue`
   - `color-mt-white`
   - `color-on-primary`
-  - `color-mt-background`
   - `color-on-error`
 
 ## color-mt-rationale-blue
@@ -178,6 +239,7 @@ title: Color Token Contrast
   - `color-on-mt-red`
   - `color-mt-red-uu`
   - `color-on-mt-beige`
+  - `color-on-mt-beige-50`
   - `color-on-mt-light-blue`
   - `color-on-mt-lighter-light-blue`
   - `color-on-mt-rationale-blue`
@@ -195,13 +257,13 @@ title: Color Token Contrast
   - `color-on-mt-blue`
   - `color-on-mt-red-uu`
   - `color-mt-light-beige`
+  - `color-mt-background`
   - `color-mt-lighter-light-blue`
   - `color-mt-rationale-blue`
   - `color-on-mt-brown`
   - `color-mt-white`
   - `color-on-primary`
   - `color-on-mt-text-dark`
-  - `color-mt-background`
   - `color-on-error`
   - `color-on-error-50`
 
@@ -209,19 +271,20 @@ title: Color Token Contrast
   - `color-on-mt-blue`
   - `color-on-mt-red-uu`
   - `color-mt-light-beige`
+  - `color-mt-background`
   - `color-mt-lighter-light-blue`
   - `color-mt-rationale-blue`
   - `color-on-mt-brown`
   - `color-mt-white`
   - `color-on-primary`
   - `color-on-mt-text-dark`
-  - `color-mt-background`
   - `color-on-error`
   - `color-on-error-50`
 
 ## color-on-mt-brown
   - `color-on-mt-red`
   - `color-on-mt-beige`
+  - `color-on-mt-beige-50`
   - `color-on-mt-light-blue`
   - `color-on-mt-rationale-blue`
   - `color-mt-brown`
@@ -240,7 +303,9 @@ title: Color Token Contrast
   - `color-on-mt-blue`
   - `color-on-mt-red-uu`
   - `color-mt-beige`
+  - `color-mt-beige-50`
   - `color-mt-light-beige`
+  - `color-mt-background`
   - `color-mt-lighter-light-blue`
   - `color-mt-rationale-blue`
   - `color-on-mt-brown`
@@ -248,7 +313,6 @@ title: Color Token Contrast
   - `color-on-primary`
   - `color-secondary`
   - `color-on-mt-text-dark`
-  - `color-mt-background`
   - `color-on-error`
   - `color-on-error-50`
 
@@ -257,7 +321,9 @@ title: Color Token Contrast
   - `color-on-mt-red`
   - `color-mt-red-uu`
   - `color-on-mt-beige`
+  - `color-on-mt-beige-50`
   - `color-on-mt-light-beige`
+  - `color-on-mt-background`
   - `color-on-mt-light-blue`
   - `color-on-mt-lighter-light-blue`
   - `color-on-mt-rationale-blue`
@@ -268,7 +334,6 @@ title: Color Token Contrast
   - `color-on-mt-blue-medium`
   - `color-on-secondary`
   - `color-mt-text-dark`
-  - `color-on-mt-background`
   - `color-error`
   - `color-error-50`
 
@@ -276,24 +341,24 @@ title: Color Token Contrast
   - `color-on-mt-blue`
   - `color-on-mt-red-uu`
   - `color-mt-light-beige`
+  - `color-mt-background`
   - `color-mt-lighter-light-blue`
   - `color-mt-rationale-blue`
   - `color-on-mt-brown`
   - `color-mt-white`
   - `color-on-primary`
   - `color-on-mt-text-dark`
-  - `color-mt-background`
   - `color-on-error`
   - `color-on-error-50`
 
 ## color-primary
   - `color-on-mt-blue`
   - `color-mt-light-beige`
+  - `color-mt-background`
   - `color-mt-lighter-light-blue`
   - `color-mt-rationale-blue`
   - `color-mt-white`
   - `color-on-primary`
-  - `color-mt-background`
   - `color-on-error`
 
 ## color-on-primary
@@ -301,7 +366,9 @@ title: Color Token Contrast
   - `color-on-mt-red`
   - `color-mt-red-uu`
   - `color-on-mt-beige`
+  - `color-on-mt-beige-50`
   - `color-on-mt-light-beige`
+  - `color-on-mt-background`
   - `color-on-mt-light-blue`
   - `color-on-mt-lighter-light-blue`
   - `color-on-mt-rationale-blue`
@@ -312,7 +379,6 @@ title: Color Token Contrast
   - `color-on-mt-blue-medium`
   - `color-on-secondary`
   - `color-mt-text-dark`
-  - `color-on-mt-background`
   - `color-error`
   - `color-error-50`
 
@@ -323,7 +389,9 @@ title: Color Token Contrast
   - `color-on-mt-blue`
   - `color-on-mt-red-uu`
   - `color-mt-beige`
+  - `color-mt-beige-50`
   - `color-mt-light-beige`
+  - `color-mt-background`
   - `color-mt-lighter-light-blue`
   - `color-mt-rationale-blue`
   - `color-on-mt-brown`
@@ -332,12 +400,12 @@ title: Color Token Contrast
   - `color-on-primary`
   - `color-secondary`
   - `color-on-mt-text-dark`
-  - `color-mt-background`
   - `color-on-error`
   - `color-on-error-50`
 
 ## color-secondary
   - `color-on-mt-red`
+  - `color-on-mt-beige-50`
   - `color-on-mt-light-blue`
   - `color-on-mt-grey`
   - `color-on-mt-blue-medium`
@@ -345,14 +413,15 @@ title: Color Token Contrast
 ## color-on-secondary
   - `color-on-mt-blue`
   - `color-on-mt-red-uu`
+  - `color-mt-beige`
   - `color-mt-light-beige`
+  - `color-mt-background`
   - `color-mt-lighter-light-blue`
   - `color-mt-rationale-blue`
   - `color-on-mt-brown`
   - `color-mt-white`
   - `color-on-primary`
   - `color-on-mt-text-dark`
-  - `color-mt-background`
   - `color-on-error`
   - `color-on-error-50`
 
@@ -360,19 +429,20 @@ title: Color Token Contrast
   - `color-on-mt-blue`
   - `color-on-mt-red-uu`
   - `color-mt-light-beige`
+  - `color-mt-background`
   - `color-mt-lighter-light-blue`
   - `color-mt-rationale-blue`
   - `color-on-mt-brown`
   - `color-mt-white`
   - `color-on-primary`
   - `color-on-mt-text-dark`
-  - `color-mt-background`
   - `color-on-error`
   - `color-on-error-50`
 
 ## color-on-mt-text-dark
   - `color-on-mt-red`
   - `color-on-mt-beige`
+  - `color-on-mt-beige-50`
   - `color-on-mt-light-blue`
   - `color-on-mt-rationale-blue`
   - `color-mt-brown`
@@ -381,42 +451,16 @@ title: Color Token Contrast
   - `color-on-mt-blue-medium`
   - `color-on-secondary`
   - `color-mt-text-dark`
-
-## color-mt-background
-  - `color-mt-blue`
-  - `color-on-mt-red`
-  - `color-mt-red-uu`
-  - `color-on-mt-beige`
-  - `color-on-mt-light-beige`
-  - `color-on-mt-light-blue`
-  - `color-on-mt-lighter-light-blue`
-  - `color-on-mt-rationale-blue`
-  - `color-mt-brown`
-  - `color-on-mt-grey`
-  - `color-on-mt-white`
-  - `color-primary`
-  - `color-on-mt-blue-medium`
-  - `color-on-secondary`
-  - `color-mt-text-dark`
-  - `color-on-mt-background`
-  - `color-error`
-  - `color-error-50`
-
-## color-on-mt-background
-  - `color-mt-white`
-  - `color-on-primary`
-  - `color-mt-background`
-  - `color-on-error`
 
 ## color-error
   - `color-on-mt-blue`
   - `color-on-mt-red-uu`
   - `color-mt-light-beige`
+  - `color-mt-background`
   - `color-mt-lighter-light-blue`
   - `color-mt-rationale-blue`
   - `color-mt-white`
   - `color-on-primary`
-  - `color-mt-background`
   - `color-on-error`
   - `color-on-error-50`
 
@@ -425,7 +469,9 @@ title: Color Token Contrast
   - `color-on-mt-red`
   - `color-mt-red-uu`
   - `color-on-mt-beige`
+  - `color-on-mt-beige-50`
   - `color-on-mt-light-beige`
+  - `color-on-mt-background`
   - `color-on-mt-light-blue`
   - `color-on-mt-lighter-light-blue`
   - `color-on-mt-rationale-blue`
@@ -436,7 +482,6 @@ title: Color Token Contrast
   - `color-on-mt-blue-medium`
   - `color-on-secondary`
   - `color-mt-text-dark`
-  - `color-on-mt-background`
   - `color-error`
   - `color-error-50`
 
@@ -444,11 +489,11 @@ title: Color Token Contrast
   - `color-on-mt-blue`
   - `color-on-mt-red-uu`
   - `color-mt-light-beige`
+  - `color-mt-background`
   - `color-mt-lighter-light-blue`
   - `color-mt-rationale-blue`
   - `color-mt-white`
   - `color-on-primary`
-  - `color-mt-background`
   - `color-on-error`
   - `color-on-error-50`
 
@@ -456,6 +501,7 @@ title: Color Token Contrast
   - `color-on-mt-red`
   - `color-mt-red-uu`
   - `color-on-mt-beige`
+  - `color-on-mt-beige-50`
   - `color-on-mt-light-blue`
   - `color-on-mt-rationale-blue`
   - `color-mt-brown`
