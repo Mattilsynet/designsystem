@@ -10,7 +10,7 @@
     statusTitle: `Status tittel`,
     text: `<p>Status tekst</p>
 <table role="table">
-<caption>Dette er tittlen til tabellen</caption>
+<caption>Dette er tittelen til tabellen</caption>
 <thead>
 <tr role="row">
 <th role="columnheader" scope="col">Kolonne 1</th>
