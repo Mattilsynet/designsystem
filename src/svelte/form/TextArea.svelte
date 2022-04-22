@@ -48,5 +48,5 @@
   {cols}
   class:error
   aria-required={isRequired}
-  aria-describedby={createInputAriaDescribedby(name, error, maxlength)}
+  aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error, maxlength)}
   aria-invalid={!!error} />

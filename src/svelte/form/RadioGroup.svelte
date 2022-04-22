@@ -43,7 +43,7 @@
         bind:group={value}
         value={radio.value}
         aria-required={isRequired}
-        aria-describedby={createInputAriaDescribedby(name, error)}
+        aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)}
         checked={value === radio.value} />
       <label class="form-label" for={toKebabCase(radio.value)}>
         {radio.text}
