@@ -9,87 +9,11 @@ table {
   caption {
     margin-bottom: var(--spacer-xxx-small);
   }
-  &.responsive-table {
-    margin-bottom: 0;
-    width: 100%;
-  }
 
-  thead {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    clip-path: inset(50%);
-  }
-
-  tbody {
-    tr {
-      display: block;
-      padding: var(--spacer-x-small);
-      border-top: $border-radius-small solid var(--color-mt-beige-50);
-      &:nth-child(odd) {
-        background-color: var(--color-mt-white);
-      }
-
-      &:last-child {
-        border-bottom: $border-radius-small solid var(--color-mt-beige-50);
-      }
-      td {
-        display: flex;
-        flex-direction: column;
-        margin-top: var(--spacer-xx-small);
-        &:first-child {
-          margin-top: 0;
-        }
-        .responsive-table__heading {
-          font-weight: $font-weight-bold;
-        }
-        &:last-child {
-          border-bottom: 0;
-        }
-      }
-    }
-  }
   @media only screen and (min-width: $breakpoint-large) {
-    .responsive-table__heading {
-      display: none;
+    tr {
+      display: table-row;
     }
-    thead {
-      clip: auto;
-      -webkit-clip-path: none;
-      clip-path: none;
-      display: table-header-group;
-      height: auto;
-      overflow: auto;
-      position: relative;
-      width: auto;
-      th {
-        word-wrap: break-word;
-        max-width: 1px;
-        -webkit-hyphens: auto; /* iOS 4.2+ */
-        -moz-hyphens: auto; /* Firefox 5+ */
-        -ms-hyphens: auto; /* IE 10+ */
-        hyphens: auto;
-        border-top: $border-width-regular solid var(--color-mt-beige-50);
-        border-bottom: $border-width-regular solid var(--color-mt-beige-50);
-      }
-      tr:first-child {
-        background-color: var(--color-mt-light-beige);
-      }
-    }
-    tbody {
-      tr {
-        display: table-row;
-        td {
-          display: table-cell;
-          & > .responsive-table__heading + * {
-            margin-top: 0;
-          }
-        }
-      }
-    }
-
     caption,
     td,
     th {
@@ -113,6 +37,20 @@ table {
       th:last-child,
       td:last-child {
         border-right: none;
+      }
+    }
+    thead {
+      tr:first-child {
+        background-color: var(--color-mt-light-beige);
+      }
+      th {
+        border-top: $border-width-regular solid var(--color-mt-beige-50);
+        border-bottom: 3px solid var(--color-mt-beige-50);
+      }
+    }
+    tbody {
+      tr:nth-child(odd) {
+        background-color: var(--color-mt-white);
       }
     }
   }
