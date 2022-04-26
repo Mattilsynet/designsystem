@@ -9,42 +9,43 @@
     intro: `<p>Paragraf med tekst. Paragraf med tekst.`,
     statusTitle: `Status tittel`,
     text: `<p>Status tekst</p>
-<table use:responsiveTable>
-<caption>Dette er tittlen til tabelleb</caption>
+<table role="table">
+<caption>Dette er tittelen til tabellen</caption>
 <thead>
-<tr>
-<th scope="col">Tittel 1</th>
-<th scope="col">Tittel 2</th>
-<th scope="col">Tittel 3</th>
-<th scope="col">Tittel 4</th>
-<th scope="col">Tittel 5</th>
-<th scope="col">Tittel 6</th>
+<tr role="row">
+<th role="columnheader" scope="col">Kolonne 1</th>
+<th role="columnheader" scope="col">Kolonne 2</th>
+<th role="columnheader" scope="col">Kolonne 3</th>
+<th role="columnheader" scope="col">Kolonne 4</th>
+<th role="columnheader" scope="col">Kolonne 5</th>
+<th role="columnheader" scope="col">Kolonne 6</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<th scope="row">en</th>
-<td>en asdf asdf asdf asdfsadf dsf asdfdsdaffdaf asdfasf</td>
-<td>en asf a dfasd adsffas a</td>
-<td>en</td>
-<td>en asdfasd fadsfasd fasdf asdf asdf asd fasd fasdf </td>
-<td>en</td>
+<tr role="row">
+<td role="cell"><span class="responsive-table__heading" aria-hidden="true">Rad 1 tittel 1:</span>Rad 1</td>
+<td role="cell"><span class="responsive-table__heading" aria-hidden="true">Rad 1 tittel 2:</span>Rad 1 - med beskrivende tekst</td>
+<td role="cell"><span class="responsive-table__heading" aria-hidden="true">Rad 1 tittel 3:</span>Rad 1 - med mer beskrivende tekst</td>
+<td role="cell"><span class="responsive-table__heading" aria-hidden="true">Rad 1 tittel 4:</span>Rad 1</td>
+<td role="cell"><span class="responsive-table__heading" aria-hidden="true">Rad 1 tittel 5:</span>Rad 1 med en lang beskrivende og status tekst </td>
+<td role="cell"><span class="responsive-table__heading" aria-hidden="true">Rad 1 tittel 6:</span>Rad 1</td>
 </tr>
-<tr>
-<th scope="row">to</th>
-<td>to</td>
-<td>to asdfasdf asdf asdf asdffds adsf</td>
-<td>to asdf adsfads fasdf asdf asfd asdf asf asdf e4awfsdfvasd sfv er</td>
-<td>to</td>
-<td>toa sdfasdf aerf wasdf asdf RFAEGSDFGA SDFDAsdf gafd ss</td>
+<tr role="row">
+<td role="cell"><span class="responsive-table__heading" aria-hidden="true">Rad 2 tittel 1:</span>Rad 2</td>
+<td role="cell"><span class="responsive-table__heading" aria-hidden="true">Rad 2 tittel 2:</span>Rad 2 - med beskrivende tekst</td>
+<td role="cell"><span class="responsive-table__heading" aria-hidden="true">Rad 2 tittel 3:</span>Rad 2 - med mer beskrivende tekst</td>
+<td role="cell"><span class="responsive-table__heading" aria-hidden="true">Rad 2 tittel 4:</span>Rad 2</td>
+<td role="cell"><span class="responsive-table__heading" aria-hidden="true">Rad 2 tittel 5:</span>Rad 2 med en lang beskrivende og status tekst </td>
+<td role="cell"><span class="responsive-table__heading" aria-hidden="true">Rad 2 tittel 6:</span>Rad 2</td>
 </tr>
-<tr>
-<th scope="row">to</th>
-<td>to</td>
-<td>to asdfasdf asdf asdf asdffds adsf</td>
-<td>to asdf adsfads fasdf asdf asfd asdf asf asdf e4awfsdfvasd sfv er</td>
-<td>to</td>
-<td>toa sdfasdf aerf wasdf asdf RFAEGSDFGA SDFDAsdf gafd ss</td>
+</tr>
+<tr role="row">
+<td role="cell"><span class="responsive-table__heading" aria-hidden="true">Rad 3 tittel 1:</span>Rad 3</td>
+<td role="cell"><span class="responsive-table__heading" aria-hidden="true">Rad 3 tittel 2:</span>Rad 3 - med beskrivende tekst</td>
+<td role="cell"><span class="responsive-table__heading" aria-hidden="true">Rad 3 tittel 3:</span>Rad 3 - med mer beskrivende tekst</td>
+<td role="cell"><span class="responsive-table__heading" aria-hidden="true">Rad 3 tittel 4:</span>Rad 3</td>
+<td role="cell"><span class="responsive-table__heading" aria-hidden="true">Rad 3 tittel 5:</span>Rad 3 med en lang beskrivende og status tekst </td>
+<td role="cell"><span class="responsive-table__heading" aria-hidden="true">Rad 3 tittel 6:</span>Rad 3</td>
 </tr>
 </tbody>
 </table>`,
@@ -67,9 +68,7 @@
         {@html intro}
       </div>
       <Published {publishFrom} {professionallyUpdated} />
-      <!--      <div class="text">-->
       {@html text}
-      <!--      </div>-->
     </article>
   </div>
 </Story>
