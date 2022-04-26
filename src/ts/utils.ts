@@ -1,11 +1,14 @@
-import type { ErrorDetail } from './types'
+import type {ErrorDetail} from './types'
 
 export function createInputAriaDescribedby(
-  name: string,
+  name: string | undefined,
   error: ErrorDetail | undefined,
   maxlength: number | undefined
 ): string {
-  let describedBy = `${name}-hint`
+  let describedBy = ''
+  if (name) {
+    describedBy = `${name}-hint`
+  }
   if (error) {
     describedBy = `${describedBy} ${name}-error`
   }

@@ -41,7 +41,7 @@
   bind:value
   class:error
   aria-required={isRequired || undefined}
-  aria-describedby={createInputAriaDescribedby(name, error, maxlength)}
+  aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error, maxlength)}
   aria-invalid={!!error}
   {maxlength}
   {inputmode}

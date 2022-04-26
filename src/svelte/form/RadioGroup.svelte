@@ -1,20 +1,20 @@
 <script lang="ts">
-  import InputError from './InputErrorMessage.svelte';
-  import {toKebabCase, createInputAriaDescribedby} from '../../ts/utils';
-  import type {ErrorDetail} from '../../ts/types';
+  import InputError from './InputErrorMessage.svelte'
+  import {toKebabCase, createInputAriaDescribedby} from '../../ts/utils'
+  import type {ErrorDetail} from '../../ts/types'
 
-  export let value;
-  export let name: string;
-  export let label: string;
-  export let helpText: string | undefined;
-  export let error: ErrorDetail | undefined;
-  export let options: Array<{value: string; text: string}> = [];
-  export let isRequired: boolean | undefined = undefined;
-  export let textOptional = 'valgfritt felt';
-  export let hiddenErrorText: string | undefined;
+  export let value
+  export let name: string
+  export let label: string
+  export let helpText: string | undefined
+  export let error: ErrorDetail | undefined
+  export let options: Array<{value: string; text: string}> = []
+  export let isRequired: boolean | undefined = undefined
+  export let textOptional = 'valgfritt felt'
+  export let hiddenErrorText: string | undefined
 </script>
 
-<fieldset id={name} aria-describedby={`${name}-hint ${name}-error`} aria-required={isRequired} class="form-fieldset">
+<fieldset id={name} aria-labelledby={`${name}-hint ${name}-error`} class="form-fieldset">
   <legend class="form-legend">
     {label}
     {#if !isRequired}
@@ -42,9 +42,9 @@
         class:error
         bind:group={value}
         value={radio.value}
-        aria-describedby={createInputAriaDescribedby(name, error)}
-        checked={value === radio.value}
-      />
+        aria-required={isRequired}
+        aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)}
+        checked={value === radio.value} />
       <label class="form-label" for={toKebabCase(radio.value)}>
         {radio.text}
       </label>
