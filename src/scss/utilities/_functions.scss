@@ -15,3 +15,11 @@
     @return $color-mt-white;
   }
 }
+
+@function set-border-color($bg) {
+  @if (lightness($bg) > 50) {
+    @return transparent;
+  } @else {
+    @return $color-primary;
+  }
+}
