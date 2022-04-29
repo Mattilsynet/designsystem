@@ -257,6 +257,18 @@
   > li + li {
     margin-top: 0;
   }
+  & + .border {
+    > li:first-child {
+      border-top: none;
+    }
+  }
+  @media only screen and (min-width: $breakpoint-large) {
+    & + .border {
+      > li:first-child {
+        border-top: $border-width-small solid var(--color-mt-white);
+      }
+    }
+  }
 }
 .split-long {
   @media only screen and (min-width: $breakpoint-large) {
