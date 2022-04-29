@@ -1,9 +1,9 @@
 // stylelint-disable no-descending-specificity
 @use '../utilities/mixins' as *;
 @use '../theme' as *;
+@use '../color-tokens' as *;
 
 a {
-  @include focus-outline();
   @include disabled;
   $transport-card-list-font-size: $font-size-label;
 
@@ -14,6 +14,13 @@ a {
 
   &:hover {
     text-decoration: none;
+  }
+
+  &.no-underline {
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   &.document {
@@ -117,6 +124,10 @@ a {
       line-height: 140%;
       text-align: left;
     }
+  }
+  &.with-icon {
+    display: flex;
+    gap: var(--spacer-xxx-small);
   }
 
   &.transport-card {
