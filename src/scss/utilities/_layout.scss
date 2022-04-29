@@ -169,8 +169,8 @@ Only use if it does NOT affect accessibility
 
 header,
 .header {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr min-content min-content min-content;
   align-items: center;
   border-bottom: $border-red-regular;
 
