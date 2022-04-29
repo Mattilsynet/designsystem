@@ -28,11 +28,13 @@
             class="on-primary"
             headerClass="p-xxs"
             icon={item.iconResource}>
-            <a href={item.url} class="forward-arrow-small on-primary">{item.title}</a>
+            <a href={item.url} class="forward-arrow-small on-primary no-underline">{item.title}</a>
             <ol class="sub-menu {item.children.length > splitColLimit ? 'split-long' : ''}">
               {#each item.children || [] as child}
                 <li class="">
-                  <a href={child.url} class="forward-arrow-small on-primary">{child.title}</a>
+                  <a href={child.url} class="forward-arrow-small no-underline on-primary">
+                    {child.title}
+                  </a>
                 </li>
               {/each}
             </ol>
@@ -59,7 +61,7 @@
         <li>
           <a
             href={right.url}
-            class="no-underline layout-flex layout-flex--center-vertical layout-full-width on-primary p-xxs forward-arrow-end border-radius-0">
+            class="no-underline layout-flex layout-flex--space-between layout-flex--center-vertical layout-full-width on-primary p-xxs forward-arrow-end border-radius-0">
             {right.title}
           </a>
         </li>
