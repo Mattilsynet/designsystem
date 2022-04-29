@@ -21,8 +21,8 @@
     border: $border-width-large solid transparent;
     background-origin: padding-box;
     outline: none;
-    box-shadow: 0 0 0 0.25rem set-focus-color($color);
-    margin-bottom: 0.25rem;
+    box-shadow: 0 0 0 $border-width-large set-focus-color($color);
+    margin-bottom: $border-width-large;
   }
 
   &.on-server {
@@ -44,7 +44,7 @@
     a,
     button {
       border: $border-width-large solid var(--color-primary);
-      margin-bottom: 0.25rem;
+      margin-bottom: $border-width-large;
     }
 
     > button {
@@ -61,8 +61,8 @@
       border: $border-width-large solid var(--color-primary);
       background-origin: padding-box;
       outline: none;
-      box-shadow: 0 0 0 0.25rem set-focus-color($color);
-      margin-bottom: 0.25rem;
+      box-shadow: 0 0 0 $border-width-large set-focus-color($color);
+      margin-bottom: $border-width-large;
     }
   }
 
@@ -75,7 +75,7 @@
     position: relative;
     z-index: 0;
     border: $border-width-large solid transparent;
-    margin-bottom: 0.25rem;
+    margin-bottom: $border-width-large;
 
     &[aria-expanded]::after {
       transition: transform 0.3s ease;
