@@ -127,9 +127,12 @@
     }
   }
   &.on-primary {
+    svg {
+      path {
+        fill: currentColor;
+      }
+    }
     [aria-expanded].disclosure-header {
-      @include focus-outline-on-primary();
-
       &:after {
         content: url('data:image/svg+xml,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M19.841%2010l-1.734-1.735-6.877%206.865V.159H8.77v14.97L1.893%208.266.16%2010%2010%2019.841%2019.841%2010z%22%20fill%3D%22%23FFFFFF%22%2F%3E%3C%2Fsvg%3E');
       }
