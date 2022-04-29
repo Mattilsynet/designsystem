@@ -4,6 +4,7 @@
 @use '../color-tokens' as *;
 
 a {
+  @include focus-outline();
   @include disabled;
   $transport-card-list-font-size: $font-size-label;
 
