@@ -185,10 +185,6 @@ header,
     padding-right: var(--spacer-medium);
     padding-left: var(--spacer-medium);
 
-    svg {
-      height: 2.5rem;
-    }
-
     &--regular {
       height: $height-header-regular;
     }
