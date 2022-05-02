@@ -19,9 +19,20 @@ a {
 
   &.no-underline {
     text-decoration: none;
+    &.hover-indent {
+      transition: padding-left ease-in-out 150ms;
+      &:hover {
+        padding-left: var(--spacer-xxx-small);
+        text-decoration: none;
+      }
+    }
     &:hover {
       text-decoration: underline;
     }
+  }
+
+  &.is-active {
+    font-weight: $font-weight-bold;
   }
 
   &.document {
@@ -64,9 +75,14 @@ a {
   }
 
   &.forward-arrow-end {
-    padding: var(--spacer-xx-small) var(--spacer-x-small);
+    transition: padding-left ease-in-out 150ms;
+    &:hover {
+      padding-left: var(--spacer-small);
+    }
+    &.padded {
+      padding: var(--spacer-xx-small) var(--spacer-x-small);
+    }
     font-size: $transport-card-list-font-size;
-
     &:after {
       content: url('data:image/svg+xml,%3Csvg%20width%3D%2221%22%20height%3D%2221%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M10.5.167%208.677%201.988l7.208%207.22H.166v2.584h15.72l-7.208%207.22%201.821%201.821L20.833%2010.5%2010.499.167Z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E');
       display: inline-block;
