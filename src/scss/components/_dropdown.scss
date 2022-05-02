@@ -173,6 +173,7 @@
 
   &.visible {
     color: var(--color-mt-white);
+    font-weight: var(--font-weight-light);
 
     .dropdown-content {
       display: inline-block;
@@ -186,7 +187,6 @@
 
     a {
       color: var(--color-mt-white);
-      font-weight: var(--font-weight-light);
     }
   }
 
