@@ -236,6 +236,7 @@
   padding: 0;
 }
 .sub-menu {
+  display: grid;
   margin-top: 0;
   margin-bottom: var(--spacer-xx-small);
   li {
@@ -272,6 +273,7 @@
   }
 }
 .split-long {
+  display: grid;
   @media only screen and (min-width: $breakpoint-large) {
     display: grid;
     grid-template-columns: 1fr 1fr;
