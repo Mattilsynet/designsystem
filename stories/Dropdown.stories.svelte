@@ -46,92 +46,6 @@
           url: '#"'
         }
       ]
-    },
-    {
-      disableJs: false,
-      buttonLabel: 'Språk/language',
-      menu: {
-        title: 'Meny',
-        items: [
-          {
-            title: 'Dyr',
-            url: '/dyr',
-            iconResource: animalIcon,
-            children: [
-              {title: 'Dyresykdommer', url: '/dyr/dyresykdommer'},
-              {title: 'Produksjonsdyr', url: '/dyr/produksjonsdyr'},
-              {title: 'Reise med kjæeledyr', url: '/dyr/reise'},
-              {title: 'Dyresykdommer', url: '/dyr/dyresykdommer'},
-              {title: 'Produksjonsdyr', url: '/dyr/produksjonsdyr'},
-              {title: 'Reise med kjæeledyr', url: '/dyr/reise'},
-              {title: 'Dyresykdommer', url: '/dyr/dyresykdommer'},
-              {title: 'Produksjonsdyr', url: '/dyr/produksjonsdyr'},
-              {title: 'Reise med kjæeledyr', url: '/dyr/reise'}
-            ]
-          },
-          {
-            title: 'Mat',
-            url: '/mat',
-            iconResource: drinkIcon,
-            children: [
-              {title: 'Produksjon av mat', url: '/mat/produksjon'},
-              {title: 'Matservering', url: '/mat/servering'}
-            ]
-          },
-          {
-            title: 'Fisk og akvakultur',
-            url: '/fisk',
-            iconResource: fishIcon,
-            children: [{title: 'Fiskesykdommer', url: '/fisk/fiskesykdommer'}]
-          },
-          {title: 'Planter og dyrking', url: '/planter', iconResource: animalIcon, children: []},
-          {title: 'Drikkevannforskrift', url: '/drikkevann', iconResource: fishIcon, children: []},
-          {title: 'Kosmetikk', url: '/kosmetikk', iconResource: drinkIcon, children: []}
-        ],
-        itemsRight: [
-          {
-            title: 'Om mattilsynet',
-            url: '/om-oss'
-          },
-          {
-            title: 'Skjemaer',
-            url: '/skjemaer',
-            iconResource: animalIcon
-          }
-        ],
-        itemsBottom: [
-          {
-            title: 'Skjemaer',
-            url: '/skjemaer',
-            iconResource: animalIconSmall
-          },
-          {
-            title: 'Varsle oss/bekymringsmelding',
-            url: '/varsle',
-            iconResource: animalIcon
-          },
-          {
-            title: 'Rapporter',
-            url: '/reports'
-          },
-          {
-            title: 'Veiledere',
-            url: '/guides'
-          },
-          {
-            title: 'Varsle oss/bekymringsmelding',
-            url: '/varsle'
-          },
-          {
-            title: 'Rapporter',
-            url: '/reports'
-          },
-          {
-            title: 'Veiledere',
-            url: '/guides'
-          }
-        ]
-      }
     }
   ]
 </script>
@@ -167,7 +81,7 @@
 
 <Story name="Normal" args={configs[0]} />
 
-<Story name="Multiple" args={[configs[0], configs[1]]} let:args>
+<Story name="Multiple" args={configs} let:args>
   {#each [configs[0], configs[1]] as args, i}
     <section class={`preview-wrapper`}>
       <Dropdown title={args.buttonLabel} loadJs={!args.disableJs} let:titleId>
@@ -181,31 +95,6 @@
       </Dropdown>
     </section>
   {/each}
-</Story>
-
-<Story name="Menu" args={configs[2]} let:args>
-  <header class="header header--regular">
-    <span>Logo</span>
-    <Dropdown title={args.buttonLabel} loadJs={!args.disableJs} let:titleId>
-      <ol class="alt-language" aria-labelledby={titleId}>
-        {#each args.menu.items as item}
-          <li>
-            <a href={item.url} class="forward-arrow-small">{item.title}</a>
-          </li>
-        {/each}
-      </ol>
-    </Dropdown>
-    <Dropdown title={args.menu.title} class="full-menu" loadJs={!args.disableJs} let:titleId>
-      <MenuItems
-        itemsLeft={args.menu.items}
-        itemsRight={args.menu.itemsRight}
-        itemsBottom={args.menu.itemsBottom}
-        {titleId} />
-    </Dropdown>
-  </header>
-  <main>
-    <h1>Innholdet på siden</h1>
-  </main>
 </Story>
 
 <style>
