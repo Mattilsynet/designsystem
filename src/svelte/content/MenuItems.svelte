@@ -3,6 +3,7 @@
   interface MenuItem {
     title: string
     path: string
+    isActive: string
     hasChildren: boolean
     url: string
     type: string
@@ -28,11 +29,18 @@
             class="on-primary"
             headerClass="p-xxs"
             icon={item.iconResource}>
-            <a href={item.url} class="forward-arrow-small on-primary no-underline">{item.title}</a>
+            <a
+              href={item.url}
+              class="forward-arrow-small on-primary no-underline {item.isActive ? 'is-active' : ''}"
+              >{item.title}</a>
             <ol class="sub-menu {item.children.length > splitColLimit ? 'split-long' : ''}">
               {#each item.children || [] as child}
                 <li class="">
-                  <a href={child.url} class="forward-arrow-small no-underline on-primary">
+                  <a
+                    href={child.url}
+                    class="forward-arrow-small no-underline on-primary {child.isActive
+                      ? 'is-active'
+                      : ''}">
                     {child.title}
                   </a>
                 </li>
@@ -44,7 +52,9 @@
         <li class="">
           <a
             href={item.url}
-            class="no-underline layout-flex layout-flex--center-vertical layout-full-width on-primary p-xxs border-radius-0"
+            class="no-underline layout-flex layout-flex--center-vertical layout-full-width on-primary p-xxs border-radius-0 {item.isActive
+              ? 'is-active'
+              : ''}"
             style="gap: var(--spacer-xx-small)">
             {#if item.iconResource}
               {@html item.iconResource}
@@ -61,7 +71,9 @@
         <li>
           <a
             href={right.url}
-            class="no-underline layout-flex layout-flex--space-between layout-flex--center-vertical layout-full-width on-primary p-xxs forward-arrow-end border-radius-0">
+            class="no-underline layout-flex layout-flex--space-between layout-flex--center-vertical layout-full-width on-primary p-xxs forward-arrow-end border-radius-0 {right.isActive
+              ? 'is-active'
+              : ''}">
             {right.title}
           </a>
         </li>
@@ -74,7 +86,9 @@
         <li class="m-t-0">
           <a
             href={bottom.url}
-            class="layout-flex layout-flex--center-vertical on-primary border-radius-0"
+            class="layout-flex layout-flex--center-vertical on-primary border-radius-0 {bottom.isActive
+              ? 'is-active'
+              : ''}"
             style="gap: var(--spacer-xx-small)">
             {#if bottom.iconResource}
               {@html bottom.iconResource}
