@@ -27,18 +27,19 @@
             title={item.title}
             theme="no-border"
             class="on-primary"
-            headerClass="p-xxs"
+            headerClass="p-tb-xxs"
             icon={item.iconResource}>
             <a
               href={item.url}
-              class="forward-arrow-small on-primary no-underline {item.isActive ? 'is-active' : ''}"
-              >{item.title}</a>
+              class="forward-arrow-small on-primary no-underline hover-indent {item.isActive
+                ? 'is-active'
+                : ''}">{item.title}</a>
             <ol class="sub-menu {item.children.length > splitColLimit ? 'split-long' : ''}">
               {#each item.children || [] as child}
-                <li class="">
+                <li>
                   <a
                     href={child.url}
-                    class="forward-arrow-small no-underline on-primary {child.isActive
+                    class="forward-arrow-small no-underline hover-indent on-primary {child.isActive
                       ? 'is-active'
                       : ''}">
                     {child.title}
@@ -49,10 +50,10 @@
           </Disclosure>
         </li>
       {:else}
-        <li class="">
+        <li class="disclosure disclosure-no-border">
           <a
             href={item.url}
-            class="no-underline layout-flex layout-flex--center-vertical layout-full-width on-primary p-xxs border-radius-0 {item.isActive
+            class="disclosure-header no-underline hover-indent layout-flex layout-flex--center-vertical layout-full-width on-primary p-tb-xxs border-radius-0 {item.isActive
               ? 'is-active'
               : ''}"
             style="gap: var(--spacer-xx-small)">
@@ -71,7 +72,7 @@
         <li>
           <a
             href={right.url}
-            class="no-underline layout-flex layout-flex--space-between layout-flex--center-vertical layout-full-width on-primary p-xxs forward-arrow-end border-radius-0 {right.isActive
+            class="no-underline hover-indent layout-flex layout-flex--space-between layout-flex--center-vertical layout-full-width on-primary p-tb-xxs p-r-xxs forward-arrow-end border-radius-0 {right.isActive
               ? 'is-active'
               : ''}">
             {right.title}
