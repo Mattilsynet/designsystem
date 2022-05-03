@@ -51,6 +51,10 @@
   padding-left: var(--spacer-xx-small);
   padding-right: var(--spacer-xx-small);
 }
+.p-lr-0 {
+  padding-left: 0;
+  padding-right: 0;
+}
 .b-tb-white {
   > * {
     border-top: $border-width-small solid var(--color-mt-white);

@@ -143,6 +143,17 @@ Only use if it does NOT affect accessibility
   }
 }
 
+/*
+Only use if it does NOT affect accessibility
+*/
+.responsive-show {
+  display: block;
+
+  @media only screen and (min-width: $breakpoint-large) {
+    display: none;
+  }
+}
+
 .visually-hidden-focusable {
   background: var(--color-primary);
   color: white;
