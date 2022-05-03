@@ -143,6 +143,17 @@ Only use if it does NOT affect accessibility
   }
 }
 
+/*
+Only use if it does NOT affect accessibility
+*/
+.responsive-show {
+  display: block;
+
+  @media only screen and (min-width: $breakpoint-large) {
+    display: none;
+  }
+}
+
 .visually-hidden-focusable {
   background: var(--color-primary);
   color: white;
@@ -169,8 +180,8 @@ Only use if it does NOT affect accessibility
 
 header,
 .header {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr min-content min-content min-content;
   align-items: center;
   border-bottom: $border-red-regular;
 
@@ -184,10 +195,6 @@ header,
   @media only screen and (min-width: $breakpoint-large) {
     padding-right: var(--spacer-medium);
     padding-left: var(--spacer-medium);
-
-    svg {
-      height: 2.5rem;
-    }
 
     &--regular {
       height: $height-header-regular;

@@ -1,6 +1,16 @@
 <script lang="ts">
-  import {Meta, Story} from '@storybook/addon-svelte-csf';
-  import Dropdown from '../src/svelte/Dropdown.svelte';
+  import {Meta, Story} from '@storybook/addon-svelte-csf'
+  import Dropdown from '../src/svelte/Dropdown.svelte'
+  import MenuItems from '../src/svelte/content/MenuItems.svelte'
+
+  const drinkIcon =
+    '<svg width="34" height="28" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M26.647 2.238a.661.661 0 0 1 .652.773l-3.803 22.198a.66.66 0 0 1-.651.55H10.722a.662.662 0 0 1-.652-.55L6.225 3.014a.664.664 0 0 1 .652-.775h19.77Zm-10.125 9.125c3.849 1.925 6.675.709 8.03-.156l1.31-7.646h-18.2L8.83 10.3c1.516-.311 4.45-.558 7.692 1.062Zm-7.193.56 2.075 12.452h10.723l2.075-11.068c-2.767 1.037-4.842 1.037-8.301-.692-3.225-1.612-5.175-1.076-6.447-.726l-.125.034Z" fill="#F9F6F1"/></svg>'
+  const fishIcon =
+    '<svg width="34" height="28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32.011 15.188c.279.34.305.814.025 1.153-1.869 2.27-9.647 9.996-23.395 1.489l-5.86 1.973c-.835.28-1.599-.576-1.224-1.373l2.077-4.422-2.091-5.025c-.345-.828.49-1.656 1.315-1.305l5.782 2.466c13.865-9.878 21.716-.91 23.408 1.397a.91.91 0 0 1 .017 1.032l-.957 1.514.903 1.101Zm-2.381-1.101 1.31-2.038S22.686.89 8.925 11.497L3.229 9.32l1.695 4.573-1.853 4.614 5.56-2.315c13.998 9.896 22.31-.433 22.31-.433l-1.311-1.672Zm-3.415-1.557a1.42 1.42 0 1 0-1.423 1.418c.786 0 1.423-.641 1.423-1.418Z" fill="#F9F6F1"/></svg>'
+  const animalIcon =
+    '<svg width="34" height="28" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M16.815 22.816a3.922 3.922 0 0 1-3.923-3.911 3.922 3.922 0 0 1 3.923-3.912 3.922 3.922 0 0 1 3.923 3.912 3.922 3.922 0 0 1-3.923 3.911Zm0-6.378a2.473 2.473 0 0 0-2.474 2.466c0 1.36 1.11 2.466 2.474 2.466a2.473 2.473 0 0 0 2.473-2.466c0-1.36-1.109-2.466-2.473-2.466Zm1.087 1.679a.724.724 0 1 0 .725.723c0-.4-.324-.723-.725-.723Zm-2.174 0a.724.724 0 1 0 .725.723c0-.4-.325-.723-.725-.723Zm12.22-16.673c-.773-.47-1.945-.425-3.134.122-1.204.552-2.278 1.53-3.027 2.752-.122.2-.236.404-.345.61a10.785 10.785 0 0 0-4.627-1.04h-.006a10.797 10.797 0 0 0-4.626 1.04c-.11-.206-.223-.41-.345-.61-.749-1.222-1.823-2.2-3.027-2.752-1.19-.547-2.362-.592-3.134-.122-1.35.822-1.376 3.198-.053 5.8l1.477 2.675a10.707 10.707 0 0 0-1.117 4.77c0 4.382 2.6 8.263 6.644 9.953a4.995 4.995 0 0 0 4.182 2.239h.006a4.996 4.996 0 0 0 4.182-2.239c4.044-1.69 6.644-5.571 6.644-9.954 0-1.71-.403-3.33-1.116-4.769l1.476-2.676c1.322-2.601 1.295-4.977-.054-5.799ZM6.905 6.568c-1.045-2.054-.943-3.604-.473-3.89.286-.173.945-.18 1.772.2.945.435 1.796 1.214 2.395 2.194.114.185.219.374.319.564A10.907 10.907 0 0 0 7.96 8.48L6.905 6.568Zm13.338 16.82a.72.72 0 0 0-.357.301 3.56 3.56 0 0 1-3.074 1.747 3.562 3.562 0 0 1-3.074-1.747.722.722 0 0 0-.357-.301c-3.613-1.42-5.948-4.835-5.948-8.7 0-5.157 4.207-9.353 9.379-9.355 5.172.002 9.38 4.198 9.38 9.356 0 3.864-2.336 7.279-5.95 8.699Zm6.476-16.82L25.664 8.48a10.896 10.896 0 0 0-2.958-2.844c.1-.19.205-.38.318-.564.6-.98 1.451-1.76 2.396-2.193.827-.38 1.486-.374 1.772-.2.47.285.572 1.835-.473 3.89Zm-12.98 5.16a.758.758 0 1 1-1.514 0 .758.758 0 0 1 1.515 0Zm6.82.758a.758.758 0 1 0 0-1.516.758.758 0 0 0 0 1.516Z" fill="#F9F6F1"/></svg>'
+  const animalIconSmall =
+    '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="12" fill="#F9F6F1"/><path d="m12.94 16.583-.084 1.765a.162.162 0 0 0 .25.144l1.486-.955a.162.162 0 0 0 .052-.055l4.543-7.87-1.682-.97-4.543 7.868a.163.163 0 0 0-.022.073ZM19.511 9.053l-1.682-.971.89-1.542a.162.162 0 0 1 .221-.06l1.403.81a.162.162 0 0 1 .059.221l-.89 1.542Z" fill="#075B7A"/><path fill="#055B7A" d="M5.52 7.02h9.6v1.8h-9.6zM5.52 10.199h8.04v1.8H5.52zM5.52 13.441H9.6v1.8H5.52z"/></svg>'
 </script>
 
 <Meta
@@ -8,77 +18,173 @@
   parameters={{layout: 'fullscreen'}}
   args={{
     items: [
-      {title: 'Test', url: 'http://'},
-      {title: 'Another test', url: 'http://'},
-      {title: 'Another test with super super longer text', url: 'http://'}
+      {title: 'Vis siden på norsk', url: 'http://'},
+      {title: 'Show page this page in English', url: 'http://'}
     ],
+    language: {},
+    menu: {
+      title: 'Meny',
+      items: [
+        {
+          title: 'Dyr',
+          url: '/dyr',
+          iconResource: animalIcon,
+          children: [
+            {title: 'Dyresykdommer', url: '/dyr/dyresykdommer'},
+            {title: 'Produksjonsdyr', url: '/dyr/produksjonsdyr', isActive: true},
+            {title: 'Reise med kjæeledyr', url: '/dyr/reise'},
+            {title: 'Dyresykdommer', url: '/dyr/dyresykdommer'},
+            {title: 'Produksjonsdyr', url: '/dyr/produksjonsdyr'},
+            {title: 'Reise med kjæeledyr', url: '/dyr/reise'},
+            {title: 'Dyresykdommer', url: '/dyr/dyresykdommer'},
+            {title: 'Produksjonsdyr', url: '/dyr/produksjonsdyr'},
+            {title: 'Reise med kjæeledyr', url: '/dyr/reise'}
+          ]
+        },
+        {
+          title: 'Mat',
+          url: '/mat',
+          iconResource: drinkIcon,
+          children: [
+            {title: 'Produksjon av mat', url: '/mat/produksjon'},
+            {title: 'Matservering', url: '/mat/servering'}
+          ]
+        },
+        {
+          title: 'Fisk og akvakultur',
+          url: '/fisk',
+          iconResource: fishIcon,
+          children: [{title: 'Fiskesykdommer', url: '/fisk/fiskesykdommer'}]
+        },
+        {title: 'Planter og dyrking', url: '/planter', iconResource: animalIcon, children: []},
+        {title: 'Drikkevannforskrift', url: '/drikkevann', iconResource: drinkIcon, children: []},
+        {title: 'Kosmetikk', url: '/kosmetikk', iconResource: drinkIcon, children: []}
+      ],
+      itemsRight: [
+        {
+          title: 'Om mattilsynet',
+          url: '/om-oss'
+        },
+        {
+          title: 'Skjemaer',
+          url: '/skjemaer',
+          iconResource: animalIcon
+        }
+      ],
+      itemsBottom: [
+        {
+          title: 'Skjemaer',
+          url: '/skjemaer',
+          iconResource: animalIconSmall
+        },
+        {
+          title: 'Varsle oss/bekymringsmelding',
+          url: '/varsle',
+          iconResource: animalIcon
+        },
+        {
+          title: 'Rapporter',
+          url: '/reports'
+        },
+        {
+          title: 'Veiledere',
+          url: '/guides'
+        },
+        {
+          title: 'Varsle oss/bekymringsmelding',
+          url: '/varsle'
+        },
+        {
+          title: 'Rapporter',
+          url: '/reports'
+        },
+        {
+          title: 'Veiledere',
+          url: '/guides'
+        }
+      ]
+    },
     disableCss: false
   }}
   argTypes={{
     items: {control: 'array'},
     disableCss: {control: 'boolean'}
-  }}
-/>
+  }} />
 
 <Story name="Normal" let:title let:disableCss let:args>
   <header class="header header--regular">
     <a href="https://mattilsynet.no/">
-      <svg width="184" height="36" viewBox="0 0 184 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg
+        width="184"
+        height="36"
+        viewBox="0 0 184 36"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg">
         <title>Gå til forsiden</title>
         <path
           d="M14.1539 22.9053H11.2772L3.84106 5.97346L4.0039 26.4195H0.312988V0.116516H4.87235L12.7427 18.1665L20.5587 0.116516H25.1181V26.4195H21.4272L21.6443 5.97346L14.1539 22.9053Z"
-          fill="#E23128"
-        />
+          fill="#E23128" />
         <path
           d="M37.4935 11.7772C35.3766 11.7772 32.6627 12.3629 31.36 12.8421V9.48763C32.7713 8.84869 35.8108 8.42273 37.4935 8.42273C42.9755 8.42273 44.4411 10.872 44.4411 14.5459V26.4195H41.9985L41.6729 25.5143C40.2074 26.3663 38.2534 26.8987 36.6793 26.8987C31.74 26.8987 30.1659 23.9702 30.1659 20.882C30.1659 18.1133 31.4686 15.664 36.7878 15.2381L40.8044 14.9186V14.5459C40.7501 12.6823 40.0445 11.7772 37.4935 11.7772ZM36.6793 18.2198C34.4539 18.4328 33.8026 19.6574 33.8026 20.882C33.8026 22.0534 34.0739 23.5443 36.6793 23.5443C38.1991 23.5443 39.7731 23.0118 40.7501 22.4794V17.9003L36.6793 18.2198Z"
-          fill="#E23128"
-        />
+          fill="#E23128" />
         <path
           d="M59.3675 26.6857C58.4991 26.8987 57.4135 26.8987 57.1421 26.8987C54.2111 26.8987 51.2258 25.4078 51.2258 22.0002V11.9901H47.9148V9.80707L51.2258 8.90191V4.48258L54.8624 3.52417V8.90191H60.1274V11.9901H54.8624V21.6807C54.8624 23.1715 55.8394 23.5975 57.4135 23.5975C58.0648 23.5975 58.9876 23.5443 59.3675 23.4378V26.6857Z"
-          fill="#E23128"
-        />
+          fill="#E23128" />
         <path
           d="M73.7512 26.6857C73.2627 26.739 72.8285 26.7922 72.34 26.7922C69.3547 26.9519 66.5322 25.6208 66.4237 22.2132V10.8187H62.8413V9.75384L66.4237 8.74219V3.95015L68.9205 3.25797V8.84868H74.4568V10.7655H68.9205V22.0534C69.0833 24.1832 70.2231 24.7689 72.34 24.7689C72.8285 24.7689 73.2627 24.7157 73.7512 24.7157V26.6857Z"
-          fill="#E23128"
-        />
+          fill="#E23128" />
         <path
           d="M78.7991 2.40604C78.7991 3.47094 79.6676 4.32286 80.7531 4.32286C81.8387 4.32286 82.7072 3.47094 82.7072 2.40604C82.7072 1.34115 81.8387 0.489227 80.7531 0.489227C79.6133 0.489227 78.7991 1.2879 78.7991 2.40604ZM83.467 26.7922V24.7689C82.3815 24.7689 81.9473 24.3962 81.9473 23.1716V8.90192H79.5047V22.9053C79.5047 25.7273 80.8617 26.7922 83.467 26.7922Z"
-          fill="#E23128"
-        />
+          fill="#E23128" />
         <path
           d="M89.1662 22.9053V0.116516H91.6087V23.1716C91.6087 24.3962 91.9886 24.7689 93.1285 24.7689V26.7922C90.5231 26.7922 89.1662 25.7273 89.1662 22.9053Z"
-          fill="#E23128"
-        />
+          fill="#E23128" />
         <path
           d="M104.201 16.3562C109.249 16.8354 110.497 18.486 110.497 21.3612C110.497 24.0767 108.761 26.739 103.333 26.739C101.596 26.739 99.1533 26.313 98.0135 25.887V23.7572C99.099 24.13 100.836 24.5559 103.387 24.5559C107.078 24.5559 108.109 23.0118 108.109 21.3612C108.109 19.7639 107.621 18.6457 104.093 18.3263C98.9362 17.8471 97.8506 16.09 97.8506 13.6407C97.8506 11.1382 99.479 8.47595 104.527 8.47595C106.209 8.47595 108.109 8.68893 109.683 9.32787V11.4577C108.272 10.9785 106.915 10.659 104.473 10.659C100.944 10.659 100.185 11.9369 100.185 13.694C100.13 15.2913 100.782 16.09 104.201 16.3562Z"
-          fill="#E23128"
-        />
+          fill="#E23128" />
         <path
           d="M129.006 27.8039C129.006 32.1699 128.138 35.5776 121.679 35.5776C118.911 35.5776 117.065 35.2049 115.6 34.6192V32.3297C117.228 33.1283 119.291 33.5543 121.679 33.5543C126.455 33.5543 126.51 30.3064 126.51 27.8571L126.455 25.3546C124.935 26.313 123.307 26.7922 121.625 26.7922C117.391 26.7922 115.6 24.8754 115.6 21.521L115.545 8.90192H118.042L118.096 21.7339C118.096 24.0235 119.399 24.7157 121.625 24.7157C123.958 24.7157 125.153 24.3429 126.455 23.5975V8.90192H128.952L129.006 27.8039Z"
-          fill="#E23128"
-        />
+          fill="#E23128" />
         <path
           d="M145.615 13.694C145.615 11.4044 144.259 10.7123 142.033 10.7123C139.699 10.7123 138.505 11.085 137.202 11.8304V26.4195H134.706V8.90193H136.117L136.66 10.3928C138.342 9.16815 140.188 8.58246 142.033 8.58246C146.267 8.58246 148.112 10.4993 148.112 13.8537V26.4727H145.615V13.694Z"
-          fill="#E23128"
-        />
+          fill="#E23128" />
         <path
           d="M155.765 18.7522C155.928 21.7872 156.797 24.5559 160.868 24.5559C163.419 24.5559 164.993 24.2897 166.675 23.5975L166.73 25.7273C164.721 26.5792 162.496 26.7922 160.759 26.7922C154.734 26.7922 153.269 22.7456 153.323 17.6873C153.323 12.6291 154.788 8.58246 160.813 8.58246C165.644 8.58246 167.544 11.2447 167.49 14.2264C167.544 16.9419 166.187 18.8055 160.922 18.8055L155.765 18.7522ZM161.139 16.7289C164.179 16.7289 164.993 15.877 164.993 14.1732C165.047 12.5758 164.179 10.7123 160.759 10.7123C156.634 10.7123 155.874 13.6407 155.765 16.7822L161.139 16.7289Z"
-          fill="#E23128"
-        />
+          fill="#E23128" />
         <path
           d="M182.307 26.6857C181.819 26.739 181.385 26.7922 180.896 26.7922C177.911 26.9519 175.088 25.6208 174.98 22.2132V10.8187H171.397V9.75384L174.98 8.74219V3.95015L177.477 3.25797V8.84868H183.013V10.7655H177.477V22.0534C177.639 24.1832 178.779 24.7689 180.896 24.7689C181.385 24.7689 181.819 24.7157 182.307 24.7157V26.6857Z"
-          fill="#E23128"
-        />
+          fill="#E23128" />
       </svg>
     </a>
-    <Dropdown title="Språk/language" loadJs={true} class="button__small-text" let:titleId>
-      <ol class="alt-language" aria-labelledby={titleId}>
+    <Dropdown
+      title="Språk/language"
+      loadJs={true}
+      class="button__small-text responsive-hide"
+      let:titleId>
+      <ol class="alt-language m-t-0 " aria-labelledby={titleId}>
         {#each args.items as item}
           <li>
             <a href={item.url} class="forward-arrow-small">{item.title}</a>
           </li>
         {/each}
       </ol>
+    </Dropdown>
+    <Dropdown title={args.menu.title} class="full-menu" loadJs={!args.disableJs} let:titleId>
+      <nav class="layout-grid layout-grid--column-12 p-lr-xxs">
+        <MenuItems
+          itemsLeft={args.menu.items}
+          itemsRight={args.menu.itemsRight}
+          itemsBottom={args.menu.itemsBottom}
+          itemsLanguage={args.items}
+          {titleId} />
+        <ol class="alt-language col-1-span-8 m-t-m responsive-show" aria-labelledby={titleId}>
+          {#each args.items as item}
+            <li>
+              <a href={item.url} class="forward-arrow-small">{item.title}</a>
+            </li>
+          {/each}
+        </ol>
+      </nav>
     </Dropdown>
   </header>
 </Story>

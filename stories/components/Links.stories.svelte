@@ -90,7 +90,7 @@
       <li>
         <Link
           href={link.href}
-          class="button button--primary button--space-between layout-full-width forward-arrow-end"
+          class="button button--primary button--space-between layout-full-width forward-arrow-end padded"
           linkText={link.text} />
       </li>
     {/each}
