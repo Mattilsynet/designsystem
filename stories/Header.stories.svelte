@@ -18,10 +18,10 @@
   parameters={{layout: 'fullscreen'}}
   args={{
     items: [
-      {title: 'Test', url: 'http://'},
-      {title: 'Another test', url: 'http://'},
-      {title: 'Another test with super super longer text', url: 'http://'}
+      {title: 'Vis siden på norsk', url: 'http://'},
+      {title: 'Show page this page in English', url: 'http://'}
     ],
+    language: {},
     menu: {
       title: 'Meny',
       items: [
@@ -156,8 +156,12 @@
           fill="#E23128" />
       </svg>
     </a>
-    <Dropdown title="Språk/language" loadJs={true} class="button__small-text" let:titleId>
-      <ol class="alt-language" aria-labelledby={titleId}>
+    <Dropdown
+      title="Språk/language"
+      loadJs={true}
+      class="button__small-text responsive-hide"
+      let:titleId>
+      <ol class="alt-language m-t-0 " aria-labelledby={titleId}>
         {#each args.items as item}
           <li>
             <a href={item.url} class="forward-arrow-small">{item.title}</a>
@@ -166,11 +170,21 @@
       </ol>
     </Dropdown>
     <Dropdown title={args.menu.title} class="full-menu" loadJs={!args.disableJs} let:titleId>
-      <MenuItems
-        itemsLeft={args.menu.items}
-        itemsRight={args.menu.itemsRight}
-        itemsBottom={args.menu.itemsBottom}
-        {titleId} />
+      <nav class="layout-grid layout-grid--column-12 p-lr-xxs">
+        <MenuItems
+          itemsLeft={args.menu.items}
+          itemsRight={args.menu.itemsRight}
+          itemsBottom={args.menu.itemsBottom}
+          itemsLanguage={args.items}
+          {titleId} />
+        <ol class="alt-language col-1-span-8 m-t-m responsive-show" aria-labelledby={titleId}>
+          {#each args.items as item}
+            <li>
+              <a href={item.url} class="forward-arrow-small">{item.title}</a>
+            </li>
+          {/each}
+        </ol>
+      </nav>
     </Dropdown>
   </header>
 </Story>
