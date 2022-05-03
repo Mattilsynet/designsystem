@@ -34,7 +34,7 @@
 <td class="text" role="cell"><span class="responsive-table__heading" aria-hidden="true">Rad 2 tittel 1:</span>Rad 2</td>
 <td class="text" role="cell"><span class="responsive-table__heading" aria-hidden="true">Rad 2 tittel 2:</span>Rad 2 - med beskrivende tekst</td>
 <td class="text" role="cell"><span class="responsive-table__heading" aria-hidden="true">Rad 2 tittel 3:</span>Rad 2 - med mer beskrivende tekst</td>
-<td class="text" role="cell"><span class="responsive-table__heading" aria-hidden="true">Rad 2 tittel 4:</span>Rad 2 <ul><li>liste item 1</li><li>liste item 2</li></ul></td>
+<td class="text" role="cell"><span class="responsive-table__heading" aria-hidden="true">Rad 2 tittel 4:</span><p>Rad 2</p> <ul><li>liste item 1</li><li>liste item 2</li></ul></td>
 <td class="text" role="cell"><span class="responsive-table__heading" aria-hidden="true">Rad 2 tittel 5:</span>Rad 2 med en lang beskrivende og status tekst </td>
 <td class="text" role="cell"><span class="responsive-table__heading" aria-hidden="true">Rad 2 tittel 6:</span>Rad 2</td>
 </tr>
