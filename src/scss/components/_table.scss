@@ -97,12 +97,9 @@ table {
       }
     }
 
-    td,
-    th {
-      text-align: left;
-    }
     th,
     td {
+      text-align: left;
       border: $border-radius-small solid var(--color-mt-beige-50);
       padding: var(--spacer-xx-small);
       overflow-wrap: anywhere;
