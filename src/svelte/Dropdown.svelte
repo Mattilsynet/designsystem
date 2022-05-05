@@ -59,7 +59,7 @@
 <div class="dropdown {className} {onServer ? 'on-server' : ''}" class:visible={isOpen || onServer}>
   {#if onServer}
     <details>
-      <summary class="button button--link color-mt-text-dark">
+      <summary class="button button--link">
         {@html title}
       </summary>
       <div id={bodyId} class="dropdown-content">
