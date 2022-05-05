@@ -16,6 +16,7 @@
   export let itemsBottom: Array<MenuItem> = []
   export let splitColLimit = 5
   export let titleId
+  export let loadJs = true
 </script>
 
 <ol class="menu border col-1-span-8" aria-labelledby={titleId}>
@@ -27,6 +28,7 @@
           theme="no-border"
           class="on-primary"
           headerClass="p-tb-xxs"
+          {loadJs}
           icon={item.iconResource}>
           <a
             href={item.url}
