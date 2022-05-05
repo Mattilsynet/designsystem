@@ -7,7 +7,9 @@ table {
   border-collapse: collapse;
 
   caption {
-    margin-bottom: var(--spacer-xxx-small);
+    margin-bottom: var(--spacer-xx-small);
+    font-weight: $font-weight-bold;
+    text-align: left;
   }
   &.responsive-table {
     margin-bottom: 0;
@@ -48,6 +50,14 @@ table {
         &:last-child {
           border-bottom: 0;
         }
+        &.text[role='cell'] {
+          & > .responsive-table__heading + * {
+            margin-top: 0;
+          }
+          ul {
+            padding-left: 0;
+          }
+        }
       }
     }
   }
@@ -81,22 +91,15 @@ table {
     tbody {
       tr {
         display: table-row;
-        td {
+        td.text {
           display: table-cell;
-          & > .responsive-table__heading + * {
-            margin-top: 0;
-          }
         }
       }
     }
 
-    caption,
-    td,
-    th {
-      text-align: left;
-    }
     th,
     td {
+      text-align: left;
       border: $border-radius-small solid var(--color-mt-beige-50);
       padding: var(--spacer-xx-small);
       overflow-wrap: anywhere;
