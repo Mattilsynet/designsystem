@@ -95,9 +95,13 @@ a {
       padding: var(--spacer-xx-small) var(--spacer-x-small);
     }
     &:after {
-      content: url('data:image/svg+xml,%3Csvg%20width%3D%2221%22%20height%3D%2221%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M10.5.167%208.677%201.988l7.208%207.22H.166v2.584h15.72l-7.208%207.22%201.821%201.821L20.833%2010.5%2010.499.167Z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E');
       display: inline-block;
-      height: 1.3125rem;
+      background-image: url('data:image/svg+xml,%3Csvg%20width%3D%2221%22%20height%3D%2221%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M10.5.167%208.677%201.988l7.208%207.22H.166v2.584h15.72l-7.208%207.22%201.821%201.821L20.833%2010.5%2010.499.167Z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E');
+      content: '';
+      width: var(--icon-size-normal);
+      height: var(--icon-size-normal);
+      background-size: var(--icon-size-normal) var(--icon-size-normal);
+      background-repeat: no-repeat;
     }
     @media only screen and (min-width: $breakpoint-large) {
       font-size: $transport-card-list-font-size;
@@ -122,11 +126,21 @@ a {
   }
 
   &.forward-arrow-small {
-    --icon-size: 1rem;
+    --icon-size: #{$icon-size-small};
+    display: flex;
+    align-items: center;
+
     &:after {
-      content: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0ibTYgLjA5NS0xLjA0IDEuMDQgNC4xMTggNC4xMjdILjA5NXYxLjQ3Nmg4Ljk4M2wtNC4xMTkgNC4xMjZMNiAxMS45MDQgMTEuOTA1IDYgNiAuMDk1WiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==');
       margin-left: var(--spacer-xxx-small);
       display: inline-block;
+      background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0ibTYgLjA5NS0xLjA0IDEuMDQgNC4xMTggNC4xMjdILjA5NXYxLjQ3Nmg4Ljk4M2wtNC4xMTkgNC4xMjZMNiAxMS45MDQgMTEuOTA1IDYgNiAuMDk1WiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==');
+      content: '';
+      width: var(--icon-size);
+      height: var(--icon-size);
+      background-size: var(--icon-size) var(--icon-size);
+      background-repeat: no-repeat;
+      display: block;
+      padding-right: var(--icon-size);
     }
   }
   &.top-task {
