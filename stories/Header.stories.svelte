@@ -104,14 +104,16 @@
         }
       ]
     },
-    disableCss: false
+    disableCss: false,
+    disableJs: false
   }}
   argTypes={{
     items: {control: 'array'},
-    disableCss: {control: 'boolean'}
+    disableCss: {control: 'boolean'},
+    disableJs: {control: 'boolean'}
   }} />
 
-<Story name="Normal" let:title let:disableCss let:args>
+<Story name="Normal" let:title let:disableCss let:args let:disableJs>
   <header class="header header--regular">
     <a href="https://mattilsynet.no/">
       <svg
@@ -158,7 +160,7 @@
     </a>
     <Dropdown
       title="Språk/language"
-      loadJs={true}
+      loadJs={!args.disableJs}
       class="button__small-text responsive-hide"
       let:titleId>
       <ol class="alt-language m-t-0 " aria-labelledby={titleId}>
@@ -169,13 +171,18 @@
         {/each}
       </ol>
     </Dropdown>
-    <Dropdown title={args.menu.title} class="full-menu" loadJs={!args.disableJs} let:titleId>
+    <Dropdown
+      title={args.menu.title}
+      class="button__small-text full-menu"
+      loadJs={!args.disableJs}
+      let:titleId>
       <nav class="layout-grid layout-grid--column-12 p-lr-xxs">
         <MenuItems
           itemsLeft={args.menu.items}
           itemsRight={args.menu.itemsRight}
           itemsBottom={args.menu.itemsBottom}
           itemsLanguage={args.items}
+          loadJs={!args.disableJs}
           {titleId} />
         <ol class="alt-language col-1-span-8 m-t-m responsive-show" aria-labelledby={titleId}>
           {#each args.items as item}

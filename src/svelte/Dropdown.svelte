@@ -58,7 +58,14 @@
 
 <div class="dropdown {className} {onServer ? 'on-server' : ''}" class:visible={isOpen || onServer}>
   {#if onServer}
-    <div class="dropdown-title">{@html title}</div>
+    <details>
+      <summary class="button button--link">
+        {@html title}
+      </summary>
+      <div id={bodyId} class="dropdown-content">
+        <slot />
+      </div>
+    </details>
   {:else}
     <button
       id={titleId}
@@ -69,15 +76,14 @@
       on:click={() => send('TOGGLE')}>
       {@html title}
     </button>
-  {/if}
-
-  <div
-    class="dropdown-content"
-    id={bodyId}
-    use:clickOutside={titleId}
-    on:clickOutside={() => isOpen && send('TOGGLE')}>
-    <div in:slide={{duration: 300}}>
-      <slot />
+    <div
+      class="dropdown-content"
+      id={bodyId}
+      use:clickOutside={titleId}
+      on:clickOutside={() => isOpen && send('TOGGLE')}>
+      <div in:slide={{duration: 300}}>
+        <slot />
+      </div>
     </div>
-  </div>
+  {/if}
 </div>

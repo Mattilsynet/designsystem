@@ -23,8 +23,21 @@
     margin-bottom: $border-width-large;
   }
 
-  &.on-server {
-    //  Todo
+  details {
+    margin-top: 0;
+    &[open] {
+      summary {
+        --color: var(--color-mt-white);
+        &::after {
+          transform: rotate(-180deg);
+          content: url("data:image/svg+xml,%3Csvg width='20' height='12' fill='white' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18.214 0 10 8.364 1.786 0 0 1.818 10 12 20 1.818 18.214 0Z' /%3E%3C/svg%3E");
+          margin-left: 0;
+        }
+      }
+    }
+    summary {
+      --color: var(--color-mt-text-dark);
+    }
   }
 
   .dropdown-content {
@@ -44,7 +57,8 @@
       margin-bottom: $border-width-large;
     }
 
-    > button {
+    > button,
+    .button {
       color: transparent;
     }
 
@@ -59,6 +73,7 @@
     }
   }
 
+  summary.button,
   .dropdown-title,
   button {
     font-weight: var(--font-weight-light);
@@ -68,9 +83,11 @@
     z-index: 0;
     margin-bottom: $border-width-large;
 
-    &[aria-expanded]::after {
+    &[aria-expanded]::after,
+    &::after {
       transition: transform 0.3s ease;
       content: url("data:image/svg+xml,%3Csvg width='20' height='12'  xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18.214 0 10 8.364 1.786 0 0 1.818 10 12 20 1.818 18.214 0Z' /%3E%3C/svg%3E");
+      margin-left: 0;
     }
 
     &[aria-expanded='true']::after {
@@ -78,52 +95,48 @@
       content: url("data:image/svg+xml,%3Csvg width='20' height='12' fill='white' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18.214 0 10 8.364 1.786 0 0 1.818 10 12 20 1.818 18.214 0Z' /%3E%3C/svg%3E");
     }
   }
+
   // Currently used in the header
   &.button__small-text {
     button,
+    .button,
     a {
       font-size: $font-size-small;
     }
 
-    button {
-      &[aria-expanded]::after {
-        content: url("data:image/svg+xml,%3Csvg width='16' height='16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.9741 3.6363 8.0001 9.719 2.026 3.6364.7273 4.9587 8 12.3636l7.2727-7.405-1.2986-1.3223Z' fill='%233F3E3E'/%3E%3C/svg%3E");
-      }
-      &[aria-expanded='true']::after {
-        content: url("data:image/svg+xml,%3Csvg width='16' height='16' fill='white' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.9741 3.6363 8.0001 9.719 2.026 3.6364.7273 4.9587 8 12.3636l7.2727-7.405-1.2986-1.3223Z' /%3E%3C/svg%3E");
-      }
-    }
     @media only screen and (min-width: $breakpoint-large) {
       a {
         font-size: $font-size-body;
       }
-      button {
+      button,
+      .button {
         font-size: $font-size-label;
-        &[aria-expanded]::after {
-          content: url("data:image/svg+xml,%3Csvg width='20' height='12'  xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18.214 0 10 8.364 1.786 0 0 1.818 10 12 20 1.818 18.214 0Z' /%3E%3C/svg%3E");
-        }
-        &[aria-expanded='true']::after {
-          content: url("data:image/svg+xml,%3Csvg width='20' height='12' fill='white' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18.214 0 10 8.364 1.786 0 0 1.818 10 12 20 1.818 18.214 0Z' /%3E%3C/svg%3E");
-        }
       }
     }
   }
   &.full-menu {
     --button-height: 2.125rem;
 
-    & > button {
+    & > button,
+    > details {
       color: var(--color-mt-text-dark);
       --icon-size: 1rem;
-      &[aria-expanded]::after {
+
+      &[aria-expanded]::after,
+      > summary::after {
+        transition: transform 0.3s ease;
         width: var(--icon-size);
         height: var(--icon-size);
         background-size: var(--icon-size);
         background-image: url('data:image/svg+xml,%3Csvg%20width%3D%2218%22%20height%3D%2218%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M18%2018H0v-2.25h18V18ZM18%2010.125H0v-2.25h18v2.25ZM18%202.25H0V0h18v2.25Z%22%20fill%3D%22%233F3E3E%22%2F%3E%3C%2Fsvg%3E');
         background-repeat: no-repeat;
         content: '';
+        margin-left: 0;
       }
 
+      &[open] > summary::after,
       &[aria-expanded='true']::after {
+        transform: rotate(-180deg);
         width: var(--icon-size);
         height: var(--icon-size);
         background-size: var(--icon-size);
@@ -141,7 +154,8 @@
         margin-top: var(--spacer-small);
       }
     }
-    &.visible {
+    &.visible,
+    & details > summary.button {
       color: var(--color-mt-text-dark);
       .dropdown-content {
         padding: var(--spacer-small) 0;
@@ -151,7 +165,8 @@
     }
 
     @media only screen and (min-width: $breakpoint-large) {
-      & > button {
+      & > button,
+      summary.button {
         --icon-size: 1.4rem;
       }
       .disclosure-header {
@@ -179,7 +194,8 @@
     }
 
     .dropdown-title,
-    button {
+    button,
+    summary.button {
       z-index: 2000;
     }
 
