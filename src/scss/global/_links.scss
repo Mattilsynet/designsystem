@@ -132,7 +132,6 @@ a {
 
     &:after {
       margin-left: var(--spacer-xxx-small);
-      display: inline-block;
       background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0ibTYgLjA5NS0xLjA0IDEuMDQgNC4xMTggNC4xMjdILjA5NXYxLjQ3Nmg4Ljk4M2wtNC4xMTkgNC4xMjZMNiAxMS45MDQgMTEuOTA1IDYgNiAuMDk1WiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==');
       content: '';
       width: var(--icon-size);

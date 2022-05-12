@@ -79,7 +79,6 @@
     > [aria-expanded].disclosure-header {
       transition: color 0.3s ease;
       &::before {
-        display: flex;
         transition: transform 0.3s ease;
         background-image: url('data:image/svg+xml,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M10%20.159%208.265%201.893%2015.13%208.77H.159v2.46h14.97l-6.864%206.877L10%2019.84%2019.841%2010%2010%20.159Z%22%20fill%3D%22%23075B7A%22%2F%3E%3C%2Fsvg%3E');
         content: '';
