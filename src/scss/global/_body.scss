@@ -11,6 +11,8 @@
   --font-weight-light: #{$font-weight-light};
   --font-weight-normal: #{$font-weight-normal};
   --font-weight-bold: #{$font-weight-bold};
+  --icon-size-small: #{$icon-size-small};
+  --icon-size-normal: #{$icon-size-medium};
   --spacer-xxx-small: #{$spacer-xxx-small};
   --spacer-xx-small: #{$spacer-xx-small};
   --spacer-x-small: #{$spacer-x-small};
@@ -26,6 +28,7 @@
   --z-index-dropdown: #{$zindex-dropdown};
 
   @media only screen and (min-width: $breakpoint-large) {
+    --icon-size-normal: #{$icon-size-large};
     --spacer-xxx-small: #{$spacer-xx-small};
     --spacer-xx-small: #{$spacer-x-small};
     --spacer-x-small: #{$spacer-small};
