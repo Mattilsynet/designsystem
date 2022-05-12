@@ -186,9 +186,6 @@ header{
   display: grid;
   grid-template-columns: 1fr min-content min-content min-content;
   align-items: center;
-  width: min(90rem, 95vw);
-  margin-right: auto;
-  margin-left: auto;
 
   svg {
     height: 1.8rem;

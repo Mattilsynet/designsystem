@@ -115,7 +115,7 @@
 
 <Story name="Normal" let:title let:disableCss let:args let:disableJs>
   <header>
-    <div class="header header--regular">
+    <div class="container header header--regular">
       <a href="https://mattilsynet.no/">
         <svg viewBox="0 0 184 36" fill="none" xmlns="http://www.w3.org/2000/svg">
           <title>Gå til forsiden</title>
