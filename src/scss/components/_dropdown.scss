@@ -259,10 +259,10 @@
 .menu {
   &.border {
     > li {
-      border-top: $border-width-small solid var(--color-mt-white);
+      border-top: $border-width-small solid var(--color-mt-lighter-light-blue);
     }
     & > li:last-child {
-      border-bottom: $border-width-small solid var(--color-mt-white);
+      border-bottom: $border-width-small solid var(--color-mt-lighter-light-blue);
     }
   }
   > li {
@@ -280,7 +280,7 @@
   @media only screen and (min-width: $breakpoint-large) {
     & + .border {
       > li:first-child {
-        border-top: $border-width-small solid var(--color-mt-white);
+        border-top: $border-width-small solid var(--color-mt-lighter-light-blue);
       }
     }
   }
