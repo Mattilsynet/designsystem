@@ -160,7 +160,7 @@
       color: var(--color-mt-text-dark);
       .dropdown-content {
         padding: var(--spacer-small) 0;
-        top: calc(#{$height-header-mobile} - var(--spacer-xx-small) + 0.6rem);
+        top: calc(#{$height-header-mobile} - var(--spacer-xx-small) + 0.75rem);
         min-width: 100vw;
       }
     }
@@ -176,7 +176,7 @@
       &.visible {
         .dropdown-content {
           padding: var(--spacer-xx-large) var(--spacer-medium);
-          top: calc(#{$height-header-regular} - var(--spacer-xx-small) + 0.6rem);
+          top: calc(#{$height-header-regular} - var(--spacer-xx-small) + 1.38rem);
         }
       }
     }
