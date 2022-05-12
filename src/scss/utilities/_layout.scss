@@ -178,12 +178,14 @@ Only use if it does NOT affect accessibility
   }
 }
 
-header,
+header{
+  border-bottom: $border-red-regular;
+}
+
 .header {
   display: grid;
   grid-template-columns: 1fr min-content min-content min-content;
   align-items: center;
-  border-bottom: $border-red-regular;
 
   svg {
     height: 1.8rem;
