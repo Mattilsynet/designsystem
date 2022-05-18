@@ -55,7 +55,7 @@
       {@html title}
     </h2>
     {#if intro}
-      <div class="top-tasks-text col-1-span-7">{@html intro}</div>
+      <div class="top-tasks-text col-1-span-6">{@html intro}</div>
     {/if}
     <section
       class="layout-flex layout-flex--centered col-1-span-12 tasks-layout"

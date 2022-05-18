@@ -175,7 +175,10 @@
       margin-top: var(--space-section);
     }
     &.table-of-contents {
-      margin: var(--spacer-small) 0 var(--spacer-large)
+      margin: var(--spacer-large) 0 3.25rem;
+      h2 {
+        margin-top: 0;
+      }
     }
   }
 }

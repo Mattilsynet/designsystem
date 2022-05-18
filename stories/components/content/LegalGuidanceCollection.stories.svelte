@@ -2,6 +2,7 @@
   import {Meta, Story} from '@storybook/addon-svelte-csf'
   import CardArticle from '../../../src/svelte/CardArticle.svelte'
   import SummaryDetail from '../../../src/svelte/SummaryDetail.svelte'
+  import {toKebabCase} from '../../../src/ts/utils'
 </script>
 
 <Meta
@@ -9,6 +10,7 @@
   args={{
     title: 'Regelveiledning samleside overskrift',
     intro: 'Regelveiledning samleside ingress',
+    tableOfContents: 'Innhold på siden',
     text: `<h2>Andre overskrift</h2>
       <p>Paragraf med tekst. Paragraf med tekst. <a href="">Paragraf med tekst.</a> Paragraf med tekst</p>
       <ul>
@@ -59,7 +61,7 @@
     disableCss: {control: 'boolean'}
   }} />
 
-<Story name="Normal" let:title let:intro let:legalItems let:text>
+<Story name="Normal" let:title let:intro let:legalItems let:text let:tableOfContents>
   <div class="container layout-grid layout-grid--column-12">
     <article class="article-page col-1-span-12 legal-guidance">
       <h1>{title}</h1>
@@ -67,11 +69,25 @@
         <p>{intro}</p>
       </div>
 
+      <section class="table-of-contents" aria-labelledby="table-of-contents">
+        <h2 id="table-of-contents" class="h4">
+          {tableOfContents}
+        </h2>
+        <ol class="list-unstyled">
+          {#each legalItems as legal}
+            <li>
+              <a href="#{toKebabCase(legal.title)}" class="down-arrow">{legal.title}</a>
+            </li>
+          {/each}
+        </ol>
+      </section>
+
       {@html text}
 
       {#each legalItems as legal}
         <article
-          class="legal-collection legal-collection__border-top col-3-span-8"
+          id={toKebabCase(legal.title)}
+          class="legal-collection legal-collection__border-top col-3-span-6"
           aria-labelledby="collection-title-1">
           <h2 id="collection-title-1">{legal.title}</h2>
 
