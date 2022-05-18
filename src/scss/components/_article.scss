@@ -30,7 +30,7 @@
 
   @media only screen and (min-width: $breakpoint-large) {
     > * {
-      grid-column: 3 / span 8;
+      grid-column: 3 / span 6;
     }
   }
 }
