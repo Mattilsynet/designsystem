@@ -74,9 +74,9 @@
           {tableOfContents}
         </h2>
         <ol class="list-unstyled">
-          {#each legalItems as item}
+          {#each legalItems as legal}
             <li>
-              <a href="#{toKebabCase(item.title)}" class="down-arrow">{item.title}</a>
+              <a href="#{toKebabCase(legal.title)}" class="down-arrow">{legal.title}</a>
             </li>
           {/each}
         </ol>
@@ -86,6 +86,7 @@
 
       {#each legalItems as legal}
         <article
+          id={toKebabCase(legal.title)}
           class="legal-collection legal-collection__border-top col-3-span-6"
           aria-labelledby="collection-title-1">
           <h2 id="collection-title-1">{legal.title}</h2>
