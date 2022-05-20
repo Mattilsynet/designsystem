@@ -141,9 +141,12 @@
   }
 
   > .meta + p,
-  table,
   figure {
     margin-top: var(--spacer-x-small);
+  }
+
+  table {
+    margin-top: var(--spacer-large);
   }
 
   h2 {
