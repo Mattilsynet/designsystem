@@ -20,6 +20,7 @@ a {
   &.multi-line {
     display: flex;
     flex-direction: column;
+    gap: 0;
     line-height: 140%;
   }
 

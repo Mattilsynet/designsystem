@@ -68,14 +68,12 @@
   <h2>Neste og forrig lenker</h2>
   <div
     class="layout-flex layout-flex--row-reverse layout-flex--no-wrap layout-flex--space-between m-t-m b-t-beige">
-    <a
-      href=""
-      class="no-underline layout-flex layout-flex--no-gap layout-flex--no-wrap multi-line m-t-xxxs text-small text-align-right">
+    <a href="" class="multi-line no-underline m-t-xxxs text-small text-align-right">
       <span class="strong next-link layout-flex--align-self-end">Neste</span>
       {nextPreviousLinks.showChapterNumber ? '3.' : ''}
       {nextPreviousLinks.next}
     </a>
-    <a href="" class="no-underline layout-flex layout-flex--no-gap multi-line m-t-xxxs text-small">
+    <a href="" class="multi-line no-underline m-t-xxxs text-small">
       <span class="strong previous-link ">Forrige</span>
       {nextPreviousLinks.showChapterNumber ? '1.' : ''}
       {nextPreviousLinks.previous}
