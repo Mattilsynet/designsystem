@@ -19,6 +19,11 @@
         text: 'Kritikk&shy;verdige forhold på arbeids&shy;plassen hvor lenken går over flere linjer og samtidig skal ha animasjon'
       }
     ],
+    nextPreviousLinks: {
+      next: 'Forurensning',
+      previous: 'Virkeområde',
+      showChapterNumber: true
+    },
     secondary: 'Avbryt',
     disabled: false,
     disableCss: false
@@ -26,12 +31,13 @@
   argTypes={{
     primary: {control: 'text'},
     cards: {control: 'array'},
+    nextPreviousLinks: {control: 'object'},
     secondary: {control: 'string'},
     disabled: {control: 'boolean'},
     disableCss: {control: 'boolean'}
   }} />
 
-<Story name="Normal" let:primary let:disableCss let:disabled let:secondary>
+<Story name="Normal" let:primary let:disableCss let:disabled let:secondary let:nextPreviousLinks>
   <h1>Lenker</h1>
   <p>Bruk alene:</p>
   <Link linkText={primary} href="https://mattilsynet.no/" />
@@ -40,24 +46,41 @@
   <p>Les mer om <Link href="https://mattilsynet.no/" linkText="mattilsynet" /> her.</p>
 
   <hr />
-  <p>Tilbakelenke</p>
+  <h2>Tilbakelenke</h2>
   <Link href="https://mattilsynet.no/" class="back-arrow" linkText="Tilbake" />
 
   <hr />
-  <p>Ankerlenke</p>
+  <h2>Ankerlenke</h2>
   <Link
     href="https://mattilsynet.no/"
     class="down-arrow"
     linkText="Til innhold der nede ett sted" />
 
   <hr />
-  <p>Pdf lenke</p>
+  <h2>Pdf lenke</h2>
   <Link href="https://mattilsynet.no/some.pdf" class="document" linkText="thisIsAPdf" />
   <Link
     href="https://mattilsynet.no/some.pdf"
     class="document"
     linkText="thisIsAPdf"
     fileName="thisIsAPdf.pdf" />
+  <hr />
+  <h2>Neste og forrig lenker</h2>
+  <div
+    class="layout-flex layout-flex--row-reverse layout-flex--no-wrap layout-flex--space-between m-t-m b-t-beige">
+    <a
+      href=""
+      class="no-underline layout-flex layout-flex--no-gap layout-flex--no-wrap multi-line m-t-xxxs text-small text-align-right">
+      <span class="strong next-link layout-flex--align-self-end">Neste</span>
+      {nextPreviousLinks.showChapterNumber ? '3.' : ''}
+      {nextPreviousLinks.next}
+    </a>
+    <a href="" class="no-underline layout-flex layout-flex--no-gap multi-line m-t-xxxs text-small">
+      <span class="strong previous-link ">Forrige</span>
+      {nextPreviousLinks.showChapterNumber ? '1.' : ''}
+      {nextPreviousLinks.previous}
+    </a>
+  </div>
 </Story>
 
 <Story name="Lenke liste" let:cards let:disableCss let:disabled let:secondary>
