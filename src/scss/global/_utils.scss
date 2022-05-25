@@ -12,9 +12,6 @@
 .m-t-0 {
   margin-top: 0;
 }
-.m-t-xxxs {
-  margin-top: var(--spacer-xxx-small);
-}
 .m-t-m {
   margin-top: var(--spacer-medium);
 }
@@ -43,9 +40,6 @@
 .p-t-xs {
   padding-top: var(--spacer-x-small);
 }
-.p-t-xxxs {
-  padding-top: var(--spacer-xxx-small);
-}
 .p-b-xs {
   padding-bottom: var(--spacer-x-small);
 }
@@ -68,10 +62,6 @@
   > :last-child {
     border-bottom: $border-width-small solid var(--color-mt-white);
   }
-}
-
-.b-t-beige {
-  border-top: $border-width-small solid var(--color-mt-beige);
 }
 .border-radius-0 {
   border-radius: 0;

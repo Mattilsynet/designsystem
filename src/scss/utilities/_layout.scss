@@ -49,22 +49,9 @@
   flex-wrap: var(--wrap);
   gap: var(--gap);
 
-  &--no-gap {
-    --gap: 0;
-  }
   &--space-between {
     justify-content: space-between;
   }
-  &--no-wrap {
-    flex-wrap: nowrap;
-  }
-  &--align-self-end {
-    align-self: flex-end;
-  }
-  &--row-reverse {
-    flex-direction: row-reverse;
-  }
-
   &--centered {
     place-content: center;
   }

@@ -5,9 +5,10 @@
   export let showChapterNumber = false
   export let nextText = ''
   export let previousText = ''
-
   export let chapters: Array<Chapter> = []
   export let currentChapterIndex = 0
+  let className = ''
+  export {className as class}
 
   $: nextChapterIndex = currentChapterIndex + 1
   $: nextChapterNumber = nextChapterIndex + 1
@@ -15,9 +16,6 @@
   $: previousChapterIndex = currentChapterIndex - 1
   $: previousChapterNumber = previousChapterIndex + 1
   $: previousChapter = chapters[previousChapterIndex]
-
-  let className = ''
-  export {className as class}
 
   function hasNextChapter(currentChapterNumber: number): boolean {
     return currentChapterNumber < chapters.length - 1
