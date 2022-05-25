@@ -175,4 +175,7 @@
       padding-top: var(--spacer-xx-small);
     }
   }
+  &.background-mt-rationale-blue .disclosure-panel > * + * {
+    margin-top: var(--spacer-xx-small)
+  }
 }
