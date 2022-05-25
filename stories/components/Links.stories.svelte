@@ -1,6 +1,17 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf'
   import Link from '../../src/svelte/Link.svelte'
+  import {action} from '@storybook/addon-actions'
+  import ChapterNavigation from '../../src/svelte/ChapterNavigation.svelte'
+
+  const chapterChangeAction = action('chapterChange')
+  let currentChapterNumber = 0
+
+  function chapterChange(e) {
+    e.preventDefault()
+    chapterChangeAction(e)
+    currentChapterNumber = e.detail.index
+  }
 </script>
 
 <Meta
@@ -19,11 +30,13 @@
         text: 'Kritikk&shy;verdige forhold på arbeids&shy;plassen hvor lenken går over flere linjer og samtidig skal ha animasjon'
       }
     ],
-    nextPreviousLinks: {
-      next: 'Forurensning',
-      previous: 'Virkeområde',
-      showChapterNumber: true
-    },
+    chapters: [
+      {index: 0, url: '', heading: 'Formål'},
+      {index: 1, url: '', heading: 'Virkeområde'},
+      {index: 2, url: '', heading: 'Definisjoner av dyr og dyrehold'},
+      {index: 3, url: '', heading: 'Forurensning av vann'}
+    ],
+    showChapterNumber: true,
     secondary: 'Avbryt',
     disabled: false,
     disableCss: false
@@ -31,13 +44,14 @@
   argTypes={{
     primary: {control: 'text'},
     cards: {control: 'array'},
-    nextPreviousLinks: {control: 'object'},
+    chapters: {control: 'array'},
+    showChapterNumber: {control: 'boolean'},
     secondary: {control: 'string'},
     disabled: {control: 'boolean'},
     disableCss: {control: 'boolean'}
   }} />
 
-<Story name="Normal" let:primary let:disableCss let:disabled let:secondary let:nextPreviousLinks>
+<Story name="Normal" let:primary let:disableCss let:args let:disabled let:secondary>
   <h1>Lenker</h1>
   <p>Bruk alene:</p>
   <Link linkText={primary} href="https://mattilsynet.no/" />
@@ -66,19 +80,14 @@
     fileName="thisIsAPdf.pdf" />
   <hr />
   <h2>Neste og forrig lenker</h2>
-  <div
-    class="layout-flex layout-flex--row-reverse layout-flex--no-wrap layout-flex--space-between m-t-m b-t-beige">
-    <a href="" class="multi-line no-underline m-t-xxxs text-small text-align-right">
-      <span class="strong next-link layout-flex--align-self-end">Neste</span>
-      {nextPreviousLinks.showChapterNumber ? '3.' : ''}
-      {nextPreviousLinks.next}
-    </a>
-    <a href="" class="multi-line no-underline m-t-xxxs text-small">
-      <span class="strong previous-link ">Forrige</span>
-      {nextPreviousLinks.showChapterNumber ? '1.' : ''}
-      {nextPreviousLinks.previous}
-    </a>
-  </div>
+  <ChapterNavigation
+    showChapterNumber={args.showChapterNumber}
+    chapters={args.chapters}
+    currentChapterIndex={currentChapterNumber}
+    on:chapterChange={chapterChange}
+    nextText="Neste"
+    previousText="Forrige"
+    class="chapter-navigation--bottom" />
 </Story>
 
 <Story name="Lenke liste" let:cards let:disableCss let:disabled let:secondary>
