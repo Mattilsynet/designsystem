@@ -1,6 +1,17 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf'
   import Link from '../../src/svelte/Link.svelte'
+  import {action} from '@storybook/addon-actions'
+  import ChapterNavigation from '../../src/svelte/ChapterNavigation.svelte'
+
+  const chapterChangeAction = action('chapterChange')
+  let currentChapterNumber = 0
+
+  function chapterChange(e) {
+    e.preventDefault()
+    chapterChangeAction(e)
+    currentChapterNumber = e.detail.index
+  }
 </script>
 
 <Meta
@@ -19,6 +30,13 @@
         text: 'Kritikk&shy;verdige forhold på arbeids&shy;plassen hvor lenken går over flere linjer og samtidig skal ha animasjon'
       }
     ],
+    chapters: [
+      {index: 0, url: '', heading: 'Formål'},
+      {index: 1, url: '', heading: 'Virkeområde'},
+      {index: 2, url: '', heading: 'Definisjoner av dyr og dyrehold'},
+      {index: 3, url: '', heading: 'Forurensning av vann'}
+    ],
+    showChapterNumber: true,
     secondary: 'Avbryt',
     disabled: false,
     disableCss: false
@@ -26,12 +44,14 @@
   argTypes={{
     primary: {control: 'text'},
     cards: {control: 'array'},
+    chapters: {control: 'array'},
+    showChapterNumber: {control: 'boolean'},
     secondary: {control: 'string'},
     disabled: {control: 'boolean'},
     disableCss: {control: 'boolean'}
   }} />
 
-<Story name="Normal" let:primary let:disableCss let:disabled let:secondary>
+<Story name="Normal" let:primary let:disableCss let:args let:disabled let:secondary>
   <h1>Lenker</h1>
   <p>Bruk alene:</p>
   <Link linkText={primary} href="https://mattilsynet.no/" />
@@ -40,24 +60,34 @@
   <p>Les mer om <Link href="https://mattilsynet.no/" linkText="mattilsynet" /> her.</p>
 
   <hr />
-  <p>Tilbakelenke</p>
+  <h2>Tilbakelenke</h2>
   <Link href="https://mattilsynet.no/" class="back-arrow" linkText="Tilbake" />
 
   <hr />
-  <p>Ankerlenke</p>
+  <h2>Ankerlenke</h2>
   <Link
     href="https://mattilsynet.no/"
     class="down-arrow"
     linkText="Til innhold der nede ett sted" />
 
   <hr />
-  <p>Pdf lenke</p>
+  <h2>Pdf lenke</h2>
   <Link href="https://mattilsynet.no/some.pdf" class="document" linkText="thisIsAPdf" />
   <Link
     href="https://mattilsynet.no/some.pdf"
     class="document"
     linkText="thisIsAPdf"
     fileName="thisIsAPdf.pdf" />
+  <hr />
+  <h2>Neste og forrig lenker</h2>
+  <ChapterNavigation
+    showChapterNumber={args.showChapterNumber}
+    chapters={args.chapters}
+    currentChapterIndex={currentChapterNumber}
+    on:chapterChange={chapterChange}
+    nextText="Neste"
+    previousText="Forrige"
+    class="chapter-navigation--bottom" />
 </Story>
 
 <Story name="Lenke liste" let:cards let:disableCss let:disabled let:secondary>

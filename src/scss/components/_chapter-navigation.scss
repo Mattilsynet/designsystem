@@ -1,0 +1,32 @@
+@use '../theme' as *;
+
+.chapter-navigation {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  gap: var(--spacer-small);
+
+  &--bottom {
+    margin-top: var(--spacer-medium);
+    border-top: $border-width-small solid var(--color-mt-beige);
+  }
+
+  a {
+    text-decoration: none;
+    font-size: $font-size-small;
+    margin-top: var(--spacer-xxx-small);
+
+    flex: 1 1 min-content;
+    @media only screen and (min-width: $breakpoint-large) {
+      flex: initial;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+    span {
+      font-weight: $font-weight-bold;
+    }
+  }
+}
