@@ -104,6 +104,7 @@ table {
       padding: var(--spacer-xx-small);
       overflow-wrap: anywhere;
       word-break: break-word;
+      vertical-align: text-top;
     }
     th {
       font-weight: $font-weight-bold;
