@@ -4,29 +4,6 @@
   import {wrapInShadowDom} from '../utils'
   import {action} from '@storybook/addon-actions'
 
-  const chapters = [
-    {
-      heading: 'Formål',
-      index: 0
-    },
-    {
-      heading: 'Virkeområde',
-      index: 1
-    },
-    {
-      heading: 'Grenseverdier',
-      index: 2
-    },
-    {
-      heading: 'Registrering',
-      index: 3
-    },
-    {
-      heading: 'Distribusjonssystem og internt fordelingsnett',
-      index: 4
-    }
-  ]
-
   const chapterChangeAction = action('chapterChange')
   let currentChapterNumber = 0
 
@@ -41,15 +18,38 @@
   parameters={{layout: 'fullscreen'}}
   args={{
     showChapterNumbers: true,
+    chapters: [
+      {
+        heading: 'Formål',
+        index: 0
+      },
+      {
+        heading: 'Virkeområde',
+        index: 1
+      },
+      {
+        heading: 'Grenseverdier',
+        index: 2
+      },
+      {
+        heading: 'Registrering',
+        index: 3
+      },
+      {
+        heading: 'Distribusjonssystem og internt fordelingsnett',
+        index: 4
+      }
+    ],
     disableCss: false
   }}
   argTypes={{
     showChapterNumbers: {control: 'boolean'},
+    chapters: {control: 'array'},
     disableCss: {control: 'boolean'},
     chapterChange: {action: 'chapterChange'}
   }} />
 
-<Story name="Normal" let:showChapterNumbers let:disableCss>
+<Story name="Normal" let:showChapterNumbers let:disableCss let:chapters>
   <div use:wrapInShadowDom={disableCss}>
     <div class="chapter-menu-wrapper">
       <ChapterMenu
