@@ -1,37 +1,15 @@
-<script>
-  import {Meta, Story} from '@storybook/addon-svelte-csf';
-  import ChapterMenu from '../../src/svelte/ChapterMenu.svelte';
-  import {action} from '@storybook/addon-actions';
+<script lang="ts">
+  import {Meta, Story} from '@storybook/addon-svelte-csf'
+  import ChapterMenu from '../../src/svelte/ChapterMenu.svelte'
+  import {wrapInShadowDom} from '../utils'
+  import {action} from '@storybook/addon-actions'
 
-  const chapters = [
-    {
-      heading: '§ 1 Formål',
-      index: 0
-    },
-    {
-      heading: '§ 2 Virkeområde',
-      index: 1
-    },
-    {
-      heading: '§ 5 Grenseverdier',
-      index: 2
-    },
-    {
-      heading: '§17 Registrering',
-      index: 3
-    },
-    {
-      heading: '§ 15 Distribusjonssystem og internt fordelingsnett',
-      index: 4
-    }
-  ];
-
-  const chapterChangeAction = action('chapterChange');
-  let currentChapterNumber = 0;
+  const chapterChangeAction = action('chapterChange')
+  let currentChapterNumber = 0
 
   function chapterChange(e) {
-    chapterChangeAction(e);
-    currentChapterNumber = e.detail.index;
+    chapterChangeAction(e)
+    currentChapterNumber = e.detail.index
   }
 </script>
 
@@ -39,17 +17,49 @@
   title="Components/Chapter Menu"
   parameters={{layout: 'fullscreen'}}
   args={{
+    showChapterNumbers: true,
+    chapters: [
+      {
+        heading: 'Formål',
+        index: 0
+      },
+      {
+        heading: 'Virkeområde',
+        index: 1
+      },
+      {
+        heading: 'Grenseverdier',
+        index: 2
+      },
+      {
+        heading: 'Registrering',
+        index: 3
+      },
+      {
+        heading: 'Distribusjonssystem og internt fordelingsnett',
+        index: 4
+      }
+    ],
     disableCss: false
   }}
   argTypes={{
+    showChapterNumbers: {control: 'boolean'},
+    chapters: {control: 'array'},
     disableCss: {control: 'boolean'},
     chapterChange: {action: 'chapterChange'}
-  }}
-/>
+  }} />
 
-<Story name="Normal">
-  <div class="chapter-menu-wrapper">
-    <ChapterMenu {chapters} basePath="/#" menuTitle="Innhold" {currentChapterNumber} on:chapterChange={chapterChange} />
+<Story name="Normal" let:showChapterNumbers let:disableCss let:chapters>
+  <div use:wrapInShadowDom={disableCss}>
+    <div class="chapter-menu-wrapper">
+      <ChapterMenu
+        {chapters}
+        {showChapterNumbers}
+        basePath="/#"
+        menuTitle="Innhold"
+        {currentChapterNumber}
+        on:chapterChange={chapterChange} />
+    </div>
   </div>
 </Story>
 
