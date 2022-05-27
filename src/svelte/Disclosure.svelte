@@ -17,6 +17,7 @@
   export let headerClass = ''
   export let panelClass = ''
   export let startOpen = false
+  export let chapter: string | undefined = undefined
   let disclosureClass = ''
   export {disclosureClass as class}
 
@@ -79,6 +80,12 @@
       aria-expanded={isOpen}
       aria-controls={bodyId}
       on:click={() => send('TOGGLE')}>
+      {#if chapter}
+        <span class="chapter-number">
+          {chapter}
+        </span>
+      {/if}
+
       {#if icon}
         {@html icon}
       {/if}
