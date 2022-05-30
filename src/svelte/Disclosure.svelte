@@ -89,7 +89,9 @@
       {#if icon}
         {@html icon}
       {/if}
-      {@html title}
+      <span class="title">
+        {@html title}
+      </span>
     </button>
   {/if}
 

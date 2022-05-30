@@ -15,7 +15,8 @@
   //
   let chapterChangeAction = action('chapterChange')
   let currentChapterNumber = 0
-  let isExpanded = true
+  let isExpanded = false
+
   function chapterChange(e) {
     //   chapterChangeAction(e)
     //   currentChapterNumber = e.detail.index
@@ -28,6 +29,17 @@
   function handleClickClose() {
     isExpanded = !isExpanded
   }
+  let body = `<p>Innhold i underkapittel</p>
+<ul>
+<li>liste 1</li>
+<li>liste 2</li>
+</ul>
+<section class="layout-flex-col layout-flex-col--x-small">
+  <p>Innhold i section</p>
+  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+     industry's standard dummy text ever since the 1500s
+  </p>
+</section>`
 </script>
 
 <Meta
@@ -35,16 +47,76 @@
   parameters={{layout: 'fullscreen'}}
   args={{
     menu: {title: 'Meny'},
+    chapters: [
+      {
+        heading: 'Innledning',
+        body,
+        subchapters: [
+          {
+            heading: 'Påstanden skal ikke brukes slik at den villeder forbrukern (artikkle 3)',
+            body,
+            subchapters: [
+              {heading: 'Innledning - under under kapitel', body},
+              {heading: 'Innledning - under under kapitel 2', body}
+            ]
+          },
+          {
+            heading: 'Krav til gunstig virkning og til sammmensetning av produktet (artikkel 5(1))',
+            body: `<p>Innhold i underkapittel</p>
+<section class="layout-flex-col layout-flex-col--x-small">
+  <p>Innhold i section</p>
+</section>`,
+            subchapters: [
+              {heading: 'Virkningen påstanden viser til må være gunstig', body},
+              {
+                heading: 'Produktet må være sammensat slik at den gunstige virkningen kan oppnås',
+                body
+              }
+            ]
+          },
+          {
+            heading: 'Innledning - underkapittel 3',
+            body: `<p>Innhold i underkapittel</p>
+<section class="layout-flex-col layout-flex-col--x-small">
+  <p>Innhold i section</p>
+</section>`,
+            subchapters: [
+              {heading: 'Innledning - under 3 under kapitel'},
+              {heading: 'Innledning - under 3 under kapitel 2'}
+            ]
+          }
+        ]
+      },
+      {
+        heading: 'Virkeområde',
+        body,
+        subchapters: [
+          {heading: 'Virkeområde - underkapittel'},
+          {heading: 'Virkeområde - underkapittel 2'},
+          {heading: 'Virkeområde - underkapittel 3'}
+        ]
+      },
+      {
+        heading: 'Definisjoner',
+        body,
+        subchapters: [
+          {heading: 'Definisjoner - underkapittel'},
+          {heading: 'Definisjoner - underkapittel 2'},
+          {heading: 'Definisjoner - underkapittel 3'}
+        ]
+      }
+    ],
     showChapterNumbers: true,
     disableJs: false
   }}
   argTypes={{
     menu: {control: 'object'},
+    chapters: {control: 'array'},
     showChapterNumbers: {control: 'boolean'},
     disableJs: {control: 'boolean'}
   }} />
 
-<Story name="Normal" let:showChapterNumbers let:menu let:disableJs>
+<Story name="Normal" let:showChapterNumbers let:menu let:disableJs let:chapters>
   <header>
     <div class="container header header--regular">
       <a href="https://mattilsynet.no/">
@@ -139,21 +211,70 @@
       <main id="main">
         <div data-portal-region="main">
           <div>
-            <div class="layout-grid layout-grid--column-12">
-              <article class="article-page col-1-span-12">
-                <h1>Hei</h1>
-              </article>
-            </div>
-            <Disclosure
-              title="Test"
-              theme="links"
-              class="layout-grid layout-grid--column-12"
-              headerClass="col-3-span-8" />
-            <Disclosure
-              title="Test 2"
-              theme="links"
-              class="layout-grid layout-grid--column-12"
-              headerClass="col-3-span-8" />
+            {#each chapters as chapter, chapterIndex}
+              {#if chapterIndex === currentChapterNumber}
+                <div class="layout-grid layout-grid--column-12">
+                  <article class="article-page col-1-span-12 in-other-content">
+                    <h1 class={showChapterNumbers ? 'heading-with-chapter col-3-span-7' : ''}>
+                      {#if showChapterNumbers}
+                        <span class="chapter-number">
+                          {chapterIndex + 1}.
+                        </span>
+                      {/if}
+                      {chapter.heading}
+                    </h1>
+                    {@html chapter.body}
+                  </article>
+                </div>
+                {#each chapter.subchapters || [] as subChapter, subChapterIndex}
+                  <Disclosure
+                    title={subChapter.heading}
+                    theme="links"
+                    chapter={showChapterNumbers
+                      ? `${chapterIndex + 1}.${subChapterIndex + 1}`
+                      : undefined}
+                    class="layout-grid layout-grid--column-12 {showChapterNumbers
+                      ? 'disclosure-with-number'
+                      : ''}"
+                    headerClass={showChapterNumbers
+                      ? 'col-3-span-7 align-items-start'
+                      : 'col-3-span-7'}
+                    panelClass={showChapterNumbers ? 'col-3-span-8' : 'col-3-span-8'}>
+                    <div class="layout-grid layout-grid--column-12">
+                      <article class="article-page col-1-span-12 children-match">
+                        <!--                        <h2 class={showChapterNumbers ? 'heading-with-chapter col-2-span-9' : ''}>-->
+                        <!--                          {#if showChapterNumbers}-->
+                        <!--                            <span class="chapter-number">-->
+                        <!--                              {subChapterIndex + 1}.-->
+                        <!--                            </span>-->
+                        <!--                          {/if}-->
+                        <!--                          {subChapter.heading}-->
+                        <!--                        </h2>-->
+                        {@html subChapter.body}
+                      </article>
+                    </div>
+                    {#each subChapter.subchapters || [] as subSubChapter, subSubIndex}
+                      <Disclosure
+                        title={subSubChapter.heading}
+                        headerTag="h3"
+                        theme="links"
+                        class="layout-grid layout-grid--column-12 disclosure-in-disclosure {showChapterNumbers
+                          ? 'disclosure-with-number'
+                          : ''}"
+                        chapter={`${chapterIndex + 1}.${subChapterIndex + 1}.${subSubIndex + 1}`}
+                        headerClass={showChapterNumbers ? 'col-1-span-10' : 'col-3-span-6'}
+                        panelClass={showChapterNumbers ? 'col-1-span-10' : 'col-3-span-6'}>
+                        <div class="layout-grid layout-grid--column-12">
+                          <article class="article-page col-1-span-12 children-full-width">
+                            {@html subSubChapter.body}
+                          </article>
+                        </div>
+                      </Disclosure>
+                    {/each}
+                  </Disclosure>
+                {/each}
+              {/if}
+            {/each}
           </div>
         </div>
       </main>

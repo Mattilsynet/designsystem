@@ -32,6 +32,7 @@
     .col-10-span-3,
     .col-4-span-6,
     .col-3-span-6,
+    .col-3-span-7,
     .col-3-span-8,
     .col-2-span-7,
     .col-2-span-9,
@@ -76,6 +77,9 @@
       }
       .col-3-span-6 {
         grid-column: 3 / span 6;
+      }
+      .col-3-span-7 {
+        grid-column: 3 / span 7;
       }
       .col-3-span-8 {
         grid-column: 3 / span 8;

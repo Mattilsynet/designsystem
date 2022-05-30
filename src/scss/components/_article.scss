@@ -16,7 +16,7 @@
 
   details,
   section > details,
-  section + .disclosure{
+  section + .disclosure {
     margin-top: var(--space-section);
   }
 
@@ -27,7 +27,20 @@
       }
     }
   }
-
+  &.children-match {
+    @media only screen and (min-width: $breakpoint-large) {
+      > * {
+        grid-column: span 10;
+      }
+    }
+  }
+  &.in-other-content {
+    @media only screen and (min-width: $breakpoint-large) {
+      > * {
+        grid-column: 4 / span 6;
+      }
+    }
+  }
   @media only screen and (min-width: $breakpoint-large) {
     > * {
       grid-column: 3 / span 6;
@@ -64,4 +77,8 @@
       margin-right: 0;
     }
   }
+}
+.heading-with-chapter {
+  display: grid;
+  grid-template-columns: calc(95vw / 12) max-content;
 }
