@@ -87,6 +87,9 @@
           align-self: start;
           margin-right: var(--spacer-xxx-small);
         }
+        .title {
+          max-width: 100vw;
+        }
       }
       > .disclosure-panel {
         > .layout-grid {

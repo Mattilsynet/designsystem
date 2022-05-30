@@ -81,7 +81,7 @@
       aria-controls={bodyId}
       on:click={() => send('TOGGLE')}>
       {#if chapter}
-        <span class="chapter-number">
+        <span class="chapter-number responsive-hide">
           {chapter}
         </span>
       {/if}
@@ -90,6 +90,11 @@
         {@html icon}
       {/if}
       <span class="title">
+        {#if chapter}
+          <span class="responsive-show-inline">
+            {chapter}
+          </span>
+        {/if}
         {@html title}
       </span>
     </button>
