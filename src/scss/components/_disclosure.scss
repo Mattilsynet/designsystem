@@ -84,6 +84,7 @@
       }
       > .disclosure-header {
         .chapter-number {
+          align-self: start;
           margin-right: var(--spacer-xxx-small);
         }
       }
@@ -96,11 +97,6 @@
         --chapter-number-cols: calc((95vw) / 12) auto;
         > .disclosure-header {
           grid-template-columns: var(--chapter-number-cols);
-          .chapter-number {
-            align-self: start;
-          }
-        }
-        > .disclosure-header {
           .chapter-number {
             margin-right: 0;
           }
