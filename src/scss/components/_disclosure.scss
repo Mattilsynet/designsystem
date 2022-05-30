@@ -80,7 +80,7 @@
       > .disclosure-panel {
         display: grid;
         gap: 0;
-        grid-template-columns: max-content max-content;
+        grid-template-columns: max-content auto;
       }
       > .disclosure-header {
         .chapter-number {
