@@ -101,7 +101,7 @@
 
   &.disclosure-no-border {
     > .disclosure-header {
-      gap: var(--spacer-xx-small);
+      gap: var(--spacer-xxx-small);
     }
     .disclosure-header {
       padding: var(--spacer-x-small);
@@ -135,7 +135,12 @@
     }
     .disclosure-panel {
       border-top: $border-width-small solid var(--color-secondary);
-      margin: 0 var(--spacer-x-small);
+      margin: 0 var(--spacer-xxx-small);
+      padding: 0 var(--spacer-xxx-small);
+
+      @media only screen and (min-width: $breakpoint-large) {
+        margin: 0 var(--spacer-medium);
+      }
 
       &.on-server {
         > :first-child {
