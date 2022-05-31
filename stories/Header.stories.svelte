@@ -57,7 +57,12 @@
           children: [{title: 'Fiskesykdommer', url: '/fisk/fiskesykdommer'}]
         },
         {title: 'Planter og dyrking', url: '/planter', iconResource: animalIcon, children: []},
-        {title: 'Drikkevannforskrift', url: '/drikkevann', iconResource: drinkIcon, children: []},
+        {
+          title: 'Drikkevannforskrift',
+          url: '/drikkevann',
+          iconResource: drinkIcon,
+          children: [{title: 'Drikke', url: '/drikkevann/drikke'}]
+        },
         {title: 'Kosmetikk', url: '/kosmetikk', iconResource: drinkIcon, children: []}
       ],
       itemsRight: [

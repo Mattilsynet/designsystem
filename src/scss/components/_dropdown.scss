@@ -11,6 +11,10 @@
   display: inline-block;
   position: relative;
 
+  a {
+    border-radius: 0;
+  }
+
   .focus,
   &.focus,
   :focus,
@@ -18,9 +22,8 @@
   :focus-visible,
   &:focus-visible {
     border-color: transparent;
-    outline: none;
-    box-shadow: 0 0 0 $border-width-large set-focus-color($color);
-    margin-bottom: $border-width-large;
+    outline: $border-width-large solid set-focus-color($color);
+    box-shadow: none;
   }
 
   details {
@@ -51,11 +54,7 @@
     background-color: var(--background-color);
     z-index: var(--z-index-dropdown);
     right: 0;
-
-    a,
-    button {
-      margin-bottom: $border-width-large;
-    }
+    border: $border-width-regular solid var(--color-mt-blue);
 
     > button,
     .button {
@@ -68,8 +67,8 @@
     &:focus,
     :focus-visible,
     &:focus-visible {
-      outline: none;
-      box-shadow: 0 0 0 $border-width-large set-focus-color($color);
+      outline: $border-width-large solid set-focus-color($color);
+      box-shadow: none;
     }
   }
 
@@ -146,9 +145,22 @@
         content: '';
       }
     }
+    [aria-expanded='true'].disclosure-header {
+      border: $border-width-regular solid var(--color-mt-lighter-light-blue);
+      margin-top: -1px;
+      &:focus,
+      &:focus-visible {
+        border: $border-width-regular solid var(--color-mt-blue);
+      }
+    }
     .disclosure-header {
       padding: var(--spacer-xx-small);
       font-size: $font-size-body;
+    }
+    .disclosure {
+      a.disclosure-header {
+        margin-bottom: 1px;
+      }
     }
     .disclosure-panel {
       .sub-menu {
@@ -260,9 +272,13 @@
   &.border {
     > li {
       border-top: $border-width-small solid var(--color-mt-lighter-light-blue);
+      margin-top: 3px;
+      margin-bottom: 3px;
+      padding-top: 1px;
     }
     & > li:last-child {
       border-bottom: $border-width-small solid var(--color-mt-lighter-light-blue);
+      padding-bottom: 1px;
     }
   }
   > li {
