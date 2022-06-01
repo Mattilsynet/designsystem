@@ -1,8 +1,8 @@
 <script lang="ts">
   export let headingLevel: 1 | 2 | 3 | 4 | 5 | 6 = 1
-  let className = ''
+  let className = undefined
   export {className as class}
-  let idPassed = ''
+  let idPassed = undefined
   export {idPassed as id}
 </script>
 
