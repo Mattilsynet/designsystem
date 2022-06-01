@@ -32,7 +32,7 @@ describe('Heading level', () => {
       class: 'class-name',
       headingLevel: 3
     }
-    const {} = render(HeadingLevel, componentOptions)
+    render(HeadingLevel, componentOptions)
     const h3 = document.querySelector('h3')
     expect(h3).toBeDefined()
     expect(h3.getAttribute('id')).toEqual('thisIsTheId')
