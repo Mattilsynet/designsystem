@@ -14,7 +14,9 @@ describe('Related links list', () => {
         hasChildren: true,
         children: [
           {title: 'Child item 1.1', url: '/menu/child1_1', hasChildren: false, children: []},
-          {title: 'Child item 1.2', url: '/menu/child1_2', hasChildren: false, children: []}
+          {title: 'Child item 1.2', url: '/menu/child1_2', hasChildren: false, children: []},
+          {title: 'Child item 1.3', url: '/menu/child3', hasChildren: false, children: []},
+          {title: 'Child item 1.4', url: '/menu/child4', hasChildren: false, children: []}
         ]
       },
       {
@@ -77,16 +79,30 @@ describe('Related links list', () => {
   }
 
   test('Renders', () => {
-    const {getAllByText} = render(MenuItems, componentOptions)
+    const {getAllByText, getByText} = render(MenuItems, componentOptions)
     const allByText = getAllByText('Menu item 1')
     expect(allByText.length).toEqual(2)
     expect(allByText[0].tagName).toEqual('BUTTON')
     expect(allByText[1].tagName).toEqual('A')
+    componentOptions.itemsLeft[0].children.forEach(child => {
+      expect(getByText(child.title)).toBeInTheDocument()
+    })
 
     const allByText1 = getAllByText('Menu item 2')
     expect(allByText1[0].tagName).toEqual('BUTTON')
     expect(allByText1[1].tagName).toEqual('A')
     expect(allByText1.length).toEqual(2)
+    componentOptions.itemsLeft[1].children.forEach(child => {
+      expect(getByText(child.title)).toBeInTheDocument()
+    })
+
+    const menu3 = getAllByText('Menu item 3')
+    expect(menu3[0].tagName).toEqual('BUTTON')
+    expect(menu3[1].tagName).toEqual('A')
+    expect(menu3.length).toEqual(2)
+    componentOptions.itemsLeft[2].children.forEach(child => {
+      expect(getByText(child.title)).toBeInTheDocument()
+    })
   })
 
   test('Adds rel="external" if url is external', () => {

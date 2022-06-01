@@ -31,13 +31,16 @@
           headerClass="p-tb-xxs"
           {loadJs}
           icon={item.iconResource}>
-          <a
-            href={item.url}
-            rel={mapRelExternal(item.url)}
-            class="forward-arrow-small on-primary no-underline hover-indent {item.isActive
-              ? 'is-active'
-              : ''}">{item.title}</a>
-          <ol class="sub-menu {item.children.length > splitColLimit ? 'split-long' : ''}">
+          <ol class="sub-menu">
+            <li class="menu-level-2">
+              <a
+                href={item.url}
+                rel={mapRelExternal(item.url)}
+                class="forward-arrow-small on-primary no-underline hover-indent {item.isActive
+                  ? 'is-active'
+                  : ''}"
+                aria-current={item.isActive ? 'page' : false}>{item.title}</a>
+            </li>
             {#each item.children || [] as child}
               <li>
                 <a
@@ -45,7 +48,8 @@
                   rel={mapRelExternal(child.url)}
                   class="forward-arrow-small no-underline hover-indent on-primary {child.isActive
                     ? 'is-active'
-                    : ''}">
+                    : ''}"
+                  aria-current={item.isActive ? 'page' : false}>
                   {child.title}
                 </a>
               </li>
@@ -60,7 +64,8 @@
           rel={mapRelExternal(item.url)}
           class="disclosure-header no-underline hover-indent layout-flex layout-flex--center-vertical layout-full-width on-primary p-tb-xxs border-radius-0 {item.isActive
             ? 'is-active'
-            : ''} "
+            : ''}"
+          aria-current={item.isActive ? 'page' : false}
           style="gap: var(--spacer-xx-small)">
           {#if item.iconResource}
             {@html item.iconResource}
@@ -80,7 +85,8 @@
           rel={mapRelExternal(right.url)}
           class="no-underline hover-indent layout-flex layout-flex--space-between layout-flex--center-vertical layout-full-width on-primary p-tb-xxs p-r-xxs forward-arrow-end border-radius-0 {right.isActive
             ? 'is-active'
-            : ''}">
+            : ''}"
+          aria-current={right.isActive ? 'page' : false}>
           {right.title}
         </a>
       </li>
@@ -97,6 +103,7 @@
           class="layout-flex layout-flex--center-vertical on-primary {bottom.isActive
             ? 'is-active'
             : ''}"
+          aria-current={bottom.isActive ? 'page' : false}
           style="gap: var(--spacer-xx-small)">
           {#if bottom.iconResource}
             {@html bottom.iconResource}
