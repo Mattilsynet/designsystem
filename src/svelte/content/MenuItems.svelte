@@ -17,6 +17,10 @@
   export let splitColLimit = 5
   export let titleId
   export let loadJs = true
+
+  function addRelExternal(url: string): 'external' | undefined {
+    return url?.startsWith('http') ? 'external' : undefined
+  }
 </script>
 
 <ol class="menu border col-1-span-8" aria-labelledby={titleId}>
@@ -32,6 +36,7 @@
           icon={item.iconResource}>
           <a
             href={item.url}
+            rel={addRelExternal(item.url)}
             class="forward-arrow-small on-primary no-underline hover-indent {item.isActive
               ? 'is-active'
               : ''}">{item.title}</a>
@@ -40,6 +45,7 @@
               <li>
                 <a
                   href={child.url}
+                  rel={addRelExternal(child.url)}
                   class="forward-arrow-small no-underline hover-indent on-primary {child.isActive
                     ? 'is-active'
                     : ''}">
@@ -54,6 +60,7 @@
       <li class="disclosure disclosure-no-border">
         <a
           href={item.url}
+          rel={addRelExternal(item.url)}
           class="disclosure-header no-underline hover-indent layout-flex layout-flex--center-vertical layout-full-width on-primary p-tb-xxs border-radius-0 {item.isActive
             ? 'is-active'
             : ''} "
@@ -73,6 +80,7 @@
       <li>
         <a
           href={right.url}
+          rel={addRelExternal(right.url)}
           class="no-underline hover-indent layout-flex layout-flex--space-between layout-flex--center-vertical layout-full-width on-primary p-tb-xxs p-r-xxs forward-arrow-end border-radius-0 {right.isActive
             ? 'is-active'
             : ''}">
@@ -88,6 +96,7 @@
       <li class="m-t-0">
         <a
           href={bottom.url}
+          rel={addRelExternal(bottom.url)}
           class="layout-flex layout-flex--center-vertical on-primary {bottom.isActive
             ? 'is-active'
             : ''}"
