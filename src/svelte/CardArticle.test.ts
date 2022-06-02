@@ -3,7 +3,7 @@
  */
 
 import {render} from '@testing-library/svelte'
-import CardArticle from './CardArticle.svelte'
+import CardArticle, {linkText, linkUrl} from './CardArticle.svelte'
 
 describe('Card Article', () => {
   const componentOptions = {
@@ -15,8 +15,8 @@ describe('Card Article', () => {
              <li>at noen setter opp nye piggtrådgjerder</li>
              <li>eldre piggtrådgjerder som utgjør en risiko for at dyr blir skadet</li>
            </ul>`,
-    formLinkUrl: 'http://',
-    formLinkText: 'Lenke til skjema',
+    linkUrl: 'http://',
+    linkText: 'Lenke til skjema',
     disableCss: false,
     headerTag: undefined
   }
@@ -47,5 +47,20 @@ describe('Card Article', () => {
     expect(getByText('Varsle om piggtrådgjerder')).toBeInTheDocument()
     const headerElement = getByText('Varsle om piggtrådgjerder')
     expect(headerElement.tagName).toEqual('H4')
+  })
+
+  test('Link - external link has rel="external"', () => {
+    const {getByText} = render(CardArticle, {props: componentOptions})
+    const link = getByText('Lenke til skjema')
+    expect(link).toBeInTheDocument()
+    expect(link.getAttribute('rel')).toEqual('external')
+  })
+
+  test('Link - relative link does not have rel="external"', () => {
+    componentOptions.linkUrl = '/varsle'
+    const {getByText} = render(CardArticle, {props: componentOptions})
+    const link = getByText('Lenke til skjema')
+    expect(link).toBeInTheDocument()
+    expect(link.getAttribute('rel')).toEqual(null)
   })
 })

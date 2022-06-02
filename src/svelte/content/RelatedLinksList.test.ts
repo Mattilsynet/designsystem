@@ -17,7 +17,10 @@ describe('Related links list', () => {
       },
       {
         title: 'Overskrift 2',
-        links: [{url: 'https://www.mattilsynet.no', text: 'Test link'}]
+        links: [
+          {url: 'https://www.mattilsynet.no', text: 'Test link 1'},
+          {url: '/varsle', text: 'Test link 2'}
+        ]
       }
     ]
   }
@@ -29,7 +32,7 @@ describe('Related links list', () => {
     expect(getByText('Overskrift 2')).toBeInTheDocument()
     expect(getByText('mattilsynet.no')).toBeInTheDocument()
     expect(getByText('Annen link')).toBeInTheDocument()
-    expect(getByText('Test link')).toBeInTheDocument()
+    expect(getByText('Test link 1')).toBeInTheDocument()
     const leftCol = getByTestId('left-col')
     expect(leftCol.children[0].innerHTML).toEqual('Main heading')
     const rightCol = getByTestId('right-col')
@@ -59,5 +62,15 @@ describe('Related links list', () => {
     const {getByTestId} = render(RelatedLinksList, {})
     expect(getByTestId('left-col')).toBeInTheDocument()
     expect(getByTestId('right-col')).toBeInTheDocument()
+  })
+
+  test('Link attributes', () => {
+    const {getByText} = render(RelatedLinksList, componentOptions)
+    const externalLink = getByText('Test link 1')
+    expect(externalLink).toBeInTheDocument()
+    expect(externalLink.getAttribute('rel')).toEqual('external')
+    const relativeLink = getByText('Test link 2')
+    expect(relativeLink).toBeInTheDocument()
+    expect(relativeLink.getAttribute('rel')).toEqual(null)
   })
 })

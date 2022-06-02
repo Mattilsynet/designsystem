@@ -99,6 +99,6 @@ export function getFileExtension(fileName?: string): string | null {
   return lastDotIndex !== -1 ? fileName.substring(lastDotIndex + 1).toUpperCase() : null
 }
 
-export function mapRelExternal(url: string): 'external' | undefined {
+export function mapRelExternal(url?: string): 'external' | undefined {
   return url?.startsWith('http') ? 'external' : undefined
 }

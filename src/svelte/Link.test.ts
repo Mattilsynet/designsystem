@@ -28,6 +28,17 @@ describe('Link', () => {
     const linkPDF = getByText(/(PDF)/i)
     expect(linkPDF).toBeInTheDocument()
     expect(link.getAttribute('href')).toEqual('https://www.mattilsynet.no')
+    expect(link.getAttribute('rel')).toEqual('external')
     expect(link.classList).toContain('document')
+  })
+
+  test('Render relative link', () => {
+    const {getByText} = render(Link, {
+      ...componentOptions,
+      href: '/dyr/dyrehold'
+    })
+    const link = getByText(/This is the link text/i)
+    expect(link).toBeInTheDocument()
+    expect(link.getAttribute('rel')).toEqual(null)
   })
 })
