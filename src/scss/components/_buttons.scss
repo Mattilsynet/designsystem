@@ -122,7 +122,25 @@ $button-colors: 'error' !default;
     border: 0;
     color: var(--color);
   }
-
+  &--small {
+    padding: 0.25em 0.5em;
+    &:focus,
+    &:focus-visible {
+      box-shadow: var(--focus-box-shadow);
+    }
+  }
+  &--icon {
+    background: transparent;
+    color: var(--color-mt-blue);
+    &:hover {
+      border-color: var(--color-mt-blue);
+      background: transparent;
+    }
+    &:focus,
+    &:focus-visible {
+      box-shadow: var(--focus-box-shadow);
+    }
+  }
   &--link {
     border: 0 none;
     background: transparent;
@@ -193,6 +211,13 @@ $button-colors: 'error' !default;
       content: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNiIgaGVpZ2h0PSIxMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNLjIgMS40MyAzLjY2MSA1IC4yIDguNTdsMS4wNjYgMS4wOTdMNS44IDUgMS4yNjYuMzMzLjIgMS40M1oiIGZpbGw9IiM0NjQ1NDUiLz48L3N2Zz4=');
       display: inline-block;
       margin-right: var(--spacer-xxx-small);
+    }
+  }
+  &.closable {
+    &:after {
+      content: url('data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M12%202C6.47%202%202%206.47%202%2012s4.47%2010%2010%2010%2010-4.47%2010-10S17.53%202%2012%202Zm5%2013.59L15.59%2017%2012%2013.41%208.41%2017%207%2015.59%2010.59%2012%207%208.41%208.41%207%2012%2010.59%2015.59%207%2017%208.41%2013.41%2012%2017%2015.59Z%22%20fill%3D%22%23075B7A%22%2F%3E%3C%2Fsvg%3E');
+      display: inline-block;
+      height: 1.5rem;
     }
   }
 }
