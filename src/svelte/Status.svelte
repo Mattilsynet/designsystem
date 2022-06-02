@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {displayDataTime} from '../ts/utils'
+  import {displayDataTime, mapRelExternal} from '../ts/utils'
   import Published from './Published.svelte'
 
   export let text: string
@@ -9,7 +9,6 @@
   export let statusType: 'important' | 'none'
   export let linkUrl: string
   export let linkText: string
-  export let linkIsExternal: boolean
   let className: string
   export {className as class}
   export let lang = 'NO-nb'
@@ -30,7 +29,7 @@
     </div>
   {/if}
   {#if linkUrl}
-    <a href={linkUrl} rel={linkIsExternal ? 'external' : undefined}>{linkText}</a>
+    <a href={linkUrl} rel={mapRelExternal(linkUrl)}>{linkText}</a>
   {/if}
   {#if updatedDate && statusType === 'important'}
     <Published publishFrom={updatedDate} {publishedText} />

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {toKebabCase} from '../../ts/utils'
+  import {mapRelExternal, toKebabCase} from '../../ts/utils'
 
   export let title = ''
   export let linkGroups: Array<{title: string; links: Array<{url: string; text: string}>}> = []
@@ -20,7 +20,9 @@
         {#each group.links as link}
           {#if link.url && link.text}
             <li>
-              <a href={link.url} class="forward-arrow-end-link">{@html link.text}</a>
+              <a href={link.url} rel={mapRelExternal(link.url)} class="forward-arrow-end-link">
+                {@html link.text}
+              </a>
             </li>
           {/if}
         {/each}
