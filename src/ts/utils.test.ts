@@ -18,7 +18,7 @@ describe('getFileExtension', () => {
 
 describe('mapRelExternal', () => {
   test('Returns external when url is external', () => {
-    const res = mapRelExternal('http://www.mattilsynet.no')
+    const res = mapRelExternal('https://www.mattilsynet.no')
     expect(res).toEqual('external')
   })
   test('Returns undefined when url is relative', () => {
