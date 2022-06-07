@@ -1,45 +1,52 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf'
   import Tags from '../../src/svelte/Tags.svelte'
-  import {action} from '@storybook/addon-actions'
+  import {wrapInShadowDom} from '../utils'
 
-  const tagClickedAction = action('tagClicked')
+  let closableTags = [
+    {text: 'Sverige', ariaLabel: 'Fjern Sverige fra listen'},
+    {text: 'Norge', ariaLabel: 'Fjern Norge fra listen'},
+    {text: 'Finland', ariaLabel: 'Fjern Finland fra listen'}
+  ]
 
-  let tags = [{text: 'Sverige'}, {text: 'Norge'}, {text: 'Finland'}]
-  function handleTagClicked(e) {
-    tagClickedAction(e)
-    tags = tags.filter(t => {
-      return t.text !== e.detail.tag
-    })
-  }
   function reset() {
-    tags = [{text: 'Sverige'}, {text: 'Norge'}, {text: 'Finland'}]
+    closableTags = [
+      {text: 'Sverige', ariaLabel: 'Fjern Sverige fra listen'},
+      {text: 'Norge', ariaLabel: 'Fjern Norge fra listen'},
+      {text: 'Finland', ariaLabel: 'Fjern Finland fra listen'}
+    ]
   }
 </script>
 
 <Meta
   title="Components/Tags"
   args={{
-    disabled: false,
-    disableJs: false,
+    tags: [{text: 'Hund'}, {text: 'Katt'}, {text: 'Ilder'}],
+    isClosable: true,
     disableCss: false
   }}
   argTypes={{
-    disableJs: {control: 'boolean'},
+    tags: {control: 'array'},
+    isClosable: {control: 'boolean'},
     disableCss: {control: 'boolean'}
   }} />
 
-<Story name="Normal" let:disableCss>
+<Story name="Normal" let:args>
+  <div use:wrapInShadowDom={args.disableCss} />
   <h1>Tags</h1>
-  <div class="tags">
-    <Tags bind:tags on:tagClicked={handleTagClicked} />
+  <div class="tags-wrapper">
+    <Tags tags={args.tags} />
     <hr />
+    <h2>Lukkbare tags</h2>
+    <Tags bind:tags={closableTags} isClosable={args.isClosable} />
     <button class="button button--link" on:click={reset}>Gjenopprett tags</button>
   </div>
 </Story>
 
 <style lang="scss">
-  .tags {
+  .tags-wrapper,
+  h2,
+  button {
     margin-top: 2rem;
   }
 </style>
