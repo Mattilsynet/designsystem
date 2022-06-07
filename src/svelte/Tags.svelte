@@ -13,7 +13,6 @@
   {#each tags as tag, i}
     <li class={isClosable ? 'tag-list-item' : 'tag-list-item tag-text'}>
       {#if isClosable}
-        <span class="inclusively-hidden">{tag.text}</span>
         <button
           class="button button--icon button--small closable m-r-0 m-t-0"
           on:click={() => {
