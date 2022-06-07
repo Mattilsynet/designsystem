@@ -1,0 +1,32 @@
+@use '../theme' as *;
+
+.feedback-container {
+  &--left {
+    max-width: 878px;
+    margin: 0 auto;
+    position: relative !important;
+  }
+
+  .feedback-box {
+    background-color: grey;
+
+    @media only screen and (min-width: $breakpoint-large) {
+      background-color: goldenrod;
+      text-align: left;
+      max-width: 256px;
+      opacity: 1;
+      visibility: visible;
+      position: absolute;
+      top: 45vh;
+      right: -8vh;
+      z-index: 50;
+    }
+  }
+  @media only screen and (min-width: $breakpoint-large) {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+  }
+}
+
