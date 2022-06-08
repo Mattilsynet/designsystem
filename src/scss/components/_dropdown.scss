@@ -336,6 +336,18 @@
       }
     }
   }
+  .disclosure-no-border {
+    > .disclosure-header {
+      gap: var(--spacer-xxx-small);
+    }
+    .disclosure-panel {
+      margin: 0 var(--spacer-xxx-small);
+      padding: 0 var(--spacer-xxx-small);
+      @media only screen and (min-width: $breakpoint-large) {
+        margin: 0 var(--spacer-medium);
+      }
+    }
+  }
   @media only screen and (min-width: $breakpoint-large) {
     & + .border {
       > li:first-child {
