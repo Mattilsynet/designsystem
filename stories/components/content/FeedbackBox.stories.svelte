@@ -56,6 +56,10 @@
     ]
   }}
   argTypes={{
+    title: {control: 'text'},
+    intro: {control: 'text'},
+    text: {control: 'text'},
+    tableOfContents: {control: 'text'},
     label: {control: 'text'},
     helpText: {control: 'text'},
     errorMessage: {control: 'text'},
