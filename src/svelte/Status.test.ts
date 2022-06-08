@@ -12,7 +12,6 @@ describe('Status', () => {
     statusType: 'important',
     linkUrl: 'https://www.mattilsynet.no',
     linkText: 'Link text',
-    linkIsExternal: true,
     updatedDate: '2021-06-24T11:40:02.889Z',
     publishedText: 'Updated'
   }
@@ -48,6 +47,20 @@ describe('Status', () => {
     expect(statusType).toBeInTheDocument()
     expect(statusType.classList[0]).toEqual('none')
     expect(queryByTestId('published-date')).not.toBeInTheDocument()
+  })
+
+  test('Links in status - should have rel="external" when link starts with http', () => {
+    const {getByText} = render(Status, componentOptions)
+    const link = getByText('Link text')
+    expect(link).toBeInTheDocument()
+    expect(link.getAttribute('rel')).toEqual('external')
+  })
+
+  test('Links in status - should not have rel="external" when link is relative', () => {
+    const {getByText} = render(Status, {...componentOptions, linkUrl: '/varsel'})
+    const link = getByText('Link text')
+    expect(link).toBeInTheDocument()
+    expect(link.getAttribute('rel')).toEqual(null)
   })
 
   test('Renders without props', () => {

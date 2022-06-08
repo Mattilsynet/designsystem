@@ -1,5 +1,6 @@
 <script lang="ts">
   import HeadingLevel from './HeadingLevel.svelte'
+  import {mapRelExternal} from '../ts/utils'
 
   export let headingId: string
   export let title: string
@@ -32,7 +33,7 @@
   {/if}
 
   {#if linkUrl && linkText}
-    <a href={linkUrl} class="button button--primary self-start">
+    <a href={linkUrl} rel={mapRelExternal(linkUrl)} class="button button--primary self-start">
       {linkText}
     </a>
   {/if}

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {getFileExtension} from '../ts/utils'
+  import {getFileExtension, mapRelExternal} from '../ts/utils'
 
   export let linkText
   export let href
@@ -10,4 +10,4 @@
   $: fileType = getFileExtension(fileName) ? `(${getFileExtension(fileName)})` : ''
 </script>
 
-<a class={className} {href}>{@html linkText} {fileType}</a>
+<a class={className} rel={mapRelExternal(href)} {href}>{@html linkText} {fileType}</a>
