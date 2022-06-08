@@ -73,7 +73,7 @@
   {/each}
 </ol>
 {#if itemsRight}
-  <ol class="menu menu--right border col-10-span-3">
+  <ol class="menu border col-10-span-3">
     {#each itemsRight as right}
       <li>
         <a
