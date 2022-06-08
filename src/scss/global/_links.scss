@@ -38,7 +38,7 @@ a {
     }
   }
 
-  &.is-active {
+  &[aria-current='page'] {
     font-weight: $font-weight-bold;
   }
 
