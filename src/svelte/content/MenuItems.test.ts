@@ -14,7 +14,13 @@ describe('Related links list', () => {
         hasChildren: true,
         children: [
           {title: 'Child item 1.1', url: '/menu/child1_1', hasChildren: false, children: []},
-          {title: 'Child item 1.2', url: '/menu/child1_2', hasChildren: false, children: []},
+          {
+            title: 'Child item 1.2',
+            url: '/menu/child1_2',
+            isActive: true,
+            hasChildren: false,
+            children: []
+          },
           {title: 'Child item 1.3', url: '/menu/child3', hasChildren: false, children: []},
           {title: 'Child item 1.4', url: '/menu/child4', hasChildren: false, children: []}
         ]
@@ -103,6 +109,51 @@ describe('Related links list', () => {
     componentOptions.itemsLeft[2].children.forEach(child => {
       expect(getByText(child.title)).toBeInTheDocument()
     })
+  })
+
+  test('Link is active', () => {
+    const {rerender, getByText, getAllByText} = render(MenuItems, componentOptions)
+    const notActiveItem = getByText('Child item 1.1')
+    expect(notActiveItem).toBeInTheDocument()
+    expect(notActiveItem.getAttribute('aria-current')).toEqual('false')
+
+    const activeItem = getByText('Child item 1.2')
+    expect(activeItem).toBeInTheDocument()
+    expect(activeItem.getAttribute('aria-current')).toEqual('page')
+
+    componentOptions.itemsLeft[0].isActive = true
+    componentOptions.itemsLeft[0].children[1].isActive = false
+
+    rerender(componentOptions)
+
+    const notActiveAnymore = getByText('Child item 1.2')
+    expect(notActiveAnymore).toBeInTheDocument()
+    expect(notActiveAnymore.getAttribute('aria-current')).toEqual('false')
+
+    const activeMenu1 = getAllByText('Menu item 1')
+    expect(activeMenu1[1].getAttribute('aria-current')).toEqual('page')
+
+    componentOptions.itemsLeft[0].isActive = false
+    componentOptions.itemsRight[1].isActive = true
+
+    rerender(componentOptions)
+
+    const notActiveMenu1 = getAllByText('Menu item 1')
+    expect(notActiveMenu1[1].getAttribute('aria-current')).toEqual('false')
+
+    const activeMenuRight2 = getByText('Right Menu item 2')
+    expect(activeMenuRight2.getAttribute('aria-current')).toEqual('page')
+
+    componentOptions.itemsRight[1].isActive = false
+    componentOptions.itemsBottom[0].isActive = true
+
+    rerender(componentOptions)
+
+    const notActiveMenuRight2 = getByText('Right Menu item 2')
+    expect(notActiveMenuRight2.getAttribute('aria-current')).toEqual('false')
+
+    const activeMenuBotom1 = getByText('Bottom Menu item 1')
+    expect(activeMenuBotom1.getAttribute('aria-current')).toEqual('page')
   })
 
   test('Adds rel="external" if url is external', () => {

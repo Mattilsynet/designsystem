@@ -36,20 +36,18 @@
               <a
                 href={item.url}
                 rel={mapRelExternal(item.url)}
-                class="forward-arrow-small on-primary no-underline hover-indent {item.isActive
-                  ? 'is-active'
-                  : ''}"
-                aria-current={item.isActive ? 'page' : false}>{item.title}</a>
+                class="forward-arrow-small on-primary no-underline hover-indent"
+                aria-current={item.isActive ? 'page' : false}>
+                {item.title}
+              </a>
             </li>
             {#each item.children || [] as child}
               <li>
                 <a
                   href={child.url}
                   rel={mapRelExternal(child.url)}
-                  class="forward-arrow-small no-underline hover-indent on-primary {child.isActive
-                    ? 'is-active'
-                    : ''}"
-                  aria-current={item.isActive ? 'page' : false}>
+                  class="forward-arrow-small no-underline hover-indent on-primary"
+                  aria-current={child.isActive ? 'page' : false}>
                   {child.title}
                 </a>
               </li>
@@ -62,9 +60,7 @@
         <a
           href={item.url}
           rel={mapRelExternal(item.url)}
-          class="disclosure-header no-underline hover-indent layout-flex layout-flex--center-vertical layout-full-width on-primary p-tb-xxs border-radius-0 {item.isActive
-            ? 'is-active'
-            : ''}"
+          class="disclosure-header no-underline hover-indent layout-flex layout-flex--center-vertical layout-full-width on-primary p-tb-xxs border-radius-0"
           aria-current={item.isActive ? 'page' : false}
           style="gap: var(--spacer-xx-small)">
           {#if item.iconResource}
@@ -83,9 +79,7 @@
         <a
           href={right.url}
           rel={mapRelExternal(right.url)}
-          class="no-underline hover-indent layout-flex layout-flex--space-between layout-flex--center-vertical layout-full-width on-primary p-tb-xxs p-r-xxs forward-arrow-end border-radius-0 {right.isActive
-            ? 'is-active'
-            : ''}"
+          class="no-underline hover-indent layout-flex layout-flex--space-between layout-flex--center-vertical layout-full-width on-primary p-tb-xxs p-r-xxs forward-arrow-end border-radius-0"
           aria-current={right.isActive ? 'page' : false}>
           {right.title}
         </a>
@@ -100,9 +94,7 @@
         <a
           href={bottom.url}
           rel={mapRelExternal(bottom.url)}
-          class="layout-flex layout-flex--center-vertical on-primary {bottom.isActive
-            ? 'is-active'
-            : ''}"
+          class="layout-flex layout-flex--center-vertical on-primary"
           aria-current={bottom.isActive ? 'page' : false}
           style="gap: var(--spacer-xx-small)">
           {#if bottom.iconResource}
