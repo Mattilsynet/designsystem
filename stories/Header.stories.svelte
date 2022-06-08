@@ -57,7 +57,8 @@
           iconResource: drinkIcon,
           children: [
             {title: 'Produksjon av mat', url: 'https://www.mattilsynet.no/mat_produksjon'},
-            {title: 'Matservering', url: '/mat/servering'}
+            {title: 'Matservering', url: '/mat/servering'},
+            {title: 'Lokalmat', url: '/mat/lokalmat'}
           ]
         },
         {

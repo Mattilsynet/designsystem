@@ -341,3 +341,10 @@
     }
   }
 }
+.split-long {
+  display: grid;
+  row-gap: var(--spacer-xx-small);
+  @media only screen and (min-width: $breakpoint-large) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
