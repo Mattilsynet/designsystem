@@ -286,6 +286,9 @@
       }
     }
   }
+  @media only screen and (min-width: $breakpoint-large) {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 .menu {
   > li {
@@ -339,12 +342,5 @@
         border-top: $border-width-small solid var(--color-mt-lighter-light-blue);
       }
     }
-  }
-}
-.split-long {
-  display: grid;
-  row-gap: var(--spacer-xx-small);
-  @media only screen and (min-width: $breakpoint-large) {
-    grid-template-columns: 1fr 1fr;
   }
 }

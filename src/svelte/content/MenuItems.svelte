@@ -30,6 +30,7 @@
           headerClass="p-tb-xxs"
           {loadJs}
           icon={item.iconResource}>
+<<<<<<< HEAD
           <ol class="sub-menu">
             <li class="menu-level-2">
               <a
@@ -40,6 +41,15 @@
                 {item.title}
               </a>
             </li>
+=======
+          <a
+            href={item.url}
+            rel={mapRelExternal(item.url)}
+            class="forward-arrow-small on-primary no-underline hover-indent {item.isActive
+              ? 'is-active'
+              : ''}">{item.title}</a>
+          <ol class="sub-menu">
+>>>>>>> ac074cb (Refac not needed class)
             {#each item.children || [] as child}
               <li>
                 <a
