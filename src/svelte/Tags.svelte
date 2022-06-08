@@ -3,8 +3,8 @@
   export let isClosable = false
 
   function handleClick(index: number) {
-    tags = tags.filter((tag, ind) => {
-      return ind !== index
+    tags = tags.filter((tag, tagIndex) => {
+      return tagIndex !== index
     })
   }
 </script>
