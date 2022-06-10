@@ -26,6 +26,7 @@
   --border-width-small: #{$border-width-small};
   --border-width-regular: #{$border-width-regular};
   --z-index-dropdown: #{$zindex-dropdown};
+  --z-index-feedback: #{$zindex-tooltip};
 
   @media only screen and (min-width: $breakpoint-large) {
     --icon-size-normal: #{$icon-size-large};
