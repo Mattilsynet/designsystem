@@ -23,7 +23,7 @@
     <DialogBox {closeable}>Dette er en dialogboks!</DialogBox>
   </div>
   <hr />
-  <h2>Enkelt</h2>
+  <h2>Enkel</h2>
   <div class="tags-wrapper">
     <DialogBox {closeable}>
       {#if content}
