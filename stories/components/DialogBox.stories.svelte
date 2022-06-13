@@ -2,30 +2,30 @@
   import {Meta, Story} from '@storybook/addon-svelte-csf'
   import DialogBox from '../../src/svelte/DialogBox.svelte'
   import ButtonSpinner from '../../src/svelte/ButtonSpinner.svelte'
+
+  let dialogBoxClosed = false
 </script>
 
 <Meta
   title="Components/DialogBox"
   args={{
-    closeable: true,
     content: `<h2>Du bør varsle</h2>
                <p>At noen setter opp nye piggtrådgjerder</p>
                <p>Eldre piggtrådgjerder som utgjør en risiko for at dyr blir skadet</p>`,
     contentQuestion: `<p><b>Fant du det du lette etter?</b></p>`
   }}
-  argTypes={{
-    closeable: {control: 'boolean'}
-  }} />
+  argTypes={{}} />
 
-<Story name="Normal" let:closeable let:content let:contentQuestion>
+<Story name="Normal" let:content let:contentQuestion>
   <h2>Default</h2>
   <div class="tags-wrapper">
-    <DialogBox {closeable}>Dette er en dialogboks!</DialogBox>
+    <DialogBox {dialogBoxClosed}>Dette er en dialogboks!</DialogBox>
   </div>
+
   <hr />
   <h2>Enkel</h2>
   <div class="tags-wrapper">
-    <DialogBox {closeable}>
+    <DialogBox {dialogBoxClosed}>
       {#if content}
         {@html content}
       {/if}
@@ -34,7 +34,7 @@
   <hr />
   <h2>Avansert</h2>
   <div class="tags-wrapper">
-    <DialogBox>
+    <DialogBox {dialogBoxClosed}>
       {#if contentQuestion}
         {@html contentQuestion}
       {/if}
