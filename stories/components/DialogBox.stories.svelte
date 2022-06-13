@@ -61,5 +61,6 @@
   h2,
   button {
     margin: 2rem;
+    max-width: 350px;
   }
 </style>
