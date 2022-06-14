@@ -286,6 +286,9 @@
       }
     }
   }
+  @media only screen and (min-width: $breakpoint-large) {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 .menu {
   > li {

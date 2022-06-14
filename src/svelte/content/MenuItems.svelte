@@ -15,7 +15,6 @@
   export let itemsLeft: Array<MenuItem> = []
   export let itemsRight: Array<MenuItem> = []
   export let itemsBottom: Array<MenuItem> = []
-  export let splitColLimit = 5
   export let titleId
   export let loadJs = true
 </script>
