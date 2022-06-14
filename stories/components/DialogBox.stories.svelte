@@ -39,7 +39,7 @@
       {#if contentQuestion}
         {@html contentQuestion}
       {/if}
-      <div style="margin-top:20px;">
+      <div class="layout-flex" style="margin-top: 20px;">
         <ButtonSpinner
           formInProgressAriaLabel="Sender inn skjema, venter på svar."
           btnClassNames="button--secondary"
@@ -62,6 +62,6 @@
   h2,
   button {
     margin: 2rem;
-    max-width: 350px;
+    max-width: 400px;
   }
 </style>
