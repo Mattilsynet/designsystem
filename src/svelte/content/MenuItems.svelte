@@ -20,7 +20,7 @@
   export let loadJs = true
 </script>
 
-<ol class="menu border col-1-span-8" aria-labelledby={titleId}>
+<ol class="menu menu--icon border col-1-span-8" aria-labelledby={titleId}>
   {#each itemsLeft as item}
     {#if item.children && item.children.length > 0}
       <li>
@@ -88,7 +88,7 @@
   </ol>
 {/if}
 {#if itemsBottom}
-  <ol class="col-1-span-8 menu-row m-t-m p-lr-0">
+  <ol class="col-1-span-8 menu-row m-t-s p-lr-0">
     {#each itemsBottom as bottom}
       <li class="m-t-0">
         <a
@@ -96,7 +96,7 @@
           rel={mapRelExternal(bottom.url)}
           class="layout-flex layout-flex--center-vertical on-primary"
           aria-current={bottom.isActive ? 'page' : false}
-          style="gap: var(--spacer-xx-small)">
+          style="gap: var(--spacer-xxx-small)">
           {#if bottom.iconResource}
             {@html bottom.iconResource}
           {/if}
