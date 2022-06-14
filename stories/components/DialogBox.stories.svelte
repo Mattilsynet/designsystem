@@ -4,6 +4,7 @@
   import ButtonSpinner from '../../src/svelte/ButtonSpinner.svelte'
 
   let dialogBoxClosed = false
+  let closeBtnLabel = 'Lukk dialogboks'
 </script>
 
 <Meta
@@ -19,13 +20,13 @@
 <Story name="Normal" let:content let:contentQuestion>
   <h2>Default</h2>
   <div class="tags-wrapper">
-    <DialogBox {dialogBoxClosed}>Dette er en dialogboks!</DialogBox>
+    <DialogBox {dialogBoxClosed} {closeBtnLabel}>Dette er en dialogboks!</DialogBox>
   </div>
 
   <hr />
   <h2>Enkel</h2>
   <div class="tags-wrapper">
-    <DialogBox {dialogBoxClosed}>
+    <DialogBox {dialogBoxClosed} {closeBtnLabel}>
       {#if content}
         {@html content}
       {/if}
@@ -34,7 +35,7 @@
   <hr />
   <h2>Avansert</h2>
   <div class="tags-wrapper">
-    <DialogBox {dialogBoxClosed}>
+    <DialogBox {dialogBoxClosed} {closeBtnLabel}>
       {#if contentQuestion}
         {@html contentQuestion}
       {/if}
