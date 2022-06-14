@@ -9,7 +9,11 @@
 
 <div class={dialogBoxClosed ? 'dialog-box--closed' : 'dialog-box'} data-testid="dialog-box">
   <div class="dialog-box--actions">
-    <button class="button button--link" on:click={handleClose} aria-label={closeBtnLabel} />
+    <button
+      data-testid="dialog-box-close"
+      class="button button--link"
+      on:click={handleClose}
+      aria-label={closeBtnLabel} />
   </div>
   <div class="dialog-box--content">
     <slot />
