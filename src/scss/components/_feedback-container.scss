@@ -1,0 +1,37 @@
+@use '../theme' as *;
+
+.feedback-container {
+  --width-outside-content: 100px;
+  --feedback-from-top: 45vh;
+  --feedback-box-width: 256px;
+
+  &--left {
+    max-width: calc($breakpoint-large + var(--width-outside-content));
+    margin: 0 auto;
+    position: relative !important;
+  }
+  .feedback-box {
+    background-color: grey;
+  }
+}
+
+@media only screen and (min-width: $breakpoint-large) {
+  .feedback-container {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    .feedback-box {
+        max-width: var(--feedback-box-width);
+        top: var(--feedback-from-top);
+        right: -8vh;
+        background-color: goldenrod;
+        text-align: left;
+        opacity: 1;
+        visibility: visible;
+        position: absolute;
+        z-index: var(--z-index-feedback);
+    }
+  }
+}
