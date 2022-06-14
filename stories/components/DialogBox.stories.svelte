@@ -8,7 +8,7 @@
 </script>
 
 <Meta
-  title="Components/DialogBox"
+  title="Components/Dialogboks"
   args={{
     content: `<h2>Du bør varsle</h2>
                <p>At noen setter opp nye piggtrådgjerder</p>
