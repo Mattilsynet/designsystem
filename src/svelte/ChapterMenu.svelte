@@ -5,7 +5,7 @@
   export let chapters: Array<Chapter>
   export let currentChapterNumber = 0
   export let menuTitle: string
-  export let showChapterNumbers: boolean = false
+  export let showChapterNumbers = false
 
   const dispatch = createEventDispatcher<{chapterChange: ChapterChangeDetails}>()
 </script>
