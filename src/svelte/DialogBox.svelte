@@ -1,6 +1,6 @@
 <script lang="ts">
   export let dialogBoxClosed: boolean = false
-  export let closeBtnLabel: string = ''
+  export let closeBtnLabel: string = 'Lukk'
 
   function handleClose() {
     dialogBoxClosed = true
