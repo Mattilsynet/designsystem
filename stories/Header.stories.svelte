@@ -28,8 +28,8 @@
   parameters={{layout: 'fullscreen'}}
   args={{
     items: [
-      {title: 'Vis siden på norsk', url: 'http://'},
-      {title: 'Show page this page in English', url: 'http://'}
+      {title: 'Vis siden på norsk', url: '#'},
+      {title: 'Show page this page in English', url: '#'}
     ],
     language: {},
     menu: {
@@ -37,18 +37,18 @@
       items: [
         {
           title: 'Dyr',
-          url: '/dyr',
+          url: '#',
           iconResource: animalIcon,
           children: [
-            {title: 'Dyresykdommer', url: '/dyr/dyresykdommer'},
-            {title: 'Produksjonsdyr', url: '/dyr/produksjonsdyr', isActive: true},
-            {title: 'Reise med kjæeledyr', url: '/dyr/reise'},
-            {title: 'Dyresykdommer', url: '/dyr/dyresykdommer'},
-            {title: 'Produksjonsdyr', url: '/dyr/produksjonsdyr'},
-            {title: 'Reise med kjæeledyr', url: '/dyr/reise'},
-            {title: 'Dyresykdommer', url: '/dyr/dyresykdommer'},
-            {title: 'Produksjonsdyr', url: '/dyr/produksjonsdyr'},
-            {title: 'Reise med kjæeledyr', url: '/dyr/reise'}
+            {title: 'Dyresykdommer', url: '#'},
+            {title: 'Produksjonsdyr', url: '#', isActive: true},
+            {title: 'Reise med kjæeledyr', url: '#'},
+            {title: 'Dyresykdommer', url: '#'},
+            {title: 'Produksjonsdyr', url: '#'},
+            {title: 'Reise med kjæeledyr', url: '#'},
+            {title: 'Dyresykdommer', url: '#'},
+            {title: 'Produksjonsdyr', url: '#'},
+            {title: 'Reise med kjæeledyr', url: '#'}
           ]
         },
         {
@@ -57,65 +57,65 @@
           iconResource: drinkIcon,
           children: [
             {title: 'Produksjon av mat', url: 'https://www.mattilsynet.no/mat_produksjon'},
-            {title: 'Matservering', url: '/mat/servering'},
-            {title: 'Lokalmat', url: '/mat/lokalmat'}
+            {title: 'Matservering', url: '#'},
+            {title: 'Lokalmat', url: '#'}
           ]
         },
         {
           title: 'Fisk og akvakultur',
-          url: '/fisk',
+          url: '#',
           iconResource: fishIcon,
-          children: [{title: 'Fiskesykdommer', url: '/fisk/fiskesykdommer'}]
+          children: [{title: 'Fiskesykdommer', url: '#'}]
         },
-        {title: 'Planter og dyrking', url: '/planter', iconResource: animalIcon, children: []},
+        {title: 'Planter og dyrking', url: '#', iconResource: animalIcon, children: []},
         {
           title: 'Drikkevannforskrift',
-          url: '/drikkevann',
+          url: '#',
           iconResource: drinkIcon,
-          children: [{title: 'Drikke', url: '/drikkevann/drikke'}]
+          children: [{title: 'Drikke', url: '#'}]
         },
         {title: 'Kosmetikk', url: '/kosmetikk', iconResource: drinkIcon, children: []}
       ],
       itemsRight: [
         {
           title: 'Om mattilsynet',
-          url: '/om-oss'
+          url: '#'
         },
         {
           title: 'Skjemaer',
-          url: '/skjemaer'
+          url: '#'
         }
       ],
       itemsBottom: [
         {
           title: 'Skjemaer',
-          url: '/skjemaer',
+          url: '#',
           iconResource: rightIcon
         },
         {
           title: 'Varsle oss/bekymringsmelding',
-          url: '/varsle',
+          url: '#',
           iconResource: rightIcon
         },
         {
           title: 'Rapporter',
-          url: '/reports'
+          url: '#'
         },
         {
           title: 'Veiledere',
-          url: '/guides'
+          url: '#'
         },
         {
           title: 'Varsle oss/bekymringsmelding',
-          url: '/varsle'
+          url: '#'
         },
         {
           title: 'Rapporter',
-          url: '/reports'
+          url: '#'
         },
         {
           title: 'Veiledere',
-          url: '/guides'
+          url: '#'
         }
       ]
     },
