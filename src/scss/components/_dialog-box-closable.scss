@@ -6,7 +6,7 @@
   background-color: $color-mt-lighter-light-blue;
   width: 100%;
   height: auto;
-  border: $border-width-regular solid $color-primary;
+  border: var(--border-width-regular) solid $color-primary;
   position: relative;
 
   &--closed{
