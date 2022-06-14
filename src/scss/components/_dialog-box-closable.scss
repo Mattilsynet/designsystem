@@ -5,10 +5,8 @@
 .dialog-box {
   background-color: $color-mt-lighter-light-blue;
   width: 100%;
-  // max-width: 256px;
   height: auto;
   border: $border-width-regular solid $color-primary;
-
   &--closed{
     display: none;
     visibility: hidden;
@@ -44,5 +42,6 @@
 
   &--content{
     padding: $spacer-x-small;
+    padding-right: $spacer-small;
   }
 }
