@@ -8,13 +8,11 @@
 </script>
 
 <div class={dialogBoxClosed ? 'dialog-box--closed' : 'dialog-box'} data-testid="dialog-box">
-  <div class="dialog-box--actions">
-    <button
-      data-testid="dialog-box-close"
-      class="button button--link"
-      on:click={handleClose}
-      aria-label={closeBtnLabel} />
-  </div>
+  <button
+    data-testid="dialog-box-close"
+    class="button button--link dialog-box--button"
+    on:click={handleClose}
+    aria-label={closeBtnLabel} />
   <div class="dialog-box--content">
     <slot />
   </div>

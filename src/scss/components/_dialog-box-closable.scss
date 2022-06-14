@@ -7,41 +7,37 @@
   width: 100%;
   height: auto;
   border: $border-width-regular solid $color-primary;
+  position: relative;
+
   &--closed{
     display: none;
     visibility: hidden;
   }
 
-  &--actions{
-    position: relative;
-    background-color: green;
+  &--button {
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 0;
+    margin: var(--spacer-xx-small);
+    min-width: var(--spacer-x-medium);
+    min-height:var(--spacer-x-medium);
+    background-image: url('data:image/svg+xml,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20stroke%3D%22%23075B7A%22%20stroke-width%3D%222%22%20d%3D%22m.7071%201.5151%2016.8246%2016.8246M1.6722%2018.3398%2018.4968%201.5152%22%2F%3E%3C%2Fsvg%3E');
 
-    button {
-      background-image: url('data:image/svg+xml,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20stroke%3D%22%23075B7A%22%20stroke-width%3D%222%22%20d%3D%22m.7071%201.5151%2016.8246%2016.8246M1.6722%2018.3398%2018.4968%201.5152%22%2F%3E%3C%2Fsvg%3E');
-      background-position: center;
-      background-repeat: no-repeat;
-      min-width:$spacer-medium;
-      min-height:$spacer-medium;
-      position: absolute;
-      right: 0;
-      margin: $spacer-xxx-small;
-
-     &:hover,
-     &:active {
-      background-repeat: no-repeat;
-      background-position: center;
+    &:hover,
+    &:active {
       background-image: url('data:image/svg+xml, %3Csvg%20width%3D%2220%22%20height%3D%2220%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20stroke%3D%22%23FFFFFF%22%20stroke-width%3D%222%22%20d%3D%22m.7071%201.5151%2016.8246%2016.8246M1.6722%2018.3398%2018.4968%201.5152%22%2F%3E%3C%2Fsvg%3E');
-       background-color: $color-mt-brown;
-
-     }
-     &:focus {
-       box-shadow: var(--focus-box-shadow);
-     }
+      background-color: $color-mt-brown;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    &:focus {
+      box-shadow: var(--focus-box-shadow);
     }
   }
 
   &--content{
-    padding: $spacer-x-small;
-    padding-right: $spacer-small;
+    padding: var(--spacer-x-small);
+    padding-right: var(--spacer-medium)
   }
 }
