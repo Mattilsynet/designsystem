@@ -4,11 +4,11 @@
 
 .dialog-box {
   --min-clickable-width-height: 2.75rem; // 44px
-  
-  background-color: $color-mt-lighter-light-blue;
+
+  background-color: var(--color-mt-lighter-light-blue);
   width: 100%;
   height: auto;
-  border: var(--border-width-regular) solid $color-primary;
+  border: var(--border-width-regular) solid var(--color-primary);
   position: relative;
 
   &--closed{
