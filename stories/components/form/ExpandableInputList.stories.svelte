@@ -52,7 +52,7 @@
       ariaLabel: 'Fjern Portugal fra listen'
     }
   ]
-  let formId = 'whatCountriesHaveYouBeenTo'
+  let fieldSetId = 'whatCountriesHaveYouBeenTo'
   let expandableAriaLabel = ''
   let values = {}
 
@@ -72,7 +72,7 @@
       input => values[input.name] !== undefined && values[input.name] !== ''
     )
     if (!isValid) {
-      error = [{key: formId, message: 'Vennligs fyll inn antall dyr'}]
+      error = [{key: fieldSetId, message: 'Vennligs fyll inn antall dyr'}]
     } else {
       error = undefined
       inputList = inputList
@@ -83,7 +83,7 @@
 <Meta
   title="Components/Form/Utvidbar liste med inputs"
   args={{
-    fieldsetLabel: 'Hvilke dyr reiser du med?',
+    fieldSetLabel: 'Hvilke dyr reiser du med?',
     helpText: 'Legg til de dyrene du reiser med.',
     expandableAriaLabel: '{0}, viser {1} av {2}',
     isRequired: true,
@@ -104,14 +104,14 @@
     <form on:submit|preventDefault={handleSubmit}>
       <ExpandableInputList
         {inputList}
-        fieldsetLabel={args.fieldsetLabel}
+        {fieldSetId}
+        fieldSetLabel={args.fieldsetLabel}
+        fieldSetHelpText={args.helpText}
+        fieldSetError={error}
         expandableText={args.expandableText}
         collapsableText={args.collapsableText}
-        fieldSetHelpText={args.helpText}
         expandableAriaLabel={args.expandableAriaLabel}
         bind:values
-        {formId}
-        fieldSetError={error}
         loadJs={!args.disableJs} />
       <button type="submit" class="button button--primary">Gå videre</button>
     </form>

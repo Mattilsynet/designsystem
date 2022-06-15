@@ -14,15 +14,16 @@
   export let inputClass = ''
   export let inputList: Array<InputProps> = []
   export let numberOfInputOutside = 2
-  export let fieldsetLabel
+  export let fieldSetId // use to relate error to fieldset
+  export let fieldSetLabel
   export let fieldSetErrorHeading = 'Feil oppstod'
   export let fieldSetError: Array<ErrorDetail> | undefined = undefined
   export let fieldSetHelpText: string | undefined = undefined
   export let expandableAriaLabel: string = '' //'{0}, viser {1} av {2}'
   export let expandableText: string = ''
   export let collapsableText: string = ''
+  export let showOptionalText = false
   export let loadJs = true
-  export let formId // use to relate error to fieldset
 
   $: outsides = inputList.slice(0, numberOfInputOutside)
   $: insides = inputList.slice(numberOfInputOutside, inputList.length)
@@ -53,22 +54,22 @@
 </script>
 
 <fieldset
-  id={formId}
+  id={fieldSetId}
   aria-describedby={createInputAriaDescribedby(
-    fieldSetHelpText ? formId : undefined,
+    fieldSetHelpText ? fieldSetId : undefined,
     fieldSetError
   )}>
-  <legend class="form-legend">{fieldsetLabel}</legend>
+  <legend class="form-legend">{fieldSetLabel}</legend>
 
   {#if fieldSetHelpText}
-    <div id={`${formId}-hint`} class="hint">
+    <div id={`${fieldSetId}-hint`} class="hint">
       {@html fieldSetHelpText}
     </div>
   {/if}
 
   {#if fieldSetError}
     <div
-      id={`${formId}-error`}
+      id={`${fieldSetId}-error`}
       class=""
       role="alert"
       tabindex="-1"
@@ -99,7 +100,7 @@
         autocomplete={outside.autocomplete}
         error={outside.error}
         isHorizontal={true}
-        showOptionalText={false}
+        {showOptionalText}
         labelClass="text-body"
         inputClass="form-field--small form-field--small-width" />
     {/each}
@@ -139,7 +140,7 @@
                 autocomplete={inside.autocomplete}
                 error={inside.error}
                 isHorizontal={true}
-                showOptionalText={false}
+                {showOptionalText}
                 labelClass="text-body"
                 inputClass="form-field--small form-field--small-width" />
             {/each}
