@@ -130,7 +130,7 @@ describe('ExpandableInputList', () => {
   })
 
   test('Renders without JS', async () => {
-    const {getByText, getByLabelText, queryByText, queryByLabelText} = render(ExpandableInputList, {
+    const {getByText, getByLabelText, rerender} = render(ExpandableInputList, {
       ...componentOptions,
       loadJs: false
     })
@@ -138,21 +138,15 @@ describe('ExpandableInputList', () => {
     expect(getByText('Hvilke land har du vært i?')).toBeInTheDocument()
     const showMoreButton = getByText('Vis flere dyr')
     expect(showMoreButton).toBeInTheDocument()
-    expect(queryByText('Vis færre dyr')).not.toBeInTheDocument()
     expect(getByLabelText(/Hund/i)).toBeInTheDocument()
     expect(getByLabelText(/Katt/i)).toBeInTheDocument()
-    expect(getByLabelText(/viser 2 av 6/i)).toBeInTheDocument()
-    expect(queryByLabelText(/Ilder/i)).not.toBeInTheDocument()
-    expect(queryByLabelText(/Fugl/i)).not.toBeInTheDocument()
-    expect(queryByLabelText(/Kanin/i)).not.toBeInTheDocument()
-    expect(queryByLabelText(/Gnager/i)).not.toBeInTheDocument()
-    await fireEvent.click(showMoreButton)
-    expect(getByText('Vis færre dyr')).toBeInTheDocument()
-    expect(queryByText('Vis flere dyr')).not.toBeInTheDocument()
-    expect(getByLabelText(/viser 6 av 6/i)).toBeInTheDocument()
     expect(getByLabelText(/Ilder/i)).toBeInTheDocument()
     expect(getByLabelText(/Fugl/i)).toBeInTheDocument()
     expect(getByLabelText(/Kanin/i)).toBeInTheDocument()
     expect(getByLabelText(/Gnager/i)).toBeInTheDocument()
+
+    inputList[0].error = {key: 'dogs', message: 'Feil på hund input'}
+    rerender({...componentOptions, inputList: inputList})
+    expect(getByText('Feil på hund input')).toBeInTheDocument()
   })
 })
