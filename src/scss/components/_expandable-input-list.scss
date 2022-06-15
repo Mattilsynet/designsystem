@@ -1,0 +1,14 @@
+.collapsable-input-list {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: max-content;
+
+  .form-field + .form-label {
+    margin-top: 0;
+  }
+}
+
+.expand-wrapper {
+  display: flex;
+  flex-direction: column-reverse;
+}
