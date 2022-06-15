@@ -7,7 +7,10 @@
   }
 </script>
 
-<div class={dialogBoxClosed ? 'dialog-box--closed' : 'dialog-box'} data-testid="dialog-box">
+<div
+  class={dialogBoxClosed ? 'dialog-box--closed' : 'dialog-box'}
+  data-testid="dialog-box"
+  role="dialog">
   <button
     data-testid="dialog-box-close"
     class="button button--link dialog-box--button"
