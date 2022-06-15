@@ -86,10 +86,8 @@
     fieldSetLabel: 'Hvilke dyr reiser du med?',
     helpText: 'Legg til de dyrene du reiser med.',
     expandableAriaLabel: '{0}, viser {1} av {2}',
-    isRequired: true,
     expandableText: 'Vis flere',
     collapsableText: 'Vis færre',
-    disabled: false,
     disableJs: false,
     disableCss: false
   }}
@@ -105,7 +103,7 @@
       <ExpandableInputList
         {inputList}
         {fieldSetId}
-        fieldSetLabel={args.fieldsetLabel}
+        fieldSetLabel={args.fieldSetLabel}
         fieldSetHelpText={args.helpText}
         fieldSetError={error}
         expandableText={args.expandableText}
