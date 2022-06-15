@@ -10,7 +10,8 @@
 <div
   class={dialogBoxClosed ? 'dialog-box--closed' : 'dialog-box'}
   data-testid="dialog-box"
-  role="dialog">
+  role="dialog"
+  tabindex="0">
   <button
     data-testid="dialog-box-close"
     class="button button--link dialog-box--button"
