@@ -102,3 +102,14 @@ export function getFileExtension(fileName?: string): string | null {
 export function mapRelExternal(url?: string): 'external' | undefined {
   return url?.startsWith('http') ? 'external' : undefined
 }
+
+/*
+ * Params:
+ * string: eg. '{0}, {1} of {2}'
+ * replacer: eg. ['Test, '2', '4']
+ */
+export function interpolate(string: string, replacers: string[]): string {
+  return replacers.reduce((acc, curr, index) => {
+    return acc.replace(`{${index}}`, curr)
+  }, string)
+}

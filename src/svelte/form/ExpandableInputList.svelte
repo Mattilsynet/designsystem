@@ -4,9 +4,8 @@
 
 <script lang="ts">
   import {slide} from 'svelte/transition'
-  import InputError from './InputErrorMessage.svelte'
   import type {InputProps, ErrorDetail} from '../../ts/types'
-  import {createInputAriaDescribedby} from '../../ts/utils'
+  import {createInputAriaDescribedby, interpolate} from '../../ts/utils'
   import TextInput from './TextInput.svelte'
 
   export let values = {}
@@ -29,12 +28,6 @@
   $: insides = inputList.slice(numberOfInputOutside, inputList.length)
   let showMore = false
   const bodyId = `ui-expandable-list-${counter++}`
-
-  function interpolate(string: string, replacers: string[]) {
-    return replacers.reduce((acc, curr, index) => {
-      return acc.replace(`{${index}}`, curr)
-    }, string)
-  }
 
   function createAriaLabel(showMore: boolean) {
     if (showMore) {
