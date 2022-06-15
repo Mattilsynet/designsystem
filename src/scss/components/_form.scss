@@ -76,7 +76,7 @@ label.form-label {
   width: 100%;
   max-width: var(--form-field-width, 30ch);
   padding: 0.75em 0.5em;
-  border: 1px solid var(--border-color);
+  border: var(--border-width-small) solid var(--border-color);
   border-radius: var(--border-radius);
   background-color: #fff;
   color: inherit;
@@ -90,7 +90,7 @@ label.form-label {
     width: var(--small-input-width);
   }
   &--small {
-    padding: 12px;
+    padding: calc(2 * #{$spacer-xxx-small});
   }
 }
 
