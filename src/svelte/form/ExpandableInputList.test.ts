@@ -67,7 +67,7 @@ describe('ExpandableInputList', () => {
     loadJs: true
   }
   test('Renders', () => {
-    const {getByLabelText, queryByLabelText, getByText, queryByText, getAllByText} = render(
+    const {getByLabelText, queryByLabelText, getByText, queryByText} = render(
       ExpandableInputList,
       componentOptions
     )
