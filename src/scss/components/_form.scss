@@ -58,6 +58,9 @@ label.form-label {
   font-size: $font-size-label;
   font-weight: var(--font-weight-normal);
   line-height: 1;
+  &.small {
+    font-size: $font-size-body;
+  }
 }
 .form-field.error {
   &:focus-visible {
@@ -81,6 +84,13 @@ label.form-label {
 
   &:focus {
     border-color: var(--color-primary);
+  }
+  &--small-width {
+    --small-input-width: 3.75rem;
+    width: var(--small-input-width);
+  }
+  &--small {
+    padding: 12px;
   }
 }
 
@@ -260,5 +270,19 @@ label.form-label {
     li.error-summary__list--link {
       color: var(--color-primary);
     }
+  }
+}
+
+.input-horizontal {
+  display: grid;
+  column-gap: var(--spacer-xx-small);
+
+  grid-template-columns: auto 1fr;
+
+  .form-error {
+    grid-column: span 2;
+  }
+  input {
+    justify-self: end;
   }
 }
