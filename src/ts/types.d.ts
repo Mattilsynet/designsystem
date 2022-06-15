@@ -6,20 +6,20 @@ export interface ErrorDetail {
   /**
    * The key of a field that has failed. Typically corresponds to the `name` of an <input>-field.
    */
-  readonly key?: string;
+  readonly key?: string
   /**
    *  A message explaining what is wrong with the field with the key
    */
-  readonly message: string;
+  readonly message: string
 }
 
 export type Action<Node extends HTMLElement> = (
   node: Node,
   parameters: any
 ) => {
-  update?: (parameters: any) => void;
-  destroy?: () => void;
-} | void;
+  update?: (parameters: any) => void
+  destroy?: () => void
+} | void
 
 export interface Breadcrumbs {
   items: Array<{url: string; title: string}>
@@ -29,15 +29,34 @@ export interface Breadcrumbs {
 }
 
 export interface Chapter {
-  heading: string;
-  url: string;
-  index: number;
+  heading: string
+  url: string
+  index: number
 }
 
 export interface ChapterChangeDetails {
-  index: number;
+  index: number
 }
-export type InputModeType = 'text' | 'decimal' | 'numeric' | 'tel' | 'search' | 'email' | 'url';
+
+export interface InputProps {
+  label: string
+  name: string
+  value?: string | number | boolean | undefined
+  countCharactersLeftLabel?: string | undefined
+  error?: ErrorDetail | undefined
+  helpText?: string | undefined
+  textOptional?: string | undefined
+  hiddenErrorText?: string | undefined
+
+  isRequired?: boolean
+  maxlength?: number | undefined
+  placeholder?: string | undefined
+  inputmode?: InputModeType | undefined
+  autocomplete?: AutocompleteType | undefined
+  ariaLabel?: string | undefined
+}
+
+export type InputModeType = 'text' | 'decimal' | 'numeric' | 'tel' | 'search' | 'email' | 'url'
 export type AutocompleteType =
   | 'off'
   | 'on'
@@ -66,4 +85,4 @@ export type AutocompleteType =
   | 'bday-year'
   | 'sex'
   | 'tel'
-  | 'url';
+  | 'url'
