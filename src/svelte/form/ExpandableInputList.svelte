@@ -55,6 +55,7 @@
 
 <fieldset
   id={fieldSetId}
+  class="expandable-input-list"
   aria-describedby={createInputAriaDescribedby(
     fieldSetHelpText ? fieldSetId : undefined,
     fieldSetError
@@ -149,30 +150,25 @@
       </div>
     {:else}
       <details>
-        <summary>{@html expandableText}</summary>
-        <div class="collapsable-input-list-grid">
+        <summary>
+          {@html expandableText}
+        </summary>
+        <div class="collapsable-input-list-grid collapsable-input-list">
           {#each insides as inside}
-            <label class="form-label" for={inside.name}>
-              {inside.label}
-            </label>
-
-            <input
-              id={inside.name}
+            <TextInput
               name={inside.name}
-              class="form-field form-field--small {inside.inputClass}"
-              bind:value={inside.value}
-              class:error={inside.error}
-              aria-required={inside.isRequired || undefined}
-              aria-describedby={createInputAriaDescribedby(
-                inside.helpText ? inside.name : undefined,
-                inside.error,
-                inside.maxlength
-              )}
-              aria-invalid={!!inside.error}
-              maxlength={inside.maxlength}
+              label={inside.label}
+              bind:value={values[inside.name]}
+              helpText={inside.helpText}
               inputmode={inside.inputmode}
+              isRequired={inside.isRequired}
               placeholder={inside.placeholder}
-              autocomplete={inside.autocomplete} />
+              autocomplete={inside.autocomplete}
+              error={inside.error}
+              isHorizontal={true}
+              {showOptionalText}
+              labelClass="text-body"
+              inputClass="form-field--small form-field--small-width" />
           {/each}
         </div>
       </details>
