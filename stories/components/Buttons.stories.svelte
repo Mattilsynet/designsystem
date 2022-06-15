@@ -37,6 +37,14 @@
 
   <p class="description">Lenkeknapp</p>
   <button class="button button--link"> ... </button>
+
+  <p class="description">Med ikon</p>
+  <button class="button button--icon closable">Med ikon</button>
+
+  <p class="description">På blå</p>
+  <div class="background-mt-blue p-xxs">
+    <buttton type="button" class="button button--on-primary">{primary}</buttton>
+  </div>
 </Story>
 
 <Story name="FileUpload" parameters={{xstate: true}} let:disableJs let:uploadRequired>
