@@ -42,13 +42,13 @@
           children: [
             {title: 'Dyresykdommer', url: '#'},
             {title: 'Produksjonsdyr', url: '#', isActive: true},
-            {title: 'Reise med kjæeledyr', url: '#'},
+            {title: 'Reise med kjæledyr', url: '#'},
             {title: 'Dyresykdommer', url: '#'},
             {title: 'Produksjonsdyr', url: '#'},
-            {title: 'Reise med kjæeledyr', url: '#'},
+            {title: 'Reise med kjæledyr', url: '#'},
             {title: 'Dyresykdommer', url: '#'},
             {title: 'Produksjonsdyr', url: '#'},
-            {title: 'Reise med kjæeledyr', url: '#'}
+            {title: 'Reise med kjæledyr', url: '#'}
           ]
         },
         {
@@ -68,13 +68,8 @@
           children: [{title: 'Fiskesykdommer', url: '#'}]
         },
         {title: 'Planter og dyrking', url: '#', iconResource: animalIcon, children: []},
-        {
-          title: 'Drikkevannforskrift',
-          url: '#',
-          iconResource: drinkIcon,
-          children: [{title: 'Drikke', url: '#'}]
-        },
-        {title: 'Kosmetikk', url: '/kosmetikk', iconResource: drinkIcon, children: []}
+        {title: 'Drikkevannforskrift', url: '#', iconResource: drinkIcon, children: []},
+        {title: 'Kosmetikk', url: '#', iconResource: drinkIcon, children: []}
       ],
       itemsRight: [
         {
@@ -83,7 +78,8 @@
         },
         {
           title: 'Skjemaer',
-          url: '#'
+          url: '#',
+          iconResource: animalIcon
         }
       ],
       itemsBottom: [

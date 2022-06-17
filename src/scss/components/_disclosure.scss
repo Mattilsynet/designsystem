@@ -136,7 +136,6 @@
     .disclosure-panel {
       border-top: $border-width-small solid var(--color-secondary);
       margin: 0 var(--spacer-x-small);
-
       &.on-server {
         > :first-child {
           margin-top: var(--spacer-xx-small);
