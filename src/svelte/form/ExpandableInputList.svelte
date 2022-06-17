@@ -18,9 +18,9 @@
   export let fieldSetErrorHeading = 'Feil oppstod'
   export let fieldSetError: Array<ErrorDetail> | undefined = undefined
   export let fieldSetHelpText: string | undefined = undefined
-  export let expandableAriaLabel: string = '' //'{0}, viser {1} av {2}'
-  export let expandableText: string = ''
-  export let collapsableText: string = ''
+  export let expandableAriaLabel = '' //'{0}, viser {1} av {2}'
+  export let expandableText = ''
+  export let collapsableText = ''
   export let showOptionalText = false
   export let loadJs = true
 
