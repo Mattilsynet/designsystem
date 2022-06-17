@@ -15,11 +15,17 @@
 .m-t-s {
   margin-top: var(--spacer-small);
 }
+.m-t-xxs {
+  margin-top: var(--spacer-xx-small);
+}
 .m-t-m {
   margin-top: var(--spacer-medium);
 }
 .m-t-l {
   margin-top: var(--spacer-large);
+}
+.m-r-0 {
+  margin-right: 0;
 }
 .m-b-m {
   margin-bottom: var(--spacer-medium);

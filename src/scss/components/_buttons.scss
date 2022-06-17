@@ -83,7 +83,18 @@ $button-colors: 'error' !default;
       box-shadow: var(--focus-box-shadow);
     }
   }
+  &--on-primary {
+    background-color: transparent;
+    border-color: var(--color-mt-white);
 
+    &:focus,
+    &:focus-visible,
+    &:focus-within {
+      outline: none;
+      border-color: transparent;
+      box-shadow: 0 0 0 0.25rem var(--color-mt-beige);
+    }
+  }
   &--secondary {
     --button-focus-inner: var(--button-background);
     --button-focus-outer: var(--button-color);
@@ -215,9 +226,39 @@ $button-colors: 'error' !default;
   }
   &.closable {
     &:after {
-      content: url('data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M12%202C6.47%202%202%206.47%202%2012s4.47%2010%2010%2010%2010-4.47%2010-10S17.53%202%2012%202Zm5%2013.59L15.59%2017%2012%2013.41%208.41%2017%207%2015.59%2010.59%2012%207%208.41%208.41%207%2012%2010.59%2015.59%207%2017%208.41%2013.41%2012%2017%2015.59Z%22%20fill%3D%22%23075B7A%22%2F%3E%3C%2Fsvg%3E');
+      width: var(--spacer-x-small);
+      height: var(--spacer-x-small);
       display: inline-block;
-      height: 1.5rem;
+      content: '';
+      -webkit-mask: url('data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M12%202C6.47%202%202%206.47%202%2012s4.47%2010%2010%2010%2010-4.47%2010-10S17.53%202%2012%202Zm5%2013.59L15.59%2017%2012%2013.41%208.41%2017%207%2015.59%2010.59%2012%207%208.41%208.41%207%2012%2010.59%2015.59%207%2017%208.41%2013.41%2012%2017%2015.59Z%22%20fill%3D%22%23075B7A%22%2F%3E%3C%2Fsvg%3E')
+        no-repeat 50% 50%;
+      mask: url('data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M12%202C6.47%202%202%206.47%202%2012s4.47%2010%2010%2010%2010-4.47%2010-10S17.53%202%2012%202Zm5%2013.59L15.59%2017%2012%2013.41%208.41%2017%207%2015.59%2010.59%2012%207%208.41%208.41%207%2012%2010.59%2015.59%207%2017%208.41%2013.41%2012%2017%2015.59Z%22%20fill%3D%22%23075B7A%22%2F%3E%3C%2Fsvg%3E')
+        no-repeat 50% 50%;
+      -webkit-mask-size: cover;
+      mask-size: cover;
+      background-color: var(--color-mt-blue);
+    }
+  }
+  &.expandable {
+    --gap: 0;
+    justify-content: flex-start;
+    background-color: transparent;
+    color: var(--color-mt-blue);
+
+    &[aria-expanded] {
+      &::after {
+        content: url('data:image/svg+xml,%3Csvg%20width%3D%2220%22%20height%3D%2212%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M17.4667.545%209.9991%208.1481%202.5316.545.9082%202.198l9.091%209.2561L19.09%202.1978%2017.4667.5449Z%22%20fill%3D%22%23075B7A%22%2F%3E%3C%2Fsvg%3E');
+        display: inline-block;
+        margin-left: var(--spacer-xxx-small);
+      }
+    }
+    &[aria-expanded='true'] {
+      &::after {
+        transform: rotateX(180deg);
+      }
+    }
+    &:focus {
+      border-color: transparent;
     }
   }
 }

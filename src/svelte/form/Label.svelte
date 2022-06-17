@@ -1,13 +1,16 @@
 <script lang="ts">
-  let htmlFor: string;
-  export {htmlFor as for};
-  export let textOptional: string | undefined = 'valgfritt felt';
-  export let isRequired: boolean | undefined = undefined;
+  let htmlFor: string
+  export {htmlFor as for}
+  let className: string = ''
+  export {className as class}
+  export let textOptional: string | undefined = 'valgfritt felt'
+  export let isRequired: boolean | undefined = undefined
+  export let showOptionalText: boolean = true
 </script>
 
-<label class="form-label" for={htmlFor}>
+<label class="form-label {className}" for={htmlFor}>
   <slot />
-  {#if !isRequired}
+  {#if !isRequired && showOptionalText}
     <span class="text-small">({textOptional})</span>
   {/if}
 </label>

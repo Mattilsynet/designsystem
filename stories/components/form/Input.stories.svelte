@@ -10,6 +10,20 @@
     label: 'Når skjedde det?',
     helpText: 'Skriv når hendelsen skjedde og om det har pågått over lengere periode.',
     errorMessage: 'Fyll inn dette feltet.',
+    horizontal: [
+      {
+        label: 'Hund, antall',
+        textOptional: 'Valgfritt felt',
+        helpText: 'Hjelpetekst',
+        isRequired: false
+      },
+      {
+        label: 'Katt, antall',
+        textOptional: 'Valgfritt felt',
+        helpText: 'Hjelpetekst',
+        isRequired: false
+      }
+    ],
     countCharactersLeftLabel: 'karakterer igjen',
     disableCss: false
   }}
@@ -20,7 +34,7 @@
     disableCss: {control: 'boolean'}
   }} />
 
-<Story name="Input" let:label let:helpText let:disableCss>
+<Story name="Input" let:label let:helpText let:disableCss let:args>
   <div use:wrapInShadowDom={disableCss}>
     <form class="form-layout">
       <TextInput
@@ -52,6 +66,23 @@
         placeholder=""
         autocomplete=""
         maxlength={30} />
+
+      <h2>Horisontal layout</h2>
+      <div class="collapsable-input-list-grid">
+        {#each args.horizontal as horizontal}
+          <TextInput
+            name="inputfield3"
+            label={horizontal.label}
+            textOptional={horizontal.textOptional}
+            helpText={horizontal.helpText}
+            inputmode="text"
+            isRequired={horizontal.isRequired}
+            placeholder=""
+            autocomplete=""
+            isHorizontal={true}
+            inputClass="form-field--small form-field--small-width" />
+        {/each}
+      </div>
     </form>
   </div>
 </Story>
@@ -76,6 +107,28 @@
         maxlength={10}
         placeholder=""
         autocomplete="" />
+      <div class="collapsable-input-list-grid">
+        <TextInput
+          name="inputfield3"
+          label="Hund, antall"
+          helpText="Skriv inn antall hunder"
+          textOptional="valgfritt felt"
+          inputmode="text"
+          error={{key: 'inputfield', message: 'Feltet er påkrevd'}}
+          isRequired={false}
+          placeholder=""
+          isHorizontal={true}
+          autocomplete=""
+          inputClass="form-field--small form-field--small-width" />
+      </div>
     </form>
   </div>
 </Story>
+
+<style>
+  .collapsable-input-list-grid {
+    display: grid;
+    row-gap: 1rem;
+    width: 20rem;
+  }
+</style>

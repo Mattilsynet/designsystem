@@ -8,10 +8,12 @@
   export let value
   export let name: string
   export let label: string
+  export let labelClass: string
   export let countCharactersLeftLabel: string | undefined
   export let error: ErrorDetail | undefined
   export let helpText: string | undefined
   export let textOptional: string | undefined
+  export let showOptionalText: boolean
   export let hiddenErrorText: string | undefined
 
   export let maxlength: number | undefined
@@ -19,31 +21,72 @@
   export let isRequired: boolean | undefined = undefined
   export let inputmode: InputModeType | undefined
   export let autocomplete: AutocompleteType | undefined
+
+  export let inputClass = ''
+  export let isHorizontal = false
 </script>
 
-<Label for={name} {isRequired} {textOptional}>{label}</Label>
+{#if isHorizontal}
+  <div class="input-horizontal" style="--gap:var(--spacer-xxx-small)">
+    {#if error}
+      <InputError {...error} {hiddenErrorText} />
+    {/if}
 
-{#if helpText}
-  <div id={`${name}-hint`} class="hint">
-    {@html helpText}
+    <div class="layout-flex layout-flex-col justify-content-center" style="--gap: 0">
+      <Label for={name} {isRequired} {textOptional} {showOptionalText} class={labelClass}
+        >{label}</Label>
+
+      {#if helpText}
+        <div id={`${name}-hint`} class="hint">
+          {@html helpText}
+        </div>
+      {/if}
+    </div>
+
+    <input
+      id={name}
+      {name}
+      use:countCharacters={countCharactersLeftLabel
+        ? {countCharactersLeftLabel, id: name}
+        : {id: name}}
+      class="form-field {inputClass}"
+      bind:value
+      class:error
+      aria-required={isRequired || undefined}
+      aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error, maxlength)}
+      aria-invalid={!!error}
+      {maxlength}
+      {inputmode}
+      {placeholder}
+      {autocomplete} />
   </div>
-{/if}
+{:else}
+  <Label for={name} {isRequired} {textOptional}>{label}</Label>
 
-{#if error}
-  <InputError {...error} {hiddenErrorText} />
-{/if}
+  {#if helpText}
+    <div id={`${name}-hint`} class="hint">
+      {@html helpText}
+    </div>
+  {/if}
 
-<input
-  id={name}
-  {name}
-  use:countCharacters={countCharactersLeftLabel ? {countCharactersLeftLabel, id: name} : {id: name}}
-  class="form-field"
-  bind:value
-  class:error
-  aria-required={isRequired || undefined}
-  aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error, maxlength)}
-  aria-invalid={!!error}
-  {maxlength}
-  {inputmode}
-  {placeholder}
-  {autocomplete} />
+  {#if error}
+    <InputError {...error} {hiddenErrorText} />
+  {/if}
+
+  <input
+    id={name}
+    {name}
+    use:countCharacters={countCharactersLeftLabel
+      ? {countCharactersLeftLabel, id: name}
+      : {id: name}}
+    class="form-field {inputClass}"
+    bind:value
+    class:error
+    aria-required={isRequired || undefined}
+    aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error, maxlength)}
+    aria-invalid={!!error}
+    {maxlength}
+    {inputmode}
+    {placeholder}
+    {autocomplete} />
+{/if}
