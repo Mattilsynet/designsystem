@@ -1,15 +1,24 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf'
   import ExpandableInputList from '../../../src/svelte/form/ExpandableInputList.svelte'
+  import type {ErrorDetail, InputModeType} from '../../../src/ts/types'
 
-  let inputList = [
+  interface Input {
+    label?: string
+    name?: string
+    isRequired?: boolean
+    textOptional?: string
+    inputmode: InputModeType
+    error?: ErrorDetail
+  }
+  let inputList: Array<Input> = [
     {
       label: 'Hund, antall:',
       name: 'dogs',
       isRequired: false,
       textOptional: '',
       inputmode: 'numeric',
-      ariaLabel: 'Fjern Spania fra listen'
+      error: undefined
     },
     {
       label: 'Katt, antall:',
@@ -17,7 +26,7 @@
       isRequired: false,
       inputmode: 'numeric',
       textOptional: '',
-      ariaLabel: 'Fjern Frankrike fra listen'
+      error: undefined
     },
     {
       label: 'Ilder, antall:',
@@ -25,7 +34,7 @@
       isRequired: false,
       inputmode: 'numeric',
       textOptional: '',
-      ariaLabel: 'Fjern Portugal fra listen'
+      error: undefined
     },
     {
       label: 'Kanin, antall:',
@@ -33,7 +42,7 @@
       isRequired: false,
       inputmode: 'numeric',
       textOptional: '',
-      ariaLabel: 'Fjern Portugal fra listen'
+      error: undefined
     },
     {
       label: 'Gnager, antall:',
@@ -41,7 +50,7 @@
       isRequired: false,
       inputmode: 'numeric',
       textOptional: '',
-      ariaLabel: 'Fjern Portugal fra listen'
+      error: undefined
     },
     {
       label: 'Fugl, antall:',
@@ -49,7 +58,7 @@
       isRequired: false,
       inputmode: 'numeric',
       textOptional: '',
-      ariaLabel: 'Fjern Portugal fra listen'
+      error: undefined
     }
   ]
   let fieldSetId = 'whatCountriesHaveYouBeenTo'
@@ -59,7 +68,6 @@
   $: error = undefined
 
   function handleSubmit(e) {
-    // @ts-ignore
     inputList = inputList.map(input => {
       if (values[input.name] === undefined || values[input.name] === '') {
         return input

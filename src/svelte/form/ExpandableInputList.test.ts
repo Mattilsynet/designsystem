@@ -5,7 +5,7 @@ import ExpandableInputList from './ExpandableInputList.svelte'
 import {fireEvent, render, RenderResult} from '@testing-library/svelte'
 
 describe('ExpandableInputList', () => {
-  let inputList = [
+  const inputList = [
     {
       label: 'Hund, antall:',
       name: 'dogs',
