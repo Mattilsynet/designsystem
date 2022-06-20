@@ -31,6 +31,14 @@ describe('DialogBox', () => {
     expect(labelForInput).toBeInTheDocument();
     expect(labelForInput.getAttribute('aria-label')).toEqual('Lukk dialogboks');
   })
+  test('Render dialog box with selected title "Dette er en dialogboks"', () => {
+    const componentOptions = {
+      dialogBoxTitle: 'Dette er en dialogboks',
+    }
+    const { getByText } = render(DialogBox, componentOptions)
+    const titleForDialogBox = getByText("Dette er en dialogboks");
+    expect(titleForDialogBox).toBeInTheDocument();
+  })
   test('Close button should have aria-label set even when value is not set', () => {
     const { getByLabelText } = render(DialogBox, {})
     const labelForInput = getByLabelText("Lukk");

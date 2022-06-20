@@ -5,6 +5,7 @@
 
   let dialogBoxClosed = false
   let closeBtnLabel = 'Lukk dialogboks'
+  let dialogBoxTitle = 'Dette er en dialogboks tittel!'
 </script>
 
 <Meta
@@ -12,15 +13,14 @@
   args={{
     content: `<h2>Du bør varsle</h2>
                <p>At noen setter opp nye piggtrådgjerder</p>
-               <p>Eldre piggtrådgjerder som utgjør en risiko for at dyr blir skadet</p>`,
-    contentQuestion: `<p><b>Fant du det du lette etter?</b></p>`
+               <p>Eldre piggtrådgjerder som utgjør en risiko for at dyr blir skadet</p>`
   }}
   argTypes={{}} />
 
 <Story name="Normal" let:content let:contentQuestion>
   <h2>Default</h2>
   <div class="tags-wrapper">
-    <DialogBox {dialogBoxClosed} {closeBtnLabel}>Dette er en dialogboks!</DialogBox>
+    <DialogBox {dialogBoxTitle} {dialogBoxClosed} {closeBtnLabel}>Dialogboks innhold</DialogBox>
   </div>
 
   <hr />
@@ -35,10 +35,7 @@
   <hr />
   <h2>Avansert</h2>
   <div class="tags-wrapper">
-    <DialogBox {dialogBoxClosed} {closeBtnLabel}>
-      {#if contentQuestion}
-        {@html contentQuestion}
-      {/if}
+    <DialogBox dialogBoxTitle="Fant du det du lette etter?" {dialogBoxClosed} {closeBtnLabel}>
       <div class="layout-flex" style="margin-top: 20px;">
         <ButtonSpinner
           formInProgressAriaLabel="Sender inn skjema, venter på svar."
