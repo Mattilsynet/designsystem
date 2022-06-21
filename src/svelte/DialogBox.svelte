@@ -26,7 +26,7 @@
     on:click={handleClose}
     aria-label={closeBtnLabel} />
   <div class="dialog-box--content">
-    <p id={dialogBoxHeadingId} class="dialog-box--title">{dialogBoxTitle}</p>
+    <h2 id={dialogBoxHeadingId} class="h4">{dialogBoxTitle}</h2>
     <slot />
   </div>
 </div>
