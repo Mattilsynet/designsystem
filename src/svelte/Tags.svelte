@@ -14,7 +14,7 @@
     <li class={isClosable ? 'tag-list-item' : 'tag-list-item tag-text'}>
       {#if isClosable}
         <button
-          class="button button--icon button--small closable m-r-0 m-t-0"
+          class="button button--secondary button--small closable m-r-0 m-t-0"
           on:click={() => {
             handleClick(i)
           }}

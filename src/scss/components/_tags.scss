@@ -3,8 +3,11 @@
 .tags {
   --gap: var(--spacer-xxx-small);
   display: flex;
+  flex-wrap: wrap;
   gap: var(--gap);
-
+  button {
+    margin-right: 0;
+  }
   .tag-list-item {
     margin-top: 0;
   }
