@@ -1,7 +1,13 @@
+<script context="module" lang="ts">
+  let instanceCounter = 0
+</script>
+
 <script lang="ts">
   export let dialogBoxClosed: boolean = false
   export let dialogBoxTitle: string = ''
   export let closeBtnLabel: string = 'Lukk'
+
+  const dialogBoxHeadingId = `ui-dialog-box-${instanceCounter++}`
 
   function handleClose() {
     dialogBoxClosed = true
@@ -13,14 +19,14 @@
   data-testid="dialog-box"
   role="dialog"
   tabindex="0"
-  aria-labelledby="dialogbox_title">
+  aria-labelledby={dialogBoxHeadingId}>
   <button
     data-testid="dialog-box-close"
     class="button button--link dialog-box--button"
     on:click={handleClose}
     aria-label={closeBtnLabel} />
   <div class="dialog-box--content">
-    <p id="dialogbox_title" class="dialog-box--title">{dialogBoxTitle}</p>
+    <p id={dialogBoxHeadingId} class="dialog-box--title">{dialogBoxTitle}</p>
     <slot />
   </div>
 </div>
