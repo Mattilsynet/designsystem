@@ -13,14 +13,14 @@
   data-testid="dialog-box"
   role="dialog"
   tabindex="0"
-  aria-labelledby="title">
+  aria-labelledby="dialogbox_title">
   <button
     data-testid="dialog-box-close"
     class="button button--link dialog-box--button"
     on:click={handleClose}
     aria-label={closeBtnLabel} />
   <div class="dialog-box--content">
-    <p id="title" class="dialog-box--title">{dialogBoxTitle}</p>
+    <p id="dialogbox_title" class="dialog-box--title">{dialogBoxTitle}</p>
     <slot />
   </div>
 </div>
