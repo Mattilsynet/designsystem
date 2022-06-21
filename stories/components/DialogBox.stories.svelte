@@ -12,15 +12,17 @@
   title="Components/Dialogboks"
   args={{
     content: `<h2>Du bør varsle</h2>
-               <p>At noen setter opp nye piggtrådgjerder</p>
-               <p>Eldre piggtrådgjerder som utgjør en risiko for at dyr blir skadet</p>`
+      <p>At noen setter opp nye piggtrådgjerder</p>
+      <p>Eldre piggtrådgjerder som utgjør en risiko for at dyr blir skadet</p>`
   }}
   argTypes={{}} />
 
-<Story name="Normal" let:content let:contentQuestion>
+<Story name="Normal" let:content>
   <h2>Default</h2>
   <div class="tags-wrapper">
-    <DialogBox {dialogBoxTitle} {dialogBoxClosed} {closeBtnLabel}>Dialogboks innhold</DialogBox>
+    <DialogBox {dialogBoxTitle} {dialogBoxClosed} {closeBtnLabel}>
+      <p>Dialogboks innhold</p>
+    </DialogBox>
   </div>
 
   <hr />
