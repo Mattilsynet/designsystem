@@ -3,6 +3,7 @@
   import {mapRelExternal} from '../../ts/utils'
   interface MenuItem {
     title: string
+    contentTitle?: string
     path: string
     isActive: string
     hasChildren: boolean
@@ -24,7 +25,7 @@
     {#if item.children && item.children.length > 0}
       <li>
         <Disclosure
-          title={item.title}
+          title={item.contentTitle ? item.contentTitle : item.title}
           theme="no-border"
           class="on-primary"
           headerClass="p-tb-xxs"
