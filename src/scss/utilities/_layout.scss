@@ -209,9 +209,6 @@ header {
   }
 
   @media only screen and (min-width: $breakpoint-large) {
-    padding-right: var(--spacer-medium);
-    padding-left: var(--spacer-medium);
-
     &--regular {
       height: $height-header-regular;
     }
