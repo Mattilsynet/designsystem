@@ -182,7 +182,8 @@
       }
       &.visible {
         .dropdown-content {
-          padding: var(--spacer-xx-large) var(--spacer-medium);
+          padding-top: var(--spacer-xx-large);
+          padding-bottom: var(--spacer-xx-large);
           top: calc(#{$height-header-regular} - var(--spacer-xx-small) + 1.38rem);
         }
       }

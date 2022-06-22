@@ -183,7 +183,7 @@
         class="button__small-text full-menu"
         loadJs={!args.disableJs}
         let:titleId>
-        <nav class="layout-grid layout-grid--column-12 p-lr-xxs">
+        <nav class="layout-grid layout-grid--column-12 container">
           <MenuItems
             itemsLeft={args.menu.items}
             itemsRight={args.menu.itemsRight}
