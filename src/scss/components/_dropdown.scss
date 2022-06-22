@@ -274,7 +274,7 @@
     &.menu-level-2 {
       margin-bottom: var(--spacer-x-small);
       a {
-        font-size: $font-size-label;
+        font-size: $font-size-h4;
       }
     }
   }
@@ -283,11 +283,11 @@
     li {
       &.menu-level-2 {
         grid-column: span 2;
+        a {
+          font-size: $font-size-label;
+        }
       }
     }
-  }
-  @media only screen and (min-width: $breakpoint-large) {
-    grid-template-columns: 1fr 1fr;
   }
 }
 .menu {
