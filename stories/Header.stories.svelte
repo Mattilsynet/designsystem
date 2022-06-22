@@ -73,7 +73,7 @@
       ],
       itemsRight: [
         {
-          title: 'Om mattilsynet',
+          title: 'Om mattilsynet med lang tekst a brekker',
           url: '#'
         },
         {

@@ -79,7 +79,7 @@
         <a
           href={right.url}
           rel={mapRelExternal(right.url)}
-          class="no-underline hover-indent layout-flex layout-flex--space-between layout-flex--center-vertical layout-full-width on-primary p-tb-xxs p-r-xxs forward-arrow-end border-radius-0"
+          class="no-underline hover-indent on-primary p-tb-xxs p-r-xxs forward-arrow-end border-radius-0"
           aria-current={right.isActive ? 'page' : false}>
           {right.title}
         </a>
