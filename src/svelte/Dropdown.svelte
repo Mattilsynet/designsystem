@@ -1,4 +1,4 @@
-<script context="module">
+<script context="module" lang="ts">
   let counter = 0
 </script>
 
@@ -16,6 +16,7 @@
   let className = ''
   export {className as class}
 
+  const LINK_TAG: Readonly<string> = 'A'
   interface DropdownContext {
     isFirstRenderFinished: boolean
   }
@@ -51,6 +52,12 @@
   $: isOpen = $state.value === 'open'
   $: onServer = $state.value === 'serverRendered'
 
+  function handleClick(e: PointerEvent) {
+    if (isOpen && e.target?.tagName === LINK_TAG) {
+      send('TOGGLE')
+    }
+  }
+
   if (loadJs) {
     onMount(() => send('MOUNT'))
   }
@@ -80,6 +87,7 @@
       class="dropdown-content"
       id={bodyId}
       use:clickOutside={titleId}
+      on:click={handleClick}
       on:clickOutside={() => isOpen && send('TOGGLE')}>
       <div in:slide={{duration: 300}}>
         <slot />
