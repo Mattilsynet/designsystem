@@ -23,10 +23,6 @@
     {
       text: 'Nei',
       value: '2'
-    },
-    {
-      text: 'Kanskje',
-      value: '3'
     }
   ]
 </script>
