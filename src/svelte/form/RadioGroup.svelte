@@ -12,9 +12,18 @@
   export let isRequired: boolean | undefined = undefined
   export let textOptional = 'valgfritt felt'
   export let hiddenErrorText: string | undefined
+
+  export let theme: 'radio' | 'button' = 'radio'
+  let className = ''
+  export {className as class}
 </script>
 
-<fieldset id={name} aria-labelledby={`${name}-hint ${name}-error`} class="form-fieldset">
+<fieldset
+  id={name}
+  aria-describedby={`${name}-hint ${name}-error`}
+  class="form-fieldset {theme === 'radio' ? 'radio' : ''} {theme === 'button'
+    ? 'button-radio'
+    : ''} {className}">
   <legend class="form-legend">
     {label}
     {#if !isRequired}
@@ -33,7 +42,7 @@
   {/if}
 
   {#each options as radio (radio.value)}
-    <div class="form-control radio">
+    <div class="form-control ">
       <input
         type="radio"
         id={toKebabCase(radio.value)}
@@ -45,7 +54,9 @@
         aria-required={isRequired}
         aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)}
         checked={value === radio.value} />
-      <label class="form-label" for={toKebabCase(radio.value)}>
+      <label
+        class="form-label {theme === 'button' ? 'button button--secondary' : ''}"
+        for={toKebabCase(radio.value)}>
         {radio.text}
       </label>
     </div>
