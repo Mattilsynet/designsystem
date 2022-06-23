@@ -254,26 +254,6 @@ label.form-label {
   }
   .form-control {
     grid-column: span 1;
-  }
-  @media only screen and (min-width: $breakpoint-large) {
-    grid-auto-columns: min-content;
-    grid-template-areas: 'label label label' 'hint hint hint' 'error error error' 'radio radio radio';
-    legend {
-      grid-area: label;
-    }
-    .hint {
-      grid-area: hint;
-    }
-    .form-error {
-      grid-area: error;
-    }
-    .form-control {
-      grid-area: radio;
-      grid-column: span 1;
-    }
-  }
-
-  .form-control {
     gap: 0;
     display: flex;
 
@@ -343,6 +323,23 @@ label.form-label {
           }
         }
       }
+    }
+  }
+  @media only screen and (min-width: $breakpoint-large) {
+    grid-auto-columns: min-content;
+    grid-template-areas: 'label label label' 'hint hint hint' 'error error error' 'radio radio radio';
+    legend {
+      grid-area: label;
+    }
+    .hint {
+      grid-area: hint;
+    }
+    .form-error {
+      grid-area: error;
+    }
+    .form-control {
+      grid-area: radio;
+      grid-column: span 1;
     }
   }
 }
