@@ -244,11 +244,8 @@ label.form-label {
   grid-template-columns: min-content min-content;
   grid-template-rows: min-content min-content min-content min-content min-content;
   column-gap: var(--spacer-xx-small);
-  legend {
-  }
-  .hint {
-    grid-column: span 2;
-  }
+  legend,
+  .hint,
   .form-error {
     grid-column: span 2;
   }
