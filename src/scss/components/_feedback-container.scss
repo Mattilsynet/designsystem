@@ -2,8 +2,8 @@
 
 .feedback-container {
   --width-outside-content: 100px;
-  --feedback-from-top: 45vh;
-  --feedback-box-width: 256px;
+  --feedback-from-top: 20vh;
+  --feedback-box-width: 260px;
 
   &--left {
     max-width: calc($breakpoint-large + var(--width-outside-content));
