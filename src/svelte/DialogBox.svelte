@@ -20,13 +20,18 @@
   role="dialog"
   tabindex="0"
   aria-labelledby={dialogBoxHeadingId}>
-  <button
-    data-testid="dialog-box-close"
-    class="button button--link dialog-box--button"
-    on:click={handleClose}
-    aria-label={closeBtnLabel} />
+  <h2 id={dialogBoxHeadingId} class="h4">
+    <button
+      data-testid="dialog-box-close"
+      class="button button--link dialog-box--button"
+      on:click={handleClose}
+      aria-label={closeBtnLabel} />
+    <div>
+      {dialogBoxTitle}
+    </div>
+  </h2>
+
   <div class="dialog-box--content">
-    <h2 id={dialogBoxHeadingId} class="h4">{dialogBoxTitle}</h2>
     <slot />
   </div>
 </div>
