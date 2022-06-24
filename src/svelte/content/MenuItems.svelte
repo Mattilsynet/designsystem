@@ -28,7 +28,7 @@
           title={item.contentTitle ? item.contentTitle : item.title}
           theme="no-border"
           class="on-primary"
-          headerClass="p-tb-xxs"
+          headerClass="menu-level-1"
           {loadJs}
           icon={item.iconResource}>
           <ol class="sub-menu">
@@ -60,9 +60,8 @@
         <a
           href={item.url}
           rel={mapRelExternal(item.url)}
-          class="disclosure-header no-underline hover-indent layout-flex layout-flex--center-vertical layout-full-width on-primary p-tb-xxs border-radius-0"
-          aria-current={item.isActive ? 'page' : false}
-          style="gap: var(--spacer-xx-small)">
+          class="disclosure-header no-underline hover-indent layout-flex layout-flex--center-vertical layout-full-width on-primary menu-level-1 border-radius-0"
+          aria-current={item.isActive ? 'page' : false}>
           {#if item.iconResource}
             {@html item.iconResource}
           {/if}
@@ -79,7 +78,7 @@
         <a
           href={right.url}
           rel={mapRelExternal(right.url)}
-          class="no-underline hover-indent on-primary p-tb-xxs p-r-xxs forward-arrow-end border-radius-0"
+          class="no-underline hover-indent on-primary menu-level-1 p-r-xxs forward-arrow-end border-radius-0"
           aria-current={right.isActive ? 'page' : false}>
           {right.title}
         </a>

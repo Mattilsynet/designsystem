@@ -153,8 +153,14 @@
         border: $border-width-regular solid var(--color-mt-blue);
       }
     }
+    .menu-level-1 {
+      gap: var(--spacer-xxx-small);
+
+      --menu-mobile-padding-tb: calc(var(--spacer-xx-small) + 2px);
+      padding: var(--menu-mobile-padding-tb) var(--spacer-xx-small);
+      line-height: var(--spacer-small);
+    }
     .disclosure-header {
-      padding: var(--spacer-xx-small);
       font-size: $font-size-body;
     }
     .disclosure {
@@ -173,6 +179,9 @@
     }
 
     @media only screen and (min-width: $breakpoint-large) {
+      .menu-level-1 {
+        padding: var(--spacer-xx-small);
+      }
       & > button,
       summary.button {
         --icon-size: 1.4rem;
@@ -326,7 +335,7 @@
     }
     & > li:last-child {
       border-bottom: $border-width-small solid var(--color-mt-lighter-light-blue);
-      padding-bottom: 1px;
+      padding-bottom: 3px;
       margin-bottom: 0;
     }
   }
