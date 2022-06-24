@@ -3,19 +3,19 @@
 </script>
 
 <script lang="ts">
-  export let dialogBoxClosed: boolean = false
-  export let dialogBoxTitle: string = ''
-  export let closeBtnLabel: string = 'Lukk'
+  export let isOpen: boolean = false
+  export let title: string = ''
+  export let closeBtnAriaLabel: string = 'Lukk'
 
   const dialogBoxHeadingId = `ui-dialog-box-${instanceCounter++}`
 
   function handleClose() {
-    dialogBoxClosed = true
+    isOpen = true
   }
 </script>
 
 <div
-  class={dialogBoxClosed ? 'dialog-box--closed' : 'dialog-box'}
+  class={isOpen ? 'dialog-box--closed' : 'dialog-box'}
   data-testid="dialog-box"
   role="dialog"
   tabindex="0"
@@ -25,9 +25,9 @@
       data-testid="dialog-box-close"
       class="button button--link dialog-box--button"
       on:click={handleClose}
-      aria-label={closeBtnLabel} />
+      aria-label={closeBtnAriaLabel} />
     <div>
-      {dialogBoxTitle}
+      {title}
     </div>
   </h2>
 
