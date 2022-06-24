@@ -307,6 +307,18 @@
   }
 }
 .menu {
+  .sub-menu {
+    .forward-arrow-small {
+      &:after {
+        display: none;
+      }
+      @media only screen and (min-width: $breakpoint-large) {
+        &:after {
+          display: block;
+        }
+      }
+    }
+  }
   > li {
     > a {
       padding-left: var(--spacer-xx-small);
