@@ -3,18 +3,27 @@
 @use '../color-tokens' as *;
 
 .dialog-box {
+  @include focus-outline();
+  --focus-box-shadow: 0 0 0 2px var(--color-mt-background),
+  0 0 0 0.35rem var(--color-mt-blue-medium);
   --min-clickable-width-height: 2.75rem; // 44px
+
   display: block;
   background-color: var(--color-mt-lighter-light-blue);
   width: 100%;
   height: auto;
-  border: var(--border-width-regular) solid var(--color-primary);
   position: relative;
-
+  padding: var(--spacer-xx-small);
+  border: var(--border-width-regular) solid var(--color-primary);
   &--closed{
     display: none;
     visibility: hidden;
   }
+  &:focus {
+    border-color: var(--color-primary);
+    box-shadow: var(--focus-box-shadow);
+  }
+
   &--button {
     float: right;
     margin-bottom: var(--spacer-x-small);
