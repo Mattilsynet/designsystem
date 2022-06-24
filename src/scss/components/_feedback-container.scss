@@ -5,6 +5,11 @@
   --feedback-from-top: 20vh;
   --feedback-box-width: 260px;
 
+  .feedback-box {
+    margin: 0 auto;
+    max-width: var(--feedback-box-width);
+}
+
   &--left {
     max-width: calc($breakpoint-large + var(--width-outside-content));
     margin: 0 auto;
