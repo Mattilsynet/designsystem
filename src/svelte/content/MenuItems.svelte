@@ -42,11 +42,11 @@
               </a>
             </li>
             {#each item.children || [] as child}
-              <li>
+              <li class="menu-level-3">
                 <a
                   href={child.url}
                   rel={mapRelExternal(child.url)}
-                  class="forward-arrow-small no-underline hover-indent on-primary"
+                  class="forward-arrow-small no-underline hover-indent on-primary small-link"
                   aria-current={child.isActive ? 'page' : false}>
                   {child.title}
                 </a>
@@ -78,7 +78,7 @@
         <a
           href={right.url}
           rel={mapRelExternal(right.url)}
-          class="no-underline hover-indent on-primary menu-level-1 p-r-xxs forward-arrow-end border-radius-0"
+          class="no-underline hover-indent on-primary menu-level-1 p-r-xxs forward-arrow-end border-radius-0 small-link"
           aria-current={right.isActive ? 'page' : false}>
           {right.title}
         </a>
