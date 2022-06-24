@@ -267,13 +267,16 @@
 .sub-menu {
   display: grid;
   grid-template-columns: 1fr;
-  row-gap: var(--spacer-xx-small);
   column-gap: var(--spacer-xxx-small);
-  margin-bottom: var(--spacer-xx-small);
+  margin-bottom: var(--spacer-medium);
   li {
-    margin-top: 0;
+    margin-top: var(--spacer-xx-small);
+    &:nth-child(2) {
+      margin-top: 0;
+    }
     &.menu-level-2 {
-      margin-bottom: var(--spacer-x-small);
+      margin-top: var(--spacer-small);
+      margin-bottom: var(--spacer-small);
       a {
         font-size: $font-size-h4;
       }
@@ -282,6 +285,10 @@
   @media only screen and (min-width: $breakpoint-large) {
     grid-template-columns: 1fr 1fr;
     li {
+      margin-top: var(--spacer-xx-small);
+      &:nth-child(3) {
+        margin-top: 0;
+      }
       &.menu-level-2 {
         grid-column: span 2;
         a {
@@ -344,6 +351,11 @@
     .disclosure-panel {
       margin: 0 var(--spacer-xxx-small);
       padding: 0 var(--spacer-xxx-small);
+
+      > * {
+        margin-top: 0;
+      }
+
       @media only screen and (min-width: $breakpoint-large) {
         margin: 0 var(--spacer-medium);
       }
