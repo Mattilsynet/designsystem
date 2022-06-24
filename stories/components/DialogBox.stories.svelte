@@ -3,9 +3,9 @@
   import DialogBox from '../../src/svelte/DialogBox.svelte'
   import ButtonSpinner from '../../src/svelte/ButtonSpinner.svelte'
 
-  let dialogBoxClosed = false
-  let closeBtnLabel = 'Lukk dialogboks'
-  let dialogBoxTitle = 'Dette er en dialogboks tittel!'
+  let isOpen = false
+  let closeBtnAriaLabel = 'Lukk dialogboks'
+  let title = 'Dette er en dialogboks tittel!'
 </script>
 
 <Meta
@@ -20,7 +20,7 @@
 <Story name="Normal" let:content>
   <h2>Default</h2>
   <div class="tags-wrapper">
-    <DialogBox {dialogBoxTitle} {dialogBoxClosed} {closeBtnLabel}>
+    <DialogBox {title} {isOpen} {closeBtnAriaLabel}>
       <p>Dialogboks innhold</p>
     </DialogBox>
   </div>
@@ -28,7 +28,7 @@
   <hr />
   <h2>Enkel</h2>
   <div class="tags-wrapper">
-    <DialogBox {dialogBoxClosed} {closeBtnLabel}>
+    <DialogBox {isOpen} {closeBtnAriaLabel}>
       {#if content}
         {@html content}
       {/if}
@@ -37,7 +37,7 @@
   <hr />
   <h2>Avansert</h2>
   <div class="tags-wrapper">
-    <DialogBox dialogBoxTitle="Fant du det du lette etter?" {dialogBoxClosed} {closeBtnLabel}>
+    <DialogBox title="Fant du det du lette etter?" {isOpen} {closeBtnAriaLabel}>
       <div class="layout-flex" style="margin-top: 20px;">
         <ButtonSpinner
           formInProgressAriaLabel="Sender inn skjema, venter på svar."
