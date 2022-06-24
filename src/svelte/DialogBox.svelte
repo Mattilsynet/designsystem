@@ -21,14 +21,12 @@
   tabindex="0"
   aria-labelledby={dialogBoxHeadingId}>
   <h2 id={dialogBoxHeadingId} class="h4">
+    {title}
     <button
       data-testid="dialog-box-close"
       class="button button--link dialog-box--button"
       on:click={handleClose}
       aria-label={closeBtnAriaLabel} />
-    <div>
-      {title}
-    </div>
   </h2>
 
   <div class="dialog-box--content">
