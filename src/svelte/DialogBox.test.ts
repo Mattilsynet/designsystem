@@ -8,7 +8,7 @@ import DialogBox from './DialogBox.svelte'
 describe('DialogBox', () => {
   test('Renders when dialogBoxClosed is false', () => {
     const componentOptions = {
-      dialogBoxClosed: false,
+      isOpen: false,
     }
     const { getByTestId } = render(DialogBox, componentOptions)
     const dialogBox = getByTestId('dialog-box')
@@ -16,7 +16,7 @@ describe('DialogBox', () => {
   })
   test('Is hidden when dialogBoxClosed is true', () => {
     const componentOptions = {
-      dialogBoxClosed: true,
+      isOpen: true,
     }
     const { getByTestId } = render(DialogBox, componentOptions)
     const dialogBox = getByTestId('dialog-box')
@@ -24,7 +24,7 @@ describe('DialogBox', () => {
   })
   test('Close button should have aria-label set', () => {
     const componentOptions = {
-      closeBtnLabel: 'Lukk dialogboks',
+      closeBtnAriaLabel: 'Lukk dialogboks',
     }
     const { getByLabelText } = render(DialogBox, componentOptions)
     const labelForInput = getByLabelText("Lukk dialogboks");
@@ -33,7 +33,7 @@ describe('DialogBox', () => {
   })
   test('Render dialog box with selected title "Dette er en dialogboks"', () => {
     const componentOptions = {
-      dialogBoxTitle: 'Dette er en dialogboks',
+      title: 'Dette er en dialogboks',
     }
     const { getByText } = render(DialogBox, componentOptions)
     const titleForDialogBox = getByText("Dette er en dialogboks");
