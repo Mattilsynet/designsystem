@@ -296,29 +296,6 @@ label.form-label {
             box-shadow: var(--focus-box-shadow);
           }
         }
-
-        &.error {
-          &:checked {
-            + .form-label {
-              color: var(--color-mt-blue);
-            }
-          }
-          & + .form-label {
-            color: var(--color-error);
-            border-color: var(--color-error);
-            &:hover {
-              background-color: var(--color-mt-blue);
-              color: var(--color-mt-white);
-            }
-          }
-          &:focus {
-            & + .form-label {
-              border-color: var(--color-error);
-              outline: none;
-              box-shadow: 0 0 0 0.25rem var(--color-error-50);
-            }
-          }
-        }
       }
     }
   }
