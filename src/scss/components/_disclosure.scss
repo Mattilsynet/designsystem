@@ -113,6 +113,13 @@
       svg {
         flex: none;
         align-self: flex-start;
+        width: $menu-icon-width;
+        height: $menu-icon-height-mobile;
+      }
+      @media only screen and (min-width: $breakpoint-large) {
+        svg {
+          height: $menu-icon-height-desktop;
+        }
       }
     }
 
