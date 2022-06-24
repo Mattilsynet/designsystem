@@ -10,9 +10,6 @@
     margin: 0 auto;
     position: relative !important;
   }
-  .feedback-box {
-    background-color: grey;
-  }
 }
 
 @media only screen and (min-width: $breakpoint-large) {
@@ -26,7 +23,6 @@
         max-width: var(--feedback-box-width);
         top: var(--feedback-from-top);
         right: -8vh;
-        background-color: goldenrod;
         text-align: left;
         opacity: 1;
         visibility: visible;
