@@ -3,7 +3,7 @@
   import DialogBox from '../../src/svelte/DialogBox.svelte'
   import ButtonSpinner from '../../src/svelte/ButtonSpinner.svelte'
 
-  let isOpen = false
+  let isOpen = true
   let closeBtnAriaLabel = 'Lukk dialogboks'
   let title = 'Dette er en dialogboks tittel!'
 </script>

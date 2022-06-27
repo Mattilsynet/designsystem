@@ -3,23 +3,24 @@
 </script>
 
 <script lang="ts">
-  export let isOpen: boolean = false
+  export let isOpen: boolean = true
   export let title: string = ''
   export let closeBtnAriaLabel: string = 'Lukk'
 
   const dialogBoxHeadingId = `ui-dialog-box-${instanceCounter++}`
 
   function handleClose() {
-    isOpen = true
+    isOpen = false
   }
 </script>
 
 <div
-  class={isOpen ? 'dialog-box--closed' : 'dialog-box'}
+  class={isOpen ? 'dialog-box' : 'dialog-box--closed'}
   data-testid="dialog-box"
   role="dialog"
   tabindex="0"
-  aria-labelledby={dialogBoxHeadingId}>
+  aria-labelledby={dialogBoxHeadingId}
+  aria-hidden={!isOpen}>
   <h2 id={dialogBoxHeadingId} class="h4">
     {title}
     <button
