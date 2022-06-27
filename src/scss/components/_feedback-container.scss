@@ -1,17 +1,19 @@
 @use '../theme' as *;
 
 .feedback-container {
-  --width-outside-content: 100px;
-  --feedback-from-top: 45vh;
-  --feedback-box-width: 256px;
+  --width-outside-content: 6.25rem; // 100px
+  --feedback-from-top: 20vh;
+  --feedback-box-width: 16.25rem; // 260px;
+
+  .feedback-box {
+    margin: 0 auto;
+    max-width: var(--feedback-box-width);
+}
 
   &--left {
     max-width: calc($breakpoint-large + var(--width-outside-content));
     margin: 0 auto;
     position: relative !important;
-  }
-  .feedback-box {
-    background-color: grey;
   }
 }
 
@@ -26,7 +28,6 @@
         max-width: var(--feedback-box-width);
         top: var(--feedback-from-top);
         right: -8vh;
-        background-color: goldenrod;
         text-align: left;
         opacity: 1;
         visibility: visible;
