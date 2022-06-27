@@ -329,18 +329,19 @@
     }
   }
   &.border {
+    --focus-spacing: 0.1875rem; //3px
     > li {
       border-top: $border-width-small solid var(--color-mt-lighter-light-blue);
-      margin-top: 3px;
-      margin-bottom: 3px;
-      padding-top: 1px;
+      margin-top: var(--focus-spacing);
+      margin-bottom: var(--focus-spacing);
+      padding-top: 0.0625rem; //1px
     }
     & > li:first-child {
       margin-top: 0;
     }
     & > li:last-child {
       border-bottom: $border-width-small solid var(--color-mt-lighter-light-blue);
-      padding-bottom: 3px;
+      padding-bottom: var(--focus-spacing);
       margin-bottom: 0;
     }
   }
