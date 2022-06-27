@@ -153,8 +153,13 @@
         border: $border-width-regular solid var(--color-mt-blue);
       }
     }
+    .menu-level-1 {
+      gap: var(--spacer-xxx-small);
+
+      --menu-mobile-padding-tb: calc(var(--spacer-xx-small) + 2px);
+      padding: var(--menu-mobile-padding-tb) var(--spacer-xx-small);
+    }
     .disclosure-header {
-      padding: var(--spacer-xx-small);
       font-size: $font-size-body;
     }
     .disclosure {
@@ -173,6 +178,9 @@
     }
 
     @media only screen and (min-width: $breakpoint-large) {
+      .menu-level-1 {
+        padding: var(--spacer-xx-small);
+      }
       & > button,
       summary.button {
         --icon-size: 1.4rem;
@@ -299,14 +307,20 @@
   }
 }
 .menu {
+  --menu-small-link-font-size-mobile: 1.125rem; //18px
+  a.small-link {
+    font-size: var(--menu-small-link-font-size-mobile);
+  }
+  .sub-menu {
+    .forward-arrow-small {
+      &:after {
+        display: none;
+      }
+    }
+  }
   > li {
     > a {
       padding-left: var(--spacer-xx-small);
-    }
-    @media only screen and (min-width: $breakpoint-large) {
-      > a {
-        padding-left: 0;
-      }
     }
   }
   &--right {
@@ -315,18 +329,19 @@
     }
   }
   &.border {
+    --focus-spacing: 0.1875rem; //3px
     > li {
       border-top: $border-width-small solid var(--color-mt-lighter-light-blue);
-      margin-top: 3px;
-      margin-bottom: 3px;
-      padding-top: 1px;
+      margin-top: var(--focus-spacing);
+      margin-bottom: var(--focus-spacing);
+      padding-top: 0.0625rem; //1px
     }
     & > li:first-child {
       margin-top: 0;
     }
     & > li:last-child {
       border-bottom: $border-width-small solid var(--color-mt-lighter-light-blue);
-      padding-bottom: 1px;
+      padding-bottom: var(--focus-spacing);
       margin-bottom: 0;
     }
   }
@@ -351,17 +366,32 @@
     .disclosure-panel {
       margin: 0 var(--spacer-xxx-small);
       padding: 0 var(--spacer-xxx-small);
-
       > * {
         margin-top: 0;
-      }
-
-      @media only screen and (min-width: $breakpoint-large) {
-        margin: 0 var(--spacer-medium);
       }
     }
   }
   @media only screen and (min-width: $breakpoint-large) {
+    a.small-link {
+      font-size: $font-size-body;
+    }
+    .sub-menu {
+      .forward-arrow-small {
+        &:after {
+          display: block;
+        }
+      }
+    }
+    > li {
+      > a {
+        padding-left: 0;
+      }
+    }
+    .disclosure-no-border {
+      .disclosure-panel {
+        margin: 0 var(--spacer-medium);
+      }
+    }
     & + .border {
       > li:first-child {
         border-top: $border-width-small solid var(--color-mt-lighter-light-blue);
