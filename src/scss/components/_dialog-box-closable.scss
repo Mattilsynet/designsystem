@@ -4,7 +4,7 @@
 
 .dialog-box {
   @include focus-outline();
-  --focus-box-shadow: 0 0 0 2px var(--color-mt-background),
+  --focus-box-shadow: 0 0 0 0.125rem var(--color-mt-background),
   0 0 0 0.35rem var(--color-mt-blue-medium);
   --min-clickable-width-height: 2.75rem; // 44px
 
