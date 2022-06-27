@@ -12,7 +12,7 @@ describe('DialogBox', () => {
     }
     const { getByTestId } = render(DialogBox, componentOptions)
     const dialogBox = getByTestId('dialog-box')
-    expect(dialogBox.classList[0]).toEqual('dialog-box')
+    expect(dialogBox.classList[0]).toEqual('dialog-box--closed')
   })
   test('Is hidden when dialogBoxClosed is true', () => {
     const componentOptions = {
@@ -20,7 +20,7 @@ describe('DialogBox', () => {
     }
     const { getByTestId } = render(DialogBox, componentOptions)
     const dialogBox = getByTestId('dialog-box')
-    expect(dialogBox.classList[0]).toEqual('dialog-box--closed')
+    expect(dialogBox.classList[0]).toEqual('dialog-box')
   })
   test('Close button should have aria-label set', () => {
     const componentOptions = {
