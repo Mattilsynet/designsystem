@@ -64,14 +64,19 @@
     right: 0;
 
     .feedback-box {
-        max-width: var(--feedback-box-width);
-        top: var(--feedback-from-top);
-        right: -8vh;
-        text-align: left;
-        opacity: 1;
-        visibility: visible;
-        position: absolute;
-        z-index: var(--z-index-feedback);
+      padding: var(--spacer-xxx-small);
+      max-width: var(--feedback-box-width);
+      top: var(--feedback-from-top);
+      right: -8vh ;
+      text-align: left;
+      opacity: 1;
+      visibility: visible;
+      position: absolute;
+      z-index: var(--z-index-feedback);
+
+      .form-layout{
+        padding: var(--spacer-xxx-small);
+      }
     }
   }
 }
