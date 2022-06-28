@@ -5,8 +5,8 @@
 <script lang="ts">
   export let isOpen: boolean = true
   export let title: string = ''
+  export let ariaTitle: string = ''
   export let closeBtnAriaLabel: string = 'Lukk'
-
   const dialogBoxHeadingId = `ui-dialog-box-${instanceCounter++}`
   const dialogCloseButton = `dialog-close-button-${instanceCounter++}`
 
@@ -20,20 +20,18 @@
   data-testid="dialog-box"
   role="dialog"
   tabindex="0"
-  aria-label="dialog boks"
-  aria-hidden={!isOpen}>
-  <div class="" aria-flowto={`${dialogBoxHeadingId} ${dialogCloseButton}`}>
+  aria-hidden={!isOpen}
+  aria-labelledby={dialogBoxHeadingId}>
+  <div class="dialog-box--header" aria-flowto={`${dialogBoxHeadingId} ${dialogCloseButton}`}>
     <button
       id={dialogCloseButton}
       data-testid="dialog-box-close"
       class="button button--link dialog-box--button"
       on:click={handleClose}
       aria-label={closeBtnAriaLabel} />
-    {#if title}
-      <h2 id={dialogBoxHeadingId} class="h4 dialog-box--title" aria-label={title}>
-        {title}
-      </h2>
-    {/if}
+    <h2 id={dialogBoxHeadingId} class={`h4 dialog-box--title ${!title && 'inclusively-hidden'}`}>
+      {title ? title : ariaTitle}
+    </h2>
   </div>
 
   <div class="dialog-box--content">
