@@ -8,7 +8,46 @@
   .feedback-box {
     margin: 0 auto;
     max-width: var(--feedback-box-width);
-}
+
+    form > *, fieldset > *{
+      margin-top: 0;
+    }
+
+    .form-layout{
+      padding: var(--spacer-xx-small);
+      display: block;
+      .form-legend {
+        font-weight: var(--font-weight-bold);
+        line-height: 1.75rem; // 28px
+        font-size: $font-size-h4; // 20px
+        margin-bottom: var(--spacer-x-small);
+      }
+      .form-label {
+        font-weight: var(--font-weight-bold);
+        line-height: 1.75rem; // 28px
+        font-size: $font-size-h4; // 20px
+        margin-bottom: var(--spacer-xx-small);
+      }
+      .button-radio{
+        .form-control {
+          .button{
+            min-width: 7ch;
+          }
+          .button--secondary {
+            background-color:var(--color-mt-white);
+            width: 20px;
+            padding: 0;
+            margin: 0;
+          }
+        }
+      }
+      .meta{
+        margin-top: var(--spacer-xx-small);
+        margin-bottom: var(--spacer-x-small);
+        line-height: 1.375rem;
+      }
+    }
+  }
 
   &--left {
     max-width: calc($breakpoint-large + var(--width-outside-content));
