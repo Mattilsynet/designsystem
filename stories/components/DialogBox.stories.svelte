@@ -24,6 +24,12 @@
       <p>Dialogboks innhold</p>
     </DialogBox>
   </div>
+  <h2>Ingen tittel</h2>
+  <div class="tags-wrapper">
+    <DialogBox title="" {isOpen} {closeBtnAriaLabel}>
+      <p>Dialogboks innhold</p>
+    </DialogBox>
+  </div>
 
   <hr />
   <h2>Enkel</h2>
