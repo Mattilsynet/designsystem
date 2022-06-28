@@ -35,7 +35,7 @@
             <li class="menu-level-2">
               <a
                 href={item.url}
-                rel={mapRelExternal(item.url)}
+                rel={item.url === '/dyr' ? 'external' : mapRelExternal(item.url)}
                 class="forward-arrow-small on-primary no-underline hover-indent"
                 aria-current={item.isActive ? 'page' : false}>
                 {item.title}
