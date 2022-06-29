@@ -17,9 +17,9 @@
   border: var(--border-width-regular) solid var(--color-primary);
 
   &--title{
-  font-weight: var(--font-weight-bold);
-  line-height: 1.75rem; // 28px
-  font-size: $font-size-h4; // 20px
+    font-weight: var(--font-weight-bold);
+    line-height: 1.75rem; // 28px
+    font-size: $font-size-h4; // 20px
   }
 
   &--closed{
@@ -33,7 +33,6 @@
 
   &--button {
     float: right;
-    margin-bottom: var(--spacer-x-small);
     margin-top: calc(-1 * var(--spacer-xx-small));
     margin-right: calc(-1 * var(--spacer-xx-small));
     background-position: center;
