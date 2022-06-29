@@ -14,7 +14,6 @@
     }
 
     .form-layout{
-      padding: var(--spacer-xx-small);
       display: block;
       .form-legend {
         font-weight: var(--font-weight-bold);
@@ -74,9 +73,6 @@
       position: absolute;
       z-index: var(--z-index-feedback);
 
-      .form-layout{
-        padding: var(--spacer-xxx-small);
-      }
     }
   }
 }
