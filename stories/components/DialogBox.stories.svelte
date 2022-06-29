@@ -6,6 +6,7 @@
   let isOpen = true
   let closeBtnAriaLabel = 'Lukk dialogboks'
   let title = 'Dette er en dialogboks tittel!'
+  let ariaTitle = 'Dette er en skult dialogboks tittel!'
 </script>
 
 <Meta
@@ -24,11 +25,17 @@
       <p>Dialogboks innhold</p>
     </DialogBox>
   </div>
+  <h2>Ingen tittel</h2>
+  <div class="tags-wrapper">
+    <DialogBox title="" {isOpen} {ariaTitle} {closeBtnAriaLabel}>
+      <p>Dialogboks innhold</p>
+    </DialogBox>
+  </div>
 
   <hr />
   <h2>Enkel</h2>
   <div class="tags-wrapper">
-    <DialogBox {isOpen} {closeBtnAriaLabel}>
+    <DialogBox {isOpen} {ariaTitle} {closeBtnAriaLabel}>
       {#if content}
         {@html content}
       {/if}
