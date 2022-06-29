@@ -252,8 +252,13 @@
   display: flex;
   flex-direction: column;
   a {
+    text-decoration: none;
     svg {
       height: 1.5rem;
+    }
+    &:hover,
+    &[aria-current='page'] {
+      text-decoration: underline;
     }
   }
   li {
@@ -308,8 +313,15 @@
 }
 .menu {
   --menu-small-link-font-size-mobile: 1.125rem; //18px
-  a.small-link {
-    font-size: var(--menu-small-link-font-size-mobile);
+  a {
+    text-decoration: none;
+
+    &.small-link {
+      font-size: var(--menu-small-link-font-size-mobile);
+    }
+    &[aria-current='page'] {
+      text-decoration: underline;
+    }
   }
   .sub-menu {
     .forward-arrow-small {
