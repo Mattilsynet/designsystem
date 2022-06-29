@@ -1,8 +1,11 @@
 @use '../theme' as *;
 
+
+$feedback-box-breakpoint: 1120px;
+
 .feedback-container {
-  --width-outside-content: 6.25rem; // 100px
-  --feedback-from-top: 20vh;
+  --width-outside-content: 10.25rem; // 196px
+  --feedback-from-top: 32vh;
   --feedback-box-width: 16.25rem; // 260px;
 
   .feedback-box {
@@ -25,7 +28,7 @@
         font-weight: var(--font-weight-bold);
         line-height: 1.75rem; // 28px
         font-size: $font-size-h4; // 20px
-        margin-bottom: var(--spacer-xx-small);
+        margin-bottom: var(--spacer-xxx-small);
       }
       .button-radio{
         .form-control {
@@ -41,7 +44,7 @@
         }
       }
       .meta{
-        margin-top: var(--spacer-xx-small);
+        margin-top: var(--spacer-xxx-small);
         margin-bottom: var(--spacer-x-small);
         line-height: 1.375rem;
       }
@@ -55,7 +58,7 @@
   }
 }
 
-@media only screen and (min-width: $breakpoint-large) {
+@media only screen and (min-width: $feedback-box-breakpoint) {
   .feedback-container {
     width: 100%;
     position: fixed;
