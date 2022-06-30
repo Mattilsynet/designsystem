@@ -1,19 +1,30 @@
 <script lang="ts">
-  import InputError from './InputErrorMessage.svelte';
-  import type {ErrorDetail} from '../../ts/types';
+  import InputError from './InputErrorMessage.svelte'
+  import {toKebabCase, createInputAriaDescribedby} from '../../ts/utils'
+  import type {ErrorDetail} from '../../ts/types'
 
-  export let value;
-  export let name: string;
-  export let label: string;
-  export let error: ErrorDetail | undefined;
-  export let helpText: string | undefined;
-  export let options: Array<{value: string; text: string}> = [];
-  export let isRequired: boolean | undefined = undefined;
-  export let textOptional = 'valgfitt felt';
-  export let hiddenErrorText: string | undefined;
+  export let value: Array<{value: string; text: string}> = []
+  export let name: string
+  export let label: string
+  export let error: ErrorDetail | undefined
+  export let helpText: string | undefined
+  export let options: Array<{value: string; text: string}> = []
+  export let isRequired: boolean | undefined = undefined
+  export let textOptional = 'valgfitt felt'
+  export let hiddenErrorText: string | undefined
+
+  export let theme: 'checkbox' | 'button' = 'checkbox'
+  let className = ''
+  export {className as class}
 </script>
 
-<fieldset id={name} aria-describedby={`${name}-hint ${name}-error`} aria-required={isRequired} class="form-fieldset">
+<fieldset
+  id={name}
+  aria-describedby={`${name}-hint ${name}-error`}
+  aria-required={isRequired}
+  class="form-fieldset {theme === 'checkbox' ? 'checkbox' : ''} {theme === 'button'
+    ? 'button-checkbox'
+    : ''} {className}">
   <legend class="form-legend">
     {label}
     {#if !isRequired}
@@ -33,8 +44,19 @@
 
   {#each options as radio (radio.value)}
     <div class="form-control checkbox">
-      <input type="checkbox" class="input__control" class:error id={radio.value} {name} value={radio.value} />
-      <label for={radio.value}>
+      <input
+        type="checkbox"
+        id={toKebabCase(radio.value)}
+        {name}
+        class="input__control"
+        class:error
+        value={radio.value}
+        bind:group={value}
+        aria-required={isRequired}
+        aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)} />
+      <label
+        class="form-label {theme === 'button' ? 'button button--secondary' : ''}"
+        for={toKebabCase(radio.value)}>
         {radio.text}
       </label>
     </div>
