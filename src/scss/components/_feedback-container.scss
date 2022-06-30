@@ -16,6 +16,19 @@ $feedback-box-breakpoint: 1120px;
       margin-top: 0;
     }
 
+    &--buttons{
+      margin-top: var(--spacer-xx-small);
+      .button{
+        font-weight: bold;
+        min-width: 7ch;
+      }
+      .button--secondary {
+        width: 20px;
+        padding: 0;
+        margin: 0;
+      }
+    }
+
     .form-layout{
       display: block;
       .form-legend {
