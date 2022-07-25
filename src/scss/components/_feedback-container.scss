@@ -1,6 +1,5 @@
 @use '../theme' as *;
 
-
 $feedback-box-breakpoint: 1120px;
 
 .feedback-container {
@@ -12,13 +11,14 @@ $feedback-box-breakpoint: 1120px;
     margin: 0 auto;
     max-width: var(--feedback-box-width);
 
-    form > *, fieldset > *{
+    form > *,
+    fieldset > * {
       margin-top: 0;
     }
 
-    &--buttons{
+    &--buttons {
       margin-top: var(--spacer-xx-small);
-      .button{
+      .button {
         font-weight: bold;
         min-width: 7ch;
       }
@@ -29,7 +29,7 @@ $feedback-box-breakpoint: 1120px;
       }
     }
 
-    .form-layout{
+    .form-layout {
       display: block;
       .form-legend {
         font-weight: var(--font-weight-bold);
@@ -43,23 +43,27 @@ $feedback-box-breakpoint: 1120px;
         font-size: $font-size-h4; // 20px
         margin-bottom: var(--spacer-xxx-small);
       }
-      .button-checkbox{
+      .button-checkbox {
         .form-control {
-          .button{
+          .button {
             min-width: 7ch;
           }
           .button--secondary {
-            background-color:var(--color-mt-white);
+            background-color: var(--color-mt-white);
             width: 20px;
             padding: 0;
             margin: 0;
           }
         }
       }
-      .meta{
+      textarea + p {
         margin-top: var(--spacer-xxx-small);
         margin-bottom: var(--spacer-x-small);
         line-height: 1.375rem;
+        & > a {
+          padding: 0;
+          line-height: initial;
+        }
       }
     }
   }
@@ -82,7 +86,7 @@ $feedback-box-breakpoint: 1120px;
       padding: var(--spacer-xxx-small);
       max-width: var(--feedback-box-width);
       top: var(--feedback-from-top);
-      right: -8vh ;
+      right: -8vh;
       text-align: left;
       opacity: 1;
       visibility: visible;
