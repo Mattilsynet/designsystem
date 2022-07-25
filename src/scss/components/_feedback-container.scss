@@ -57,7 +57,7 @@ $feedback-box-breakpoint: 1120px;
           }
         }
       }
-      textarea + p {
+      .hint {
         margin-top: var(--spacer-xxx-small);
         margin-bottom: var(--spacer-x-small);
         line-height: 1.375rem;
