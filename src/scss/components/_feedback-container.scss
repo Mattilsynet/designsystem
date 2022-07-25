@@ -4,7 +4,8 @@ $feedback-box-breakpoint: 1120px;
 
 .feedback-container {
   --width-outside-content: 10.25rem; // 196px
-  --feedback-from-top: 32vh;
+  --feedback-from-top: 35vh;
+  --feedback-from-right: -10vh;
   --feedback-box-width: 16.25rem; // 260px;
 
   .feedback-box {
@@ -83,10 +84,10 @@ $feedback-box-breakpoint: 1120px;
     right: 0;
 
     .feedback-box {
-      padding: var(--spacer-xxx-small);
+      padding: 0;
       max-width: var(--feedback-box-width);
       top: var(--feedback-from-top);
-      right: -8vh;
+      right: var(--feedback-from-right);
       text-align: left;
       opacity: 1;
       visibility: visible;
