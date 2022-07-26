@@ -34,7 +34,7 @@
   "author": "Mattilsynet<matsdrift@mattilsynet.no>",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.16.0",
+    "@babel/core": "^7.18.9",
     "@percy/cli": "^1.0.0-beta.72",
     "@percy/storybook": "^4.1.0",
     "@storybook/addon-a11y": "^6.4.12",
