@@ -1,10 +1,11 @@
 @use '../theme' as *;
 
 $feedback-box-breakpoint: 1120px;
+$feedback-box-breakpoint-height: 720px;
 
 .feedback-container {
   --width-outside-content: 10.25rem; // 196px
-  --feedback-from-top: 35vh;
+  --feedback-from-top: 10vh;
   --feedback-from-right: -10vh;
   --feedback-box-width: 16.25rem; // 260px;
 
@@ -94,5 +95,10 @@ $feedback-box-breakpoint: 1120px;
       position: absolute;
       z-index: var(--z-index-feedback);
     }
+  }
+}
+@media only screen and (min-height: $feedback-box-breakpoint-height) {
+  .feedback-container {
+    --feedback-from-top: 35vh;
   }
 }
