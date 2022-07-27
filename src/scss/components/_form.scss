@@ -239,7 +239,8 @@ label.form-label {
     transform: scale(1);
   }
 }
-.button-radio, .button-checkbox  {
+.button-radio,
+.button-checkbox {
   display: grid;
   grid-template-columns: min-content min-content;
   grid-template-rows: min-content min-content min-content min-content min-content;
@@ -254,7 +255,8 @@ label.form-label {
     gap: 0;
     display: flex;
 
-    input[type='checkbox'], input[type='radio'] {
+    input[type='checkbox'],
+    input[type='radio'] {
       &.input__control {
         opacity: 0;
         position: fixed;
@@ -342,7 +344,7 @@ label.form-label {
   }
 
   ul {
-    margin-left: 0;
+    margin: 0;
     padding-left: var(--spacer-xx-small);
     list-style: disc;
     li.error-summary__list--link {
