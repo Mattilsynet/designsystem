@@ -91,7 +91,7 @@
       {/if}
       <span class="title">
         {#if chapter}
-          <span class="responsive-show-inline">
+          <span class="responsive-show">
             {chapter}
           </span>
         {/if}
