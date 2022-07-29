@@ -99,7 +99,7 @@
       }
       @media only screen and (min-width: $breakpoint-large) {
         --chapter-number-cols: calc(
-            ((#{$content-width}) - (#{layout-with-sidebar.$width-sidebar-closed})) / 12
+            ((#{$main-width}) - (#{layout-with-sidebar.$width-sidebar-closed})) / 12
           )
           auto;
         > .disclosure-header {

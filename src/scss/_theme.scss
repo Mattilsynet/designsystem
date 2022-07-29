@@ -53,6 +53,7 @@ $spacer-xx-large: 5.5rem !default; // 88px
 
 $content-width: 95vw;
 $container-width: 90rem; // 1440px - figma grid width;
+$main-width: min(#{$container-width}, #{$content-width});
 
 $zindex-dropdown: 1000 !default;
 $zindex-sticky: 1020 !default;

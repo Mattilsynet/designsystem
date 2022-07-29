@@ -2,7 +2,7 @@
 @use '../global/typography' as *;
 
 .container {
-  width: min(#{$container-width}, #{$content-width}); //1440px - figma grid width
+  width: $main-width;
   margin-right: auto;
   margin-left: auto;
 }
@@ -220,7 +220,7 @@ footer,
   display: flex;
   flex-direction: column;
   justify-self: center;
-  width: min(#{$container-width}, #{$content-width});
+  width: $main-width;
   padding: var(--spacer-small) 0;
   gap: var(--spacer-x-small);
   border-top: $border-red-regular;

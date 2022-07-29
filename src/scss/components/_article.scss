@@ -83,7 +83,7 @@
   .heading-with-chapter {
     display: grid;
     grid-template-columns:
-      calc(((#{$content-width}) - (#{layout-with-sidebar.$menu-width})) / 12)
+      calc(((#{$main-width}) - (#{layout-with-sidebar.$menu-width})) / 12)
       max-content;
   }
 
@@ -98,6 +98,6 @@
 .heading-with-chapter {
   display: grid;
   grid-template-columns:
-    calc(((#{$content-width}) - (#{layout-with-sidebar.$width-sidebar-closed})) / 12)
+    calc(((#{$main-width}) - (#{layout-with-sidebar.$width-sidebar-closed})) / 12)
     max-content;
 }
