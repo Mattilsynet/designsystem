@@ -89,16 +89,14 @@
       {#if icon}
         {@html icon}
       {/if}
-      {#if chapter}
-        <span class="title">
+      <span class="title">
+        {#if chapter}
           <span class="responsive-show">
             {chapter}
           </span>
-          {@html title}
-        </span>
-      {:else}
+        {/if}
         {@html title}
-      {/if}
+      </span>
     </button>
   {/if}
 
