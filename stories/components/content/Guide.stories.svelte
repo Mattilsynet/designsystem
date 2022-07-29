@@ -242,14 +242,6 @@
                     panelClass={showChapterNumbers ? 'col-3-span-8' : 'col-3-span-8'}>
                     <div class="layout-grid layout-grid--column-12">
                       <article class="article-page col-1-span-12 children-match">
-                        <!--                        <h2 class={showChapterNumbers ? 'heading-with-chapter col-2-span-9' : ''}>-->
-                        <!--                          {#if showChapterNumbers}-->
-                        <!--                            <span class="chapter-number">-->
-                        <!--                              {subChapterIndex + 1}.-->
-                        <!--                            </span>-->
-                        <!--                          {/if}-->
-                        <!--                          {subChapter.heading}-->
-                        <!--                        </h2>-->
                         {@html subChapter.body}
                       </article>
                     </div>
@@ -265,7 +257,7 @@
                         headerClass={showChapterNumbers ? 'col-1-span-10' : 'col-3-span-6'}
                         panelClass={showChapterNumbers ? 'col-1-span-10' : 'col-3-span-6'}>
                         <div class="layout-grid layout-grid--column-12">
-                          <article class="article-page col-1-span-12 children-full-width">
+                          <article class="article-page col-1-span-12 children-match">
                             {@html subSubChapter.body}
                           </article>
                         </div>
