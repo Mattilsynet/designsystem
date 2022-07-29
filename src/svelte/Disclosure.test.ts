@@ -14,7 +14,7 @@ describe('Disclosure', () => {
     const {getByText} = render(Disclosure, {props: componentOptions})
     const byText = getByText('Varsle om piggtrådgjerder')
     expect(byText).toBeInTheDocument()
-    expect(byText.getAttribute('aria-expanded')).toEqual('false')
+    expect(byText.parentElement.getAttribute('aria-expanded')).toEqual('false')
     const disclosure = document.querySelector('.disclosure-bordered')
     expect(disclosure).toBeInTheDocument()
   })
@@ -40,9 +40,9 @@ describe('Disclosure', () => {
     const byText = getAllByText('Varsle om piggtrådgjerder')
     expect(byText.length > 0).toEqual(true)
     const btn = byText.find(el => {
-      return el.tagName === 'BUTTON'
+      return el.parentElement.tagName === 'BUTTON'
     })
-    expect(btn.getAttribute('aria-expanded')).toEqual('true')
+    expect(btn.parentElement.getAttribute('aria-expanded')).toEqual('true')
   })
 
   test('Render correct heading level - h2', async () => {
