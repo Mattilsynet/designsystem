@@ -1,5 +1,6 @@
 @use '../theme' as *;
 @use '../utilities/mixins' as *;
+@use '../components/layout-with-sidebar';
 
 .disclosure {
   --disclosure-spacing: var(--spacer-x-small);
@@ -97,7 +98,10 @@
         }
       }
       @media only screen and (min-width: $breakpoint-large) {
-        --chapter-number-cols: calc((95vw) / 12) auto;
+        --chapter-number-cols: calc(
+            ((#{$content-width}) - (#{layout-with-sidebar.$width-sidebar-closed})) / 12
+          )
+          auto;
         > .disclosure-header {
           grid-template-columns: var(--chapter-number-cols);
           .chapter-number {
@@ -138,9 +142,6 @@
       .title::after {
         transform: rotate(180deg);
       }
-    }
-
-    @media only screen and (min-width: $breakpoint-large) {
     }
   }
 
@@ -221,6 +222,20 @@
     .disclosure-panel {
       border-top: none;
       padding-top: var(--spacer-xx-small);
+    }
+  }
+}
+.menu-is-expanded {
+  @media only screen and (min-width: $breakpoint-x-large) {
+    .disclosure.disclosure-links.disclosure-with-number {
+      --chapter-number-cols: calc(((#{$content-width}) - (#{layout-with-sidebar.$menu-width})) / 12)
+        auto;
+      > .disclosure-header {
+        grid-template-columns: var(--chapter-number-cols);
+      }
+      > .disclosure-panel {
+        grid-template-columns: var(--chapter-number-cols);
+      }
     }
   }
 }
