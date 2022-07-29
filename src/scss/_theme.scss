@@ -51,7 +51,8 @@ $spacer-large: 3.5rem !default; // 56px
 $spacer-x-large: 4.5rem !default; // 72px
 $spacer-xx-large: 5.5rem !default; // 88px
 
-$container-width: 90rem;
+$content-width: 95vw;
+$container-width: 90rem; // 1440px - figma grid width;
 
 $zindex-dropdown: 1000 !default;
 $zindex-sticky: 1020 !default;
