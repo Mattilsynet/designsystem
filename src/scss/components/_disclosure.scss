@@ -27,7 +27,7 @@
 
     --space-content: var(--spacer-xxx-small);
 
-    padding: 0 0 var(--spacer-xx-small) 0;
+    padding: 0 0 var(--spacer-x-small) 0;
 
     h3 {
       margin-top: var(--space-content);
@@ -103,6 +103,7 @@
     > .disclosure-header {
       gap: var(--spacer-xx-small);
     }
+
     .disclosure-header {
       padding: var(--spacer-x-small);
       transition: padding-left ease-in-out 150ms;
@@ -114,12 +115,7 @@
         flex: none;
         align-self: center;
         width: $menu-icon-width;
-        height: $menu-icon-height-mobile;
-      }
-      @media only screen and (min-width: $breakpoint-large) {
-        svg {
-          height: $menu-icon-height-desktop;
-        }
+        height: 100%;
       }
     }
 
@@ -141,6 +137,7 @@
       transform-origin: center center;
     }
     .disclosure-panel {
+
       border-top: $border-width-small solid var(--color-secondary);
       margin: 0 var(--spacer-x-small);
       &.on-server {
