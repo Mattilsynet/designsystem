@@ -154,6 +154,12 @@
           grid-template-columns:
             calc(((#{$main-width}) - (#{layout-with-sidebar.$width-sidebar-closed})) / 12)
             auto;
+          .disclosure-header,
+          .disclosure-panel {
+            grid-template-columns:
+              calc(#{$main-width} / 12)
+              auto;
+          }
         }
         > .disclosure-header {
           .chapter-number {
@@ -249,15 +255,19 @@
   }
 }
 .menu-is-expanded {
-  @media only screen and (min-width: $breakpoint-x-large) {
+  @media only screen and (min-width: $breakpoint-large) {
     .disclosure.disclosure-links.disclosure-with-number {
       --chapter-number-cols: calc(((#{$content-width}) - (#{layout-with-sidebar.$menu-width})) / 12)
         auto;
-      > .disclosure-header {
-        grid-template-columns: var(--chapter-number-cols);
-      }
+      > .disclosure-header,
       > .disclosure-panel {
         grid-template-columns: var(--chapter-number-cols);
+        .disclosure-header,
+        .disclosure-panel {
+          grid-template-columns:
+            calc(#{$main-width} / 12)
+            auto;
+        }
       }
     }
   }
