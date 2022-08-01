@@ -56,8 +56,8 @@
             heading: 'Påstanden skal ikke brukes slik at den villeder forbrukern (artikkle 3)',
             body,
             subchapters: [
-              {heading: 'Innledning - under under kapitel', body},
-              {heading: 'Innledning - under under kapitel 2', body}
+              {heading: 'Under under kapitel', body},
+              {heading: 'Under under kapitel 2', body}
             ]
           },
           {
@@ -215,7 +215,7 @@
               {#if chapterIndex === currentChapterNumber}
                 <div class="layout-grid layout-grid--column-12">
                   <article class="article-page col-1-span-12 in-other-content">
-                    <h1 class={showChapterNumbers ? 'heading-with-chapter col-3-span-7' : ''}>
+                    <h1 class={showChapterNumbers ? 'heading-with-chapter col-2-span-9' : ''}>
                       {#if showChapterNumbers}
                         <span class="chapter-number">
                           {chapterIndex + 1}.
@@ -229,6 +229,7 @@
                 {#each chapter.subchapters || [] as subChapter, subChapterIndex}
                   <Disclosure
                     title={subChapter.heading}
+                    headerTag="h2"
                     theme="links"
                     chapter={showChapterNumbers
                       ? `${chapterIndex + 1}.${subChapterIndex + 1}`
@@ -236,12 +237,10 @@
                     class="layout-grid layout-grid--column-12 {showChapterNumbers
                       ? 'disclosure-with-number'
                       : ''}"
-                    headerClass={showChapterNumbers
-                      ? 'col-3-span-7 align-items-start'
-                      : 'col-3-span-7'}
-                    panelClass={showChapterNumbers ? 'col-3-span-8' : 'col-3-span-8'}>
+                    headerClass={showChapterNumbers ? 'col-2-span-9' : 'col-3-span-8'}
+                    panelClass={showChapterNumbers ? 'col-2-span-9' : 'col-3-span-8'}>
                     <div class="layout-grid layout-grid--column-12">
-                      <article class="article-page col-1-span-12 children-match">
+                      <article class="article-page col-1-span-12 children-full-width">
                         {@html subChapter.body}
                       </article>
                     </div>
@@ -250,14 +249,16 @@
                         title={subSubChapter.heading}
                         headerTag="h3"
                         theme="links"
-                        class="layout-grid layout-grid--column-12 disclosure-in-disclosure {showChapterNumbers
+                        class="layout-grid layout-grid--column-12 {showChapterNumbers
                           ? 'disclosure-with-number'
                           : ''}"
-                        chapter={`${chapterIndex + 1}.${subChapterIndex + 1}.${subSubIndex + 1}`}
-                        headerClass={showChapterNumbers ? 'col-1-span-10' : 'col-3-span-6'}
-                        panelClass={showChapterNumbers ? 'col-1-span-10' : 'col-3-span-6'}>
+                        chapter={showChapterNumbers
+                          ? `${chapterIndex + 1}.${subChapterIndex + 1}.${subSubIndex + 1}`
+                          : undefined}
+                        headerClass={'col-1-span-12'}
+                        panelClass={'col-1-span-12'}>
                         <div class="layout-grid layout-grid--column-12">
-                          <article class="article-page col-1-span-12 children-match">
+                          <article class="article-page col-1-span-12 children-full-width">
                             {@html subSubChapter.body}
                           </article>
                         </div>
