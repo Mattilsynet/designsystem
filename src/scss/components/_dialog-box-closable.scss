@@ -4,25 +4,25 @@
 
 .dialog-box {
   @include focus-outline();
-  --focus-box-shadow: 0 0 0 0.125rem var(--color-mt-background),
-  0 0 0 0.35rem var(--color-mt-blue-medium);
+  --background: var(--color-mt-lighter-light-blue);
+  --close-btn-box-shadow: 0 0 0 0.225rem var(--color-mt-blue-medium);
   --min-clickable-width-height: 2.75rem; // 44px
 
   display: block;
-  background-color: var(--color-mt-lighter-light-blue);
+  background-color: var(--background);
   width: 100%;
   height: auto;
   position: relative;
   padding: var(--spacer-x-small);
   border: var(--border-width-regular) solid var(--color-primary);
 
-  &--title{
+  &--title {
     font-weight: var(--font-weight-bold);
     line-height: 1.75rem; // 28px
     font-size: $font-size-h4; // 20px
   }
 
-  &--closed{
+  &--closed {
     display: none;
     visibility: hidden;
   }
@@ -49,7 +49,7 @@
       background-repeat: no-repeat;
     }
     &:focus {
-      box-shadow: var(--focus-box-shadow);
+      box-shadow: var(--close-btn-box-shadow);
     }
   }
 }
@@ -57,10 +57,10 @@
 @media only screen and (min-width: $breakpoint-large) {
   .dialog-box {
     padding: var(--spacer-xx-small);
-    &--title{
+    &--title {
       padding: 0;
     }
-    &--button{
+    &--button {
       padding: 0;
       margin-top: calc(-1 * var(--spacer-xxx-small));
       margin-right: calc(-1 * var(--spacer-xxx-small));

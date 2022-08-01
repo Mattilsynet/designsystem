@@ -1,35 +1,37 @@
 @use '../theme' as *;
 
-
-$feedback-box-breakpoint: 1120px;
+$feedback-box-breakpoint: 70rem; //1120px;
+$feedback-box-breakpoint-height: 48.75rem; //780px;
 
 .feedback-container {
   --width-outside-content: 10.25rem; // 196px
-  --feedback-from-top: 32vh;
+  --feedback-from-top: 15vh;
+  --feedback-from-right: -10vh;
   --feedback-box-width: 16.25rem; // 260px;
 
   .feedback-box {
     margin: 0 auto;
     max-width: var(--feedback-box-width);
 
-    form > *, fieldset > *{
+    form > *,
+    fieldset > * {
       margin-top: 0;
     }
 
-    &--buttons{
+    &--buttons {
       margin-top: var(--spacer-xx-small);
-      .button{
+      .button {
         font-weight: bold;
         min-width: 7ch;
       }
       .button--secondary {
-        width: 20px;
+        width: 1.25rem;
         padding: 0;
         margin: 0;
       }
     }
 
-    .form-layout{
+    .form-layout {
       display: block;
       .form-legend {
         font-weight: var(--font-weight-bold);
@@ -43,23 +45,27 @@ $feedback-box-breakpoint: 1120px;
         font-size: $font-size-h4; // 20px
         margin-bottom: var(--spacer-xxx-small);
       }
-      .button-checkbox{
+      .button-checkbox {
         .form-control {
-          .button{
+          .button {
             min-width: 7ch;
           }
           .button--secondary {
-            background-color:var(--color-mt-white);
+            background-color: var(--color-mt-white);
             width: 20px;
             padding: 0;
             margin: 0;
           }
         }
       }
-      .meta{
+      .hint {
         margin-top: var(--spacer-xxx-small);
         margin-bottom: var(--spacer-x-small);
         line-height: 1.375rem;
+        & > a {
+          padding: 0;
+          line-height: initial;
+        }
       }
     }
   }
@@ -79,15 +85,20 @@ $feedback-box-breakpoint: 1120px;
     right: 0;
 
     .feedback-box {
-      padding: var(--spacer-xxx-small);
+      padding: 0;
       max-width: var(--feedback-box-width);
       top: var(--feedback-from-top);
-      right: -8vh ;
+      right: var(--feedback-from-right);
       text-align: left;
       opacity: 1;
       visibility: visible;
       position: absolute;
       z-index: var(--z-index-feedback);
     }
+  }
+}
+@media only screen and (min-height: $feedback-box-breakpoint-height) {
+  .feedback-container {
+    --feedback-from-top: 32vh;
   }
 }

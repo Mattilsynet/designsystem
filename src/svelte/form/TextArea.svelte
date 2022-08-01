@@ -12,6 +12,7 @@
   export let helpText: string | undefined
   export let textOptional: string | undefined
   export let hiddenErrorText: string | undefined
+  export let helpTextPlacement: 'above' | 'below' = 'above'
 
   export let rows: number | undefined = 5
   export let cols: number | undefined
@@ -24,7 +25,7 @@
 
 <Label for={name} {isRequired} {textOptional}>{label}</Label>
 
-{#if helpText}
+{#if helpText && helpTextPlacement === 'above'}
   <div id={`${name}-hint`} class="hint">
     {@html helpText}
   </div>
@@ -50,3 +51,9 @@
   aria-required={isRequired}
   aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error, maxlength)}
   aria-invalid={!!error} />
+
+{#if helpText && helpTextPlacement === 'below'}
+  <div id={`${name}-hint`} class="hint">
+    {@html helpText}
+  </div>
+{/if}
