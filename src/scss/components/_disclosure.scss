@@ -117,11 +117,6 @@
         width: $menu-icon-width;
         height: 100%;
       }
-      @media only screen and (min-width: $breakpoint-large) {
-        svg {
-          height: 100%;
-        }
-      }
     }
 
     [aria-expanded].disclosure-header::after {
@@ -142,7 +137,6 @@
       transform-origin: center center;
     }
     .disclosure-panel {
-      @include children-spaced(var(--spacer-xx-small));
 
       border-top: $border-width-small solid var(--color-secondary);
       margin: 0 var(--spacer-x-small);
