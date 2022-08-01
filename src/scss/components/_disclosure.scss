@@ -108,6 +108,16 @@
       .title::after {
         transform: rotate(180deg);
       }
+      & + .disclosure-panel {
+        > :last-child {
+          border-bottom: $border-width-small solid var(--color-mt-beige);
+        }
+        .disclosure-panel {
+          > :last-child {
+            border-bottom: none;
+          }
+        }
+      }
     }
 
     &.disclosure-with-number {
