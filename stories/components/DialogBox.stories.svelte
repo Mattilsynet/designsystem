@@ -4,9 +4,14 @@
   import ButtonSpinner from '../../src/svelte/ButtonSpinner.svelte'
 
   let isOpen = true
+  let showDialog = false
   let closeBtnAriaLabel = 'Lukk dialogboks'
   let title = 'Dette er en dialogboks tittel!'
   let ariaTitle = 'Dette er en skult dialogboks tittel!'
+
+  function handleClick() {
+    showDialog = !showDialog
+  }
 </script>
 
 <Meta
@@ -61,6 +66,14 @@
       </div>
     </DialogBox>
   </div>
+  <hr />
+  <h2>Vises ved endring</h2>
+  <div class="tags-wrapper">
+    <button class="button toggle-button" on:click={handleClick}>Toggle dialog</button>
+    <DialogBox {title} isOpen={showDialog} {closeBtnAriaLabel}>
+      <p>Dialogboks innhold</p>
+    </DialogBox>
+  </div>
 </Story>
 
 <style lang="scss">
@@ -69,5 +82,9 @@
   button {
     margin: 2rem;
     max-width: 420px;
+  }
+  .toggle-button {
+    margin-top: 0;
+    margin-left: 0;
   }
 </style>
