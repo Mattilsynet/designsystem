@@ -26,12 +26,10 @@
 
   let selected
   let allOptions = options.concat(preferredOptions)
-  $: selectedOptions = values
 
   function handleChange() {
     const currentSelected = allOptions.find(o => o.value === selected)
-    selectedOptions = [...new Set(selectedOptions.concat(currentSelected))]
-    values = [...new Set(selectedOptions.concat(currentSelected))]
+    values = [...new Set(values.concat(currentSelected))]
     selected = undefined
   }
 </script>
@@ -48,7 +46,7 @@
   <InputError {...error} {hiddenErrorText} />
 {/if}
 
-<Tags bind:tags={selectedOptions} isClosable="true" buttonClass={tagButtonClass} />
+<Tags bind:tags={values} isClosable="true" buttonClass={tagButtonClass} />
 
 <select
   {name}
