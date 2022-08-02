@@ -20,6 +20,7 @@
   export let textOptional: string | undefined
   export let hiddenErrorText: string | undefined
   export let tagButtonClass = ''
+  export let defaultOption = 'Velg fra listen'
   export let values = []
 
   const selectId = `ui-select-${instanceCounter++}`
@@ -57,7 +58,7 @@
   aria-required={isRequired}
   aria-labelledby={labelId}
   aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)}>
-  <option disabled />
+  <option disabled>{defaultOption}</option>
   {#each preferredOptions as prefOption (prefOption.value)}
     <option value={prefOption.value}>
       {prefOption.text}
