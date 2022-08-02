@@ -238,6 +238,11 @@ $button-colors: 'error' !default;
       mask-size: cover;
       background-color: var(--color-mt-blue);
     }
+    &:hover {
+      &:after {
+        background-color: var(--color-mt-background);
+      }
+    }
   }
   &.expandable {
     --gap: 0;
