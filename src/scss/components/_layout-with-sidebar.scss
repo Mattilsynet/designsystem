@@ -61,7 +61,7 @@ aside {
 }
 
 // Desktop
-@media screen and (min-width: theme.$breakpoint-x-large) {
+@media screen and (min-width: theme.$breakpoint-xx-large) {
   .mobile-menu {
     height: 0;
   }
