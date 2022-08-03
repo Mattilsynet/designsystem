@@ -1,5 +1,6 @@
 @use '../theme' as *;
 @use '../utilities/mixins' as *;
+@use '../components/layout-with-sidebar';
 
 .disclosure {
   --disclosure-spacing: var(--spacer-x-small);
@@ -72,29 +73,50 @@
   }
 
   &.disclosure-links {
+    > .disclosure-header,
+    > .disclosure-panel {
+      display: grid;
+      gap: 0;
+      grid-template-columns: auto;
+    }
     > .disclosure-header {
       color: var(--color-mt-blue);
+
+      .title {
+        max-width: 100vw;
+      }
     }
 
     > [aria-expanded].disclosure-header {
       transition: color 0.3s ease;
-      &::before {
+      .title::after {
         transition: transform 0.3s ease;
-        background-image: url('data:image/svg+xml,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M10%20.159%208.265%201.893%2015.13%208.77H.159v2.46h14.97l-6.864%206.877L10%2019.84%2019.841%2010%2010%20.159Z%22%20fill%3D%22%23075B7A%22%2F%3E%3C%2Fsvg%3E');
+        background-image: url('data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M21.857%204.8%2012%2014.836%202.143%204.8%200%206.982%2012%2019.2%2024%206.982%2021.857%204.8Z%22%20fill%3D%22%23075B7A%22%2F%3E%3C%2Fsvg%3E');
         content: '';
         width: var(--icon-size-normal);
         height: var(--icon-size-normal);
         background-size: var(--icon-size-normal) var(--icon-size-normal);
         background-repeat: no-repeat;
-        display: block;
+        display: inline-block;
         padding-right: var(--icon-size-normal);
+        margin-left: var(--spacer-xxx-small);
       }
     }
 
     [aria-expanded='true'].disclosure-header {
-      color: var(--color-mt-text-dark);
-      &::before {
-        transform: rotate(90deg);
+      font-weight: $font-weight-normal;
+      .title::after {
+        transform: rotate(180deg);
+      }
+      & + .disclosure-panel {
+        > :last-child {
+          border-bottom: $border-width-small solid var(--color-mt-beige);
+        }
+        .disclosure-panel {
+          > :last-child {
+            border-bottom: none;
+          }
+        }
       }
     }
   }

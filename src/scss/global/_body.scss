@@ -44,11 +44,17 @@
 body {
   display: grid;
   grid-template-rows: auto 1fr auto;
-  row-gap: var(--spacer-x-small);
+  row-gap: 0;
   background-color: var(--color-mt-background);
   color: var(--color-mt-text-dark);
   font-family: $font-family;
   font-size: $font-size-body;
+
+  .layout-with-sidebar {
+    & + footer {
+      margin-top: 0;
+    }
+  }
 
   footer {
     margin-top: var(--spacer-small);

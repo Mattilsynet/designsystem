@@ -2,7 +2,7 @@
 @use '../global/typography' as *;
 
 .container {
-  width: min(#{$container-width}, 95vw); //1440px - figma grid width
+  width: $main-width;
   margin-right: auto;
   margin-left: auto;
 }
@@ -167,6 +167,16 @@ Only use if it does NOT affect accessibility
     display: none;
   }
 }
+/*
+Only use if it does NOT affect accessibility
+*/
+.responsive-show-inline {
+  display: inline-block;
+
+  @media only screen and (min-width: $breakpoint-large) {
+    display: none;
+  }
+}
 
 .visually-hidden-focusable {
   background: var(--color-primary);
@@ -220,7 +230,7 @@ footer,
   display: flex;
   flex-direction: column;
   justify-self: center;
-  width: min(1440px, 95vw);
+  width: $main-width;
   padding: var(--spacer-small) 0;
   gap: var(--spacer-x-small);
   border-top: $border-red-regular;
