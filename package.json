@@ -82,7 +82,7 @@
   },
   "dependencies": {
     "@xstate/svelte": "^2.0.0",
-    "gh-pages": "^3.2.3",
+    "gh-pages": "^4.0.0",
     "xstate": "^4.32.0"
   }
 }
