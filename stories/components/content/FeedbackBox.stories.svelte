@@ -93,8 +93,6 @@
     </article>
   </div>
   <div class="feedback-container">
-    <div class="feedback-container--left">
-      <div class="feedback-box">Placeholder text for feature component box</div>
-    </div>
+    <div class="feedback-box">Placeholder text for feature component box</div>
   </div>
 </Story>
