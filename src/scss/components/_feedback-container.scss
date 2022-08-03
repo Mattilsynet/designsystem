@@ -69,26 +69,21 @@ $feedback-box-breakpoint-height: 48.75rem; //780px;
       }
     }
   }
-
-  &--left {
-    max-width: calc($breakpoint-large + var(--width-outside-content));
-    margin: 0 auto;
-    position: relative !important;
-  }
 }
 
 @media only screen and (min-width: $feedback-box-breakpoint) {
   .feedback-container {
-    width: 100%;
+    width: min(#{$container-width}, 95vw); //1440px - figma grid width
+    margin-left: auto;
+    margin-right: auto;
     position: fixed;
     top: 0;
-    right: 0;
 
     .feedback-box {
       padding: 0;
       max-width: var(--feedback-box-width);
       top: var(--feedback-from-top);
-      right: var(--feedback-from-right);
+      right: 0;
       text-align: left;
       opacity: 1;
       visibility: visible;
