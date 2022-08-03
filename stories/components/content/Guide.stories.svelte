@@ -12,16 +12,11 @@
     {index: 2, url: '?kapittel=2-definisjoner', heading: 'Definisjoner'},
     {index: 3, url: '?kapittel=3-forurrensning', heading: 'Forurensning'}
   ]
-  //
+
   let chapterChangeAction = action('chapterChange')
   let currentChapterNumber = 0
   let isExpanded = false
 
-  function chapterChange(e) {
-    //   chapterChangeAction(e)
-    //   currentChapterNumber = e.detail.index
-  }
-  //
   function resolveChapterQueryParams(chapter) {
     return `?kapittel=${chapter.index}-${toKebabCase(chapter.heading)}`
   }
@@ -210,8 +205,7 @@
             {showChapterNumbers}
             {currentChapterNumber}
             menuTitle={'Innhold'}
-            basePath="/#"
-            on:chapterChange={chapterChange} />
+            basePath="/#" />
         </div>
       {/if}
     </aside>
