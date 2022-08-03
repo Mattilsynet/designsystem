@@ -119,59 +119,6 @@
         }
       }
     }
-
-    &.disclosure-with-number {
-      > .disclosure-header,
-      > .disclosure-panel {
-        display: grid;
-        gap: 0;
-        grid-template-columns: auto;
-      }
-    }
-
-    @media only screen and (min-width: $breakpoint-large) {
-      --chapter-number-cols: calc(
-          ((#{$main-width}) - (#{layout-with-sidebar.$width-sidebar-closed})) / 12
-        )
-        auto;
-      > .disclosure-header {
-        grid-template-columns: var(--chapter-number-cols);
-
-        > .title {
-          grid-column: span 2;
-        }
-      }
-      > .disclosure-panel {
-        grid-template-columns: var(--chapter-number-cols);
-        > * {
-          grid-column: 2 / span 1;
-        }
-      }
-
-      &.disclosure-with-number {
-        > .disclosure-header,
-        > .disclosure-panel {
-          grid-template-columns:
-            calc(((#{$main-width}) - (#{layout-with-sidebar.$width-sidebar-closed})) / 12)
-            auto;
-          .disclosure-header,
-          .disclosure-panel {
-            grid-template-columns:
-              calc(#{$main-width} / 12)
-              auto;
-          }
-        }
-        > .disclosure-header {
-          .chapter-number {
-            align-self: start;
-            grid-column: 1 / span 1;
-          }
-          .title {
-            grid-column: 2 / span 1;
-          }
-        }
-      }
-    }
   }
 
   &.disclosure-no-border {
@@ -251,24 +198,6 @@
     .disclosure-panel {
       border-top: none;
       padding-top: var(--spacer-xx-small);
-    }
-  }
-}
-.menu-is-expanded {
-  @media only screen and (min-width: $breakpoint-large) {
-    .disclosure.disclosure-links.disclosure-with-number {
-      --chapter-number-cols: calc(((#{$content-width}) - (#{layout-with-sidebar.$menu-width})) / 12)
-        auto;
-      > .disclosure-header,
-      > .disclosure-panel {
-        grid-template-columns: var(--chapter-number-cols);
-        .disclosure-header,
-        .disclosure-panel {
-          grid-template-columns:
-            calc(#{$main-width} / 12)
-            auto;
-        }
-      }
     }
   }
 }
