@@ -58,7 +58,7 @@
   aria-required={isRequired}
   aria-labelledby={labelId}
   aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)}>
-  <option disabled>{defaultOption}</option>
+  <option disabled value={undefined}>{defaultOption}</option>
   {#each preferredOptions as prefOption (prefOption.value)}
     <option value={prefOption.value}>
       {prefOption.text}
