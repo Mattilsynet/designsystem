@@ -3,6 +3,7 @@
   import {toKebabCase} from '../../../src/ts/utils'
   import DialogBox from '../../../src/svelte/DialogBox.svelte'
   import {tick} from 'svelte'
+  import TextArea from '../../../src/svelte/form/TextArea.svelte'
 
   const options = [
     {value: 'yes', text: 'Ja'},
@@ -130,23 +131,19 @@
             }}>Nei</button>
         </div>
         <form name="feedback_form" class="form-layout" on:submit|preventDefault>
-          <label for="feedback_text" class="form-label {hideFeedbackText ? '' : 'hide-feedback'}">
-            Er det noe vi kan forbedre med nettsiden?
-          </label>
-          <textarea
-            id="feedback_text"
+          <TextArea
             name="feedback_text"
-            bind:this={feedbackTextInput}
+            bind:textAreaRef={feedbackTextInput}
+            label="Er det noe vi kan forbedre med nettsiden?"
             value=""
-            rows="5"
-            cols="13"
-            helpText=""
-            class="form-field {hideFeedbackText ? '' : 'hide-feedback'}" />
-          <p class="text-small hint {hideFeedbackText ? '' : 'hide-feedback'}">
-            Informasjon blir brukt til å forbedre nettstedet. Vi kan ikke svare. <a
-              href=""
-              on:click|preventDefault>Kontakt oss</a> hvis du luerer på noe
-          </p>
+            showOptionalText={false}
+            helpText={'Informasjon blir brukt til å forbedre nettstedet. Vi kan ikke svare. <a ' +
+              'href="" ' +
+              'on:click|preventDefault>Kontakt oss</a> hvis du luerer på noe'}
+            helpTextPlacement="below"
+            textAreaClass={hideFeedbackText ? '' : 'hide-feedback'}
+            helpTextClass={hideFeedbackText ? '' : 'hide-feedback'}
+            labelClass={hideFeedbackText ? '' : 'hide-feedback'} />
           <button
             type="submit"
             class="button button--primary {hideFeedbackText ? '' : 'hide-feedback'}">
