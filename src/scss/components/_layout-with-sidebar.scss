@@ -1,0 +1,272 @@
+@use '../theme';
+$grid-1-col-width: calc((#{theme.$main-width}) / 12);
+$sidebar-width-expanded: calc((#{$grid-1-col-width}) * 4);
+
+$width-sidebar-closed: 3.5rem; //56px;
+$width-sidebar-expanded: min(#{$sidebar-width-expanded}, 23.25rem);
+$mobile-menu-height: 3rem;
+
+aside {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.mobile-menu {
+  display: flex;
+  flex-direction: row;
+  height: $mobile-menu-height;
+  overflow: hidden;
+  transition: height 0.3s ease;
+
+  button {
+    padding-inline: var(--spacer-x-small);
+    font-size: theme.$font-size-small;
+    line-height: theme.$font-size-small;
+
+    &.show-menu {
+      display: inline-block;
+      background-color: var(--color-primary);
+      color: white;
+    }
+
+    &.close-menu {
+      display: inline-block;
+      flex: 1;
+      text-align: center;
+    }
+  }
+}
+
+// mobile layout
+.has-js.layout-with-sidebar {
+  position: relative;
+
+  aside {
+    position: absolute;
+    top: $mobile-menu-height;
+    width: 5.8125rem;
+    height: 0;
+    overflow: hidden;
+    transition: width 0.3s ease, height 0.3s ease, top 0.3s ease;
+
+    &.expanded {
+      width: 100%;
+      height: 100%;
+    }
+
+    .aside-header {
+      padding: var(--spacer-x-small);
+    }
+  }
+}
+
+// Desktop
+@media screen and (min-width: theme.$breakpoint-xx-large) {
+  .mobile-menu {
+    height: 0;
+  }
+
+  .no-js.layout-with-sidebar,
+  .has-js.layout-with-sidebar {
+    position: relative;
+
+    aside {
+      position: absolute;
+      top: 0;
+      height: 100%;
+
+      h2 {
+        margin-top: var(--spacer-xx-small);
+      }
+    }
+
+    aside.expanded {
+      width: $width-sidebar-expanded;
+    }
+
+    aside:not(.expanded) {
+      width: $width-sidebar-closed;
+    }
+  }
+  .container {
+    --col-1-auto-template: calc((#{$grid-1-col-width})) auto;
+    --chapter-col: 1 / span 1;
+    --chapter-content-col: 2 / span 1;
+    --chapter-content-both: 1 / span 2;
+    --col-1-span-12: 1 / span 12;
+
+    &.menu-is-expanded {
+      --breadcrumbs-col: 6 / span 7;
+      --content-col: 6 / span 6;
+      --heading-with-chapter-col: 5 / span 7;
+
+      .breadcrumbs {
+        grid-column: var(--breadcrumbs-col);
+      }
+      //level 1
+      .in-other-content {
+        > * {
+          grid-column: var(--content-col);
+        }
+        > h1 {
+          grid-column: var(--content-col);
+          display: grid;
+          &.heading-with-chapter {
+            grid-column: var(--heading-with-chapter-col);
+
+            grid-template-columns: var(--col-1-auto-template);
+          }
+        }
+      }
+
+      .disclosure {
+        &.disclosure-links {
+          //menu expanded - no number - level 2
+          .disclosure-header,
+          .disclosure-panel {
+            grid-column: var(--heading-with-chapter-col);
+            grid-template-columns: var(--col-1-auto-template);
+            > * {
+              grid-column: 2;
+            }
+            //menu expanded - no number - level 3
+            .disclosure-links {
+              grid-template-columns: var(--col-1-auto-template);
+
+              .disclosure-header,
+              .disclosure-panel {
+                grid-column: var(--chapter-content-both);
+              }
+            }
+          }
+
+          //menu expanded - with number - level 2
+          &.disclosure-with-number {
+            > .disclosure-header {
+              grid-column: var(--heading-with-chapter-col);
+              > .chapter-number {
+                grid-column: var(--chapter-col);
+              }
+            }
+            .disclosure-panel {
+              grid-column: var(--content-col);
+              > * {
+                grid-column: var(--chapter-content-both);
+              }
+              //menu expanded - with number - level 3
+              .disclosure-links {
+                > .disclosure-header {
+                  grid-column: var(--col-1-span-12);
+                  display: grid;
+                  grid-template-columns: var(--col-1-auto-template);
+                }
+                .disclosure-panel {
+                  grid-column: var(--col-1-span-12);
+                  grid-template-columns: var(--col-1-auto-template);
+                  > * {
+                    grid-column: var(--chapter-content-col);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &:not(.menu-is-expanded) {
+      --menu-closed-content-col: 3 / span 6;
+      --menu-closed-with-chapter-col: 2 / span 7;
+
+      .in-other-content {
+        > * {
+          grid-column: var(--menu-closed-content-col);
+        }
+        > h1 {
+          display: grid;
+          grid-column: var(--menu-closed-content-col);
+          &.heading-with-chapter {
+            grid-column: var(--menu-closed-with-chapter-col);
+            grid-template-columns: var(--col-1-auto-template);
+          }
+        }
+      }
+
+      .disclosure {
+        &.disclosure-links {
+          //menu closed - no number - level 2
+          .disclosure-header,
+          .disclosure-panel {
+            grid-column: var(--menu-closed-content-col);
+            > * {
+              grid-column: var(--chapter-content-both);
+            }
+
+            //menu closed - no number - level 3
+            .disclosure-links {
+              grid-template-columns: var(--col-1-auto-template);
+              .disclosure-header,
+              .disclosure-panel {
+                grid-column: var(--chapter-content-col);
+              }
+            }
+          }
+
+          //menu closed - with number - level 2
+          &.disclosure-with-number {
+            grid-column: var(--chapter-content-col);
+            > .disclosure-header {
+              grid-column: var(--menu-closed-with-chapter-col);
+              grid-template-columns: var(--col-1-auto-template);
+              > .chapter-number {
+                grid-column: var(--chapter-col);
+              }
+              > .title {
+                grid-column: var(--chapter-content-col);
+              }
+            }
+            .disclosure-panel {
+              grid-column: var(--menu-closed-content-col);
+
+              //menu closed - with number - level 3
+              .disclosure-with-number {
+                grid-column: var(--chapter-content-both);
+
+                > .disclosure-header {
+                  grid-column: var(--col-1-span-12);
+                  grid-template-columns: var(--col-1-auto-template);
+                }
+
+                > .disclosure-panel {
+                  grid-column: var(--col-1-span-12);
+                  grid-template-columns: var(--col-1-auto-template);
+                  > * {
+                    grid-column: var(--chapter-content-col);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.closed-label {
+  margin-top: var(--spacer-small);
+  color: white;
+  font-size: theme.$font-size-h3;
+  transform: rotate(-90deg);
+  width: max-content;
+  line-height: 2rem;
+}
+
+.btn-open {
+  padding-top: var(--spacer-small);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}

@@ -189,6 +189,7 @@
   name="I Grid"
   args={{
     title,
+    showNr: true,
     disableJs: false,
     disableCss: false
   }}
@@ -204,6 +205,21 @@
         class="layout-grid layout-grid--column-12"
         headerClass="col-3-span-8"
         panelClass="col-3-span-8">
+        {@html disclosure.body}
+      </Disclosure>
+    {/each}
+
+    <h2>Trekkspill med kapittel nr</h2>
+    {#each disclosures as disclosure, i}
+      <Disclosure
+        title={disclosure.title}
+        loadJs={!args.disableJs}
+        theme="links"
+        headerTag={disclosure.headerTag}
+        chapter={i + 1}
+        class="{args.showNr ? 'disclosure-with-number' : ''} layout-grid layout-grid--column-12"
+        headerClass={args.showNr ? 'col-2-span-7' : 'col-3-span-8'}
+        panelClass={args.showNr ? 'col-2-span-7' : 'col-3-span-8'}>
         {@html disclosure.body}
       </Disclosure>
     {/each}

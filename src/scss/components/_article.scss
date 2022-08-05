@@ -1,5 +1,6 @@
 @use '../theme' as *;
 @use '../utilities/mixins' as *;
+@use '../components/layout-with-sidebar';
 
 .intro {
   font-size: $font-size-intro;
@@ -16,7 +17,7 @@
 
   details,
   section > details,
-  section + .disclosure{
+  section + .disclosure {
     margin-top: var(--space-section);
   }
 
