@@ -29,8 +29,11 @@
       {title ? title : ariaTitle}
     </h2>
     <button
+      id={dialogCloseButtonId}
+      data-testid="dialog-box-close"
       type="button"
       class="button button--link dialog-box--close-button "
+      on:click={handleClose}
       aria-label={closeBtnAriaLabel} />
 
     <div class="dialog-box--content">

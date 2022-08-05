@@ -12,6 +12,8 @@
   let hideFeedbackText = false
   let feedbackTextInput
 
+  let dialogOpen = true
+
   async function handleClick() {
     hideFeedbackText = true
     await tick()
@@ -108,7 +110,7 @@
   <div class="feedback-container">
     <div class="feedback-box">
       <DialogBox
-        isOpen={true}
+        isOpen={dialogOpen}
         title={hideFeedbackText ? 'Takk for tilbakemeldingen.' : 'Fant du det du lette etter?'}
         ariaTitle="Fant du det du lette etter?">
         <div role="group" class="feedback-box--buttons  {hideFeedbackText ? 'hide-feedback' : ''}">
