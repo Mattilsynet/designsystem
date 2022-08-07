@@ -4,10 +4,10 @@
 
 <script lang="ts">
   import {fade} from 'svelte/transition'
-  export let isOpen: boolean = true
-  export let title: string = ''
-  export let ariaTitle: string = ''
-  export let closeBtnAriaLabel: string = 'Lukk'
+  export let isOpen = true
+  export let title = ''
+  export let ariaTitle = ''
+  export let closeBtnAriaLabel = 'Lukk'
   const dialogBoxHeadingId = `ui-dialog-box-${instanceCounter++}`
   const dialogCloseButton = `dialog-close-button-${instanceCounter++}`
 
