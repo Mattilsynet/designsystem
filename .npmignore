@@ -8,3 +8,4 @@ tsconfig.json
 stories
 src/**/*.md
 *.cjs
+*.tgz

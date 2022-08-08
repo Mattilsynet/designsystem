@@ -258,7 +258,7 @@
     }
     &:hover,
     &[aria-current='page'] {
-      text-decoration: underline;
+      border-bottom: $border-width-regular solid var(--color-mt-white);
     }
   }
   li {
@@ -294,6 +294,12 @@
         font-size: $font-size-h4;
       }
     }
+    &.menu-level-2,
+    &.menu-level-3 {
+      a {
+        width: fit-content;
+      }
+    }
   }
   @media only screen and (min-width: $breakpoint-large) {
     grid-template-columns: 1fr 1fr;
@@ -320,7 +326,7 @@
       font-size: var(--menu-small-link-font-size-mobile);
     }
     &[aria-current='page'] {
-      text-decoration: underline;
+      border-bottom: $border-width-regular solid var(--color-mt-white);
     }
   }
   .sub-menu {
