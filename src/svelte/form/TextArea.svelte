@@ -7,12 +7,17 @@
   export let value
   export let name: string
   export let label: string
+  export let labelClass = ''
   export let countCharactersLeftLabel: string | undefined
   export let error: ErrorDetail | undefined
   export let helpText: string | undefined
   export let textOptional: string | undefined
+  export let helpTextClass = ''
+  export let showOptionalText = true
   export let hiddenErrorText: string | undefined
   export let helpTextPlacement: 'above' | 'below' = 'above'
+  export let textAreaRef = undefined
+  export let textAreaClass = ''
 
   export let rows: number | undefined = 5
   export let cols: number | undefined
@@ -23,10 +28,10 @@
   export let autocomplete: AutocompleteType | undefined
 </script>
 
-<Label for={name} {isRequired} {textOptional}>{label}</Label>
+<Label for={name} class={labelClass} {isRequired} {textOptional} {showOptionalText}>{label}</Label>
 
 {#if helpText && helpTextPlacement === 'above'}
-  <div id={`${name}-hint`} class="hint">
+  <div id={`${name}-hint`} class="hint {helpTextClass}">
     {@html helpText}
   </div>
 {/if}
@@ -39,8 +44,9 @@
   id={name}
   {name}
   use:countCharacters={countCharactersLeftLabel ? {countCharactersLeftLabel, id: name} : {id: name}}
-  class="form-field"
+  class="form-field {textAreaClass}"
   bind:value
+  bind:this={textAreaRef}
   {maxlength}
   {placeholder}
   {autocomplete}
@@ -53,7 +59,7 @@
   aria-invalid={!!error} />
 
 {#if helpText && helpTextPlacement === 'below'}
-  <div id={`${name}-hint`} class="hint">
+  <div id={`${name}-hint`} class="hint {helpTextClass}">
     {@html helpText}
   </div>
 {/if}
