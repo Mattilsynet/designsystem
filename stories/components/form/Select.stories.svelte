@@ -1,16 +1,23 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf'
   import Select from '../../../src/svelte/form/Select.svelte'
-  import MultiSelect from '../../../src/svelte/MultiSelect.svelte'
+  import MultiSelect from '../../../src/svelte/form/MultiSelect.svelte'
   import {wrapInShadowDom} from '../../utils'
 
   let value = []
 
-  function handleSubmit(e) {
-    console.log('form handle submit')
+  function handleSubmit() {
+    console.log('FORM handle submit')
   }
-  function handleFormKeyUp(e) {
-    console.log('form handle handleFormKeyUp')
+
+  function handleFormKeyUp() {
+    console.log('HandleFormKeyUp')
+  }
+
+  function handleFormKeyDown(e) {
+    if (e.key === 'Enter' && e.target.type !== 'submit') {
+      e.preventDefault()
+    }
   }
 </script>
 
@@ -22,22 +29,23 @@
     errorMessage: 'Fyll inn dette feltet.',
     multiselect: {
       preferredOptions: [
-        {value: 'NO', text: 'Norge', ariaLabel: 'Fjern Norge fra listen'},
-        {value: 'SE', text: 'Sverige', ariaLabel: 'Fjern Sverig fra listen'},
-        {value: 'FI', text: 'Finland', ariaLabel: 'Fjern Finland fra listen'}
+        {value: 'NO', text: 'Norge', removeAriaLabel: 'Fjern Norge fra listen'},
+        {value: 'SE', text: 'Sverige', removeAriaLabel: 'Fjern Sverig fra listen'},
+        {value: 'FI', text: 'Finland', removeAriaLabel: 'Fjern Finland fra listen'}
       ],
       options: [
-        {value: 'DA', text: 'Danmark', ariaLabel: 'Fjern Danmark fra listen'},
-        {value: 'FI', text: 'Finland', ariaLabel: 'Fjern Finland fra listen'},
-        {value: 'FR', text: 'Frankrike', ariaLabel: 'Fjern Frankrike fra listen'},
-        {value: 'NO', text: 'Norge', ariaLabel: 'Fjern Norge fra listen'},
-        {value: 'PT', text: 'Portugal', ariaLabel: 'Fjern Portugal fra listen'},
-        {value: 'ES', text: 'Spania', ariaLabel: 'Fjern Spania fra listen'},
-        {value: 'SE', text: 'Sverige', ariaLabel: 'Fjern Sverige fra listen'},
-        {value: 'KR', text: 'Sør Korea', ariaLabel: 'Fjern Sør Korea fra listen'},
-        {value: 'DE', text: 'Tyskland', ariaLabel: 'Fjern Tyskland fra listen'}
+        {value: 'DA', text: 'Danmark', removeAriaLabel: 'Fjern Danmark fra listen'},
+        {value: 'FI', text: 'Finland', removeAriaLabel: 'Fjern Finland fra listen'},
+        {value: 'FR', text: 'Frankrike', removeAriaLabel: 'Fjern Frankrike fra listen'},
+        {value: 'NO', text: 'Norge', removeAriaLabel: 'Fjern Norge fra listen'},
+        {value: 'PT', text: 'Portugal', removeAriaLabel: 'Fjern Portugal fra listen'},
+        {value: 'ES', text: 'Spania', removeAriaLabel: 'Fjern Spania fra listen'},
+        {value: 'SE', text: 'Sverige', removeAriaLabel: 'Fjern Sverige fra listen'},
+        {value: 'KR', text: 'Sør Korea', removeAriaLabel: 'Fjern Sør Korea fra listen'},
+        {value: 'DE', text: 'Tyskland', removeAriaLabel: 'Fjern Tyskland fra listen'}
       ],
       label: 'Hvilke land har du vært i?',
+      tagsLabel: 'Land du skal besøke:',
       helpText: 'Legg til landene du har vært i før dere kom til Norge.',
       isRequired: true
     },
@@ -69,15 +77,20 @@
 
 <Story name="Velg fler" let:args let:disableCss>
   <div use:wrapInShadowDom={disableCss}>
-    <form on:submit|preventDefault={handleSubmit} on:keyup|preventDefault={handleFormKeyUp}>
+    <form
+      on:keyup|preventDefault={handleFormKeyUp}
+      on:keydown|stopPropagation={handleFormKeyDown}
+      on:submit|preventDefault={handleSubmit}>
       <MultiSelect
         options={args.multiselect.options}
         preferredOptions={args.multiselect.preferredOptions}
         label={args.multiselect.label}
         name="multi-select"
         bind:values={value}
+        tagsLabel={args.multiselect.tagsLabel}
         isRequired={args.multiselect.isRequired}
         helpText={args.multiselect.helpText} />
+      <button type="submit" class="button">Submit</button>
       <p>
         Values:
         {JSON.stringify(value, null, 2)}

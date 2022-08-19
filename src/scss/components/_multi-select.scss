@@ -1,0 +1,151 @@
+@use '../theme' as *;
+@use '../color-tokens' as *;
+@use '../utilities/functions' as *;
+
+.multiselect {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex-wrap: wrap;
+
+  &::not(.readonly):hover {
+    border-bottom-color: hsl(0, 0%, 50%);
+  }
+  .actions {
+    align-items: center;
+    display: flex;
+    flex: 1;
+    min-width: 15rem;
+    border: $border-width-small solid var(--color-mt-beige);
+    border-radius: $border-radius;
+    background-color: white;
+    padding: var(--spacer-xxx-small) var(--spacer-xx-small);
+    align-content: center;
+
+    &:focus-within {
+      border-radius: $border-radius $border-radius 0 0;
+      outline: $border-width-large solid var(--color-mt-blue-medium);
+      z-index: 1;
+    }
+  }
+
+  input {
+    border: none;
+    margin: 0;
+    outline: none;
+    line-height: 2;
+    padding: 0;
+    width: 100%;
+
+    &:focus,
+    &:focus-visible {
+      outline: none;
+      box-shadow: none;
+    }
+  }
+}
+.token-label {
+  margin-top: var(--spacer-xx-small);
+}
+.token-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  li {
+    margin-top: 0;
+  }
+}
+.token-remove,
+.remove-all {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 2rem;
+  min-width: 2.75rem;
+  align-content: center;
+  margin-right: 0;
+  &:hover {
+    cursor: pointer;
+  }
+  &::after {
+    height: 1rem;
+  }
+}
+
+.multiselect:hover .dropdown-arrow path {
+  fill: hsl(0, 0%, 50%);
+}
+
+.down-arrow {
+  content: url('data:image/svg+xml,%3Csvg%20width%3D%2222%22%20height%3D%2223%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M20.036%204.437%2011%2013.637l-9.036-9.2-1.964%202%2011%2011.2%2011-11.2-1.964-2Z%22%20fill%3D%22%233F3E3E%22%2F%3E%3C%2Fsvg%3E');
+  margin-top: 0.3rem;
+}
+.icon-x {
+  &:after {
+    content: url('data:image/svg+xml,%3Csvg%20width%3D%2220%22%20height%3D%2221%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22m20%202.54-7.5%207.5%207.5%207.499-2.5%202.5-7.5-7.5-7.5%207.5-2.5-2.5%207.5-7.5L0%202.54%202.5.04l7.5%207.5%207.5-7.5%202.5%202.5Z%22%20fill%3D%22%23075B7A%22%2F%3E%3C%2Fsvg%3E');
+  }
+}
+.options {
+  left: 0;
+  list-style: none;
+  margin-block-end: 0;
+  margin-block-start: 0;
+  max-height: 30vh;
+  overflow: auto;
+  padding-inline-start: 0;
+  position: absolute;
+  top: calc(100% + 0.0625rem);
+  width: 100%;
+  padding: var(--spacer-xxx-small);
+  background-color: var(--color-mt-white);
+  border-left: $border-width-small solid var(--color-mt-beige);
+  border-right: $border-width-small solid var(--color-mt-beige);
+  border-bottom: $border-width-small solid var(--color-mt-beige);
+  border-radius: 0 0 $border-radius $border-radius;
+
+  .option {
+    background-color: var(--color-mt-white);
+    cursor: pointer;
+    padding: var(--spacer-xxx-small);
+    position: relative;
+    margin-top: 0;
+    border-radius: $border-radius;
+    display: flex;
+    align-content: center;
+    gap: var(--spacer-xx-small);
+    &:before {
+      content: url('data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20x%3D%22.5%22%20y%3D%22.5%22%20width%3D%2223%22%20height%3D%2223%22%20rx%3D%223.5%22%20fill%3D%22%23fff%22%20stroke%3D%22%23AFAB89%22%2F%3E%3C%2Fsvg%3E');
+      height: 1.6rem;
+      display: inline-block;
+      align-self: center;
+    }
+    &:last-child {
+      border-bottom-left-radius: 0.2rem;
+      border-bottom-right-radius: 0.2rem;
+    }
+    &:not(.selected):hover {
+      background-color: var(--color-mt-lighter-light-blue);
+    }
+    &.divider {
+      border-radius: $border-radius $border-radius 0 0;
+      border-bottom: $border-width-small solid var(--color-mt-beige);
+    }
+    &.selected {
+      &:before {
+        content: url('data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%2224%22%20height%3D%2224%22%20rx%3D%224%22%20fill%3D%22%23075B7A%22%2F%3E%3Cpath%20d%3D%22M6.826%209.98%205%2012.365l6.051%205.234L19%208.3l-1.922-1.9-6.014%207.463L6.826%209.98Z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E');
+      }
+    }
+    .active {
+      background-color: hsl(214, 17%, 88%);
+    }
+    &.active,
+    &:hover {
+      background-color: var(--color-mt-lighter-light-blue);
+    }
+  }
+}
+
+.hidden {
+  display: none;
+}

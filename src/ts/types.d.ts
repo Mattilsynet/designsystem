@@ -86,3 +86,9 @@ export type AutocompleteType =
   | 'sex'
   | 'tel'
   | 'url'
+
+export interface MultiSelectOption {
+  value: string
+  text: string
+  removeAriaLabel: string
+}
