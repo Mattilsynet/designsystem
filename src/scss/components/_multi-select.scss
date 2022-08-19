@@ -9,7 +9,6 @@
   flex-direction: column;
   align-items: stretch;
   flex-wrap: wrap;
-  position: relative;
 
   &::not(.readonly):hover {
     border-bottom-color: hsl(0, 0%, 50%);
