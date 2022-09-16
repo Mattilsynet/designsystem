@@ -46,7 +46,7 @@
 </Story>
 
 <Story name="Med fet skrift" let:args>
-  <h1>Oppsummering og detaljer med fet skrift</h1>
+  <p>Oppsummering og detaljer med fet skrift</p>
   <main class="container layout-flex-col">
     <SummaryDetail title={args.title} detailsClass="with-bold">
       {@html args.content}
@@ -54,6 +54,15 @@
     <hr />
     <h2>Med heading-tag i oppsummeringen</h2>
     <SummaryDetail title={`<h2>${args.title}</h2>`} detailsClass="with-bold">
+      {@html args.content}
+    </SummaryDetail>
+  </main>
+</Story>
+
+<Story name="Med fet skrift og ikon" let:args>
+  <p>Oppsummering og detaljer med fet skrift og ikon!</p>
+  <main class="container layout-flex-col">
+    <SummaryDetail title={args.title} detailsClass="with-bold with-icon">
       {@html args.content}
     </SummaryDetail>
   </main>
