@@ -26,13 +26,6 @@
       font-weight: $font-weight-bold;
     }
   }
-  &.with-icon {
-     summary {
-       &::before {
-        height: 1.55rem;
-       }
-    }
-  }
 }
 
 .with-icon {
