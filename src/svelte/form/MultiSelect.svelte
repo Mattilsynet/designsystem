@@ -200,7 +200,7 @@
       <button
         id="{selectId}-remove-{index}"
         type="button"
-        class="button button--icon button--small closable token"
+        class="button button--flat button--small closable token"
         data-id={selectedOption.value}
         aria-describedby="{selectId}-remove"
         aria-label={selectedOption.removeAriaLabel}

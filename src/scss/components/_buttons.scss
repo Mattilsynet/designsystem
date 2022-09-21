@@ -140,7 +140,7 @@ $button-colors: 'error' !default;
       box-shadow: var(--focus-box-shadow);
     }
   }
-  &--icon {
+  &--flat {
     background: transparent;
     color: var(--color-mt-blue);
     &:hover {

@@ -103,7 +103,7 @@
       <div class="expand-wrapper">
         <button
           type="button"
-          class="button button--icon button--small expandable self-start {showMore
+          class="button button--flat button--small expandable self-start {showMore
             ? 'm-t-xxs'
             : ''}"
           aria-expanded={showMore}

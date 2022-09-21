@@ -27,21 +27,24 @@
 
 <Story name="Normal" let:primary let:primaryLong let:disableCss let:disabled let:secondary>
   <h1>Knapper</h1>
-  <p class="description">Hovedknapp</p>
+  <p class="description">Hovedknapp - stor</p>
   <button class="button button--primary" {disabled}>{primary}</button>
   <button class="button button--primary" {disabled}>{primaryLong}</button>
   <button class="button button--primary" {disabled} style="width: 15rem">{primaryLong}</button>
 
-  <p class="description">Sekundær</p>
+  <p class="description">Sekundær - stor</p>
   <button class="button button--secondary" {disabled}>{secondary}</button>
 
   <p class="description">Lenkeknapp</p>
   <button class="button button--link"> ... </button>
 
-  <p class="description">Med ikon</p>
-  <button class="button button--icon closable">Med ikon</button>
+  <p class="description">Flat - stor</p>
+  <button class="button button--flat">Uten ikon</button>
 
-  <p class="description">På blå</p>
+  <p class="description">Flat med icon - stor</p>
+  <button class="button button--flat closable">Med ikon</button>
+
+  <p class="description">På blå - stor</p>
   <div class="background-mt-blue p-xxs">
     <buttton type="button" class="button button--on-primary">{primary}</buttton>
   </div>
