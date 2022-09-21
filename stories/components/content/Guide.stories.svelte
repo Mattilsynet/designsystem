@@ -173,7 +173,16 @@
     </div>
   </header>
   <div class="layout-with-sidebar has-js">
-    <div class="mobile-menu" />
+    <div class="mobile-menu">
+      <button
+        class="button--unstyled show-menu"
+        aria-haspopup="true"
+        aria-expanded={isExpanded === 'expanded'}
+        on:click={handleClickClose}>
+        Innhold
+      </button>
+      <button class="button--unstyled close-menu" on:click={handleClickClose}> Lesevisning </button>
+    </div>
     <aside class={isExpanded ? 'expanded' : ''}>
       {#if !isExpanded}
         <button class="button--unstyled btn-open" on:click={handleClickClose}>
@@ -187,17 +196,17 @@
               d="M9.99996 0.158691L8.26544 1.89321L15.1297 8.7698H0.158691V11.2301H15.1297L8.26544 18.1067L9.99996 19.8412L19.8412 9.99996L9.99996 0.158691Z"
               fill="#F9F6F1" />
           </svg>
-
           <div class="closed-label">Innhold</div>
         </button>
       {:else}
         <div class="aside-header">
           <button class="button--unstyled float-right" on:click={handleClickClose}>
             <svg width="21.307" height="21.213" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <title>Close}</title>
+              <title>Close</title>
               <path stroke="#fff" stroke-width="2" d="M20.6.707.801 20.506M20.506 20.506.707.707" />
             </svg>
           </button>
+          <h2>Veileder title</h2>
         </div>
         <div class="guide-menu">
           <ChapterMenu
@@ -275,4 +284,18 @@
       </main>
     </div>
   </div>
+  <footer class="footer footer--regular" aria-labelledby="footer-title">
+    <h2 id="footer-title" class="inclusively-hidden">Footer</h2>
+    <div class="col">Col 1</div>
+    <div class="col">Col 2</div>
+    <div class="col">Col 3</div>
+  </footer>
 </Story>
+
+<style lang="scss">
+  // because storybook wraps stories
+  footer {
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
