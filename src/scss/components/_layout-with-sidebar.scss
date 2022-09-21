@@ -1,9 +1,10 @@
 @use '../theme';
 $grid-1-col-width: calc((#{theme.$main-width}) / 12);
-$sidebar-width-expanded: calc((#{$grid-1-col-width}) * 4);
+$sidebar-width-expanded: calc((#{$grid-1-col-width}) * 5);
+$main-width-expanded: calc((#{$grid-1-col-width}) * 7);
 
 $width-sidebar-closed: 3.5rem; //56px;
-$width-sidebar-expanded: min(#{$sidebar-width-expanded}, 23.25rem);
+$width-sidebar-expanded: min(#{$sidebar-width-expanded}, 30rem);
 $mobile-menu-height: 3rem;
 
 aside {
@@ -36,14 +37,18 @@ aside {
     }
   }
 }
+.no-js.layout-with-sidebar {
+  aside {
+    margin-top: -0.6rem;
+  }
+}
 
 // mobile layout
 .has-js.layout-with-sidebar {
-  position: relative;
-
   aside {
     position: absolute;
-    top: $mobile-menu-height;
+    top: calc(#{theme.$height-header-mobile} + #{$mobile-menu-height});
+
     width: 5.8125rem;
     height: 0;
     overflow: hidden;
@@ -51,11 +56,81 @@ aside {
 
     &.expanded {
       width: 100%;
-      height: 100%;
+      height: auto;
     }
 
     .aside-header {
       padding: var(--spacer-x-small);
+    }
+  }
+  .heading-with-chapter {
+    display: grid;
+    grid-template-columns: 1fr 8fr;
+    .chapter-number {
+      grid-column: 1;
+    }
+    .title {
+      grid-column: 2;
+    }
+  }
+}
+// tablet to desktop
+@media screen and (min-width: theme.$breakpoint-large) {
+  .layout-with-sidebar {
+    .article-page {
+      > * {
+        grid-column: 3 / span 8;
+      }
+    }
+    &.no-js {
+      aside {
+        margin-top: -1.25rem;
+      }
+    }
+    &.has-js {
+      aside {
+        top: calc(
+          #{theme.$height-header-regular} + #{$mobile-menu-height} + #{theme.$border-width-regular}
+        );
+      }
+      h1.heading-with-chapter {
+        grid-column: 1 / span 10;
+        grid-template-columns: minmax(auto, calc(#{$grid-1-col-width}* 2)) 1fr;
+        .chapter-number {
+          margin-left: var(--spacer-xx-small);
+        }
+      }
+    }
+  }
+  .disclosure {
+    &.disclosure-links.disclosure-with-number {
+      > .disclosure-header,
+      > .disclosure-panel {
+        grid-column: 1 / span 10;
+        grid-template-columns: minmax(auto, calc(#{$grid-1-col-width}* 2)) 1fr;
+        .chapter-number {
+          margin-left: var(--spacer-xx-small);
+        }
+        .disclosure {
+          &.disclosure-links.disclosure-with-number {
+            > .disclosure-header,
+            > .disclosure-panel {
+              grid-column: 1 / span 12;
+              grid-template-columns: minmax(auto, 8rem) 1fr;
+            }
+            > .disclosure-header {
+              .chapter-number {
+                margin-left: 0;
+              }
+            }
+          }
+        }
+      }
+      > .disclosure-panel {
+        > * {
+          grid-column: 2;
+        }
+      }
     }
   }
 }
@@ -64,14 +139,20 @@ aside {
 @media screen and (min-width: theme.$breakpoint-xx-large) {
   .mobile-menu {
     height: 0;
+    width: 0;
   }
-
+  .no-js.layout-with-sidebar {
+    aside {
+      margin-top: 0;
+    }
+  }
   .no-js.layout-with-sidebar,
   .has-js.layout-with-sidebar {
-    position: relative;
+    display: flex;
 
     aside {
-      position: absolute;
+      position: static;
+      overflow: visible;
       top: 0;
       height: 100%;
 
@@ -90,15 +171,19 @@ aside {
   }
   .container {
     --col-1-auto-template: calc((#{$grid-1-col-width})) auto;
+
     --chapter-col: 1 / span 1;
     --chapter-content-col: 2 / span 1;
     --chapter-content-both: 1 / span 2;
     --col-1-span-12: 1 / span 12;
+    --chapter-indent: var(--spacer-small);
 
     &.menu-is-expanded {
-      --breadcrumbs-col: 6 / span 7;
-      --content-col: 6 / span 6;
-      --heading-with-chapter-col: 5 / span 7;
+      --col-1-auto-template: 1fr 4fr;
+      --breadcrumbs-col: 3 / span 7;
+      --content-col: 3 / span 8;
+      --heading-with-chapter-col: 1 / span 10;
+      width: 100%;
 
       .breadcrumbs {
         grid-column: var(--breadcrumbs-col);
@@ -113,8 +198,10 @@ aside {
           display: grid;
           &.heading-with-chapter {
             grid-column: var(--heading-with-chapter-col);
-
             grid-template-columns: var(--col-1-auto-template);
+            .chapter-number {
+              margin-left: var(--chapter-indent);
+            }
           }
         }
       }
@@ -145,6 +232,7 @@ aside {
             > .disclosure-header {
               grid-column: var(--heading-with-chapter-col);
               > .chapter-number {
+                margin-left: var(--chapter-indent);
                 grid-column: var(--chapter-col);
               }
             }
@@ -159,6 +247,9 @@ aside {
                   grid-column: var(--col-1-span-12);
                   display: grid;
                   grid-template-columns: var(--col-1-auto-template);
+                  .chapter-number {
+                    margin-left: 0;
+                  }
                 }
                 .disclosure-panel {
                   grid-column: var(--col-1-span-12);
@@ -245,6 +336,39 @@ aside {
                   }
                 }
               }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+//extra large desktop
+@media screen and (min-width: theme.$breakpoint-xxx-large) {
+  .layout-with-sidebar {
+    --content-col: 3 / span 6;
+    .container {
+      width: theme.$main-width;
+      .chapter-navigation.col-3-span-8 {
+        grid-column: var(--content-col);
+      }
+      &.menu-is-expanded {
+        width: calc(#{theme.$main-width});
+        margin-right: 20%;
+        --col-1-auto-template: 1fr 3fr;
+        --heading-with-chapter-col: 1 / span 8;
+        --chapter-indent: var(--spacer-xx-large);
+        .in-other-content {
+          h1.heading-with-chapter {
+            .chapter-number {
+              margin-left: var(--chapter-indent);
+            }
+          }
+        }
+        .disclosure.disclosure-links.disclosure-with-number {
+          > .disclosure-header {
+            > .chapter-number {
+              margin-left: var(--chapter-indent);
             }
           }
         }
