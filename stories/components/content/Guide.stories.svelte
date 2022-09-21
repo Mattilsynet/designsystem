@@ -292,8 +292,7 @@
   </footer>
 </Story>
 
-<style lang="scss">
-  // because storybook wraps stories
+<style>
   footer {
     margin-left: auto;
     margin-right: auto;
