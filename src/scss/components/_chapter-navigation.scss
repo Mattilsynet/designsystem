@@ -31,3 +31,8 @@
     }
   }
 }
+@media print {
+  .chapter-navigation {
+    display: none;
+  }
+}
