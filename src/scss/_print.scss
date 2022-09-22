@@ -1,0 +1,80 @@
+@use './theme' as *;
+@media print {
+  @page {
+    margin: 2cm;
+  }
+  main,
+  .meta {
+    font-size: 0.75rem !important; //12px;
+  }
+  h1,
+  .h1 {
+    font-size: $font-size-h3;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  h2,
+  .h2 {
+    font-size: $font-size-h4;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  h3,
+  .h3,
+  .intro > * {
+    font-size: $font-size-small;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  h4,
+  .h4,
+  h5,
+  .h5,
+  h6,
+  .h6 {
+    font-size: 0.875rem; //14px
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  a {
+    font-size: 0.75rem !important;
+    break-inside: avoid;
+    overflow-wrap: anywhere !important;
+    word-wrap: break-word;
+    &.button.button--primary {
+      text-decoration: underline !important;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: start;
+      gap: 0;
+      color: var(--color-mt-blue);
+      background-color: transparent;
+    }
+    &[href^="https://"]:after
+    {
+      content: ' (' attr(href) ')' !important;
+    }
+    &[href^='#']:after {
+      display: none;
+    }
+  }
+
+  ul,
+  ol,
+  dl {
+    break-before: avoid;
+  }
+  table,
+  pre {
+    break-inside: avoid;
+  }
+
+  img {
+    max-width: 500px;
+  }
+
+  footer.footer {
+    display: none;
+  }
+}
