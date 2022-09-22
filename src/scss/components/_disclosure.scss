@@ -136,8 +136,6 @@
       svg {
         flex: none;
         align-self: center;
-        width: $menu-icon-width;
-        height: 100%;
       }
     }
 
@@ -159,7 +157,6 @@
       transform-origin: center center;
     }
     .disclosure-panel {
-
       border-top: $border-width-small solid var(--color-secondary);
       margin: 0 var(--spacer-x-small);
       &.on-server {
@@ -198,6 +195,36 @@
     .disclosure-panel {
       border-top: none;
       padding-top: var(--spacer-xx-small);
+    }
+  }
+}
+@media print {
+  .disclosure {
+    .disclosure-header {
+      padding-bottom: 0;
+      &.h2 {
+        font-size: $font-size-body;
+      }
+      &.h3 {
+        font-size: $font-size-small;
+      }
+    }
+    .disclosure-panel {
+      &.display-none-important {
+        display: block !important;
+        padding-bottom: 0;
+        h2.inclusively-hidden,
+        h3.inclusively-hidden {
+          margin-top: 0;
+        }
+      }
+    }
+    &.disclosure-no-border {
+      .disclosure-header {
+        svg {
+          transform: scale(0.7);
+        }
+      }
     }
   }
 }

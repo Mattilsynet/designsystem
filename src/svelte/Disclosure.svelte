@@ -100,17 +100,16 @@
     </button>
   {/if}
 
-  {#if isOpen}
-    <div
-      id={bodyId}
-      class="disclosure-panel {panelClass} {onServer ? 'on-server' : ''}"
-      transition:slide|local={{duration: $state.context.isFirstRenderFinished ? 300 : 0}}>
-      {#if !onServer}
-        <HeadingLevel class="inclusively-hidden" headingLevel={+headerTag.charAt(1)}>
-          {@html title}
-        </HeadingLevel>
-      {/if}
-      <slot />
-    </div>
-  {/if}
+  <div
+    id={bodyId}
+    class="disclosure-panel {panelClass} {onServer ? 'on-server' : ''}"
+    class:display-none-important={!isOpen}
+    transition:slide|local={{duration: $state.context.isFirstRenderFinished ? 300 : 0}}>
+    {#if !onServer}
+      <HeadingLevel class="inclusively-hidden" headingLevel={+headerTag.charAt(1)}>
+        {@html title}
+      </HeadingLevel>
+    {/if}
+    <slot />
+  </div>
 </div>

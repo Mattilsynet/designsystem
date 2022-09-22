@@ -267,7 +267,9 @@ footer,
 .display-none {
   display: none;
 }
-
+.display-none-important {
+  display: none !important;
+}
 .float-right {
   float: right;
 }
