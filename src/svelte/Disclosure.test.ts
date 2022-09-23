@@ -11,10 +11,11 @@ describe('Disclosure', () => {
   }
 
   test('Renders', () => {
-    const {getByText} = render(Disclosure, {props: componentOptions})
-    const byText = getByText('Varsle om piggtrådgjerder')
-    expect(byText).toBeInTheDocument()
-    expect(byText.parentElement.getAttribute('aria-expanded')).toEqual('false')
+    const {getAllByText} = render(Disclosure, {props: componentOptions})
+    const byText = getAllByText('Varsle om piggtrådgjerder')
+    expect(byText.length).toEqual(2)
+    expect(byText[0].parentElement.getAttribute('aria-expanded')).toEqual('false')
+    expect(byText[1].parentElement.classList.contains('display-none-important')).toEqual(true)
     const disclosure = document.querySelector('.disclosure-bordered')
     expect(disclosure).toBeInTheDocument()
   })
@@ -46,33 +47,33 @@ describe('Disclosure', () => {
   })
 
   test('Render correct heading level - h2', async () => {
-    const {getByText, getAllByText} = render(Disclosure, {
+    const {getAllByText} = render(Disclosure, {
       props: {...componentOptions, headerTag: 'h2'}
     })
-    const heading = getByText('Varsle om piggtrådgjerder')
-    await fireEvent.click(heading)
+    const heading = getAllByText('Varsle om piggtrådgjerder')
+    await fireEvent.click(heading[0])
 
     const all = getAllByText('Varsle om piggtrådgjerder')
     expect(all[1].tagName).toEqual('H2')
   })
 
   test('Render correct heading level - h3', async () => {
-    const {getByText, getAllByText} = render(Disclosure, {
+    const {getAllByText} = render(Disclosure, {
       props: {...componentOptions, headerTag: 'h3'}
     })
-    const heading = getByText('Varsle om piggtrådgjerder')
-    await fireEvent.click(heading)
+    const heading = getAllByText('Varsle om piggtrådgjerder')
+    await fireEvent.click(heading[0])
 
     const all = getAllByText('Varsle om piggtrådgjerder')
     expect(all[1].tagName).toEqual('H3')
   })
 
   test('Render correct heading level - h4', async () => {
-    const {getByText, getAllByText} = render(Disclosure, {
+    const {getAllByText} = render(Disclosure, {
       props: {...componentOptions, headerTag: 'h4'}
     })
-    const heading = getByText('Varsle om piggtrådgjerder')
-    await fireEvent.click(heading)
+    const heading = getAllByText('Varsle om piggtrådgjerder')
+    await fireEvent.click(heading[0])
 
     const all = getAllByText('Varsle om piggtrådgjerder')
     expect(all[1].tagName).toEqual('H4')

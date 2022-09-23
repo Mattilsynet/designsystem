@@ -20,24 +20,27 @@ describe('Animal disease', () => {
   }
 
   test('Renders', () => {
-    const {getByText} = render(AnimalDisease, componentOptions)
-    expect(getByText('Symptomer')).toBeInTheDocument()
+    const {getByText, getAllByText} = render(AnimalDisease, componentOptions)
+    expect(getAllByText('Symptomer').length).toEqual(2)
+    expect(
+      getAllByText('Symptomer')[1].parentElement.classList.contains('display-none-important')
+    ).toEqual(true)
     expect(getByText('This is some text about the disease')).toBeInTheDocument()
-    expect(getByText('Hvordan smitter sykdommen?')).toBeInTheDocument()
-    expect(getByText('Kan sykdommen smitte til mennesker?')).toBeInTheDocument()
+    expect(getAllByText('Hvordan smitter sykdommen?').length).toEqual(2)
+    expect(getAllByText('Kan sykdommen smitte til mennesker?').length).toEqual(2)
     expect(getByText('Describing the symptoms')).toBeInTheDocument()
     expect(getByText('Describing the routes of the infaction')).toBeInTheDocument()
     expect(getByText('Mattilsynet')).toBeInTheDocument()
   })
 
   test('Does not render accordion when body not defined', () => {
-    const {getByText, queryByText} = render(AnimalDisease, {
+    const {getAllByText, queryByText} = render(AnimalDisease, {
       ...componentOptions,
       text: null,
       routesOfInfection: null,
       infectionToHumans: null
     })
-    expect(getByText('Symptomer')).toBeInTheDocument()
+    expect(getAllByText('Symptomer').length).toEqual(2)
     expect(queryByText('This is some text about the disease')).not.toBeInTheDocument()
     expect(queryByText('Hvordan smitter sykdommen?')).not.toBeInTheDocument()
     expect(queryByText('Kan sykdommen smitte til mennesker?')).not.toBeInTheDocument()
