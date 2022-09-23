@@ -394,3 +394,21 @@ aside {
   align-items: center;
   gap: 3rem;
 }
+
+@media print {
+  .has-js.layout-with-sidebar {
+    display: flex;
+    flex-direction: column;
+    aside {
+      position: initial;
+      background-color: transparent;
+      color: var(--color-mt-text-dark);
+      a {
+        color: var(--color-mt-text-dark);
+      }
+    }
+    .mobile-menu {
+      display: none;
+    }
+  }
+}

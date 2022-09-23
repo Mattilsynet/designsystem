@@ -87,25 +87,28 @@ describe('Related links list', () => {
   test('Renders', () => {
     const {getAllByText, getByText} = render(MenuItems, componentOptions)
     const allByText = getAllByText('Menu item 1')
-    expect(allByText.length).toEqual(2)
+    expect(allByText.length).toEqual(3)
     expect(allByText[0].parentElement.tagName).toEqual('BUTTON')
-    expect(allByText[1].tagName).toEqual('A')
+    expect(allByText[1].parentElement.classList.contains('display-none-important')).toEqual(true)
+    expect(allByText[2].tagName).toEqual('A')
     componentOptions.itemsLeft[0].children.forEach(child => {
       expect(getByText(child.title)).toBeInTheDocument()
     })
 
     const allByText1 = getAllByText('Menu item 2')
     expect(allByText1[0].parentElement.tagName).toEqual('BUTTON')
-    expect(allByText1[1].tagName).toEqual('A')
-    expect(allByText1.length).toEqual(2)
+    expect(allByText1[1].parentElement.classList.contains('display-none-important')).toEqual(true)
+    expect(allByText1[2].tagName).toEqual('A')
+    expect(allByText1.length).toEqual(3)
     componentOptions.itemsLeft[1].children.forEach(child => {
       expect(getByText(child.title)).toBeInTheDocument()
     })
 
     const menu3 = getAllByText('Menu item 3')
     expect(menu3[0].parentElement.tagName).toEqual('BUTTON')
-    expect(menu3[1].tagName).toEqual('A')
-    expect(menu3.length).toEqual(2)
+    expect(menu3[1].parentElement.classList.contains('display-none-important')).toEqual(true)
+    expect(menu3[2].tagName).toEqual('A')
+    expect(menu3.length).toEqual(3)
     componentOptions.itemsLeft[2].children.forEach(child => {
       expect(getByText(child.title)).toBeInTheDocument()
     })
@@ -131,7 +134,7 @@ describe('Related links list', () => {
     expect(notActiveAnymore.getAttribute('aria-current')).toEqual('false')
 
     const activeMenu1 = getAllByText('Menu item 1')
-    expect(activeMenu1[1].getAttribute('aria-current')).toEqual('page')
+    expect(activeMenu1[2].getAttribute('aria-current')).toEqual('page')
 
     componentOptions.itemsLeft[0].isActive = false
     componentOptions.itemsRight[1].isActive = true
@@ -139,7 +142,7 @@ describe('Related links list', () => {
     rerender(componentOptions)
 
     const notActiveMenu1 = getAllByText('Menu item 1')
-    expect(notActiveMenu1[1].getAttribute('aria-current')).toEqual('false')
+    expect(notActiveMenu1[2].getAttribute('aria-current')).toEqual('false')
 
     const activeMenuRight2 = getByText('Right Menu item 2')
     expect(activeMenuRight2.getAttribute('aria-current')).toEqual('page')
@@ -159,10 +162,10 @@ describe('Related links list', () => {
   test('Adds rel="external" if url is external', () => {
     const {getAllByText, getByText} = render(MenuItems, componentOptions)
     const menu3 = getAllByText('Menu item 3')
-    expect(menu3[1].getAttribute('rel')).toEqual('external')
+    expect(menu3[2].getAttribute('rel')).toEqual('external')
 
     const menu2 = getAllByText('Menu item 2')
-    expect(menu2[1].getAttribute('rel')).toEqual(null)
+    expect(menu2[2].getAttribute('rel')).toEqual(null)
 
     const menu3_1 = getByText('Child item 3.1')
     expect(menu3_1.getAttribute('rel')).toEqual(null)
