@@ -2,9 +2,6 @@ module.exports = {
   bail: false,
   verbose: true,
   globals: {
-    'ts-jest': {
-      diagnostics: false
-    }
   },
   roots: [
     "<rootDir>/src/"
@@ -16,7 +13,7 @@ module.exports = {
         "preprocess": true
       }
     ],
-    "^.+\\.ts$": "ts-jest"
+    "^.+\\.ts$": ["ts-jest", {diagnostics: false}]
   },
   moduleFileExtensions: ['js', 'ts', 'svelte'],
   extensionsToTreatAsEsm: [".svelte"],

@@ -1,4 +1,10 @@
+storybook-static
+babel.config.js
+jest-setup.js
+svelte.config.js
 tsconfig.json
+.github
+.static
 .idea
 .editorconfig
 .eslintrc.json
