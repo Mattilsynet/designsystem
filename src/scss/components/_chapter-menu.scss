@@ -31,7 +31,10 @@
 
     &:focus {
       outline-offset: -1px;
-      outline: 2px solid var(--color-mt-beige);
+      outline: $border-width-large solid var(--color-mt-beige);
+      box-shadow: none;
+      border-radius: 0;
+      padding-left: 4px;
     }
   }
 }
