@@ -3,7 +3,6 @@
 </script>
 
 <script lang="ts">
-  import {fade} from 'svelte/transition'
   export let isOpen = true
   export let title = ''
   export let ariaTitle = ''
@@ -22,7 +21,6 @@
     data-testid="dialog-box"
     role="dialog"
     tabindex="0"
-    transition:fade
     aria-hidden={!isOpen}
     aria-labelledby={dialogBoxHeadingId}>
     <h2 id={dialogBoxHeadingId} class="h4 dialog-box--title {title ? '' : 'inclusively-hidden'}">
