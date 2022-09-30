@@ -209,6 +209,12 @@ aside {
       .disclosure {
         &.disclosure-links {
           //menu expanded - no number - level 2
+          .disclosure-panel {
+            .intro {
+              font-size: theme.$font-size-label;
+              margin-top: 0;
+            }
+          }
           .disclosure-header,
           .disclosure-panel {
             grid-column: var(--heading-with-chapter-col);
