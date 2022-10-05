@@ -62,7 +62,9 @@ details {
     color: var(--color-mt-blue);
     list-style: none;
     cursor: pointer;
-
+    > h3 {
+      margin-top: 0;
+    }
     &::after {
       content: url('data:image/svg+xml,%3Csvg%20width%3D%2220%22%20height%3D%2212%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M17.4667.545%209.9991%208.1481%202.5316.545.9082%202.198l9.091%209.2561L19.09%202.1978%2017.4667.5449Z%22%20fill%3D%22%23075B7A%22%2F%3E%3C%2Fsvg%3E');
       display: inline-block;
