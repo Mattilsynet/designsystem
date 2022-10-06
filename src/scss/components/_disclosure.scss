@@ -33,6 +33,14 @@
     > h3 {
       margin-top: var(--space-content);
     }
+    .article-page {
+      .intro {
+        margin-top: 0;
+        :first-child {
+          margin-top: 0;
+        }
+      }
+    }
   }
 
   &.disclosure-bordered {
