@@ -21,7 +21,7 @@
           href={chapter.url}
           aria-current={chapter.index === currentChapterNumber ? 'page' : undefined}>
           {#if showChapterNumbers}
-            {index + 1}
+            {index + 1}.
           {/if}
           {chapter.heading}
         </a>
