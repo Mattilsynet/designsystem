@@ -40,6 +40,9 @@ aside {
 .no-js.layout-with-sidebar {
   aside {
     margin-top: -0.6rem;
+    .aside-header {
+      padding: var(--spacer-x-small);
+    }
   }
 }
 
