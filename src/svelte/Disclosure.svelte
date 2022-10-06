@@ -72,7 +72,23 @@
 <div class="disclosure disclosure-{theme} {disclosureClass}">
   {#if onServer}
     <HeadingLevel class="disclosure-header {headerClass}" headingLevel={+headerTag.charAt(1)}>
-      {@html title}
+      {#if chapter}
+        <span class="chapter-number responsive-hide">
+          {chapter}
+        </span>
+      {/if}
+
+      {#if icon}
+        {@html icon}
+      {/if}
+      <span class="title">
+        {#if chapter}
+          <span class="responsive-show-inline">
+            {chapter}
+          </span>
+        {/if}
+        {@html title}
+      </span>
     </HeadingLevel>
   {:else}
     <button
