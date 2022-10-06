@@ -169,10 +169,6 @@
     margin-top: var(--spacer-x-small);
   }
 
-  section > details > .summary-wrapper {
-    padding-top: var(--spacer-xx-small);
-  }
-
   section {
     > .inclusively-hidden + * {
       margin-top: var(--space-section);
