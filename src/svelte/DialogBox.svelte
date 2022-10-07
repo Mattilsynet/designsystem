@@ -7,6 +7,8 @@
   export let title = ''
   export let ariaTitle = ''
   export let closeBtnAriaLabel = 'Lukk'
+  export let dialogRef = undefined
+
   const dialogBoxHeadingId = `ui-dialog-box-${instanceCounter++}`
   const dialogCloseButtonId = `dialog-close-button-${instanceCounter++}`
 
@@ -22,6 +24,7 @@
     role="dialog"
     tabindex="0"
     aria-hidden={!isOpen}
+    bind:this={dialogRef}
     aria-labelledby={dialogBoxHeadingId}>
     <h2 id={dialogBoxHeadingId} class="h4 dialog-box--title {title ? '' : 'inclusively-hidden'}">
       {title ? title : ariaTitle}
