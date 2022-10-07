@@ -40,6 +40,9 @@
           margin-top: 0;
         }
       }
+      table.responsive-table {
+        grid-column: span 12;
+      }
     }
   }
 
