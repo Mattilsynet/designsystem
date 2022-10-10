@@ -69,7 +69,7 @@ $feedback-box-breakpoint-height: 48.75rem; //780px;
     right: 0;
 
     .feedback-cell {
-      width: min(90rem, 95vw);
+      width: min(#{$container-width}, 95vw);
       margin: 0 auto;
       position: relative;
 
