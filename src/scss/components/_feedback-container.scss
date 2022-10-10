@@ -64,6 +64,7 @@ $feedback-box-breakpoint-height: 48.75rem; //780px;
 @media only screen and (min-width: 1600px) {
   .feedback-container.onWidePage {
     position: fixed;
+    top: var(--feedback-from-top);
     left: 0;
     right: 0;
 
