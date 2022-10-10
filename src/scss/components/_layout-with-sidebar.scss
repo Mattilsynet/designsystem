@@ -80,6 +80,8 @@ aside {
 // tablet to desktop
 @media screen and (min-width: theme.$breakpoint-large) {
   .layout-with-sidebar {
+    overflow: hidden;
+
     .article-page {
       > * {
         grid-column: 3 / span 8;
