@@ -68,4 +68,14 @@ describe('Chapter Navigation', () => {
     expect(queryByText('1. Chapter 1')).not.toBeInTheDocument()
     expect(getByText('2. Chapter 2')).toBeInTheDocument()
   })
+
+  test('Dont show chapter nav if there is 1 chapter', () => {
+    const {queryByText} = render(ChapterNavigation, {
+      ...componentOptions,
+      chapters: componentOptions.chapters.splice(0, 1)
+    })
+    expect(queryByText('0. Intro')).not.toBeInTheDocument()
+    expect(queryByText('1. Chapter 1')).not.toBeInTheDocument()
+    expect(queryByText('2. Chapter 2')).not.toBeInTheDocument()
+  })
 })
