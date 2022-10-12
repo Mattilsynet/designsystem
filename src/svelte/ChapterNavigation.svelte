@@ -6,15 +6,16 @@
   export let nextText = ''
   export let previousText = ''
   export let chapters: Array<Chapter> = []
-  export let currentChapterIndex = 0
+  export let currentChapterIndex: 0 | 1 = 0
+  export let startIndex = 0
   let className = ''
   export {className as class}
 
   $: nextChapterIndex = currentChapterIndex + 1
-  $: nextChapterNumber = nextChapterIndex + 1
+  $: nextChapterNumber = nextChapterIndex + startIndex
   $: nextChapter = chapters[nextChapterIndex]
   $: previousChapterIndex = currentChapterIndex - 1
-  $: previousChapterNumber = previousChapterIndex + 1
+  $: previousChapterNumber = previousChapterIndex + startIndex
   $: previousChapter = chapters[previousChapterIndex]
 
   function hasNextChapter(currentChapterNumber: number): boolean {
