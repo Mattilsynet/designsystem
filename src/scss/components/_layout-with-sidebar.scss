@@ -41,7 +41,9 @@ aside {
   aside {
     margin-top: -0.6rem;
     .aside-header {
-      padding: var(--spacer-x-small);
+      h2 {
+        padding-top: var(--spacer-xx-small);
+      }
     }
   }
 }
@@ -63,7 +65,12 @@ aside {
     }
 
     .aside-header {
-      padding: var(--spacer-x-small);
+      position: relative;
+      button {
+        position: absolute;
+        top: var(--spacer-xx-small);
+        right: var(--spacer-xx-small);
+      }
     }
   }
   .heading-with-chapter {
