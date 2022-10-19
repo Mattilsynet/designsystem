@@ -1,7 +1,7 @@
 <script lang="ts">
-  import {Meta, Story} from '@storybook/addon-svelte-csf';
-  import TextArea from '../../../src/svelte/form/TextArea.svelte';
-  import {wrapInShadowDom} from '../../utils';
+  import {Meta, Story} from '@storybook/addon-svelte-csf'
+  import TextArea from '../../../src/svelte/form/TextArea.svelte'
+  import {wrapInShadowDom} from '../../utils'
 </script>
 
 <Meta
@@ -12,18 +12,25 @@
       'Beskriv kort og konkret hva du har observert og hvor alvorlig hendelsen er. Vær oppmerksom på den ansvarlige ofte får se meldingen.',
     errorMessage: 'Fyll inn dette feltet.',
     disableCss: false,
-    countCharactersLeftLabel: 'karakterer igjen'
+    countCharactersLeftLabel: 'karakterer igjen',
+    countCharactersTooManyLabel: 'karakterer for mange'
   }}
   argTypes={{
     label: {control: 'text'},
     helpText: {control: 'text'},
     countCharactersLeft: {control: 'text'},
+    countCharactersTooManyLabel: {control: 'text'},
     errorMessage: {control: 'text'},
     disableCss: {control: 'boolean'}
-  }}
-/>
+  }} />
 
-<Story name="TextArea normal" let:label let:helpText let:disableCss let:countCharactersLeftLabel>
+<Story
+  name="TextArea normal"
+  let:label
+  let:helpText
+  let:disableCss
+  let:countCharactersLeftLabel
+  let:countCharactersTooManyLabel>
   <div use:wrapInShadowDom={disableCss}>
     <form class="form-layout">
       <TextArea
@@ -31,25 +38,26 @@
         {label}
         {helpText}
         {countCharactersLeftLabel}
+        {countCharactersTooManyLabel}
+        maxlength="100"
         textOptional="valgfritt felt"
         inputmode="text"
-        maxlength={300}
         rows="3"
-        cols="5"
-      />
+        cols="5" />
 
       <TextArea
         name="email2"
         {label}
         {helpText}
+        {countCharactersLeftLabel}
+        {countCharactersTooManyLabel}
         textOptional="valgfritt felt"
         inputmode="text"
-        maxlength={300}
+        maxlength="100"
         isRequired={true}
         placeholder="Skriv inn tekst her"
         rows="3"
-        cols="5"
-      />
+        cols="5" />
     </form>
   </div>
 </Story>
@@ -64,10 +72,9 @@
         error={{key: 'email', message: errorMessage}}
         textOptional="valgfritt felt"
         inputmode="text"
-        maxlength="300"
+        maxlength="100"
         rows="3"
-        cols="5"
-      />
+        cols="5" />
     </form>
   </div>
 </Story>

@@ -55,7 +55,7 @@ describe('createInputAriaDescribedby', () => {
     const errorMessage = 'This is the error'
     const error = {key: name, message: errorMessage}
     const res = createInputAriaDescribedby(name, error, maxLength)
-    expect(res).toEqual('input-name-hint input-name-error input-name-maxlength')
+    expect(res).toEqual('input-name-maxlength input-name-hint input-name-error')
   })
 
   test('Creates described when no hint, error, maxlength', () => {
@@ -73,6 +73,6 @@ describe('createInputAriaDescribedby', () => {
     const maxLength = 300
     const name = 'input-name'
     const res = createInputAriaDescribedby(name, undefined, maxLength)
-    expect(res).toEqual('input-name-hint input-name-maxlength')
+    expect(res).toEqual('input-name-maxlength input-name-hint')
   })
 })

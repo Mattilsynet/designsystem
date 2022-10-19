@@ -4,6 +4,7 @@
   import type {AutocompleteType, ErrorDetail, InputModeType} from '../../ts/types'
   import {createInputAriaDescribedby} from '../../ts/utils'
   import Label from './Label.svelte'
+  import {countCharactersTooManyLabel} from './TextArea.svelte'
 
   export let value
   export let name: string
@@ -24,6 +25,15 @@
 
   export let inputClass = ''
   export let isHorizontal = false
+  console.log('maxlength %s', JSON.stringify(maxlength, null, 2))
+
+  $: countCharsParams = {
+    countCharacters: maxlength && maxlength > 0,
+    maxlength: maxlength,
+    id: name,
+    countCharactersLeftLabel: countCharactersLeftLabel,
+    countCharactersTooManyLabel: countCharactersTooManyLabel
+  }
 </script>
 
 {#if isHorizontal}
@@ -47,16 +57,13 @@
     <input
       id={name}
       {name}
-      use:countCharacters={countCharactersLeftLabel
-        ? {countCharactersLeftLabel, id: name}
-        : {id: name}}
+      use:countCharacters={countCharsParams}
       class="form-field {inputClass}"
       bind:value
       class:error
       aria-required={isRequired || undefined}
       aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error, maxlength)}
       aria-invalid={!!error}
-      {maxlength}
       {inputmode}
       {placeholder}
       {autocomplete} />
@@ -77,16 +84,13 @@
   <input
     id={name}
     {name}
-    use:countCharacters={countCharactersLeftLabel
-      ? {countCharactersLeftLabel, id: name}
-      : {id: name}}
+    use:countCharacters={countCharsParams}
     class="form-field {inputClass}"
     bind:value
     class:error
     aria-required={isRequired || undefined}
     aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error, maxlength)}
     aria-invalid={!!error}
-    {maxlength}
     {inputmode}
     {placeholder}
     {autocomplete} />
