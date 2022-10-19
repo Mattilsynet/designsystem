@@ -38,6 +38,8 @@ describe('TextInput', () => {
     expect(input.getAttribute('autocomplete')).toEqual(autocomplete)
     expect(input.getAttribute('inputmode')).toEqual(inputmode)
     expect(input.getAttribute('aria-required')).toEqual('true')
+    expect(input.getAttribute('aria-describedby').indexOf('name-hint') > -1).toEqual(true)
+    expect(input.getAttribute('aria-invalid')).toEqual('false')
     expect(getByPlaceholderText(placeholder)).toBeInTheDocument()
   })
 
@@ -57,16 +59,33 @@ describe('TextInput', () => {
     expect(queryByPlaceholderText(placeholder)).not.toBeInTheDocument()
   })
 
-  test('Does not render properties when not defined', () => {
-    const err = {fieldName: name, message: 'This is the errormessage'}
-    const {getByText} = render(TextInput, {
+  test('Render error message when defined', () => {
+    const err = {key: name, message: 'This is the errormessage'}
+    const {getByText, getByLabelText} = render(TextInput, {
       value,
       error: err,
       name,
       label,
       helpText
     })
-    expect(getByText(err.message)).toBeInTheDocument()
+    const errorMessage = getByText(err.message)
+    expect(errorMessage).toBeInTheDocument()
+    expect(errorMessage.getAttribute('id').indexOf(name) > -1).toEqual(true)
+    const input = getByLabelText(/Navn/)
+    expect(input.getAttribute('aria-describedby').indexOf('name-error') > -1).toEqual(true)
+    expect(input.getAttribute('aria-invalid')).toEqual('true')
+  })
+
+  test('Does not render aria-describedby when no helptext, error or maxlength', () => {
+    const {getByLabelText} = render(TextInput, {
+      value,
+      error: undefined,
+      name,
+      label,
+      helpText: undefined
+    })
+    const input = getByLabelText(/Navn/)
+    expect(input.getAttribute('aria-describedby')).toBeNull()
   })
 
   test('Renders optional in label if not required', () => {
