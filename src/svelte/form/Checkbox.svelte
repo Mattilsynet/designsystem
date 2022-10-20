@@ -20,7 +20,7 @@
 
 <fieldset
   id={name}
-  aria-describedby={`${name}-hint ${name}-error`}
+  aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)}
   aria-required={isRequired}
   class="form-fieldset {theme === 'checkbox' ? 'checkbox' : ''} {theme === 'button'
     ? 'button-checkbox'

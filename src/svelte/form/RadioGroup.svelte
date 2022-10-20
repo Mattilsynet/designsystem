@@ -20,7 +20,7 @@
 
 <fieldset
   id={name}
-  aria-describedby={`${name}-hint ${name}-error`}
+  aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)}
   class="form-fieldset {theme === 'radio' ? 'radio' : ''} {theme === 'button'
     ? 'button-radio'
     : ''} {className}">

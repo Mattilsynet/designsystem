@@ -33,8 +33,9 @@
     {/if}
 
     <div class="layout-flex layout-flex-col justify-content-center" style="--gap: 0">
-      <Label for={name} {isRequired} {textOptional} {showOptionalText} class={labelClass}
-        >{label}</Label>
+      <Label for={name} {isRequired} {textOptional} {showOptionalText} class={labelClass}>
+        {label}
+      </Label>
 
       {#if helpText}
         <div id={`${name}-hint`} class="hint">

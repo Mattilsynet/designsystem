@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-import {getFileExtension, interpolate, mapRelExternal} from './utils'
+import {createInputAriaDescribedby, getFileExtension, interpolate, mapRelExternal} from './utils'
 
 describe('getFileExtension', () => {
   test('Get file extension', () => {
@@ -45,5 +45,34 @@ describe('interpolate', () => {
   test('Inserts strings into string - wrong index', () => {
     const res = interpolate('{1}, {2} av {3}', ['Test', '2', '4'])
     expect(res).toEqual('2, 4 av {3}')
+  })
+})
+
+describe('createInputAriaDescribedby', () => {
+  test('Creates full described by', () => {
+    const maxLength = 300
+    const name = 'input-name'
+    const errorMessage = 'This is the error'
+    const error = {key: name, message: errorMessage}
+    const res = createInputAriaDescribedby(name, error, maxLength)
+    expect(res).toEqual('input-name-hint input-name-error input-name-maxlength')
+  })
+
+  test('Creates described when no hint, error, maxlength', () => {
+    const res = createInputAriaDescribedby(undefined, undefined, undefined)
+    expect(res).toBeUndefined()
+  })
+
+  test('Creates described by with hint', () => {
+    const name = 'input-name'
+    const res = createInputAriaDescribedby(name, undefined, undefined)
+    expect(res).toEqual('input-name-hint')
+  })
+
+  test('Creates described by with hint and max length', () => {
+    const maxLength = 300
+    const name = 'input-name'
+    const res = createInputAriaDescribedby(name, undefined, maxLength)
+    expect(res).toEqual('input-name-hint input-name-maxlength')
   })
 })

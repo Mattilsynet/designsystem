@@ -4,7 +4,7 @@ export function createInputAriaDescribedby(
   name: string | undefined,
   error: ErrorDetail | undefined,
   maxlength: number | undefined
-): string {
+): string | undefined {
   let describedBy = ''
   if (name) {
     describedBy = `${name}-hint`
@@ -15,7 +15,7 @@ export function createInputAriaDescribedby(
   if (maxlength) {
     describedBy = `${describedBy} ${name}-maxlength`
   }
-  return describedBy
+  return describedBy !== '' ? describedBy : undefined
 }
 
 export function toKebabCase(text: string): string {
