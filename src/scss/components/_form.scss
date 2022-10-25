@@ -62,11 +62,7 @@ label.form-label {
     font-size: $font-size-body;
   }
 }
-.form-field.error {
-  &:focus-visible {
-    box-shadow: 0 0 0 0.25rem #e2312880;
-  }
-}
+
 .form-field {
   @include error-style;
 
