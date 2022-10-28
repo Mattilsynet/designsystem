@@ -4,13 +4,13 @@
   import type {AutocompleteType, ErrorDetail, InputModeType} from '../../ts/types'
   import {createInputAriaDescribedby} from '../../ts/utils'
   import Label from './Label.svelte'
-  import {countCharactersTooManyLabel} from './TextArea.svelte'
 
   export let value
   export let name: string
   export let label: string
   export let labelClass: string
   export let countCharactersLeftLabel: string | undefined
+  export let countCharactersTooManyLabel: string | undefined
   export let error: ErrorDetail | undefined
   export let helpText: string | undefined
   export let textOptional: string | undefined
@@ -25,7 +25,6 @@
 
   export let inputClass = ''
   export let isHorizontal = false
-  console.log('maxlength %s', JSON.stringify(maxlength, null, 2))
 
   $: countCharsParams = {
     countCharacters: maxlength && maxlength > 0,
