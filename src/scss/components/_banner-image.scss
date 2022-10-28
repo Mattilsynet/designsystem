@@ -1,0 +1,15 @@
+@use '../theme' as *;
+
+.banner-image {
+  @media only screen and (min-width: $breakpoint-large) {
+    height: $height-banner;
+    background-image: var(--banner-image-url);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    padding: $spacer-x-small $spacer-large;
+    align-items: center;
+    align-content: center;
+  }
+}
