@@ -10,6 +10,7 @@
   export let label: string
   export let labelClass: string
   export let countCharactersLeftLabel: string | undefined
+  export let countCharactersTooManyLabel: string | undefined
   export let error: ErrorDetail | undefined
   export let helpText: string | undefined
   export let textOptional: string | undefined
@@ -24,6 +25,14 @@
 
   export let inputClass = ''
   export let isHorizontal = false
+
+  $: countCharsParams = {
+    countCharacters: maxlength && maxlength > 0,
+    maxlength: maxlength,
+    id: name,
+    countCharactersLeftLabel: countCharactersLeftLabel,
+    countCharactersTooManyLabel: countCharactersTooManyLabel
+  }
 </script>
 
 {#if isHorizontal}
@@ -47,16 +56,13 @@
     <input
       id={name}
       {name}
-      use:countCharacters={countCharactersLeftLabel
-        ? {countCharactersLeftLabel, id: name}
-        : {id: name}}
+      use:countCharacters={countCharsParams}
       class="form-field {inputClass}"
       bind:value
       class:error
       aria-required={isRequired || undefined}
       aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error, maxlength)}
       aria-invalid={!!error}
-      {maxlength}
       {inputmode}
       {placeholder}
       {autocomplete} />
@@ -77,16 +83,13 @@
   <input
     id={name}
     {name}
-    use:countCharacters={countCharactersLeftLabel
-      ? {countCharactersLeftLabel, id: name}
-      : {id: name}}
+    use:countCharacters={countCharsParams}
     class="form-field {inputClass}"
     bind:value
     class:error
     aria-required={isRequired || undefined}
     aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error, maxlength)}
     aria-invalid={!!error}
-    {maxlength}
     {inputmode}
     {placeholder}
     {autocomplete} />

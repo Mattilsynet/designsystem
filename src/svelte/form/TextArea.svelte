@@ -9,6 +9,7 @@
   export let label: string
   export let labelClass = ''
   export let countCharactersLeftLabel: string | undefined
+  export let countCharactersTooManyLabel: string | undefined
   export let error: ErrorDetail | undefined
   export let helpText: string | undefined
   export let textOptional: string | undefined
@@ -26,6 +27,14 @@
   export let isRequired: boolean | undefined = undefined
   export let inputmode: InputModeType | undefined
   export let autocomplete: AutocompleteType | undefined
+
+  $: countCharsParams = {
+    countCharacters: maxlength && maxlength > 0,
+    maxlength: maxlength,
+    id: name,
+    countCharactersLeftLabel: countCharactersLeftLabel,
+    countCharactersTooManyLabel: countCharactersTooManyLabel
+  }
 </script>
 
 <Label for={name} class={labelClass} {isRequired} {textOptional} {showOptionalText}>{label}</Label>
@@ -43,17 +52,16 @@
 <textarea
   id={name}
   {name}
-  use:countCharacters={countCharactersLeftLabel ? {countCharactersLeftLabel, id: name} : {id: name}}
+  use:countCharacters={countCharsParams}
   class="form-field {textAreaClass}"
   bind:value
   bind:this={textAreaRef}
-  {maxlength}
   {placeholder}
   {autocomplete}
-  {inputmode}
   {rows}
   {cols}
   class:error
+  {inputmode}
   aria-required={isRequired}
   aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error, maxlength)}
   aria-invalid={!!error} />

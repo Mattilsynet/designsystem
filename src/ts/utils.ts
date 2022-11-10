@@ -13,7 +13,7 @@ export function createInputAriaDescribedby(
     describedBy = `${describedBy} ${name}-error`
   }
   if (maxlength) {
-    describedBy = `${describedBy} ${name}-maxlength`
+    describedBy = `${name}-maxlength ${describedBy}`
   }
   return describedBy !== '' ? describedBy : undefined
 }
