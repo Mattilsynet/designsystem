@@ -18,7 +18,9 @@
 </script>
 
 {#if displayType === 'blue'}
-  <div class="col-1-span-12 layout-flex layout-flex-col border-radius p-xs bg-lighter-light-blue">
+  <div
+    class="col-1-span-12 layout-flex layout-flex-col border-radius p-xs bg-lighter-light-blue"
+    data-testid="highlighted-content-link-blue">
     <HeadingLevel class="heading {headingClass}" headingLevel={+headerTag.charAt(1)}>
       {title}
     </HeadingLevel>
@@ -27,16 +29,16 @@
       href={url}
       class="button button--primary button--space-between forward-arrow-end padded"
       rel={isExternal ? 'external' : undefined}
-      data-testid="hightlighted-content-link">
+      data-testid="highlighted-content-link">
       {shortTitle}
     </a>
   </div>
 {:else}
   <a
     href={url}
-    class="hightlighted-content {className}"
+    class="highlighted-content {className}"
     rel={isExternal ? 'external' : undefined}
-    data-testid="hightlighted-content-link">
+    data-testid="highlighted-content-link">
     {#if image && image.src}
       <img src={image.src} alt={image.alt} />
     {/if}

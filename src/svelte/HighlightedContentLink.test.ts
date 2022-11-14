@@ -20,7 +20,7 @@ describe('Highlighted content', () => {
     expect(queryByText('This is the title')).not.toBeInTheDocument()
     expect(getByText('This is the short title')).toBeInTheDocument()
     expect(getByAltText('alt text')).toBeInTheDocument()
-    const link = getByTestId('hightlighted-content-link')
+    const link = getByTestId('highlighted-content-link')
     expect(link.getAttribute('rel')).toEqual('external')
     const headerElement = getByText('This is the short title')
     expect(headerElement.tagName).toEqual('H2')
@@ -48,7 +48,7 @@ describe('Highlighted content', () => {
     const {queryByText, queryByAltText, getByTestId} = render(HighlightedContent, {})
     expect(queryByText('This is the heading')).not.toBeInTheDocument()
     expect(queryByAltText('alt text')).not.toBeInTheDocument()
-    const link = getByTestId('hightlighted-content-link')
+    const link = getByTestId('highlighted-content-link')
     expect(link.getAttribute('rel')).toEqual(null)
   })
 
