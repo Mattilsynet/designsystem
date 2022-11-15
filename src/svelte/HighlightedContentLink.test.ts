@@ -10,7 +10,7 @@ describe('Highlighted content', () => {
     const componentOptions = {
       title: 'This is the title',
       shortTitle: 'This is the short title',
-      isExternal: true,
+      href: 'http',
       image: {src: 'test', alt: 'alt text'}
     }
     const {getByTestId, getByText, getByAltText, queryByText} = render(

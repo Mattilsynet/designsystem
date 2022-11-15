@@ -1,5 +1,6 @@
 <script lang="ts">
   import HeadingLevel from './HeadingLevel.svelte'
+  import {mapRelExternal} from '../ts/utils'
 
   let url = ''
   let className = ''
@@ -10,7 +11,6 @@
   export let title: string | undefined
   export let shortTitle: string | undefined
   export let displayType: highlightedContentDisplayType | undefined
-  export let isExternal = false
   export let headingClass = ''
   export let headerTag: 'h2' | 'h3' = 'h2'
 
@@ -27,8 +27,8 @@
     <slot />
     <a
       href={url}
+      rel={mapRelExternal(url)}
       class="button button--primary button--space-between forward-arrow-end padded"
-      rel={isExternal ? 'external' : undefined}
       data-testid="highlighted-content-link">
       {shortTitle}
     </a>
@@ -36,8 +36,8 @@
 {:else}
   <a
     href={url}
+    rel={mapRelExternal(url)}
     class="highlighted-content {className}"
-    rel={isExternal ? 'external' : undefined}
     data-testid="highlighted-content-link">
     {#if image && image.src}
       <img src={image.src} alt={image.alt} />
