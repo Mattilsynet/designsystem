@@ -10,11 +10,11 @@
   export let lang = 'NO-nb'
   export let title: string | undefined
   export let shortTitle: string | undefined
-  export let displayType: highlightedContentDisplayType | undefined
+  export let displayType: HighlightedContentDisplayType | undefined
   export let headingClass = ''
   export let headerTag: 'h2' | 'h3' = 'h2'
 
-  type highlightedContentDisplayType = 'white' | 'blue'
+  type HighlightedContentDisplayType = 'white' | 'blue'
 </script>
 
 {#if displayType === 'blue'}
