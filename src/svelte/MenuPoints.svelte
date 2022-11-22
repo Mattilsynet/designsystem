@@ -14,8 +14,12 @@
       <div
         class="layout-grid layout-grid--column-12 row-gap"
         style="--space-section:var(--spacer-xx-small)">
-        {#if menuPoint.icon}
-          <img src={menuPoint.icon} alt="#" />
+        {#if menuPoint.iconResource !== null}
+          <div class="svg-fill-color">
+            {@html menuPoint.iconResource}
+          </div>
+        {:else if menuPoint.icon}
+          <img src={menuPoint.icon} alt="" />
         {/if}
         <a
           href={menuPoint.url}

@@ -1,4 +1,5 @@
 @use '../theme' as *;
+@use '../color-tokens' as *;
 
 .bg-light-light-blue {
   background-color: var(--color-mt-lighter-light-blue);
@@ -8,6 +9,12 @@
 }
 .bg-lighter-light-blue {
   background-color: var(--color-mt-lighter-light-blue);
+}
+.svg-fill-color {
+  --svg-color: var(--color-mt-blue);
+  > svg > * {
+    fill: var(--svg-color);
+  }
 }
 .m-t-0 {
   margin-top: 0;
