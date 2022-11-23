@@ -1,0 +1,45 @@
+@use '../theme' as *;
+
+.menu-points {
+  --title-gap: var(--spacer-medium);
+  --icon-padding: var(--spacer-xxx-small);
+  --svg-color: var(--color-mt-blue);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--title-gap);
+
+  .row-gap {
+    --space-section: var(--spacer-small);
+    row-gap: var(--space-section);
+  }
+
+  .menu-point {
+    &--title {
+      gap: var(--icon-padding);
+      display: flex;
+      flex-wrap: nowrap;
+    }
+    &--icon {
+      align-self: center;
+      min-width: $menu-icon-width;
+      max-width: $menu-icon-width;
+      svg {
+        path {
+          fill: var(--svg-color);
+        }
+      }
+    }
+
+    &--keywords {
+      margin-left: $menu-icon-width;
+      padding-left: var(--icon-padding);
+    }
+  }
+  a {
+    padding-left: 0;
+    > * {
+      word-break: break-word;
+    }
+  }
+}

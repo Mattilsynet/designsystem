@@ -88,6 +88,10 @@
   flex-direction: column;
   gap: var(--gap);
 
+  &--xx-small {
+    gap: var(--spacer-xxx-small);
+  }
+
   &--x-small {
     gap: var(--spacer-xx-small);
   }

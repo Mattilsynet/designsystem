@@ -1,32 +1,38 @@
 <script lang="ts">
   import {mapRelExternal} from '../ts/utils'
+  import HeadingLevel from './HeadingLevel.svelte'
 
   export let title = ''
+  export let headerTag: 'h2' | 'h3' | 'h4' | 'h5' | 'h6' = 'h3'
   export let menuPoints = []
 </script>
 
-<div class="layout-flex-col" style="--gap:var(--spacer-medium)">
-  <h2 class="col-1-span-12">{@html title ? title : ''}</h2>
+<div class="menu-points">
+  <h2 class="m-t-xxs">{@html title}</h2>
   <div
-    class="layout-grid layout-grid--column-3 container row-gap"
+    class="layout-grid layout-grid--column-3 row-gap"
     style="--space-section:var(--spacer-medium)">
     {#each menuPoints as menuPoint, index}
-      <div
-        class="layout-grid layout-grid--column-12 row-gap"
-        style="--space-section:var(--spacer-xx-small)">
-        {#if menuPoint.iconResource !== null}
-          <div class="svg-fill-color">
-            {@html menuPoint.iconResource}
+      <div class="menu-point layout-flex-col layout-flex-col--x-small">
+        <div class="menu-point--title">
+          <div class="menu-point--icon">
+            {#if menuPoint.iconResource}
+              {@html menuPoint.iconResource}
+            {:else if menuPoint.icon}
+              <img src={menuPoint.icon} alt="" />
+            {/if}
           </div>
-        {:else if menuPoint.icon}
-          <img src={menuPoint.icon} alt="" />
-        {/if}
-        <a
-          href={menuPoint.url}
-          rel={mapRelExternal(menuPoint.url)}
-          class="forward-arrow-end-link col-2-span-10">{menuPoint.displayName}</a>
-        <p class="col-2-span-10">
-          {@html menuPoint.keywords ? menuPoint.keywords : menuPoint.intro ?? ''}
+          <a
+            href={menuPoint.url}
+            rel={mapRelExternal(menuPoint.url)}
+            class="forward-arrow-end-link flex no-underline">
+            <HeadingLevel class={headerTag} headingLevel={+headerTag.charAt(1)}>
+              {menuPoint.displayName}
+            </HeadingLevel>
+          </a>
+        </div>
+        <p class="menu-point--keywords">
+          {@html menuPoint.keywords ? menuPoint.keywords : menuPoint.intro}
         </p>
       </div>
     {/each}
