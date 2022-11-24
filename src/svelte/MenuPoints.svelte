@@ -25,7 +25,7 @@
           <a
             href={menuPoint.url}
             rel={mapRelExternal(menuPoint.url)}
-            class="forward-arrow-end-link flex no-underline">
+            class="animated-header-arrow-after no-underline flex">
             <HeadingLevel class={headerTag} headingLevel={+headerTag.charAt(1)}>
               {menuPoint.displayName}
             </HeadingLevel>
