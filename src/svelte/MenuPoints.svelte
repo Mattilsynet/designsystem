@@ -19,7 +19,7 @@
             {#if menuPoint.iconResource}
               {@html menuPoint.iconResource}
             {:else if menuPoint.icon}
-              <img src={menuPoint.icon} alt="" data-testid="img-icon"/>
+              <img src={menuPoint.icon} alt="" data-testid="img-icon" />
             {/if}
           </div>
           <a
@@ -33,7 +33,7 @@
           </a>
         </div>
         <p>
-          {@html menuPoint.keywords?.length > 0
+          {menuPoint.keywords && menuPoint.keywords.length > 0
             ? menuPoint.keywords
             : '[Legg til stikkord på innholdet]'}
         </p>
