@@ -31,8 +31,10 @@
             </HeadingLevel>
           </a>
         </div>
-        <p class="menu-point--keywords">
-          {@html menuPoint.keywords ? menuPoint.keywords : menuPoint.intro}
+        <p>
+          {@html menuPoint.keywords?.length > 0
+            ? menuPoint.keywords
+            : '[Legg til stikkord på innholdet]'}
         </p>
       </div>
     {/each}

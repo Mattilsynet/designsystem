@@ -30,12 +30,12 @@
         }
       }
     }
-
-    &--keywords {
+    p {
       margin-left: $menu-icon-width;
       padding-left: var(--icon-padding);
     }
   }
+
   a {
     padding-left: 0;
     > * {
