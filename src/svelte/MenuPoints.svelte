@@ -7,7 +7,7 @@
   export let menuPoints = []
 </script>
 
-<div class="menu-points">
+<div class="menu-points" data-testid="menu-points">
   <h2 class="m-t-xxs">{@html title}</h2>
   <div
     class="layout-grid layout-grid--column-3 row-gap"
@@ -19,13 +19,14 @@
             {#if menuPoint.iconResource}
               {@html menuPoint.iconResource}
             {:else if menuPoint.icon}
-              <img src={menuPoint.icon} alt="" />
+              <img src={menuPoint.icon} alt="" data-testid="img-icon"/>
             {/if}
           </div>
           <a
             href={menuPoint.url}
             rel={mapRelExternal(menuPoint.url)}
-            class="animated-header-arrow-after no-underline flex">
+            class="animated-header-arrow-after no-underline flex"
+            data-testid="menupoints-link">
             <HeadingLevel class={headerTag} headingLevel={+headerTag.charAt(1)}>
               {menuPoint.displayName}
             </HeadingLevel>
