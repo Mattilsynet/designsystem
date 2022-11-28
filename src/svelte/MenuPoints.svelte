@@ -33,7 +33,7 @@
           </a>
         </div>
         <p>
-          {@html menuPoint.keywords?.length > 0
+          {menuPoint.keywords && menuPoint.keywords.length > 0
             ? menuPoint.keywords
             : '[Legg til stikkord på innholdet]'}
         </p>
