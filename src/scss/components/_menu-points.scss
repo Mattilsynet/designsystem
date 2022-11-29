@@ -9,11 +9,6 @@
   flex-direction: column;
   gap: var(--title-gap);
 
-  .row-gap {
-    --space-section: var(--spacer-small);
-    row-gap: var(--space-section);
-  }
-
   .menu-point {
     &--title {
       gap: var(--icon-padding);
