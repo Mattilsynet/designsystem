@@ -7,4 +7,12 @@
   .tasks-layout {
     margin-top: var(--spacer-x-small);
   }
+  .tasks-layout-small {
+    flex-direction: row;
+
+    @media only screen and (max-width: $breakpoint-large) {
+      flex-direction: column;
+      gap: var(--spacer-xx-small);
+    }
+  }
 }
