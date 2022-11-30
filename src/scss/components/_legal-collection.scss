@@ -19,4 +19,10 @@
     border-top: $border-width-regular solid var(--color-mt-beige);
     margin-top: var(--spacer-small);
   }
+
+  @media only screen and (min-width: $breakpoint-large) {
+    > * {
+      grid-column: 3 / span 6;
+    }
+  }
 }
