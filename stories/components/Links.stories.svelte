@@ -12,6 +12,13 @@
     chapterChangeAction(e)
     currentChapterNumber = e.detail.index
   }
+
+  function getColSpanClass(twoColumns, index) {
+    if (!twoColumns) {
+      return 'col-3-span-6'
+    }
+    return index % 2 === 0 ? 'col-1-span-5' : 'col-7-span-5'
+  }
 </script>
 
 <Meta
@@ -38,6 +45,7 @@
     ],
     showChapterNumber: true,
     secondary: 'Avbryt',
+    twoColumns: false,
     disabled: false,
     disableCss: false
   }}
@@ -121,6 +129,24 @@
         <Link
           href={link.href}
           class="button button--primary button--space-between layout-full-width forward-arrow-end padded"
+          linkText={link.text} />
+      </li>
+    {/each}
+  </ul>
+</Story>
+
+<Story name="Transport List sekundær" let:cards let:twoColumns let:disableCss let:disabled>
+  <h1 class="p-b-xs">Transporlenkeliste sekundær</h1>
+  <ul
+    class="list-unstyled layout-grid layout-grid--column-12 space-between lines-between lines-top no-space-top"
+    class:two-col={twoColumns}
+    style="--space-section: var(--spacer-x-small);">
+    {#each cards as link, index}
+      <li class={getColSpanClass(twoColumns, index)}>
+        <Link
+          href={link.href}
+          class="forward-arrow-end blue-arrow no-underline p-tb-xs p-r-xxs"
+          style="--hover-padding: var(--spacer-xx-small);"
           linkText={link.text} />
       </li>
     {/each}
