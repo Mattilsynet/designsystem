@@ -3,6 +3,7 @@
   import CardArticle from '../../../src/svelte/CardArticle.svelte'
   import SummaryDetail from '../../../src/svelte/SummaryDetail.svelte'
   import {toKebabCase} from '../../../src/ts/utils'
+  import {wrapInShadowDom} from '../../utils'
 </script>
 
 <Meta
@@ -76,8 +77,8 @@
     disableCss: {control: 'boolean'}
   }} />
 
-<Story name="Normal" let:title let:intro let:legalItems let:text let:tableOfContents>
-  <div class="container layout-grid layout-grid--column-12">
+<Story name="Normal" let:title let:intro let:legalItems let:text let:tableOfContents let:disableCss>
+  <div use:wrapInShadowDom={disableCss} class="container layout-grid layout-grid--column-12">
     <article class="article-page col-1-span-12 legal-guidance">
       <h1>{title}</h1>
       <div class="intro">

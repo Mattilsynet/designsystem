@@ -1,6 +1,7 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf'
   import CardArticle from '../../../src/svelte/CardArticle.svelte'
+  import {wrapInShadowDom} from '../../utils'
 </script>
 
 <Meta
@@ -114,8 +115,8 @@
     disableCss: {control: 'boolean'}
   }} />
 
-<Story name="Normal" let:tasks>
-  <div class="container layout-flex-col layout-flex-col--x-small">
+<Story name="Normal" let:tasks let:disableCss>
+  <div use:wrapInShadowDom={disableCss} class="container layout-flex-col layout-flex-col--x-small">
     {#each tasks as task}
       <CardArticle
         type="task"

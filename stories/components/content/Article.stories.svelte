@@ -1,7 +1,8 @@
 <script lang="ts">
-  import {Meta, Story} from '@storybook/addon-svelte-csf';
-  import Published from '../../../src/svelte/Published.svelte';
-  import imageFile from '../../../.static/testbilde.jpg';
+  import {Meta, Story} from '@storybook/addon-svelte-csf'
+  import Published from '../../../src/svelte/Published.svelte'
+  import imageFile from '../../../.static/testbilde.jpg'
+  import {wrapInShadowDom} from '../../utils'
 </script>
 
 <Meta
@@ -20,11 +21,10 @@
     helpText: {control: 'text'},
     errorMessage: {control: 'text'},
     disableCss: {control: 'boolean'}
-  }}
-/>
+  }} />
 
 <Story name="Normal" let:title let:intro let:disableCss let:publishFrom let:professionallyUpdated>
-  <div class="container layout-grid layout-grid--column-12">
+  <div use:wrapInShadowDom={disableCss} class="container layout-grid layout-grid--column-12">
     <article class="article-page col-1-span-12">
       <h1>{title}</h1>
       <div class="intro">
@@ -38,12 +38,17 @@
       </figure>
 
       <h2>Andre overskrift</h2>
-      <p>Paragraf med tekst. Paragraf med tekst. <a href="">Paragraf med tekst.</a> Paragraf med tekst</p>
+      <p>
+        Paragraf med tekst. Paragraf med tekst. <a href="">Paragraf med tekst.</a> Paragraf med tekst
+      </p>
       <ul>
-        <li>Valget om å skaffe dyr må være godt gjennomtenkt. Er hele familien enige og innstilt på det?</li>
         <li>
-          En voksen person må være hovedansvarlig for dyret. I følge dyrevelferdsloven kan barn under 16 år ikke ha et
-          selvstendig ansvar for dyr.
+          Valget om å skaffe dyr må være godt gjennomtenkt. Er hele familien enige og innstilt på
+          det?
+        </li>
+        <li>
+          En voksen person må være hovedansvarlig for dyret. I følge dyrevelferdsloven kan barn
+          under 16 år ikke ha et selvstendig ansvar for dyr.
         </li>
         <li>
           Barn kan miste interessen og dyr lever i mange år.
