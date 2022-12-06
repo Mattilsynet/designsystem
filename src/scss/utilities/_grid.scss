@@ -30,6 +30,7 @@
     .col-1-span-6,
     .col-1-span-8,
     .col-1-span-10,
+    .col-7-span-5,
     .col-7-span-6,
     .col-10-span-3,
     .col-4-span-6,
@@ -48,11 +49,6 @@
       grid-column: span 7;
     }
 
-    .row-gap {
-      --space-section: var(--spacer-small);
-      row-gap: var(--space-section);
-    }
-
     @media only screen and (min-width: $breakpoint-large) {
       .col-1-span-5 {
         grid-column: 1 / span 5;
@@ -68,6 +64,9 @@
       }
       .col-1-span-10 {
         grid-column: 1 / span 10;
+      }
+      .col-7-span-5 {
+        grid-column: 7 / span 5;
       }
       .col-7-span-6 {
         grid-column: 7 / span 6;
@@ -134,5 +133,10 @@
       align-self: var(--align-self, var(--place-self));
       justify-self: var(--justify-self, var(--place-self));
     }
+  }
+
+  &.row-gap {
+    --space-section: var(--spacer-small);
+    row-gap: var(--space-section);
   }
 }
