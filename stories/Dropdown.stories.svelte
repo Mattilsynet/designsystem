@@ -1,8 +1,8 @@
 <script lang="ts">
-  import {Meta, Template, Story} from '@storybook/addon-svelte-csf'
+  import {Meta, Story, Template} from '@storybook/addon-svelte-csf'
   import Dropdown from '../src/svelte/Dropdown.svelte'
   import CardArticle from '../src/svelte/CardArticle.svelte'
-  import MenuItems from '../src/svelte/content/MenuItems.svelte'
+  import {wrapInShadowDom} from './utils'
 
   const drinkIcon =
     '<svg width="60" height="50" viewBox="0 0 60 50" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M47.5837 4C47.9311 4 48.2619 4.15366 48.4857 4.41919C48.7103 4.68628 48.8051 5.03679 48.7474 5.37993L41.9575 45.0191C41.8611 45.5858 41.3688 46 40.7945 46H19.1464C18.5713 46 18.0805 45.5873 17.9819 45.0206L11.1168 5.38265C11.0584 5.03858 11.1533 4.68698 11.3771 4.42067C11.6017 4.15397 11.9324 4 12.2799 4H47.5837ZM29.5035 20.2948C36.3769 23.7314 41.4226 21.5602 43.8443 20.0163L46.1824 6.36134H13.6833L15.7681 18.3978C18.4749 17.8417 23.7157 17.4005 29.5035 20.2948ZM16.6589 21.2945L20.3648 43.5294H39.5119L43.2177 23.7651C38.2766 25.6179 34.5707 25.6179 28.3942 22.5298C22.6363 19.6509 19.1535 20.6087 16.8822 21.2333C16.8064 21.2541 16.732 21.2746 16.6589 21.2945Z" fill="#F9F6F1"/></svg>'
@@ -16,6 +16,7 @@
     {
       buttonLabel: 'Språk/language',
       disableJs: false,
+      disableCss: false,
       cardArticle: {
         headingId: 'testarticle',
         title: 'Det er mulig å klikke utenfor',
@@ -36,6 +37,7 @@
     {
       buttonLabel: 'En annen tekst',
       disableJs: false,
+      disableCss: false,
       items: [
         {
           title: 'En kort lenke',
@@ -51,32 +53,40 @@
 </script>
 
 <Meta
-  parameters={{xstate: true, inspectUrl: 'https://stately.ai/viz?inspect', layout: 'fullscreen'}}
+  parameters={{
+    xstate: true,
+    inspectUrl: 'https://stately.ai/viz?inspect',
+    layout: 'fullscreen',
+    disableCss: false
+  }}
   title="Components/Dropdown"
   argTypes={{
     buttonLabel: {control: 'text'},
-    disableJs: {control: 'boolean'}
+    disableJs: {control: 'boolean'},
+    disableCss: {control: 'boolean'}
   }} />
 
 <Template let:args>
-  <section class="preview-wrapper">
-    <Dropdown title={args.buttonLabel} loadJs={!args.disableJs} let:titleId>
-      <ol class="alt-language" aria-labelledby={titleId}>
-        {#each args.items as item}
-          <li>
-            <a href={item.url} class="forward-arrow-small">{item.title}</a>
-          </li>
-        {/each}
-      </ol>
-    </Dropdown>
-  </section>
-  <section class="layout-flex-col layout-flex-col--x-small" aria-labelledby="how-to-heading">
-    <CardArticle
-      headingId={args.cardArticle.headingId}
-      title={args.cardArticle.title}
-      intro={args.cardArticle.intro}
-      text={args.cardArticle.text} />
-  </section>
+  <div use:wrapInShadowDom={args.disableCss}>
+    <section class="preview-wrapper">
+      <Dropdown title={args.buttonLabel} loadJs={!args.disableJs} let:titleId>
+        <ol class="alt-language" aria-labelledby={titleId}>
+          {#each args.items as item}
+            <li>
+              <a href={item.url} class="forward-arrow-small">{item.title}</a>
+            </li>
+          {/each}
+        </ol>
+      </Dropdown>
+    </section>
+    <section class="layout-flex-col layout-flex-col--x-small" aria-labelledby="how-to-heading">
+      <CardArticle
+        headingId={args.cardArticle.headingId}
+        title={args.cardArticle.title}
+        intro={args.cardArticle.intro}
+        text={args.cardArticle.text} />
+    </section>
+  </div>
 </Template>
 
 <Story name="Normal" args={configs[0]} />

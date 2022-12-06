@@ -3,6 +3,7 @@
   import Link from '../../src/svelte/Link.svelte'
   import {action} from '@storybook/addon-actions'
   import ChapterNavigation from '../../src/svelte/ChapterNavigation.svelte'
+  import {wrapInShadowDom} from '../utils'
 
   const chapterChangeAction = action('chapterChange')
   let currentChapterNumber = 0
@@ -60,79 +61,93 @@
   }} />
 
 <Story name="Normal" let:primary let:disableCss let:args let:disabled let:secondary>
-  <h1>Lenker</h1>
-  <p>Bruk alene:</p>
-  <Link linkText={primary} href="https://mattilsynet.no/" />
-  <hr />
-  <p>Bruk i text:</p>
-  <p>Les mer om <Link href="https://mattilsynet.no/" linkText="mattilsynet" /> her.</p>
+  <div use:wrapInShadowDom={disableCss}>
+    <h1>Lenker</h1>
+    <p>Bruk alene:</p>
+    <Link linkText={primary} href="https://mattilsynet.no/" />
+    <hr />
+    <p>Bruk i text:</p>
+    <p>Les mer om <Link href="https://mattilsynet.no/" linkText="mattilsynet" /> her.</p>
 
-  <hr />
-  <h2>Tilbakelenke</h2>
-  <Link href="https://mattilsynet.no/" class="back-arrow" linkText="Tilbake" />
+    <hr />
+    <h2>Tilbakelenke</h2>
+    <Link href="https://mattilsynet.no/" class="back-arrow" linkText="Tilbake" />
 
-  <hr />
-  <h2>Ankerlenke</h2>
-  <Link
-    href="https://mattilsynet.no/"
-    class="down-arrow"
-    linkText="Til innhold der nede ett sted" />
+    <hr />
+    <h2>Ankerlenke</h2>
+    <Link
+      href="https://mattilsynet.no/"
+      class="down-arrow"
+      linkText="Til innhold der nede ett sted" />
 
-  <hr />
-  <h2>Pdf lenke</h2>
-  <Link href="https://mattilsynet.no/some.pdf" class="document" linkText="thisIsAPdf" />
-  <Link
-    href="https://mattilsynet.no/some.pdf"
-    class="document"
-    linkText="thisIsAPdf"
-    fileName="thisIsAPdf.pdf" />
-  <hr />
-  <h2>Neste og forrig lenker</h2>
-  <ChapterNavigation
-    showChapterNumber={args.showChapterNumber}
-    chapters={args.chapters}
-    currentChapterIndex={currentChapterNumber}
-    on:chapterChange={chapterChange}
-    nextText="Neste"
-    previousText="Forrige"
-    class="chapter-navigation--bottom" />
+    <hr />
+    <h2>Pdf lenke</h2>
+    <Link href="https://mattilsynet.no/some.pdf" class="document" linkText="thisIsAPdf" />
+    <Link
+      href="https://mattilsynet.no/some.pdf"
+      class="document"
+      linkText="thisIsAPdf"
+      fileName="thisIsAPdf.pdf" />
+    <hr />
+    <h2>Neste og forrig lenker</h2>
+    <ChapterNavigation
+      showChapterNumber={args.showChapterNumber}
+      chapters={args.chapters}
+      currentChapterIndex={currentChapterNumber}
+      on:chapterChange={chapterChange}
+      nextText="Neste"
+      previousText="Forrige"
+      class="chapter-navigation--bottom" />
+  </div>
 </Story>
 
 <Story name="Lenke liste" let:cards let:disableCss let:disabled let:secondary>
-  <h1>Lenkeliste</h1>
-  <ul class="layout-grid list-unstyled">
-    {#each cards as link}
-      <li>
-        <Link href={link.href} class="forward-arrow-end-link" linkText={link.text} />
-      </li>
-    {/each}
-  </ul>
+  <div use:wrapInShadowDom={disableCss}>
+    <h1>Lenkeliste</h1>
+    <ul class="layout-grid list-unstyled">
+      {#each cards as link}
+        <li>
+          <Link href={link.href} class="forward-arrow-end-link" linkText={link.text} />
+        </li>
+      {/each}
+    </ul>
+  </div>
 </Story>
 
 <Story name="Dokument lenke" let:cards let:disableCss let:disabled let:secondary>
-  <h1>Dokumentlenker</h1>
-  <ul class="layout-grid list-unstyled">
-    <li>
-      <Link href={cards[3].href} class="document forward-arrow-end-link" linkText={cards[3].text} />
-    </li>
-    <li>
-      <Link href={cards[6].href} class="document forward-arrow-end-link" linkText={cards[6].text} />
-    </li>
-  </ul>
+  <div use:wrapInShadowDom={disableCss}>
+    <h1>Dokumentlenker</h1>
+    <ul class="layout-grid list-unstyled">
+      <li>
+        <Link
+          href={cards[3].href}
+          class="document forward-arrow-end-link"
+          linkText={cards[3].text} />
+      </li>
+      <li>
+        <Link
+          href={cards[6].href}
+          class="document forward-arrow-end-link"
+          linkText={cards[6].text} />
+      </li>
+    </ul>
+  </div>
 </Story>
 
 <Story name="Transport List" let:cards let:disableCss let:disabled let:secondary>
-  <h1>Transporlenkeliste</h1>
-  <ul class="layout-grid list-unstyled transport-list">
-    {#each cards as link}
-      <li>
-        <Link
-          href={link.href}
-          class="button button--primary button--space-between layout-full-width forward-arrow-end padded"
-          linkText={link.text} />
-      </li>
-    {/each}
-  </ul>
+  <div use:wrapInShadowDom={disableCss}>
+    <h1>Transporlenkeliste</h1>
+    <ul class="layout-grid list-unstyled transport-list">
+      {#each cards as link}
+        <li>
+          <Link
+            href={link.href}
+            class="button button--primary button--space-between layout-full-width forward-arrow-end padded"
+            linkText={link.text} />
+        </li>
+      {/each}
+    </ul>
+  </div>
 </Story>
 
 <Story name="Transport List sekundær" let:cards let:twoColumns let:disableCss let:disabled>
@@ -154,7 +169,7 @@
 </Story>
 
 <Story name="Transport Card" let:cards let:icon let:disableCss let:disabled let:secondary>
-  <div class="container">
+  <div use:wrapInShadowDom={disableCss} class="container">
     <h1>Transportkort</h1>
     {#each cards as card, index}
       <section

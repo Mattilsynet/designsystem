@@ -2,6 +2,7 @@
   import {Meta, Story} from '@storybook/addon-svelte-csf'
   import ExpandableInputList from '../../../src/svelte/form/ExpandableInputList.svelte'
   import type {ErrorDetail, InputModeType} from '../../../src/ts/types'
+  import {wrapInShadowDom} from '../../utils'
 
   interface Input {
     label?: string
@@ -105,7 +106,7 @@
   }} />
 
 <Story name="Normal" let:disableCss let:args>
-  <main>
+  <main use:wrapInShadowDom={disableCss}>
     <h1>Utvidebarliste med inputs</h1>
     <form on:submit|preventDefault={handleSubmit}>
       <ExpandableInputList

@@ -1,5 +1,6 @@
 <script lang="ts">
-  import {Meta, Story} from '@storybook/addon-svelte-csf';
+  import {Meta, Story} from '@storybook/addon-svelte-csf'
+  import {wrapInShadowDom} from '../../utils'
 </script>
 
 <Meta
@@ -22,11 +23,18 @@
   argTypes={{
     disabled: {control: 'boolean'},
     disableCss: {control: 'boolean'}
-  }}
-/>
+  }} />
 
-<Story name="Normal" let:title let:intro let:text let:moreText let:formLinkUrl let:formLinkText>
-  <div class="container layout-grid layout-grid--column-12">
+<Story
+  name="Normal"
+  let:title
+  let:intro
+  let:text
+  let:moreText
+  let:formLinkUrl
+  let:formLinkText
+  let:disableCss>
+  <div use:wrapInShadowDom={disableCss} class="container layout-grid layout-grid--column-12">
     <div class="layout-flex-col form-intro col-3-span-8">
       <article class="content">
         <h1>{title}</h1>

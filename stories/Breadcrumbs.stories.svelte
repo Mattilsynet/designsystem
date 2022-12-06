@@ -1,6 +1,7 @@
 <script lang="ts">
-  import {Meta, Story} from '@storybook/addon-svelte-csf';
-  import Breadcrumbs from '../src/svelte/Breadcrumbs.svelte';
+  import {Meta, Story} from '@storybook/addon-svelte-csf'
+  import Breadcrumbs from '../src/svelte/Breadcrumbs.svelte'
+  import {wrapInShadowDom} from './utils'
 
   const breadcrumbsItems = [
     {
@@ -38,7 +39,7 @@
       url: '/site/default/draft/mattilsynet/mat-og-vann/dyr/mishandling-eller-vanstell/varsel-om-mishandling-eller-vannstell',
       type: 'no.mattilsynet.app:article'
     }
-  ];
+  ]
 </script>
 
 <Meta
@@ -55,13 +56,15 @@
       ariaLabel: 'breadcrumbs',
       showAllLabel: 'show all',
       items: breadcrumbsItems.slice(0, 3)
-    }
-  }}
-/>
+    },
+    disableCss: false
+  }} />
 
-<Story name="Normal" let:breadcrumbsLong let:breadcrumbsShort let:loadJs>
-  <p class="description">Brødsmuler med 4 eller fler elementer</p>
-  <Breadcrumbs breadcrumbs={breadcrumbsLong} {loadJs} />
-  <p class="description">Brødsmuler med 3 eller færre elementer</p>
-  <Breadcrumbs breadcrumbs={breadcrumbsShort} {loadJs} />
+<Story name="Normal" let:breadcrumbsLong let:breadcrumbsShort let:loadJs let:disableCss>
+  <div use:wrapInShadowDom={disableCss}>
+    <p class="description">Brødsmuler med 4 eller fler elementer</p>
+    <Breadcrumbs breadcrumbs={breadcrumbsLong} {loadJs} />
+    <p class="description">Brødsmuler med 3 eller færre elementer</p>
+    <Breadcrumbs breadcrumbs={breadcrumbsShort} {loadJs} />
+  </div>
 </Story>

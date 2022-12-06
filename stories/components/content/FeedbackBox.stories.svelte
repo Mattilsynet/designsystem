@@ -4,6 +4,7 @@
   import DialogBox from '../../../src/svelte/DialogBox.svelte'
   import {tick} from 'svelte'
   import TextArea from '../../../src/svelte/form/TextArea.svelte'
+  import {wrapInShadowDom} from '../../utils'
 
   const options = [
     {value: 'yes', text: 'Ja'},
@@ -82,8 +83,10 @@
     disableCss: {control: 'boolean'}
   }} />
 
-<Story name="Normal" let:title let:intro let:legalItems let:text>
-  <div class="container content layout-grid layout-grid--column-12">
+<Story name="Normal" let:title let:intro let:legalItems let:text let:disableCss>
+  <div
+    use:wrapInShadowDom={disableCss}
+    class="container content layout-grid layout-grid--column-12">
     <article class="article-page col-1-span-12 legal-guidance">
       <h1>{title}</h1>
       <div class="intro">

@@ -1,6 +1,7 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf'
   import CardArticle from '../../../src/svelte/CardArticle.svelte'
+  import {wrapInShadowDom} from '../../utils'
 </script>
 
 <Meta
@@ -22,8 +23,16 @@
     disableCss: {control: 'boolean'}
   }} />
 
-<Story name="Normal" let:title let:intro let:text let:moreText let:formLinkUrl let:formLinkText>
-  <div class="container">
+<Story
+  name="Normal"
+  let:title
+  let:intro
+  let:text
+  let:moreText
+  let:formLinkUrl
+  let:formLinkText
+  let:disableCss>
+  <div use:wrapInShadowDom={disableCss} class="container">
     <CardArticle
       type="form-intro-module"
       linkText={formLinkText}
@@ -35,8 +44,16 @@
   </div>
 </Story>
 
-<Story name="H2 heading" let:title let:intro let:text let:moreText let:formLinkUrl let:formLinkText>
-  <div class="container">
+<Story
+  name="H2 heading"
+  let:title
+  let:intro
+  let:text
+  let:moreText
+  let:formLinkUrl
+  let:formLinkText
+  let:disableCss>
+  <div use:wrapInShadowDom={disableCss} class="container">
     <CardArticle
       type="form-intro-module"
       linkText={formLinkText}

@@ -2,6 +2,7 @@
   import {Meta, Story} from '@storybook/addon-svelte-csf'
   import HighlightedContentLink from '../../src/svelte/HighlightedContentLink.svelte'
   import imageFile from '../../.static/testbilde.jpg'
+  import {wrapInShadowDom} from '../utils'
 </script>
 
 <Meta
@@ -22,7 +23,7 @@
   }} />
 
 <Story name="Normal" let:text let:disableCss let:title let:shortTitle let:date>
-  <main class="container layout-flex-col">
+  <main use:wrapInShadowDom={disableCss} class="container layout-flex-col">
     <h1>Fremhevet innhold med bilde</h1>
     <section class="layout-flex-col">
       <HighlightedContentLink
@@ -49,7 +50,7 @@
 </Story>
 
 <Story name="Blå type" let:text let:disableCss let:title let:shortTitle let:date>
-  <main class="container layout-flex-col">
+  <main use:wrapInShadowDom={disableCss} class="container layout-flex-col">
     <h1>Fremhevet innhold blå type</h1>
     <section class="layout-flex-col">
       <HighlightedContentLink

@@ -2,6 +2,7 @@
   import {Meta, Story} from '@storybook/addon-svelte-csf'
   import Published from '../../src/svelte/Published.svelte'
   import Status from '../../src/svelte/Status.svelte'
+  import {wrapInShadowDom} from '../utils'
 </script>
 
 <Meta
@@ -21,8 +22,15 @@
     disableCss: {control: 'boolean'}
   }} />
 
-<Story name="Normal" let:publishFrom let:professionallyUpdated let:intro let:text let:statusTitle>
-  <div class="container layout-grid layout-grid--column-12">
+<Story
+  name="Normal"
+  let:publishFrom
+  let:professionallyUpdated
+  let:intro
+  let:text
+  let:statusTitle
+  let:disableCss>
+  <div use:wrapInShadowDom={disableCss} class="container layout-grid layout-grid--column-12">
     <article class="article-page col-3-span-8">
       <h1>Publisert og faglig oppdatert er samme dato</h1>
       <div class="intro">

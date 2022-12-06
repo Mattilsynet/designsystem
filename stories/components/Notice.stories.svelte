@@ -1,6 +1,7 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf'
   import Notice from '../../src/svelte/Notice.svelte'
+  import {wrapInShadowDom} from '../utils'
 </script>
 
 <Meta
@@ -25,7 +26,7 @@
   }} />
 
 <Story name="Normal" let:text let:text2 let:disableCss>
-  <main class="container layout-flex-col">
+  <main use:wrapInShadowDom={disableCss} class="container layout-flex-col">
     <h1>Varseltekst</h1>
     <section class="layout-flex-col">
       <h2>Med varsel icon</h2>

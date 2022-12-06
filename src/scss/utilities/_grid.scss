@@ -11,12 +11,15 @@
   }
 
   &--column-3 {
-    --gap: var(--spacer-xx-small);
+    --gap: 0;
 
     gap: var(--gap);
     grid-template-columns: minmax(0, 1fr);
 
     @media only screen and (min-width: $breakpoint-large) {
+      --gap: var(--spacer-xx-small);
+
+      gap: var(--gap);
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }

@@ -1,5 +1,6 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf'
+  import {wrapInShadowDom} from '../../utils'
 </script>
 
 <Meta
@@ -54,7 +55,9 @@
   }} />
 
 <Story name="Large" let:topTasks let:icon let:disableCss let:title let:intro let:path>
-  <div class="layout-grid layout-grid--column-12 top-tasks-container">
+  <div
+    use:wrapInShadowDom={disableCss}
+    class="layout-grid layout-grid--column-12 top-tasks-container">
     <h2 id={path} class="top-tasks-text col-1-span-12">
       {@html title}
     </h2>
@@ -80,20 +83,22 @@
 </Story>
 
 <Story name="Small" let:topTasks let:disableCss let:path>
-  <h1>Toppoppgaver små</h1>
-  <div class="layout-grid layout-grid--column-12 top-tasks-container">
-    <section
-      class="layout-flex layout-flex--space-between col-1-span-12 tasks-layout-small"
-      aria-labelledby={path}
-      style="--wrap: nowrap; --gap: var(--spacer-medium)">
-      {#each topTasks as task, index}
-        {#if task && task.url}
-          <a href={task.url} class="no-underline">
-            <h4 class="forward-arrow-after">{@html task.title}</h4>
-          </a>
-        {/if}
-      {/each}
-    </section>
+  <div use:wrapInShadowDom={disableCss}>
+    <h1>Toppoppgaver små</h1>
+    <div class="layout-grid layout-grid--column-12 top-tasks-container">
+      <section
+        class="layout-flex layout-flex--space-between col-1-span-12 tasks-layout-small"
+        aria-labelledby={path}
+        style="--wrap: nowrap; --gap: var(--spacer-medium)">
+        {#each topTasks as task, index}
+          {#if task && task.url}
+            <a href={task.url} class="no-underline">
+              <h4 class="forward-arrow-after">{@html task.title}</h4>
+            </a>
+          {/if}
+        {/each}
+      </section>
+    </div>
   </div>
 </Story>
 

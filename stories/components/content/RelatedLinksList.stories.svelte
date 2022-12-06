@@ -1,7 +1,7 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf'
-  import Status from '../../../src/svelte/Status.svelte'
   import RelatedLinksList from '../../../src/svelte/content/RelatedLinksList.svelte'
+  import {wrapInShadowDom} from '../../utils'
 </script>
 
 <Meta
@@ -33,7 +33,7 @@
   }} />
 
 <Story name="Normal" let:title let:linkGroups let:disableCss>
-  <div class="container layout-grid layout-grid--column-12">
+  <div use:wrapInShadowDom={disableCss} class="container layout-grid layout-grid--column-12">
     <RelatedLinksList
       {title}
       {linkGroups}
