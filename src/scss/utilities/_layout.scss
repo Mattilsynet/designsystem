@@ -30,14 +30,17 @@
 }
 [data-portal-component-type] {
   & + [data-portal-component-type] {
-    margin-top: var(--spacer-medium);
+    margin-top: var(--spacer-small);
+    @media only screen and (min-width: $breakpoint-large) {
+      margin-top: var(--spacer-medium);
+    }
   }
 }
 
 [data-portal-region='layout-col-2'],
 [data-portal-region='layout-3-col-2'],
 [data-portal-region='layout-3-col-3'] {
-  --spacer-layout: var(--spacer-x-small);
+  --spacer-layout: var(--spacer-small);
 
   margin-top: var(--spacer-layout);
   @media only screen and (min-width: $breakpoint-large) {
