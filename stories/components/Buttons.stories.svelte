@@ -3,6 +3,7 @@
   import {action} from '@storybook/addon-actions'
   import FileUploadButton from '../../src/svelte/FileUploadButton.svelte'
   import ButtonSpinner from '../../src/svelte/ButtonSpinner.svelte'
+  import {wrapInShadowDom} from '../utils'
 </script>
 
 <Meta
