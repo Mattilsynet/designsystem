@@ -9,11 +9,12 @@
   }
 
   .banner-image--layout {
-    min-height: #{$height-banner};
-    align-items: center;
-    align-content: center;
-
     @media only screen and (min-width: $breakpoint-large) {
+      --banner-height: #{$height-banner};
+
+      min-height: var(--banner-height);
+      align-items: center;
+      align-content: center;
       padding: var(--spacer-medium) 0;
     }
   }
