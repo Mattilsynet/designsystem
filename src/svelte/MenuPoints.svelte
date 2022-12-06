@@ -9,9 +9,7 @@
 
 <div class="menu-points" data-testid="menu-points">
   <h2 class="m-t-xxs">{@html title}</h2>
-  <div
-    class="layout-grid layout-grid--column-3 row-gap"
-    style="--space-section:var(--spacer-medium); --gap:var(--spacer-medium);">
+  <div class="layout-grid layout-grid--column-3 " style="--gap:var(--spacer-small);">
     {#each menuPoints as menuPoint, index}
       <div class="menu-point layout-flex-col layout-flex-col--x-small">
         <div class="menu-point--title">
