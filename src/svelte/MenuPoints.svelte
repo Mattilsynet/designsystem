@@ -11,7 +11,7 @@
   <h2 class="m-t-xxs">{@html title}</h2>
   <div
     class="layout-grid layout-grid--column-3 row-gap"
-    style="--space-section:var(--spacer-medium)">
+    style="--space-section:var(--spacer-medium); --gap:var(--spacer-medium);">
     {#each menuPoints as menuPoint, index}
       <div class="menu-point layout-flex-col layout-flex-col--x-small">
         <div class="menu-point--title">
@@ -19,7 +19,7 @@
             {#if menuPoint.iconResource}
               {@html menuPoint.iconResource}
             {:else if menuPoint.icon}
-              <img src={menuPoint.icon} alt="" data-testid="img-icon"/>
+              <img src={menuPoint.icon} alt="" data-testid="img-icon" />
             {/if}
           </div>
           <a
@@ -28,12 +28,12 @@
             class="animated-header-arrow-after no-underline flex"
             data-testid="menupoints-link">
             <HeadingLevel class={headerTag} headingLevel={+headerTag.charAt(1)}>
-              {menuPoint.displayName}
+              {@html menuPoint.title}
             </HeadingLevel>
           </a>
         </div>
         <p>
-          {menuPoint.keywords && menuPoint.keywords.length > 0
+          {@html menuPoint.keywords && menuPoint.keywords.length > 0
             ? menuPoint.keywords
             : '[Legg til stikkord på innholdet]'}
         </p>

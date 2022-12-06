@@ -88,8 +88,8 @@
       style="--wrap: nowrap; --gap: var(--spacer-medium)">
       {#each topTasks as task, index}
         {#if task && task.url}
-          <a href={task.url} class="top-task-small no-underline">
-            <h4 class="heading">{@html task.title}</h4>
+          <a href={task.url} class="no-underline">
+            <h4 class="forward-arrow-after">{@html task.title}</h4>
           </a>
         {/if}
       {/each}

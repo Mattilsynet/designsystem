@@ -16,34 +16,34 @@
     title: `Tittel for menypunktene`,
     menuPoints: [
       {
-        displayName: 'Dyr',
+        title: 'Dyr',
         url: '',
         keywords: 'Kjæledyr, produksjonsdyr, dyr som lider og dyresykdommer',
         iconResource: animalSvg
       },
       {
-        displayName: 'Fisk og akvakultur',
+        title: 'Fisk og akvakultur',
         keywords: 'Oppdrettsanlegg, arter, fiske og -skjellsykdommer, animaliebiprodukter ',
         icon: imageFile,
         iconResource: undefined
       },
       {
-        displayName: 'Mat',
+        title: 'Mat',
         keywords: 'Merking, produksjon, smitte, matservering, import og eksport',
         iconResource: foodSvg
       },
       {
-        displayName: 'Planter og dyrking',
+        title: 'Planter og dyrking',
         keywords: 'Produksjon og salg, import og eksport, genmodifisering',
         iconResource: plantSvg
       },
       {
-        displayName: 'Drikkevannsforsyning',
+        title: 'Drikkevannsforsyning',
         keywords: 'Beredskap, tilsyn, nasjonale mål, registrering og plangodkjenning',
         iconResource: waterSvg
       },
       {
-        displayName: 'Kosmetikk',
+        title: 'Kosmetikk',
         keywords: 'Stoffer i kosmetikk, bivirkninger, dyretesting, tatovering',
         iconResource: cosmeticSvg
       }
