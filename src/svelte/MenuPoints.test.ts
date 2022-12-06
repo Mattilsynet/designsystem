@@ -11,7 +11,7 @@ describe('Highlighted content', () => {
       title: 'Tittel',
       menuPoints: [
         {
-          displayName: 'Dyr',
+          title: 'Dyr',
           url: 'http',
           keywords: 'Stikkord for dyr',
           iconResource: '<svg>hello from svg</svg>'

@@ -31,7 +31,11 @@
         title: 'Planter og dyrking',
         intro: 'Dette er innholdsteksten for planter og dyrking'
       },
-      {url: '#', title: 'Kosmetikk', intro: 'Dette er innholdsteksten for kosmetikk'},
+      {
+        url: '#',
+        title: 'Kosmetikk',
+        intro: 'Dette er innholdsteksten for kosmetikk'
+      },
       {
         url: '#',
         title: 'Kritikkverdige forhold på arbeids&shy;plassen',
@@ -49,7 +53,7 @@
     disableCss: {control: 'boolean'}
   }} />
 
-<Story name="Normal" let:topTasks let:icon let:disableCss let:title let:intro let:path>
+<Story name="Large" let:topTasks let:icon let:disableCss let:title let:intro let:path>
   <div class="layout-grid layout-grid--column-12 top-tasks-container">
     <h2 id={path} class="top-tasks-text col-1-span-12">
       {@html title}
@@ -68,6 +72,24 @@
           <a href={task.url} class="button button--primary top-task">
             <h3 class="heading">{@html task.title}</h3>
             <span class="text">{@html task.intro}</span>
+          </a>
+        {/if}
+      {/each}
+    </section>
+  </div>
+</Story>
+
+<Story name="Small" let:topTasks let:disableCss let:path>
+  <h1>Toppoppgaver små</h1>
+  <div class="layout-grid layout-grid--column-12 top-tasks-container">
+    <section
+      class="layout-flex layout-flex--space-between col-1-span-12 tasks-layout-small"
+      aria-labelledby={path}
+      style="--wrap: nowrap; --gap: var(--spacer-medium)">
+      {#each topTasks as task, index}
+        {#if task && task.url}
+          <a href={task.url} class="no-underline">
+            <h4 class="forward-arrow-after">{@html task.title}</h4>
           </a>
         {/if}
       {/each}
