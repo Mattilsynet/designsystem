@@ -23,7 +23,7 @@
           <a
             href={menuPoint.url}
             rel={mapRelExternal(menuPoint.url)}
-            class="animated-header-arrow-after no-underline flex"
+            class="animated-header-arrow-after no-underline hover-indent flex"
             data-testid="menupoints-link">
             <HeadingLevel class={headerTag} headingLevel={+headerTag.charAt(1)}>
               {@html menuPoint.title}
