@@ -4,8 +4,8 @@
 
 <script lang="ts">
   import {slide} from 'svelte/transition'
-  import type {InputProps, ErrorDetail} from '../../ts/types'
-  import {createInputAriaDescribedby, interpolate} from '../../ts/utils'
+  import type {InputProps, ErrorDetail} from '../../../ts/types'
+  import {createInputAriaDescribedby, interpolate} from '../../../ts/utils'
   import TextInput from './TextInput.svelte'
 
   export let values = {}

@@ -1,7 +1,7 @@
 <script lang="ts">
   import InputError from './InputErrorMessage.svelte'
-  import {toKebabCase, createInputAriaDescribedby} from '../../ts/utils'
-  import type {ErrorDetail} from '../../ts/types'
+  import {toKebabCase, createInputAriaDescribedby} from '../../../ts/utils'
+  import type {ErrorDetail} from '../../../ts/types'
 
   export let value
   export let name: string

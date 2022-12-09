@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type {Chapter, ChapterChangeDetails} from '../ts/types'
+  import type {Chapter, ChapterChangeDetails} from '../../ts/types'
   import {createEventDispatcher} from 'svelte'
 
   export let showChapterNumber = false

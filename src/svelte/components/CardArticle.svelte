@@ -1,6 +1,6 @@
 <script lang="ts">
   import HeadingLevel from './HeadingLevel.svelte'
-  import {mapRelExternal} from '../ts/utils'
+  import {mapRelExternal} from '../../ts/utils'
 
   export let headingId: string
   export let title: string

@@ -5,9 +5,9 @@
 <script lang="ts">
   import {onMount} from 'svelte'
   import {fly} from 'svelte/transition'
-  import type {ErrorDetail, MultiSelectOption} from '../../ts/types'
+  import type {ErrorDetail, MultiSelectOption} from '../../../ts/types'
   import Label from './Label.svelte'
-  import InputError from '../form/InputErrorMessage.svelte'
+  import InputError from './InputErrorMessage.svelte'
 
   export let name: string
   export let label: string

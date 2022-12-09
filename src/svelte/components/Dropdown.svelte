@@ -7,7 +7,7 @@
   import {useMachine} from '@xstate/svelte'
   import {onMount} from 'svelte'
   import {slide} from 'svelte/transition'
-  import {clickOutside} from '../ts/click-outside'
+  import {clickOutside} from '../../ts/click-outside'
 
   export let title = ''
   const bodyId = `ui-dropdown-${counter++}`

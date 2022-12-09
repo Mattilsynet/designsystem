@@ -1,6 +1,6 @@
 <script lang="ts">
-  import {onMount, afterUpdate} from 'svelte'
-  import type {Breadcrumbs} from '../ts/types'
+  import {onMount} from 'svelte'
+  import type {Breadcrumbs} from '../../ts/types'
   import {useMachine} from '@xstate/svelte'
   import {createMachine} from 'xstate'
 

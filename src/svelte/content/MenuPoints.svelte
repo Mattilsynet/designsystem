@@ -1,6 +1,6 @@
 <script lang="ts">
-  import {mapRelExternal} from '../ts/utils'
-  import HeadingLevel from './HeadingLevel.svelte'
+  import {mapRelExternal} from '../../ts/utils'
+  import HeadingLevel from '../components/HeadingLevel.svelte'
 
   export let title = ''
   export let headerTag: 'h2' | 'h3' | 'h4' | 'h5' | 'h6' = 'h3'

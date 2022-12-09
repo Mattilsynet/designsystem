@@ -1,6 +1,6 @@
 <script lang="ts">
-  import HeadingLevel from './HeadingLevel.svelte'
-  import {mapRelExternal} from '../ts/utils'
+  import HeadingLevel from '../components/HeadingLevel.svelte'
+  import {mapRelExternal} from '../../ts/utils'
 
   let url = ''
   let className = ''

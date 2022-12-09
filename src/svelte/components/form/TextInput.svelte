@@ -1,8 +1,8 @@
 <script lang="ts">
   import InputError from './InputErrorMessage.svelte'
-  import {countCharacters} from '../../ts/count-characters'
-  import type {AutocompleteType, ErrorDetail, InputModeType} from '../../ts/types'
-  import {createInputAriaDescribedby} from '../../ts/utils'
+  import {countCharacters} from '../../../ts/count-characters'
+  import type {AutocompleteType, ErrorDetail, InputModeType} from '../../../ts/types'
+  import {createInputAriaDescribedby} from '../../../ts/utils'
   import Label from './Label.svelte'
 
   export let value

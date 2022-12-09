@@ -2,8 +2,8 @@
   import {onMount, createEventDispatcher} from 'svelte'
   import {useMachine} from '@xstate/svelte'
   import {createMachine, assign} from 'xstate'
-  import type {ErrorDetail} from '../ts/types'
-  import {createInputAriaDescribedby} from '../ts/utils'
+  import type {ErrorDetail} from '../../ts/types'
+  import {createInputAriaDescribedby} from '../../ts/utils'
 
   export let loadJs = true
   export let id: string

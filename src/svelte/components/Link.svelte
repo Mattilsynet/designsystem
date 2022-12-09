@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {getFileExtension, mapRelExternal} from '../ts/utils'
+  import {getFileExtension, mapRelExternal} from '../../ts/utils'
 
   export let linkText
   export let href

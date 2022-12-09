@@ -3,7 +3,7 @@
  */
 
 import {render} from '@testing-library/svelte'
-import CardArticle, {linkText, linkUrl} from './CardArticle.svelte'
+import CardArticle from './CardArticle.svelte'
 
 describe('Card Article', () => {
   const componentOptions = {

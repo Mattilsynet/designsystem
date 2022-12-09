@@ -1,6 +1,6 @@
 <script lang="ts">
-  import {displayDataTime, mapRelExternal} from '../ts/utils'
-  import Published from './Published.svelte'
+  import {displayDataTime, mapRelExternal} from '../../ts/utils'
+  import Published from '../components/Published.svelte'
 
   export let text: string
   export let updatedDate: string

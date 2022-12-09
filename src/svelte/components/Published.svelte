@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {compareDates} from '../ts/utils'
+  import {compareDates} from '../../ts/utils'
 
   export let publishFrom: string | undefined
   export let professionallyUpdated: string | undefined

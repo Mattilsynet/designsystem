@@ -1,6 +1,6 @@
 <script lang="ts">
   import {createEventDispatcher} from 'svelte'
-  import type {Chapter, ChapterChangeDetails} from '../ts/types'
+  import type {Chapter, ChapterChangeDetails} from '../../ts/types'
 
   export let chapters: Array<Chapter>
   export let currentChapterNumber = 0

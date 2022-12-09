@@ -1,6 +1,6 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf'
-  import Dropdown from '../../src/svelte/Dropdown.svelte'
+  import Dropdown from '../../src/svelte/components/Dropdown.svelte'
   import MenuItems from '../../src/svelte/content/MenuItems.svelte'
   import {wrapInShadowDom} from '../utils'
 

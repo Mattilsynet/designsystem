@@ -1,8 +1,8 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf'
   import {action} from '@storybook/addon-actions'
-  import FileUploadButton from '../../src/svelte/FileUploadButton.svelte'
-  import ButtonSpinner from '../../src/svelte/ButtonSpinner.svelte'
+  import FileUploadButton from '../../src/svelte/components/FileUploadButton.svelte'
+  import ButtonSpinner from '../../src/svelte/components/ButtonSpinner.svelte'
   import {wrapInShadowDom} from '../utils'
 </script>
 

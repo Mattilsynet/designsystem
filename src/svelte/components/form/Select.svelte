@@ -4,8 +4,8 @@
 
 <script lang="ts">
   import InputError from './InputErrorMessage.svelte'
-  import type {ErrorDetail} from '../../ts/types'
-  import {createInputAriaDescribedby} from '../../ts/utils'
+  import type {ErrorDetail} from '../../../ts/types'
+  import {createInputAriaDescribedby} from '../../../ts/utils'
   import Label from './Label.svelte'
   export let name: string
   export let label: string

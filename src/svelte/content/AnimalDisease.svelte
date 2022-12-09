@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Disclosure from '../Disclosure.svelte'
+  import Disclosure from '../components/Disclosure.svelte'
 
   export let text: string | undefined
   export let symptomsHeading: string | undefined

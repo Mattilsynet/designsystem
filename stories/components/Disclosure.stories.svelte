@@ -1,7 +1,7 @@
 <script lang="ts">
   import {Meta, Template, Story} from '@storybook/addon-svelte-csf'
   import {splitIntoParagraphs, wrapInShadowDom} from '../utils'
-  import Disclosure from '../../src/svelte/Disclosure.svelte'
+  import Disclosure from '../../src/svelte/components/Disclosure.svelte'
 
   const disclosures = [
     {

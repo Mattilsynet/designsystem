@@ -1,6 +1,6 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf'
-  import Breadcrumbs from '../../src/svelte/Breadcrumbs.svelte'
+  import Breadcrumbs from '../../src/svelte/components/Breadcrumbs.svelte'
   import {wrapInShadowDom} from '../utils'
 
   const breadcrumbsItems = [

@@ -1,9 +1,9 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf'
   import {toKebabCase} from '../../src/ts/utils'
-  import DialogBox from '../../src/svelte/DialogBox.svelte'
+  import DialogBox from '../../src/svelte/components/DialogBox.svelte'
   import {tick} from 'svelte'
-  import TextArea from '../../src/svelte/form/TextArea.svelte'
+  import TextArea from '../../src/svelte/components/form/TextArea.svelte'
   import {wrapInShadowDom} from '../utils'
 
   const options = [

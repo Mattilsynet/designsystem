@@ -1,6 +1,6 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf'
-  import Status from '../../src/svelte/Status.svelte'
+  import Status from '../../src/svelte/content/Status.svelte'
 </script>
 
 <Meta
