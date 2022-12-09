@@ -26,7 +26,9 @@
 
   $: outsides = inputList.slice(0, numberOfInputOutside)
   $: insides = inputList.slice(numberOfInputOutside, inputList.length)
-  let showMore = false
+  $: showMore = insides.some(({name}) => {
+    return values[name]
+  })
   const bodyId = `ui-expandable-list-${counter++}`
 
   function createAriaLabel(showMore: boolean) {
@@ -142,7 +144,7 @@
         {/if}
       </div>
     {:else}
-      <details>
+      <details bind:open={showMore}>
         <summary>
           {@html expandableText}
         </summary>
