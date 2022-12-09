@@ -21,7 +21,7 @@
 <fieldset
   id={name}
   aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)}
-  aria-required={isRequired}
+  aria-required={isRequired || undefined}
   class="form-fieldset {theme === 'checkbox' ? 'checkbox' : ''} {theme === 'button'
     ? 'button-checkbox'
     : ''} {className}">
