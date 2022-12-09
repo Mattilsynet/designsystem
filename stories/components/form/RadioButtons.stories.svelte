@@ -1,6 +1,6 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf'
-  import RadioGroup from '../../../src/svelte/form/RadioGroup.svelte'
+  import RadioGroup from '../../../src/svelte/components/form/RadioGroup.svelte'
   import {wrapInShadowDom} from '../../utils'
 
   const name = 'radiobuttons'

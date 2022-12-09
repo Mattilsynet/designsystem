@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Disclosure from '../Disclosure.svelte'
+  import Disclosure from '../components/Disclosure.svelte'
   import {mapRelExternal} from '../../ts/utils'
   interface MenuItem {
     title: string

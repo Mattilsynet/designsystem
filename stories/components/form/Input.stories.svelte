@@ -1,6 +1,6 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf'
-  import TextInput from '../../../src/svelte/form/TextInput.svelte'
+  import TextInput from '../../../src/svelte/components/form/TextInput.svelte'
   import {wrapInShadowDom} from '../../utils'
 </script>
 
@@ -10,18 +10,20 @@
     label: 'Når skjedde det?',
     helpText: 'Skriv når hendelsen skjedde og om det har pågått over lengere periode.',
     errorMessage: 'Fyll inn dette feltet.',
+    textOptional: 'valgfritt felt',
+    isRequired: false,
     horizontal: [
       {
         label: 'Hund, antall',
         textOptional: 'Valgfritt felt',
         helpText: 'Hjelpetekst',
-        isRequired: false
+        isRequired: true
       },
       {
         label: 'Katt, antall',
         textOptional: 'Valgfritt felt',
         helpText: 'Hjelpetekst',
-        isRequired: false
+        isRequired: true
       }
     ],
     countCharactersLeftLabel: 'karakterer igjen',
@@ -30,7 +32,11 @@
   argTypes={{
     label: {control: 'text'},
     helpText: {control: 'text'},
+    isRequired: {control: 'boolean'},
+    textOptional: {control: 'text'},
     errorMessage: {control: 'text'},
+    horizontal: {control: 'object'},
+    countCharactersLeftLabel: {control: 'text'},
     disableCss: {control: 'boolean'}
   }} />
 
@@ -41,8 +47,9 @@
         name="inputfield"
         {label}
         {helpText}
-        textOptional="valgfritt felt"
+        textOptional={args.textOptional}
         inputmode="text"
+        isRequired={args.isRequired}
         placeholder=""
         autocomplete="" />
 
@@ -50,9 +57,9 @@
         name="inputfield2"
         {label}
         {helpText}
-        textOptional="valgfritt felt"
+        textOptional={args.textOptional}
         inputmode="text"
-        isRequired={true}
+        isRequired={args.isRequired}
         placeholder="Skriv noe"
         autocomplete="" />
 
@@ -60,9 +67,9 @@
         name="inputfield3"
         {label}
         {helpText}
-        textOptional="valgfritt felt"
+        textOptional={args.textOptional}
         inputmode="text"
-        isRequired={true}
+        isRequired={args.isRequired}
         placeholder=""
         autocomplete=""
         maxlength={30} />
@@ -93,6 +100,7 @@
   let:helpText
   let:errorMessage
   let:disableCss
+  let:args
   let:countCharactersLeftLabel>
   <div use:wrapInShadowDom={disableCss}>
     <form class="form-layout">
@@ -102,24 +110,26 @@
         {helpText}
         countCharactersLeftLabel="karakterer igjen"
         error={{key: 'inputfield', message: errorMessage}}
-        textOptional="valgfritt felt"
+        textOptional={args.textOptional}
         inputmode="text"
         maxlength={10}
         placeholder=""
         autocomplete="" />
       <div class="collapsable-input-list-grid">
-        <TextInput
-          name="inputfield3"
-          label="Hund, antall"
-          helpText="Skriv inn antall hunder"
-          textOptional="valgfritt felt"
-          inputmode="text"
-          error={{key: 'inputfield', message: 'Feltet er påkrevd'}}
-          isRequired={false}
-          placeholder=""
-          isHorizontal={true}
-          autocomplete=""
-          inputClass="form-field--small form-field--small-width" />
+        {#each args.horizontal as horizontal, index}
+          <TextInput
+            name="inputfield{index}"
+            label={horizontal.label}
+            textOptional={horizontal.textOptional}
+            helpText={horizontal.helpText}
+            inputmode="text"
+            error={{key: 'inputfield', message: 'Feltet er påkrevd'}}
+            isRequired={horizontal.isRequired}
+            placeholder=""
+            autocomplete=""
+            isHorizontal={true}
+            inputClass="form-field--small form-field--small-width" />
+        {/each}
       </div>
     </form>
   </div>
