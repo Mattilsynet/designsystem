@@ -12,7 +12,7 @@
 </script>
 
 <Meta
-  title="Components/Menypunkter"
+  title="Innhold/Menypunkter"
   args={{
     title: `Tittel for menypunktene`,
     menuPoints: [
