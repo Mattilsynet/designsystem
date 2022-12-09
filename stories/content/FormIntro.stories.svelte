@@ -1,5 +1,6 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf'
+  import CardArticle from '../../src/svelte/CardArticle.svelte'
   import {wrapInShadowDom} from '../utils'
 </script>
 
@@ -21,7 +22,12 @@
     disableCss: false
   }}
   argTypes={{
-    disabled: {control: 'boolean'},
+    title: {control: 'text'},
+    intro: {control: 'text'},
+    text: {control: 'text'},
+    moreText: {control: 'text'},
+    formLinkUrl: {control: 'text'},
+    formLinkText: {control: 'text'},
     disableCss: {control: 'boolean'}
   }} />
 
@@ -60,5 +66,48 @@
         {/if}
       </article>
     </div>
+  </div>
+</Story>
+
+<Story
+  name="Modul - normal"
+  let:title
+  let:intro
+  let:text
+  let:moreText
+  let:formLinkUrl
+  let:formLinkText
+  let:disableCss>
+  <div use:wrapInShadowDom={disableCss} class="container">
+    <CardArticle
+      type="form-intro-module"
+      linkText={formLinkText}
+      linkUrl={formLinkUrl}
+      {intro}
+      {title}
+      {text}
+      id={title} />
+  </div>
+</Story>
+
+<Story
+  name="Modul - H2 heading"
+  let:title
+  let:intro
+  let:text
+  let:moreText
+  let:formLinkUrl
+  let:formLinkText
+  let:disableCss>
+  <div use:wrapInShadowDom={disableCss} class="container">
+    <CardArticle
+      type="form-intro-module"
+      linkText={formLinkText}
+      linkUrl={formLinkUrl}
+      {intro}
+      {title}
+      {text}
+      headerTag="h2"
+      id={title} />
   </div>
 </Story>
