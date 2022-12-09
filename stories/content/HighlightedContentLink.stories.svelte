@@ -6,7 +6,7 @@
 </script>
 
 <Meta
-  title="Components/Fremhevet innhold"
+  title="Innhold/Fremhevet innhold"
   args={{
     text: `<p>Haster det? Er det fare for at dyr dør eller blir påført store belastninger. Ring mattilsynet på tlf. <a href="tel:22400000">22 40 00 00</a> eller politiet <a href="tel:02800">02800</a></p>`,
     title: `<h3 class="heading">Tilsyn med småfe</h3>`,
