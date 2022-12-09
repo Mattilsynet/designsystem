@@ -1,7 +1,7 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf'
-  import AnimalDisease from '../../../src/svelte/content/AnimalDisease.svelte'
-  import imageFile from '../../../.static/testbilde.jpg'
+  import AnimalDisease from '../../src/svelte/content/AnimalDisease.svelte'
+  import imageFile from '../../.static/testbilde.jpg'
 </script>
 
 <Meta

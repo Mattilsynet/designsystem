@@ -1,10 +1,10 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf'
-  import {toKebabCase} from '../../../src/ts/utils'
-  import DialogBox from '../../../src/svelte/DialogBox.svelte'
+  import {toKebabCase} from '../../src/ts/utils'
+  import DialogBox from '../../src/svelte/DialogBox.svelte'
   import {tick} from 'svelte'
-  import TextArea from '../../../src/svelte/form/TextArea.svelte'
-  import {wrapInShadowDom} from '../../utils'
+  import TextArea from '../../src/svelte/form/TextArea.svelte'
+  import {wrapInShadowDom} from '../utils'
 
   const options = [
     {value: 'yes', text: 'Ja'},
