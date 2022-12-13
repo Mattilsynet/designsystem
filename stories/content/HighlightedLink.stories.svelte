@@ -18,8 +18,8 @@
         linkTypeButton: false
       },
       {
-        title: '',
-        text: `<p>Ingen tittel. Med knapp</p>`,
+        title: 'Link type knapp',
+        text: `<p>Noe tekst</p>`,
         nextActionUrl: 'http://',
         nextActionLinkText: 'En lenke',
         linkTypeButton: true
