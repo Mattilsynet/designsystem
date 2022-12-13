@@ -10,20 +10,18 @@
   export let linkText: string | undefined
   export let linkTypeButton = true
   export let type: 'task' | 'form-intro-module' | 'legal-text' | 'highlighted-link' | '' = ''
-  export let headerTag: 'h2' | 'h3' | 'h4' | 'h5' | 'h6' = 'h3' // Fallback is h3
+  export let headerTag: 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | undefined = 'h3' // Fallback is h3
   export let iconClass: 'info-icon' | 'warning-icon' | 'task-icon' | '' =
     type === 'task' ? 'task-icon' : ''
 </script>
 
 <article class={type} aria-labelledby={headingId}>
-  {#if title}
-    <HeadingLevel
-      id={headingId}
-      class="title {iconClass} {headerTag === 'h2' ? 'h3' : ''}"
-      headingLevel={+headerTag.charAt(1)}>
-      {@html title}
-    </HeadingLevel>
-  {/if}
+  <HeadingLevel
+    id={headingId}
+    class="title {iconClass} {headerTag === 'h2' ? 'h3' : ''}"
+    headingLevel={+headerTag.charAt(1)}>
+    {@html title}
+  </HeadingLevel>
 
   {#if intro}
     <div class="intro">
