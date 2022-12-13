@@ -13,7 +13,6 @@
   border: 1px solid $color-secondary;
   appearance: none;
   float: left;
-
   &:disabled,
   &[disabled] {
     pointer-events: none;
@@ -34,9 +33,16 @@
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2.5' fill='%23075A78'/%3e%3c/svg%3e");
 }
 
-[type='checkbox']:checked {
-  background-color: $color-primary;
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
+[type='checkbox'] {
+  &:checked {
+    background-color: $color-primary;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
+  }
+
+  &:indeterminate {
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='24' height='24' rx='4' fill='%23075B7A'/%3E%3Cline x1='6.5' y1='12.5' x2='17.5' y2='12.5' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-color: $color-primary;
+  }
 }
 
 fieldset {
@@ -55,9 +61,32 @@ fieldset {
   legend {
     font-weight: var(--font-weight-bold);
     padding-inline: 0;
+
+    &.border{
+      width: 100%;
+      border-bottom: 1px solid $color-secondary;
+      padding-bottom: var(--spacer-xx-small);
+    }
   }
 
   .form-control {
     margin-top: 1rem;
+
+    &.narrow{
+      margin-top: 0;
+    }
+  }
+  .input-wrapper {
+    position: relative;
+  }
+
+  .search {
+    background-color: transparent;
+    border: 0 none;
+    cursor: pointer;
+    color: var(--color-mt-blue-medium);
+    position: absolute;
+    right: 10px;
+    bottom: 14px;
   }
 }

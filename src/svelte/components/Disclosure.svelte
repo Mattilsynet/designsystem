@@ -35,6 +35,7 @@
 
   const bodyId = `ui-disclosure-${counter++}`
   const disclosureMachine = createMachine<DisclosureContext, DisclosureEvent, DisclosureState>({
+    predictableActionArguments: true,
     id: 'disclosure',
     initial: 'serverRendered',
     context: {

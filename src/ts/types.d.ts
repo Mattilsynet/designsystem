@@ -92,3 +92,10 @@ export interface MultiSelectOption {
   text: string
   removeAriaLabel: string
 }
+
+export interface CheckboxWithSubSectionsOptions {
+  key: string
+  displayName: string
+  docCount: number
+  children?: CheckboxWithSubSectionsOptions[]
+}

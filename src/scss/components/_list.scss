@@ -106,3 +106,25 @@ ol {
     }
   }
 }
+
+.list {
+
+  > li {
+    border-top: 1px solid var(--color-mt-beige-50);
+    margin-top: 0;
+    padding: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    &:last-child{
+      border-bottom: 1px solid var(--color-mt-beige-50);
+    }
+    &:nth-child(even) {
+      background-color: #fff;
+    }
+    ul {
+     margin-top: 0;
+    }
+  }
+
+}

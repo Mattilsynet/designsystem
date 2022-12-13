@@ -90,5 +90,13 @@ module.exports = [
   {
     name: 'error-50',
     color: 'hsl(3, 76%, 36%, 0.5)'
+  },
+  {
+    name: 'mt-yellowgreen',
+    color: 'hsla(63, 75%, 41%, 1)'
+  },
+  {
+    name: 'mt-yellowgreen-lighter',
+    color: 'hsla(63, 52%, 82%, 1)'
   }
 ]

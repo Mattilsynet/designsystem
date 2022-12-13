@@ -45,8 +45,12 @@ $color-error: hsl(3, 76%, 36%) !default;
 $color-on-error: hsl(0,0%,100%) !default;
 $color-error-50: hsl(3, 76%, 36%, 0.5) !default;
 $color-on-error-50: hsl(3, 68.2%, 82.7%) !default;
+$color-mt-yellowgreen: hsla(63, 75%, 41%, 1) !default;
+$color-on-mt-yellowgreen: hsl(64.19999999999999, 100%, 13.9%) !default;
+$color-mt-yellowgreen-lighter: hsla(63, 52%, 82%, 1) !default;
+$color-on-mt-yellowgreen-lighter: hsl(61.5, 22.8%, 33.5%) !default;
 
-$base-color-tokens: ("mt-blue", "mt-red", "mt-red-uu", "mt-beige", "mt-beige-50", "mt-light-beige", "mt-background", "mt-light-blue", "mt-lighter-light-blue", "mt-rationale-blue", "mt-brown", "mt-grey", "mt-white", "mt-green", "mt-light-green", "primary", "mt-blue-medium", "secondary", "mt-text-dark", "error", "error-50");
+$base-color-tokens: ("mt-blue", "mt-red", "mt-red-uu", "mt-beige", "mt-beige-50", "mt-light-beige", "mt-background", "mt-light-blue", "mt-lighter-light-blue", "mt-rationale-blue", "mt-brown", "mt-grey", "mt-white", "mt-green", "mt-light-green", "primary", "mt-blue-medium", "secondary", "mt-text-dark", "error", "error-50", "mt-yellowgreen", "mt-yellowgreen-lighter");
 
 $color-tokens: (
   "color-mt-blue": $color-mt-blue,
@@ -90,7 +94,11 @@ $color-tokens: (
   "color-error": $color-error,
   "color-on-error": $color-on-error,
   "color-error-50": $color-error-50,
-  "color-on-error-50": $color-on-error-50
+  "color-on-error-50": $color-on-error-50,
+  "color-mt-yellowgreen": $color-mt-yellowgreen,
+  "color-on-mt-yellowgreen": $color-on-mt-yellowgreen,
+  "color-mt-yellowgreen-lighter": $color-mt-yellowgreen-lighter,
+  "color-on-mt-yellowgreen-lighter": $color-on-mt-yellowgreen-lighter
 ) !default;
 
 @mixin color-tokens() {
@@ -136,4 +144,8 @@ $color-tokens: (
   --color-on-error: #{$color-on-error};
   --color-error-50: #{$color-error-50};
   --color-on-error-50: #{$color-on-error-50};
+  --color-mt-yellowgreen: #{$color-mt-yellowgreen};
+  --color-on-mt-yellowgreen: #{$color-on-mt-yellowgreen};
+  --color-mt-yellowgreen-lighter: #{$color-mt-yellowgreen-lighter};
+  --color-on-mt-yellowgreen-lighter: #{$color-on-mt-yellowgreen-lighter};
 }

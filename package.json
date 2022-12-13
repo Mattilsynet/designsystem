@@ -9,7 +9,7 @@
     "tokens": "a11y-color-tokens --outputDirPath='src/scss' --colorTokensPath='src/scss/utilities/colors.js'",
     "watch:sass": "sass --no-source-map --watch src/scss:./dist",
     "build:sass": "sass --no-source-map src/scss:./dist ",
-    "test": "jest --env=jsdom src",
+    "test": "jest --env=jsdom ",
     "test:watch": "npm run test -- --watch",
     "storybook": "start-storybook -p 6006",
     "start": "npm-run-all tokens build:sass --parallel watch:*",

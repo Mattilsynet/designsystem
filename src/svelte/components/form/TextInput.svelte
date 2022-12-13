@@ -16,6 +16,7 @@
   export let textOptional: string | undefined
   export let showOptionalText: boolean
   export let hiddenErrorText: string | undefined
+  export let searchButtonText: string | undefined
 
   export let maxlength: number | undefined
   export let placeholder: string | undefined
@@ -41,9 +42,9 @@
       <InputError {...error} {hiddenErrorText} />
     {/if}
 
-    <div class="layout-flex layout-flex-col justify-content-center" style="--gap: 0">
-      <Label for={name} {isRequired} {textOptional} {showOptionalText} class={labelClass}>
-        {label}
+    <div class="layout-flex layout-flex-col justify-content-center x" style="--gap: 0">
+      <Label class={labelClass} for={name} {isRequired} {textOptional} {showOptionalText}>
+        {labelClass}
       </Label>
 
       {#if helpText}
@@ -58,6 +59,7 @@
       {name}
       use:countCharacters={countCharsParams}
       class="form-field {inputClass}"
+      class:search-input={inputmode === 'search'}
       bind:value
       class:error
       aria-required={isRequired || undefined}
@@ -68,7 +70,7 @@
       {autocomplete} />
   </div>
 {:else}
-  <Label for={name} {isRequired} {textOptional}>{label}</Label>
+  <Label class={labelClass} for={name} {isRequired} {textOptional}>{label}</Label>
 
   {#if helpText}
     <div id={`${name}-hint`} class="hint">
@@ -79,18 +81,23 @@
   {#if error}
     <InputError {...error} {hiddenErrorText} />
   {/if}
+  <div class="input-wrapper">
+    <input
+      id={name}
+      {name}
+      use:countCharacters={countCharsParams}
+      class="form-field {inputClass}"
+      bind:value
+      class:error
+      aria-required={isRequired || undefined}
+      aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error, maxlength)}
+      aria-invalid={!!error}
+      {inputmode}
+      {placeholder}
+      {autocomplete} />
 
-  <input
-    id={name}
-    {name}
-    use:countCharacters={countCharsParams}
-    class="form-field {inputClass}"
-    bind:value
-    class:error
-    aria-required={isRequired || undefined}
-    aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error, maxlength)}
-    aria-invalid={!!error}
-    {inputmode}
-    {placeholder}
-    {autocomplete} />
+    {#if inputmode === 'search' && searchButtonText !== ''}
+      <button type="submit" class="search icon-search-before">{searchButtonText}</button>
+    {/if}
+  </div>
 {/if}

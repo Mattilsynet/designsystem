@@ -22,6 +22,16 @@
   title="Components/Tags"
   args={{
     tags: [{text: 'Hund'}, {text: 'Katt'}, {text: 'Ilder'}],
+    tagsWithColor: [
+      {text: 'PDF', color: 'lightblue'},
+      {text: 'Altinn', color: 'yellowgreen'},
+      {text: 'Mattilsynets skjematjenester', color: 'beige'}
+    ],
+    tagsWithColorAndSize: [
+      {text: 'PDF', color: 'lightblue', size: 'medium'},
+      {text: 'Altinn', color: 'yellowgreen', size: 'medium'},
+      {text: 'Mattilsynets skjematjenester', color: 'beige', size: 'medium'}
+    ],
     isClosable: true,
     disableCss: false
   }}
@@ -35,8 +45,16 @@
   <div use:wrapInShadowDom={args.disableCss} />
   <h1>Tags</h1>
   <div class="tags-wrapper">
+    <h2>Tags</h2>
     <Tags tags={args.tags} />
     <hr />
+    <h2>Tags med forskjellige farger</h2>
+    <Tags tags={args.tagsWithColor} />
+    <hr />
+    <h2>Tags med forskjellige størrelser</h2>
+    <Tags tags={args.tagsWithColorAndSize} />
+    <hr />
+
     <h2>Lukkbare tags</h2>
     <Tags bind:tags={closableTags} isClosable={args.isClosable} />
     <button class="button button--link" on:click={reset}>Gjenopprett tags</button>

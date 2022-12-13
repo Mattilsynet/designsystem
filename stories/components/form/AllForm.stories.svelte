@@ -1,11 +1,11 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf'
-  import {countCharacters} from '../../../src/ts/count-characters'
   import TextInput from '../../../src/svelte/components/form/TextInput.svelte'
   import {wrapInShadowDom} from '../../utils'
   import TextArea from '../../../src/svelte/components/form/TextArea.svelte'
   import RadioGroup from '../../../src/svelte/components/form/RadioGroup.svelte'
   import Checkbox from '../../../src/svelte/components/form/Checkbox.svelte'
+  import CheckboxWithSubSets from '../../../src/svelte/components/form/CheckboxWithSubSets.svelte'
   const radioName = 'radiobuttons'
   const checkboxName = 'checkboxes'
   const radioOptions = [
@@ -97,6 +97,9 @@
 
       <!-- Checkbox -->
       <Checkbox name={checkboxName} label={checkboxLabel} {helpText} options={checkBoxOptions} />
+
+      <!-- Checkboxes with subsets-->
+      <CheckboxWithSubSets title="hullu" />
     </form>
   </div>
 </Story>

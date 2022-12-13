@@ -25,6 +25,7 @@
 
   const breadcrumbsMachine = createMachine<BreadcrumbsContext, BreadcrumbsEvent, BreadcrumbsState>(
     {
+      predictableActionArguments: true,
       id: 'breadcrumbs',
       initial: 'serverRendered',
       context: {
