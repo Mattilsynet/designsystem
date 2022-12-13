@@ -8,6 +8,7 @@ import CardArticle from './CardArticle.svelte'
 describe('Card Article', () => {
   const componentOptions = {
     headingId: 'testId',
+    iconClass: '',
     title: 'Varsle om piggtrådgjerder',
     intro: '',
     text: `<p>Du bør varsle Mattilsynet hvis du oppdager</p>
@@ -17,8 +18,10 @@ describe('Card Article', () => {
            </ul>`,
     linkUrl: 'http://',
     linkText: 'Lenke til skjema',
+    linkTypeButton: false,
     disableCss: false,
-    headerTag: undefined
+    headerTag: undefined,
+    type: ''
   }
 
   test('Renders', () => {
@@ -62,5 +65,42 @@ describe('Card Article', () => {
     const link = getByText('Lenke til skjema')
     expect(link).toBeInTheDocument()
     expect(link.getAttribute('rel')).toEqual(null)
+  })
+
+  test('Link - default link type contains correct classes', () => {
+    const {getByText} = render(CardArticle, {props: componentOptions})
+    const link = getByText('Lenke til skjema')
+    expect(link).toBeInTheDocument()
+    expect(link.classList).not.toContain('button')
+    expect(link.classList).not.toContain('button--primary')
+    expect(link.classList).toContain('forward-arrow-after')
+  })
+
+  test('Link - button link type contains correct classes', () => {
+    componentOptions.linkTypeButton = true
+    const {getByText} = render(CardArticle, {props: componentOptions})
+    const link = getByText('Lenke til skjema')
+    expect(link).toBeInTheDocument()
+    expect(link.classList).toContain('button')
+    expect(link.classList).toContain('button--primary')
+    expect(link.classList).not.toContain('forward-arrow-after')
+  })
+
+  test('Renders with icon class', () => {
+    componentOptions.iconClass = 'info-icon'
+    const {getByText} = render(CardArticle, {props: componentOptions})
+    const title = getByText('Varsle om piggtrådgjerder')
+    expect(title).toBeInTheDocument()
+    expect(title.classList).toContain('title')
+    expect(title.classList).toContain('info-icon')
+  })
+
+  test('Defaults to task-icon when task type', () => {
+    componentOptions.iconClass = undefined
+    componentOptions.type = 'task'
+    const {getByText} = render(CardArticle, {props: componentOptions})
+    const title = getByText('Varsle om piggtrådgjerder')
+    expect(title).toBeInTheDocument()
+    expect(title.classList).toContain('task-icon')
   })
 })

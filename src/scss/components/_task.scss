@@ -17,7 +17,6 @@
     display: flex;
     align-items: center;
     gap: var(--spacer-xx-small);
-    padding-bottom: var(--spacer-x-small);
 
     &.task-icon {
       &::before {

@@ -10,32 +10,49 @@
     tasks: [
       {
         title: 'Tittel med ingen ikon',
-        text: `<p>Norge får nytt regelverk om dyrehelse i form av tolv nye forskrifter.
-        Forskriftene ble fastsatt 6. april og vil tre i kraft i slutten av april.
-        Samtidig vil en rekke gjeldende forskrifter på dyrehelseområdet oppheves.</p>`,
+        text: `<p>Norge får nytt regelverk.</p>`,
         nextActionUrl: 'http://',
         nextActionLinkText: 'Mer informasjon om nytt regelverk',
         headerTag: 'h3',
-        iconClass: ''
+        iconClass: '',
+        linkTypeButton: false
+      },
+      {
+        title: '',
+        text: `<p>Ingen tittel. Med knapp</p>`,
+        nextActionUrl: 'http://',
+        nextActionLinkText: 'En lenke',
+        linkTypeButton: true
       },
       {
         title: 'Tittel med info ikon',
         text: `<p>Noe tekst</p>`,
         nextActionUrl: 'http://',
         nextActionLinkText: 'En lenke',
-        iconClass: 'info-icon'
+        iconClass: 'info-icon',
+        linkTypeButton: false
       },
       {
         title: 'Tittel med advarsel ikon',
         text: `<p>Noe tekst</p>`,
         nextActionUrl: 'http://',
         nextActionLinkText: 'En lenke',
-        iconClass: 'warning-icon'
+        iconClass: 'warning-icon',
+        linkTypeButton: false
+      },
+      {
+        title: 'Tittel med oppgave ikon',
+        text: `<p>Noe tekst</p>`,
+        nextActionUrl: 'http://',
+        nextActionLinkText: 'En lenke',
+        iconClass: 'task-icon',
+        linkTypeButton: false
       },
       {
         title: 'Manglende lenke',
         text: `<p>Noe tekst</p>`,
-        nextActionLinkText: 'En lenke'
+        nextActionLinkText: 'En lenke',
+        linkTypeButton: false
       }
     ],
     disableCss: false
@@ -56,7 +73,8 @@
         text={task.text}
         id={task.title}
         headerTag={task.headerTag}
-        iconClass={task.iconClass} />
+        iconClass={task.iconClass}
+        linkTypeButton={task.linkTypeButton} />
     {/each}
   </div>
 </Story>
