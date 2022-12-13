@@ -1,18 +1,9 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf'
   import ExpandableInputList from '../../../src/svelte/components/form/ExpandableInputList.svelte'
-  import type {ErrorDetail, InputModeType} from '../../../src/ts/types'
   import {wrapInShadowDom} from '../../utils'
 
-  interface Input {
-    label?: string
-    name?: string
-    isRequired?: boolean
-    textOptional?: string
-    inputmode: InputModeType
-    error?: ErrorDetail
-  }
-  let inputList: Array<Input> = [
+  let inputList = [
     {
       label: 'Hund, antall:',
       name: 'dogs',
@@ -62,9 +53,10 @@
       error: undefined
     }
   ]
+
   let fieldSetId = 'whatCountriesHaveYouBeenTo'
   let expandableAriaLabel = ''
-  let values = {}
+  $: values = {}
 
   $: error = undefined
 
@@ -97,10 +89,17 @@
     expandableAriaLabel: '{0}, viser {1} av {2}',
     expandableText: 'Vis flere',
     collapsableText: 'Vis færre',
+    inputList: inputList,
     disableJs: false,
     disableCss: false
   }}
   argTypes={{
+    fieldSetLabel: {control: 'text'},
+    helpText: {control: 'text'},
+    expandableAriaLabel: {control: 'text'},
+    expandableText: {control: 'text'},
+    collapsableText: {control: 'text'},
+    inputList: {control: 'object'},
     disableJs: {control: 'boolean'},
     disableCss: {control: 'boolean'}
   }} />
@@ -110,7 +109,7 @@
     <h1>Utvidebarliste med inputs</h1>
     <form on:submit|preventDefault={handleSubmit}>
       <ExpandableInputList
-        {inputList}
+        inputList={args.inputList}
         {fieldSetId}
         fieldSetLabel={args.fieldSetLabel}
         fieldSetHelpText={args.helpText}

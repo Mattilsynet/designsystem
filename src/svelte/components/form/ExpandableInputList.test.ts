@@ -92,7 +92,24 @@ describe('ExpandableInputList', () => {
     expect(getByLabelText(/viser 6 av 6/i)).toBeInTheDocument()
     testByLabelList([/fugl/i, /ilder/i, /gnager/i, /kanin/i], renderResult, true)
   })
-
+  test('Renders expanded if values in expanded list', () => {
+    const {getByText} = render(ExpandableInputList, {
+      ...componentOptions,
+      values: {
+        rodent: 1
+      }
+    })
+    expect(getByText('Vis færre dyr')).toBeInTheDocument()
+  })
+  test('Renders collapsed if values not in expanded list', () => {
+    const {getByText} = render(ExpandableInputList, {
+      ...componentOptions,
+      values: {
+        dogs: 1
+      }
+    })
+    expect(getByText('Vis flere dyr')).toBeInTheDocument()
+  })
   test('Show error, optional text', async () => {
     const renderResult = render(ExpandableInputList, {
       ...componentOptions,
