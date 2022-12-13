@@ -7,7 +7,8 @@
   gap: var(--spacer-xx-small);
 }
 
-.task {
+.task,
+.highlighted-link {
   @include card-article;
 
   background-color: var(--color-mt-white);
@@ -17,16 +18,33 @@
     align-items: center;
     gap: var(--spacer-xx-small);
 
-    &::before {
-      content: url('data:image/svg+xml,%3Csvg%20width%3D%2230%22%20height%3D%2230%22%20viewBox%3D%220%200%2030%2030%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%3Ccircle%20cx%3D%2215%22%20cy%3D%2215%22%20r%3D%2215%22%20fill%3D%22%233F3E3E%22%2F%3E%0A%20%20%3Cline%20x1%3D%227%22%20y1%3D%2214%22%20x2%3D%2219%22%20y2%3D%2214%22%20stroke%3D%22white%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Cline%20x1%3D%227%22%20y1%3D%2218%22%20x2%3D%2212%22%20y2%3D%2218%22%20stroke%3D%22white%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Cline%20x1%3D%227%22%20y1%3D%2210%22%20x2%3D%2219%22%20y2%3D%2210%22%20stroke%3D%22white%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M15.5%2017L14%2019L18.9706%2023.387L25.5%2015.5927L23.9212%2014L18.981%2020.2549L15.5%2017Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E%0A');
-      display: inline-block;
-      height: 22px;
+    &.task-icon {
+      &::before {
+        content: url('data:image/svg+xml,%3Csvg%20width%3D%2230%22%20height%3D%2230%22%20viewBox%3D%220%200%2030%2030%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%3Ccircle%20cx%3D%2215%22%20cy%3D%2215%22%20r%3D%2215%22%20fill%3D%22%233F3E3E%22%2F%3E%0A%20%20%3Cline%20x1%3D%227%22%20y1%3D%2214%22%20x2%3D%2219%22%20y2%3D%2214%22%20stroke%3D%22white%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Cline%20x1%3D%227%22%20y1%3D%2218%22%20x2%3D%2212%22%20y2%3D%2218%22%20stroke%3D%22white%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Cline%20x1%3D%227%22%20y1%3D%2210%22%20x2%3D%2219%22%20y2%3D%2210%22%20stroke%3D%22white%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M15.5%2017L14%2019L18.9706%2023.387L25.5%2015.5927L23.9212%2014L18.981%2020.2549L15.5%2017Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E%0A');
+        display: inline-block;
+        height: #{$icon-size-x-large};
+      }
+    }
+    &.warning-icon {
+      &::before {
+        content: url('data:image/svg+xml,%3Csvg%20width%3D%2230%22%20height%3D%2231%22%20viewBox%3D%220%200%2030%2031%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Ccircle%20cx%3D%2215%22%20cy%3D%2215.5%22%20r%3D%2215%22%20fill%3D%22%23EFA60B%22%2F%3E%0A%3Cpath%20d%3D%22M13.5%2020H16.5V23H13.5V20ZM13.5%208H16.5V17H13.5V8Z%22%20fill%3D%22%233F3E3E%22%2F%3E%0A%3C%2Fsvg%3E');
+        display: inline-block;
+        height: #{$icon-size-x-large};
+      }
+    }
+    &.info-icon {
+      &::before {
+        content: url('data:image/svg+xml,%3Csvg%20width%3D%2230%22%20height%3D%2231%22%20viewBox%3D%220%200%2030%2031%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Ccircle%20cx%3D%2215%22%20cy%3D%2215.5%22%20r%3D%2214%22%20fill%3D%22%23348BA3%22%20stroke%3D%22%23348BA3%22%20stroke-width%3D%222%22%2F%3E%0A%3Cpath%20d%3D%22M16.5%2011.9751V23H13.5V11.9751H16.5ZM16.5%208V10.6601H13.5V8H16.5Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E');
+        display: inline-block;
+        height: #{$icon-size-x-large};
+      }
     }
   }
 }
 
 @media print {
-  .task {
+  .task,
+  .highlighted-link {
     .title {
       &::before {
         transform: scale(0.7);

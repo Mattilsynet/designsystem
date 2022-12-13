@@ -24,7 +24,7 @@
       <p>Utformingen av rutinene skal være tilpasset virksomhetens egenart.</p>`,
         nextActionUrl: 'http://',
         nextActionLinkText: 'Link til neste oppgave',
-        headerTag: ''
+        headerTag: undefined
       },
       {
         title: 'Dette er andre oppgave',
@@ -36,7 +36,7 @@
           </p>`,
         nextActionUrl: 'http://',
         nextActionLinkText: 'Link til tredje oppgave',
-        headerTag: ''
+        headerTag: undefined
       },
       {
         title: 'Næringsmiddelhygieneforordningens vedlegg II kap VIII',
@@ -66,7 +66,7 @@
               </ul>`,
         nextActionUrl: 'http://',
         nextActionLinkText: 'Link til tredje oppgave',
-        headerTag: ''
+        headerTag: undefined
       },
       {
         title: 'Fjerde oppgaven med headinger som ikke egentlig skal brukes',
@@ -96,7 +96,7 @@
               </ul>`,
         nextActionUrl: 'http://',
         nextActionLinkText: 'Link til tredje oppgave',
-        headerTag: ''
+        headerTag: undefined
       },
       {
         title: 'Oppgave 5 med tittel inni en h4-tag',
