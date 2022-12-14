@@ -160,7 +160,7 @@
       <li class={getColSpanClass(twoColumns, index)}>
         <Link
           href={link.href}
-          class="forward-arrow-end blue-arrow no-underline p-tb-xs p-r-xxs"
+          class="forward-arrow-end blue-arrow no-underline hover-indent p-tb-xs p-r-xxs"
           style="--hover-padding: var(--spacer-xx-small);"
           linkText={link.text} />
       </li>
