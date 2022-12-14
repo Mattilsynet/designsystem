@@ -1,0 +1,25 @@
+@use '../theme' as *;
+.current-issues {
+  background-color: var(--color-mt-light-green);
+  padding: var(--spacer-x-small);
+
+  .svg-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    align-self: center;
+    width: 100%;
+    height: 100%;
+
+    padding-right: inherit;
+
+    @media only screen and (min-width: $breakpoint-large) {
+      --border-color: var(--color-mt-green);
+      --border-width: #{$border-width-regular};
+      --border-style: solid;
+      --border: var(--border-width) var(--border-style) var(--border-color);
+      border-right: var(--border);
+    }
+  }
+}

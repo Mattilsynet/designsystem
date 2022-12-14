@@ -29,6 +29,10 @@ $color-mt-grey: hsl(216,3%,66%) !default;
 $color-on-mt-grey: hsl(200, 2.4%, 24.1%) !default;
 $color-mt-white: hsl(0,0%,100%) !default;
 $color-on-mt-white: hsla(0,1%,25%, 1) !default;
+$color-mt-green: hsla(79, 41%, 64%, 1) !default;
+$color-on-mt-green: hsl(78.69999999999999, 36.6%, 24.1%) !default;
+$color-mt-light-green: hsla(80, 41%, 85%, 1) !default;
+$color-on-mt-light-green: hsl(79.30000000000001, 15.4%, 35.7%) !default;
 $color-primary: hsl(196, 89%, 25%) !default;
 $color-on-primary: hsl(0,0%,100%) !default;
 $color-mt-blue-medium: hsl(193,52%,42%) !default;
@@ -42,7 +46,7 @@ $color-on-error: hsl(0,0%,100%) !default;
 $color-error-50: hsl(3, 76%, 36%, 0.5) !default;
 $color-on-error-50: hsl(3, 68.2%, 82.7%) !default;
 
-$base-color-tokens: ("mt-blue", "mt-red", "mt-red-uu", "mt-beige", "mt-beige-50", "mt-light-beige", "mt-background", "mt-light-blue", "mt-lighter-light-blue", "mt-rationale-blue", "mt-brown", "mt-grey", "mt-white", "primary", "mt-blue-medium", "secondary", "mt-text-dark", "error", "error-50");
+$base-color-tokens: ("mt-blue", "mt-red", "mt-red-uu", "mt-beige", "mt-beige-50", "mt-light-beige", "mt-background", "mt-light-blue", "mt-lighter-light-blue", "mt-rationale-blue", "mt-brown", "mt-grey", "mt-white", "mt-green", "mt-light-green", "primary", "mt-blue-medium", "secondary", "mt-text-dark", "error", "error-50");
 
 $color-tokens: (
   "color-mt-blue": $color-mt-blue,
@@ -71,6 +75,10 @@ $color-tokens: (
   "color-on-mt-grey": $color-on-mt-grey,
   "color-mt-white": $color-mt-white,
   "color-on-mt-white": $color-on-mt-white,
+  "color-mt-green": $color-mt-green,
+  "color-on-mt-green": $color-on-mt-green,
+  "color-mt-light-green": $color-mt-light-green,
+  "color-on-mt-light-green": $color-on-mt-light-green,
   "color-primary": $color-primary,
   "color-on-primary": $color-on-primary,
   "color-mt-blue-medium": $color-mt-blue-medium,
@@ -112,6 +120,10 @@ $color-tokens: (
   --color-on-mt-grey: #{$color-on-mt-grey};
   --color-mt-white: #{$color-mt-white};
   --color-on-mt-white: #{$color-on-mt-white};
+  --color-mt-green: #{$color-mt-green};
+  --color-on-mt-green: #{$color-on-mt-green};
+  --color-mt-light-green: #{$color-mt-light-green};
+  --color-on-mt-light-green: #{$color-on-mt-light-green};
   --color-primary: #{$color-primary};
   --color-on-primary: #{$color-on-primary};
   --color-mt-blue-medium: #{$color-mt-blue-medium};
