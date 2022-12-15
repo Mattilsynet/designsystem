@@ -31,6 +31,9 @@
 <Story name="Normal" let:issues let:disableCss>
   <main use:wrapInShadowDom={disableCss} class="container layout-flex-col">
     <h1>Aktuelle saker</h1>
+    <h3 class="m-t-m">1 sak</h3>
+    <CurrentIssues issues={issues.slice(1)} />
+    <h3 class="m-t-m">2 saker</h3>
     <CurrentIssues {issues} />
   </main>
 </Story>
