@@ -26,8 +26,13 @@
   {#each issues as issue, index}
     <span
       class="layout-flex-col {getColSpanClass(index)}"
-      class:col-2-span-7={issues.length === 1}>
-      <a class="self-start" rel={mapRelExternal(issue.href)} href={issue.href}>
+      class:col-2-span-7={issues.length === 1}
+      data-testid="current-issue-span-{index}">
+      <a
+        class="self-start"
+        rel={mapRelExternal(issue.href)}
+        href={issue.href}
+        data-testid="current-issue-a-{index}">
         <HeadingLevel class="heading {headingClass}" headingLevel={+headerTag.charAt(1)}>
           {@html issue.title}
         </HeadingLevel>
