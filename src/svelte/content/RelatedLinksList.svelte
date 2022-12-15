@@ -12,7 +12,7 @@
 </div>
 <div class="{rightColClass} layout-flex-col link-group" style="gap: 0" data-testid="right-col">
   {#each linkGroups as group}
-    {#if group.title && group.links.length > 0}
+    {#if group && group.title && group.links.length > 0}
       <h3 id={toKebabCase(group.title ? group.title : '')}>
         {@html group.title}
       </h3>

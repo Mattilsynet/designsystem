@@ -2,8 +2,6 @@
   import HeadingLevel from '../components/HeadingLevel.svelte'
   import {mapRelExternal} from '../../ts/utils'
 
-  let className = ''
-  export {className as class}
   export let headingClass = ''
   export let ariaLabel = 'Aktuelle saker'
   export let headerTag: 'h2' | 'h3' | 'h4' = 'h4'
