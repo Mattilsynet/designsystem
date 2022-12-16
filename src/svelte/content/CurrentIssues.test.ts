@@ -37,7 +37,7 @@ describe('Current issues', () => {
 
     const span1 = getByTestId('current-issue-span-0')
     expect(span1.classList).toContain('col-2-span-4')
-    const span2 = getByTestId('current-issue-span-0')
+    const span2 = getByTestId('current-issue-span-1')
     expect(span2.classList).toContain('col-7-span-5')
 
     const href1 = getByTestId('current-issue-a-0')
