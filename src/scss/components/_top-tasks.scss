@@ -9,11 +9,9 @@
   }
 }
 .tasks-layout-small {
-  text-align: center;
-
-  @media only screen and (max-width: $breakpoint-large) {
-    display: flex !important;
-    flex-direction: column;
-    text-align: unset;
+  --min: 100%;
+  @media only screen and (min-width: $breakpoint-large) {
+    --min: 20ch;
   }
+  grid-template-columns: repeat(auto-fill, minmax(min(var(--min), 100%), 1fr));
 }

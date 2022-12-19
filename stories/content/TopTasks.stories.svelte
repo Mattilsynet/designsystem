@@ -84,10 +84,8 @@
 
 <Story name="Small" let:topTasks let:disableCss let:path>
   <div use:wrapInShadowDom={disableCss}>
-    <h1>Toppoppgaver små</h1>
-    <section
-      class="layout-grid layout-grid--auto-fill tasks-layout-small m-t-xxs"
-      aria-labelledby={path}>
+    <h1 id="small-1">Toppoppgaver små</h1>
+    <section class="layout-grid tasks-layout-small m-t-xxs" aria-labelledby="small-1">
       {#each topTasks as task, index}
         {#if task && task.url}
           <a href={task.url} class="no-underline">
@@ -96,10 +94,8 @@
         {/if}
       {/each}
     </section>
-    <h2 class="m-t-xs">Få oppgaver</h2>
-    <section
-      class="layout-grid layout-grid--auto-fill tasks-layout-small m-t-xxs"
-      aria-labelledby={path}>
+    <h2 id="small-2" class="m-t-xs">Få oppgaver</h2>
+    <section class="layout-grid tasks-layout-small m-t-xxs" aria-labelledby="small-2">
       {#each topTasks.slice(0, 2) as task, index}
         {#if task && task.url}
           <a href={task.url} class="no-underline">
