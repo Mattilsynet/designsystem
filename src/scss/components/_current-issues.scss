@@ -5,11 +5,9 @@
   background-color: var(--color-mt-light-green);
   padding: var(--issues-padding);
 
-  @media only screen and (max-width: $breakpoint-large) {
-    span {
-      gap: 0;
-      margin-top: var(--spacer-x-small);
-    }
+  span {
+    gap: 0;
+    margin-top: var(--spacer-x-small);
   }
 
   @media only screen and (min-width: $breakpoint-large) {
@@ -19,6 +17,10 @@
       align-self: center;
       width: #{$icon-size-x-large};
       margin-right: var(--issues-padding);
+    }
+    span {
+      gap: var(--spacer-xxx-small);
+      margin-top: 0;
     }
     span:first-of-type {
       --border-color: var(--color-mt-green);
