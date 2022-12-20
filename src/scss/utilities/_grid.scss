@@ -113,6 +113,12 @@
     grid-template-columns: repeat(auto-fit, minmax(min(var(--min), 100%), 1fr));
   }
 
+  &--auto-fill {
+    --min: 20ch;
+
+    grid-template-columns: repeat(auto-fill, minmax(min(var(--min), 100%), 1fr));
+  }
+
   &--sidebar {
     --sidebar-max: 35ch;
     --content-min: 30ch;

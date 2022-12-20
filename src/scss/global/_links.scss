@@ -27,9 +27,10 @@ a {
   &.no-underline {
     text-decoration: none;
     &.hover-indent {
+      --hover-padding: var(--spacer-xxx-small);
       transition: padding-left ease-in-out 150ms;
       &:hover {
-        padding-left: var(--spacer-xxx-small);
+        padding-left: var(--hover-padding);
         text-decoration: none;
       }
     }

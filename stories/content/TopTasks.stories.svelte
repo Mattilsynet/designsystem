@@ -19,7 +19,7 @@
       },
       {
         url: '#',
-        title: 'Mat og vann',
+        title: 'Hest',
         intro: 'Dette er innholdsteksten for mat og vann'
       },
       {
@@ -84,21 +84,26 @@
 
 <Story name="Small" let:topTasks let:disableCss let:path>
   <div use:wrapInShadowDom={disableCss}>
-    <h1>Toppoppgaver små</h1>
-    <div class="layout-grid layout-grid--column-12 top-tasks-container">
-      <section
-        class="layout-flex layout-flex--space-between col-1-span-12 tasks-layout-small"
-        aria-labelledby={path}
-        style="--wrap: nowrap; --gap: var(--spacer-medium)">
-        {#each topTasks as task, index}
-          {#if task && task.url}
-            <a href={task.url} class="no-underline">
-              <h4 class="forward-arrow-after">{@html task.title}</h4>
-            </a>
-          {/if}
-        {/each}
-      </section>
-    </div>
+    <h1 id="small-1">Toppoppgaver små</h1>
+    <section class="layout-grid tasks-layout-small m-t-xxs" aria-labelledby="small-1">
+      {#each topTasks as task, index}
+        {#if task && task.url}
+          <a href={task.url} class="no-underline">
+            <h4 class="forward-arrow-after">{@html task.title}</h4>
+          </a>
+        {/if}
+      {/each}
+    </section>
+    <h2 id="small-2" class="m-t-xs">Få oppgaver</h2>
+    <section class="layout-grid tasks-layout-small m-t-xxs" aria-labelledby="small-2">
+      {#each topTasks.slice(0, 2) as task, index}
+        {#if task && task.url}
+          <a href={task.url} class="no-underline">
+            <h4 class="forward-arrow-after">{@html task.title}</h4>
+          </a>
+        {/if}
+      {/each}
+    </section>
   </div>
 </Story>
 
