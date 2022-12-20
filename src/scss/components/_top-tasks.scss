@@ -10,8 +10,9 @@
 }
 .tasks-layout-small {
   --min: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(min(var(--min), 100%), 1fr));
+
   @media only screen and (min-width: $breakpoint-large) {
     --min: 20ch;
   }
-  grid-template-columns: repeat(auto-fill, minmax(min(var(--min), 100%), 1fr));
 }
