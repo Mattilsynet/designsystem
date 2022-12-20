@@ -24,7 +24,10 @@ describe('Current issues', () => {
 
     const {getByText, getByTestId} = render(CurrentIssues, componentOptions)
     const ariaLabel = getByTestId('current-issues')
-    expect(ariaLabel.getAttribute('aria-label')).toEqual('currentAriaLabel')
+    expect(ariaLabel.classList).toContain('current-issues')
+
+    const sectionTitle = getByText('currentAriaLabel')
+    expect(sectionTitle).toBeInTheDocument()
 
     const title1 = getByText('Current issue 1')
     expect(title1).toBeInTheDocument()

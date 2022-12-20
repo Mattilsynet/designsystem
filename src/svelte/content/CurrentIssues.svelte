@@ -8,7 +8,7 @@
   export let headerTag: 'h2' | 'h3' | 'h4' = 'h4'
   export let issues = []
 
-  const svgColor = colors.find(color => color.name === 'mt-brown')?.color || '#3F3E3E'
+  const svgColor = colors?.find(color => color.name === 'mt-brown')?.color || '#3F3E3E'
 
   function getColSpanClass(index) {
     return index % 2 === 0 ? 'col-2-span-4' : 'col-7-span-5'
