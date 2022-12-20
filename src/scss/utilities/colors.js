@@ -54,6 +54,14 @@ module.exports = [
     onColor: 'hsla(0,1%,25%, 1)'
   },
   {
+    name: 'mt-green',
+    color: 'hsla(79, 41%, 64%, 1)'
+  },
+  {
+    name: 'mt-light-green',
+    color: 'hsla(80, 41%, 85%, 1)'
+  },
+  {
     name: 'primary',
     alias: 'mt-blue',
     color: 'hsl(196, 89%, 25%)',

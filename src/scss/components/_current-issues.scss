@@ -1,0 +1,35 @@
+@use '../theme' as *;
+
+.current-issues {
+  --issues-padding: var(--spacer-small);
+  background-color: var(--color-mt-light-green);
+  padding: var(--issues-padding);
+
+  span {
+    gap: 0;
+    margin-top: var(--spacer-x-small);
+  }
+
+  @media only screen and (min-width: $breakpoint-large) {
+    svg {
+      display: flex;
+      justify-self: center;
+      align-self: center;
+      width: #{$icon-size-x-large};
+      margin-right: var(--issues-padding);
+    }
+    span {
+      gap: var(--spacer-xxx-small);
+      margin-top: 0;
+    }
+    span:first-of-type {
+      --border-color: var(--color-mt-green);
+      --border-width: #{$border-width-regular};
+      --border-style: solid;
+      --border: var(--border-width) var(--border-style) var(--border-color);
+
+      border-left: var(--border);
+      padding-left: calc(var(--issues-padding) + #{$border-width-regular});
+    }
+  }
+}
