@@ -72,9 +72,14 @@
     }
   }
   button,
-  &.button {
+  &.button,
+  .dropdown-title,
+  summary.button {
     font-weight: var(--font-weight-light);
     text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
   }
   summary.button,
   .dropdown-title,
