@@ -38,7 +38,7 @@
     "@percy/cli": "^1.14.0",
     "@percy/storybook": "^4.3.4",
     "@storybook/addon-a11y": "^6.5.13",
-    "@storybook/addon-actions": "^6.5.13",
+    "@storybook/addon-actions": "^6.5.15",
     "@storybook/addon-essentials": "^6.5.13",
     "@storybook/addon-links": "^6.5.13",
     "@storybook/addon-postcss": "^2.0.0",
