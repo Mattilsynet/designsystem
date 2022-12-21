@@ -71,12 +71,14 @@
       box-shadow: none;
     }
   }
-
+  button,
+  &.button {
+    font-weight: var(--font-weight-light);
+    text-decoration: none;
+  }
   summary.button,
   .dropdown-title,
   button {
-    font-weight: var(--font-weight-light);
-    text-decoration: none;
     padding: 0.1875rem;
     position: relative;
     z-index: 0;
@@ -97,6 +99,7 @@
 
   // Currently used in the header
   &.button__small-text {
+    font-size: $font-size-small;
     button,
     .button,
     a {
@@ -104,6 +107,7 @@
     }
 
     @media only screen and (min-width: $breakpoint-large) {
+      font-size: $font-size-label;
       a {
         font-size: $font-size-body;
       }

@@ -3,6 +3,7 @@
   import Dropdown from '../../src/svelte/components/Dropdown.svelte'
   import MenuItems from '../../src/svelte/content/MenuItems.svelte'
   import {wrapInShadowDom} from '../utils'
+  import Link from '../../src/svelte/components/Link.svelte'
 
   const drinkIcon =
     '<svg width="34" height="28" viewBox="0 0 34 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M26.647 2.238a.661.661 0 0 1 .652.773l-3.803 22.198a.66.66 0 0 1-.651.55H10.722a.662.662 0 0 1-.652-.55L6.225 3.014a.664.664 0 0 1 .652-.775h19.77Zm-10.125 9.125c3.849 1.925 6.675.709 8.03-.156l1.31-7.646h-18.2L8.83 10.3c1.516-.311 4.45-.558 7.692 1.062Zm-7.193.56 2.075 12.452h10.723l2.075-11.068c-2.767 1.037-4.842 1.037-8.301-.692-3.225-1.612-5.175-1.076-6.447-.726l-.125.034Z" fill="#F9F6F1"/></svg>'
@@ -33,6 +34,9 @@
       {title: 'Show page this page in English', url: '#'}
     ],
     language: {},
+    search: {
+      linkText: 'Søk'
+    },
     menu: {
       title: 'Meny',
       items: [
@@ -121,6 +125,9 @@
   }}
   argTypes={{
     items: {control: 'array'},
+    search: {control: 'object'},
+    language: {control: 'object'},
+    menu: {control: 'object'},
     disableCss: {control: 'boolean'},
     disableJs: {control: 'boolean'}
   }} />
@@ -179,6 +186,11 @@
           {/each}
         </ol>
       </Dropdown>
+      <Link
+        href="#"
+        class="dropdown button button--link button__small-text layout-flex layout-flex--center-vertical no-underline icon-search"
+        style="--wrap: none; --gap: var(--spacer-xxx-small)"
+        linkText={args.search.linkText} />
       <Dropdown
         title={args.menu.title}
         class="button__small-text full-menu"
