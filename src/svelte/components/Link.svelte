@@ -7,7 +7,6 @@
   export {className as class}
   export let style = ''
   export let fileName = ''
-  export let style = ''
 
   $: fileType = getFileExtension(fileName) ? `(${getFileExtension(fileName)})` : ''
 </script>
