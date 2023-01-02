@@ -10,6 +10,12 @@
     margin-top: var(--spacer-x-small);
   }
 
+  svg {
+    path {
+      fill: var(--color-mt-brown);
+    }
+  }
+
   @media only screen and (min-width: $breakpoint-large) {
     svg {
       display: flex;

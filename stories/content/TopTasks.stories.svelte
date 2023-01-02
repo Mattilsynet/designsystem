@@ -89,7 +89,7 @@
       {#each topTasks as task, index}
         {#if task && task.url}
           <a href={task.url} class="no-underline">
-            <h4 class="forward-arrow-after">{@html task.title}</h4>
+            <h3 class="h4 forward-arrow-after">{@html task.title}</h3>
           </a>
         {/if}
       {/each}
