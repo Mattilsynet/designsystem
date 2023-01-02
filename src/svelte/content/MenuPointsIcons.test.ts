@@ -3,7 +3,7 @@
  */
 
 import {render} from '@testing-library/svelte'
-import MenuPoints from './MenuPoints.svelte'
+import MenuPoints from './MenuPointsIcons.svelte'
 
 describe('Highlighted content', () => {
   test('Renders default display type', () => {

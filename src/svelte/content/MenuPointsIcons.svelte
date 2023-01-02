@@ -2,11 +2,15 @@
   import {mapRelExternal} from '../../ts/utils'
   import HeadingLevel from '../components/HeadingLevel.svelte'
 
+  export let ariaLabelledBy: string
   export let headerTag: 'h2' | 'h3' | 'h4' | 'h5' | 'h6' = 'h3'
   export let menuPoints = []
 </script>
 
-<div class="layout-grid layout-grid--column-3 " style="--gap:var(--spacer-small);">
+<section
+  aria-labelledby={ariaLabelledBy}
+  class="layout-grid layout-grid--column-3"
+  style="--gap:var(--spacer-small);">
   {#each menuPoints as menuPoint, index}
     <div class="menu-point layout-flex-col layout-flex-col--x-small">
       <div class="menu-point--title">
@@ -34,4 +38,4 @@
       </p>
     </div>
   {/each}
-</div>
+</section>

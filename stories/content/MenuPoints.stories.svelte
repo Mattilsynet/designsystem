@@ -1,6 +1,6 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf'
-  import MenuPoints from '../../src/svelte/content/MenuPoints.svelte'
+  import MenuPoints from '../../src/svelte/content/MenuPointsIcons.svelte'
   import imageFile from '../../.static/testbilde.jpg'
   import {wrapInShadowDom} from '../utils'
 
