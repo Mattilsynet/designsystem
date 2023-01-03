@@ -24,12 +24,12 @@
           href={menuPoint.url}
           rel={mapRelExternal(menuPoint.url)}
           class="animated-header-arrow-after no-underline hover-indent flex {headerTag}"
-          aria-describedby={toKebabCase(menuPoint.keywords)}
+          aria-describedby={toKebabCase(menuPoint.keywords || `menuPoint-${index}`)}
           data-testid="menupoints-link">
           {@html menuPoint.title}
         </a>
       </div>
-      <p id={toKebabCase(menuPoint.keywords)}>
+      <p id={toKebabCase(menuPoint.keywords || `menuPoint-${index}`)}>
         {@html menuPoint.keywords && menuPoint.keywords.length > 0
           ? menuPoint.keywords
           : '[Legg til stikkord på innholdet]'}
