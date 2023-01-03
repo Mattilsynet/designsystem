@@ -1,20 +1,19 @@
 <script lang="ts">
-  import {mapRelExternal} from '../../ts/utils'
-  import HeadingLevel from '../components/HeadingLevel.svelte'
+  import {mapRelExternal, toKebabCase} from '../../ts/utils'
 
   export let ariaLabelledBy: string
   export let headerTag: 'h2' | 'h3' | 'h4' | 'h5' | 'h6' = 'h3'
   export let menuPoints = []
 </script>
 
-<section
+<div
   aria-labelledby={ariaLabelledBy}
   class="layout-grid layout-grid--column-3"
-  style="--gap:var(--spacer-small);">
+  style="--gap:var(--spacer-medium);">
   {#each menuPoints as menuPoint, index}
     <div class="menu-point layout-flex-col layout-flex-col--x-small">
       <div class="menu-point--title">
-        <div class="menu-point--icon">
+        <div class="menu-point--icon" aria-hidden="true">
           {#if menuPoint.iconResource}
             {@html menuPoint.iconResource}
           {:else if menuPoint.icon}
@@ -24,18 +23,17 @@
         <a
           href={menuPoint.url}
           rel={mapRelExternal(menuPoint.url)}
-          class="animated-header-arrow-after no-underline hover-indent flex"
+          class="animated-header-arrow-after no-underline hover-indent flex {headerTag}"
+          aria-describedby={toKebabCase(menuPoint.keywords)}
           data-testid="menupoints-link">
-          <HeadingLevel class={headerTag} headingLevel={+headerTag.charAt(1)}>
-            {@html menuPoint.title}
-          </HeadingLevel>
+          {@html menuPoint.title}
         </a>
       </div>
-      <p>
+      <p id={toKebabCase(menuPoint.keywords)}>
         {@html menuPoint.keywords && menuPoint.keywords.length > 0
           ? menuPoint.keywords
           : '[Legg til stikkord på innholdet]'}
       </p>
     </div>
   {/each}
-</section>
+</div>

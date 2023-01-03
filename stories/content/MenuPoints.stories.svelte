@@ -1,6 +1,6 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf'
-  import MenuPoints from '../../src/svelte/content/MenuPointsIcons.svelte'
+  import MenuPointsIcons from '../../src/svelte/content/MenuPointsIcons.svelte'
   import imageFile from '../../.static/testbilde.jpg'
   import {wrapInShadowDom} from '../utils'
 
@@ -39,7 +39,7 @@
         iconResource: plantSvg
       },
       {
-        title: 'Drikkevannsforsyning',
+        title: 'Produksjon av fisk og sjømat',
         keywords: 'Beredskap, tilsyn, nasjonale mål, registrering og plangodkjenning',
         iconResource: waterSvg
       },
@@ -63,7 +63,7 @@
   <main use:wrapInShadowDom={disableCss} class="container layout-flex-col">
     <h1>Menypunkter</h1>
     <section class="layout-flex-col">
-      <MenuPoints {menuPoints} {title} />
+      <MenuPointsIcons {menuPoints} {title} />
     </section>
   </main>
 </Story>
