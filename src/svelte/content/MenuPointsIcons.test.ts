@@ -40,4 +40,9 @@ describe('Menu points with icons', () => {
     const link = getByTestId('img-icon')
     expect(link.getAttribute('src')).toEqual('icon src')
   })
+
+  test('Renders without props', () => {
+    const {getByTestId} = render(MenuPoints, {})
+    expect(getByTestId('menu-points')).toBeInTheDocument()
+  })
 })
