@@ -6,20 +6,17 @@
   export let menuPoints = []
 </script>
 
-<div
+<ul
   aria-labelledby={ariaLabelledBy}
-  class="layout-grid layout-grid--column-3"
+  class="list-unstyled no-space-top layout-grid layout-grid--column-3 m-t-0"
   style="--gap:var(--spacer-medium);">
   {#each menuPoints as menuPoint, index}
-    <div class="menu-point layout-flex-col layout-flex-col--x-small">
-      <div class="menu-point--title">
-        <div class="menu-point--icon" aria-hidden="true">
-          {#if menuPoint.iconResource}
-            {@html menuPoint.iconResource}
-          {:else if menuPoint.icon}
-            <img src={menuPoint.icon} alt="" data-testid="img-icon" />
-          {/if}
-        </div>
+    <li class="menu-point">
+        {#if menuPoint.iconResource}
+          {@html menuPoint.iconResource}
+        {:else if menuPoint.icon}
+          <img src={menuPoint.icon} alt="" aria-hidden="true" data-testid="img-icon" />
+        {/if}
         <a
           href={menuPoint.url}
           rel={mapRelExternal(menuPoint.url)}
@@ -28,12 +25,11 @@
           data-testid="menupoints-link">
           {@html menuPoint.text}
         </a>
-      </div>
-      <p id={toKebabCase(menuPoint.keywords || `menuPoint-${index}`)}>
+      <p id={toKebabCase(menuPoint.keywords)}>
         {@html menuPoint.keywords && menuPoint.keywords.length > 0
           ? menuPoint.keywords
           : '[Legg til stikkord på innholdet]'}
       </p>
-    </div>
+    </li>
   {/each}
-</div>
+</ul>
