@@ -26,7 +26,7 @@
           class="animated-header-arrow-after no-underline hover-indent flex {headerTag}"
           aria-describedby={toKebabCase(menuPoint.keywords || `menuPoint-${index}`)}
           data-testid="menupoints-link">
-          {@html menuPoint.title}
+          {@html menuPoint.text}
         </a>
       </div>
       <p id={toKebabCase(menuPoint.keywords || `menuPoint-${index}`)}>

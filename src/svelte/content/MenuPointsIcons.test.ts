@@ -10,7 +10,7 @@ describe('Menu points with icons', () => {
     const componentOptions = {
       menuPoints: [
         {
-          title: 'Dyr',
+          text: 'Dyr',
           url: 'http',
           keywords: 'Stikkord for dyr',
           iconResource: '<svg>hello from svg</svg>'

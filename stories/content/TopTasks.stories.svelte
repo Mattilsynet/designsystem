@@ -54,7 +54,7 @@
     disableCss: {control: 'boolean'}
   }} />
 
-<Story name="Large" let:topTasks let:icon let:disableCss let:title let:intro let:path>
+<Story name="Normal" let:topTasks let:icon let:disableCss let:title let:intro let:path>
   <div
     use:wrapInShadowDom={disableCss}
     class="layout-grid layout-grid--column-12 top-tasks-container">
@@ -75,31 +75,6 @@
           <a href={task.url} class="button button--primary top-task">
             <h3 class="heading">{@html task.title}</h3>
             <span class="text">{@html task.intro}</span>
-          </a>
-        {/if}
-      {/each}
-    </section>
-  </div>
-</Story>
-
-<Story name="Small" let:topTasks let:disableCss let:path>
-  <div use:wrapInShadowDom={disableCss}>
-    <h1 id="small-1">Toppoppgaver små</h1>
-    <section class="layout-grid tasks-layout-small m-t-xxs" aria-labelledby="small-1">
-      {#each topTasks as task, index}
-        {#if task && task.url}
-          <a href={task.url} class="no-underline">
-            <h3 class="h4 forward-arrow-after">{@html task.title}</h3>
-          </a>
-        {/if}
-      {/each}
-    </section>
-    <h2 id="small-2" class="m-t-xs">Få oppgaver</h2>
-    <section class="layout-grid tasks-layout-small m-t-xxs" aria-labelledby="small-2">
-      {#each topTasks.slice(0, 2) as task, index}
-        {#if task && task.url}
-          <a href={task.url} class="no-underline">
-            <h4 class="forward-arrow-after">{@html task.title}</h4>
           </a>
         {/if}
       {/each}
