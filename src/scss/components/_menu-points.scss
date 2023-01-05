@@ -1,39 +1,36 @@
 @use '../theme' as *;
 
-.menu-points {
-  --title-gap: var(--spacer-medium);
-  --icon-padding: var(--spacer-xxx-small);
+.menu-point {
   --svg-color: var(--color-mt-blue);
+  --icon-padding: var(--spacer-xxx-small);
+  --title-gap: var(--spacer-xx-small);
 
-  display: flex;
-  flex-direction: column;
-  gap: var(--title-gap);
+  display: grid;
+  grid-template-columns: $menu-icon-width 1fr;
+  grid-column-gap: var(--icon-padding);
+  grid-template-rows: min-content min-content;
+  grid-row-gap: var(--title-gap);
+  grid-template-areas: 'icon heading' 'empty keywords';
 
-  .menu-point {
-    &--title {
-      gap: var(--icon-padding);
-      display: flex;
-      flex-wrap: nowrap;
-    }
-    &--icon {
-      align-self: center;
-      min-width: $menu-icon-width;
-      max-width: $menu-icon-width;
-      svg {
-        path {
-          fill: var(--svg-color);
-        }
-      }
-    }
-    p {
-      margin-left: calc($menu-icon-width + var(--icon-padding));
+  &--title {
+    grid-area: heading;
+    align-self: center;
+  }
+  .svg,
+  img {
+    grid-area: icon;
+    align-self: center;
+    path {
+      fill: var(--svg-color);
     }
   }
-
   a {
     padding-left: 0;
     > * {
       word-break: break-word;
     }
+  }
+  p {
+    grid-area: keywords;
   }
 }

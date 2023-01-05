@@ -3,15 +3,14 @@
  */
 
 import {render} from '@testing-library/svelte'
-import MenuPoints from './MenuPoints.svelte'
+import MenuPoints from './MenuPointsIcons.svelte'
 
-describe('Highlighted content', () => {
-  test('Renders default display type', () => {
+describe('Menu points with icons', () => {
+  test('Renders', () => {
     const componentOptions = {
-      title: 'Tittel',
       menuPoints: [
         {
-          title: 'Dyr',
+          text: 'Dyr',
           url: 'http',
           keywords: 'Stikkord for dyr',
           iconResource: '<svg>hello from svg</svg>'
@@ -19,22 +18,22 @@ describe('Highlighted content', () => {
       ]
     }
     const {getByTestId, getByText, queryByText} = render(MenuPoints, componentOptions)
-    expect(getByText('Tittel')).toBeInTheDocument()
     expect(getByText('Dyr')).toBeInTheDocument()
     expect(getByText('hello from svg')).toBeInTheDocument()
     expect(queryByText('This is the title')).not.toBeInTheDocument()
     const link = getByTestId('menupoints-link')
     expect(link.getAttribute('rel')).toEqual('external')
     const headerElement = getByText('Dyr')
-    expect(headerElement.tagName).toEqual('H3')
+    expect(headerElement.tagName).toEqual('A')
   })
 
-  test('Renders image', () => {
+  test('Renders with icon', () => {
     const componentOptions = {
       menuPoints: [
         {
           iconResource: undefined,
-          icon: 'icon src'
+          icon: 'icon src',
+          keywords: ''
         }
       ]
     }
@@ -44,8 +43,7 @@ describe('Highlighted content', () => {
   })
 
   test('Renders without props', () => {
-    const {queryByText, getByTestId} = render(MenuPoints, {})
-    expect(queryByText('Tittel')).not.toBeInTheDocument()
+    const {getByTestId} = render(MenuPoints, {})
     expect(getByTestId('menu-points')).toBeInTheDocument()
   })
 })

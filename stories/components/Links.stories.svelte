@@ -44,6 +44,32 @@
       {index: 2, url: '', heading: 'Definisjoner av dyr og dyrehold'},
       {index: 3, url: '', heading: 'Forurensning av vann'}
     ],
+    smallLinks: [
+      {
+        url: '#',
+        text: 'Dyr og dyrehold'
+      },
+      {
+        url: '#',
+        text: 'Hest'
+      },
+      {
+        url: '#',
+        text: 'Fisk og akvakultur'
+      },
+      {
+        url: '#',
+        text: 'Planter og dyrking'
+      },
+      {
+        url: '#',
+        text: 'Kosmetikk'
+      },
+      {
+        url: '#',
+        text: 'Kritikkverdige forhold på arbeids&shy;plassen'
+      }
+    ],
     showChapterNumber: true,
     secondary: 'Avbryt',
     twoColumns: false,
@@ -54,6 +80,7 @@
     primary: {control: 'text'},
     cards: {control: 'array'},
     chapters: {control: 'array'},
+    smallLinks: {control: 'array'},
     showChapterNumber: {control: 'boolean'},
     secondary: {control: 'string'},
     disabled: {control: 'boolean'},
@@ -98,6 +125,31 @@
       nextText="Neste"
       previousText="Forrige"
       class="chapter-navigation--bottom" />
+  </div>
+</Story>
+
+<Story name="Små lenker" let:smallLinks let:disableCss let:path>
+  <div use:wrapInShadowDom={disableCss}>
+    <h1 id="small-1">Mange lenker</h1>
+    <section class="layout-grid layout-grid--auto-fill-desktop m-t-xxs" aria-labelledby="small-1">
+      {#each smallLinks as link, index}
+        {#if link && link.url}
+          <a href={link.url} class="no-underline">
+            <h3 class="h4 forward-arrow-after">{@html link.text}</h3>
+          </a>
+        {/if}
+      {/each}
+    </section>
+    <h2 id="small-2" class="m-t-xs">Få lenker</h2>
+    <section class="layout-grid layout-grid--auto-fill-desktop m-t-xxs" aria-labelledby="small-2">
+      {#each smallLinks.slice(0, 2) as link, index}
+        {#if link && link.url}
+          <a href={link.url} class="no-underline">
+            <h4 class="forward-arrow-after">{@html link.text}</h4>
+          </a>
+        {/if}
+      {/each}
+    </section>
   </div>
 </Story>
 
