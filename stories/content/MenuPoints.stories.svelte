@@ -17,38 +17,38 @@
     title: `Tittel for menypunktene`,
     menuPoints: [
       {
-        title: 'Dyr',
+        text: 'Dyr',
         url: '',
         keywords: 'Kjæledyr, produksjonsdyr, dyr som lider og dyresykdommer',
         iconResource: animalSvg
       },
       {
-        title: 'Fisk og akvakultur',
+        text: 'Fisk og akvakultur',
         url: '',
         keywords: 'Oppdrettsanlegg, arter, fiske og -skjellsykdommer, animaliebiprodukter ',
         icon: imageFile,
         iconResource: undefined
       },
       {
-        title: 'Mat',
+        text: 'Mat',
         url: '',
         keywords: 'Merking, produksjon, smitte, matservering, import og eksport',
         iconResource: foodSvg
       },
       {
-        title: 'Planter og dyrking',
+        text: 'Planter og dyrking',
         url: '',
         keywords: 'Produksjon og salg, import og eksport, genmodifisering',
-        iconResource: plantSvg,
+        iconResource: plantSvg
       },
       {
-        title: 'Produksjon av fisk og sjømat',
+        text: 'Produksjon av fisk og sjømat',
         url: '',
         keywords: 'Beredskap, tilsyn, nasjonale mål, registrering og plangodkjenning',
         iconResource: waterSvg
       },
       {
-        title: 'Kosmetikk',
+        text: 'Kosmetikk',
         url: '',
         keywords: 'Stoffer i kosmetikk, bivirkninger, dyretesting, tatovering',
         iconResource: cosmeticSvg
@@ -64,9 +64,9 @@
     disableCss: {control: 'boolean'}
   }} />
 
-<Story name="Normal" let:title let:menuPoints let:disableCss>
+<Story name="Normal" let:menuPoints let:disableCss>
   <main use:wrapInShadowDom={disableCss} class="container layout-flex-col">
     <h1>Menypunkter</h1>
-    <MenuPointsIcons {menuPoints} {title} />
+    <MenuPointsIcons {menuPoints} />
   </main>
 </Story>

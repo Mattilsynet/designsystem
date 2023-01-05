@@ -10,13 +10,14 @@
   grid-column-gap: var(--icon-padding);
   grid-template-rows: min-content min-content;
   grid-row-gap: var(--title-gap);
-  grid-template-areas: "icon heading" "empty keywords" ;
+  grid-template-areas: 'icon heading' 'empty keywords';
 
   &--title {
     grid-area: heading;
     align-self: center;
   }
-  svg, img {
+  .svg,
+  img {
     grid-area: icon;
     align-self: center;
     path {

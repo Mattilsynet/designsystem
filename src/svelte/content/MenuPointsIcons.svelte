@@ -9,26 +9,27 @@
 <ul
   aria-labelledby={ariaLabelledBy}
   class="list-unstyled no-space-top layout-grid layout-grid--column-3 m-t-0"
-  style="--gap:var(--spacer-medium);" data-testid="menu-points">
+  style="--gap:var(--spacer-medium);"
+  data-testid="menu-points">
   {#each menuPoints as menuPoint, index}
     <li class="menu-point">
-        {#if menuPoint.iconResource}
+      {#if menuPoint.iconResource}
+        <div class="svg" aria-hidden="true">
           {@html menuPoint.iconResource}
-        {:else if menuPoint.icon}
-          <img src={menuPoint.icon} alt="" aria-hidden="true" data-testid="img-icon" />
-        {/if}
-        <a
-          href={menuPoint.url}
-          rel={mapRelExternal(menuPoint.url)}
-          class="animated-header-arrow-after no-underline hover-indent flex {headerTag}"
-          aria-describedby={toKebabCase(menuPoint.keywords || `menuPoint-${index}`)}
-          data-testid="menupoints-link">
-          {@html menuPoint.text}
-        </a>
+        </div>
+      {:else if menuPoint.icon}
+        <img src={menuPoint.icon} alt="" aria-hidden="true" data-testid="img-icon" />
+      {/if}
+      <a
+        href={menuPoint.url}
+        rel={mapRelExternal(menuPoint.url)}
+        class="animated-header-arrow-after no-underline hover-indent {headerTag}"
+        aria-describedby={toKebabCase(menuPoint.keywords)}
+        data-testid="menupoints-link">
+        {@html menuPoint.text}
+      </a>
       <p id={toKebabCase(menuPoint.keywords)}>
-        {@html menuPoint.keywords && menuPoint.keywords.length > 0
-          ? menuPoint.keywords
-          : '[Legg til stikkord på innholdet]'}
+        {@html menuPoint.keywords}
       </p>
     </li>
   {/each}
