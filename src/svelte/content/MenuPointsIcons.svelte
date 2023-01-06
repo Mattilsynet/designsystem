@@ -14,11 +14,13 @@
   {#each menuPoints as menuPoint, index}
     <li class="menu-point">
       {#if menuPoint.iconResource}
-        <div class="svg" aria-hidden="true">
+        <div class="svg-wrapper" aria-hidden="true">
           {@html menuPoint.iconResource}
         </div>
       {:else if menuPoint.icon}
         <img src={menuPoint.icon} alt="" aria-hidden="true" data-testid="img-icon" />
+      {:else}
+        <div>&#8203;</div>
       {/if}
       <a
         href={menuPoint.url}

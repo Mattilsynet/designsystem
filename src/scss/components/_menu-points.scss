@@ -12,18 +12,22 @@
   grid-row-gap: var(--title-gap);
   grid-template-areas: 'icon heading' 'empty keywords';
 
-  &--title {
-    grid-area: heading;
-    align-self: center;
-  }
-  .svg,
+  .svg-wrapper,
   img {
     grid-area: icon;
     align-self: center;
-    path {
-      fill: var(--svg-color);
+    justify-self: center;
+    width: #{$menu-icon-width};
+    height: #{$menu-icon-height-desktop};
+    svg {
+      height: inherit;
+      width: inherit;
+      path {
+        fill: var(--svg-color);
+      }
     }
   }
+
   a {
     padding-left: 0;
     > * {
