@@ -19,8 +19,6 @@
         </div>
       {:else if menuPoint.icon}
         <img src={menuPoint.icon} alt="" aria-hidden="true" data-testid="img-icon" />
-      {:else}
-        <div>&#8203;</div>
       {/if}
       <a
         href={menuPoint.url}

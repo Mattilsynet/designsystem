@@ -6,7 +6,7 @@
   --title-gap: var(--spacer-xx-small);
 
   display: grid;
-  grid-template-columns: $menu-icon-width 1fr;
+  grid-template-columns: $menu-point-icon-width 1fr;
   grid-column-gap: var(--icon-padding);
   grid-template-rows: min-content min-content;
   grid-row-gap: var(--title-gap);
@@ -15,10 +15,9 @@
   .svg-wrapper,
   img {
     grid-area: icon;
-    align-self: center;
+    align-self: start;
     justify-self: center;
-    width: #{$menu-icon-width};
-    height: #{$menu-icon-height-desktop};
+    height: $menu-point-icon-height;
     svg {
       height: inherit;
       width: inherit;
@@ -29,6 +28,7 @@
   }
 
   a {
+    grid-area: heading;
     padding-left: 0;
     > * {
       word-break: break-word;
