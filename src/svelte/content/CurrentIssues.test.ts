@@ -39,7 +39,7 @@ describe('Current issues', () => {
     expect(text2).toBeInTheDocument()
 
     const span1 = getByTestId('current-issue-span-0')
-    expect(span1.classList).toContain('col-1-span-6')
+    expect(span1.classList).toContain('col-1-span-5')
     const span2 = getByTestId('current-issue-span-1')
     expect(span2.classList).toContain('col-7-span-5')
 
