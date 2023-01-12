@@ -1,41 +1,55 @@
 @use '../theme' as *;
 
 .current-issues {
-  --issues-padding: var(--spacer-small);
+  --border-color: var(--color-mt-green);
+  --border-width: #{$border-width-regular};
+  --border-style: solid;
+  --border: var(--border-width) var(--border-style) var(--border-color);
+  --issues-padding: var(--spacer-x-small);
+
   background-color: var(--color-mt-light-green);
-  padding: var(--issues-padding);
+  padding: var(--spacer-small) var(--spacer-x-small) var(--spacer-x-small);
 
   span {
     gap: 0;
     margin-top: var(--spacer-x-small);
   }
 
+  span:first-of-type {
+    border-top: var(--border);
+    padding-top: var(--issues-padding);
+  }
+
   svg {
+    height: #{$menu-point-icon-height};
+    width: #{$icon-size-x-large};
+    grid-column: 1 / span 1;
     path {
       fill: var(--color-mt-brown);
     }
   }
 
+  h2,
+  h3,
+  h4 {
+    grid-column: 3 / span 10;
+  }
+
   @media only screen and (min-width: $breakpoint-large) {
-    svg {
-      display: flex;
-      justify-self: center;
-      align-self: center;
-      width: #{$icon-size-x-large};
-      margin-right: var(--issues-padding);
+    span:first-of-type {
+      padding-right: var(--spacer-large);
+    }
+    span:nth-of-type(-n + 2) {
+      border-top: var(--border);
+      padding-top: var(--issues-padding);
     }
     span {
       gap: var(--spacer-xxx-small);
-      margin-top: 0;
     }
-    span:first-of-type {
-      --border-color: var(--color-mt-green);
-      --border-width: #{$border-width-regular};
-      --border-style: solid;
-      --border: var(--border-width) var(--border-style) var(--border-color);
-
-      border-left: var(--border);
-      padding-left: calc(var(--issues-padding) + #{$border-width-regular});
+    h2,
+    h3,
+    h4 {
+      grid-column: 2 / span 11;
     }
   }
 }
