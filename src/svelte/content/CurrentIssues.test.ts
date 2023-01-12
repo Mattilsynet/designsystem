@@ -7,7 +7,7 @@ import CurrentIssues from './CurrentIssues.svelte'
 describe('Current issues', () => {
   test('Renders', () => {
     const componentOptions = {
-      ariaLabel: 'currentAriaLabel',
+      title: 'currentTitle',
       issues: [
         {
           title: 'Current issue 1',
@@ -26,7 +26,7 @@ describe('Current issues', () => {
     const ariaLabel = getByTestId('current-issues')
     expect(ariaLabel.classList).toContain('current-issues')
 
-    const sectionTitle = getByText('currentAriaLabel')
+    const sectionTitle = getByText('currentTitle')
     expect(sectionTitle).toBeInTheDocument()
 
     const title1 = getByText('Current issue 1')
@@ -39,7 +39,7 @@ describe('Current issues', () => {
     expect(text2).toBeInTheDocument()
 
     const span1 = getByTestId('current-issue-span-0')
-    expect(span1.classList).toContain('col-2-span-4')
+    expect(span1.classList).toContain('col-1-span-6')
     const span2 = getByTestId('current-issue-span-1')
     expect(span2.classList).toContain('col-7-span-5')
 
@@ -51,9 +51,8 @@ describe('Current issues', () => {
     expect(href2.getAttribute('href')).toEqual('url2')
   })
 
-  test('Uses more space when only one issue', () => {
+  test('Uses full width when only one issue', () => {
     const componentOptions = {
-      ariaLabel: 'currentAriaLabel',
       issues: [
         {
           title: 'Current issue 1',
@@ -65,6 +64,6 @@ describe('Current issues', () => {
 
     const {getByTestId} = render(CurrentIssues, componentOptions)
     const span1 = getByTestId('current-issue-span-0')
-    expect(span1.classList).toContain('col-2-span-7')
+    expect(span1.classList).toContain('col-1-span-12')
   })
 })
