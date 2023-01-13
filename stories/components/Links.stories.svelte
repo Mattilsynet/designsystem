@@ -131,7 +131,10 @@
 <Story name="Små lenker" let:smallLinks let:disableCss let:path>
   <div use:wrapInShadowDom={disableCss}>
     <h1 id="small-1">Mange lenker</h1>
-    <section class="layout-grid layout-grid--auto-fill-desktop m-t-xxs" aria-labelledby="small-1">
+    <section
+      class="layout-grid layout-grid--auto-fill-desktop m-t-xxs"
+      style="--gap: var(--spacer-small)"
+      aria-labelledby="small-1">
       {#each smallLinks as link, index}
         {#if link && link.url}
           <a href={link.url} class="no-underline">
