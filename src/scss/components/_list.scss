@@ -38,6 +38,37 @@ dl {
       }
     }
   }
+
+  &.custom-borders {
+    gap: 0;
+    display: flex;
+    flex-direction: column;
+    dt {
+      padding-top: var(--spacer-x-small);
+      margin-bottom: var(--spacer-xxx-small);
+    }
+    dd {
+      padding-bottom: var(--spacer-x-small);
+    }
+
+    dt.border-top {
+      border-top: $border-radius-small solid var(--color-secondary);
+    }
+
+    @media only screen and (min-width: $breakpoint-large) {
+      display: grid;
+      dt,
+      dd {
+        padding-top: var(--spacer-x-small);
+        padding-bottom: var(--spacer-x-small);
+      }
+
+      .border-top + dd {
+        padding-right: var(--spacer-x-small);
+        border-top: $border-radius-small solid var(--color-secondary);
+      }
+    }
+  }
 }
 
 ol.list-unstyled,

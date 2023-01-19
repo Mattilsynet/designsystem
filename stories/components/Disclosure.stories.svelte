@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {Meta, Template, Story} from '@storybook/addon-svelte-csf'
+  import {Meta, Story, Template} from '@storybook/addon-svelte-csf'
   import {splitIntoParagraphs, wrapInShadowDom} from '../utils'
   import Disclosure from '../../src/svelte/components/Disclosure.svelte'
 
@@ -220,6 +220,33 @@
         class="{args.showNr ? 'disclosure-with-number' : ''} layout-grid layout-grid--column-12"
         headerClass={args.showNr ? 'col-2-span-7' : 'col-3-span-8'}
         panelClass={args.showNr ? 'col-2-span-7' : 'col-3-span-8'}>
+        {@html disclosure.body}
+      </Disclosure>
+    {/each}
+  </section>
+</Story>
+
+<Story
+  name="On open/close"
+  args={{
+    headerClass: 'text-body',
+    icon,
+    title,
+    disableJs: false,
+    disableCss: false
+  }}
+  let:args
+  ><section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading">
+    <h2 id="heading">{title}</h2>
+    {#each disclosures as disclosure, i}
+      <Disclosure
+        title={disclosure.title}
+        loadJs={!args.disableJs}
+        headerTag={disclosure.headerTag}
+        icon={i === 2 ? icon : undefined}
+        on:open={() => alert('opening')}
+        on:close={() => alert('closing')}
+        headerClass={args.headerClass}>
         {@html disclosure.body}
       </Disclosure>
     {/each}
