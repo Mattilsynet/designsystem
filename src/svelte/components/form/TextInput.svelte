@@ -16,7 +16,6 @@
   export let textOptional: string | undefined
   export let showOptionalText: boolean
   export let hiddenErrorText: string | undefined
-  export let searchButtonText: string | undefined
 
   export let maxlength: number | undefined
   export let placeholder: string | undefined
@@ -81,23 +80,17 @@
   {#if error}
     <InputError {...error} {hiddenErrorText} />
   {/if}
-  <div class="input-wrapper">
-    <input
-      id={name}
-      {name}
-      use:countCharacters={countCharsParams}
-      class="form-field {inputClass}"
-      bind:value
-      class:error
-      aria-required={isRequired || undefined}
-      aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error, maxlength)}
-      aria-invalid={!!error}
-      {inputmode}
-      {placeholder}
-      {autocomplete} />
-
-    {#if inputmode === 'search' && searchButtonText !== ''}
-      <button type="submit" class="search icon-search-before">{searchButtonText}</button>
-    {/if}
-  </div>
+  <input
+    id={name}
+    {name}
+    use:countCharacters={countCharsParams}
+    class="form-field {inputClass}"
+    bind:value
+    class:error
+    aria-required={isRequired || undefined}
+    aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error, maxlength)}
+    aria-invalid={!!error}
+    {inputmode}
+    {placeholder}
+    {autocomplete} />
 {/if}
