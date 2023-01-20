@@ -41,9 +41,9 @@
       <InputError {...error} {hiddenErrorText} />
     {/if}
 
-    <div class="layout-flex layout-flex-col justify-content-center x" style="--gap: 0">
-      <Label class={labelClass} for={name} {isRequired} {textOptional} {showOptionalText}>
-        {labelClass}
+    <div class="layout-flex layout-flex-col justify-content-center" style="--gap: 0">
+      <Label for={name} {isRequired} {textOptional} {showOptionalText} class={labelClass}>
+        {label}
       </Label>
 
       {#if helpText}
@@ -58,7 +58,6 @@
       {name}
       use:countCharacters={countCharsParams}
       class="form-field {inputClass}"
-      class:search-input={inputmode === 'search'}
       bind:value
       class:error
       aria-required={isRequired || undefined}
@@ -69,7 +68,7 @@
       {autocomplete} />
   </div>
 {:else}
-  <Label class={labelClass} for={name} {isRequired} {textOptional}>{label}</Label>
+  <Label for={name} {isRequired} {textOptional}>{label}</Label>
 
   {#if helpText}
     <div id={`${name}-hint`} class="hint">
@@ -80,6 +79,7 @@
   {#if error}
     <InputError {...error} {hiddenErrorText} />
   {/if}
+
   <input
     id={name}
     {name}
