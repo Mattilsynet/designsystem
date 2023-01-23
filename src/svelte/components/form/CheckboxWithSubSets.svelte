@@ -15,7 +15,7 @@
   let mainValues = (params[categoryName] && params[categoryName].split(',')) ?? []
   let subSectionValues = (params[subCategoryName] && params[subCategoryName].split(',')) ?? []
 
-  $: stringifiedCategories = mainValues.join(',')
+  $: stringifiedCategories = mainValues.length > 0 ? mainValues.join(',') : []
   $: stringifiedSubCategories = subSectionValues ?? subSectionValues.join(',')
   $: elements = []
   $: states = []
