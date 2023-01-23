@@ -19,4 +19,21 @@
     font-size: $font-size-small;
     height: fit-content;
   }
+  .lightblue {
+    background-color: var(--color-mt-rationale-blue);
+    border: var(--border-width-small) solid var(--color-mt-blue-medium);
+  }
+
+  .yellowgreen {
+    background-color: var(--color-mt-yellowgreen-lighter);
+    border: var(--border-width-small) solid var(--color-mt-yellowgreen);
+  }
+  .beige {
+    background-color: var(--color-mt-light-beige);
+    border: var(--border-width-small) solid var(--color-mt-beige);
+  }
+
+  .medium {
+    padding: $spacer-xxxx-small $spacer-x-small;
+  }
 }

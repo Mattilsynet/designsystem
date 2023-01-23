@@ -68,6 +68,12 @@
             ]
           }
         ]
+      },
+      {
+        key: 'kosmetikk',
+        displayName: 'Kosmetikk',
+        docCount: 1,
+        children: []
       }
     ]
   }}

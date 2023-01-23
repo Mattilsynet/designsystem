@@ -3,7 +3,7 @@
   import {CheckboxWithSubSectionsOptions} from '../../../ts/types.d.ts'
   import {onMount} from 'svelte'
 
-  export let params
+  export let params: Array<string> = []
   export let name: string
   export let title: string
   export let options: Array<CheckboxWithSubSectionsOptions>
@@ -57,7 +57,7 @@
     })
   }
 
-  function mainCategory(mainIndex) {
+  function mainCategory(mainIndex: number): void {
     const childrenKeys = states[mainIndex].children.map(child => child.key)
     if (states[mainIndex].element.checked && childrenKeys.length > 0) {
       subSectionValues = [...subSectionValues, ...childrenKeys]
@@ -74,7 +74,7 @@
     }
   }
 
-  function subCategory(mainIndex, subCategoryKey) {
+  function subCategory(mainIndex: number, subCategoryKey: string): void {
     // uncheck subcategory in the state list
     states[mainIndex].children = states[mainIndex].children.map(child => {
       if (child.key === subCategoryKey) {

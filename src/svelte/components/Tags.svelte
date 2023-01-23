@@ -28,23 +28,3 @@
     </li>
   {/each}
 </ul>
-
-<style>
-  .lightblue {
-    background-color: var(--color-mt-rationale-blue);
-    border: 1px solid var(--color-mt-blue-medium);
-  }
-
-  .yellowgreen {
-    background-color: var(--color-mt-yellowgreen-lighter);
-    border: 1px solid var(--color-mt-yellowgreen);
-  }
-  .beige {
-    background-color: var(--color-mt-light-beige);
-    border: 1px solid var(--color-mt-beige);
-  }
-
-  .medium {
-    padding: 4px 12px;
-  }
-</style>
