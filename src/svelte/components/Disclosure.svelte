@@ -3,7 +3,7 @@
 </script>
 
 <script lang="ts">
-  import {onMount} from 'svelte'
+  import {createEventDispatcher, onMount} from 'svelte'
   import {slide} from 'svelte/transition'
   import {useMachine} from '@xstate/svelte'
   import {createMachine, assign} from 'xstate'
@@ -67,6 +67,11 @@
       onMount(() => send('TOGGLE'))
     }
   }
+
+  const dispatch = createEventDispatcher()
+  function dispatchOpen(isOpen: boolean): void {
+    isOpen ? dispatch('open') : dispatch('close')
+  }
 </script>
 
 <div class="disclosure disclosure-{theme} {disclosureClass}">
@@ -95,7 +100,10 @@
       class="button--unstyled disclosure-header {headerTag} {headerClass}"
       aria-expanded={isOpen}
       aria-controls={bodyId}
-      on:click={() => send('TOGGLE')}>
+      on:click={() => {
+        dispatchOpen(!isOpen)
+        send('TOGGLE')
+      }}>
       {#if chapter}
         <span class="chapter-number responsive-hide">
           {chapter}

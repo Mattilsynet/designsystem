@@ -38,6 +38,41 @@ dl {
       }
     }
   }
+
+  &.custom-borders {
+    --spacer: var(--spacer-xx-small);
+    --border: var(--border-radius-small) solid var(--color-secondary);
+
+    gap: 0;
+    display: flex;
+    flex-direction: column;
+
+    dt {
+      padding-top: var(--spacer);
+      padding-right: var(--spacer);
+    }
+    dd {
+      padding-bottom: var(--spacer);
+    }
+
+    dt.border-top {
+      border-top: var(--border);
+    }
+
+    @media only screen and (min-width: $breakpoint-large) {
+      display: grid;
+      dt,
+      dd {
+        padding-top: var(--spacer);
+        padding-bottom: var(--spacer);
+      }
+
+      .border-top + dd {
+        padding-right: var(--spacer);
+        border-top: var(--border);
+      }
+    }
+  }
 }
 
 ol.list-unstyled,
