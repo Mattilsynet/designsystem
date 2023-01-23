@@ -5,7 +5,7 @@
 
   export let params: Array<string> = []
   export let name: string
-  export let title: string
+  export let legend: string
   export let options: Array<CheckboxWithSubSectionsOptions>
   export let categoryName: string = 'category'
   export let subCategoryName: string = 'subCategory'
@@ -89,7 +89,7 @@
 </script>
 
 <fieldset>
-  <legend class="border">{title}</legend>
+  <legend class="border">{legend}</legend>
   {#if states}
     <ol class="list-unstyled">
       {#each states as listItem, mainIndex}

@@ -8,6 +8,7 @@
   import CheckboxWithSubSets from '../../../src/svelte/components/form/CheckboxWithSubSets.svelte'
   const radioName = 'radiobuttons'
   const checkboxName = 'checkboxes'
+  const checkboxWithSubsetsName = 'checkboxesWithSubsets'
   const radioOptions = [
     {
       text: 'Dere kan kontakte meg',
@@ -28,6 +29,72 @@
       value: 'Pizza'
     }
   ]
+  const checkboxWithSubsetsOptions = [
+    {
+      key: 'dyr',
+      displayName: 'Dyr',
+      docCount: 49,
+      children: [
+        {
+          key: 'produksjonsdyr',
+          displayName: 'Produksjonsdyr',
+          docCount: 38,
+          children: []
+        },
+        {
+          key: 'dyresykdommer',
+          displayName: 'Dyresykdommer',
+          docCount: 2,
+          children: []
+        },
+        {
+          key: 'kjaeledyr',
+          displayName: 'Kjæledyr',
+          docCount: 1,
+          children: []
+        }
+      ]
+    },
+    {
+      key: 'fisk-og-akvakultur',
+      displayName: 'Fisk og akvakultur',
+      docCount: 1,
+      children: [
+        {
+          key: 'fiskesykdommer',
+          displayName: 'Fiskesykdommer',
+          docCount: 1,
+          children: []
+        }
+      ]
+    },
+    {
+      key: 'mat',
+      displayName: 'Mat',
+      docCount: 3,
+      children: [
+        {
+          key: 'import-av-mat',
+          displayName: 'Import av mat',
+          docCount: 1,
+          children: [
+            {
+              key: 'kommersiell-import',
+              displayName: 'Kommersiell import',
+              docCount: 1,
+              children: []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      key: 'kosmetikk',
+      displayName: 'Kosmetikk',
+      docCount: 1,
+      children: []
+    }
+  ]
 </script>
 
 <Meta
@@ -36,6 +103,7 @@
     label: 'Når skjedde det?',
     radioLabel: 'Kan vi kontakte deg?',
     checkboxLabel: 'Hva liker du?',
+    checkboxWithSubsetsLegend: 'Hvilkt tema er det du er interessert i?',
     helpText: 'Skriv når hendelsen skjedde og om det har pågått over lengere periode.',
     errorMessage: 'Fyll inn dette feltet.',
     countCharactersLeftLabel: 'karakterer igjen',
@@ -45,6 +113,7 @@
     label: {control: 'text'},
     radioLabel: {control: 'text'},
     checkboxLabel: {control: 'text'},
+    checkboxWithSubsetsLegend: {control: 'text'},
     helpText: {control: 'text'},
     countCharactersLeftLabel: {control: 'text'},
     disableCss: {control: 'boolean'}
@@ -56,6 +125,7 @@
   let:helpText
   let:radioLabel
   let:checkboxLabel
+  let:checkboxWithSubsetsLegend
   let:countCharactersLeftLabel
   let:args>
   <div use:wrapInShadowDom={args.disableCss}>
@@ -99,7 +169,10 @@
       <Checkbox name={checkboxName} label={checkboxLabel} {helpText} options={checkBoxOptions} />
 
       <!-- Checkboxes with subsets-->
-      <CheckboxWithSubSets title="hullu" />
+      <CheckboxWithSubSets
+        name={checkboxWithSubsetsName}
+        legend={checkboxWithSubsetsLegend}
+        options={checkboxWithSubsetsOptions} />
     </form>
   </div>
 </Story>
