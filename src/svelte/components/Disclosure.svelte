@@ -69,7 +69,7 @@
   }
 
   const dispatch = createEventDispatcher()
-  function dispatchOpen(isOpen) {
+  function dispatchOpen(isOpen: boolean): void {
     isOpen ? dispatch('open') : dispatch('close')
   }
 </script>
