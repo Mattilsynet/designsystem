@@ -1,5 +1,6 @@
 <script lang="ts">
   import {slide} from 'svelte/transition'
+  import {createInputAriaDescribedby} from '../../../ts/utils'
   import {CheckboxWithSubSectionsOptions} from '../../../ts/types.d.ts'
   import {onMount} from 'svelte'
 
@@ -90,6 +91,9 @@
 
 <fieldset>
   <legend class="border">{legend}</legend>
+  {#if helpText}
+    <p id="">{helpText}</p>
+  {/if}
   {#if states}
     <ol class="list-unstyled">
       {#each states as listItem, mainIndex}
@@ -102,6 +106,7 @@
               bind:this={states[mainIndex].element}
               bind:group={mainValues}
               value={listItem.key}
+              aria-describedby={createInputAriaDescribedby(helpText ? name : undefined)}
               on:change={() => mainCategory(mainIndex)} />
             <label for={listItem.key}>{`${listItem.displayName} (${listItem.docCount})`}</label>
           </div>
@@ -119,6 +124,7 @@
                       type="checkbox"
                       class="input__control"
                       value={subListItem.key}
+                      aria-describedby={createInputAriaDescribedby(helpText ? name : undefined)}
                       bind:group={subSectionValues}
                       on:change={() => subCategory(mainIndex, subListItem.key)} />
                     <label for={subListItem.key}>

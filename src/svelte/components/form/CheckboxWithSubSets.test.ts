@@ -5,7 +5,7 @@ import {render} from '@testing-library/svelte'
 import CheckboxWithSubSets from './CheckboxWithSubSets.svelte'
 
 describe('Checkbox with subsets', () => {
-  const title = 'Checkbox with subsets'
+  const legend = 'Checkbox with subsets'
   const options = [
     {
       key: 'dyr',
@@ -70,57 +70,10 @@ describe('Checkbox with subsets', () => {
   test('Renders', () => {
     const {getByText} = render(CheckboxWithSubSets, {
       options,
-      title
+      legend
     })
-    expect(getByText(title)).toBeInTheDocument()
+    expect(getByText(legend)).toBeInTheDocument()
     expect(getByText(`${options[0].displayName} (${options[0].docCount})`)).toBeInTheDocument()
     expect(getByText(`${options[1].displayName} (${options[1].docCount})`)).toBeInTheDocument()
-    /*expect(
-      getByText(`${options[1].children[0].displayName} (${options[1].children[0].docCount})`)
-    ).toBeInTheDocument()*/
-    //const fieldSet = getByRole('checkbox', {value: 'dyr'})
-    //expect(fieldSet?.getAttribute('aria-required')).toEqual('true')
-    //expect(fieldSet?.getAttribute('aria-describedby')).toEqual('name-hint')
   })
-
-  /*test('Renders optional in label if not required', () => {
-    const err = {fieldName: name, message: 'This is the errormessage'}
-    const {getByText} = render(Checkbox, {
-      value,
-      error: err,
-      name,
-      label,
-      helpText,
-      options
-    })
-    expect(getByText(/valgfitt felt/)).toBeInTheDocument()
-  })
-
-  test('Renders error', () => {
-    const err = {fieldName: name, message: 'This is the errormessage'}
-    const {getByText, getByRole} = render(Checkbox, {
-      value,
-      error: err,
-      name,
-      label,
-      helpText,
-      options
-    })
-    expect(getByText(/This is the errormessage/)).toBeInTheDocument()
-    const fieldSet = getByRole('checkbox', {name: 'Ja'})
-    expect(fieldSet.getAttribute('aria-describedby')).toEqual('name-hint name-error')
-  })
-
-  test('Renders without helptext', () => {
-    const {getByRole} = render(Checkbox, {
-      value,
-      error: undefined,
-      name,
-      label,
-      helpText: undefined,
-      options
-    })
-    const fieldSet = getByRole('checkbox', {name: 'Ja'})
-    expect(fieldSet.getAttribute('aria-describedby')).toBeNull()
-  })*/
 })
