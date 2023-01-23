@@ -38,7 +38,7 @@
   })
 
   $: if (states) {
-    states.map(state => {
+    states.forEach(state => {
       if (state.element) {
         // group up children that is not checked
         const uncheckedChilds = state.children.filter(child => {

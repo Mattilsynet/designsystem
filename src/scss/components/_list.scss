@@ -110,7 +110,7 @@ ol {
 .list {
 
   > li {
-    border-top: 0.0625rem solid var(--color-mt-beige-50);
+    border-top: $border-width-small solid var(--color-mt-beige-50);
     margin-top: 0;
     padding: var(--spacer-small);
     display: flex;

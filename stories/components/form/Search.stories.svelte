@@ -1,11 +1,11 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf'
   import {wrapInShadowDom} from '../../utils'
-  import TextInputSearch from '../../../src/svelte/components/form/TextInputSearch.svelte'
+  import TextInputSearch from '../../../src/svelte/components/form/Search.svelte'
 </script>
 
 <Meta
-  title="Components/Form/Input for search"
+  title="Components/Form/Search"
   args={{
     legend: 'Søk etter navn',
     label: 'Skriv inn navnet på skjema',
@@ -28,22 +28,23 @@
   let:legend
   let:placeholder
   let:helpText>
-  <article>
-    <div use:wrapInShadowDom={disableCss}>
+  <div use:wrapInShadowDom={disableCss}>
+    <article>
       <form class="form-layout">
-        <TextInputSearch name="inputfield" {label} {searchButtonText} />
+        <TextInputSearch name="inputfield_1" {label} {searchButtonText} />
       </form>
-    </div>
-  </article>
-  <article>
-    <div use:wrapInShadowDom={disableCss}>
+    </article>
+    <article>
       <form class="form-layout">
-        <TextInputSearch {legend} name="inputfield" {label} {searchButtonText} labelClass="small" />
+        <TextInputSearch
+          {legend}
+          name="inputfield_2"
+          {label}
+          {searchButtonText}
+          labelClass="small" />
       </form>
-    </div>
-  </article>
-  <article>
-    <div use:wrapInShadowDom={disableCss}>
+    </article>
+    <article>
       <form class="form-layout">
         <TextInputSearch
           {legend}
@@ -53,22 +54,19 @@
           {searchButtonText}
           labelClass="small" />
       </form>
-    </div>
-  </article>
-  <article>
-    <div use:wrapInShadowDom={disableCss}>
+    </article>
+    <article>
       <form class="form-layout">
         <TextInputSearch
           {legend}
-          name="inputfield"
+          name="inputfield_3"
           {label}
           {helpText}
           {searchButtonText}
           labelClass="small" />
       </form>
-    </div>
-  </article>
-</Story>
+    </article>
+  </div></Story>
 
 <style>
   article {

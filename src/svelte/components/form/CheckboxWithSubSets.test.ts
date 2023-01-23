@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import {render} from '@testing-library/svelte'
+import {fireEvent, render} from '@testing-library/svelte'
 import CheckboxWithSubSets from './CheckboxWithSubSets.svelte'
 
 describe('Checkbox with subsets', () => {
@@ -67,7 +67,7 @@ describe('Checkbox with subsets', () => {
     }
   ]
 
-  test('Renders', () => {
+  test('Renders list of checkboxes.', async () => {
     const {getByText} = render(CheckboxWithSubSets, {
       options,
       legend
@@ -75,5 +75,23 @@ describe('Checkbox with subsets', () => {
     expect(getByText(legend)).toBeInTheDocument()
     expect(getByText(`${options[0].displayName} (${options[0].docCount})`)).toBeInTheDocument()
     expect(getByText(`${options[1].displayName} (${options[1].docCount})`)).toBeInTheDocument()
+    const animal = getByText(`${options[0].displayName} (${options[0].docCount})`)
+    await fireEvent.click(animal)
+    expect(
+      getByText(`${options[0].children[0].displayName} (${options[0].children[0].docCount})`)
+    ).toBeInTheDocument()
+  })
+
+  test('Renders subsets', async () => {
+    const {getByText} = render(CheckboxWithSubSets, {
+      options,
+      legend
+    })
+    expect(getByText(`${options[0].displayName} (${options[0].docCount})`)).toBeInTheDocument()
+    const animal = getByText(`${options[0].displayName} (${options[0].docCount})`)
+    await fireEvent.click(animal)
+    expect(
+      getByText(`${options[0].children[0].displayName} (${options[0].children[0].docCount})`)
+    ).toBeInTheDocument()
   })
 })

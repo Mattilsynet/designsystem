@@ -1,48 +1,72 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf'
   import List from '../../src/svelte/components/List.svelte'
+  import Tags from '../../src/svelte/components/Tags.svelte'
 </script>
 
 <Meta
   title="Components/List"
   args={{
     title: 'A two coloured modern document list with hyper text links.',
+    colorScheme: {
+      PDF: 'lightblue',
+      Word: 'lightblue',
+      Altinn: 'yellowgreen',
+      'Matilsynets skjema': 'beige'
+    },
     content: [
       {
         url: '?content=1',
-        title: 'Rekvisisjon, meieri',
+        displayName: 'Rekvisisjon, meieri',
         type: 'Matilsynets skjema'
       },
       {
         url: '?content=2',
-        title: 'Ny matbedrift og/eller import, produksjon og engrossalg av matkontaktmaterialer',
+        displayName:
+          'Ny matbedrift og/eller import, produksjon og engrossalg av matkontaktmaterialer',
         type: 'PDF'
       },
       {
         url: '?content=3',
-        title: 'Ny importør av næringsmidler',
+        displayName: 'Ny importør av næringsmidler',
         type: 'Altinn'
       },
       {
+        url: '?content=5',
+        displayName: 'Vannkvalitet'
+      },
+      {
         url: '?content=4',
-        title:
+        displayName:
           'Endre informasjon om Ny matbedrift og/eller import, produksjon og engrossalg av matkontaktmaterialer',
         type: 'Word'
       }
     ],
-    showChapterNumber: true,
-    disabled: false,
     disableCss: false
   }}
   argTypes={{
     title: {control: 'text'},
     content: {control: 'array'},
-    showChapterNumber: {control: 'boolean'},
-    disabled: {control: 'boolean'},
     disableCss: {control: 'boolean'}
   }} />
 
-<Story name="Normal" let:args let:disableCss let:disabled let:secondary>
+<Story name="Normal" let:args let:disableCss let:disabled let:secondary let:colorScheme>
   <h1>Dokument liste</h1>
-  <List listContent={args.content} title={args.title} />
+  <List listContent={args.content} title={args.title}>
+    {#each args.content as item}
+      <li>
+        <a href={item.url}>{item.displayName}</a>
+        {#if item.type}
+          <Tags
+            tags={[
+              {
+                text: item.type,
+                color: colorScheme[item.type],
+                size: 'medium'
+              }
+            ]} />
+        {/if}
+      </li>
+    {/each}
+  </List>
 </Story>

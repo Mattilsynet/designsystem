@@ -78,7 +78,6 @@
     ]
   }}
   argTypes={{
-    title: {control: 'text'},
     disableCss: {control: 'boolean'}
   }} />
 
