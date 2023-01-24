@@ -13,15 +13,16 @@
 
 .icon-search-before {
   &:before {
-    background-image: url('data:image/svg+xml,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%201%2020%2020%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%3Cg%20clip-path%3D%22url%28%23a%29%22%3E%0A%20%20%20%20%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22m10.953%2010.983.03-.03a4.663%204.663%200%201%200-.03.03Zm.77%202.39a6.995%206.995%200%201%201%201.649-1.649l5.84%205.838-1.65%201.65-5.838-5.84Z%22%20fill%3D%22rgb%2851%2C139%2C163%29%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3CclipPath%20id%3D%22a%22%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M0%200h20v20H0z%22%2F%3E%20%20%3C%2FclipPath%3E%0A%20%20%3C%2Fdefs%3E%0A%3C%2Fsvg%3E');
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAxOSAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMC40NTI1IDEwLjk4M0wxMC40ODMgMTAuOTUyNUMxMi4yODg5IDkuMTMwMTYgMTIuMjgzOSA2LjE4ODg3IDEwLjQ2NzggNC4zNzI3OUM4LjY0NjY1IDIuNTUxNjQgNS42OTM5OCAyLjU1MTY0IDMuODcyODIgNC4zNzI3OUMyLjA1MTY2IDYuMTkzOTUgMi4wNTE2NiA5LjE0NjYzIDMuODcyODIgMTAuOTY3OEM1LjY4ODg5IDEyLjc4MzkgOC42MzAxOCAxMi43ODg5IDEwLjQ1MjUgMTAuOTgzWk0xMS4yMjM4IDEzLjM3MjVDOC40OTE5OSAxNS4zMTk0IDQuNjc0OTMgMTUuMDY3NCAyLjIyNDA3IDEyLjYxNjVDLTAuNTA3NjYgOS44ODQ4IC0wLjUwNzY2IDUuNDU1NzggMi4yMjQwNyAyLjcyNDA1QzQuOTU1ODEgLTAuMDA3Njg2MTIgOS4zODQ4MiAtMC4wMDc2ODY0NiAxMi4xMTY2IDIuNzI0MDVDMTQuNTY3NCA1LjE3NDkxIDE0LjgxOTQgOC45OTE5NyAxMi44NzI1IDExLjcyMzhMMTguNzExNSAxNy41NjI3TDE3LjA2MjggMTkuMjExNUwxMS4yMjM4IDEzLjM3MjVaIiBmaWxsPSJyZ2JhKDUxLDEzOSwxNjMsMSkiLz4KPC9zdmc+Cg==');
     content: '';
     width: var(--icon-size-normal);
-    height: var(--icon-size-normal);
+    height: 1.35rem;
     background-size: var(--icon-size-normal) var(--icon-size-normal);
     background-repeat: no-repeat;
     display: inline-block;
     background-position-y: 0.125rem;
     margin-right: 0.250rem;
-    margin-bottom: -0.0625rem;
+    margin-bottom: -0.1625rem;
+
   }
 }

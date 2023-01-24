@@ -1,5 +1,5 @@
 <script lang="ts">
-  export let tags: Array<{text: string; ariaLabel: string; color: string; size: string}> = []
+  export let tags: Array<{text: string; ariaLabel: string; color: string}> = []
   export let isClosable = false
 
   function handleClick(index: number) {
@@ -12,7 +12,9 @@
 <ul class="list-unstyled tags">
   {#each tags as tag, i}
     <li
-      class={`${tag.size} ${tag.color} ${isClosable ? 'tag-list-item' : 'tag-list-item tag-text'}`}>
+      class={`${tag.color ? tag.color : ''} ${
+        isClosable ? 'tag-list-item' : 'tag-list-item tag-text'
+      }`}>
       {#if isClosable}
         <button
           class="button button--secondary button--small closable m-r-0 m-t-0"

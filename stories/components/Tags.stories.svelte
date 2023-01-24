@@ -27,11 +27,6 @@
       {text: 'Altinn', color: 'yellowgreen'},
       {text: 'Mattilsynets skjematjenester', color: 'beige'}
     ],
-    tagsWithColorAndSize: [
-      {text: 'PDF', color: 'lightblue', size: 'medium'},
-      {text: 'Altinn', color: 'yellowgreen', size: 'medium'},
-      {text: 'Mattilsynets skjematjenester', color: 'beige', size: 'medium'}
-    ],
     isClosable: true,
     disableCss: false
   }}
@@ -50,9 +45,6 @@
     <hr />
     <h2>Tags med forskjellige farger</h2>
     <Tags tags={args.tagsWithColor} />
-    <hr />
-    <h2>Tags med forskjellige størrelser</h2>
-    <Tags tags={args.tagsWithColorAndSize} />
     <hr />
 
     <h2>Lukkbare tags</h2>

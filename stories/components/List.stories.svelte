@@ -1,6 +1,6 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf'
-  import List from '../../src/svelte/components/List.svelte'
+
   import Tags from '../../src/svelte/components/Tags.svelte'
 </script>
 
@@ -52,7 +52,7 @@
 
 <Story name="Normal" let:args let:disableCss let:disabled let:secondary let:colorScheme>
   <h1>Dokument liste</h1>
-  <List listContent={args.content} title={args.title}>
+  <ol class="list list-unstyled">
     {#each args.content as item}
       <li>
         <a href={item.url}>{item.displayName}</a>
@@ -61,12 +61,11 @@
             tags={[
               {
                 text: item.type,
-                color: colorScheme[item.type],
-                size: 'medium'
+                color: colorScheme[item.type]
               }
             ]} />
         {/if}
       </li>
     {/each}
-  </List>
+  </ol>
 </Story>
