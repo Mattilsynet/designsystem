@@ -4,7 +4,7 @@
   import {CheckboxWithSubSectionsOptions} from '../../../ts/types.d.ts'
   import {onMount} from 'svelte'
 
-  export let params: Array<string> = []
+  export let params: Record<string, string> = {}
   export let name: string
   export let legend: string
   export let options: Array<CheckboxWithSubSectionsOptions>
@@ -12,11 +12,13 @@
   export let subCategoryName: string = 'subCategory'
   export let helpText: string
 
-  let mainValues = (params[categoryName] && params[categoryName].split(',')) ?? []
-  let subSectionValues = (params[subCategoryName] && params[subCategoryName].split(',')) ?? []
+  let mainValues = ((params[categoryName] && params[categoryName].split(',')) ??
+    []) as Array<string>
+  let subSectionValues = ((params[subCategoryName] && params[subCategoryName].split(',')) ??
+    []) as Array<string>
 
   $: stringifiedCategories = mainValues.length > 0 ? mainValues.join(',') : []
-  $: stringifiedSubCategories = subSectionValues ?? subSectionValues.join(',')
+  $: stringifiedSubCategories = subSectionValues.length ? subSectionValues.join(',') : []
   $: elements = []
   $: states = []
 
@@ -92,7 +94,7 @@
 <fieldset>
   <legend class="border">{legend}</legend>
   {#if helpText}
-    <p id="">{helpText}</p>
+    <p>{helpText}</p>
   {/if}
   {#if states}
     <ol class="list-unstyled">
@@ -112,12 +114,9 @@
           </div>
 
           {#if (states[mainIndex].element.checked || states[mainIndex].element.indeterminate) && listItem.children && listItem.children.length > 0}
-            <ol
-              class="list-unstyled"
-              style="padding-left: 20px"
-              transition:slide={{y: 200, duration: 200}}>
+            <ol class="list-unstyled" transition:slide={{y: 200, duration: 200}}>
               {#each listItem.children as subListItem}
-                <li>
+                <li class="p-l-xs">
                   <div class="form-control checkbox narrow">
                     <input
                       id={subListItem.key}

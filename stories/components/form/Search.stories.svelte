@@ -7,7 +7,6 @@
 <Meta
   title="Components/Form/Search"
   args={{
-    legend: 'Søk etter navn',
     label: 'Skriv inn navnet på skjema',
     helpText: 'Her kan du søke etter artikler og veiledere',
     placeholder: 'Søk etter artikler, skjemaer, pdfer og veiledere, veivisere, rapporter og mer',
@@ -25,7 +24,6 @@
   let:label
   let:disableCss
   let:searchButtonText
-  let:legend
   let:placeholder
   let:helpText>
   <div use:wrapInShadowDom={disableCss}>
@@ -36,18 +34,12 @@
     </article>
     <article>
       <form class="form-layout">
-        <TextInputSearch
-          {legend}
-          name="inputfield_2"
-          {label}
-          {searchButtonText}
-          labelClass="small" />
+        <TextInputSearch name="inputfield_2" {label} {searchButtonText} labelClass="small" />
       </form>
     </article>
     <article>
       <form class="form-layout">
         <TextInputSearch
-          {legend}
           name="inputfield"
           {label}
           {placeholder}
@@ -58,7 +50,6 @@
     <article>
       <form class="form-layout">
         <TextInputSearch
-          {legend}
           name="inputfield_3"
           {label}
           {helpText}
@@ -71,10 +62,5 @@
 <style>
   article {
     margin-bottom: 2rem;
-  }
-  .collapsable-input-list-grid {
-    display: grid;
-    row-gap: 1rem;
-    width: 20rem;
   }
 </style>

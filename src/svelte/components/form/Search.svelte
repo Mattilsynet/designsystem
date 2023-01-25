@@ -3,45 +3,41 @@
   import {createInputAriaDescribedby} from '../../../ts/utils'
 
   export let value: string
-  export let legend: string
   export let name: string
   export let label: string
   export let labelClass: string
-  export let error: undefined
   export let helpText: string | undefined
-  export let hiddenErrorText: string | undefined
   export let searchButtonText: string | undefined
   export let placeholder: string | undefined
-
   export let inputClass = ''
+
+  $: shareSpace = searchButtonText !== ''
 </script>
 
-<fieldset class="input-wrapper">
-  {#if legend}
-    <legend>{legend}</legend>
-  {/if}
+<Label class={labelClass} for={name} showOptionalText={false}>
+  {label}
+</Label>
 
-  <div class="layout-flex layout-flex-col justify-content-center x" style="--gap: 0">
-    <Label class={labelClass} for={name}>
-      {label}
-    </Label>
-
-    {#if helpText}
-      <div id={`${name}-hint`} class="hint">
-        {@html helpText}
-      </div>
-    {/if}
+{#if helpText}
+  <div id={`${name}-hint`} class="hint">
+    {@html helpText}
   </div>
+{/if}
 
+<div class="search-wrap">
   <input
     id={name}
     {name}
-    class="form-field {inputClass}"
+    class="form-field input-search {inputClass}"
+    class:shareSpace
     bind:value
     aria-describedby={createInputAriaDescribedby(helpText ? name : undefined)}
     type="search"
     {placeholder} />
   {#if searchButtonText}
-    <button type="submit" class="search icon-search-before">{searchButtonText}</button>
+    <button
+      type="submit"
+      class="button button--flat form-field button-search shareSpace icon-search-before"
+      >{searchButtonText}</button>
   {/if}
-</fieldset>
+</div>
