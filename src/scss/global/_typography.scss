@@ -133,13 +133,6 @@ $content-selectors: '.content' !default;
     margin-top: var(--content-spacer);
   }
 
-  > main {
-    margin-top: var(--spacer-x-small);
-    @media only screen and (min-width: $breakpoint-large) {
-      margin-top: var(--spacer-x-small);
-    }
-  }
-
   > * + h2,
   > * + h3,
   > h3,
