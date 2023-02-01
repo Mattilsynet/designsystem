@@ -168,7 +168,7 @@
     }
   }
 
-  function handleOptionMousedown(e: MouseEvent): void {
+  function handleOptionMouseup(e: MouseEvent): void {
     const value = (e.target as HTMLInputElement).dataset.value
     if (selected[value]) {
       remove(value)
@@ -261,7 +261,8 @@
     bind:this={listBox}
     class:hidden={!showOptions}
     transition:fly={{duration: 200, y: 5}}
-    on:mousedown|preventDefault={handleOptionMousedown}>
+    on:mousedown|preventDefault
+    on:mouseup|preventDefault={handleOptionMouseup}>
     {#each filtered as option, index}
       <li
         id="{selectId}-{option.value}-{index}"
