@@ -112,6 +112,10 @@
       <li class:ellipsis={!isFull && index + 1 > 2}>
         {#if index === 0}
           <a href={item.url} rel="external">{homeLabel}</a>
+        {:else if index + 1 === $state.context.breadcrumbsItems.length}
+          <span class="last-breadcrumb" aria-current="page">
+            {@html item.title}
+          </span>
         {:else if item === BUTTON_ELLIPSIS}
           <button
             type="button"
