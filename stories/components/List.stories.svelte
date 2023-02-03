@@ -54,7 +54,7 @@
   <h1>Dokument liste</h1>
   <ol class="list list-unstyled">
     {#each args.content as item}
-      <li>
+      <li class="layout-flex layout-flex--no-wrap layout-flex--space-between">
         <a href={item.url}>{item.displayName}</a>
         {#if item.type}
           <Tags

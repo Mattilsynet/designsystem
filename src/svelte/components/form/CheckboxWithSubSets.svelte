@@ -8,8 +8,8 @@
   export let name: string
   export let legend: string
   export let options: Array<CheckboxWithSubSectionsOptions>
-  export let categoryName: string = 'category'
-  export let subCategoryName: string = 'subCategory'
+  export let categoryName: string = 'kategori'
+  export let subCategoryName: string = 'underkategori'
   export let helpText: string
 
   let mainValues = ((params[categoryName] && params[categoryName].split(',')) ??
@@ -40,7 +40,7 @@
   })
 
   $: if (states) {
-    states.forEach(state => {
+    states = states.map(state => {
       if (state.element) {
         // group up children that is not checked
         const uncheckedChilds = state.children.filter(child => {
@@ -57,6 +57,7 @@
           state.element.indeterminate = false
         }
       }
+      return state
     })
   }
 

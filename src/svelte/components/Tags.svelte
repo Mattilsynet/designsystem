@@ -1,6 +1,7 @@
 <script lang="ts">
-  export let tags: Array<{text: string; ariaLabel: string; color: string}> = []
+  export let tags: Array<{text: string; ariaLabel: string; color: TagColors}> = []
   export let isClosable = false
+  type TagColors = 'lightblue' | 'yellowgreen' | 'beige'
 
   function handleClick(index: number) {
     tags = tags.filter((tag, tagIndex) => {

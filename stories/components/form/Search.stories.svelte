@@ -34,27 +34,17 @@
     </article>
     <article>
       <form class="form-layout">
-        <TextInputSearch name="inputfield_2" {label} {searchButtonText} labelClass="small" />
+        <TextInputSearch name="inputfield_2" {label} {searchButtonText} />
       </form>
     </article>
     <article>
       <form class="form-layout">
-        <TextInputSearch
-          name="inputfield"
-          {label}
-          {placeholder}
-          {searchButtonText}
-          labelClass="small" />
+        <TextInputSearch name="inputfield" {label} {placeholder} {searchButtonText} />
       </form>
     </article>
     <article>
       <form class="form-layout">
-        <TextInputSearch
-          name="inputfield_3"
-          {label}
-          {helpText}
-          {searchButtonText}
-          labelClass="small" />
+        <TextInputSearch name="inputfield_3" {label} {helpText} {searchButtonText} />
       </form>
     </article>
   </div></Story>
