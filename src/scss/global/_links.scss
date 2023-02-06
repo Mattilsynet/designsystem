@@ -132,7 +132,6 @@ a {
   &.forward-arrow-end-link {
     font-size: $font-size-body;
     transition: padding-left ease-in-out 150ms;
-    display: block;
     &:hover {
       text-decoration: none;
       padding-left: var(--spacer-xxx-small);
