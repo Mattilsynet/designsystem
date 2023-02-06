@@ -39,7 +39,6 @@
     <a
       href={linkUrl}
       rel={mapRelExternal(linkUrl)}
-      class="link-inline"
       class:button={linkTypeButton}
       class:button--primary={linkTypeButton}
       class:self-start={linkTypeButton}
