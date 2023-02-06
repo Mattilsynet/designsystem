@@ -12,6 +12,9 @@ a {
   border-radius: var(--border-radius-small);
   padding: var(--border-width-regular);
   line-height: 1.75rem;
+  &.link-inline {
+    display: inline-flex;
+  }
 
   &:hover {
     text-decoration: none;
