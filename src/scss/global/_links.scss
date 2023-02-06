@@ -15,6 +15,9 @@ a {
   &.link-inline {
     display: inline-flex;
   }
+  &.fit-content {
+    width: fit-content;
+  }
 
   &:hover {
     text-decoration: none;
