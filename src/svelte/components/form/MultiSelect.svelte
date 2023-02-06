@@ -34,6 +34,7 @@
   let listBox: HTMLUListElement
 
   const ENTER: Readonly<number> = 13
+  const ESCAPE: Readonly<number> = 27
   const UP_ARROW: Readonly<number> = 38
   const DOWN_ARROW: Readonly<number> = 40
   const selectId = `ui-select-${instanceCounter++}`
@@ -73,10 +74,6 @@
       const {[value]: val, ...rest} = selected
       selected = rest
     }
-  }
-
-  function removeAll(): void {
-    selected = {}
   }
 
   function optionsVisibility(show: boolean | undefined): void {
@@ -137,6 +134,8 @@
         add(activeOption)
       }
       inputValue = ''
+    } else if (e.keyCode === ESCAPE) {
+      optionsVisibility(false)
     }
     if ([DOWN_ARROW, UP_ARROW].includes(e.keyCode)) {
       // up and down arrows
@@ -150,8 +149,11 @@
     }
   }
 
-  function handleBlur(_): void {
-    optionsVisibility(false)
+  function handleBlur(e): void {
+    console.log(e.currentTarget)
+    if (!e.target.nextElementSibling.contains(e.relatedTarget)) {
+      optionsVisibility(false)
+    }
   }
 
   function handleTokenClick(_): void {
@@ -227,7 +229,7 @@
   aria-owns="list"
   aria-haspopup="listbox"
   aria-expanded={showOptions}>
-  <div class="actions" on:click|preventDefault={handleTokenClick}>
+  <div class="actions" on:click|preventDefault={handleTokenClick} on:blur={handleBlur}>
     {#if !readonly}
       <input
         id={`${name}-input`}
@@ -243,12 +245,6 @@
           ? `${selectId}-${activeOption.value}-${activeOptionIndex}`
           : undefined}
         {placeholder} />
-      <button
-        type="button"
-        class="button button--unstyled button--small remove-all icon-x"
-        title="Remove All"
-        on:click|preventDefault={removeAll}
-        class:hidden={!Object.keys(selected).length} />
       <span class="down-arrow" aria-hidden="true" />
     {/if}
   </div>
