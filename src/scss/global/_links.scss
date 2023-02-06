@@ -13,6 +13,9 @@ a {
   padding: var(--border-width-regular);
   line-height: 1.75rem;
 
+  &.inline-flex {
+    display: inline-flex;
+  }
   &.fit-content {
     width: fit-content;
   }

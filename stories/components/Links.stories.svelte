@@ -116,6 +116,11 @@
       linkText="thisIsAPdf"
       fileName="thisIsAPdf.pdf" />
     <hr />
+    <h2>Flere linjer</h2>
+    <div class="wrapper">
+      <Link href="#" class="inline-flex" linkText={args.cards[5].text} />
+    </div>
+    <hr />
     <h2>Neste og forrig lenker</h2>
     <ChapterNavigation
       showChapterNumber={args.showChapterNumber}
@@ -265,3 +270,11 @@
     {/each}
   </div>
 </Story>
+
+<style>
+  .wrapper {
+    padding: 1rem;
+    width: 20rem;
+    border: 1px solid var(--color-mt-text-dark);
+  }
+</style>
