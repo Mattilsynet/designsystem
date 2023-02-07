@@ -21,7 +21,6 @@
   export let helpText: string | undefined
   export let textOptional: string | undefined
   export let hiddenErrorText: string | undefined
-  export let removeAllText = 'Fjern alle'
   export let tagsLabel = ''
 
   let input: HTMLInputElement
@@ -149,11 +148,8 @@
     }
   }
 
-  function handleBlur(e): void {
-    console.log(e.currentTarget)
-    if (!e.target.nextElementSibling.contains(e.relatedTarget)) {
-      optionsVisibility(false)
-    }
+  function handleBlur(_): void {
+    optionsVisibility(false)
   }
 
   function handleTokenClick(_): void {
