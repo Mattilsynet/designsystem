@@ -8,28 +8,19 @@
   title="Components/List"
   args={{
     title: 'A two coloured modern document list with hyper text links.',
-    colorScheme: {
-      PDF: 'lightblue',
-      Word: 'lightblue',
-      Altinn: 'yellowgreen',
-      'Matilsynets skjema': 'beige'
-    },
     content: [
       {
         url: '?content=1',
-        displayName: 'Rekvisisjon, meieri',
-        type: 'Matilsynets skjema'
+        displayName: 'Rekvisisjon, meieri'
       },
       {
         url: '?content=2',
         displayName:
-          'Ny matbedrift og/eller import, produksjon og engrossalg av matkontaktmaterialer',
-        type: 'PDF'
+          'Ny matbedrift og/eller import, produksjon og engrossalg av matkontaktmaterialer'
       },
       {
         url: '?content=3',
-        displayName: 'Ny importør av næringsmidler',
-        type: 'Altinn'
+        displayName: 'Ny importør av næringsmidler'
       },
       {
         url: '?content=5',
@@ -38,8 +29,7 @@
       {
         url: '?content=4',
         displayName:
-          'Endre informasjon om Ny matbedrift og/eller import, produksjon og engrossalg av matkontaktmaterialer',
-        type: 'Word'
+          'Endre informasjon om Ny matbedrift og/eller import, produksjon og engrossalg av matkontaktmaterialer'
       }
     ],
     disableCss: false
@@ -56,15 +46,6 @@
     {#each args.content as item}
       <li class="layout-flex layout-flex--no-wrap layout-flex--space-between">
         <a href={item.url}>{item.displayName}</a>
-        {#if item.type}
-          <Tags
-            tags={[
-              {
-                text: item.type,
-                color: colorScheme[item.type]
-              }
-            ]} />
-        {/if}
       </li>
     {/each}
   </ol>

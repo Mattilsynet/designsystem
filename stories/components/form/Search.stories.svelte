@@ -29,7 +29,7 @@
   <div use:wrapInShadowDom={disableCss}>
     <article>
       <form class="form-layout">
-        <TextInputSearch name="inputfield_1" {label} {searchButtonText} />
+        <TextInputSearch name="inputfield_1" {label} />
       </form>
     </article>
     <article>
@@ -39,12 +39,12 @@
     </article>
     <article>
       <form class="form-layout">
-        <TextInputSearch name="inputfield" {label} {placeholder} {searchButtonText} />
+        <TextInputSearch name="inputfield_3" {label} {placeholder} {searchButtonText} />
       </form>
     </article>
     <article>
       <form class="form-layout">
-        <TextInputSearch name="inputfield_3" {label} {helpText} {searchButtonText} />
+        <TextInputSearch name="inputfield_4" {label} {helpText} {searchButtonText} />
       </form>
     </article>
   </div></Story>

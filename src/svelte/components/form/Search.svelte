@@ -10,8 +10,7 @@
   export let searchButtonText: string | undefined
   export let placeholder: string | undefined
   export let inputClass = ''
-
-  $: shareSpace = searchButtonText !== ''
+  $: shareSpace = !!searchButtonText
 </script>
 
 <Label class={labelClass} for={name} showOptionalText={false}>

@@ -11,6 +11,7 @@
   export let categoryName: string = 'kategori'
   export let subCategoryName: string = 'underkategori'
   export let helpText: string
+  export let tabIndex: number = 0
 
   let mainValues = ((params[categoryName] && params[categoryName].split(',')) ??
     []) as Array<string>
