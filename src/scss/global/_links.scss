@@ -12,6 +12,7 @@ a {
   border-radius: var(--border-radius-small);
   padding: var(--border-width-regular);
   line-height: 1.75rem;
+  min-width: $minimum-click-width;
 
   &.inline-flex {
     display: inline-flex;

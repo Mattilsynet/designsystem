@@ -72,12 +72,14 @@
     ],
     showChapterNumber: true,
     secondary: 'Avbryt',
+    inText: 'mattilsynet',
     twoColumns: false,
     disabled: false,
     disableCss: false
   }}
   argTypes={{
     primary: {control: 'text'},
+    inText: {control: 'text'},
     cards: {control: 'array'},
     chapters: {control: 'array'},
     smallLinks: {control: 'array'},
@@ -94,7 +96,7 @@
     <Link linkText={primary} href="https://mattilsynet.no/" />
     <hr />
     <p>Bruk i text:</p>
-    <p>Les mer om <Link href="https://mattilsynet.no/" linkText="mattilsynet" /> her.</p>
+    <p>Les mer om <Link href="https://mattilsynet.no/" linkText={args.inText} /> her.</p>
 
     <hr />
     <h2>Tilbakelenke</h2>
