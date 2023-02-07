@@ -73,7 +73,7 @@ describe('Card Article', () => {
     expect(link).toBeInTheDocument()
     expect(link.classList).not.toContain('button')
     expect(link.classList).not.toContain('button--primary')
-    expect(link.classList).toContain('forward-arrow-after')
+    expect(link.classList).toContain('forward-arrow-end-link')
   })
 
   test('Link - button link type contains correct classes', () => {
@@ -83,7 +83,7 @@ describe('Card Article', () => {
     expect(link).toBeInTheDocument()
     expect(link.classList).toContain('button')
     expect(link.classList).toContain('button--primary')
-    expect(link.classList).not.toContain('forward-arrow-after')
+    expect(link.classList).not.toContain('forward-arrow-end-link')
   })
 
   test('Renders with icon class', () => {
