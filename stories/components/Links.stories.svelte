@@ -91,47 +91,60 @@
 
 <Story name="Normal" let:primary let:disableCss let:args let:disabled let:secondary>
   <div use:wrapInShadowDom={disableCss}>
-    <h1>Lenker</h1>
-    <p>Bruk alene:</p>
-    <Link linkText={primary} href="https://mattilsynet.no/" />
-    <hr />
-    <p>Bruk i text:</p>
-    <p>Les mer om <Link href="https://mattilsynet.no/" linkText={args.inText} /> her.</p>
-
-    <hr />
-    <h2>Tilbakelenke</h2>
-    <Link href="https://mattilsynet.no/" class="back-arrow" linkText="Tilbake" />
-
-    <hr />
-    <h2>Ankerlenke</h2>
-    <Link
-      href="https://mattilsynet.no/"
-      class="down-arrow"
-      linkText="Til innhold der nede ett sted" />
-
-    <hr />
-    <h2>Pdf lenke</h2>
-    <Link href="https://mattilsynet.no/some.pdf" class="document" linkText="thisIsAPdf" />
-    <Link
-      href="https://mattilsynet.no/some.pdf"
-      class="document"
-      linkText="thisIsAPdf"
-      fileName="thisIsAPdf.pdf" />
-    <hr />
-    <h2>Flere linjer</h2>
-    <div class="wrapper">
-      <Link href="#" class="inline-flex" linkText={args.cards[5].text} />
-    </div>
-    <hr />
-    <h2>Neste og forrig lenker</h2>
-    <ChapterNavigation
-      showChapterNumber={args.showChapterNumber}
-      chapters={args.chapters}
-      currentChapterIndex={currentChapterNumber}
-      on:chapterChange={chapterChange}
-      nextText="Neste"
-      previousText="Forrige"
-      class="chapter-navigation--bottom" />
+    <h1>Normale lenker</h1>
+    <article>
+      <h2>Bruk alene:</h2>
+      <p>
+        <Link linkText={primary} href="https://mattilsynet.no/" />
+      </p>
+    </article>
+    <article>
+      <h2>Bruk i text:</h2>
+      <p>Les mer om <Link href="https://mattilsynet.no/" linkText={args.inText} /> her.</p>
+    </article>
+    <article>
+      <h2>Tilbakelenke</h2>
+      <p>
+        <Link href="https://mattilsynet.no/" class="back-arrow" linkText="Tilbake" />
+      </p>
+    </article>
+    <article>
+      <h2>Ankerlenke</h2>
+      <p>
+        <Link
+          href="https://mattilsynet.no/"
+          class="down-arrow"
+          linkText="Til innhold der nede ett sted" />
+      </p>
+    </article>
+    <article>
+      <h2>Pdf lenke</h2>
+      <p>
+        <Link href="https://mattilsynet.no/some.pdf" class="document" linkText="thisIsAPdf" />
+        <Link
+          href="https://mattilsynet.no/some.pdf"
+          class="document"
+          linkText="thisIsAPdf"
+          fileName="thisIsAPdf.pdf" />
+      </p>
+    </article>
+    <article>
+      <h2>Flere linjer</h2>
+      <div class="wrapper">
+        <Link href="#" class="inline-flex" linkText={args.cards[5].text} />
+      </div>
+    </article>
+    <article>
+      <h2>Neste og forrig lenker (paginering)</h2>
+      <ChapterNavigation
+        showChapterNumber={args.showChapterNumber}
+        chapters={args.chapters}
+        currentChapterIndex={currentChapterNumber}
+        on:chapterChange={chapterChange}
+        nextText="Neste"
+        previousText="Forrige"
+        class="chapter-navigation--bottom" />
+    </article>
   </div>
 </Story>
 
@@ -163,7 +176,7 @@
   </div>
 </Story>
 
-<Story name="Lenke liste" let:cards let:disableCss let:disabled let:secondary>
+<Story name="Lenkeliste" let:cards let:disableCss let:disabled let:secondary>
   <div use:wrapInShadowDom={disableCss}>
     <h1>Lenkeliste</h1>
     <ul class="layout-grid list-unstyled">
@@ -176,7 +189,7 @@
   </div>
 </Story>
 
-<Story name="Dokument lenke" let:cards let:disableCss let:disabled let:secondary>
+<Story name="Dokumentlenke" let:cards let:disableCss let:disabled let:secondary>
   <div use:wrapInShadowDom={disableCss}>
     <h1>Dokumentlenker</h1>
     <ul class="layout-grid list-unstyled">
@@ -196,9 +209,24 @@
   </div>
 </Story>
 
-<Story name="Transport List" let:cards let:disableCss let:disabled let:secondary>
+<Story name="Transportlenker" let:disableCss let:smallLinks>
   <div use:wrapInShadowDom={disableCss}>
-    <h1>Transporlenkeliste</h1>
+    <h1>Transportlenker</h1>
+    <article>
+      <h2>Normal</h2>
+      <div class="layout-flex">
+        {#each smallLinks as link}
+          <a href={link.url} class="link--transport color--primary forward-arrow-end no-underline"
+            >{@html link.text}</a>
+        {/each}
+      </div>
+    </article>
+  </div>
+</Story>
+
+<Story name="Transportliste" let:cards let:disableCss let:disabled let:secondary>
+  <div use:wrapInShadowDom={disableCss}>
+    <h1>Transportlenkeliste</h1>
     <ul class="layout-grid list-unstyled transport-list">
       {#each cards as link}
         <li>
@@ -212,8 +240,8 @@
   </div>
 </Story>
 
-<Story name="Transport List sekundær" let:cards let:twoColumns let:disableCss let:disabled>
-  <h1 class="p-b-xs">Transporlenkeliste sekundær</h1>
+<Story name="Transportliste sekundær" let:cards let:twoColumns let:disableCss let:disabled>
+  <h1 class="p-b-xs">Transportlenkeliste sekundær</h1>
   <ul
     class="list-unstyled layout-grid layout-grid--column-12 space-between lines-between lines-top no-space-top"
     class:two-col={twoColumns}
@@ -230,7 +258,7 @@
   </ul>
 </Story>
 
-<Story name="Transport Card" let:cards let:icon let:disableCss let:disabled let:secondary>
+<Story name="Transportkort" let:cards let:icon let:disableCss let:disabled let:secondary>
   <div use:wrapInShadowDom={disableCss} class="container">
     <h1>Transportkort</h1>
     {#each cards as card, index}
@@ -278,5 +306,8 @@
     padding: 1rem;
     width: 20rem;
     border: 1px solid var(--color-mt-text-dark);
+  }
+  article {
+    margin: 1rem 0 3rem;
   }
 </style>

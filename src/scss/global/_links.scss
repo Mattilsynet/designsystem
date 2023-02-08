@@ -3,6 +3,9 @@
 @use '../theme' as *;
 @use '../color-tokens' as *;
 
+$transportlink-default-color: 'primary' !default;
+$transportlink-colors: 'error' !default;
+
 a {
   @include focus-outline();
   @include disabled;
@@ -132,8 +135,10 @@ a {
       }
     }
 
-    @media only screen and (min-width: $breakpoint-large) {
-      font-size: $transport-card-list-font-size;
+    &--large {
+      @media only screen and (min-width: $breakpoint-large) {
+        font-size: $transport-card-list-font-size;
+      }
     }
   }
 
@@ -328,6 +333,28 @@ a {
       @media only screen and (max-width: $breakpoint-large) {
         margin-left: var(--spacer-xx-small);
       }
+    }
+  }
+  &.link--transport {
+    --transportlink-background: var(--color-#{$transportlink-default-color});
+    --transportlink-color: var(--color-on-#{$transportlink-colors});
+    --outline-color: transparent;
+    --gap: 0.5rem;
+    --focus-box-shadow: 0 0 0 2px var(--color-mt-background),
+    0 0 0 0.35rem var(--color-mt-blue-medium);
+    --transportlink-padding: 0.875rem 1.5rem;
+
+    font-size: $font-size-body;
+    padding: var(--transportlink-padding);
+    border-radius: 0.25em;
+    background-color: var(--transportlink-background);
+    color: var(--transportlink-color);
+
+    &:focus {
+      border-color: var(--transportlink-background);
+    }
+    &:hover {
+      padding: var(--transportlink-padding);
     }
   }
 }
