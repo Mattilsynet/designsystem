@@ -42,7 +42,7 @@
       class:button={linkTypeButton}
       class:button--primary={linkTypeButton}
       class:self-start={linkTypeButton}
-      class:forward-arrow-after={!linkTypeButton}>
+      class:forward-arrow-end-link={!linkTypeButton}>
       {@html linkText}
     </a>
   {/if}

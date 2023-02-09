@@ -72,12 +72,14 @@
     ],
     showChapterNumber: true,
     secondary: 'Avbryt',
+    inText: 'mattilsynet',
     twoColumns: false,
     disabled: false,
     disableCss: false
   }}
   argTypes={{
     primary: {control: 'text'},
+    inText: {control: 'text'},
     cards: {control: 'array'},
     chapters: {control: 'array'},
     smallLinks: {control: 'array'},
@@ -94,7 +96,7 @@
     <Link linkText={primary} href="https://mattilsynet.no/" />
     <hr />
     <p>Bruk i text:</p>
-    <p>Les mer om <Link href="https://mattilsynet.no/" linkText="mattilsynet" /> her.</p>
+    <p>Les mer om <Link href="https://mattilsynet.no/" linkText={args.inText} /> her.</p>
 
     <hr />
     <h2>Tilbakelenke</h2>
@@ -115,6 +117,11 @@
       class="document"
       linkText="thisIsAPdf"
       fileName="thisIsAPdf.pdf" />
+    <hr />
+    <h2>Flere linjer</h2>
+    <div class="wrapper">
+      <Link href="#" class="inline-flex" linkText={args.cards[5].text} />
+    </div>
     <hr />
     <h2>Neste og forrig lenker</h2>
     <ChapterNavigation
@@ -265,3 +272,11 @@
     {/each}
   </div>
 </Story>
+
+<style>
+  .wrapper {
+    padding: 1rem;
+    width: 20rem;
+    border: 1px solid var(--color-mt-text-dark);
+  }
+</style>

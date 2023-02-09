@@ -135,7 +135,7 @@
 <Story name="Normal" let:title let:disableCss let:args let:disableJs>
   <header use:wrapInShadowDom={disableCss}>
     <div class="container header header--regular">
-      <a href="https://mattilsynet.no/">
+      <a href="https://mattilsynet.no/" class="fit-content">
         <svg viewBox="0 0 184 36" fill="none" xmlns="http://www.w3.org/2000/svg">
           <title>Gå til forsiden</title>
           <path

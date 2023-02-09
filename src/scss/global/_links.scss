@@ -12,6 +12,14 @@ a {
   border-radius: var(--border-radius-small);
   padding: var(--border-width-regular);
   line-height: 1.75rem;
+  min-width: $minimum-click-width;
+
+  &.inline-flex {
+    display: inline-flex;
+  }
+  &.fit-content {
+    width: fit-content;
+  }
 
   &:hover {
     text-decoration: none;
@@ -60,7 +68,7 @@ a {
   }
   &.back-arrow {
     display: flex;
-    align-items: center;
+    width: fit-content;
     color: var(--color-links);
     &::before {
       content: url('data:image/svg+xml,%3Csvg%20width%3D%228%22%20height%3D%2212%22%20fill%3D%22%23075A78%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M7.41%201.41L6%200%200%206l6%206%201.41-1.41L2.83%206l4.58-4.59z%22%2F%3E%3C%2Fsvg%3E');
@@ -71,7 +79,7 @@ a {
   }
 
   &.down-arrow {
-    display: flex;
+    display: inline-flex;
 
     &::before {
       content: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE1Ljg3MyA3Ljk5OTk3TDE0LjQ4NTQgNi42MTIzNUw4Ljk4NDE2IDEyLjEwMzhMOC45ODQxNiAwLjEyNjk1M0w3LjAxNTkgMC4xMjY5NTNMNy4wMTU5IDEyLjEwMzhMMS41MTQ2NCA2LjYxMjM1TDAuMTI3MDE3IDcuOTk5OTdMOC4wMDAwMyAxNS44NzNMMTUuODczIDcuOTk5OTdaIiBmaWxsPSIjMDc1QjdBIi8+Cjwvc3ZnPgo=');
@@ -130,9 +138,9 @@ a {
   }
 
   &.forward-arrow-end-link {
+    display: inline-flex;
     font-size: $font-size-body;
     transition: padding-left ease-in-out 150ms;
-    display: block;
     &:hover {
       text-decoration: none;
       padding-left: var(--spacer-xxx-small);
