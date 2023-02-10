@@ -113,8 +113,6 @@ ol {
     border-top: $border-width-small solid var(--color-mt-beige-50);
     margin-top: 0;
     padding: var(--spacer-small);
-    justify-content: space-between;
-    align-content: center;
     &:last-child{
       border-bottom: var(--border-width-small) solid var(--color-mt-beige-50);
     }
