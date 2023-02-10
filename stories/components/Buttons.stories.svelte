@@ -46,6 +46,9 @@
     <p class="description">Flat med icon - stor</p>
     <button class="button button--flat closable">Med ikon</button>
 
+    <p class="description">Flat med icon på venstre side</p>
+    <button class="button button--flat icon-search-before">Søk</button>
+
     <p class="description">På blå - stor</p>
     <div class="background-mt-blue p-xxs">
       <buttton type="button" class="button button--on-primary">{primary}</buttton>

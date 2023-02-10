@@ -29,6 +29,7 @@
     | {value: 'closed'; context: DropdownContext}
 
   const DropdownMachine = createMachine<DropdownContext, DropdownEvent, DropdownState>({
+    predictableActionArguments: true,
     id: 'dropdown',
     initial: 'serverRendered',
     context: {

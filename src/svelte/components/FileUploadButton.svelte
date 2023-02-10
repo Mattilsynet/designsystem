@@ -32,6 +32,7 @@
     | {value: 'selected'; context: Context}
 
   const disclosureMachine = createMachine<Context, FileUploadEvent, FileUploadButtonState>({
+    predictableActionArguments: true,
     id: 'fileUpload',
     initial: 'serverRendered',
     context: {

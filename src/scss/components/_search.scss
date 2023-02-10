@@ -1,0 +1,23 @@
+.search-wrap {
+  display: flex;
+
+  .input-search.shareSpace {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: 0 none;
+    margin: 0;
+    &:focus {
+      z-index: 2;
+    }
+  }
+
+  .button-search.shareSpace {
+    flex: content;
+    margin: 0;
+    width: auto;
+    background-color: var(--color-mt-white);
+    color: var(--color-mt-blue-medium);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}

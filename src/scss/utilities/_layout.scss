@@ -72,6 +72,10 @@
     }
   }
 
+  &--no-wrap {
+    flex-wrap: nowrap;
+  }
+
   @media only screen and (min-width: $breakpoint-large) {
     &--basis-3 {
       > * {
