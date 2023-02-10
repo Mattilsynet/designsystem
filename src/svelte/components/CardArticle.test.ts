@@ -18,7 +18,7 @@ describe('Card Article', () => {
            </ul>`,
     linkUrl: 'http://',
     linkText: 'Lenke til skjema',
-    linkTypeButton: false,
+    linkTypeTransport: false,
     disableCss: false,
     headerTag: undefined,
     type: ''
@@ -71,19 +71,19 @@ describe('Card Article', () => {
     const {getByText} = render(CardArticle, {props: componentOptions})
     const link = getByText('Lenke til skjema')
     expect(link).toBeInTheDocument()
-    expect(link.classList).not.toContain('button')
-    expect(link.classList).not.toContain('button--primary')
-    expect(link.classList).toContain('forward-arrow-end-link')
+    expect(link.classList).not.toContain('link--transport')
+    expect(link.classList).not.toContain('color--primary')
+    expect(link.classList).not.toContain('forward-arrow-end')
   })
 
   test('Link - button link type contains correct classes', () => {
-    componentOptions.linkTypeButton = true
+    componentOptions.linkTypeTransport = true
     const {getByText} = render(CardArticle, {props: componentOptions})
     const link = getByText('Lenke til skjema')
     expect(link).toBeInTheDocument()
-    expect(link.classList).toContain('button')
-    expect(link.classList).toContain('button--primary')
-    expect(link.classList).not.toContain('forward-arrow-end-link')
+    expect(link.classList).toContain('link--transport')
+    expect(link.classList).toContain('color--primary')
+    expect(link.classList).toContain('forward-arrow-end')
   })
 
   test('Renders with icon class', () => {
