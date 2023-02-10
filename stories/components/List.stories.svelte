@@ -1,7 +1,6 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf'
-
-  import Tags from '../../src/svelte/components/Tags.svelte'
+  import {wrapInShadowDom} from '../utils'
 </script>
 
 <Meta
@@ -40,13 +39,15 @@
     disableCss: {control: 'boolean'}
   }} />
 
-<Story name="Normal" let:args let:disableCss let:disabled let:secondary let:colorScheme>
-  <h1>Dokument liste</h1>
-  <ol class="list list-unstyled">
-    {#each args.content as item}
-      <li class="layout-flex layout-flex--no-wrap layout-flex--space-between">
-        <a href={item.url}>{item.displayName}</a>
-      </li>
-    {/each}
-  </ol>
+<Story name="Normal" let:args let:disableCss>
+  <div use:wrapInShadowDom={args.disableCss}>
+    <h1>Dokument liste</h1>
+    <ol class="list list-unstyled">
+      {#each args.content as item}
+        <li class="layout-flex layout-flex--no-wrap layout-flex--space-between">
+          <a href={item.url}>{item.displayName}</a>
+        </li>
+      {/each}
+    </ol>
+  </div>
 </Story>
