@@ -262,4 +262,8 @@ $button-colors: 'error' !default;
     }
   }
 }
+
+.color--primary {
+  @extend .button--primary;
+}
 // stylelint-enable

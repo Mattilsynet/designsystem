@@ -8,7 +8,7 @@
   export let text: string | undefined
   export let linkUrl: string | undefined
   export let linkText: string | undefined
-  export let linkTypeButton = true
+  export let linkTypeTransport: boolean | undefined
   export let type: 'task' | 'form-intro-module' | 'legal-text' | 'highlighted-link' | '' = ''
   export let headerTag: 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | undefined = 'h3' // Fallback is h3
   export let iconClass: 'info-icon' | 'warning-icon' | 'task-icon' | '' =
@@ -36,14 +36,16 @@
   {/if}
 
   {#if linkUrl && linkText}
-    <a
-      href={linkUrl}
-      rel={mapRelExternal(linkUrl)}
-      class:button={linkTypeButton}
-      class:button--primary={linkTypeButton}
-      class:self-start={linkTypeButton}
-      class:forward-arrow-end-link={!linkTypeButton}>
-      {@html linkText}
-    </a>
+    <p>
+      <a
+        href={linkUrl}
+        rel={mapRelExternal(linkUrl)}
+        class:link--transport={linkTypeTransport}
+        class:color--primary={linkTypeTransport}
+        class:forward-arrow-end={linkTypeTransport}
+        class:no-underline={linkTypeTransport}>
+        {@html linkText}
+      </a>
+    </p>
   {/if}
 </article>
