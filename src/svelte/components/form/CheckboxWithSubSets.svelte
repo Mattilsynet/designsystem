@@ -1,8 +1,8 @@
 <script lang="ts">
   import {slide} from 'svelte/transition'
   import {createInputAriaDescribedby} from '../../../ts/utils'
-  import {CheckboxWithSubSectionsOptions} from '../../../ts/types.d.ts'
   import {onMount} from 'svelte'
+  import type {CheckboxWithSubSectionsOptions} from '../../../ts/types'
 
   export let params: Record<string, string> = {}
   export let name: string
