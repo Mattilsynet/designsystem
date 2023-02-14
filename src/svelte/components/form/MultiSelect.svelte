@@ -32,10 +32,12 @@
   let selected: MultiSelectOption | object = {}
   let listBox: HTMLUListElement
 
-  const ENTER: Readonly<number> = 13
-  const ESCAPE: Readonly<number> = 27
-  const UP_ARROW: Readonly<number> = 38
-  const DOWN_ARROW: Readonly<number> = 40
+  const ENTER: Readonly<string> = 'Enter'
+  const ESCAPE: Readonly<string> = 'Escape'
+  const END: Readonly<string> = 'End'
+  const HOME: Readonly<string> = 'Home'
+  const UP_ARROW: Readonly<string> = 'ArrowUp'
+  const DOWN_ARROW: Readonly<string> = 'ArrowDown'
   const selectId = `ui-select-${instanceCounter++}`
 
   onMount(() => {
@@ -126,33 +128,51 @@
   function handleKeyup(e: KeyboardEvent): void {
     e.stopPropagation()
     optionsVisibility(true)
-    if (e.keyCode === ENTER) {
-      if (Object.keys(selected).includes(activeOption.value)) {
-        remove(activeOption.value)
-      } else {
-        add(activeOption)
+    switch (e.key) {
+      case ENTER: {
+        if (!activeOption) {
+          break
+        }
+        if (Object.keys(selected).includes(activeOption.value)) {
+          remove(activeOption.value)
+        } else {
+          add(activeOption)
+        }
+        inputValue = ''
+        break
       }
-      inputValue = ''
-    } else if (e.keyCode === ESCAPE) {
-      optionsVisibility(false)
-    }
-    if ([DOWN_ARROW, UP_ARROW].includes(e.keyCode)) {
-      // up and down arrows
-      const increment = e.keyCode === UP_ARROW ? -1 : 1
-      const calcIndex = filtered.indexOf(activeOption) + increment
+      case ESCAPE: {
+        optionsVisibility(false)
+        inputValue = ''
+        break
+      }
+      case DOWN_ARROW:
+      case UP_ARROW: {
+        // up and down arrows
+        const increment = e.key === UP_ARROW ? -1 : 1
+        const calcIndex = filtered.indexOf(activeOption) + increment
 
-      activeOption = calculateActiveOption(calcIndex, filtered)
+        activeOption = calculateActiveOption(calcIndex, filtered)
 
-      const activeIndex = calcActiveIndex(calcIndex, filtered.length)
-      maintainScrollVisibility(listBox.children[activeIndex], listBox)
+        const activeIndex = calcActiveIndex(calcIndex, filtered.length)
+        maintainScrollVisibility(listBox.children[activeIndex], listBox)
+        break
+      }
+      case END:
+      case HOME: {
+        const index = e.key === HOME ? 0 : filtered.length - 1
+        activeOption = filtered[index]
+        maintainScrollVisibility(listBox.children[index], listBox)
+        break
+      }
     }
   }
 
-  function handleBlur(_): void {
+  function handleBlur(): void {
     optionsVisibility(false)
   }
 
-  function handleTokenClick(_): void {
+  function handleTokenClick(): void {
     optionsVisibility(true)
   }
 
@@ -161,7 +181,7 @@
   }
 
   function handleRemoveItemKeyDown(e: KeyboardEvent, value): void {
-    if (e.keyCode === ENTER) {
+    if (e.key === ENTER) {
       remove(value)
     }
   }
@@ -218,13 +238,7 @@
   </div>
 {/if}
 
-<div
-  class="multiselect"
-  class:readonly
-  role="combobox"
-  aria-owns="list"
-  aria-haspopup="listbox"
-  aria-expanded={showOptions}>
+<div class="multiselect" class:readonly>
   <div class="actions" on:click|preventDefault={handleTokenClick} on:blur={handleBlur}>
     {#if !readonly}
       <input
@@ -234,8 +248,11 @@
         bind:this={input}
         on:keyup={handleKeyup}
         on:blur={handleBlur}
+        type="text"
+        role="combobox"
         data-testid="multiselect-input"
         aria-autocomplete="list"
+        aria-expanded={showOptions}
         aria-controls="list"
         aria-activedescendant={activeOption
           ? `${selectId}-${activeOption.value}-${activeOptionIndex}`
