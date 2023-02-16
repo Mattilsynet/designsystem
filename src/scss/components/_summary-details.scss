@@ -14,7 +14,7 @@
 .with-bold {
   & summary {
     font-weight: $font-weight-bold;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     h2,
     h3,
@@ -30,7 +30,7 @@
 
 .with-icon {
   & summary {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     &::before {
       // blue sircle with § inside icon
