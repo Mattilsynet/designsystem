@@ -228,16 +228,16 @@
 <input type="text" value={values} {name} class="hidden" />
 
 {#if helpText}
-  <div id={`${name}-hint`} class="hint">
+  <div id={`${name}-hint`} class="hint m-t-xxs">
     {@html helpText}
   </div>
 {/if}
 
 {#if error}
-  <InputError {...error} {hiddenErrorText} />
+  <InputError {...error} {hiddenErrorText} class="m-t-xxs" />
 {/if}
 
-<div class="multiselect" class:readonly>
+<div class="multiselect m-t-xxs" class:readonly>
   <div class="actions" on:click|preventDefault={handleTokenClick} on:blur={handleBlur}>
     {#if !readonly}
       <input
