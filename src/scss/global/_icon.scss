@@ -6,15 +6,15 @@ $icon-search-black: url('data:image/svg+xml,%3Csvg%20width%3D%2220%22%20height%3
 
 $icon-gap: var(--spacer-xxx-small);
 
-.icon-inline {
-  display: inline-flex;
+.icon-align {
+  display: flex;
   align-items: center;
   gap: $icon-gap;
 }
 
 .icon {
   &--figma {
-    @extend .icon-inline;
+    @extend .icon-align;
     &:before {
       background-image: $icon-figma;
       padding-right: var(--icon-size-normal);
@@ -26,7 +26,7 @@ $icon-gap: var(--spacer-xxx-small);
     }
   }
   &--github {
-    @extend .icon-inline;
+    @extend .icon-align;
     &:before {
       background-image: $icon-github;
       padding-right: var(--icon-size-normal);
@@ -39,7 +39,7 @@ $icon-gap: var(--spacer-xxx-small);
   }
 
   &--list-checkmark-before {
-    @extend .icon-inline;
+    @extend .icon-align;
 
     &:before {
       background-image: $icon-list-checkmark;
@@ -53,7 +53,7 @@ $icon-gap: var(--spacer-xxx-small);
   }
 
   &--search-before {
-    @extend .icon-inline;
+    @extend .icon-align;
     &:before {
       background-image: $icon-search-blue-medium;
       content: '';
@@ -65,7 +65,7 @@ $icon-gap: var(--spacer-xxx-small);
     }
   }
   &--search-after {
-    @extend .icon-inline;
+    @extend .icon-align;
     &:after {
       display: block;
       background-image: $icon-search-black;

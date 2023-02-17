@@ -21,7 +21,7 @@
       <h2>Liste hake</h2>
       <ul class="list-unstyled">
         <li class="icon--list-checkmark-before">nummer en</li>
-        <li><a href="" class="icon--list-checkmark-before">nummer to</a></li>
+        <li><a href="" class="icon--list-checkmark-before fit-content">nummer to</a></li>
       </ul>
     </section>
   </div>
