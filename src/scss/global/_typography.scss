@@ -174,3 +174,6 @@ strong {
 .text {
   @include xp-html-area;
 }
+.children-spaced-xxs {
+  @include children-spaced(var(--spacer-xx-small));
+}
