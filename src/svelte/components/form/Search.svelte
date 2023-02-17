@@ -36,7 +36,8 @@
   {#if searchButtonText}
     <button
       type="submit"
-      class="button button--flat form-field button-search shareSpace icon-search-before"
-      >{searchButtonText}</button>
+      class="button button--flat form-field button-search shareSpace icon--search-before">
+      {searchButtonText}
+    </button>
   {/if}
 </div>

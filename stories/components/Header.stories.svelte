@@ -188,7 +188,7 @@
       </Dropdown>
       <Link
         href="#"
-        class="dropdown button button--link button__small-text layout-flex layout-flex--center-vertical no-underline icon-search"
+        class="dropdown button button--link button__small-text layout-flex layout-flex--center-vertical no-underline icon--search-after"
         style="--wrap: none; --gap: var(--spacer-xxx-small)"
         linkText={args.search.linkText} />
       <Dropdown
