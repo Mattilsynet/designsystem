@@ -199,10 +199,6 @@
 
 <Label for={`${name}-input`} {isRequired} {textOptional}>{label}</Label>
 
-{#if error}
-  <InputError {...error} {hiddenErrorText} />
-{/if}
-
 <div
   id="{selectId}-selected-label"
   class="text-small token-label"
@@ -220,7 +216,6 @@
         type="button"
         class="button button--flat button--small closable token"
         data-id={selectedOption.value}
-        aria-describedby="{selectId}-remove"
         aria-label={selectedOption.removeAriaLabel}
         on:keydown={e => handleRemoveItemKeyDown(e, selectedOption.value)}
         on:click|preventDefault={e => handleRemoveItem(e, selectedOption.value)}>
@@ -236,6 +231,10 @@
   <div id={`${name}-hint`} class="hint">
     {@html helpText}
   </div>
+{/if}
+
+{#if error}
+  <InputError {...error} {hiddenErrorText} />
 {/if}
 
 <div class="multiselect" class:readonly>
