@@ -3,6 +3,7 @@
   import Select from '../../../src/svelte/components/form/Select.svelte'
   import MultiSelect from '../../../src/svelte/components/form/MultiSelect.svelte'
   import {wrapInShadowDom} from '../../utils'
+  import ResourceList from '../storybook-utils/ResourceList.svelte'
 
   let value = []
 
@@ -45,6 +46,7 @@
         {value: 'DE', text: 'Tyskland', removeAriaLabel: 'Fjern Tyskland fra listen'}
       ],
       label: 'Hvilke land har du vært i?',
+      error: '',
       tagsLabel: 'Land du skal besøke:',
       helpText: 'Legg til landene du har vært i før dere kom til Norge.',
       isRequired: true
@@ -77,24 +79,40 @@
 
 <Story name="Velg fler" let:args let:disableCss>
   <div use:wrapInShadowDom={disableCss}>
-    <form
-      on:keyup|preventDefault={handleFormKeyUp}
-      on:keydown|stopPropagation={handleFormKeyDown}
-      on:submit|preventDefault={handleSubmit}>
-      <MultiSelect
-        options={args.multiselect.options}
-        preferredOptions={args.multiselect.preferredOptions}
-        label={args.multiselect.label}
-        name="multi-select"
-        bind:values={value}
-        tagsLabel={args.multiselect.tagsLabel}
-        isRequired={args.multiselect.isRequired}
-        helpText={args.multiselect.helpText} />
-      <button type="submit" class="button">Submit</button>
-      <p>
-        Values:
-        {JSON.stringify(value, null, 2)}
-      </p>
-    </form>
+    <h1>Flervalg</h1>
+    <ResourceList
+      figmaUrl="https://www.figma.com/file/dp856nY6joVcAUSVSmPSRO/MT-Eksternt-Designsystem?node-id=1871%3A5152&t=3fZ5xL2MGOLfFwqv-4"
+      githubUrl="https://github.com/Mattilsynet/designsystem/blob/main/src/svelte/components/form/MultiSelect.svelte" />
+    <section>
+      <h2>Normal</h2>
+      <form
+        on:keyup|preventDefault={handleFormKeyUp}
+        on:keydown|stopPropagation={handleFormKeyDown}
+        on:submit|preventDefault={handleSubmit}>
+        <MultiSelect
+          options={args.multiselect.options}
+          preferredOptions={args.multiselect.preferredOptions}
+          label={args.multiselect.label}
+          error={args.multiselect.error !== ''
+            ? {key: 'multi-select', message: args.multiselect.error}
+            : undefined}
+          name="multi-select"
+          bind:values={value}
+          tagsLabel={args.multiselect.tagsLabel}
+          isRequired={args.multiselect.isRequired}
+          helpText={args.multiselect.helpText} />
+        <button type="submit" class="button">Submit</button>
+        <p>
+          Values:
+          {JSON.stringify(value, null, 2)}
+        </p>
+      </form>
+    </section>
   </div>
 </Story>
+
+<style>
+  h2 {
+    margin-top: var(--spacer-small);
+  }
+</style>
