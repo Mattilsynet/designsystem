@@ -16,7 +16,13 @@
     <h1>Ikoner</h1>
     <section class="layout-flex layout-flex-col">
       <h2>Søk</h2>
-      <span class="icon-search" />
+      <span class="icon--search-after">Søk</span>
+
+      <h2>Liste hake</h2>
+      <ul class="list-unstyled">
+        <li class="icon--list-checkmark-before">nummer en</li>
+        <li><a href="" class="icon--list-checkmark-before fit-content">nummer to</a></li>
+      </ul>
     </section>
   </div>
 </Story>
@@ -26,7 +32,7 @@
     --gap: none;
     margin-top: 2rem;
   }
-  .icon-search {
+  .icon--search-after {
     margin: 1rem;
   }
 </style>
