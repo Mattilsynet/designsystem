@@ -72,7 +72,7 @@
     "stylelint-config-prettier": "^9.0.4",
     "stylelint-config-standard": "^29.0.0",
     "stylelint-order": "^6.0.2",
-    "stylelint-scss": "^4.3.0",
+    "stylelint-scss": "^4.4.0",
     "svelte": "^3.55.1",
     "svelte-jester": "^2.3.2",
     "svelte-loader": "^3.1.4",
