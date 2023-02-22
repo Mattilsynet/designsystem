@@ -1,6 +1,6 @@
 module.exports = {
   // source: ["src/index.js", "src/**/*.json"],
-  source: ["./src/*.json"],
+  source: ["../src/*.json"],
   platforms: {
     scss: {
       transformGroup: "scss",
