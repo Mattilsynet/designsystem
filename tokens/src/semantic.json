@@ -1,0 +1,14 @@
+{
+  "mt": {
+    "color": {
+      "primary": {
+        "value": "{mt.colors.blue.700}",
+        "type": "color"
+      },
+      "secondary": {
+        "value": "{mt.colors.beige.500}",
+        "type": "color"
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "mt": {
+    "border-radius": {
+      "default": {
+        "value": "8",
+        "type": "borderRadius"
+      },
+      "small": {
+        "value": "4",
+        "type": "borderRadius"
+      },
+      "large": {
+        "value": "16",
+        "type": "borderRadius"
+      }
+    }
+  }
+}
