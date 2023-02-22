@@ -129,6 +129,7 @@
   class:error
   class:inclusively-hidden-fixed={!onServer}
   aria-describedby={createInputAriaDescribedby(name, error)}
+  aria-details="{name}-details"
   aria-invalid={!!error}
   on:change={e => send({type: 'FILE_SELECTED', fileNames: getFileNames(e.target)})}
   aria-required={isRequired || undefined} />
