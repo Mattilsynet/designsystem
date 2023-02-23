@@ -4,7 +4,7 @@ module.exports = {
   platforms: {
     scss: {
       transformGroup: "scss",
-      buildPath: "dist/",
+      buildPath: "../build/",
       files: [
         {
           destination: "tokens.scss",
@@ -14,7 +14,7 @@ module.exports = {
     },
     css: {
       transformGroup: "css",
-      buildPath: "dist/",
+      buildPath: "../build/",
       files: [
         {
           destination: "tokens.css",
