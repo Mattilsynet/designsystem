@@ -4,8 +4,7 @@
   "description": "Mattilsynet design tokens",
   "main": "build/tokens.css",
   "files": [
-    "/build",
-    "/src"
+    "/build"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
