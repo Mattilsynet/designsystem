@@ -56,6 +56,10 @@
   flex-wrap: var(--wrap);
   gap: var(--gap);
 
+  &--inline {
+    display: inline-flex;
+  }
+
   &--space-between {
     justify-content: space-between;
   }
