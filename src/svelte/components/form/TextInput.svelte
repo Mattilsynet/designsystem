@@ -4,6 +4,7 @@
   import type {AutocompleteType, ErrorDetail, InputModeType} from '../../../ts/types'
   import {createInputAriaDescribedby} from '../../../ts/utils'
   import Label from './Label.svelte'
+  import {slide} from 'svelte/transition'
 
   export let value
   export let name: string
@@ -16,12 +17,12 @@
   export let textOptional: string | undefined
   export let showOptionalText: boolean
   export let hiddenErrorText: string | undefined
-
   export let maxlength: number | undefined
   export let placeholder: string | undefined
   export let isRequired: boolean | undefined = undefined
   export let inputmode: InputModeType | undefined
   export let autocomplete: AutocompleteType | undefined
+  export let hasTransition = false
 
   export let inputClass = ''
   export let isHorizontal = false
@@ -36,7 +37,9 @@
 </script>
 
 {#if isHorizontal}
-  <div class="input-horizontal" style="--gap:var(--spacer-xxx-small)">
+  <div class="input-horizontal" style="--gap:var(--spacer-xxx-small)"
+       in:slide={{duration: hasTransition ? 300 : 0}}
+       out:slide={{duration: hasTransition ? 300 : 0}}>
     {#if error}
       <InputError {...error} {hiddenErrorText} />
     {/if}
