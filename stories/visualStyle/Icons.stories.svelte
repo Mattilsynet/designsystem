@@ -21,6 +21,7 @@
       <h2>Liste hake</h2>
       <ul class="list-unstyled">
         <li class="icon--list-checkmark-before">nummer en</li>
+        <li class="icon--list-checkmark-before">dette er en lengre tekst over to linjer</li>
         <li><a href="" class="icon--list-checkmark-before fit-content">nummer to</a></li>
       </ul>
     </section>
@@ -28,6 +29,9 @@
 </Story>
 
 <style lang="scss">
+  li:nth-child(2) {
+    width: 10rem;
+  }
   .layout-flex-col {
     --gap: none;
     margin-top: 2rem;

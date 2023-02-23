@@ -10,6 +10,9 @@ $icon-gap: var(--spacer-xxx-small);
   display: flex;
   align-items: center;
   gap: $icon-gap;
+  &--baseline {
+    align-items: baseline;
+  }
 }
 
 .icon {
@@ -39,7 +42,7 @@ $icon-gap: var(--spacer-xxx-small);
   }
 
   &--list-checkmark-before {
-    @extend .icon-align;
+    @extend .icon-align, .icon-align--baseline;
 
     &:before {
       background-image: $icon-list-checkmark;
