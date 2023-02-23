@@ -1,7 +1,7 @@
 {
-  "name": "tokens",
+  "name": "mt-tokens",
   "version": "0.0.1",
-  "description": "Mattilsynet desing tokens",
+  "description": "Mattilsynet design tokens",
   "main": "build/tokens.css",
   "files": [
     "/build",
