@@ -27,7 +27,7 @@
     grid-template-columns: repeat(12, minmax(0, 1fr));
     gap: 0;
 
-    //grid-auto-rows: min-content;
+    grid-auto-rows: min-content;
 
     .col-1-span-5,
     .col-1-span-6,
