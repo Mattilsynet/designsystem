@@ -3,7 +3,6 @@
 </script>
 
 <script lang="ts">
-  import {slide} from 'svelte/transition'
   import type {InputProps, ErrorDetail} from '../../../ts/types'
   import {createInputAriaDescribedby, interpolate} from '../../../ts/utils'
   import TextInput from './TextInput.svelte'
@@ -102,16 +101,17 @@
     {/each}
 
     {#if loadJs}
-      <div class="expand-wrapper">
+      {#if insides.length > 0}
         <button
           type="button"
-          class="button button--flat button--small expandable self-start {showMore
-            ? 'm-t-xxs'
-            : ''}"
+          class="button button--flat button--small expandable self-start"
+          class:m-t-xxs={showMore}
           aria-expanded={showMore}
           aria-controls={bodyId}
           aria-label={createAriaLabel(showMore)}
-          on:click|preventDefault={() => (showMore = !showMore)}>
+          on:click|preventDefault={() => (showMore = !showMore)}
+          style="order: {insides.length + outsides.length};"
+        >
           {#if showMore}
             {@html collapsableText}
           {:else}
@@ -119,36 +119,6 @@
           {/if}
         </button>
         {#if showMore}
-          <div
-            id={bodyId}
-            class="collapsable-input-list"
-            in:slide={{duration: 300}}
-            out:slide={{duration: 300}}>
-            {#each insides as inside}
-              <TextInput
-                name={inside.name}
-                label={inside.label}
-                bind:value={values[inside.name]}
-                helpText={inside.helpText}
-                inputmode={inside.inputmode}
-                isRequired={inside.isRequired}
-                placeholder={inside.placeholder}
-                autocomplete={inside.autocomplete}
-                error={inside.error}
-                isHorizontal={true}
-                {showOptionalText}
-                labelClass="text-body"
-                inputClass="form-field--small form-field--small-width" />
-            {/each}
-          </div>
-        {/if}
-      </div>
-    {:else}
-      <details bind:open={showMore}>
-        <summary>
-          {@html expandableText}
-        </summary>
-        <div class="collapsable-input-list-grid collapsable-input-list">
           {#each insides as inside}
             <TextInput
               name={inside.name}
@@ -161,6 +131,32 @@
               autocomplete={inside.autocomplete}
               error={inside.error}
               isHorizontal={true}
+              hasTransition={true}
+              {showOptionalText}
+              labelClass="text-body"
+              inputClass="form-field--small form-field--small-width" />
+          {/each}
+        {/if}
+      {/if}
+    {:else}
+      <details bind:open={showMore}>
+        <summary>
+          {@html expandableText}
+        </summary>
+        <div class="collapsable-input-list">
+          {#each insides as inside}
+            <TextInput
+              name={inside.name}
+              label={inside.label}
+              bind:value={values[inside.name]}
+              helpText={inside.helpText}
+              inputmode={inside.inputmode}
+              isRequired={inside.isRequired}
+              placeholder={inside.placeholder}
+              autocomplete={inside.autocomplete}
+              error={inside.error}
+              isHorizontal={true}
+              hasTransition={true}
               {showOptionalText}
               labelClass="text-body"
               inputClass="form-field--small form-field--small-width" />
