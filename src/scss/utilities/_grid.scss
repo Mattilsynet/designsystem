@@ -29,23 +29,33 @@
 
     grid-auto-rows: min-content;
 
+    .col-1-span-3,
+    .col-1-span-4,
     .col-1-span-5,
     .col-1-span-6,
+    .col-1-span-7,
     .col-1-span-8,
+    .col-1-span-9,
     .col-1-span-10,
-    .col-7-span-5,
-    .col-7-span-6,
-    .col-10-span-3,
-    .col-4-span-6,
-    .col-4-span-7,
-    .col-3-span-6,
-    .col-3-span-7,
-    .col-3-span-8,
+    .col-1-span-12,
     .col-2-span-4,
     .col-2-span-7,
     .col-2-span-9,
     .col-2-span-10,
-    .col-1-span-12 {
+    .col-3-span-6,
+    .col-3-span-7,
+    .col-3-span-8,
+    .col-4-span-6,
+    .col-4-span-7,
+    .col-4-span-9,
+    .col-5-span-8,
+    .col-6-span-7,
+    .col-7-span-5,
+    .col-7-span-6,
+    .col-8-span-4,
+    .col-9-span-3,
+    .col-10-span-2,
+    .col-10-span-3 {
       grid-column: span 12;
     }
 
@@ -81,9 +91,6 @@
       .col-1-span-12 {
         grid-column: span 12;
       }
-      .col-3-span-6 {
-        grid-column: 3 / span 6;
-      }
       .col-2-span-4 {
         grid-column: 2 / span 4;
       }
@@ -95,6 +102,9 @@
       }
       .col-2-span-10 {
         grid-column: 2 / span 10;
+      }
+      .col-3-span-6 {
+        grid-column: 3 / span 6;
       }
       .col-3-span-7 {
         grid-column: 3 / span 7;
@@ -140,13 +150,13 @@
 
   }
   &.gap-small {
-    gap: 1rem;// var(--spacer-xx-small);
+    gap: var(--spacer-small);
   }
   &.gap-medium {
-    gap: 4rem; //var(--spacer-x-small);
+    gap: var(--spacer-medium);
   }
   &.gap-large {
-    gap:8rem; //var(--spacer-small);
+    gap: var(--spacer-large);
   }
 
   &--auto-fit {
