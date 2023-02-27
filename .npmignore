@@ -13,5 +13,6 @@ tsconfig.json
 .storybook
 stories
 src/**/*.md
+mt-kit
 *.cjs
 *.tgz
