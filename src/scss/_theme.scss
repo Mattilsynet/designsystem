@@ -1,5 +1,5 @@
 @use 'color-tokens' as *;
-@use "../../tokens/build/tokens" as *;
+@use "mt-kit/core/tokens/build/tokens" as *;
 $border-width-small: $mt-border-width-small;
 $border-width-regular: $mt-border-width-default;
 $border-width-large: $mt-border-width-large;
