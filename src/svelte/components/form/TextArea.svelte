@@ -1,15 +1,18 @@
+<!--suppress XmlDuplicatedId -->
 <script lang="ts">
   import InputError from './InputErrorMessage.svelte'
-  import {countCharacters} from '../../../ts/count-characters'
+  import {countCharacters, errorOnTooManyCharacters} from '../../../ts/count-characters'
   import {createInputAriaDescribedby} from '../../../ts/utils'
   import type {AutocompleteType, ErrorDetail, InputModeType} from '../../../ts/types'
   import Label from './Label.svelte'
+
   export let value
   export let name: string
   export let label: string
   export let labelClass = ''
   export let countCharactersLeftLabel: string | undefined
   export let countCharactersTooManyLabel: string | undefined
+  export let tooManyCharactersErrorText = 'Teksten er for lang'
   export let error: ErrorDetail | undefined
   export let helpText: string | undefined
   export let textOptional: string | undefined
@@ -49,10 +52,14 @@
   <InputError {...error} {hiddenErrorText} />
 {/if}
 
+<!--suppress CheckEmptyScriptTag -->
 <textarea
   id={name}
   {name}
   use:countCharacters={countCharsParams}
+  on:input={e => {
+    error = errorOnTooManyCharacters(e, countCharsParams, name, tooManyCharactersErrorText)
+  }}
   class="form-field {textAreaClass}"
   bind:value
   bind:this={textAreaRef}

@@ -27,6 +27,7 @@
       }
     ],
     countCharactersLeftLabel: 'karakterer igjen',
+    tooManyCharactersErrorText: 'For lang tekst',
     disableCss: false
   }}
   argTypes={{
@@ -35,6 +36,7 @@
     isRequired: {control: 'boolean'},
     textOptional: {control: 'text'},
     errorMessage: {control: 'text'},
+    tooManyCharactersErrorText: {control: 'text'},
     horizontal: {control: 'object'},
     countCharactersLeftLabel: {control: 'text'},
     disableCss: {control: 'boolean'}
@@ -72,6 +74,7 @@
         isRequired={args.isRequired}
         placeholder=""
         autocomplete=""
+        tooManyCharactersErrorText={args.tooManyCharactersErrorText}
         maxlength={30} />
 
       <h2>Horisontal layout</h2>

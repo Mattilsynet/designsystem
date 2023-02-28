@@ -1,6 +1,7 @@
+<!--suppress XmlDuplicatedId -->
 <script lang="ts">
   import InputError from './InputErrorMessage.svelte'
-  import {countCharacters} from '../../../ts/count-characters'
+  import {countCharacters, errorOnTooManyCharacters} from '../../../ts/count-characters'
   import type {AutocompleteType, ErrorDetail, InputModeType} from '../../../ts/types'
   import {createInputAriaDescribedby} from '../../../ts/utils'
   import Label from './Label.svelte'
@@ -12,6 +13,7 @@
   export let labelClass: string
   export let countCharactersLeftLabel: string | undefined
   export let countCharactersTooManyLabel: string | undefined
+  export let tooManyCharactersErrorText = 'Teksten er for lang'
   export let error: ErrorDetail | undefined
   export let helpText: string | undefined
   export let textOptional: string | undefined
@@ -37,9 +39,11 @@
 </script>
 
 {#if isHorizontal}
-  <div class="input-horizontal" style="--gap:var(--spacer-xxx-small)"
-       in:slide={{duration: hasTransition ? 300 : 0}}
-       out:slide={{duration: hasTransition ? 300 : 0}}>
+  <div
+    class="input-horizontal"
+    style="--gap:var(--spacer-xxx-small)"
+    in:slide={{duration: hasTransition ? 300 : 0}}
+    out:slide={{duration: hasTransition ? 300 : 0}}>
     {#if error}
       <InputError {...error} {hiddenErrorText} />
     {/if}
@@ -60,6 +64,9 @@
       id={name}
       {name}
       use:countCharacters={countCharsParams}
+      on:input={e => {
+        error = errorOnTooManyCharacters(e, countCharsParams, name, tooManyCharactersErrorText)
+      }}
       class="form-field {inputClass}"
       bind:value
       class:error
@@ -87,6 +94,9 @@
     id={name}
     {name}
     use:countCharacters={countCharsParams}
+    on:input={e => {
+      error = errorOnTooManyCharacters(e, countCharsParams, name, tooManyCharactersErrorText)
+    }}
     class="form-field {inputClass}"
     bind:value
     class:error

@@ -1,4 +1,20 @@
-import type {Action} from './types'
+import type {Action, ErrorDetail} from './types'
+
+export function errorOnTooManyCharacters(
+  e: InputEvent,
+  countCharsParams: Record<string, any>,
+  name: string,
+  errorText: string
+): ErrorDetail | undefined {
+  if (!countCharsParams.countCharacters) {
+    return
+  }
+  if (countCharsParams.maxlength < (e.target as HTMLInputElement).value.length) {
+    return {key: name, message: errorText}
+  } else {
+    return
+  }
+}
 
 export const countCharacters: Action<HTMLInputElement | HTMLTextAreaElement> = (
   node,
@@ -36,8 +52,10 @@ export const countCharacters: Action<HTMLInputElement | HTMLTextAreaElement> = (
     const countCharactersLeft = params.maxlength - node.value.length
     if (countCharactersLeft < 0) {
       counterElVisible.innerText = `${-countCharactersLeft} ${charactersTooMany}`
+      counterElVisible.classList.add('text-error')
     } else {
       counterElVisible.innerText = `${countCharactersLeft} ${charactersLeft}`
+      counterElVisible.classList.remove('text-error')
     }
     timeout = setTimeout(() => {
       counterElHidden.innerText = `${counterElVisible.innerText}.`
