@@ -1,10 +1,11 @@
 @use 'color-tokens' as *;
-@use "mt-kit/core/tokens/build/tokens" as *;
-$border-width-small: $mt-border-width-small;
-$border-width-regular: $mt-border-width-default;
-$border-width-large: $mt-border-width-large;
-$border-radius-small: $mt-border-radius-small !default;
-$border-radius: $mt-border-radius-default !default;
+@use '../../mt-kit/core/tokens/build/tokens' as *;
+
+$border-width-small: $mt-core-border-width-small;
+$border-width-regular: $mt-core-border-width-default;
+$border-width-large: $mt-core-border-width-large;
+$border-radius-small: $mt-core-border-radius-small !default;
+$border-radius: $mt-core-border-radius-default !default;
 $border-red-regular: $border-width-regular solid $color-mt-red;
 
 $breakpoint-large: 768px;
@@ -24,10 +25,10 @@ $font-weight-medium: 500 !default;
 $font-weight-semi-bold: 600 !default;
 $font-weight-bold: 700 !default;
 
-$font-size-h1: $mt-font-size-h1-default;
-$font-size-h2: $mt-font-size-h2-default;
-$font-size-h3: $mt-font-size-h3-default;
-$font-size-h4: $mt-font-size-h4-default;
+$font-size-h1: $mt-core-font-size-h1-default;
+$font-size-h2: $mt-core-font-size-h2-default;
+$font-size-h3: $mt-core-font-size-h3-default;
+$font-size-h4: $mt-core-font-size-h4-default;
 $font-size-intro: clamp(1.5rem, 2vw + 1rem, 1.875rem) !default; // 30px
 $font-size-body: $font-size-h4 !default;
 $font-size-small: 1rem !default; //16px
@@ -49,14 +50,14 @@ $icon-size-x-large: 1.875rem; // 30px
 $menu-point-icon-height: 2.125rem; //34px
 $menu-point-icon-width: 2.5rem; // 40px
 
-$spacer-xxx-small: $mt-spacing-xxxs !default; // 6px
-$spacer-xx-small: $mt-spacing-xxs !default; // 10px
-$spacer-x-small: $mt-spacing-xs !default; // 20px
-$spacer-small: $mt-spacing-s !default; // 28px
-$spacer-medium: $mt-spacing-m !default; // 40px
-$spacer-large: $mt-spacing-l !default; // 56px
-$spacer-x-large: $mt-spacing-xl !default; // 72px
-$spacer-xx-large: $mt-spacing-xxl !default; // 88px
+$spacer-xxx-small: $mt-core-spacing-xxxs !default; // 6px
+$spacer-xx-small: $mt-core-spacing-xxs !default; // 10px
+$spacer-x-small: $mt-core-spacing-xs !default; // 20px
+$spacer-small: $mt-core-spacing-s !default; // 28px
+$spacer-medium: $mt-core-spacing-m !default; // 40px
+$spacer-large: $mt-core-spacing-l !default; // 56px
+$spacer-x-large: $mt-core-spacing-xl !default; // 72px
+$spacer-xx-large: $mt-core-spacing-xxl !default; // 88px
 
 $content-width: 95vw;
 $container-width: 90rem; // 1440px - figma grid width;
