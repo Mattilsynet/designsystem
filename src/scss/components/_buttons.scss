@@ -263,6 +263,22 @@ $button-colors: 'error' !default;
   }
 }
 
+.icon-button {
+  color: var(--color-mt-blue);
+  background: transparent;
+  border: var(--border-width-regular) solid transparent;
+  border-radius: 50%;
+  padding: 0.5em;
+  cursor: pointer;
+
+  transition: none 180ms ease-in-out;
+  transition-property: background-color, color, border-color;
+
+  &:hover {
+    border-color: var(--color-mt-blue);
+  }
+}
+
 .color--primary {
   @extend .button--primary;
 }
