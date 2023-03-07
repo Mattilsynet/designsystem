@@ -52,7 +52,6 @@
   <InputError {...error} {hiddenErrorText} />
 {/if}
 
-<!--suppress CheckEmptyScriptTag -->
 <textarea
   id={name}
   {name}

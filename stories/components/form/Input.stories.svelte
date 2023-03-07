@@ -17,7 +17,8 @@
         label: 'Hund, antall',
         textOptional: 'Valgfritt felt',
         helpText: 'Hjelpetekst',
-        isRequired: true
+        isRequired: true,
+        maxLength: 2
       },
       {
         label: 'Katt, antall',
@@ -87,6 +88,7 @@
             helpText={horizontal.helpText}
             inputmode="text"
             isRequired={horizontal.isRequired}
+            maxlength={horizontal.maxLength}
             placeholder=""
             autocomplete=""
             isHorizontal={true}
