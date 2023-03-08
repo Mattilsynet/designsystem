@@ -1,7 +1,7 @@
 .search-wrap {
   display: flex;
 
-  .input-search.shareSpace {
+  .input-search.hasButton {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     border-right: 0 none;
@@ -11,7 +11,7 @@
     }
   }
 
-  .button-search.shareSpace {
+  .button-search {
     flex: content;
     margin: 0;
     width: auto;
@@ -19,5 +19,11 @@
     color: var(--color-mt-blue-medium);
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+  }
+
+  .button-search-primary {
+    @extend .button-search;
+    background-color: var(--color-primary);
+    color: var(--color-mt-light-beige);
   }
 }
