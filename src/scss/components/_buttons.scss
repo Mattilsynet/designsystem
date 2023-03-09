@@ -1,6 +1,9 @@
 $button-default-color: 'primary' !default;
 $button-colors: 'error' !default;
 
+$icon-button-padding: 0.5em;
+$icon-button-border-radius: 50%;
+
 // stylelint-disable order/properties-order
 .button {
   --button-background: var(--color-#{$button-default-color});
@@ -267,8 +270,8 @@ $button-colors: 'error' !default;
   color: var(--color-mt-blue);
   background: transparent;
   border: var(--border-width-regular) solid transparent;
-  border-radius: 50%;
-  padding: 0.5em;
+  border-radius: $icon-button-border-radius;
+  padding: $icon-button-padding;
   cursor: pointer;
 
   transition: none 180ms ease-in-out;
