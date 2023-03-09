@@ -1,14 +1,14 @@
 import type {Meta, StoryObj} from '@storybook/react'
-import React from "react";
-import TextInput from "./TextInput";
+import React from 'react'
+import TextInput from './TextInput'
 
 const meta: Meta<typeof TextInput> = {
   title: 'Components/TextInput',
   component: TextInput,
   decorators: [
-    (Story) => (
+    Story => (
       <form>
-        <Story/>
+        <Story />
       </form>
     )
   ]
@@ -23,13 +23,13 @@ export const Default: Story = {
     helpText: 'Tekst som beskriver hva som skal fylles inn i dette feltet',
     errorMessage: undefined,
     textOptional: 'Valgfritt felt',
-    required: false,
+    required: false
   }
 }
 
 export const Error: Story = {
   args: {
     ...Default.args,
-    errorMessage: 'Fyll inn dette feltet',
+    errorMessage: 'Fyll inn dette feltet'
   }
 }

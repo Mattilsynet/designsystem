@@ -1,34 +1,30 @@
 import React from 'react'
-import classNames from "classnames";
+import classNames from 'classnames'
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /**
    * Different variants of the button
    */
-  variant?: 'primary' | 'secondary' | 'flat' | 'link';
+  variant?: 'primary' | 'secondary' | 'flat' | 'link'
   /**
    * Size of the button
    */
-  size?: 'small' | 'medium' | 'large';
-  /**
-   * Show a loading spinner on the button
-   */
-  loading?: boolean
-
+  size?: 'small' | 'medium' | 'large'
 }
 
 const Button: React.FC<ButtonProps> = ({
-                                         variant = 'primary',
-                                         size = 'medium',
-                                         loading = false,
-                                         children,
-                                         className,
-                                         ...rest
-                                       }): JSX.Element =>
+  variant = 'primary',
+  size = 'medium',
+  children,
+  className,
+  ...rest
+}): JSX.Element => (
   <button
-    className={classNames('button', `button--${size}`, `button--${variant}`, className)} {...rest}>
-    {loading ? <span className="spinner"/> : children}
+    className={classNames('button', `button--${size}`, `button--${variant}`, className)}
+    {...rest}
+  >
+    {children}
   </button>
+)
 
 export default Button

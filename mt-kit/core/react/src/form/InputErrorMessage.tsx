@@ -1,6 +1,26 @@
 import React from 'react'
 
-const InputErrorMessage: React.FC<{ errorMessage?: string }> = ({errorMessage}): JSX.Element | null =>
-  errorMessage ? <span className="form-error">{errorMessage}</span> : null
+interface InputErrorMessageProps {
+  name: string
+  errorMessage?: string
+  hiddenErrorText?: string
+}
+
+const InputErrorMessage: React.FC<InputErrorMessageProps> = ({
+  name,
+  errorMessage,
+  hiddenErrorText = 'Feilmelding'
+}): JSX.Element | null => {
+  if (errorMessage != null) {
+    return (
+      <span id={`${name}-error`} className="form-error">
+        <span className="inclusively-hidden">{hiddenErrorText}:</span>
+        {errorMessage}
+      </span>
+    )
+  } else {
+    return null
+  }
+}
 
 export default InputErrorMessage
