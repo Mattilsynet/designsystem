@@ -46,10 +46,10 @@ export const countCharacters: Action<HTMLInputElement | HTMLTextAreaElement> = (
     const countCharactersLeft = params.maxlength - node.value.length
     if (countCharactersLeft < 0) {
       counterElVisible.innerText = `${-countCharactersLeft} ${charactersTooMany}`
-      counterElVisible.classList.add('text-error')
+      counterElVisible.classList.add('color-error')
     } else {
       counterElVisible.innerText = `${countCharactersLeft} ${charactersLeft}`
-      counterElVisible.classList.remove('text-error')
+      counterElVisible.classList.remove('color-error')
     }
     timeout = setTimeout(() => {
       counterElHidden.innerText = `${counterElVisible.innerText}.`

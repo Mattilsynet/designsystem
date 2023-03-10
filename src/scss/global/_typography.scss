@@ -161,9 +161,6 @@ $content-selectors: '.content' !default;
 strong {
   font-weight: var(--font-weight-bold);
 }
-.text-error {
-  color: var(--color-error);
-}
 .text-small {
   font-size: $font-size-small;
 }
