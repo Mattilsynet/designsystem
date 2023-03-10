@@ -11,7 +11,7 @@ type Story = StoryObj<typeof LoadingButton>
 
 export const Loading: Story = {
   args: {
-    loading: true,
+    isLoading: true,
     children: 'Button'
   }
 }

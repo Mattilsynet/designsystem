@@ -5,13 +5,17 @@ interface LoadingButtonProps extends ButtonProps {
   /**
    * Show a loading spinner on the button
    */
-  loading?: boolean
+  isLoading?: boolean
 }
 
-const LoadingButton: React.FC<LoadingButtonProps> = ({loading, children, ...rest}): JSX.Element => (
+const LoadingButton: React.FC<LoadingButtonProps> = ({
+  isLoading,
+  children,
+  ...rest
+}): JSX.Element => (
   <Button {...rest}>
-    <div style={{visibility: loading === true ? 'hidden' : 'visible'}}>{children}</div>
-    {loading === true && <span style={{position: 'absolute'}} className="spinner" />}
+    <div style={{visibility: isLoading === true ? 'hidden' : 'visible'}}>{children}</div>
+    {isLoading === true && <span style={{position: 'absolute'}} className="spinner" />}
   </Button>
 )
 
