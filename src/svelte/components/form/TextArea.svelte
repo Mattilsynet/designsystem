@@ -3,7 +3,12 @@
   import InputError from './InputErrorMessage.svelte'
   import {countCharacters, errorOnTooManyCharacters} from '../../../ts/count-characters'
   import {createInputAriaDescribedby} from '../../../ts/utils'
-  import type {AutocompleteType, ErrorDetail, InputModeType} from '../../../ts/types'
+  import type {
+    AutocompleteType,
+    CountCharsParams,
+    ErrorDetail,
+    InputModeType
+  } from '../../../ts/types'
   import Label from './Label.svelte'
 
   export let value
@@ -31,9 +36,9 @@
   export let inputmode: InputModeType | undefined
   export let autocomplete: AutocompleteType | undefined
 
-  $: countCharsParams = {
-    countCharacters: maxlength && maxlength > 0,
-    maxlength: maxlength,
+  let countCharsParams: CountCharsParams = {
+    countCharacters: (maxlength && maxlength > 0) as boolean,
+    maxlength: maxlength ?? 0,
     id: name,
     countCharactersLeftLabel: countCharactersLeftLabel,
     countCharactersTooManyLabel: countCharactersTooManyLabel

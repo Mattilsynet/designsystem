@@ -1,8 +1,8 @@
-import type {Action, ErrorDetail} from './types'
+import type {Action, CountCharsParams, ErrorDetail} from './types'
 
 export function errorOnTooManyCharacters(
   e: InputEvent,
-  countCharsParams: Record<string, any>,
+  countCharsParams: CountCharsParams,
   name: string,
   errorText: string
 ): ErrorDetail | undefined {
@@ -18,13 +18,7 @@ export function errorOnTooManyCharacters(
 
 export const countCharacters: Action<HTMLInputElement | HTMLTextAreaElement> = (
   node,
-  params: {
-    countCharacters: boolean
-    countCharactersLeftLabel: string
-    countCharactersTooManyLabel: string
-    maxlength: number
-    id: string
-  } = {
+  params: CountCharsParams = {
     countCharacters: false,
     countCharactersLeftLabel: 'tegn igjen',
     countCharactersTooManyLabel: 'tegn for mange',
