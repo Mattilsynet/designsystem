@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 09 Mar 2023 06:06:28 GMT
+ * Generated on Fri, 10 Mar 2023 15:33:13 GMT
  */
 
 :root, :host {
@@ -112,7 +112,7 @@
   --desktop-ingress-paragraph-indent: 0;
   --desktop-ingress-paragraph-spacing: 0;
   --desktop-ingress-letter-spacing: 0%;
-  --desktop-ingress-font-size: 19.2;
+  --desktop-ingress-font-size: 16;
   --desktop-ingress-line-height: 150%;
   --desktop-ingress-font-weight: Light;
   --desktop-ingress-font-family: Inter;
@@ -130,7 +130,7 @@
   --desktop-h3-paragraph-indent: 0;
   --desktop-h3-paragraph-spacing: 10;
   --desktop-h3-letter-spacing: 0%;
-  --desktop-h3-font-size: 19.2;
+  --desktop-h3-font-size: 16;
   --desktop-h3-line-height: 150%;
   --desktop-h3-font-weight: Regular;
   --desktop-h3-font-family: Inter;
@@ -199,7 +199,7 @@
   --mobile-ingress-paragraph-indent: 0;
   --mobile-ingress-paragraph-spacing: 0;
   --mobile-ingress-letter-spacing: 0%;
-  --mobile-ingress-font-size: 19.2;
+  --mobile-ingress-font-size: 16;
   --mobile-ingress-line-height: 150%;
   --mobile-ingress-font-weight: Light;
   --mobile-ingress-font-family: Inter;
@@ -212,21 +212,15 @@
   --mobile-h4-line-height: 150%;
   --mobile-h4-font-weight: Bold;
   --mobile-h4-font-family: Inter;
-  --mobile-h3-text-decoration: none;
-  --mobile-h3-text-case: none;
-  --mobile-h3-paragraph-indent: 0;
-  --mobile-h3-paragraph-spacing: 0;
-  --mobile-h3-letter-spacing: 0%;
-  --mobile-h3-font-size: 19.2;
-  --mobile-h3-line-height: 150%;
-  --mobile-h3-font-weight: Regular;
-  --mobile-h3-font-family: Inter;
   --mobile-xsmall-font-size: 11.2;
   --mobile-xsmall-font-family: Inter;
   --mobile-xsmall-font-weight: 500;
   --mobile-paragraph-font-size: 16;
   --mobile-paragraph-font-family: Inter;
   --mobile-paragraph-font-weight: Regular;
+  --mobile-h3-font-size: 16;
+  --mobile-h3-font-family: Inter;
+  --mobile-h3-font-weight: 500;
   --mobile-h2-font-size: 19.2;
   --mobile-h2-font-family: Inter;
   --mobile-h2-font-weight: 500;
@@ -236,7 +230,7 @@
   --mobile-font-factor: 1;
   --font-xlarge: 22.4;
   --font-large: 19.2;
-  --font-medium: 19.2;
+  --font-medium: 16;
   --font-small: 16;
   --paragraph: 16;
   --fontfamily: Inter;

@@ -44,7 +44,7 @@
     "type": "fontSizes"
   },
   "fontMedium": {
-    "value": 19.2,
+    "value": 16,
     "type": "fontSizes"
   },
   "fontLarge": {
@@ -88,6 +88,20 @@
         "type": "fontSizes"
       }
     },
+    "h3": {
+      "fontWeight": {
+        "value": 500,
+        "type": "fontWeights"
+      },
+      "fontFamily": {
+        "value": "Inter",
+        "type": "fontFamilies"
+      },
+      "fontSize": {
+        "value": 16,
+        "type": "fontSizes"
+      }
+    },
     "paragraph": {
       "fontWeight": {
         "value": "Regular",
@@ -114,44 +128,6 @@
       "fontSize": {
         "value": 11.2,
         "type": "fontSizes"
-      }
-    },
-    "h3": {
-      "fontFamily": {
-        "value": "Inter",
-        "type": "fontFamilies"
-      },
-      "fontWeight": {
-        "value": "Regular",
-        "type": "fontWeights"
-      },
-      "lineHeight": {
-        "value": "150%",
-        "type": "lineHeight"
-      },
-      "fontSize": {
-        "value": 19.2,
-        "type": "fontSizes"
-      },
-      "letterSpacing": {
-        "value": "0%",
-        "type": "letterSpacing"
-      },
-      "paragraphSpacing": {
-        "value": 0,
-        "type": "paragraphSpacing"
-      },
-      "paragraphIndent": {
-        "value": 0,
-        "type": "paragraphIndent"
-      },
-      "textCase": {
-        "value": "none",
-        "type": "textCase"
-      },
-      "textDecoration": {
-        "value": "none",
-        "type": "textDecoration"
       }
     },
     "h4": {
@@ -206,7 +182,7 @@
         "type": "lineHeight"
       },
       "fontSize": {
-        "value": 19.2,
+        "value": 16,
         "type": "fontSizes"
       },
       "letterSpacing": {
@@ -496,7 +472,7 @@
         "type": "lineHeight"
       },
       "fontSize": {
-        "value": 19.2,
+        "value": 16,
         "type": "fontSizes"
       },
       "letterSpacing": {
@@ -572,7 +548,7 @@
         "type": "lineHeight"
       },
       "fontSize": {
-        "value": 19.2,
+        "value": 16,
         "type": "fontSizes"
       },
       "letterSpacing": {
