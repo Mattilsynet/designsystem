@@ -99,3 +99,11 @@ export interface CheckboxWithSubSectionsOptions {
   docCount: number
   children?: CheckboxWithSubSectionsOptions[]
 }
+
+export interface CountCharsParams {
+  countCharacters: boolean
+  maxlength: number
+  id: string
+  countCharactersLeftLabel?: string
+  countCharactersTooManyLabel?: string
+}

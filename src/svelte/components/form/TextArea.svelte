@@ -1,15 +1,23 @@
+<!--suppress XmlDuplicatedId -->
 <script lang="ts">
   import InputError from './InputErrorMessage.svelte'
-  import {countCharacters} from '../../../ts/count-characters'
+  import {countCharacters, errorOnTooManyCharacters} from '../../../ts/count-characters'
   import {createInputAriaDescribedby} from '../../../ts/utils'
-  import type {AutocompleteType, ErrorDetail, InputModeType} from '../../../ts/types'
+  import type {
+    AutocompleteType,
+    CountCharsParams,
+    ErrorDetail,
+    InputModeType
+  } from '../../../ts/types'
   import Label from './Label.svelte'
+
   export let value
   export let name: string
   export let label: string
   export let labelClass = ''
   export let countCharactersLeftLabel: string | undefined
   export let countCharactersTooManyLabel: string | undefined
+  export let tooManyCharactersErrorText = 'Teksten er for lang'
   export let error: ErrorDetail | undefined
   export let helpText: string | undefined
   export let textOptional: string | undefined
@@ -28,9 +36,9 @@
   export let inputmode: InputModeType | undefined
   export let autocomplete: AutocompleteType | undefined
 
-  $: countCharsParams = {
-    countCharacters: maxlength && maxlength > 0,
-    maxlength: maxlength,
+  let countCharsParams: CountCharsParams = {
+    countCharacters: (maxlength && maxlength > 0) as boolean,
+    maxlength: maxlength ?? 0,
     id: name,
     countCharactersLeftLabel: countCharactersLeftLabel,
     countCharactersTooManyLabel: countCharactersTooManyLabel
@@ -53,6 +61,9 @@
   id={name}
   {name}
   use:countCharacters={countCharsParams}
+  on:input={e => {
+    error = errorOnTooManyCharacters(e, countCharsParams, name, tooManyCharactersErrorText)
+  }}
   class="form-field {textAreaClass}"
   bind:value
   bind:this={textAreaRef}

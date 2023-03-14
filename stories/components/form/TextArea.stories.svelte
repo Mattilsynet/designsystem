@@ -13,13 +13,15 @@
     errorMessage: 'Fyll inn dette feltet.',
     disableCss: false,
     countCharactersLeftLabel: 'karakterer igjen',
-    countCharactersTooManyLabel: 'karakterer for mange'
+    countCharactersTooManyLabel: 'karakterer for mange',
+    tooManyCharactersErrorText: 'For lang tekst'
   }}
   argTypes={{
     label: {control: 'text'},
     helpText: {control: 'text'},
     countCharactersLeft: {control: 'text'},
     countCharactersTooManyLabel: {control: 'text'},
+    tooManyCharactersErrorText: {control: 'text'},
     errorMessage: {control: 'text'},
     disableCss: {control: 'boolean'}
   }} />
@@ -30,7 +32,8 @@
   let:helpText
   let:disableCss
   let:countCharactersLeftLabel
-  let:countCharactersTooManyLabel>
+  let:countCharactersTooManyLabel
+  let:tooManyCharactersErrorText>
   <div use:wrapInShadowDom={disableCss}>
     <form class="form-layout">
       <TextArea
@@ -39,6 +42,7 @@
         {helpText}
         {countCharactersLeftLabel}
         {countCharactersTooManyLabel}
+        {tooManyCharactersErrorText}
         maxlength="100"
         textOptional="valgfritt felt"
         inputmode="text"
@@ -51,6 +55,7 @@
         {helpText}
         {countCharactersLeftLabel}
         {countCharactersTooManyLabel}
+        {tooManyCharactersErrorText}
         textOptional="valgfritt felt"
         inputmode="text"
         maxlength="100"

@@ -1,14 +1,24 @@
-import type {Action} from './types'
+import type {Action, CountCharsParams, ErrorDetail} from './types'
+
+export function errorOnTooManyCharacters(
+  e: InputEvent,
+  countCharsParams: CountCharsParams,
+  name: string,
+  errorText: string
+): ErrorDetail | undefined {
+  if (!countCharsParams.countCharacters) {
+    return
+  }
+  if (countCharsParams.maxlength < (e.target as HTMLInputElement).value.length) {
+    return {key: name, message: errorText}
+  } else {
+    return
+  }
+}
 
 export const countCharacters: Action<HTMLInputElement | HTMLTextAreaElement> = (
   node,
-  params: {
-    countCharacters: boolean
-    countCharactersLeftLabel: string
-    countCharactersTooManyLabel: string
-    maxlength: number
-    id: string
-  } = {
+  params: CountCharsParams = {
     countCharacters: false,
     countCharactersLeftLabel: 'tegn igjen',
     countCharactersTooManyLabel: 'tegn for mange',
@@ -36,8 +46,10 @@ export const countCharacters: Action<HTMLInputElement | HTMLTextAreaElement> = (
     const countCharactersLeft = params.maxlength - node.value.length
     if (countCharactersLeft < 0) {
       counterElVisible.innerText = `${-countCharactersLeft} ${charactersTooMany}`
+      counterElVisible.classList.add('color-error')
     } else {
       counterElVisible.innerText = `${countCharactersLeft} ${charactersLeft}`
+      counterElVisible.classList.remove('color-error')
     }
     timeout = setTimeout(() => {
       counterElHidden.innerText = `${counterElVisible.innerText}.`

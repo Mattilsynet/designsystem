@@ -1,7 +1,13 @@
+<!--suppress XmlDuplicatedId -->
 <script lang="ts">
   import InputError from './InputErrorMessage.svelte'
-  import {countCharacters} from '../../../ts/count-characters'
-  import type {AutocompleteType, ErrorDetail, InputModeType} from '../../../ts/types'
+  import {countCharacters, errorOnTooManyCharacters} from '../../../ts/count-characters'
+  import type {
+    AutocompleteType,
+    CountCharsParams,
+    ErrorDetail,
+    InputModeType
+  } from '../../../ts/types'
   import {createInputAriaDescribedby} from '../../../ts/utils'
   import Label from './Label.svelte'
   import {slide} from 'svelte/transition'
@@ -12,6 +18,7 @@
   export let labelClass: string
   export let countCharactersLeftLabel: string | undefined
   export let countCharactersTooManyLabel: string | undefined
+  export let tooManyCharactersErrorText = 'Teksten er for lang'
   export let error: ErrorDetail | undefined
   export let helpText: string | undefined
   export let textOptional: string | undefined
@@ -27,9 +34,9 @@
   export let inputClass = ''
   export let isHorizontal = false
 
-  $: countCharsParams = {
-    countCharacters: maxlength && maxlength > 0,
-    maxlength: maxlength,
+  let countCharsParams: CountCharsParams = {
+    countCharacters: (maxlength && maxlength > 0) as boolean,
+    maxlength: maxlength ?? 0,
     id: name,
     countCharactersLeftLabel: countCharactersLeftLabel,
     countCharactersTooManyLabel: countCharactersTooManyLabel
@@ -37,9 +44,11 @@
 </script>
 
 {#if isHorizontal}
-  <div class="input-horizontal" style="--gap:var(--spacer-xxx-small)"
-       in:slide={{duration: hasTransition ? 300 : 0}}
-       out:slide={{duration: hasTransition ? 300 : 0}}>
+  <div
+    class="input-horizontal"
+    style="--gap:var(--spacer-xxx-small)"
+    in:slide={{duration: hasTransition ? 300 : 0}}
+    out:slide={{duration: hasTransition ? 300 : 0}}>
     {#if error}
       <InputError {...error} {hiddenErrorText} />
     {/if}
@@ -59,7 +68,6 @@
     <input
       id={name}
       {name}
-      use:countCharacters={countCharsParams}
       class="form-field {inputClass}"
       bind:value
       class:error
@@ -87,6 +95,9 @@
     id={name}
     {name}
     use:countCharacters={countCharsParams}
+    on:input={e => {
+      error = errorOnTooManyCharacters(e, countCharsParams, name, tooManyCharactersErrorText)
+    }}
     class="form-field {inputClass}"
     bind:value
     class:error

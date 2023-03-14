@@ -6,82 +6,89 @@ import {fireEvent, render} from '@testing-library/svelte'
 import {tick} from 'svelte'
 
 describe('TextInput', () => {
-  const value = 'this is the value'
-  const error = undefined
-  const name = 'name'
-  const label = 'Navn'
-  const helpText = 'This is the helptext'
-  const inputmode = 'text'
-  const autocomplete = 'name'
-  const placeholder = 'Eg. Test Testsen'
-  const validationRequired = {
-    errorMessage: 'Error'
+  const props = {
+    value: 'this is the value',
+    error: undefined,
+    name: 'name',
+    label: 'Navn',
+    helpText: 'This is the helptext',
+    inputmode: 'text',
+    autocomplete: 'name',
+    placeholder: 'Eg. Test Testsen',
+    countCharactersLeftLabel: 'chars left',
+    countCharactersTooManyLabel: 'chars too many',
+    tooManyCharactersErrorText: 'too many chars error',
+    validationRequired: {
+      errorMessage: 'Error'
+    }
   }
   test('Renders', () => {
     const {getByLabelText, getByDisplayValue, getByPlaceholderText, getByText} = render(TextInput, {
-      value,
-      error,
-      name,
-      label,
-      helpText,
-      autocomplete: autocomplete,
-      inputmode: inputmode,
-      isRequired: !!validationRequired,
-      placeholder: placeholder
+      ...props,
+      isRequired: !!props.validationRequired
     })
-    expect(getByText(helpText)).toBeInTheDocument()
+    expect(getByText(props.helpText)).toBeInTheDocument()
     const inputByLabel: Partial<HTMLInputElement> = getByLabelText(/Navn/)
     expect(inputByLabel).toBeInTheDocument()
-    expect(inputByLabel.value).toEqual(value)
-    const input = getByDisplayValue(value)
+    expect(inputByLabel.value).toEqual(props.value)
+    const input = getByDisplayValue(props.value)
     expect(input).toBeInTheDocument()
-    expect(input.getAttribute('autocomplete')).toEqual(autocomplete)
-    expect(input.getAttribute('inputmode')).toEqual(inputmode)
+    expect(input.getAttribute('autocomplete')).toEqual(props.autocomplete)
+    expect(input.getAttribute('inputmode')).toEqual(props.inputmode)
     expect(input.getAttribute('aria-required')).toEqual('true')
     expect(input.getAttribute('aria-describedby').indexOf('name-hint') > -1).toEqual(true)
     expect(input.getAttribute('aria-invalid')).toEqual('false')
-    expect(getByPlaceholderText(placeholder)).toBeInTheDocument()
+    expect(getByPlaceholderText(props.placeholder)).toBeInTheDocument()
   })
 
   test('Does not render properties when not defined', () => {
     const {getByDisplayValue, queryByPlaceholderText} = render(TextInput, {
-      value,
-      error,
-      name,
-      label,
-      helpText,
+      value: props.value,
       properties: {}
     })
-    const input = getByDisplayValue(value)
+    const input = getByDisplayValue(props.value)
     expect(input).toBeInTheDocument()
     expect(input.getAttribute('autocomplete')).toEqual(null)
     expect(input.getAttribute('inputmode')).toEqual(null)
-    expect(queryByPlaceholderText(placeholder)).not.toBeInTheDocument()
+    expect(queryByPlaceholderText(props.placeholder)).not.toBeInTheDocument()
   })
 
   test('Render error message when defined', () => {
-    const err = {key: name, message: 'This is the errormessage'}
+    const err = {key: props.name, message: 'This is the errormessage'}
     const {getByText, getByLabelText} = render(TextInput, {
-      value,
-      error: err,
-      name,
-      label,
-      helpText
+      ...props,
+      error: err
     })
     const errorMessage = getByText(err.message)
     expect(errorMessage).toBeInTheDocument()
-    expect(errorMessage.getAttribute('id').indexOf(name) > -1).toEqual(true)
+    expect(errorMessage.getAttribute('id').indexOf(props.name) > -1).toEqual(true)
     const input = getByLabelText(/Navn/)
     expect(input.getAttribute('aria-describedby').indexOf('name-error') > -1).toEqual(true)
     expect(input.getAttribute('aria-invalid')).toEqual('true')
   })
 
+  test('Render tooManyCharactersErrorText when defined', async () => {
+    const {getByText, queryByText, getByLabelText} = render(TextInput, {
+      ...props,
+      maxlength: 1,
+      value: ''
+    })
+    const input = getByLabelText(/Navn/)
+    expect(input).toBeInTheDocument()
+    let error = queryByText(props.tooManyCharactersErrorText)
+    expect(error).not.toBeInTheDocument()
+
+    const newValue = 'entotrefi'
+    await fireEvent.input(input, {target: {value: newValue}})
+    expect(input.value).toEqual(newValue)
+    error = getByText(props.tooManyCharactersErrorText)
+    expect(error).toBeInTheDocument()
+  })
+
   test('Does not render aria-describedby when no helptext, error or maxlength', () => {
     const {getByLabelText} = render(TextInput, {
-      value,
+      ...props,
       error: undefined,
-      name,
-      label,
       helpText: undefined
     })
     const input = getByLabelText(/Navn/)
@@ -89,23 +96,18 @@ describe('TextInput', () => {
   })
 
   test('Renders optional in label if not required', () => {
-    const err = {fieldName: name, message: 'This is the errormessage'}
+    const err = {fieldName: props.name, message: 'This is the errormessage'}
     const {getByText} = render(TextInput, {
-      value,
-      error: err,
-      name,
-      label,
-      helpText
+      ...props,
+      error: err
     })
     expect(getByText(/valgfritt felt/)).toBeInTheDocument()
   })
 
   test('A11y for characters left', async () => {
     const {getByLabelText} = render(TextInput, {
+      ...props,
       value: '',
-      name,
-      label,
-      helpText,
       maxlength: 10
     })
     const input = getByLabelText(/Navn/i)
