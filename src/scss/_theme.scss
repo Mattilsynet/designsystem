@@ -1,4 +1,6 @@
 @use 'color-tokens' as *;
+@use '../../mt-kit/core/tokens/build/tokens' as *;
+
 $border-width-small: 1px;
 $border-width-regular: 2px;
 $border-width-large: 4px;

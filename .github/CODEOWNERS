@@ -1,0 +1,7 @@
+* @Mattilsynet/nye-nettlosninger @Mattilsynet/provetaking
+
+# owns any file in an svelte directory, anywhere in the repository.
+svelte/ @Mattilsynet/nye-nettlosninger
+
+# owns any file in an react directory, anywhere in the repository.
+react/ @Mattilsynet/provetaking

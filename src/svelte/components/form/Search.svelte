@@ -10,7 +10,7 @@
   export let searchButtonText: string | undefined
   export let placeholder: string | undefined
   export let inputClass = ''
-  $: shareSpace = !!searchButtonText
+  export let primaryButton = false
 </script>
 
 <Label class={labelClass} for={name} showOptionalText={false}>
@@ -28,7 +28,7 @@
     id={name}
     {name}
     class="form-field input-search {inputClass}"
-    class:shareSpace
+    class:hasButton={!!searchButtonText}
     bind:value
     aria-describedby={createInputAriaDescribedby(helpText ? name : undefined)}
     type="search"
@@ -36,7 +36,11 @@
   {#if searchButtonText}
     <button
       type="submit"
-      class="button button--flat form-field button-search shareSpace icon--search-before">
+      class="button button--flat form-field"
+      class:button-search={!primaryButton}
+      class:icon--search-before={!primaryButton}
+      class:button-search-primary={primaryButton}
+      class:icon--search-before-beige={primaryButton}>
       {searchButtonText}
     </button>
   {/if}
