@@ -40,7 +40,7 @@
     <button
       type="submit"
       class="button button--flat form-field"
-      {ariaControls}
+      aria-controls={ariaControls}
       class:button-search={!primaryButton}
       class:icon--search-before={!primaryButton}
       class:button-search-primary={primaryButton}
