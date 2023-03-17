@@ -3,19 +3,22 @@
   import {createInputAriaDescribedby} from '../../../ts/utils'
 
   export let value: string
-  export let name: string
-  export let label: string
-  export let labelClass: string
+  export let name: string | undefined
+  export let label: string | undefined
+  export let labelClass: string | undefined
   export let helpText: string | undefined
   export let searchButtonText: string | undefined
   export let placeholder: string | undefined
+  export let ariaControls: string | undefined
   export let inputClass = ''
   export let primaryButton = false
 </script>
 
-<Label class={labelClass} for={name} showOptionalText={false}>
-  {label}
-</Label>
+{#if label}
+  <Label class={labelClass} for={name} showOptionalText={false}>
+    {label}
+  </Label>
+{/if}
 
 {#if helpText}
   <div id={`${name}-hint`} class="hint">
@@ -37,6 +40,7 @@
     <button
       type="submit"
       class="button button--flat form-field"
+      aria-controls={ariaControls}
       class:button-search={!primaryButton}
       class:icon--search-before={!primaryButton}
       class:button-search-primary={primaryButton}
