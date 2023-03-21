@@ -1,10 +1,10 @@
-import React, {useId} from 'react'
+import React, { useId } from 'react'
 import InputLabel from '../InputLabel'
 import InputErrorMessage from '../InputErrorMessage'
 import Input from '../Input'
 import InputHelpText from '../InputHelpText'
-import {createInputAriaDescribedby} from '@mattilsynet/designsystem/src/ts/utils'
-import {ErrorDetail} from '@mattilsynet/designsystem/src/ts/types'
+import { createInputAriaDescribedby } from '@mattilsynet/designsystem/src/ts/utils'
+import { ErrorDetail } from '@mattilsynet/designsystem/src/ts/types'
 
 interface TextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   /**
@@ -42,7 +42,7 @@ const TextInput: React.FC<TextInputProps> = ({
   const generatedId = useId()
   const name = 'text-input-' + generatedId
   const errorDetail: ErrorDetail | undefined =
-    errorMessage != null ? {key: name, message: errorMessage} : undefined
+    errorMessage != null ? { key: name, message: errorMessage } : undefined
   const inputAriaDescribedby = createInputAriaDescribedby(
     helpText != null ? name : undefined,
     errorDetail,

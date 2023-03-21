@@ -1,5 +1,5 @@
 import React from 'react'
-import Button, {ButtonProps} from './Button'
+import Button, { ButtonProps } from './Button'
 
 interface LoadingButtonProps extends ButtonProps {
   /**
@@ -14,8 +14,8 @@ const LoadingButton: React.FC<LoadingButtonProps> = ({
   ...rest
 }): JSX.Element => (
   <Button {...rest}>
-    <div style={{visibility: isLoading === true ? 'hidden' : 'visible'}}>{children}</div>
-    {isLoading === true && <span style={{position: 'absolute'}} className="spinner" />}
+    <div style={{ visibility: isLoading === true ? 'hidden' : 'visible' }}>{children}</div>
+    {isLoading === true && <span style={{ position: 'absolute' }} className="spinner" />}
   </Button>
 )
 

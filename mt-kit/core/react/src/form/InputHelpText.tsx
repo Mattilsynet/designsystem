@@ -5,7 +5,7 @@ interface InputHelpTextProps {
   text?: string
 }
 
-const InputHelpText: React.FC<InputHelpTextProps> = ({name, text}): JSX.Element | null =>
+const InputHelpText: React.FC<InputHelpTextProps> = ({ name, text }): JSX.Element | null =>
   text != null ? (
     <div id={`${name}-hint`} className="hint">
       {text}
