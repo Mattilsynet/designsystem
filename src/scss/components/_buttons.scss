@@ -2,7 +2,10 @@ $button-default-color: 'primary' !default;
 $button-colors: 'error' !default;
 
 $icon-button-padding: 0.5em;
-$icon-button-border-radius: 50%;
+$icon-button-border-radius: 0.25em;
+
+$icon-button-min-height: 44px;
+$icon-button-min-width: 44px;
 
 // stylelint-disable order/properties-order
 .button {
@@ -276,6 +279,13 @@ $icon-button-border-radius: 50%;
 
   transition: none 180ms ease-in-out;
   transition-property: background-color, color, border-color;
+
+  min-height: $icon-button-min-height;
+  min-width: $icon-button-min-width;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &:hover {
     border-color: var(--color-mt-blue);
