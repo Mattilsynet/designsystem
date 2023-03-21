@@ -50,7 +50,7 @@ const TextInput: React.FC<TextInputProps> = ({
   )
   return (
     <>
-      <InputLabel htmlFor={name} textOptional={textOptional}>
+      <InputLabel htmlFor={name} textOptional={textOptional} isRequired={required}>
         {label}
       </InputLabel>
       <InputHelpText name={name} text={helpText} />
@@ -65,6 +65,7 @@ const TextInput: React.FC<TextInputProps> = ({
         aria-required={required}
         aria-describedby={inputAriaDescribedby}
         aria-invalid={errorMessage != null}
+        required={required}
         {...rest}
       />
     </>
