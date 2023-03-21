@@ -36,7 +36,6 @@ const TextInput: React.FC<TextInputProps> = ({
   hiddenErrorText,
   textOptional,
   required,
-  maxLength,
   ...rest
 }): JSX.Element => {
   const generatedId = useId()
@@ -46,7 +45,7 @@ const TextInput: React.FC<TextInputProps> = ({
   const inputAriaDescribedby = createInputAriaDescribedby(
     helpText != null ? name : undefined,
     errorDetail,
-    maxLength
+    undefined
   )
   return (
     <>
