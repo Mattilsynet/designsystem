@@ -28,7 +28,7 @@
     <a
       href={url}
       rel={mapRelExternal(url)}
-      class="button button--primary button--space-between forward-arrow-end--large padded self-start"
+      class="link--transport color--primary forward-arrow-end no-underline fit-content"
       data-testid="highlighted-content-link">
       {shortTitle}
     </a>
