@@ -68,6 +68,15 @@
       return child
     })
   }
+
+  export const checkboxes = {
+    reset() {
+      mainValues = []
+      subSectionValues = []
+      stringifiedCategories = ''
+      stringifiedSubCategories = ''
+    }
+  }
 </script>
 
 <fieldset>
