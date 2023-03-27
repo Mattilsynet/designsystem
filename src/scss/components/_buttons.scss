@@ -1,6 +1,12 @@
 $button-default-color: 'primary' !default;
 $button-colors: 'error' !default;
 
+$icon-button-padding: 0.5em;
+$icon-button-border-radius: 0.25em;
+
+$icon-button-min-height: 2.75rem;
+$icon-button-min-width: 2.75rem;
+
 // stylelint-disable order/properties-order
 .button {
   --button-background: var(--color-#{$button-default-color});
@@ -260,6 +266,29 @@ $button-colors: 'error' !default;
     &:focus {
       border-color: transparent;
     }
+  }
+}
+
+.icon-button {
+  color: var(--color-mt-blue);
+  background: transparent;
+  border: var(--border-width-regular) solid transparent;
+  border-radius: $icon-button-border-radius;
+  padding: $icon-button-padding;
+  cursor: pointer;
+
+  transition: none 180ms ease-in-out;
+  transition-property: background-color, color, border-color;
+
+  min-height: $icon-button-min-height;
+  min-width: $icon-button-min-width;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    border-color: var(--color-mt-blue);
   }
 }
 
