@@ -83,6 +83,6 @@
   "dependencies": {
     "@xstate/svelte": "^2.0.0",
     "gh-pages": "^5.0.0",
-    "xstate": "^4.36.0"
+    "xstate": "^4.37.1"
   }
 }
