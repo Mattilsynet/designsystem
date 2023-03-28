@@ -12,11 +12,9 @@
   export let subCategoryName = 'underkategori'
   export let helpText: string
   export let tabIndex = 0
-
-  let mainValues = ((params[categoryName] && params[categoryName].split(',')) ??
-    []) as Array<string>
-  let subSectionValues = ((params[subCategoryName] && params[subCategoryName].split(',')) ??
-    []) as Array<string>
+  let hasJS = false
+  let mainValues = params[categoryName] as Array<string>
+  let subSectionValues = params[subCategoryName] as Array<string>
 
   $: stringifiedCategories = mainValues.length > 0 ? mainValues.join(',') : []
   $: stringifiedSubCategories = subSectionValues.length ? subSectionValues.join(',') : []
@@ -73,10 +71,11 @@
     reset() {
       mainValues = []
       subSectionValues = []
-      stringifiedCategories = ''
-      stringifiedSubCategories = ''
     }
   }
+  onMount(() => {
+    hasJS = true
+  })
 </script>
 
 <fieldset>
@@ -92,6 +91,7 @@
             id={listItem.key}
             type="checkbox"
             class="input__control"
+            name={categoryName}
             bind:this={checkboxDOMElements[mainIndex]}
             bind:group={mainValues}
             value={listItem.key}
@@ -100,7 +100,7 @@
           <label for={listItem.key}>{`${listItem.displayName} (${listItem.docCount})`}</label>
         </div>
 
-        {#if states[mainIndex].checked && listItem.children && listItem.children.length > 0}
+        {#if !hasJS || (states[mainIndex].checked && listItem.children && listItem.children.length > 0)}
           <ol class="list-unstyled" transition:slide={{y: 200, duration: 200}}>
             {#each listItem.children as subListItem}
               <li class="p-l-xs">
@@ -108,8 +108,9 @@
                   <input
                     id={subListItem.key}
                     type="checkbox"
+                    name={subCategoryName}
                     class="input__control"
-                    value={subListItem.key}
+                    value="{listItem.key}/{subListItem.key}"
                     aria-describedby={createInputAriaDescribedby(helpText ? name : undefined)}
                     bind:group={subSectionValues}
                     on:change={() => subCategory(mainIndex, subListItem.key)} />
@@ -124,6 +125,4 @@
       </li>
     {/each}
   </ol>
-  <input type="hidden" name={categoryName} bind:value={stringifiedCategories} />
-  <input type="hidden" name={subCategoryName} bind:value={stringifiedSubCategories} />
 </fieldset>
