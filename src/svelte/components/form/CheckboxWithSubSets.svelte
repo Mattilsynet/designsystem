@@ -16,8 +16,6 @@
   let mainValues = params[categoryName] as Array<string>
   let subSectionValues = params[subCategoryName] as Array<string>
 
-  $: stringifiedCategories = mainValues.length > 0 ? mainValues.join(',') : []
-  $: stringifiedSubCategories = subSectionValues.length ? subSectionValues.join(',') : []
   $: states = []
   let checkboxDOMElements = []
 

@@ -66,10 +66,15 @@ describe('Checkbox with subsets', () => {
       ]
     }
   ]
+  const params = {
+    kategori: ['dyr'],
+    underkategori: []
+  }
 
   test('Renders list of checkboxes.', async () => {
     const {getByText} = render(CheckboxWithSubSets, {
       options,
+      params,
       legend
     })
     expect(getByText(legend)).toBeInTheDocument()
@@ -85,6 +90,7 @@ describe('Checkbox with subsets', () => {
   test('Renders subsets', async () => {
     const {getByText} = render(CheckboxWithSubSets, {
       options,
+      params,
       legend
     })
     expect(getByText(`${options[0].displayName} (${options[0].docCount})`)).toBeInTheDocument()
