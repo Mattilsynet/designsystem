@@ -29,7 +29,6 @@
   let hasJS = false
   let mainValues = params[categoryName] ? (params[categoryName] as Array<string>) : []
   let subSectionValues = params[subCategoryName] ? (params[subCategoryName] as Array<string>) : []
-  console.log('subSectionValues', subSectionValues)
 
   $: states = []
   let checkboxDOMElements = []
