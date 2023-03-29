@@ -10,7 +10,7 @@
   export let options: Array<CheckboxWithSubSectionsOptions>
   export let categoryName = 'kategori'
   export let subCategoryName = 'underkategori'
-  export let helpText: string
+  export let helpText: string | undefined
   export let tabIndex = 0
   let hasJS = false
   let mainValues = params[categoryName] as Array<string>
@@ -25,9 +25,12 @@
 
   onMount(() => {
     states = mapOptionsToState(options)
+    hasJS = true
   })
 
-  function mapOptionsToState(opts) {
+  function mapOptionsToState(
+    opts: Array<CheckboxWithSubSectionsOptions>
+  ): Array<CheckboxWithSubSectionsStates> {
     return opts.map(option => {
       return {
         key: option.key,
@@ -46,10 +49,11 @@
 
   function mainCategory(mainIndex: number): void {
     states[mainIndex].checked = !states[mainIndex].checked
-    !states[mainIndex].checked &&
+    if (!states[mainIndex].checked) {
       states[mainIndex].children.forEach(child => {
         subSectionValues = subSectionValues.filter(value => !child.key.includes(value))
       })
+    }
   }
 
   function subCategory(mainIndex: number, subCategoryKey: string): void {
@@ -71,9 +75,14 @@
       subSectionValues = []
     }
   }
-  onMount(() => {
-    hasJS = true
-  })
+
+  interface CheckboxWithSubSectionsStates {
+    key: string
+    docCount: number
+    displayName: string
+    checked: boolean
+    children?: Array<CheckboxWithSubSectionsStates>
+  }
 </script>
 
 <fieldset>
@@ -94,6 +103,7 @@
             bind:group={mainValues}
             value={listItem.key}
             aria-describedby={createInputAriaDescribedby(helpText ? name : undefined)}
+            aria-checked={listItem.checked}
             on:change={() => mainCategory(mainIndex)} />
           <label for={listItem.key}>{`${listItem.displayName} (${listItem.docCount})`}</label>
         </div>
@@ -110,6 +120,7 @@
                     class="input__control"
                     value="{listItem.key}/{subListItem.key}"
                     aria-describedby={createInputAriaDescribedby(helpText ? name : undefined)}
+                    aria-checked={subListItem.checked}
                     bind:group={subSectionValues}
                     on:change={() => subCategory(mainIndex, subListItem.key)} />
                   <label for={subListItem.key}>

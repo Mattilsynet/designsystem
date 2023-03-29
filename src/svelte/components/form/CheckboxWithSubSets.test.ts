@@ -66,9 +66,15 @@ describe('Checkbox with subsets', () => {
       ]
     }
   ]
+
   const params = {
     kategori: ['dyr'],
     underkategori: []
+  }
+
+  const paramsForCheckedTest = {
+    kategori: ['dyr'],
+    underkategori: ['produksjonsdyr']
   }
 
   test('Renders list of checkboxes.', async () => {
@@ -87,7 +93,7 @@ describe('Checkbox with subsets', () => {
     ).toBeInTheDocument()
   })
 
-  test('Renders subsets', async () => {
+  test('Renders subsets of checkboxes', async () => {
     const {getByText} = render(CheckboxWithSubSets, {
       options,
       params,
@@ -99,5 +105,15 @@ describe('Checkbox with subsets', () => {
     expect(
       getByText(`${options[0].children[0].displayName} (${options[0].children[0].docCount})`)
     ).toBeInTheDocument()
+  })
+
+  test('Check checked checkboxes', async () => {
+    const {getByLabelText} = render(CheckboxWithSubSets, {
+      options,
+      params: paramsForCheckedTest,
+      legend
+    })
+    const mainCategory = getByLabelText(`${options[0].displayName} (${options[0].docCount})`)
+    expect(mainCategory).toBeChecked()
   })
 })
