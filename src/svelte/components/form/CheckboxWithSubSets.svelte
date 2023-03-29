@@ -11,10 +11,25 @@
   export let categoryName = 'kategori'
   export let subCategoryName = 'underkategori'
   export let helpText: string | undefined
-  export let tabIndex = 0
+  export const checkboxes = {
+    reset() {
+      mainValues = []
+      subSectionValues = []
+    }
+  }
+
+  interface CheckboxWithSubSectionsStates {
+    key: string
+    docCount: number
+    displayName: string
+    checked: boolean
+    children?: Array<CheckboxWithSubSectionsStates>
+  }
+
   let hasJS = false
-  let mainValues = params[categoryName] as Array<string>
-  let subSectionValues = params[subCategoryName] as Array<string>
+  let mainValues = params[categoryName] ? (params[categoryName] as Array<string>) : []
+  let subSectionValues = params[subCategoryName] ? (params[subCategoryName] as Array<string>) : []
+  console.log('subSectionValues', subSectionValues)
 
   $: states = []
   let checkboxDOMElements = []
@@ -41,7 +56,7 @@
           key: child.key,
           docCount: child.docCount,
           displayName: child.displayName,
-          checked: subSectionValues.indexOf(child.key) >= 0 ?? false
+          checked: (subSectionValues && subSectionValues.indexOf(child.key) >= 0) ?? false
         }))
       }
     })
@@ -67,21 +82,6 @@
       }
       return child
     })
-  }
-
-  export const checkboxes = {
-    reset() {
-      mainValues = []
-      subSectionValues = []
-    }
-  }
-
-  interface CheckboxWithSubSectionsStates {
-    key: string
-    docCount: number
-    displayName: string
-    checked: boolean
-    children?: Array<CheckboxWithSubSectionsStates>
   }
 </script>
 
