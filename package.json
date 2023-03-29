@@ -45,7 +45,7 @@
     "@storybook/addon-svelte-csf": "^2.0.10",
     "@storybook/addons": "^6.5.16",
     "@storybook/svelte": "^6.5.13",
-    "@storybook/theming": "^6.5.13",
+    "@storybook/theming": "^6.5.16",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/svelte": "^3.2.2",
     "@types/jest": "^29.4.0",
