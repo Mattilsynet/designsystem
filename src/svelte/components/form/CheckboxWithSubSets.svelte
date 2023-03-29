@@ -13,8 +13,8 @@
   export let helpText: string | undefined
   export const checkboxes = {
     reset() {
-      mainValues = []
-      subSectionValues = []
+      selectedCategoryValues = []
+      selectedSubCategoryValues = []
     }
   }
 
@@ -27,9 +27,14 @@
   }
 
   let hasJS = false
-  let mainValues = params[categoryName] ? (params[categoryName] as Array<string>) : []
-  let subSectionValues = params[subCategoryName] ? (params[subCategoryName] as Array<string>) : []
+  // selectedCategoryValues and selectedSubCategoryValues are the values from the checked checkboxes.
+  // When binding the variables to the checkboxes, the checkboxes will be checked if the value is in the array.
+  let selectedCategoryValues = params[categoryName] ? (params[categoryName] as Array<string>) : []
+  let selectedSubCategoryValues = params[subCategoryName]
+    ? (params[subCategoryName] as Array<string>)
+    : []
 
+  // states take care of
   $: states = []
   let checkboxDOMElements = []
 
@@ -42,6 +47,9 @@
     hasJS = true
   })
 
+  /*
+   *
+   * */
   function mapOptionsToState(
     opts: Array<CheckboxWithSubSectionsOptions>
   ): Array<CheckboxWithSubSectionsStates> {
@@ -50,12 +58,16 @@
         key: option.key,
         docCount: option.docCount,
         displayName: option.displayName,
-        checked: mainValues ? mainValues.filter(val => val === option.key).length > 0 : false,
+        checked: selectedCategoryValues
+          ? selectedCategoryValues.filter(val => val === option.key).length > 0
+          : false,
         children: option.children?.map(child => ({
           key: child.key,
           docCount: child.docCount,
           displayName: child.displayName,
-          checked: (subSectionValues && subSectionValues.indexOf(child.key) >= 0) ?? false
+          checked:
+            (selectedSubCategoryValues && selectedSubCategoryValues.indexOf(child.key) >= 0) ??
+            false
         }))
       }
     })
@@ -63,9 +75,13 @@
 
   function mainCategory(mainIndex: number): void {
     states[mainIndex].checked = !states[mainIndex].checked
+    // uncheck all subcategories if parent main category is unchecked
     if (!states[mainIndex].checked) {
-      states[mainIndex].children.forEach(child => {
-        subSectionValues = subSectionValues.filter(value => !child.key.includes(value))
+      // To uncheck a checkbox, remove the value from the selectedSubCategoryValues array
+      states[mainIndex].children.forEach(subCategory => {
+        selectedSubCategoryValues = selectedSubCategoryValues.filter(
+          value => value !== subCategory.key
+        )
       })
     }
   }
@@ -99,7 +115,7 @@
             class="input__control"
             name={categoryName}
             bind:this={checkboxDOMElements[mainIndex]}
-            bind:group={mainValues}
+            bind:group={selectedCategoryValues}
             value={listItem.key}
             aria-describedby={createInputAriaDescribedby(helpText ? name : undefined)}
             aria-checked={listItem.checked}
@@ -120,7 +136,7 @@
                     value="{listItem.key}/{subListItem.key}"
                     aria-describedby={createInputAriaDescribedby(helpText ? name : undefined)}
                     aria-checked={subListItem.checked}
-                    bind:group={subSectionValues}
+                    bind:group={selectedSubCategoryValues}
                     on:change={() => subCategory(mainIndex, subListItem.key)} />
                   <label for={subListItem.key}>
                     {`${subListItem.displayName} (${subListItem.docCount})`}
