@@ -115,5 +115,10 @@ describe('Checkbox with subsets', () => {
     })
     const mainCategory = getByLabelText(`${options[0].displayName} (${options[0].docCount})`)
     expect(mainCategory).toBeChecked()
+
+    const subCategory = getByLabelText(
+      `${options[0].children[0].displayName} (${options[0].children[0].docCount})`
+    )
+    expect(subCategory.getAttribute('aria-checked')).toEqual('true')
   })
 })
