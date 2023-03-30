@@ -52,7 +52,7 @@
   {#if error}
     <InputError {...error} {hiddenErrorText} />
   {/if}
-  {JSON.stringify(value)}
+
   {#each options as checkbox (checkbox.value)}
     <div class="form-control checkbox">
       <input
