@@ -1,8 +1,9 @@
 /**
  * @jest-environment jsdom
  */
-import {fireEvent, render} from '@testing-library/svelte'
+import {act, fireEvent, render} from '@testing-library/svelte'
 import CheckboxWithSubSets from './CheckboxWithSubSets.svelte'
+import {tick} from 'svelte'
 
 describe('Checkbox with subsets', () => {
   const legend = 'Checkbox with subsets'
@@ -120,5 +121,40 @@ describe('Checkbox with subsets', () => {
       `${options[0].children[0].displayName} (${options[0].children[0].docCount})`
     )
     expect(subCategory.getAttribute('aria-checked')).toEqual('true')
+  })
+
+  test('Test that subcategories are unchecked when main category is unchecked', async () => {
+    const {getByLabelText} = render(CheckboxWithSubSets, {
+      options,
+      params: paramsForCheckedTest,
+      legend
+    })
+
+    const mainCategoryCheckbox = getByLabelText(
+      `${options[0].displayName} (${options[0].docCount})`
+    )
+    const subCategoryCheckbox = getByLabelText(
+      `${options[0].children[0].displayName} (${options[0].children[0].docCount})`
+    )
+
+    expect(mainCategoryCheckbox).toBeChecked()
+    expect(subCategoryCheckbox).toBeInTheDocument()
+    expect(subCategoryCheckbox.getAttribute('aria-checked')).toEqual('true')
+
+    // close main category
+
+    await act(() => fireEvent.click(mainCategoryCheckbox))
+    await tick()
+    expect(mainCategoryCheckbox).not.toBeChecked()
+    const subCategoryCheckbox2 = getByLabelText(
+      `${options[0].children[0].displayName} (${options[0].children[0].docCount})`
+    )
+    expect(subCategoryCheckbox2).not.toBeInTheDocument()
+    expect(subCategoryCheckbox2.getAttribute('aria-checked')).toEqual('false')
+
+    // open main category
+    //mainCategory.click()
+    //expect(mainCategory).toBeChecked()
+    //expect(subCategory.getAttribute('aria-checked')).toEqual('false')
   })
 })

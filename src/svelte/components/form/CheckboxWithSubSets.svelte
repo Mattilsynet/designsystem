@@ -74,11 +74,13 @@
   }
 
   function mainCategory(mainIndex: number): void {
+    console.log('A mainCategory was clicked and new state is: ', !states[mainIndex].checked)
     states[mainIndex].checked = !states[mainIndex].checked
     // Uncheck all subcategories if parent main category is unchecked
     if (!states[mainIndex].checked) {
       // To uncheck a checkbox, remove the value from the selectedSubCategoryValues array
       states[mainIndex].children.forEach(subCategory => {
+        subCategory.checked = false
         selectedSubCategoryValues = selectedSubCategoryValues.filter(
           value => value !== `${states[mainIndex].key}/${subCategory.key}`
         )
