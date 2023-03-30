@@ -1,8 +1,9 @@
 /**
  * @jest-environment jsdom
  */
-import {render} from '@testing-library/svelte'
+import {fireEvent, render} from '@testing-library/svelte'
 import Checkbox from './Checkbox.svelte'
+import {raw} from '@storybook/svelte'
 
 describe('Checkbox', () => {
   const value = []
@@ -76,5 +77,18 @@ describe('Checkbox', () => {
     })
     const fieldSet = getByRole('checkbox', {name: 'Ja'})
     expect(fieldSet.getAttribute('aria-describedby')).toBeNull()
+  })
+
+  test('Renders preselected', async () => {
+    const {getByRole} = render(Checkbox, {
+      value: ['yes'],
+      error: undefined,
+      name,
+      label,
+      helpText: undefined,
+      options
+    })
+    const fieldSet = getByRole('checkbox', {name: 'Ja'})
+    expect(fieldSet).toBeChecked()
   })
 })
