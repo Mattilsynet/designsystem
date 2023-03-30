@@ -34,14 +34,12 @@
     ? (params[subCategoryName] as Array<string>)
     : []
 
-  // states take care of
   $: states = []
   let checkboxDOMElements = []
 
   $: if (options) {
     states = mapOptionsToState(options)
   }
-
   onMount(() => {
     states = mapOptionsToState(options)
     hasJS = true
@@ -61,29 +59,31 @@
         checked: selectedCategoryValues
           ? selectedCategoryValues.filter(val => val === option.key).length > 0
           : false,
-        children: option.children?.map(child => ({
-          key: child.key,
-          docCount: child.docCount,
-          displayName: child.displayName,
-          checked:
-            (selectedSubCategoryValues && selectedSubCategoryValues.indexOf(child.key) >= 0) ??
-            false
-        }))
+        children: option.children?.map(child => {
+          const childKey = `${option.key}/${child.key}`
+          return {
+            key: childKey,
+            docCount: child.docCount,
+            displayName: child.displayName,
+            checked:
+              (selectedSubCategoryValues && selectedSubCategoryValues.indexOf(child.key) >= 0) ??
+              false
+          }
+        })
       }
     })
   }
 
   function mainCategory(mainIndex: number): void {
-    console.log('A mainCategory was clicked and new state is: ', !states[mainIndex].checked)
     states[mainIndex].checked = !states[mainIndex].checked
     // Uncheck all subcategories if parent main category is unchecked
     if (!states[mainIndex].checked) {
       // To uncheck a checkbox, remove the value from the selectedSubCategoryValues array
       states[mainIndex].children.forEach(subCategory => {
         subCategory.checked = false
-        selectedSubCategoryValues = selectedSubCategoryValues.filter(
-          value => value !== `${states[mainIndex].key}/${subCategory.key}`
-        )
+        selectedSubCategoryValues = selectedSubCategoryValues.filter(value => {
+          return value !== subCategory.key
+        })
       })
     }
   }
@@ -125,7 +125,7 @@
           <label for={listItem.key}>{`${listItem.displayName} (${listItem.docCount})`}</label>
         </div>
 
-        {#if !hasJS || (states[mainIndex].checked && listItem.children && listItem.children.length > 0)}
+        {#if !hasJS || (listItem.checked && listItem.children && listItem.children.length > 0)}
           <ol class="list-unstyled" transition:slide={{y: 200, duration: 200}}>
             {#each listItem.children as subListItem}
               <li class="p-l-xs">
@@ -135,7 +135,7 @@
                     type="checkbox"
                     name={subCategoryName}
                     class="input__control"
-                    value="{listItem.key}/{subListItem.key}"
+                    value={subListItem.key}
                     aria-describedby={createInputAriaDescribedby(helpText ? name : undefined)}
                     aria-checked={subListItem.checked}
                     bind:group={selectedSubCategoryValues}

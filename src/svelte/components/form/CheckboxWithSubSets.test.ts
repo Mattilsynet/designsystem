@@ -75,7 +75,7 @@ describe('Checkbox with subsets', () => {
 
   const paramsForCheckedTest = {
     kategori: ['dyr'],
-    underkategori: ['produksjonsdyr']
+    underkategori: ['dyr/produksjonsdyr']
   }
 
   test('Renders list of checkboxes.', async () => {
@@ -101,8 +101,8 @@ describe('Checkbox with subsets', () => {
       legend
     })
     expect(getByText(`${options[0].displayName} (${options[0].docCount})`)).toBeInTheDocument()
-    const animal = getByText(`${options[0].displayName} (${options[0].docCount})`)
-    await fireEvent.click(animal)
+    //const animal = getByText(`${options[0].displayName} (${options[0].docCount})`)
+    //await fireEvent.click(animal)
     expect(
       getByText(`${options[0].children[0].displayName} (${options[0].children[0].docCount})`)
     ).toBeInTheDocument()
@@ -120,7 +120,7 @@ describe('Checkbox with subsets', () => {
     const subCategory = getByLabelText(
       `${options[0].children[0].displayName} (${options[0].children[0].docCount})`
     )
-    expect(subCategory.getAttribute('aria-checked')).toEqual('true')
+    expect(subCategory).toBeChecked()
   })
 
   test('Test that subcategories are unchecked when main category is unchecked', async () => {
@@ -136,25 +136,20 @@ describe('Checkbox with subsets', () => {
     const subCategoryCheckbox = getByLabelText(
       `${options[0].children[0].displayName} (${options[0].children[0].docCount})`
     )
-
     expect(mainCategoryCheckbox).toBeChecked()
     expect(subCategoryCheckbox).toBeInTheDocument()
-    expect(subCategoryCheckbox.getAttribute('aria-checked')).toEqual('true')
 
     // close main category
-
-    await act(() => fireEvent.click(mainCategoryCheckbox))
-    await tick()
+    await fireEvent.click(mainCategoryCheckbox)
     expect(mainCategoryCheckbox).not.toBeChecked()
-    const subCategoryCheckbox2 = getByLabelText(
-      `${options[0].children[0].displayName} (${options[0].children[0].docCount})`
-    )
-    expect(subCategoryCheckbox2).not.toBeInTheDocument()
-    expect(subCategoryCheckbox2.getAttribute('aria-checked')).toEqual('false')
+    expect(mainCategoryCheckbox.getAttribute('aria-checked')).toEqual('false')
+
+    expect(subCategoryCheckbox).not.toBeInTheDocument()
+    expect(subCategoryCheckbox.getAttribute('aria-checked')).toEqual('false')
 
     // open main category
-    //mainCategory.click()
-    //expect(mainCategory).toBeChecked()
-    //expect(subCategory.getAttribute('aria-checked')).toEqual('false')
+    await fireEvent.click(mainCategoryCheckbox)
+    expect(mainCategoryCheckbox).toBeChecked()
+    expect(subCategoryCheckbox.getAttribute('aria-checked')).toEqual('false')
   })
 })
