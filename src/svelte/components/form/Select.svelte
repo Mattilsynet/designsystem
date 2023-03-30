@@ -7,6 +7,7 @@
   import type {ErrorDetail} from '../../../ts/types'
   import {createInputAriaDescribedby} from '../../../ts/utils'
   import Label from './Label.svelte'
+  import {beforeUpdate} from 'svelte'
   export let name: string
   export let label: string
   export let value: string | undefined
@@ -18,6 +19,14 @@
   export let hiddenErrorText: string | undefined
 
   const selectId = `ui-select-${instanceCounter++}`
+  let isInitialized = false
+
+  beforeUpdate(() => {
+    if (value === undefined && !isInitialized && document) {
+      value = document?.querySelector(`input[name="${name}"]:checked`)?.value
+      isInitialized = true
+    }
+  })
 </script>
 
 <Label for={selectId} {isRequired} {textOptional}>{label}</Label>
