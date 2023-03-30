@@ -1,9 +1,8 @@
 /**
  * @jest-environment jsdom
  */
-import {act, fireEvent, render} from '@testing-library/svelte'
+import {fireEvent, render, waitFor} from '@testing-library/svelte'
 import CheckboxWithSubSets from './CheckboxWithSubSets.svelte'
-import {tick} from 'svelte'
 
 describe('Checkbox with subsets', () => {
   const legend = 'Checkbox with subsets'
@@ -79,7 +78,7 @@ describe('Checkbox with subsets', () => {
   }
 
   test('Renders list of checkboxes.', async () => {
-    const {getByText} = render(CheckboxWithSubSets, {
+    const {getByText, queryByText} = render(CheckboxWithSubSets, {
       options,
       params,
       legend
@@ -89,23 +88,27 @@ describe('Checkbox with subsets', () => {
     expect(getByText(`${options[1].displayName} (${options[1].docCount})`)).toBeInTheDocument()
     const animal = getByText(`${options[0].displayName} (${options[0].docCount})`)
     await fireEvent.click(animal)
-    expect(
-      getByText(`${options[0].children[0].displayName} (${options[0].children[0].docCount})`)
-    ).toBeInTheDocument()
+    await waitFor(() => {
+      expect(
+        queryByText(`${options[0].children[0].displayName} (${options[0].children[0].docCount})`)
+      ).not.toBeInTheDocument()
+    })
   })
 
   test('Renders subsets of checkboxes', async () => {
-    const {getByText} = render(CheckboxWithSubSets, {
+    const {getByText, queryByText} = render(CheckboxWithSubSets, {
       options,
       params,
       legend
     })
     expect(getByText(`${options[0].displayName} (${options[0].docCount})`)).toBeInTheDocument()
-    //const animal = getByText(`${options[0].displayName} (${options[0].docCount})`)
-    //await fireEvent.click(animal)
-    expect(
-      getByText(`${options[0].children[0].displayName} (${options[0].children[0].docCount})`)
-    ).toBeInTheDocument()
+    const animal = getByText(`${options[0].displayName} (${options[0].docCount})`)
+    await fireEvent.click(animal)
+    await waitFor(() => {
+      expect(
+        queryByText(`${options[0].children[0].displayName} (${options[0].children[0].docCount})`)
+      ).not.toBeInTheDocument()
+    })
   })
 
   test('Check checked checkboxes', async () => {
@@ -124,7 +127,7 @@ describe('Checkbox with subsets', () => {
   })
 
   test('Test that subcategories are unchecked when main category is unchecked', async () => {
-    const {getByLabelText} = render(CheckboxWithSubSets, {
+    const {getByLabelText, queryByLabelText} = render(CheckboxWithSubSets, {
       options,
       params: paramsForCheckedTest,
       legend
@@ -136,20 +139,31 @@ describe('Checkbox with subsets', () => {
     const subCategoryCheckbox = getByLabelText(
       `${options[0].children[0].displayName} (${options[0].children[0].docCount})`
     )
+
     expect(mainCategoryCheckbox).toBeChecked()
     expect(subCategoryCheckbox).toBeInTheDocument()
+    expect(subCategoryCheckbox).toBeChecked()
 
     // close main category
     await fireEvent.click(mainCategoryCheckbox)
+
     expect(mainCategoryCheckbox).not.toBeChecked()
-    expect(mainCategoryCheckbox.getAttribute('aria-checked')).toEqual('false')
+    await waitFor(() => {
+      let actual = queryByLabelText(
+        `${options[0].children[0].displayName} (${options[0].children[0].docCount})`
+      )
+      expect(actual).not.toBeInTheDocument()
+    })
 
-    expect(subCategoryCheckbox).not.toBeInTheDocument()
-    expect(subCategoryCheckbox.getAttribute('aria-checked')).toEqual('false')
-
+    const main = getByLabelText(`${options[0].displayName} (${options[0].docCount})`)
     // open main category
-    await fireEvent.click(mainCategoryCheckbox)
-    expect(mainCategoryCheckbox).toBeChecked()
-    expect(subCategoryCheckbox.getAttribute('aria-checked')).toEqual('false')
+    await fireEvent.click(main)
+    expect(main).toBeChecked()
+
+    const sub = getByLabelText(
+      `${options[0].children[0].displayName} (${options[0].children[0].docCount})`
+    )
+    expect(sub).toBeInTheDocument()
+    expect(sub).not.toBeChecked()
   })
 })
