@@ -2,6 +2,7 @@
   import {Meta, Story} from '@storybook/addon-svelte-csf'
   import TextInput from '../../../src/svelte/components/form/TextInput.svelte'
   import {wrapInShadowDom} from '../../utils'
+  import TextInputHorizontal from '../../../src/svelte/components/form/TextInputHorizontal.svelte'
 </script>
 
 <Meta
@@ -81,8 +82,8 @@
       <h2>Horisontal layout</h2>
       <div class="collapsable-input-list-grid">
         {#each args.horizontal as horizontal}
-          <TextInput
-            name="inputfield3"
+          <TextInputHorizontal
+            name="inputfield4"
             label={horizontal.label}
             textOptional={horizontal.textOptional}
             helpText={horizontal.helpText}
@@ -91,7 +92,6 @@
             maxlength={horizontal.maxLength}
             placeholder=""
             autocomplete=""
-            isHorizontal={true}
             inputClass="form-field--small form-field--small-width" />
         {/each}
       </div>
@@ -122,7 +122,7 @@
         autocomplete="" />
       <div class="collapsable-input-list-grid">
         {#each args.horizontal as horizontal, index}
-          <TextInput
+          <TextInputHorizontal
             name="inputfield{index}"
             label={horizontal.label}
             textOptional={horizontal.textOptional}
@@ -132,7 +132,6 @@
             isRequired={horizontal.isRequired}
             placeholder=""
             autocomplete=""
-            isHorizontal={true}
             inputClass="form-field--small form-field--small-width" />
         {/each}
       </div>

@@ -5,7 +5,7 @@
 <script lang="ts">
   import type {InputProps, ErrorDetail} from '../../../ts/types'
   import {createInputAriaDescribedby, interpolate} from '../../../ts/utils'
-  import TextInput from './TextInput.svelte'
+  import TextInputHorizontal from './TextInputHorizontal.svelte'
 
   export let values = {}
   export let isRequired: boolean | undefined = undefined
@@ -84,7 +84,7 @@
 
   <div class="collapsable-input-list">
     {#each outsides as outside}
-      <TextInput
+      <TextInputHorizontal
         name={outside.name}
         bind:value={values[outside.name]}
         label={outside.label}
@@ -94,7 +94,6 @@
         placeholder={outside.placeholder}
         autocomplete={outside.autocomplete}
         error={outside.error}
-        isHorizontal={true}
         {showOptionalText}
         labelClass="text-body"
         inputClass="form-field--small form-field--small-width" />
@@ -110,8 +109,7 @@
           aria-controls={bodyId}
           aria-label={createAriaLabel(showMore)}
           on:click|preventDefault={() => (showMore = !showMore)}
-          style="order: {insides.length + outsides.length};"
-        >
+          style="order: {insides.length + outsides.length};">
           {#if showMore}
             {@html collapsableText}
           {:else}
@@ -120,7 +118,7 @@
         </button>
         {#if showMore}
           {#each insides as inside}
-            <TextInput
+            <TextInputHorizontal
               name={inside.name}
               label={inside.label}
               bind:value={values[inside.name]}
@@ -130,7 +128,6 @@
               placeholder={inside.placeholder}
               autocomplete={inside.autocomplete}
               error={inside.error}
-              isHorizontal={true}
               hasTransition={true}
               {showOptionalText}
               labelClass="text-body"
@@ -145,7 +142,7 @@
         </summary>
         <div class="collapsable-input-list">
           {#each insides as inside}
-            <TextInput
+            <TextInputHorizontal
               name={inside.name}
               label={inside.label}
               bind:value={values[inside.name]}
@@ -155,7 +152,6 @@
               placeholder={inside.placeholder}
               autocomplete={inside.autocomplete}
               error={inside.error}
-              isHorizontal={true}
               hasTransition={true}
               {showOptionalText}
               labelClass="text-body"
