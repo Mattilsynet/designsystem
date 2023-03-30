@@ -10,7 +10,7 @@
   } from '../../../ts/types'
   import {createInputAriaDescribedby} from '../../../ts/utils'
   import Label from './Label.svelte'
-  import {slide} from 'svelte/transition'
+  import {beforeUpdate} from 'svelte'
 
   export let value
   export let name: string
@@ -32,7 +32,7 @@
   export let hasTransition = false
 
   export let inputClass = ''
-  export let isHorizontal = false
+  let isInitialized = false
 
   let countCharsParams: CountCharsParams = {
     countCharacters: (maxlength && maxlength > 0) as boolean,
@@ -41,70 +41,40 @@
     countCharactersLeftLabel: countCharactersLeftLabel,
     countCharactersTooManyLabel: countCharactersTooManyLabel
   }
+
+  beforeUpdate(() => {
+    if (value === undefined && !isInitialized && document) {
+      value = document?.querySelector(`input[name="${name}"]`)?.value
+      isInitialized = true
+    }
+  })
 </script>
 
-{#if isHorizontal}
-  <div
-    class="input-horizontal"
-    style="--gap:var(--spacer-xxx-small)"
-    in:slide={{duration: hasTransition ? 300 : 0}}
-    out:slide={{duration: hasTransition ? 300 : 0}}>
-    {#if error}
-      <InputError {...error} {hiddenErrorText} />
-    {/if}
+<Label for={name} {isRequired} {textOptional}>{label}</Label>
 
-    <div class="layout-flex layout-flex-col justify-content-center" style="--gap: 0">
-      <Label for={name} {isRequired} {textOptional} {showOptionalText} class={labelClass}>
-        {label}
-      </Label>
-
-      {#if helpText}
-        <div id={`${name}-hint`} class="hint">
-          {@html helpText}
-        </div>
-      {/if}
-    </div>
-
-    <input
-      id={name}
-      {name}
-      class="form-field {inputClass}"
-      bind:value
-      class:error
-      aria-required={isRequired || undefined}
-      aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error, maxlength)}
-      aria-invalid={!!error}
-      {inputmode}
-      {placeholder}
-      {autocomplete} />
+{#if helpText}
+  <div id={`${name}-hint`} class="hint">
+    {@html helpText}
   </div>
-{:else}
-  <Label for={name} {isRequired} {textOptional}>{label}</Label>
-
-  {#if helpText}
-    <div id={`${name}-hint`} class="hint">
-      {@html helpText}
-    </div>
-  {/if}
-
-  {#if error}
-    <InputError {...error} {hiddenErrorText} />
-  {/if}
-
-  <input
-    id={name}
-    {name}
-    use:countCharacters={countCharsParams}
-    on:input={e => {
-      error = errorOnTooManyCharacters(e, countCharsParams, name, tooManyCharactersErrorText)
-    }}
-    class="form-field {inputClass}"
-    bind:value
-    class:error
-    aria-required={isRequired || undefined}
-    aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error, maxlength)}
-    aria-invalid={!!error}
-    {inputmode}
-    {placeholder}
-    {autocomplete} />
 {/if}
+
+{#if error}
+  <InputError {...error} {hiddenErrorText} />
+{/if}
+
+<input
+  id={name}
+  {name}
+  use:countCharacters={countCharsParams}
+  on:input={e => {
+    error = errorOnTooManyCharacters(e, countCharsParams, name, tooManyCharactersErrorText)
+  }}
+  class="form-field {inputClass}"
+  bind:value
+  class:error
+  aria-required={isRequired || undefined}
+  aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error, maxlength)}
+  aria-invalid={!!error}
+  {inputmode}
+  {placeholder}
+  {autocomplete} />
