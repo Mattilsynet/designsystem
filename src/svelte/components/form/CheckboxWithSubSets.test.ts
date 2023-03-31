@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import {fireEvent, render} from '@testing-library/svelte'
+import {fireEvent, render, waitFor} from '@testing-library/svelte'
 import CheckboxWithSubSets from './CheckboxWithSubSets.svelte'
 
 describe('Checkbox with subsets', () => {
@@ -67,9 +67,20 @@ describe('Checkbox with subsets', () => {
     }
   ]
 
+  const params = {
+    kategori: ['dyr'],
+    underkategori: []
+  }
+
+  const paramsForCheckedTest = {
+    kategori: ['dyr'],
+    underkategori: ['dyr/produksjonsdyr']
+  }
+
   test('Renders list of checkboxes.', async () => {
-    const {getByText} = render(CheckboxWithSubSets, {
+    const {getByText, queryByText} = render(CheckboxWithSubSets, {
       options,
+      params,
       legend
     })
     expect(getByText(legend)).toBeInTheDocument()
@@ -77,21 +88,82 @@ describe('Checkbox with subsets', () => {
     expect(getByText(`${options[1].displayName} (${options[1].docCount})`)).toBeInTheDocument()
     const animal = getByText(`${options[0].displayName} (${options[0].docCount})`)
     await fireEvent.click(animal)
-    expect(
-      getByText(`${options[0].children[0].displayName} (${options[0].children[0].docCount})`)
-    ).toBeInTheDocument()
+    await waitFor(() => {
+      expect(
+        queryByText(`${options[0].children[0].displayName} (${options[0].children[0].docCount})`)
+      ).not.toBeInTheDocument()
+    })
   })
 
-  test('Renders subsets', async () => {
-    const {getByText} = render(CheckboxWithSubSets, {
+  test('Renders subsets of checkboxes', async () => {
+    const {getByText, queryByText} = render(CheckboxWithSubSets, {
       options,
+      params,
       legend
     })
     expect(getByText(`${options[0].displayName} (${options[0].docCount})`)).toBeInTheDocument()
     const animal = getByText(`${options[0].displayName} (${options[0].docCount})`)
     await fireEvent.click(animal)
-    expect(
-      getByText(`${options[0].children[0].displayName} (${options[0].children[0].docCount})`)
-    ).toBeInTheDocument()
+    await waitFor(() => {
+      expect(
+        queryByText(`${options[0].children[0].displayName} (${options[0].children[0].docCount})`)
+      ).not.toBeInTheDocument()
+    })
+  })
+
+  test('Check checked checkboxes', async () => {
+    const {getByLabelText} = render(CheckboxWithSubSets, {
+      options,
+      params: paramsForCheckedTest,
+      legend
+    })
+    const mainCategory = getByLabelText(`${options[0].displayName} (${options[0].docCount})`)
+    expect(mainCategory).toBeChecked()
+
+    const subCategory = getByLabelText(
+      `${options[0].children[0].displayName} (${options[0].children[0].docCount})`
+    )
+    expect(subCategory).toBeChecked()
+  })
+
+  test('Test that subcategories are unchecked when main category is unchecked', async () => {
+    const {getByLabelText, queryByLabelText} = render(CheckboxWithSubSets, {
+      options,
+      params: paramsForCheckedTest,
+      legend
+    })
+
+    const mainCategoryCheckbox = getByLabelText(
+      `${options[0].displayName} (${options[0].docCount})`
+    )
+    const subCategoryCheckbox = getByLabelText(
+      `${options[0].children[0].displayName} (${options[0].children[0].docCount})`
+    )
+
+    expect(mainCategoryCheckbox).toBeChecked()
+    expect(subCategoryCheckbox).toBeInTheDocument()
+    expect(subCategoryCheckbox).toBeChecked()
+
+    // close main category
+    await fireEvent.click(mainCategoryCheckbox)
+
+    expect(mainCategoryCheckbox).not.toBeChecked()
+    await waitFor(() => {
+      let actual = queryByLabelText(
+        `${options[0].children[0].displayName} (${options[0].children[0].docCount})`
+      )
+      expect(actual).not.toBeInTheDocument()
+    })
+
+    const main = getByLabelText(`${options[0].displayName} (${options[0].docCount})`)
+    // open main category
+    await fireEvent.click(main)
+    expect(main).toBeChecked()
+
+    const sub = getByLabelText(
+      `${options[0].children[0].displayName} (${options[0].children[0].docCount})`
+    )
+    expect(sub).toBeInTheDocument()
+    expect(sub).not.toBeChecked()
   })
 })
