@@ -11,7 +11,6 @@
   export let placeholder: string | undefined
   export let ariaControls: string | undefined
   export let inputClass = ''
-  export let primaryButton = false
 </script>
 
 {#if label}
@@ -29,22 +28,18 @@
 <div class="search-wrap">
   <input
     id={name}
+    type="search"
     {name}
     class="form-field input-search {inputClass}"
     class:hasButton={!!searchButtonText}
     bind:value
     aria-describedby={createInputAriaDescribedby(helpText ? name : undefined)}
-    type="search"
     {placeholder} />
   {#if searchButtonText}
     <button
       type="submit"
-      class="button button--flat form-field"
-      aria-controls={ariaControls}
-      class:button-search={!primaryButton}
-      class:icon--search-before={!primaryButton}
-      class:button-search-primary={primaryButton}
-      class:icon--search-before-beige={primaryButton}>
+      class="button button--flat form-field button-search-primary icon--search-before-beige"
+      aria-controls={ariaControls}>
       {searchButtonText}
     </button>
   {/if}

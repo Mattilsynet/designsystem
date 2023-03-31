@@ -11,7 +11,6 @@
     helpText: 'Her kan du søke etter artikler og veiledere',
     placeholder: 'Søk etter artikler, skjemaer, pdfer og veiledere, veivisere, rapporter og mer',
     searchButtonText: 'Søk',
-    primaryButton: true,
     disableCss: false
   }}
   argTypes={{
@@ -37,11 +36,6 @@
     <article>
       <form class="form-layout">
         <TextInputSearch name="inputfield_2" {label} {searchButtonText} />
-      </form>
-    </article>
-    <article>
-      <form class="form-layout">
-        <TextInputSearch name="inputfield_2" {label} {searchButtonText} {primaryButton} />
       </form>
     </article>
     <article>
