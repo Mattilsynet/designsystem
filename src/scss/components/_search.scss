@@ -16,8 +16,8 @@
     width: auto;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
+    padding-left: $button-padding-lr;
+    padding-right: $button-padding-lr;
     color: var(--color-mt-background);
     line-height: initial;
     z-index: 1;

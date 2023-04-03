@@ -12,7 +12,7 @@
     margin-top: 0;
   }
   .tag-text {
-    --tag-padding: 0.1em 0.5em;
+    --tag-padding: 0.1em $button-padding-lr;
     border: $border-width-regular solid var(--color-mt-text-dark);
     border-radius: $border-radius;
     padding: var(--tag-padding);

@@ -3,7 +3,7 @@
 $button-default-color: 'primary' !default;
 $button-colors: 'error' !default;
 
-$icon-button-padding: 0.5em;
+$icon-button-padding: $button-padding-lr;
 $icon-button-border-radius: 0.25em;
 
 // stylelint-disable order/properties-order
@@ -157,7 +157,7 @@ $icon-button-border-radius: 0.25em;
     }
   }
   &--small {
-    padding: 0.25em 0.5em;
+    padding: 0.25em $icon-button-padding;
   }
   &--flat {
     background: transparent;
