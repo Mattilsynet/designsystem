@@ -11,16 +11,19 @@
     helpText: 'Her kan du søke etter artikler og veiledere',
     placeholder: 'Søk etter artikler, skjemaer, pdfer og veiledere, veivisere, rapporter og mer',
     searchButtonText: 'Søk',
-    disableCss: false
+    disableCss: false,
+    loadJs: true
   }}
   argTypes={{
     label: {control: 'text'},
     helpText: {control: 'text'},
-    disableCss: {control: 'boolean'}
+    disableCss: {control: 'boolean'},
+    loadJs: {control: 'boolean'}
   }} />
 
 <Story
   name="Search input"
+  let:args
   let:label
   let:disableCss
   let:searchButtonText
@@ -30,22 +33,32 @@
   <div use:wrapInShadowDom={disableCss}>
     <article>
       <form class="form-layout">
-        <TextInputSearch name="inputfield_1" {label} />
+        <TextInputSearch name="inputfield_1" {label} loadJs={args.loadJs} />
       </form>
     </article>
     <article>
       <form class="form-layout">
-        <TextInputSearch name="inputfield_2" {label} {searchButtonText} />
+        <TextInputSearch name="inputfield_2" {label} {searchButtonText} loadJs={args.loadJs} />
       </form>
     </article>
     <article>
       <form class="form-layout">
-        <TextInputSearch name="inputfield_3" {label} {placeholder} {searchButtonText} />
+        <TextInputSearch
+          name="inputfield_3"
+          {label}
+          {placeholder}
+          {searchButtonText}
+          loadJs={args.loadJs} />
       </form>
     </article>
     <article>
       <form class="form-layout">
-        <TextInputSearch name="inputfield_4" {label} {helpText} {searchButtonText} />
+        <TextInputSearch
+          name="inputfield_4"
+          {label}
+          {helpText}
+          {searchButtonText}
+          loadJs={args.loadJs} />
       </form>
     </article>
   </div></Story>
