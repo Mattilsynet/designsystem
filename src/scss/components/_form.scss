@@ -65,6 +65,8 @@ label.form-label {
 
 .form-field {
   @include error-style;
+  @include focus-outline();
+  @include disabled;
 
   --outline-style: var(--form-outline-style);
   --outline-color: var(--form-outline-color);
@@ -78,9 +80,10 @@ label.form-label {
   color: inherit;
   font-family: inherit;
 
-  &:focus {
+  &:hover {
     border-color: var(--color-primary);
   }
+
   &--small-width {
     --small-input-width: 3.75rem;
     width: var(--small-input-width);
@@ -138,11 +141,6 @@ label.form-label {
     select {
       outline: none;
     }
-
-    &:focus-within {
-      outline: var(--outline-size) var(--outline-style) var(--outline-color);
-      outline-offset: var(--outline-size);
-    }
   }
 }
 
@@ -154,14 +152,18 @@ label.form-label {
   align-items: center;
   gap: var(--dimention);
 
+  &:hover {
+    .input__control {
+      border-color: var(--color-primary);
+    }
+  }
+
   input {
+    @include focus-outline();
+
     width: 1em;
     height: 1em;
     margin: 0;
-
-    &:focus + .input__control {
-      box-shadow: 0 0 0 0.05em #fff, 0 0 0.15em 0.15em var(--color-primary);
-    }
   }
 
   &__input {
@@ -187,7 +189,6 @@ label.form-label {
 .checkbox {
   .input__control {
     @include error-style;
-    @include focus-shadow(var(--color-mt-blue-medium), var(--color-primary));
     @include radio-check-error-style;
 
     appearance: none;
@@ -212,7 +213,6 @@ label.form-label {
 .radio {
   .input__control {
     @include error-style;
-    @include focus-shadow(var(--color-mt-blue-medium), var(--color-primary));
     @include radio-check-error-style;
 
     appearance: none;
@@ -235,7 +235,8 @@ label.form-label {
     transform: scale(1);
   }
 }
-.button-radio, .button-checkbox  {
+.button-radio,
+.button-checkbox {
   display: grid;
   grid-template-columns: min-content min-content;
   grid-template-rows: min-content min-content min-content min-content min-content;
@@ -250,7 +251,8 @@ label.form-label {
     gap: 0;
     display: flex;
 
-    input[type='checkbox'], input[type='radio'] {
+    input[type='checkbox'],
+    input[type='radio'] {
       &.input__control {
         opacity: 0;
         position: fixed;
@@ -289,7 +291,7 @@ label.form-label {
         }
         &:focus {
           & + .form-label {
-            box-shadow: var(--focus-box-shadow);
+            box-shadow: $focus-box-shadow;
           }
         }
       }
