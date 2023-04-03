@@ -5,6 +5,9 @@ $border-width-large: 4px;
 $border-radius-small: 0.01em !default;
 $border-radius: 0.25em !default;
 $border-red-regular: $border-width-regular solid $color-mt-red;
+$focus-box-shadow: 0 0 0 2px var(--color-mt-background), 0 0 0 0.35rem var(--color-mt-blue-medium);
+$focus-box-shadow-on-white: 0 0 0 2px var(--color-mt-white),
+  0 0 0 0.35rem var(--color-mt-blue-medium);
 
 $breakpoint-large: 768px;
 $breakpoint-x-large: 1024px;
@@ -44,6 +47,9 @@ $icon-size-small: 0.875rem; // 14px
 $icon-size-medium: 1rem; // 16px
 $icon-size-large: 1.25rem; // 20px
 $icon-size-x-large: 1.875rem; // 30px
+
+$button-min-height: 2.75rem;
+$button-min-width: 2.75rem;
 
 $menu-point-icon-height: 2.125rem; //34px
 $menu-point-icon-width: 2.5rem; // 40px
