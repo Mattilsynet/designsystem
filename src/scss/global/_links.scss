@@ -340,8 +340,7 @@ a {
     --transportlink-color: var(--color-on-#{$transportlink-colors});
     --outline-color: transparent;
     --gap: 0.5rem;
-    --focus-box-shadow: 0 0 0 2px var(--color-mt-background),
-    0 0 0 0.35rem var(--color-mt-blue-medium);
+    --focus-box-shadow: $focus-box-shadow;
     --transportlink-padding: 0.875rem 1.5rem;
 
     font-size: $font-size-body;
@@ -356,32 +355,5 @@ a {
     &:hover {
       padding: var(--transportlink-padding);
     }
-  }
-}
-
-button,
-input,
-select,
-textarea {
-  @include disabled;
-
-  --outline-color: currentColor;
-
-  transition: box-shadow 0.15s ease-in-out;
-
-  &:focus {
-    border-color: inherit;
-    outline: none;
-    box-shadow: 0 0 0 0.25rem var(--color-mt-blue-medium);
-  }
-
-  &:focus:not(:focus-visible) {
-    outline: none;
-  }
-
-  &:focus-visible {
-    border-color: inherit;
-    outline: none;
-    box-shadow: 0 0 0 0.25rem var(--color-mt-blue-medium);
   }
 }
