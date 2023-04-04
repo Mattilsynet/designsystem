@@ -15,7 +15,6 @@
   export let inputClass = ''
   export let loadJs = false
 
-  $: hasValue = value && value !== ''
   onMount(() => {
     loadJs = true
   })
