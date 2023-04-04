@@ -1,7 +1,7 @@
 <script lang="ts">
   import Label from './Label.svelte'
   import {createInputAriaDescribedby} from '../../../ts/utils'
-  import {onMount} from 'svelte'
+  import {beforeUpdate} from 'svelte'
 
   export let value: string
   export let name: string | undefined
@@ -13,10 +13,13 @@
   export let ariaControls: string | undefined
   export let ariaRemoveTextLabel = 'Tøm'
   export let inputClass = ''
-  export let loadJs = false
+  let isInitialized = false
 
-  onMount(() => {
-    loadJs = true
+  beforeUpdate(() => {
+    if ((value === undefined || value === '') && !isInitialized && document) {
+      value = document?.querySelector(`input[name="${name}"]`)?.value
+      isInitialized = true
+    }
   })
 </script>
 
@@ -43,8 +46,9 @@
       bind:value
       aria-describedby={createInputAriaDescribedby(helpText ? name : undefined)}
       {placeholder} />
-    {#if loadJs && value}
+    {#if value}
       <button
+        type="reset"
         class="button button--search-clear"
         on:click={() => (value = '')}
         data-testid="search-clear">
@@ -71,6 +75,3 @@
     </button>
   {/if}
 </div>
-
-<style lang="scss">
-</style>
