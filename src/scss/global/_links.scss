@@ -278,9 +278,25 @@ a {
     margin-left: var(--content-margin);
     padding: var(--content-padding);
     gap: var(--spacer-xx-small);
-    background-color: #fff;
+    background-color: var(--color-mt-white);
     text-decoration: none;
+    &--blue {
+      background-color: var(--color-primary);
+      color: var(--color-mt-white);
+      padding: var(--spacer-x-small);
 
+      a {
+        color: var(--color-mt-white);
+      }
+      &:hover {
+        background-color: var(--color-mt-text-dark);
+        color: var(--color-mt-background);
+        border-color: var(--color-mt-text-dark);
+      }
+      &:focus {
+        box-shadow: $focus-box-shadow;
+      }
+    }
     h2,
     h3 {
       transition: padding-left ease-in-out 150ms;
