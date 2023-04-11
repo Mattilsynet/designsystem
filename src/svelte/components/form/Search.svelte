@@ -16,7 +16,7 @@
   let isInitialized = false
 
   beforeUpdate(() => {
-    if ((value === undefined || value === '') && !isInitialized && document) {
+    if (!value && !isInitialized && document) {
       value = document?.querySelector(`input[name="${name}"]`)?.value
       isInitialized = true
     }
