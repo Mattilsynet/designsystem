@@ -1,0 +1,11 @@
+.expandable-input-list {
+  .collapsable-input-list {
+    display: grid;
+    gap: var(--spacer-xx-small);
+    grid-template-columns: max-content;
+
+    .form-field + .form-label {
+      margin-top: 0;
+    }
+  }
+}

@@ -1,0 +1,50 @@
+@use '../theme' as *;
+
+.form-page,
+.multipage-form-view {
+  --space-steps: var(--spacer-x-small);
+  --space-section: var(--spacer-medium);
+
+  gap: 0;
+
+  .steps {
+    margin-top: var(--space-steps);
+  }
+
+  > * + * {
+    margin-top: var(--content-spacer);
+  }
+
+  > h2 {
+    margin-top: var(--space-section);
+  }
+
+  .back-arrow {
+    margin-top: var(--space-steps);
+  }
+
+  .confirmation {
+    margin-top: var(--space-section);
+    .button {
+      margin-top: var(--space-section);
+    }
+  }
+}
+.form-page {
+  .form-layout {
+    margin-top: 0;
+  }
+}
+
+.form-funnel-view {
+  --space-section: var(--spacer-small);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-section);
+
+  section {
+    .layout-flex-col {
+      margin-top: var(--space-section);
+    }
+  }
+}

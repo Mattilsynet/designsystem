@@ -1,0 +1,186 @@
+@use '../theme' as *;
+
+@mixin focus-outline() {
+  --outline-color: var(--color-mt-blue-medium);
+  --outline-size: 2px;
+  --outline-style: solid;
+  --outline-offset: 0.2em;
+
+  &.focus,
+  &:focus {
+    border-color: inherit;
+    outline: none;
+    box-shadow: 0 0 0 0.25rem var(--color-mt-blue-medium);
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  &:focus-visible {
+    border-color: inherit;
+    outline: none;
+    box-shadow: 0 0 0 0.25rem var(--color-mt-blue-medium);
+  }
+}
+
+@mixin disabled {
+  &:disabled,
+  &[disabled],
+  &.disabled {
+    pointer-events: none;
+    filter: none;
+    opacity: 0.5;
+  }
+}
+
+@mixin focus-shadow($shadow, $border) {
+  &:focus {
+    border-color: $border;
+    box-shadow: 0 0 0 0.25rem $shadow;
+  }
+}
+
+@mixin error-style {
+  &.error {
+    $error-focus-color: var(--color-error-50);
+
+    border: $border-width-regular solid var(--color-error);
+
+    &:focus {
+      border-color: var(--color-error);
+      outline: none;
+    }
+  }
+}
+
+@mixin radio-check-error-style {
+  &.error {
+    + label {
+      color: var(--color-error);
+    }
+  }
+}
+
+@mixin children-spaced($spacer: var(--spacer-large)) {
+  > * + * {
+    margin-top: $spacer;
+  }
+}
+
+@mixin xp-html-area {
+  @include children-spaced(var(--space-content));
+
+  --space-section: var(--spacer-medium);
+  --space-sub-section: var(--spacer-small);
+  --space-content: var(--spacer-xx-small);
+
+  > h2 {
+    margin-top: var(--spacer-medium);
+    &.inclusively-hidden {
+      + h3 {
+        margin-top: 0;
+      }
+    }
+  }
+
+  > h3,
+  > h4 {
+    margin-top: var(--spacer-x-small);
+  }
+  ul {
+    padding-left: var(--spacer-medium);
+    li {
+      line-height: 140%;
+      & + li {
+        margin-top: var(--spacer-xx-small);
+      }
+    }
+  }
+}
+
+@mixin card-article {
+  @include children-spaced(var(--spacer-x-small));
+
+  padding: var(--spacer-x-small);
+
+  .title {
+    margin-top: 0;
+    padding-bottom: var(--spacer-xx-small);
+    border-bottom: $border-width-small solid var(--color-mt-beige);
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .intro {
+    font-size: $font-size-body;
+    font-style: italic;
+  }
+
+  .text {
+    @include xp-html-area;
+  }
+}
+@mixin article-spacing {
+  --space-section: var(--spacer-small);
+  --space-sub-section: var(--spacer-x-small);
+  --space-content: var(--spacer-xx-small);
+
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+
+  > * {
+    grid-column: span 12;
+  }
+  .intro,
+  .task,
+  .highlighted-link,
+  .form-intro-module,
+  .disclosure,
+  > * + p {
+    margin-top: var(--space-content);
+  }
+
+  > .meta + p,
+  figure {
+    margin-top: var(--spacer-x-small);
+  }
+
+  table {
+    margin-top: var(--spacer-large);
+  }
+
+  h2 {
+    margin-top: var(--space-section);
+    + h3 {
+      margin-top: var(--space-content);
+    }
+  }
+
+  > h3,
+  > h4 {
+    margin-top: var(--space-sub-section);
+  }
+
+  .text {
+    @include xp-html-area;
+  }
+
+  .meta {
+    margin-top: var(--spacer-x-small);
+  }
+
+  section {
+    > .inclusively-hidden + * {
+      margin-top: var(--space-section);
+    }
+    &.table-of-contents {
+      margin: var(--spacer-large) 0 0;
+      h2 {
+        margin-top: 0;
+      }
+      & + * {
+        margin-top: var(--spacer-large);
+      }
+    }
+  }
+}

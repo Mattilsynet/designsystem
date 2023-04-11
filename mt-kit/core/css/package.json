@@ -1,0 +1,26 @@
+{
+  "name": "@mattilsynet/designsystem-css",
+  "version": "0.0.1",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "tokens": "a11y-color-tokens --outputDirPath='src' --colorTokensPath='src/utilities/colors.js'",
+    "watch:sass": "sass --no-source-map --watch src:./dist",
+    "build:sass": "sass --no-source-map src:./dist ",
+    "start": "npm-run-all tokens build:sass --parallel watch:*",
+    "build": "npm-run-all tokens build:sass",
+    "lint-style": "stylelint src/**/*.scss src/**/**/*.scss src/**/**/**/*.scss",
+    "lint-style:fix": "npm run lint-style --fix"
+  },
+  "devDependencies": {
+    "a11y-color-tokens": "^0.6.0",
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.58.2",
+    "stylelint": "^14.16.1",
+    "stylelint-config-prettier": "^9.0.5",
+    "stylelint-config-standard": "^29.0.0",
+    "stylelint-order": "^6.0.2",
+    "stylelint-scss": "^4.4.0"
+  }
+}
