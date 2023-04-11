@@ -1,16 +1,10 @@
 @use '../theme' as *;
 
 @mixin focus-outline() {
-  --outline-color: var(--color-mt-blue-medium);
-  --outline-size: 2px;
-  --outline-style: solid;
-  --outline-offset: 0.2em;
-
   &.focus,
   &:focus {
-    border-color: inherit;
     outline: none;
-    box-shadow: 0 0 0 0.25rem var(--color-mt-blue-medium);
+    box-shadow: $focus-box-shadow;
   }
 
   &:focus:not(:focus-visible) {
@@ -18,9 +12,8 @@
   }
 
   &:focus-visible {
-    border-color: inherit;
     outline: none;
-    box-shadow: 0 0 0 0.25rem var(--color-mt-blue-medium);
+    box-shadow: $focus-box-shadow;
   }
 }
 
@@ -31,13 +24,6 @@
     pointer-events: none;
     filter: none;
     opacity: 0.5;
-  }
-}
-
-@mixin focus-shadow($shadow, $border) {
-  &:focus {
-    border-color: $border;
-    box-shadow: 0 0 0 0.25rem $shadow;
   }
 }
 

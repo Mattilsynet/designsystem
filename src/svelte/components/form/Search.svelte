@@ -1,6 +1,7 @@
 <script lang="ts">
   import Label from './Label.svelte'
   import {createInputAriaDescribedby} from '../../../ts/utils'
+  import {beforeUpdate} from 'svelte'
 
   export let value: string
   export let name: string | undefined
@@ -10,8 +11,16 @@
   export let searchButtonText: string | undefined
   export let placeholder: string | undefined
   export let ariaControls: string | undefined
+  export let ariaRemoveTextLabel = 'Tøm'
   export let inputClass = ''
-  export let primaryButton = false
+  let isInitialized = false
+
+  beforeUpdate(() => {
+    if (!value && !isInitialized && document) {
+      value = document?.querySelector(`input[name="${name}"]`)?.value
+      isInitialized = true
+    }
+  })
 </script>
 
 {#if label}
@@ -27,24 +36,41 @@
 {/if}
 
 <div class="search-wrap">
-  <input
-    id={name}
-    {name}
-    class="form-field input-search {inputClass}"
-    class:hasButton={!!searchButtonText}
-    bind:value
-    aria-describedby={createInputAriaDescribedby(helpText ? name : undefined)}
-    type="search"
-    {placeholder} />
+  <div class="search-wrap-inner">
+    <input
+      id={name}
+      type="search"
+      {name}
+      class="form-field input-search {inputClass}"
+      class:hasButton={!!searchButtonText}
+      bind:value
+      aria-describedby={createInputAriaDescribedby(helpText ? name : undefined)}
+      {placeholder} />
+    {#if value}
+      <button
+        type="reset"
+        class="button button--search-clear"
+        on:click={() => (value = '')}
+        data-testid="search-clear">
+        <span class="inclusively-hidden">{ariaRemoveTextLabel}</span>
+        <svg
+          aria-hidden="true"
+          width="20"
+          height="20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M10 0C4.47 0 0 4.47 0 10s4.47 10 10 10 10-4.47 10-10S15.53 0 10 0Zm5 13.59L13.59 15 10 11.41 6.41 15 5 13.59 8.59 10 5 6.41 6.41 5 10 8.59 13.59 5 15 6.41 11.41 10 15 13.59Z"
+            fill="#464545" />
+        </svg>
+      </button>
+    {/if}
+  </div>
   {#if searchButtonText}
     <button
       type="submit"
-      class="button button--flat form-field"
-      aria-controls={ariaControls}
-      class:button-search={!primaryButton}
-      class:icon--search-before={!primaryButton}
-      class:button-search-primary={primaryButton}
-      class:icon--search-before-beige={primaryButton}>
+      class="button button--primary icon--search-before-beige"
+      aria-controls={ariaControls}>
       {searchButtonText}
     </button>
   {/if}

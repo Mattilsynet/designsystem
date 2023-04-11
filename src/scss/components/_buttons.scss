@@ -1,20 +1,20 @@
+@use '../theme' as *;
+@use '../utilities/mixins' as *;
 $button-default-color: 'primary' !default;
 $button-colors: 'error' !default;
 
-$icon-button-padding: 0.5em;
+$icon-button-padding: $button-padding-lr;
 $icon-button-border-radius: 0.25em;
-
-$icon-button-min-height: 2.75rem;
-$icon-button-min-width: 2.75rem;
 
 // stylelint-disable order/properties-order
 .button {
+  @include focus-outline();
+  @include disabled;
+
   --button-background: var(--color-#{$button-default-color});
   --button-color: var(--color-on-#{$button-default-color});
   --outline-color: transparent;
   --gap: 0.5rem;
-  --focus-box-shadow: 0 0 0 2px var(--color-mt-background),
-    0 0 0 0.35rem var(--color-mt-blue-medium);
   // Reset for links
   text-decoration: none;
 
@@ -49,10 +49,6 @@ $icon-button-min-width: 2.75rem;
   transition: none 180ms ease-in-out;
   transition-property: background-color, color, border-color;
 
-  &:focus {
-    border-color: var(--button-background);
-  }
-
   &:hover,
   &:active {
     background-color: var(--button-color);
@@ -63,15 +59,10 @@ $icon-button-min-width: 2.75rem;
     &--#{$color} {
       --button-background: var(--color-#{$color});
       --button-color: var(--color-on-#{$color});
-
-      &:focus {
-        --outline-color: var(--color-#{$color}-50);
-
-        box-shadow: var(--focus-box-shadow);
-      }
     }
   }
   &--primary {
+    border-color: var(--color-primary);
     &:hover,
     &:active {
       background-color: var(--color-mt-text-dark);
@@ -84,9 +75,6 @@ $icon-button-min-width: 2.75rem;
       background-color: var(--color-mt-grey);
       color: var(--color-mt-background);
       border-color: var(--color-mt-grey);
-    }
-    &:focus {
-      box-shadow: var(--focus-box-shadow);
     }
   }
   &--on-primary {
@@ -124,9 +112,33 @@ $icon-button-min-width: 2.75rem;
       color: var(--color-mt-grey);
       border-color: var(--color-mt-grey);
     }
-
+  }
+  &--search-clear {
+    min-width: $button-min-width;
+    min-height: $button-min-height;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border-radius: $border-radius;
+    border: transparent;
+    padding: 0;
+    svg {
+      path {
+        fill: var(--color-primary);
+      }
+    }
+    &:hover {
+      border: $border-width-regular solid var(--color-primary);
+      svg {
+        path {
+          fill: var(--color-mt-brown);
+        }
+      }
+    }
     &:focus {
-      box-shadow: var(--focus-box-shadow);
+      box-shadow: $focus-box-shadow-on-white;
+      background-color: var(--color-mt-white);
     }
   }
 
@@ -138,24 +150,26 @@ $icon-button-min-width: 2.75rem;
     cursor: pointer;
     border: 0;
     color: var(--color);
+    &:focus {
+      border-color: inherit;
+      outline: none;
+      box-shadow: $focus-box-shadow-no-outline;
+    }
   }
   &--small {
-    padding: 0.25em 0.5em;
-    &:focus,
-    &:focus-visible {
-      box-shadow: var(--focus-box-shadow);
-    }
+    padding: 0.25em $icon-button-padding;
   }
   &--flat {
     background: transparent;
     color: var(--color-mt-blue);
+
     &:hover {
       border-color: var(--color-mt-blue);
       background: transparent;
     }
     &:focus,
     &:focus-visible {
-      box-shadow: var(--focus-box-shadow);
+      border-color: var(--color-primary);
     }
   }
   &--link {
@@ -171,9 +185,6 @@ $icon-button-min-width: 2.75rem;
     &:hover {
       background: transparent;
       color: var(--color);
-    }
-    &:focus {
-      box-shadow: var(--focus-box-shadow);
     }
   }
 
@@ -263,9 +274,6 @@ $icon-button-min-width: 2.75rem;
         transform: rotateX(180deg);
       }
     }
-    &:focus {
-      border-color: transparent;
-    }
   }
 }
 
@@ -280,8 +288,8 @@ $icon-button-min-width: 2.75rem;
   transition: none 180ms ease-in-out;
   transition-property: background-color, color, border-color;
 
-  min-height: $icon-button-min-height;
-  min-width: $icon-button-min-width;
+  min-height: $button-min-height;
+  min-width: $button-min-width;
 
   display: flex;
   justify-content: center;
