@@ -25,6 +25,13 @@
         <li><a href="" class="icon--list-checkmark-before fit-content">nummer to</a></li>
       </ul>
     </section>
+    <section>
+      <h2>Ikoner til alert icons</h2>
+      <p class="icon--alert-filled-error-before">Avvist</p>
+      <p class="icon--alert-filled-error-before">Ikke medhold</p>
+      <p class="icon--alert-filled-success-before">Medhold</p>
+      <p class="icon--alert-filled-warning-before">Delvis medhold</p>
+    </section>
   </div>
 </Story>
 
