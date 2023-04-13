@@ -2,17 +2,12 @@
 @use '../theme' as *;
 
 .notice {
-  --notice-margin: 0;
   --notice-padding: var(--spacer-x-small);
   font-size: $font-size-small;
-  margin-right: var(--notice-margin);
-  margin-left: var(--notice-margin);
   padding: var(--notice-padding);
   background-color: #fff;
 
   @media only screen and (min-width: $breakpoint-large) {
-    --notice-margin: var(--spacer-medium);
-
     font-size: inherit;
   }
 

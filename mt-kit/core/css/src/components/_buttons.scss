@@ -1,6 +1,5 @@
 @use '../theme' as *;
 @use '../utilities/mixins' as *;
-
 $button-default-color: 'primary' !default;
 $button-colors: 'error' !default;
 
@@ -113,10 +112,6 @@ $icon-button-border-radius: 0.25em;
       color: var(--color-mt-grey);
       border-color: var(--color-mt-grey);
     }
-
-    &:focus {
-      box-shadow: var(--focus-box-shadow);
-    }
   }
   &--search-clear {
     min-width: $button-min-width;
@@ -155,24 +150,26 @@ $icon-button-border-radius: 0.25em;
     cursor: pointer;
     border: 0;
     color: var(--color);
+    &:focus {
+      border-color: inherit;
+      outline: none;
+      box-shadow: $focus-box-shadow-no-outline;
+    }
   }
   &--small {
-    padding: 0.25em 0.5em;
-    &:focus,
-    &:focus-visible {
-      box-shadow: var(--focus-box-shadow);
-    }
+    padding: 0.25em $icon-button-padding;
   }
   &--flat {
     background: transparent;
     color: var(--color-mt-blue);
+
     &:hover {
       border-color: var(--color-mt-blue);
       background: transparent;
     }
     &:focus,
     &:focus-visible {
-      box-shadow: var(--focus-box-shadow);
+      border-color: var(--color-primary);
     }
   }
   &--link {
@@ -180,7 +177,7 @@ $icon-button-border-radius: 0.25em;
     background: transparent;
     color: var(--color);
     text-decoration: underline;
-    min-width: auto;
+    min-width: max-content;
     min-height: auto;
     margin: 0;
     padding: 0;
@@ -188,9 +185,6 @@ $icon-button-border-radius: 0.25em;
     &:hover {
       background: transparent;
       color: var(--color);
-    }
-    &:focus {
-      box-shadow: var(--focus-box-shadow);
     }
   }
 
@@ -214,7 +208,23 @@ $icon-button-border-radius: 0.25em;
   }
   &--spinner {
     vertical-align: bottom;
+
+    &--start {
+      gap: 0;
+      flex-direction: row;
+      .spinner {
+        margin-right: var(--gap);
+      }
+    }
+    &--end {
+      gap: 0;
+      flex-direction: row-reverse;
+      .spinner {
+        margin-left: var(--gap);
+      }
+    }
   }
+
   .spinner::after {
     content: '';
     width: 1.0625rem;
