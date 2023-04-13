@@ -1,7 +1,7 @@
 <script lang="ts">
-  import {Meta, Story} from '@storybook/addon-svelte-csf';
-  import {wrapInShadowDom} from '../utils';
-  import colors from '../../src/scss/utilities/colors';
+  import {Meta, Story} from '@storybook/addon-svelte-csf'
+  import {wrapInShadowDom} from '../utils'
+  import colors from '@mattilsynet/designsystem-css/src/utilities/colors'
 </script>
 
 <Meta
@@ -12,10 +12,13 @@
   argTypes={{
     title: {control: 'text'},
     disableCss: {control: 'boolean'}
-  }}
-/>
+  }} />
+
 <Story name="All" let:primary let:disableCss>
-  <div use:wrapInShadowDom={disableCss} class="layout-grid layout-grid--column-3" style="--wrap: wrap">
+  <div
+    use:wrapInShadowDom={disableCss}
+    class="layout-grid layout-grid--column-3"
+    style="--wrap: wrap">
     {#each colors as color}
       <div class="layout-flex-col">
         <div class="colors" style={`background-color: var(--color-${color.name})`} />
