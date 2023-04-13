@@ -18,21 +18,18 @@
 </script>
 
 {#if displayType === 'blue'}
-  <div
-    class="col-1-span-12 layout-flex layout-flex-col border-radius p-xs bg-lighter-light-blue"
-    data-testid="highlighted-content-link-blue">
-    <HeadingLevel class="heading {headingClass}" headingLevel={+headerTag.charAt(1)}>
+  <a
+    href={url}
+    rel={mapRelExternal(url)}
+    class="col-1-span-12 layout-flex layout-flex-col border-radius highlighted-content highlighted-content--{displayType}"
+    data-testid="highlighted-content-link">
+    <HeadingLevel
+      class="heading {headingClass} icon--forward-arrow-after"
+      headingLevel={+headerTag.charAt(1)}>
       {title}
     </HeadingLevel>
     <slot />
-    <a
-      href={url}
-      rel={mapRelExternal(url)}
-      class="button button--primary button--space-between forward-arrow-end--large padded self-start"
-      data-testid="highlighted-content-link">
-      {shortTitle}
-    </a>
-  </div>
+  </a>
 {:else}
   <a
     href={url}

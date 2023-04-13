@@ -36,12 +36,11 @@ describe('Highlighted content', () => {
     }
     const {getByText, queryByAltText} = render(HighlightedContent, componentOptions)
     expect(getByText('This is the title')).toBeInTheDocument()
-    expect(getByText('This is the short title')).toBeInTheDocument()
     expect(queryByAltText('alt text')).not.toBeInTheDocument()
     const headerElement = getByText('This is the title')
     expect(headerElement.tagName).toEqual('H2')
-    const headerElement2 = getByText('This is the short title')
-    expect(headerElement2.tagName).toEqual('A')
+    expect(headerElement.parentElement.tagName).toEqual('A')
+    expect(queryByAltText('This is the short title')).not.toBeInTheDocument()
   })
 
   test('Renders without props', () => {
