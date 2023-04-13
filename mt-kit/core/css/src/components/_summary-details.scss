@@ -52,7 +52,7 @@ details {
 
   &:focus,
   &:focus-visible {
-    box-shadow: 0 0 0 0.25rem var(--color-mt-blue-medium);
+    box-shadow: $focus-box-shadow-no-outline;
   }
   summary {
     @include focus-outline();

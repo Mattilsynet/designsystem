@@ -6,7 +6,7 @@
 .dropdown {
   --background-color: var(--color-primary);
   $color: $color-mt-background;
-  padding: var(--spacer-xx-small);
+  margin: var(--spacer-xx-small);
   text-align: right;
   display: inline-block;
   position: relative;
@@ -126,6 +126,7 @@
     --button-height: 2.125rem;
     position: inherit;
     padding: 0;
+    margin-right: 0;
     & > button,
     > details {
       color: var(--color-mt-text-dark);

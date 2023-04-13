@@ -27,6 +27,9 @@ a {
   &:hover {
     text-decoration: none;
   }
+  &:focus {
+    box-shadow: $focus-box-shadow-no-outline;
+  }
 
   &.multi-line {
     display: flex;
@@ -275,9 +278,25 @@ a {
     margin-left: var(--content-margin);
     padding: var(--content-padding);
     gap: var(--spacer-xx-small);
-    background-color: #fff;
+    background-color: var(--color-mt-white);
     text-decoration: none;
+    &--blue {
+      background-color: var(--color-primary);
+      color: var(--color-mt-white);
+      padding: var(--spacer-x-small);
 
+      a {
+        color: var(--color-mt-white);
+      }
+      &:hover {
+        background-color: var(--color-mt-text-dark);
+        color: var(--color-mt-background);
+        border-color: var(--color-mt-text-dark);
+      }
+      &:focus {
+        box-shadow: $focus-box-shadow;
+      }
+    }
     h2,
     h3 {
       transition: padding-left ease-in-out 150ms;
@@ -340,8 +359,7 @@ a {
     --transportlink-color: var(--color-on-#{$transportlink-colors});
     --outline-color: transparent;
     --gap: 0.5rem;
-    --focus-box-shadow: 0 0 0 2px var(--color-mt-background),
-    0 0 0 0.35rem var(--color-mt-blue-medium);
+    --focus-box-shadow: $focus-box-shadow;
     --transportlink-padding: 0.875rem 1.5rem;
 
     font-size: $font-size-body;
@@ -352,36 +370,10 @@ a {
 
     &:focus {
       border-color: var(--transportlink-background);
+      box-shadow: $focus-box-shadow;
     }
     &:hover {
       padding: var(--transportlink-padding);
     }
-  }
-}
-
-button,
-input,
-select,
-textarea {
-  @include disabled;
-
-  --outline-color: currentColor;
-
-  transition: box-shadow 0.15s ease-in-out;
-
-  &:focus {
-    border-color: inherit;
-    outline: none;
-    box-shadow: 0 0 0 0.25rem var(--color-mt-blue-medium);
-  }
-
-  &:focus:not(:focus-visible) {
-    outline: none;
-  }
-
-  &:focus-visible {
-    border-color: inherit;
-    outline: none;
-    box-shadow: 0 0 0 0.25rem var(--color-mt-blue-medium);
   }
 }
