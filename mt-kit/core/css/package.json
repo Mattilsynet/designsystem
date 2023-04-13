@@ -2,7 +2,8 @@
   "name": "@mattilsynet/designsystem-css",
   "version": "0.0.1",
   "files": [
-    "dist"
+    "dist",
+    "src/utilities/colors.js"
   ],
   "scripts": {
     "tokens": "a11y-color-tokens --outputDirPath='src' --colorTokensPath='src/utilities/colors.js'",
