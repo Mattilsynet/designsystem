@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "files": [
     "dist",
+    "src/_theme.scss",
+    "src/_color-tokens.scss",
+    "src/utilities/_mixins.scss",
     "src/utilities/colors.js"
   ],
   "scripts": {
