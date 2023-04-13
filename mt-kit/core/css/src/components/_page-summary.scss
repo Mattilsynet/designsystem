@@ -1,0 +1,37 @@
+@use '../theme' as *;
+
+.page-summary {
+  --gap: var(--spacer-xx-small);
+  --border: 2px solid var(--color-mt-beige);
+  --heading-padding-bottom: var(--spacer-xxx-small);
+  --space-section: var(--spacer-small);
+
+  display: grid;
+  grid-template-areas: 'heading link';
+  grid-template-columns: 1fr min-content;
+  row-gap: var(--gap);
+  margin-top: var(--spacer-x-small);
+
+  + .page-summary {
+    margin-top: var(--space-section);
+  }
+
+  a {
+    grid-area: link;
+    border-bottom: var(--border);
+    padding-bottom: var(--heading-padding-bottom);
+    align-self: end;
+  }
+
+  h3 {
+    grid-area: heading;
+    border-bottom: var(--border);
+    padding-bottom: var(--heading-padding-bottom);
+    align-self: end;
+  }
+  .summary-list {
+    dd {
+      white-space: pre-wrap;
+    }
+  }
+}

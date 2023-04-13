@@ -1,0 +1,362 @@
+@use '../color-tokens' as *;
+@use '../theme' as *;
+@use '../utilities/mixins' as *;
+
+//stylelint-disable no-descending-specificity
+$form-field-width: 100% !default;
+$form-text-color: 'var(--color-text)' !default;
+$form-border-color: $color-secondary !default;
+$form-border-radius: 0.25em !default;
+$form-outline-style: solid !default;
+$form-outline-color: $color-mt-blue-medium !default;
+
+form {
+  --form-group-spacer: var(--spacer-small);
+  --form-field-width: #{$form-field-width};
+  --form-text-color: #{$form-text-color};
+  --border-color: #{$form-border-color};
+  --border-radius: #{$form-border-radius};
+  --form-outline-style: #{$form-outline-style};
+  --form-outline-color: #{$form-outline-color};
+  --form-text-space: var(--spacer-xxx-small);
+
+  color: var(--form-text-color);
+
+  .hint {
+    font-size: $font-size-small;
+  }
+}
+form,
+fieldset {
+  > * {
+    margin-top: var(--form-text-space);
+  }
+}
+
+ul + .form-label,
+ol + .form-label,
+.button + .form-label,
+.form-field + .form-label,
+.form-field + button,
+[type='hidden'] + button,
+.form-field + fieldset,
+fieldset + button,
+fieldset + fieldset,
+fieldset + .form-label {
+  margin-top: var(--form-group-spacer);
+}
+
+[type='radio'] + .form-label,
+[type='checkbox'] + .form-label {
+  font-size: inherit;
+  font-weight: normal;
+}
+
+legend.form-legend,
+label.form-label {
+  display: block;
+  font-size: $font-size-label;
+  font-weight: var(--font-weight-normal);
+  line-height: 1;
+  &.small {
+    font-size: $font-size-body;
+  }
+}
+
+.form-field {
+  @include error-style;
+
+  --outline-style: var(--form-outline-style);
+  --outline-color: var(--form-outline-color);
+
+  width: 100%;
+  max-width: var(--form-field-width, 30ch);
+  padding: 0.75em 0.5em;
+  border: var(--border-width-small) solid var(--border-color);
+  border-radius: var(--border-radius);
+  background-color: #fff;
+  color: inherit;
+  font-family: inherit;
+
+  &:focus {
+    border-color: var(--color-primary);
+  }
+  &--small-width {
+    --small-input-width: 3.75rem;
+    width: var(--small-input-width);
+  }
+  &--small {
+    padding: calc(2 * #{$spacer-xxx-small});
+  }
+}
+
+.form-field.select {
+  --outline-size: max(2px, 0.08em);
+  --outline-style: var(--form-outline-style);
+  --outline-color: var(--form-outline-color);
+
+  display: grid;
+  position: relative;
+  grid-template-areas: 'select';
+  align-items: center;
+
+  select,
+  &::after {
+    grid-area: select;
+  }
+
+  &::after {
+    content: '';
+    justify-self: end;
+    width: 0.8em;
+    height: 0.5em;
+    background-color: currentColor;
+    clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+  }
+
+  select {
+    appearance: none;
+    width: 100%;
+    margin: 0;
+    padding: 0 1em 0 0;
+    border: none;
+    background-color: transparent;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    cursor: inherit;
+
+    // Remove dropdown arrow in IE10 & IE11
+    // @link https://www.filamentgroup.com/lab/select-css.html
+    &::-ms-expand {
+      display: none;
+    }
+  }
+
+  @supports selector(:focus-within) {
+    select {
+      outline: none;
+    }
+
+    &:focus-within {
+      outline: var(--outline-size) var(--outline-style) var(--outline-color);
+      outline-offset: var(--outline-size);
+    }
+  }
+}
+
+.form-control {
+  --dimention: 1.5em;
+
+  display: inline-grid;
+  grid-template-columns: 1em 1fr;
+  align-items: center;
+  gap: var(--dimention);
+
+  input {
+    width: 1em;
+    height: 1em;
+    margin: 0;
+
+    &:focus + .input__control {
+      box-shadow: 0 0 0 0.05em #fff, 0 0 0.15em 0.15em var(--color-primary);
+    }
+  }
+
+  &__input {
+    display: grid;
+    grid-template-areas: 'input';
+    place-content: center;
+    font-size: 1em;
+
+    > * {
+      grid-area: input;
+    }
+  }
+
+  .input__control {
+    display: grid;
+    place-content: center;
+    width: var(--dimention);
+    height: var(--dimention);
+    border: $border-width-small solid var(--border-color);
+  }
+}
+
+.checkbox {
+  .input__control {
+    @include error-style;
+    @include focus-shadow(var(--color-mt-blue-medium), var(--color-primary));
+    @include radio-check-error-style;
+
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    border-radius: var(--border-radius);
+    color: var(--color-primary);
+  }
+
+  .input__control svg {
+    width: 0.65em;
+    transform: scale(0);
+    transform-origin: bottom left;
+    transition: 120ms transform ease-in-out;
+  }
+
+  input:checked + .input__control svg {
+    transform: scale(1);
+  }
+}
+
+.radio {
+  .input__control {
+    @include error-style;
+    @include focus-shadow(var(--color-mt-blue-medium), var(--color-primary));
+    @include radio-check-error-style;
+
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    border-radius: 50%;
+    color: var(--color-primary);
+  }
+  .input__control::before {
+    content: '';
+    width: 0.5em;
+    height: 0.5em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    border-radius: 50%;
+    box-shadow: inset 1em 1em var(--color-primary);
+  }
+
+  input:checked + .input__control::before {
+    transform: scale(1);
+  }
+}
+.button-radio, .button-checkbox  {
+  display: grid;
+  grid-template-columns: min-content min-content;
+  grid-template-rows: min-content min-content min-content min-content min-content;
+  column-gap: var(--spacer-xx-small);
+  legend,
+  .hint,
+  .form-error {
+    grid-column: span 2;
+  }
+  .form-control {
+    grid-column: span 1;
+    gap: 0;
+    display: flex;
+
+    input[type='checkbox'], input[type='radio'] {
+      &.input__control {
+        opacity: 0;
+        position: fixed;
+        width: 0;
+        & + .form-label {
+          display: flex;
+          align-items: center;
+          background-color: transparent;
+          &:hover {
+            background-color: var(--color-mt-blue);
+            color: var(--color-mt-white);
+          }
+        }
+        &:checked {
+          & + .form-label {
+            font-weight: var(--font-weight-bold);
+            &:before {
+              width: $icon-size-large;
+              height: $icon-size-medium;
+              display: inline-block;
+              content: '';
+              -webkit-mask: url('data:image/svg+xml,%3Csvg%20width%3D%2220%22%20height%3D%2217%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M2.609%205.613%200%209.023%208.645%2016.5%2020%203.215%2017.254.5%208.663%2011.162%202.609%205.612Z%22%20fill%3D%22%23075B7A%22%2F%3E%3C%2Fsvg%3E')
+                no-repeat 50% 50%;
+              mask: url('data:image/svg+xml,%3Csvg%20width%3D%2220%22%20height%3D%2217%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M2.609%205.613%200%209.023%208.645%2016.5%2020%203.215%2017.254.5%208.663%2011.162%202.609%205.612Z%22%20fill%3D%22%23075B7A%22%2F%3E%3C%2Fsvg%3E')
+                no-repeat 50% 50%;
+              -webkit-mask-size: cover;
+              mask-size: cover;
+              background-color: var(--color-mt-blue);
+            }
+            &:hover {
+              &:before {
+                background-color: var(--color-mt-white);
+              }
+            }
+          }
+        }
+        &:focus {
+          & + .form-label {
+            box-shadow: var(--focus-box-shadow);
+          }
+        }
+      }
+    }
+  }
+  @media only screen and (min-width: $breakpoint-large) {
+    grid-auto-columns: min-content;
+    grid-template-areas: 'label label label' 'hint hint hint' 'error error error' 'radio radio radio';
+    legend {
+      grid-area: label;
+    }
+    .hint {
+      grid-area: hint;
+    }
+    .form-error {
+      grid-area: error;
+    }
+    .form-control {
+      grid-area: radio;
+      grid-column: span 1;
+    }
+  }
+}
+
+.form-error {
+  display: flex;
+  align-items: center;
+  color: var(--color-error);
+  font-size: $font-size-small;
+
+  &::before {
+    content: url('data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22%23A41D16%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M11%2015h2v2h-2v-2zm0-8h2v6h-2V7zm.99-5C6.47%202%202%206.48%202%2012s4.47%2010%209.99%2010C17.52%2022%2022%2017.52%2022%2012S17.52%202%2011.99%202zM12%2020c-4.42%200-8-3.58-8-8s3.58-8%208-8%208%203.58%208%208-3.58%208-8%208z%22%2F%3E%3C%2Fsvg%3E');
+    display: inline-block;
+    height: 26px;
+    margin-right: var(--spacer-xx-small);
+  }
+}
+
+.error-summary {
+  margin-bottom: var(--form-group-spacer);
+  padding: var(--spacer-xxx-small) var(--spacer-xx-small);
+  border-left: $border-width-regular solid var(--color-error);
+
+  h2 {
+    color: var(--color-error);
+  }
+
+  ul {
+    margin-left: 0;
+    padding-left: var(--spacer-xx-small);
+    list-style: disc;
+    li.error-summary__list--link {
+      color: var(--color-primary);
+    }
+  }
+}
+
+.input-horizontal {
+  display: grid;
+  column-gap: var(--spacer-xx-small);
+
+  grid-template-columns: auto 1fr;
+
+  .form-error {
+    grid-column: span 2;
+  }
+  input {
+    justify-self: end;
+  }
+}

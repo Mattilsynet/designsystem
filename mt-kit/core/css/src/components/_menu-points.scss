@@ -1,0 +1,40 @@
+@use '../theme' as *;
+
+.menu-point {
+  --svg-color: var(--color-mt-blue);
+  --icon-padding: var(--spacer-xxx-small);
+  --title-gap: var(--spacer-xx-small);
+
+  display: grid;
+  grid-template-columns: $menu-point-icon-width 1fr;
+  grid-column-gap: var(--icon-padding);
+  grid-template-rows: min-content min-content;
+  grid-row-gap: var(--title-gap);
+  grid-template-areas: 'icon heading' 'empty keywords';
+
+  .svg-wrapper,
+  img {
+    grid-area: icon;
+    align-self: start;
+    justify-self: center;
+    height: $menu-point-icon-height;
+    svg {
+      height: inherit;
+      width: inherit;
+      path {
+        fill: var(--svg-color);
+      }
+    }
+  }
+
+  a {
+    grid-area: heading;
+    padding-left: 0;
+    > * {
+      word-break: break-word;
+    }
+  }
+  p {
+    grid-area: keywords;
+  }
+}
