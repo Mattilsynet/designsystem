@@ -1,6 +1,16 @@
 {
   "name": "@mattilsynet/designsystem-css",
   "version": "0.0.1",
+  "gitRepository": "https://github.com/Mattilsynet/designsystem",
+  "homepage": "https://mattilsynet.github.io/designsystem",
+  "author": "Mattilsynet<matsdrift@mattilsynet.no>",
+  "license": "MIT",
+  "private": false,
+  "keywords": [
+    "Design system",
+    "Mattilsynet",
+    "CSS"
+  ],
   "files": [
     "dist",
     "src/_theme.scss",
