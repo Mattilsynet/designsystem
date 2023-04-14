@@ -21,7 +21,7 @@ describe('RadioGroup', () => {
   const error = undefined
   test('Renders', () => {
     const {getByLabelText, getByDisplayValue, getByText, getByRole} = render(RadioGroup, {
-      value,
+      value: value,
       error,
       name,
       label: yesLabel,
@@ -34,6 +34,7 @@ describe('RadioGroup', () => {
     expect(getByLabelText(options[1].text)).toBeInTheDocument()
     const input = getByDisplayValue(value)
     expect(input).toBeInTheDocument()
+    expect(input.checked).toEqual(true)
     const fieldSet = getByRole('radio', {name: 'Ja'})
     expect(fieldSet?.getAttribute('aria-required')).toEqual('true')
     expect(fieldSet?.getAttribute('aria-describedby')).toEqual('name-hint')

@@ -2,6 +2,7 @@
   import InputError from './InputErrorMessage.svelte'
   import {toKebabCase, createInputAriaDescribedby} from '../../../ts/utils'
   import type {ErrorDetail} from '../../../ts/types'
+  import {beforeUpdate} from 'svelte'
 
   export let value
   export let name: string
@@ -12,10 +13,18 @@
   export let isRequired: boolean | undefined = undefined
   export let textOptional = 'valgfritt felt'
   export let hiddenErrorText: string | undefined
-
+  export let loadJs = false
   export let theme: 'radio' | 'button' = 'radio'
   let className = ''
   export {className as class}
+  let isInitialized = false
+
+  beforeUpdate(() => {
+    if (value === undefined && !isInitialized && document) {
+      value = document?.querySelector(`input[name="${name}"]:checked`)?.value
+      isInitialized = true
+    }
+  })
 </script>
 
 <fieldset

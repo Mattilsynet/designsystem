@@ -10,6 +10,7 @@
     InputModeType
   } from '../../../ts/types'
   import Label from './Label.svelte'
+  import {beforeUpdate} from 'svelte'
 
   export let value
   export let name: string
@@ -35,6 +36,7 @@
   export let isRequired: boolean | undefined = undefined
   export let inputmode: InputModeType | undefined
   export let autocomplete: AutocompleteType | undefined
+  let isInitialized = false
 
   let countCharsParams: CountCharsParams = {
     countCharacters: (maxlength && maxlength > 0) as boolean,
@@ -43,6 +45,13 @@
     countCharactersLeftLabel: countCharactersLeftLabel,
     countCharactersTooManyLabel: countCharactersTooManyLabel
   }
+
+  beforeUpdate(() => {
+    if (value === undefined && !isInitialized && document) {
+      value = document?.querySelector(`input[name="${name}"]`)?.value
+      isInitialized = true
+    }
+  })
 </script>
 
 <Label for={name} class={labelClass} {isRequired} {textOptional} {showOptionalText}>{label}</Label>

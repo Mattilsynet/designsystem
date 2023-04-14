@@ -1,4 +1,5 @@
 <script lang="ts">
+  import {beforeUpdate} from 'svelte'
   import InputError from './InputErrorMessage.svelte'
   import {toKebabCase, createInputAriaDescribedby} from '../../../ts/utils'
   import type {ErrorDetail} from '../../../ts/types'
@@ -16,6 +17,16 @@
   export let theme: 'checkbox' | 'button' = 'checkbox'
   let className = ''
   export {className as class}
+  let isInitialized = false
+
+  beforeUpdate(() => {
+    if (value.length === 0 && !isInitialized && document) {
+      value = Array.from(document?.querySelectorAll(`input[name="${name}"]:checked`)).map(item => {
+        return item.value
+      })
+      isInitialized = true
+    }
+  })
 </script>
 
 <fieldset
@@ -42,22 +53,22 @@
     <InputError {...error} {hiddenErrorText} />
   {/if}
 
-  {#each options as radio (radio.value)}
+  {#each options as checkbox (checkbox.value)}
     <div class="form-control checkbox">
       <input
         type="checkbox"
-        id={toKebabCase(radio.value)}
+        id={toKebabCase(checkbox.value)}
         {name}
         class="input__control"
         class:error
-        value={radio.value}
+        value={checkbox.value}
         bind:group={value}
         aria-required={isRequired}
         aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)} />
       <label
         class="form-label {theme === 'button' ? 'button button--secondary' : ''}"
-        for={toKebabCase(radio.value)}>
-        {radio.text}
+        for={toKebabCase(checkbox.value)}>
+        {checkbox.text}
       </label>
     </div>
   {/each}
