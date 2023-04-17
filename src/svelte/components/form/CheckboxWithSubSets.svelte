@@ -6,6 +6,8 @@
 
   export let params: Record<string, string> = {}
   export let name: string
+  let className = ''
+  export {className as class}
   export let legend: string
   export let options: Array<CheckboxWithSubSectionsOptions>
   export let categoryName = 'kategori'
