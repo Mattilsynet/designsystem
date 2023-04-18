@@ -43,7 +43,7 @@
     "@storybook/addon-postcss": "^2.0.0",
     "@storybook/addon-svelte-csf": "^2.0.10",
     "@storybook/addons": "^6.5.16",
-    "@storybook/svelte": "^6.5.16",
+    "@storybook/svelte": "^7.0.5",
     "@storybook/theming": "^6.5.16",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/svelte": "^3.2.2",
