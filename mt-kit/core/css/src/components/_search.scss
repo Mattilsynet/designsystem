@@ -1,11 +1,14 @@
+@use '../theme' as *;
+
 .search-wrap {
   display: flex;
 
-  .input-search.hasButton {
+  .input[type='search'].hasButton {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     border-right: 0 none;
     margin: 0;
+    padding-right: calc($button-min-width + var(--spacer-xxx-small));
     &:focus {
       z-index: 2;
     }
