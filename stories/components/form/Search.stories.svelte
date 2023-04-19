@@ -33,6 +33,11 @@
   <div use:wrapInShadowDom={disableCss}>
     <article>
       <form class="form-layout">
+        <TextInputSearch name="inputfield_3" {searchButtonText} loadJs={args.loadJs} />
+      </form>
+    </article>
+    <article>
+      <form class="form-layout">
         <TextInputSearch name="inputfield_1" {label} loadJs={args.loadJs} />
       </form>
     </article>

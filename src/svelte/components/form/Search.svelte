@@ -5,12 +5,12 @@
 
   export let value: string
   export let name: string | undefined
-  export let label: string | undefined
-  export let labelClass: string | undefined
-  export let helpText: string | undefined
-  export let searchButtonText: string | undefined
-  export let placeholder: string | undefined
-  export let ariaControls: string | undefined
+  export let label: string | undefined = undefined
+  export let labelClass: string = ''
+  export let helpText: string | undefined = undefined
+  export let searchButtonText: string | undefined = undefined
+  export let placeholder: string | undefined = undefined
+  export let ariaControls: string | undefined = undefined
   export let ariaRemoveTextLabel = 'Tøm'
   export let inputClass = ''
   let isInitialized = false
@@ -41,9 +41,10 @@
       id={name}
       type="search"
       {name}
-      class="form-field input-search {inputClass}"
+      class="form-field {inputClass}"
       class:hasButton={!!searchButtonText}
       bind:value
+      aria-labelledby={!label && searchButtonText ? 'search-button' : undefined}
       aria-describedby={createInputAriaDescribedby(helpText ? name : undefined)}
       {placeholder} />
     {#if value}
@@ -68,6 +69,7 @@
   </div>
   {#if searchButtonText}
     <button
+      id="search-button"
       type="submit"
       class="button button--primary icon--search-before-beige"
       aria-controls={ariaControls}>
