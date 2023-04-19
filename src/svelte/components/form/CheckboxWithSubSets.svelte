@@ -105,7 +105,7 @@
   }
 </script>
 
-<fieldset>
+<fieldset class={className}>
   <legend class="border">{legend}</legend>
   {#if helpText}
     <p>{helpText}</p>
