@@ -36,7 +36,7 @@
   "devDependencies": {
     "@percy/cli": "^1.14.0",
     "@percy/storybook": "^4.3.5",
-    "@storybook/addon-a11y": "^6.5.16",
+    "@storybook/addon-a11y": "^7.0.6",
     "@storybook/addon-actions": "^6.5.16",
     "@storybook/addon-essentials": "^6.5.16",
     "@storybook/addon-links": "^6.5.16",
