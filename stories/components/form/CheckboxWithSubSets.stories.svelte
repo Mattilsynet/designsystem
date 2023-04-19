@@ -9,7 +9,7 @@
   disableCss:
   false
   args={{
-    legend: 'Checkbox with subsets',
+    legend: 'Tema',
     options: [
       {
         key: 'dyr',
@@ -84,7 +84,7 @@
 <Story name="Normal" let:legend let:options let:disableCss>
   <div use:wrapInShadowDom={disableCss}>
     <form>
-      <CheckboxWithSubSets {legend} {options} />
+      <CheckboxWithSubSets {legend} {options} subCategoryLegend={`${legend} i `} />
     </form>
   </div>
 </Story>
