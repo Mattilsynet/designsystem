@@ -208,7 +208,23 @@ $icon-button-border-radius: 0.25em;
   }
   &--spinner {
     vertical-align: bottom;
+
+    &--start{
+      gap: 0;
+      flex-direction: row;
+      .spinner{
+        margin-right: var(--gap);
+      }
+    }
+    &--end{
+      gap: 0;
+      flex-direction: row-reverse;
+      .spinner{
+        margin-left: var(--gap);
+      }
+    }
   }
+
   .spinner::after {
     content: '';
     width: 1.0625rem;

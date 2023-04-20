@@ -14,20 +14,11 @@
   }
 </script>
 
-<button on:click={setInProgress} class="button button--spinner {btnClassNames}">
-  {#if inProgress && spinnerPlacement === 'start'}
+<button on:click={setInProgress} class={`button button--spinner--${spinnerPlacement === "end" ? 'end' : 'start'} ${btnClassNames}`}>
     <span
       role="status"
       aria-live="assertive"
-      class="spinner spinner--start"
-      aria-label={formInProgressAriaLabel} />
-  {/if}
+      class:spinner={inProgress}
+      aria-label={inProgress ? formInProgressAriaLabel : ''} />
   <slot />
-  {#if inProgress && spinnerPlacement === 'end'}
-    <span
-      role="status"
-      aria-live="assertive"
-      class="spinner spinner--end"
-      aria-label={formInProgressAriaLabel} />
-  {/if}
 </button>
