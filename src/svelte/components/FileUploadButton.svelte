@@ -124,10 +124,10 @@
   {name}
   {multiple}
   {accept}
-  class="form-field"
   bind:this={fileInputElement}
+  class="form-field"
   class:error
-  class:inclusively-hidden-fixed={!onServer}
+  class:inclusively-hidden-initial={!onServer}
   aria-describedby={createInputAriaDescribedby(name, error)}
   aria-invalid={!!error}
   on:change={e => send({type: 'FILE_SELECTED', fileNames: getFileNames(e.target)})}
@@ -144,7 +144,7 @@
         <li>
           <span class="file-button__file-name">{fileName}</span>
           <button
-            class="file-button__file-remove"
+            class="button button--search-clear file-button__file-remove"
             on:click={() => send({type: 'FILE_REMOVE', fileName})}>
             <span class="inclusively-hidden">Slett vedlegget: "{fileName}"</span>
             <svg

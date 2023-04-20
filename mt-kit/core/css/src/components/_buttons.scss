@@ -1,3 +1,6 @@
+@use '../theme' as *;
+@use '../utilities/mixins' as *;
+
 $button-default-color: 'primary' !default;
 $button-colors: 'error' !default;
 
@@ -127,6 +130,34 @@ $icon-button-min-width: 2.75rem;
 
     &:focus {
       box-shadow: var(--focus-box-shadow);
+    }
+  }
+  &--search-clear {
+    min-width: $button-min-width;
+    min-height: $button-min-height;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border-radius: $border-radius;
+    border: transparent;
+    padding: 0;
+    svg {
+      path {
+        fill: var(--color-primary);
+      }
+    }
+    &:hover {
+      border: $border-width-regular solid var(--color-primary);
+      svg {
+        path {
+          fill: var(--color-mt-brown);
+        }
+      }
+    }
+    &:focus {
+      box-shadow: $focus-box-shadow-on-white;
+      background-color: transparent;
     }
   }
 
