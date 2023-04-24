@@ -268,7 +268,7 @@
     aria-multiselectable="true"
     bind:this={listBox}
     class:hidden={!showOptions}
-    transition:fly={{duration: 200, y: 5}}
+    transition:fly|local={{duration: 200, y: 5}}
     on:mousedown|preventDefault
     on:mouseup|preventDefault={handleOptionMouseup}>
     {#each filtered as option, index}

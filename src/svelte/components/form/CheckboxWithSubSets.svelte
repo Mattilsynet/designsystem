@@ -130,7 +130,7 @@
         <fieldset>
           <legend class="inclusively-hidden">{subCategoryLegend} {listItem.displayName}</legend>
           {#if !hasJS || (listItem.checked && listItem.children && listItem.children.length > 0)}
-            <ul class="list-unstyled" transition:slide={{y: 200, duration: 200}}>
+            <ul class="list-unstyled" transition:slide|local={{y: 200, duration: 200}}>
               {#each listItem.children as subListItem}
                 <li class="p-l-xs">
                   <div class="form-control checkbox narrow">
