@@ -61,13 +61,15 @@
           text="Noe tekst i kroppen"
           linkUrl="http://"
           linkText="Neste handling"
-          headerTag="h2" />
+          headerTag="h2"
+          linkTypeTransport={true}/>
         <CardArticle
           type="task"
           title="Dette er en h3 tittel"
           text="Noe tekst i kroppen"
           linkUrl="http://"
-          linkText="Neste handling" />
+          linkText="Neste handling"
+          linkTypeTransport={true}/>
       </section>
 
       <Disclosure title={'Begrunnelse'} headerTag="h2">

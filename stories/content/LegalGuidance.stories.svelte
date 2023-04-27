@@ -64,13 +64,15 @@
           title="Dette er tittelen"
           text="Noe tekst i kroppen"
           linkUrl="http://"
-          linkText="Neste handling" />
+          linkText="Neste handling"
+          linkTypeTransport={true}/>
         <CardArticle
           type="form-intro-module"
           title="Dette er tittelen"
           text="Noe tekst i kroppen"
           linkUrl="http://"
-          linkText="Neste handling" />
+          linkText="Neste handling"
+          linkTypeTransport={true}/>
       </section>
 
       <section

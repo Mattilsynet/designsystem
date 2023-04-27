@@ -60,7 +60,7 @@
         {/if}
 
         {#if formLinkUrl && formLinkText}
-          <a href={formLinkUrl} class="button button--primary self-start">
+          <a href={formLinkUrl} class="link--transport link--transport--primary">
             {formLinkText}
           </a>
         {/if}
@@ -81,6 +81,7 @@
   <div use:wrapInShadowDom={disableCss} class="container">
     <CardArticle
       type="form-intro-module"
+      linkTypeTransport={true}
       linkText={formLinkText}
       linkUrl={formLinkUrl}
       {intro}
@@ -101,6 +102,7 @@
   let:disableCss>
   <div use:wrapInShadowDom={disableCss} class="container">
     <CardArticle
+      linkTypeTransport={true}
       type="form-intro-module"
       linkText={formLinkText}
       linkUrl={formLinkUrl}
