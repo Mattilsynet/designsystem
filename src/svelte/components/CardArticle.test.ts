@@ -72,8 +72,6 @@ describe('Card Article', () => {
     const link = getByText('Lenke til skjema')
     expect(link).toBeInTheDocument()
     expect(link.classList).not.toContain('link--transport')
-    expect(link.classList).not.toContain('color--primary')
-    expect(link.classList).not.toContain('forward-arrow-end')
   })
 
   test('Link - button link type contains correct classes', () => {
@@ -82,8 +80,6 @@ describe('Card Article', () => {
     const link = getByText('Lenke til skjema')
     expect(link).toBeInTheDocument()
     expect(link.classList).toContain('link--transport')
-    expect(link.classList).toContain('color--primary')
-    expect(link.classList).toContain('forward-arrow-end')
   })
 
   test('Renders with icon class', () => {

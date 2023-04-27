@@ -40,10 +40,7 @@
       <a
         href={linkUrl}
         rel={mapRelExternal(linkUrl)}
-        class:link--transport={linkTypeTransport}
-        class:color--primary={linkTypeTransport}
-        class:forward-arrow-end={linkTypeTransport}
-        class:no-underline={linkTypeTransport}>
+        class:link--transport={linkTypeTransport}>
         {@html linkText}
       </a>
     </p>
