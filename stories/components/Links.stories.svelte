@@ -212,15 +212,52 @@
 <Story name="Transportlenker" let:disableCss let:smallLinks>
   <div use:wrapInShadowDom={disableCss}>
     <h1>Transportlenker</h1>
-    <article>
-      <h2>Normal</h2>
-      <div class="layout-flex">
-        {#each smallLinks as link}
-          <a href={link.url} class="link--transport color--primary forward-arrow-end no-underline"
-            >{@html link.text}</a>
-        {/each}
-      </div>
-    </article>
+    <div class="layout-grid layout-grid--column-12">
+        <ul class="list-unstyled col-1-span-3">
+          <li>
+            <h3>Default</h3>
+            <a href="#" class="link--transport">
+              Dyr og dyrehold
+            </a>
+          </li>
+
+          <br>
+
+          <li>
+            <h3>Primary</h3>
+            <a href="#" class="link--transport link--transport--primary">
+              Mat og vann
+            </a>
+          </li>
+
+          <br>
+
+          <li>
+            <h3>Primary Large</h3>
+            <a href="#" class="link--transport link--transport--primary-large">
+              Fisk og akvakultur
+            </a>
+          </li>
+
+          <br>
+
+          <li>
+            <h3>Secondary</h3>
+            <a href="#" class="link--transport link--transport--secondary">
+              Planter og dyrking
+            </a>
+          </li>
+
+          <br>
+
+          <li>
+            <h3>Secondary Large</h3>
+            <a href="#" class="link--transport link--transport--secondary-large">
+              Kosmetikk
+            </a>
+          </li>
+        </ul>
+    </div>
   </div>
 </Story>
 
