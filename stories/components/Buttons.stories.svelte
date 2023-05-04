@@ -53,7 +53,7 @@
 
     <p class="description">På blå - stor</p>
     <div class="background-mt-blue p-xxs">
-      <buttton type="button" class="button button--on-primary">{primary}</buttton>
+      <button type="button" class="button button--on-primary">{primary}</button>
     </div>
   </div>
 </Story>
