@@ -23,7 +23,7 @@
   }
 
   $: fieldsetClass =
-    variation === 'primary' ? 'checkbox-subsets--primary' : 'checkbox-subsets--secondary m-l-l p-xs'
+    variation === 'primary' ? 'checkbox-subsets--primary' : 'checkbox-subsets--secondary'
 
   interface CheckboxWithSubSectionsStates {
     key: string

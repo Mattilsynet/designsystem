@@ -13,6 +13,8 @@
   }
 
   &--secondary {
+    @extend .m-l-l;
+    @extend .p-xs;
     background: var(--color-mt-light-beige);
 
     legend {
