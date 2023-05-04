@@ -269,7 +269,7 @@
         <li>
           <Link
             href={link.href}
-            class="button button--primary button--space-between layout-full-width forward-arrow-end padded"
+            class="link--transport link--transport--primary-large"
             linkText={link.text} />
         </li>
       {/each}
@@ -280,14 +280,14 @@
 <Story name="Transportliste sekundær" let:cards let:twoColumns let:disableCss let:disabled>
   <h1 class="p-b-xs">Transportlenkeliste sekundær</h1>
   <ul
-    class="list-unstyled layout-grid layout-grid--column-12 space-between lines-between lines-top no-space-top"
+    class="list-unstyled layout-grid layout-grid--column-12 space-between no-space-top gap-small"
     class:two-col={twoColumns}
     style="--space-section: var(--spacer-x-small);">
     {#each cards as link, index}
       <li class={getColSpanClass(twoColumns, index)}>
         <Link
           href={link.href}
-          class="forward-arrow-end blue-arrow no-underline hover-indent p-tb-xs p-r-xxs"
+          class="link--transport link--transport--secondary-large"
           style="--hover-padding: var(--spacer-xx-small);"
           linkText={link.text} />
       </li>

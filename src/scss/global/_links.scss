@@ -435,19 +435,23 @@ a {
       border-radius: var(--border-radius);
 
       &-large{
+        --transportlink-tb-padding: 0.875rem;
         @extend .no-underline;
         color: var(--color-mt-brown);
-        transition: padding-left ease-in-out 150ms;
-        padding: var(--transportlink-padding);
+        transition: all ease-in-out 150ms;
+        padding: var(--transportlink-tb-padding) 0;
         width: 100%;
         border-radius: unset;
         background-color: transparent;
         border-top: var(--border-width-regular) solid var(--color-mt-beige);
         border-bottom: var(--border-width-regular) solid var(--color-mt-beige);
 
+        &:after{
+          margin-right: var(--spacer-xx-small);
+        }
+
         &:hover{
-          padding: var(--transportlink-padding);
-          padding-left: var(--spacer-small);
+          padding-left: var(--spacer-xx-small);
           background: transparent;
           text-decoration: none;
         }
