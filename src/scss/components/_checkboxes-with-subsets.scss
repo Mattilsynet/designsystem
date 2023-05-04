@@ -1,0 +1,25 @@
+@use '../utilities/layout';
+@use '../global/utils';
+
+.checkbox-subsets {
+  &--primary{
+    legend {
+      @extend .inclusively-hidden;
+    }
+
+    li {
+      @extend .p-l-xs;
+    }
+  }
+
+  &--secondary {
+    background: var(--color-mt-light-beige);
+
+    legend {
+      float: left;
+      width: 100%;
+      font-weight: var(--font-weight-normal);
+      margin-top: 0;
+    }
+  }
+}

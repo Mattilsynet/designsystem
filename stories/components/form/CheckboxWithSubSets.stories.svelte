@@ -10,6 +10,7 @@
   false
   args={{
     legend: 'Tema',
+    variation: 'primary',
     options: [
       {
         key: 'dyr',
@@ -78,13 +79,17 @@
     ]
   }}
   argTypes={{
-    disableCss: {control: 'boolean'}
+    disableCss: {control: 'boolean'},
+    variation: {
+      options: ['primary', 'secondary'],
+      control: 'radio'
+    }
   }} />
 
-<Story name="Normal" let:legend let:options let:disableCss>
+<Story name="Normal" let:legend let:options let:disableCss let:variation>
   <div use:wrapInShadowDom={disableCss}>
     <form>
-      <CheckboxWithSubSets {legend} {options} subCategoryLegend={`${legend} i `} />
+      <CheckboxWithSubSets {legend} {options} {variation} subCategoryLegend={`${legend} i `} />
     </form>
   </div>
 </Story>
