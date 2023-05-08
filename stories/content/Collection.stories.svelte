@@ -124,8 +124,7 @@
               text="Noe tekst i kroppen"
               linkUrl="http://"
               linkText="Last ned mal for internkontroll"
-              headerTag="h4"
-              linkTypeTransport={true}/>
+              headerTag="h4"/>
           </section>
 
           <section class="layout-flex-col layout-flex-col--x-small">
