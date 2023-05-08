@@ -79,32 +79,32 @@
     ],
     optionsWithoutDocCount: [
       {
-        key: 'dyr',
+        key: 'dyr2',
         displayName: 'Dyr',
         children: [
           {
-            key: 'produksjonsdyr',
+            key: 'produksjonsdyr2',
             displayName: 'Produksjonsdyr',
             children: []
           },
           {
-            key: 'dyresykdommer',
+            key: 'dyresykdommer2',
             displayName: 'Dyresykdommer',
             children: []
           },
           {
-            key: 'kjaeledyr',
+            key: 'kjaeledyr2',
             displayName: 'Kjæledyr',
             children: []
           }
         ]
       },
       {
-        key: 'fisk-og-akvakultur',
+        key: 'fisk-og-akvakultur2',
         displayName: 'Fisk og akvakultur',
         children: [
           {
-            key: 'fiskesykdommer',
+            key: 'fiskesykdommer2',
             displayName: 'Fiskesykdommer',
             children: []
           }
