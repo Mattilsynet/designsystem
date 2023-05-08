@@ -93,6 +93,9 @@
       })
     }
   }
+  function formatLabel(displayName: string, docCount?: number): string {
+    return `${displayName} ${docCount ? `(${docCount})` : ''}`
+  }
 
   function subCategory(mainIndex: number, subCategoryKey: string): void {
     // uncheck subcategory in the state list
@@ -128,7 +131,9 @@
             aria-describedby={createInputAriaDescribedby(helpText ? name : undefined)}
             aria-checked={listItem.checked}
             on:change={() => mainCategory(mainIndex)} />
-          <label for={listItem.key}>{`${listItem.displayName} (${listItem.docCount})`}</label>
+          <label for={listItem.key}>
+            {formatLabel(listItem.displayName, listItem.docCount)}
+          </label>
         </div>
         {#if !hasJS || (listItem.checked && listItem.children && listItem.children.length > 0)}
           <fieldset class={fieldsetClass} transition:slide|local={{y: 200, duration: 200}}>
@@ -148,7 +153,7 @@
                       bind:group={selectedSubCategoryValues}
                       on:change={() => subCategory(mainIndex, subListItem.key)} />
                     <label for={subListItem.key}>
-                      {`${subListItem.displayName} (${subListItem.docCount})`}
+                      {formatLabel(subListItem.displayName, subListItem.docCount)}
                     </label>
                   </div>
                 </li>

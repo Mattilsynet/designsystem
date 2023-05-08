@@ -76,6 +76,40 @@
         docCount: 1,
         children: []
       }
+    ],
+    optionsWithoutDocCount: [
+      {
+        key: 'dyr',
+        displayName: 'Dyr',
+        children: [
+          {
+            key: 'produksjonsdyr',
+            displayName: 'Produksjonsdyr',
+            children: []
+          },
+          {
+            key: 'dyresykdommer',
+            displayName: 'Dyresykdommer',
+            children: []
+          },
+          {
+            key: 'kjaeledyr',
+            displayName: 'Kjæledyr',
+            children: []
+          }
+        ]
+      },
+      {
+        key: 'fisk-og-akvakultur',
+        displayName: 'Fisk og akvakultur',
+        children: [
+          {
+            key: 'fiskesykdommer',
+            displayName: 'Fiskesykdommer',
+            children: []
+          }
+        ]
+      }
     ]
   }}
   argTypes={{
@@ -86,10 +120,19 @@
     }
   }} />
 
-<Story name="Normal" let:legend let:options let:disableCss let:variation>
+<Story name="Normal" let:legend let:options let:disableCss let:variation let:optionsWithoutDocCount>
   <div use:wrapInShadowDom={disableCss}>
     <form>
       <CheckboxWithSubSets {legend} {options} {variation} subCategoryLegend={`${legend} i `} />
+    </form>
+  </div>
+  <div use:wrapInShadowDom={disableCss}>
+    <form>
+      <CheckboxWithSubSets
+        legend="Tema uten antall"
+        options={optionsWithoutDocCount}
+        {variation}
+        subCategoryLegend={`${legend} i `} />
     </form>
   </div>
 </Story>
