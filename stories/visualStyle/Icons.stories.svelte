@@ -33,7 +33,7 @@
       <p class="icon--alert-filled-warning-before">Delvis medhold</p>
     </section>
     <section>
-      <h2>Ikoner til Nyhetsbrev</h2>
+      <h2>Bjelleikon</h2>
       <p class="icon--newsletter-bell-before p-tb-xxs"></p>
     </section>
   </div>
