@@ -9,6 +9,7 @@
   let className = ''
   export {className as class}
   export let legend: string
+  export let variation: 'primary' | 'secondary' = 'primary'
   export let options: Array<CheckboxWithSubSectionsOptions>
   export let categoryName = 'kategori'
   export let subCategoryName = 'underkategori'
@@ -20,6 +21,9 @@
       selectedSubCategoryValues = []
     }
   }
+
+  $: fieldsetClass =
+    variation === 'primary' ? 'checkbox-subsets--primary' : 'checkbox-subsets--secondary'
 
   interface CheckboxWithSubSectionsStates {
     key: string
@@ -49,7 +53,6 @@
   })
 
   /*
-   *
    * */
   function mapOptionsToState(
     opts: Array<CheckboxWithSubSectionsOptions>
@@ -90,6 +93,9 @@
       })
     }
   }
+  function formatLabel(displayName: string, docCount?: number): string {
+    return `${displayName} ${docCount ? `(${docCount})` : ''}`
+  }
 
   function subCategory(mainIndex: number, subCategoryKey: string): void {
     // uncheck subcategory in the state list
@@ -125,14 +131,16 @@
             aria-describedby={createInputAriaDescribedby(helpText ? name : undefined)}
             aria-checked={listItem.checked}
             on:change={() => mainCategory(mainIndex)} />
-          <label for={listItem.key}>{`${listItem.displayName} (${listItem.docCount})`}</label>
+          <label for={listItem.key}>
+            {formatLabel(listItem.displayName, listItem.docCount)}
+          </label>
         </div>
-        <fieldset>
-          <legend class="inclusively-hidden">{subCategoryLegend} {listItem.displayName}</legend>
-          {#if !hasJS || (listItem.checked && listItem.children && listItem.children.length > 0)}
-            <ul class="list-unstyled" transition:slide|local={{y: 200, duration: 200}}>
+        {#if !hasJS || (listItem.checked && listItem.children && listItem.children.length > 0)}
+          <fieldset class={fieldsetClass} transition:slide|local={{y: 200, duration: 200}}>
+            <legend>{subCategoryLegend} {listItem.displayName}</legend>
+            <ul class="list-unstyled">
               {#each listItem.children as subListItem}
-                <li class="p-l-xs">
+                <li>
                   <div class="form-control checkbox narrow">
                     <input
                       id={subListItem.key}
@@ -145,14 +153,14 @@
                       bind:group={selectedSubCategoryValues}
                       on:change={() => subCategory(mainIndex, subListItem.key)} />
                     <label for={subListItem.key}>
-                      {`${subListItem.displayName} (${subListItem.docCount})`}
+                      {formatLabel(subListItem.displayName, subListItem.docCount)}
                     </label>
                   </div>
                 </li>
               {/each}
             </ul>
-          {/if}
-        </fieldset>
+          </fieldset>
+        {/if}
       </li>
     {/each}
   </ul>

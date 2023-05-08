@@ -10,6 +10,7 @@
   false
   args={{
     legend: 'Tema',
+    variation: 'primary',
     options: [
       {
         key: 'dyr',
@@ -75,16 +76,63 @@
         docCount: 1,
         children: []
       }
+    ],
+    optionsWithoutDocCount: [
+      {
+        key: 'dyr2',
+        displayName: 'Dyr',
+        children: [
+          {
+            key: 'produksjonsdyr2',
+            displayName: 'Produksjonsdyr',
+            children: []
+          },
+          {
+            key: 'dyresykdommer2',
+            displayName: 'Dyresykdommer',
+            children: []
+          },
+          {
+            key: 'kjaeledyr2',
+            displayName: 'Kjæledyr',
+            children: []
+          }
+        ]
+      },
+      {
+        key: 'fisk-og-akvakultur2',
+        displayName: 'Fisk og akvakultur',
+        children: [
+          {
+            key: 'fiskesykdommer2',
+            displayName: 'Fiskesykdommer',
+            children: []
+          }
+        ]
+      }
     ]
   }}
   argTypes={{
-    disableCss: {control: 'boolean'}
+    disableCss: {control: 'boolean'},
+    variation: {
+      options: ['primary', 'secondary'],
+      control: 'radio'
+    }
   }} />
 
-<Story name="Normal" let:legend let:options let:disableCss>
+<Story name="Normal" let:legend let:options let:disableCss let:variation let:optionsWithoutDocCount>
   <div use:wrapInShadowDom={disableCss}>
     <form>
-      <CheckboxWithSubSets {legend} {options} subCategoryLegend={`${legend} i `} />
+      <CheckboxWithSubSets {legend} {options} {variation} subCategoryLegend={`${legend} i `} />
+    </form>
+  </div>
+  <div use:wrapInShadowDom={disableCss}>
+    <form>
+      <CheckboxWithSubSets
+        legend="Tema uten antall"
+        options={optionsWithoutDocCount}
+        {variation}
+        subCategoryLegend={`${legend} i `} />
     </form>
   </div>
 </Story>

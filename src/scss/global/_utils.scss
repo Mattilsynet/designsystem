@@ -39,6 +39,11 @@
 .m-b-s {
   margin-bottom: var(--spacer-small);
 }
+
+.m-l-l {
+  margin-left: var(--spacer-large);
+}
+
 .p-0 {
   padding: 0;
 }
@@ -70,6 +75,12 @@
 }
 .p-b-xxxs {
   padding-bottom: var(--spacer-xxx-small);
+}
+.p-l-l {
+  padding-left: var(--spacer-large);
+}
+.p-l-m {
+  padding-left: var(--spacer-medium);
 }
 .p-l-s {
   padding-left: var(--spacer-small);
