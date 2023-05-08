@@ -360,7 +360,6 @@ a {
     --outline-color: transparent;
     --focus-box-shadow: $focus-box-shadow;
     --transportlink-padding: 0.875rem 1.5rem;
-    --border-radius: 0.25em;
 
     font-size: $font-size-body;
     color: var(--color-primary);
@@ -393,7 +392,7 @@ a {
       background-color: var(--transportlink-background);
       color: var(--transportlink-color);
       padding: var(--transportlink-padding);
-      border-radius: var(--border-radius);
+      border-radius: $border-radius;
 
       &:after{
         background-image: $icon-arrow-white;
@@ -408,7 +407,7 @@ a {
         background-color: var(--transportlink-background);
         color: var(--transportlink-color);
         padding: var(--transportlink-padding);
-        border-radius: var(--border-radius);
+        border-radius: $border-radius;
         width: 100%;
         transition: padding-left ease-in-out 150ms;
 
@@ -432,14 +431,13 @@ a {
       border: var(--border-width-regular) solid var(--color-mt-beige);
       font-weight: var(--font-weight-bold);
       padding: var(--transportlink-padding);
-      border-radius: var(--border-radius);
+      border-radius: $border-radius;
 
       &-large{
-        --transportlink-tb-padding: 0.875rem;
         @extend .no-underline;
         color: var(--color-mt-brown);
         transition: all ease-in-out 150ms;
-        padding: var(--transportlink-tb-padding) 0;
+        padding: var(--spacer-xx-small) 0;
         width: 100%;
         border-radius: unset;
         background-color: transparent;
