@@ -37,8 +37,6 @@
     <p class="description">Sekundær - stor</p>
     <button class="button button--secondary" {disabled}>{secondary}</button>
 
-    <button class="button button--secondary icon--newsletter-bell-before" {disabled}>Abonner på nyhetsbrev</button>
-
     <p class="description">Lenkeknapp</p>
     <button class="button button--link"> ... </button>
 
