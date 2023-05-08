@@ -28,11 +28,11 @@ $icon-gap: var(--spacer-xxx-small);
     @extend .icon-align;
     &:before{
       background-image: $icon-newsletter-blue;
-      padding-right: var(--icon-size-small);
+      padding-right: var(--icon-size-normal);
       content: "";
-      width: var(--icon-size-small);
-      height: var(--icon-size-small);
-      background-size: var(--icon-size-small) var(--icon-size-small);
+      width: var(--icon-size-normal);
+      height: var(--icon-size-normal);
+      background-size: var(--icon-size-normal) var(--icon-size-normal);
       background-repeat: no-repeat;
     }
     &:hover{
