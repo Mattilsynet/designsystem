@@ -209,10 +209,10 @@
   </div>
 </Story>
 
-<Story name="Transportlenker" let:disableCss let:smallLinks>
+<Story name="Transportlenker" let:disableCss let:smallLinks let:twoColumns let:cards let:disabled>
   <div use:wrapInShadowDom={disableCss}>
     <h1>Transportlenker</h1>
-    <div class="layout-grid layout-grid--column-12">
+
         <ul class="list-unstyled col-1-span-3">
           <li>
             <h3>Default</h3>
@@ -252,12 +252,18 @@
 
           <li>
             <h3>Secondary Large</h3>
-            <a href="#" class="link--transport link--transport--secondary-large">
-              Kosmetikk
-            </a>
+            <ul class="list-unstyled no-space-between no-space-top gap-small lines-top lines-between gap-small"
+                class:two-col={twoColumns}
+                style="--space-section: var(--spacer-x-small);">
+              {#each cards as link, index}
+                <li class={getColSpanClass(twoColumns, index)}>
+                  <a href={link.href} class="link--transport link--transport--secondary-large">{link.text}</a>
+                </li>
+
+              {/each}
+            </ul>
           </li>
         </ul>
-    </div>
   </div>
 </Story>
 
@@ -277,10 +283,10 @@
   </div>
 </Story>
 
-<Story name="Transportliste sekundær" let:cards let:twoColumns let:disableCss let:disabled>
+<Story name="Transportliste sekundær" let:cards let:twoColumns let:disableCss>
   <h1 class="p-b-xs">Transportlenkeliste sekundær</h1>
   <ul
-    class="list-unstyled layout-grid layout-grid--column-12 space-between no-space-top gap-small"
+    class="list-unstyled no-space-between no-space-top gap-small lines-top lines-between gap-small"
     class:two-col={twoColumns}
     style="--space-section: var(--spacer-x-small);">
     {#each cards as link, index}

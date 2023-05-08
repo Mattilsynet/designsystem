@@ -439,10 +439,7 @@ a {
         transition: all ease-in-out 150ms;
         padding: var(--spacer-xx-small) 0;
         width: 100%;
-        border-radius: unset;
         background-color: transparent;
-        border-top: var(--border-width-regular) solid var(--color-mt-beige);
-        border-bottom: var(--border-width-regular) solid var(--color-mt-beige);
 
         &:after{
           margin-right: var(--spacer-xx-small);
@@ -450,7 +447,6 @@ a {
 
         &:hover{
           padding-left: var(--spacer-xx-small);
-          background: transparent;
           text-decoration: none;
         }
       }
