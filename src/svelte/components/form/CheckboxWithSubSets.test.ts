@@ -174,7 +174,7 @@ describe('Checkbox with subsets', () => {
       params,
       legend : "Tema",
       variation: 'secondary'
-    }
+    })
     const legendElement = queryByText('Tema i Dyr');
     expect(legendElement).toBeInTheDocument()
     expect(legendElement.parentElement).toHaveClass('checkbox-subsets--secondary')
