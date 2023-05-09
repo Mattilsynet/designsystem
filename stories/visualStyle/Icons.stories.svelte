@@ -32,6 +32,10 @@
       <p class="icon--alert-filled-success-before">Medhold</p>
       <p class="icon--alert-filled-warning-before">Delvis medhold</p>
     </section>
+    <section>
+      <h2>Bjelleikon</h2>
+      <p class="icon--newsletter-bell-before p-tb-xxs"></p>
+    </section>
   </div>
 </Story>
 
