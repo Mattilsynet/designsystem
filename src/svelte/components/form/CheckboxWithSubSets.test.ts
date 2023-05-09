@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import {fireEvent, getByText, queryByText, render, waitFor} from '@testing-library/svelte'
+import {fireEvent, render, waitFor} from '@testing-library/svelte'
 import CheckboxWithSubSets from './CheckboxWithSubSets.svelte'
 
 describe('Checkbox with subsets', () => {
