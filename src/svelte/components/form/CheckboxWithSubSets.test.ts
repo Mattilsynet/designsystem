@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import {fireEvent, getByText, queryByText, render, waitFor} from '@testing-library/svelte'
+import {fireEvent, render, waitFor} from '@testing-library/svelte'
 import CheckboxWithSubSets from './CheckboxWithSubSets.svelte'
 
 describe('Checkbox with subsets', () => {
@@ -174,7 +174,7 @@ describe('Checkbox with subsets', () => {
       params,
       legend : "Tema",
       variation: 'secondary'
-    }
+    })
     const legendElement = queryByText('Tema i Dyr');
     expect(legendElement).toBeInTheDocument()
     expect(legendElement.parentElement).toHaveClass('checkbox-subsets--secondary')
