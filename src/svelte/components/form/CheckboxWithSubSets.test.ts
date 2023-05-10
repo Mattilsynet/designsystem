@@ -77,7 +77,7 @@ describe('Checkbox with subsets', () => {
     underkategori: ['dyr/produksjonsdyr']
   }
 
-  test('Renders list of checkboxes.', async () => {
+  test('Renders list of checkboxes with selected', async () => {
     const {getByText, queryByText} = render(CheckboxWithSubSets, {
       options,
       params,
@@ -86,6 +86,9 @@ describe('Checkbox with subsets', () => {
     expect(getByText(legend)).toBeInTheDocument()
     expect(getByText(`${options[0].displayName} (${options[0].docCount})`)).toBeInTheDocument()
     expect(getByText(`${options[1].displayName} (${options[1].docCount})`)).toBeInTheDocument()
+
+    expect(getByText(`${options[0].children[0].displayName} (${options[0].children[0].docCount})`)).toBeInTheDocument()
+
     const animal = getByText(`${options[0].displayName} (${options[0].docCount})`)
     await fireEvent.click(animal)
     await waitFor(() => {
@@ -169,14 +172,15 @@ describe('Checkbox with subsets', () => {
 
   test('Test variation: secondary ', async () => {
     // test that class is present in variation secondary
-    const {queryByText} = render(CheckboxWithSubSets, {
+    const {queryAllByText} = render(CheckboxWithSubSets, {
       options,
       params,
-      legend : "Tema",
+      legend,
+      subCategoryLegend : "Ønsker du å velge bare spesifikke tema?",
       variation: 'secondary'
-    })
-    const legendElement = queryByText('Tema i Dyr');
-    expect(legendElement).toBeInTheDocument()
-    expect(legendElement.parentElement).toHaveClass('checkbox-subsets--secondary')
+    }
+    const legendElement = queryAllByText('Ønsker du å velge bare spesifikke tema?');
+    expect(legendElement.length > 0).toEqual(true)
+    expect(legendElement[0].parentElement).toHaveClass('checkbox-subsets--secondary')
   })
 })
