@@ -49,7 +49,7 @@
   }
   onMount(() => {
     states = mapOptionsToState(options)
-    hasJS = false
+    hasJS = true
   })
 
   /*
