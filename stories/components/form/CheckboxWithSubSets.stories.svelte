@@ -156,6 +156,11 @@
             children: []
           }
         ]
+      },
+      {
+        key: 'dyr-som-lider',
+        displayName: 'Dyr som lider',
+        children: []
       }
     ]
   }}

@@ -49,7 +49,7 @@
   }
   onMount(() => {
     states = mapOptionsToState(options)
-    hasJS = true
+    hasJS = false
   })
 
   /*
@@ -134,7 +134,7 @@
         {formatLabel(listItem.displayName, listItem.docCount)}
       </label>
     </div>
-    {#if !hasJS || (listItem.checked && listItem.children && listItem.children.length > 0)}
+    {#if (!hasJS || listItem.checked) && listItem.children && listItem.children.length > 0}
       <fieldset class={fieldsetClass} transition:slide|local={{y: 200, duration: 200}}>
         <legend>
           {interpolate(subCategoryLegend, [listItem.displayName.toLowerCase()])}
