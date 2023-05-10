@@ -4,6 +4,7 @@
 
 .disclosure {
   --disclosure-spacing: var(--spacer-x-small);
+  --disclosure-padding-hover: var(--spacer-xxx-small);
 
   @media only screen and (min-width: $breakpoint-large) {
     --disclosure-spacing: var(--spacer-xx-small);
@@ -60,7 +61,7 @@
       transition: padding-left ease-in-out 150ms;
 
       &:hover {
-        padding-left: var(--spacer-xxx-small);
+        padding-left: var(--disclosure-padding-hover);
       }
     }
 
@@ -174,6 +175,19 @@
         > :first-child {
           margin-top: var(--spacer-xx-small);
         }
+      }
+    }
+
+    &--align-left {
+      .disclosure-header {
+        padding-left: 0;
+        &:hover {
+          padding-left: var(--disclosure-padding-hover);
+        }
+      }
+      .disclosure-panel {
+        margin-left: 0;
+        border-top: none;
       }
     }
   }
