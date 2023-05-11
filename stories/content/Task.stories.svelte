@@ -126,7 +126,6 @@
         title={task.title}
         text={task.text}
         id={task.title}
-        linkTypeTransport={true}
         headerTag={task.headerTag} />
     {/each}
   </div>
