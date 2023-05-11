@@ -2,18 +2,16 @@
 @use '../global/utils';
 
 .checkbox-subsets {
-  &--primary{
+  &--primary {
+    @extend .m-l-m;
     legend {
       @extend .inclusively-hidden;
-    }
-
-    li {
-      @extend .p-l-xs;
     }
   }
 
   &--secondary {
-    @extend .m-l-l;
+    @extend .m-t-xxs;
+    @extend .m-l-m;
     @extend .p-xs;
     background: var(--color-mt-light-beige);
 

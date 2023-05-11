@@ -1,8 +1,8 @@
 <script lang="ts">
   import {slide} from 'svelte/transition'
-  import {createInputAriaDescribedby} from '../../../ts/utils'
   import {onMount} from 'svelte'
   import type {CheckboxWithSubSectionsOptions} from '../../../ts/types'
+  import {interpolate} from '../../../ts/utils'
 
   export let params: Record<string, string> = {}
   export let name: string
@@ -112,56 +112,53 @@
 </script>
 
 <fieldset class={className}>
-  <legend class="border">{legend}</legend>
+  <legend id="legend" class="border" class:inclusively-hidden={variation === 'secondary'}>
+    {legend}
+  </legend>
   {#if helpText}
-    <p>{helpText}</p>
+    <p class="hint">{helpText}</p>
   {/if}
-  <ul class="list-unstyled">
-    {#each states as listItem, mainIndex}
-      <li>
-        <div class="form-control checkbox narrow">
-          <input
-            id={listItem.key}
-            type="checkbox"
-            class="input__control"
-            name={categoryName}
-            bind:this={checkboxDOMElements[mainIndex]}
-            bind:group={selectedCategoryValues}
-            value={listItem.key}
-            aria-describedby={createInputAriaDescribedby(helpText ? name : undefined)}
-            aria-checked={listItem.checked}
-            on:change={() => mainCategory(mainIndex)} />
-          <label for={listItem.key}>
-            {formatLabel(listItem.displayName, listItem.docCount)}
-          </label>
-        </div>
-        {#if !hasJS || (listItem.checked && listItem.children && listItem.children.length > 0)}
-          <fieldset class={fieldsetClass} transition:slide|local={{y: 200, duration: 200}}>
-            <legend>{subCategoryLegend} {listItem.displayName}</legend>
-            <ul class="list-unstyled">
-              {#each listItem.children as subListItem}
-                <li>
-                  <div class="form-control checkbox narrow">
-                    <input
-                      id={subListItem.key}
-                      type="checkbox"
-                      name={subCategoryName}
-                      class="input__control"
-                      value={subListItem.key}
-                      aria-describedby={createInputAriaDescribedby(helpText ? name : undefined)}
-                      aria-checked={subListItem.checked}
-                      bind:group={selectedSubCategoryValues}
-                      on:change={() => subCategory(mainIndex, subListItem.key)} />
-                    <label for={subListItem.key}>
-                      {formatLabel(subListItem.displayName, subListItem.docCount)}
-                    </label>
-                  </div>
-                </li>
-              {/each}
-            </ul>
-          </fieldset>
-        {/if}
-      </li>
-    {/each}
-  </ul>
+  {#each states as listItem, mainIndex}
+    <div class="form-control checkbox narrow" class:m-t-xxs={mainIndex > 0}>
+      <input
+        id={listItem.key}
+        type="checkbox"
+        class="input__control"
+        name={categoryName}
+        bind:this={checkboxDOMElements[mainIndex]}
+        bind:group={selectedCategoryValues}
+        value={listItem.key}
+        aria-checked={listItem.checked}
+        on:change={() => mainCategory(mainIndex)} />
+      <label for={listItem.key}>
+        {formatLabel(listItem.displayName, listItem.docCount)}
+      </label>
+    </div>
+    {#if (!hasJS || listItem.checked) && listItem.children && listItem.children.length > 0}
+      <fieldset class={fieldsetClass} transition:slide|local={{y: 200, duration: 200}}>
+        <legend>
+          {interpolate(subCategoryLegend, [listItem.displayName.toLowerCase()])}
+        </legend>
+        {#each listItem.children as subListItem, subListIndex}
+          <div
+            class="form-control checkbox narrow"
+            class:m-t-xs={subListIndex === 0}
+            class:m-t-xxs={subListIndex > 0}>
+            <input
+              id={subListItem.key}
+              type="checkbox"
+              name={subCategoryName}
+              class="input__control"
+              value={subListItem.key}
+              aria-checked={subListItem.checked}
+              bind:group={selectedSubCategoryValues}
+              on:change={() => subCategory(mainIndex, subListItem.key)} />
+            <label for={subListItem.key}>
+              {formatLabel(subListItem.displayName, subListItem.docCount)}
+            </label>
+          </div>
+        {/each}
+      </fieldset>
+    {/if}
+  {/each}
 </fieldset>

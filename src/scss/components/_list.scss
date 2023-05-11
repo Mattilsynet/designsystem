@@ -109,17 +109,17 @@ ol {
     --border-style: solid;
     --border: var(--border-width) var(--border-style) var(--border-color);
 
-    li {
+    > li {
       border-bottom: var(--border);
     }
 
     &.lines-top {
-      li:first-child {
+      > li:first-child {
         border-top: var(--border);
       }
       &.two-col {
         @media only screen and (min-width: $breakpoint-large) {
-          li:nth-child(-n + 2) {
+          > li:nth-child(-n + 2) {
             border-top: var(--border);
           }
         }
@@ -143,20 +143,18 @@ ol {
 }
 
 .list {
-
   > li {
     border-top: $border-width-small solid var(--color-mt-beige-50);
     margin-top: 0;
     padding: var(--spacer-small);
-    &:last-child{
+    &:last-child {
       border-bottom: var(--border-width-small) solid var(--color-mt-beige-50);
     }
     &:nth-child(even) {
       background-color: var(--color-mt-white);
     }
     ul {
-     margin-top: 0;
+      margin-top: 0;
     }
   }
-
 }

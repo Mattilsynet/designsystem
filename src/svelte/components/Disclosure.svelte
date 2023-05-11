@@ -98,6 +98,7 @@
     </HeadingLevel>
   {:else}
     <button
+      type="button"
       class="button--unstyled disclosure-header {headerTag} {headerClass}"
       aria-expanded={isOpen}
       aria-controls={bodyId}

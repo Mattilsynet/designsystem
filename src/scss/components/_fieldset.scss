@@ -1,4 +1,4 @@
-@use "../color-tokens" as *;
+@use '../color-tokens' as *;
 
 fieldset {
   display: flex;
@@ -17,18 +17,10 @@ fieldset {
     font-weight: var(--font-weight-bold);
     padding-inline: 0;
 
-    &.border{
+    &.border {
       width: 100%;
       border-bottom: var(--border-width-small) solid $color-secondary;
       padding-bottom: var(--spacer-xx-small);
-    }
-  }
-
-  .form-control {
-    margin-top: 1rem;
-
-    &.narrow{
-      margin-top: 0;
     }
   }
 }
