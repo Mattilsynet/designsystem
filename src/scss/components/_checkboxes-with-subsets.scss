@@ -16,12 +16,16 @@
     @extend .m-l-l;
     @extend .p-xs;
     background: var(--color-mt-light-beige);
+    position: relative;
 
     legend {
-      float: left;
-      width: 100%;
+      position: absolute;
       font-weight: var(--font-weight-normal);
       margin-top: 0;
+    }
+
+    ul {
+      margin-top: var(--spacer-small);
     }
   }
 }
