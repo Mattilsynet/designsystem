@@ -436,7 +436,7 @@ a {
       &-large{
         @extend .no-underline;
         color: var(--color-mt-brown);
-        transition: all ease-in-out 150ms;
+        transition: padding-left ease-in-out 150ms;
         padding: var(--spacer-xx-small) 0;
         width: 100%;
         background-color: transparent;
