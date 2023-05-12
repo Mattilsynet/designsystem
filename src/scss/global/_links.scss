@@ -2,6 +2,7 @@
 @use '../utilities/mixins' as *;
 @use '../theme' as *;
 @use '../color-tokens' as *;
+@use './icon' as *;
 
 $transportlink-default-color: 'primary' !default;
 $transportlink-colors: 'error' !default;
@@ -137,7 +138,6 @@ a {
         background-image: url('data:image/svg+xml,%3Csvg%20width%3D%2221%22%20height%3D%2221%22%20viewBox%3D%220%200%2021%2021%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M10.1592%200.158204L8.39668%201.9207L15.3717%208.9082L0.159179%208.9082L0.159179%2011.4082L15.3717%2011.4082L8.39668%2018.3957L10.1592%2020.1582L20.1592%2010.1582L10.1592%200.158204Z%22%20fill%3D%22%23075B7A%22%2F%3E%0A%3C%2Fsvg%3E');
       }
     }
-
     &--large {
       @media only screen and (min-width: $breakpoint-large) {
         font-size: $transport-card-list-font-size;
@@ -358,22 +358,98 @@ a {
     --transportlink-background: var(--color-#{$transportlink-default-color});
     --transportlink-color: var(--color-on-#{$transportlink-colors});
     --outline-color: transparent;
-    --gap: 0.5rem;
     --focus-box-shadow: $focus-box-shadow;
     --transportlink-padding: 0.875rem 1.5rem;
 
     font-size: $font-size-body;
-    padding: var(--transportlink-padding);
-    border-radius: 0.25em;
-    background-color: var(--transportlink-background);
-    color: var(--transportlink-color);
+    color: var(--color-primary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: fit-content;
+
+    &:after{
+      content:"";
+      background-image: $icon-arrow-blue;
+      margin-left: var(--spacer-xxx-small);
+      padding-right: var(--icon-size-normal);
+      width: var(--icon-size-normal);
+      height: var(--icon-size-normal);
+      background-size: var(--icon-size-normal) var(--icon-size-normal);
+      background-repeat: no-repeat;
+    }
 
     &:focus {
       border-color: var(--transportlink-background);
       box-shadow: $focus-box-shadow;
     }
     &:hover {
+      background-color: transparent;
+    }
+
+    &--primary{
+      @extend .no-underline;
+      background-color: var(--transportlink-background);
+      color: var(--transportlink-color);
       padding: var(--transportlink-padding);
+      border-radius: $border-radius;
+
+      &:after{
+        background-image: $icon-arrow-white;
+      }
+
+      &:hover {
+        background: var(--color-mt-brown);
+      }
+
+      &-large{
+        @extend .no-underline;
+        background-color: var(--transportlink-background);
+        color: var(--transportlink-color);
+        padding: var(--transportlink-padding);
+        border-radius: $border-radius;
+        width: 100%;
+        transition: padding-left ease-in-out 150ms;
+
+        &:after{
+          background-image: $icon-arrow-white;
+        }
+
+        &:hover{
+          padding: var(--transportlink-padding);
+          padding-left: var(--spacer-small);
+          background: var(--color-mt-brown);
+          text-decoration: none;
+        }
+      }
+    }
+
+    &--secondary{
+      @extend .no-underline;
+      background-color: transparent;
+      color: var(--color-primary);
+      border: var(--border-width-regular) solid var(--color-mt-beige);
+      font-weight: var(--font-weight-bold);
+      padding: var(--transportlink-padding);
+      border-radius: $border-radius;
+
+      &-large{
+        @extend .no-underline;
+        color: var(--color-mt-brown);
+        transition: padding-left ease-in-out 150ms;
+        padding: var(--spacer-xx-small) 0;
+        width: 100%;
+        background-color: transparent;
+
+        &:after{
+          margin-right: var(--spacer-xx-small);
+        }
+
+        &:hover{
+          padding-left: var(--spacer-xx-small);
+          text-decoration: none;
+        }
+      }
     }
   }
 }

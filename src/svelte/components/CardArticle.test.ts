@@ -18,7 +18,6 @@ describe('Card Article', () => {
            </ul>`,
     linkUrl: 'http://',
     linkText: 'Lenke til skjema',
-    linkTypeTransport: false,
     disableCss: false,
     headerTag: undefined,
     type: ''
@@ -67,23 +66,11 @@ describe('Card Article', () => {
     expect(link.getAttribute('rel')).toEqual(null)
   })
 
-  test('Link - default link type contains correct classes', () => {
-    const {getByText} = render(CardArticle, {props: componentOptions})
-    const link = getByText('Lenke til skjema')
-    expect(link).toBeInTheDocument()
-    expect(link.classList).not.toContain('link--transport')
-    expect(link.classList).not.toContain('color--primary')
-    expect(link.classList).not.toContain('forward-arrow-end')
-  })
-
   test('Link - button link type contains correct classes', () => {
-    componentOptions.linkTypeTransport = true
     const {getByText} = render(CardArticle, {props: componentOptions})
     const link = getByText('Lenke til skjema')
     expect(link).toBeInTheDocument()
     expect(link.classList).toContain('link--transport')
-    expect(link.classList).toContain('color--primary')
-    expect(link.classList).toContain('forward-arrow-end')
   })
 
   test('Renders with icon class', () => {

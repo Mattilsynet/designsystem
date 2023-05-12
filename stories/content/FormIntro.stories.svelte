@@ -60,7 +60,7 @@
         {/if}
 
         {#if formLinkUrl && formLinkText}
-          <a href={formLinkUrl} class="button button--primary self-start">
+          <a href={formLinkUrl} class="link--transport link--transport--primary">
             {formLinkText}
           </a>
         {/if}
