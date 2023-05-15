@@ -178,7 +178,7 @@ describe('Checkbox with subsets', () => {
       legend,
       subCategoryLegend : "Ønsker du å velge bare spesifikke tema?",
       variation: 'secondary'
-    }
+    })
     const legendElement = queryAllByText('Ønsker du å velge bare spesifikke tema?');
     expect(legendElement.length > 0).toEqual(true)
     expect(legendElement[0].parentElement).toHaveClass('checkbox-subsets--secondary')
