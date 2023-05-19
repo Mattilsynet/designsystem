@@ -33,11 +33,17 @@
 .m-r-xs {
   margin-right: var(--spacer-x-small);
 }
-.m-b-m {
-  margin-bottom: var(--spacer-medium);
+.m-b-xxs {
+  margin-bottom: var(--spacer-xx-small);
+}
+.m-b-xs {
+  margin-bottom: var(--spacer-x-small);
 }
 .m-b-s {
   margin-bottom: var(--spacer-small);
+}
+.m-b-m {
+  margin-bottom: var(--spacer-medium);
 }
 .m-l-m {
   margin-left: var(--spacer-medium);
