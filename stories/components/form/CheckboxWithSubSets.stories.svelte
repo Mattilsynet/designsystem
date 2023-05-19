@@ -116,8 +116,10 @@
     disclosure: {
       title: 'Dyr',
       headerTag: 'h2',
-      categoryLegend: 'Velg tema innen {0}',
-      subCategoryLegend: 'Ønsker du å velge bare spesifikke tema innen {0}'
+      level1legend: 'Velg tema innen {0}',
+      level2Legend: 'Ønsker du å velge bare spesifikke tema innen {0}',
+      checkAllLabel:'Velg alle',
+      checkAllValue: 'dyr3'
     },
     disclosureOptions: [
       {
@@ -125,17 +127,17 @@
         displayName: 'Produksjonsdyr',
         children: [
           {
-            key: 'hest',
+            key: 'produksjonsdyr3/hest',
             displayName: 'Hest',
             children: []
           },
           {
-            key: 'storfe',
-            displayName: 'Storbe',
+            key: 'produksjonsdyr3/storfe',
+            displayName: 'Storfe',
             children: []
           },
           {
-            key: 'kanin',
+            key: 'produksjonsdyr3/kanin',
             displayName: 'Kanin',
             children: []
           }
@@ -146,12 +148,12 @@
         displayName: 'Dyresykdommer',
         children: [
           {
-            key: 'afrikanskHestepest',
+            key: 'dyresykdommer3/afrikanskHestepest',
             displayName: 'Afrikansk hestepest',
             children: []
           },
           {
-            key: 'afrikanskSvinepest',
+            key: 'dyresykdommer3/afrikanskSvinepest',
             displayName: 'Afrikansk svinepest',
             children: []
           }
@@ -182,30 +184,30 @@
   let:args>
   <div class="container layout-grid layout-grid--column-12" use:wrapInShadowDom={disableCss}>
     <section class="article-page col-1-span-12">
-      <h1>Nestede checkboxet</h1>
-      <h2>Nestede checkboxet med antall dokumenter</h2>
-      <p>Bruk variation="primary" (default) når checkboksene skal stå alene</p>
+      <h1>Nested checkbox</h1>
+      <h2>Nested checkbox with doc count</h2>
+      <p>Use variation="primary" (default) when checkboxes stand alone</p>
       <form>
         <CheckboxWithSubSets
           helpText="Velg et tema"
-          {legend}
           {options}
           {variation}
-          subCategoryLegend={`${legend} i `} />
+          level1Legend={legend}
+          level2Legend={`${legend} i `} />
       </form>
-      <h2>Nestede checkboxet without doc count</h2>
-      <p>Bruk variation="primary" (default) når checkboksene skal stå alene</p>
+      <h2>Nested checkboxes without doc count</h2>
+      <p>User variation="primary" (default) when checkboxes stand alone</p>
       <form>
         <CheckboxWithSubSets
-          legend="Tema uten antall"
           options={optionsWithoutDocCount}
           {variation}
-          subCategoryLegend={`${legend} i `} />
+          level1Legend="Tema uten antall"
+          level2Legend={`${legend} i `} />
       </form>
       <h2>Nestede checkboxet inside disclosure</h2>
       <p>
-        Bruk variation="secondary" når checkboksens skal brukes i kombinasjon med annen komponent
-        som har tittel til checkboksene, eks. Disclosure
+        Use variation="secondary" when checkboxes are used in combination with
+        another component which has the title for the checkboxes, eg. Disclosure
       </p>
       <form>
         <Disclosure
@@ -215,12 +217,15 @@
           headingId={`${toKebabCase(args.disclosure.title)}-title`}
           headerTag={args.disclosure.headerTag}>
           <CheckboxWithSubSets
-            legend={interpolate(args.disclosure.categoryLegend, [
+            variation="secondary"
+            options={args.disclosureOptions}
+            hasCheckAll={true}
+            checkAllLabel={args.disclosure.checkAllLabel}
+            checkAllValue={args.disclosure.checkAllValue}
+            level1Legend={interpolate(args.disclosure.level1legend, [
               args.disclosure.title.toLowerCase()
             ])}
-            options={args.disclosureOptions}
-            variation="secondary"
-            subCategoryLegend={args.disclosure.subCategoryLegend} />
+            level2Legend={args.disclosure.subCategoryLegend} />
         </Disclosure>
       </form>
     </section>
