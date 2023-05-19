@@ -13,7 +13,7 @@
   export let hasCheckAll = false
   export let checkAllLabel = 'Velg alle'
   export let checkAllValue: string | undefined = undefined
-  export let level2Legend = `${level1Legend} i`
+  export let level2Legend = ``
   export let helpText: string | undefined
 
   $: fieldsetClass =
