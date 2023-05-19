@@ -115,7 +115,6 @@ describe('Checkbox with subsets', () => {
     const subCategory = getByLabelText(
       `${options[0].children[0].displayName} (${options[0].children[0].docCount})`
     )
-    // expect(subCategory).toEqual()
     expect(subCategory).toBeChecked()
   })
 
@@ -134,7 +133,7 @@ describe('Checkbox with subsets', () => {
 
     expect(mainCategoryCheckbox).toBeChecked()
     expect(subCategoryCheckbox).toBeInTheDocument()
-    expect(subCategoryCheckbox).toBeChecked() //
+    expect(subCategoryCheckbox).toBeChecked()
 
     // close main category
     await fireEvent.click(mainCategoryCheckbox)
