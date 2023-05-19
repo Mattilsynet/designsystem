@@ -116,8 +116,8 @@
     disclosure: {
       title: 'Dyr',
       headerTag: 'h2',
-      level1legend: 'Velg tema innen {0}',
-      level2Legend: 'Ønsker du å velge bare spesifikke tema innen {0}',
+      level1Legend: 'Velg tema innen {0}',
+      level2Legend: 'Ønsker du å velge bare spesifikke tema?',
       checkAllLabel:'Velg alle',
       checkAllValue: 'dyr3'
     },
@@ -222,10 +222,10 @@
             hasCheckAll={true}
             checkAllLabel={args.disclosure.checkAllLabel}
             checkAllValue={args.disclosure.checkAllValue}
-            level1Legend={interpolate(args.disclosure.level1legend, [
+            level1Legend={interpolate(args.disclosure.level1Legend, [
               args.disclosure.title.toLowerCase()
             ])}
-            level2Legend={args.disclosure.subCategoryLegend} />
+            level2Legend={args.disclosure.level2Legend} />
         </Disclosure>
       </form>
     </section>
