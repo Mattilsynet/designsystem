@@ -97,6 +97,8 @@ export interface CheckboxWithSubSectionsOptions {
   key: string
   displayName: string
   docCount: number
+
+  checked?: boolean
   children?: CheckboxWithSubSectionsOptions[]
 }
 
