@@ -1,0 +1,32 @@
+@use '../theme' as *;
+@use '../color-tokens' as *;
+
+.changelog {
+  &.disclosure-bordered.disclosure-bordered {
+    border-top: $border-width-small solid var(--color-secondary);
+    border-bottom: 0;
+  }
+  .disclosure-header {
+    color: $color-mt-blue;
+  }
+  div.disclosure-panel {
+    background-color: $color-mt-light-beige;
+    margin: 0;
+    padding: var(--spacer-x-small);
+
+    @media only screen and (min-width: $breakpoint-large) {
+      div {
+        padding: var(--spacer-x-small);
+        margin: 0;
+      }
+    }
+    div:not(:first-of-type) {
+      border-top: $border-width-small solid var(--color-secondary);
+      margin: 0;
+      @media only screen and (max-width: $breakpoint-large) {
+        margin-top: $spacer-x-small;
+        padding-top: $spacer-x-small;
+      }
+    }
+  }
+}

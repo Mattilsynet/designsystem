@@ -2,6 +2,7 @@
   import {Meta, Story, Template} from '@storybook/addon-svelte-csf'
   import {splitIntoParagraphs, wrapInShadowDom} from '../utils'
   import Disclosure from '../../src/svelte/components/Disclosure.svelte'
+  import HeadingLevel from '../../src/svelte/components/HeadingLevel.svelte'
 
   const disclosures = [
     {
@@ -49,7 +50,9 @@
       title={args.title}
       loadJs={!args.disableJs}
       headerTag={args.headerTag}
-      headerClass={args.headerClass}>
+      headerClass={args.headerClass}
+      theme={args.theme}
+      class={args.class}>
       {@html args.body}
       <ul>
         <li>Punkt 1</li>
@@ -68,6 +71,45 @@
     disableJs: false,
     disableCss: false
   }} />
+
+<Story
+  name="Endringslogg"
+  args={{
+    title: disclosures[0].title,
+    body: disclosures[0].body,
+    headerClass: 'text-body icon--changelog-before',
+    disableJs: false,
+    disableCss: false,
+    theme: 'no-border',
+    class: 'changelog'
+  }}
+  let:args>
+  <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading">
+    <Disclosure
+      title={'Se endringer'}
+      loadJs={!args.disableJs}
+      headerTag={args.headerTag}
+      headerClass={args.headerClass}
+      class={args.class}
+      startOpen>
+      <div class="children-spaced-xxs">
+        <span class="text-small">01.01.2021</span>
+        <HeadingLevel headingLevel={3} class="h5 m-b-xs">
+          Dyreholds - ID er nå tildelt alle storfeprodusenter
+        </HeadingLevel>
+        <p>
+          Mattilsynets har nå tildelt Dyreholds-ID til 14 400 eksisterende storfe-produsenter. Vi
+          har sendt ut digitale brev til hver enkelt storfeprodusent.
+        </p>
+      </div>
+      <div class="children-spaced-xxs">
+        <span class="text-small">01.01.2021</span>
+        <HeadingLevel headingLevel={3} class="h5 m-b-xs">Regelendring</HeadingLevel>
+        <p>Gjennomgang og sjekk av innholdet etter regelendring.</p>
+      </div>
+    </Disclosure>
+  </section>
+</Story>
 
 <Story
   name="Flere"
