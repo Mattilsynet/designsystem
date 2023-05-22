@@ -6,8 +6,9 @@
     border-top: $border-width-small solid var(--color-secondary);
     border-bottom: 0;
   }
-  .disclosure-header {
+  .disclosure-header.disclosure-header {
     color: $color-mt-blue;
+    gap: $spacer-xx-small;
   }
   div.disclosure-panel {
     background-color: $color-mt-light-beige;
