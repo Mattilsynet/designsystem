@@ -76,11 +76,10 @@
   name="Endringslogg"
   args={{
     title: disclosures[0].title,
-    body: disclosures[0].body,
+    body: disclosures,
     headerClass: 'text-body icon--changelog-before',
     disableJs: false,
     disableCss: false,
-    theme: 'no-border',
     class: 'changelog'
   }}
   let:args>
@@ -90,23 +89,20 @@
       loadJs={!args.disableJs}
       headerTag={args.headerTag}
       headerClass={args.headerClass}
-      class={args.class}
-      startOpen>
-      <div class="children-spaced-xxs">
-        <span class="text-small">01.01.2021</span>
-        <HeadingLevel headingLevel={3} class="h5 m-b-xs">
-          Dyreholds - ID er nå tildelt alle storfeprodusenter
-        </HeadingLevel>
-        <p>
-          Mattilsynets har nå tildelt Dyreholds-ID til 14 400 eksisterende storfe-produsenter. Vi
-          har sendt ut digitale brev til hver enkelt storfeprodusent.
-        </p>
-      </div>
-      <div class="children-spaced-xxs">
-        <span class="text-small">01.01.2021</span>
-        <HeadingLevel headingLevel={3} class="h5 m-b-xs">Regelendring</HeadingLevel>
-        <p>Gjennomgang og sjekk av innholdet etter regelendring.</p>
-      </div>
+      class={args.class}>
+      {#each args.body as log, index}
+        <article class:border-b-secondary={index < args.body.length-1}
+                 class:p-b-xs={index < args.body.length-1}
+                 class:m-b-xxs={index < args.body.length-1}>
+          <span class="text-small">01.01.2021</span>
+          <HeadingLevel headingLevel={3} class="h5 m-b-xs">
+            {@html log.title}
+          </HeadingLevel>
+          <div class="text">
+            {@html log.body}
+          </div>
+        </article>
+      {/each}
     </Disclosure>
   </section>
 </Story>
