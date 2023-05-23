@@ -18,9 +18,8 @@
 
   $: fieldsetClass =
     variation === 'primary' ? 'checkbox-subsets--primary' : 'checkbox-subsets--secondary'
-  let inputCheckedAll = false
-  $: inputCheckedAll = false
 
+  $: inputCheckedAll = options.filter((s) => s.checked).length === options.length
   let hasJS = false
 
   onMount(() => {
@@ -34,8 +33,6 @@
         subCategory.checked = false
       })
     }
-
-    inputCheckedAll = options.filter((s) => s.checked).length === options.length
   }
 
   function formatLabel(displayName: string, docCount?: number): string {
@@ -46,7 +43,7 @@
     options = options.map(state => {
       return {
         ...state,
-        checked: e.target.checked,
+        checked: !e.target.checked,
       }
     })
   }

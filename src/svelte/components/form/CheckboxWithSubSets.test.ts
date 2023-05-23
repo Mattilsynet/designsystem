@@ -183,10 +183,11 @@ describe('Checkbox with subsets', () => {
     })
     const selectAll = getByLabelText('Velg alle');
     expect(selectAll).toBeInTheDocument()
+    expect(selectAll).not.toBeChecked()
     const dyr = getByLabelText('Dyr (49)');
     expect(dyr).not.toBeChecked()
 
-    await fireEvent.change(selectAll, {target: {checked: true}})
+    await fireEvent.change(selectAll, {target: {checked: false}})
     const dyr1 = getByLabelText('Dyr (49)');
     expect(dyr1).toBeInTheDocument()
     expect(dyr1).toBeChecked()
@@ -197,7 +198,7 @@ describe('Checkbox with subsets', () => {
     expect(fish).toBeInTheDocument()
     expect(fish).toBeChecked()
 
-    await fireEvent.change(selectAll, {target: {checked: false}})
+    await fireEvent.change(selectAll, {target: {checked: true}})
     const dyr2 = getByLabelText('Dyr (49)');
     expect(dyr2).toBeInTheDocument()
     expect(dyr2).not.toBeChecked()
@@ -220,7 +221,10 @@ describe('Checkbox with subsets', () => {
       checkAllValue: 'all'
     })
 
-    await fireEvent.change(getByLabelText('Velg alle'), {target: {checked: true}})
+    const checkAll = getByLabelText('Velg alle');
+    expect(checkAll).not.toBeChecked()
+    await fireEvent.change(checkAll, {target: {checked: false}})
+    expect(checkAll).toBeChecked()
     const produksjonsdyr = getByLabelText('Produksjonsdyr (38)')
     expect(produksjonsdyr).toBeInTheDocument()
     expect(produksjonsdyr).not.toBeChecked()
@@ -243,7 +247,10 @@ describe('Checkbox with subsets', () => {
       checkAllValue: 'all'
     })
 
-    await fireEvent.change(getByLabelText('Velg alle'), {target: {checked: true}})
+    const checkAll = getByLabelText('Velg alle');
+    expect(checkAll).not.toBeChecked()
+    await fireEvent.change(checkAll, {target: {checked: false}})
+    expect(checkAll).toBeChecked()
 
     const dyr1 = getByLabelText('Dyr (49)');
     expect(dyr1).toBeInTheDocument()
@@ -253,6 +260,32 @@ describe('Checkbox with subsets', () => {
     expect(getByLabelText('Dyr (49)')).not.toBeChecked()
     expect(getByLabelText('Velg alle')).not.toBeChecked()
     debug()
+    expect(getByLabelText('Fisk og akvakultur (1)')).toBeChecked()
+    expect(getByLabelText('Mat (3)')).toBeChecked()
+  })
+
+  test('Initital all checked', async () => {
+    const {getByLabelText, debug} = render(CheckboxWithSubSets, {
+      options: options.map((o) => {
+        return {
+          ...o,
+          checked: true
+        }
+      }),
+      level1Legend,
+      level2Legend : "Ønsker du å velge bare spesifikke tema?",
+      variation: 'secondary',
+      hasCheckAll: true,
+      checkAllLabel: 'Velg alle',
+      checkAllValue: 'all'
+    })
+
+    const checkAll = getByLabelText('Velg alle');
+    expect(checkAll).toBeChecked()
+
+    const dyr1 = getByLabelText('Dyr (49)');
+    expect(dyr1).toBeInTheDocument()
+    expect(dyr1).toBeChecked()
     expect(getByLabelText('Fisk og akvakultur (1)')).toBeChecked()
     expect(getByLabelText('Mat (3)')).toBeChecked()
   })
