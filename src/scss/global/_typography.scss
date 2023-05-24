@@ -170,7 +170,9 @@ strong {
 .text-align-right {
   text-align: right;
 }
-
+.font-normal {
+  font-weight: var(--font-weight-normal);
+}
 .text {
   @include xp-html-area;
 }
