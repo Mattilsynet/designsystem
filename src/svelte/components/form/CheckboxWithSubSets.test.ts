@@ -161,7 +161,7 @@ describe('Checkbox with subsets', () => {
   test('Test variation: secondary ', async () => {
     // test that class is present in variation secondary
     const {queryAllByText} = render(CheckboxWithSubSets, {
-      options: addChecked(['dyr'], options)
+      options: addChecked(['dyr'], options),
       level1Legend,
       level2Legend : "Ønsker du å velge bare spesifikke tema?",
       variation: 'secondary'
