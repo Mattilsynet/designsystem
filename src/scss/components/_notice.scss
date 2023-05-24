@@ -2,7 +2,6 @@
 @use '../theme' as *;
 
 .notice {
-  --notice-margin: 0;
   --notice-padding: var(--spacer-x-small);
   font-size: $font-size-small;
   padding: var(--notice-padding);
