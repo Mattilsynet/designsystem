@@ -34,7 +34,11 @@
     </section>
     <section>
       <h2>Bjelleikon</h2>
-      <p class="icon--newsletter-bell-before p-tb-xxs"></p>
+      <p class="icon--newsletter-bell-before p-tb-xxs" />
+    </section>
+    <section>
+      <h2>Historie</h2>
+      <p class="icon--changelog-before p-tb-xxs" />
     </section>
   </div>
 </Story>

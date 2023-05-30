@@ -2,6 +2,7 @@
   import {Meta, Story, Template} from '@storybook/addon-svelte-csf'
   import {splitIntoParagraphs, wrapInShadowDom} from '../utils'
   import Disclosure from '../../src/svelte/components/Disclosure.svelte'
+  import HeadingLevel from '../../src/svelte/components/HeadingLevel.svelte'
 
   const disclosures = [
     {
@@ -49,7 +50,9 @@
       title={args.title}
       loadJs={!args.disableJs}
       headerTag={args.headerTag}
-      headerClass={args.headerClass}>
+      headerClass={args.headerClass}
+      theme={args.theme}
+      class={args.class}>
       {@html args.body}
       <ul>
         <li>Punkt 1</li>
@@ -68,6 +71,41 @@
     disableJs: false,
     disableCss: false
   }} />
+
+<Story
+  name="Endringslogg"
+  args={{
+    title: disclosures[0].title,
+    body: disclosures,
+    headerClass: 'text-body icon--changelog-before',
+    disableJs: false,
+    disableCss: false,
+    class: 'changelog'
+  }}
+  let:args>
+  <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading">
+    <Disclosure
+      title={'Se endringer'}
+      loadJs={!args.disableJs}
+      headerTag={args.headerTag}
+      headerClass={args.headerClass}
+      class={args.class}>
+      {#each args.body as log, index}
+        <article class:border-b-secondary={index < args.body.length-1}
+                 class:p-b-xs={index < args.body.length-1}
+                 class:m-b-xxs={index < args.body.length-1}>
+          <span class="text-small">01.01.2021</span>
+          <HeadingLevel headingLevel={3} class="h5 m-b-xs">
+            {@html log.title}
+          </HeadingLevel>
+          <div class="text">
+            {@html log.body}
+          </div>
+        </article>
+      {/each}
+    </Disclosure>
+  </section>
+</Story>
 
 <Story
   name="Flere"

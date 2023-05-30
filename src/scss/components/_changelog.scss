@@ -1,0 +1,26 @@
+@use '../theme' as *;
+@use '../color-tokens' as *;
+
+.changelog {
+  &.disclosure {
+    .disclosure-header.disclosure-header {
+      color: var(--color-mt-blue);
+      gap: var(--spacer-xx-small);
+    }
+
+    .disclosure-panel {
+      background-color: var(--color-mt-light-beige);
+      margin-top: 0.25rem;
+      padding: var(--spacer-x-small);
+
+      article {
+        padding-left: 0;
+        padding-right: 0;
+        @media only screen and (min-width: $breakpoint-large) {
+          padding-left: var(--spacer-x-small);
+          padding-right: var(--spacer-x-small);
+        }
+      }
+    }
+  }
+}
