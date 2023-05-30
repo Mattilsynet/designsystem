@@ -227,17 +227,6 @@
             level2Legend={args.disclosure.level2Legend} />
         </Disclosure>
       </form>
-<!--      <h2>test</h2>-->
-<!--      <CheckboxWithSubSets-->
-<!--        variation="secondary"-->
-<!--        options={{key: 'test', path: '', displayName: 'Test', children: []}}-->
-<!--        hasCheckAll={true}-->
-<!--        checkAllLabel={args.disclosure.checkAllLabel}-->
-<!--        checkAllValue={args.disclosure.checkAllValue}-->
-<!--        level1Legend={interpolate(args.disclosure.level1Legend, [-->
-<!--              args.disclosure.title.toLowerCase()-->
-<!--            ])}-->
-<!--        level2Legend={args.disclosure.level2Legend} />-->
     </section>
   </div>
 </Story>

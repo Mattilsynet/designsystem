@@ -19,9 +19,6 @@
     variation === 'primary' ? 'checkbox-subsets--primary' : 'checkbox-subsets--secondary'
 
   let hasJS = false
-  $: {
-    console.log('options', options)
-  }
 
   onMount(() => {
     hasJS = true
@@ -50,8 +47,6 @@
         checked: e.target.checked
       }
     })
-    options = options
-    console.log('opt', options)
   }
 </script>
 
@@ -71,7 +66,7 @@
         name={optionsName}
         value={options.key}
         bind:checked={options.checked}
-        on:change={e => toggleCheckedAll(e)} />
+        on:change={toggleCheckedAll} />
       <label for={options.key}>
         {checkAllLabel}
       </label>
