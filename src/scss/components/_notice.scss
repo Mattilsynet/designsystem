@@ -8,8 +8,6 @@
   background-color: #fff;
 
   @media only screen and (min-width: $breakpoint-large) {
-    --notice-margin: var(--spacer-medium);
-
     font-size: inherit;
   }
 
