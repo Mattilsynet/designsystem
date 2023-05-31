@@ -8,18 +8,15 @@
   export {className as class}
   export let level1Legend: string
   export let variation: 'primary' | 'secondary' = 'primary'
-  export let options: Array<CheckboxWithSubSectionsOptions>
+  export let options: CheckboxWithSubSectionsOptions
   export let optionsName = 'kategori'
   export let hasCheckAll = false
   export let checkAllLabel = 'Velg alle'
-  export let checkAllValue: string | undefined = undefined
   export let level2Legend = ``
   export let helpText: string | undefined
 
   $: fieldsetClass =
     variation === 'primary' ? 'checkbox-subsets--primary' : 'checkbox-subsets--secondary'
-  let inputCheckedAll = false
-  $: inputCheckedAll = false
 
   let hasJS = false
 
@@ -29,24 +26,25 @@
 
   function mainCategory(mainIndex: number): void {
     // Uncheck all subcategories if parent main category is unchecked
-    if (!options[mainIndex].checked) {
-      options[mainIndex].children.forEach(subCategory => {
+    if (!options.children[mainIndex].checked) {
+      options.children[mainIndex].children.forEach(subCategory => {
         subCategory.checked = false
       })
     }
-
-    inputCheckedAll = options.filter((s) => s.checked).length === options.length
+    if(options.children?.length > 0) {
+      options.checked = options.children?.filter((s) => s.checked).length === options.children?.length
+    }
   }
 
   function formatLabel(displayName: string, docCount?: number): string {
     return `${displayName} ${docCount ? `(${docCount})` : ''}`
   }
 
-  function checkAll(e: Event) {
-    options = options.map(state => {
+  function toggleCheckedAll(e: Event) {
+    options.children = options.children?.map(state => {
       return {
         ...state,
-        checked: e.target.checked,
+        checked: e.target.checked
       }
     })
   }
@@ -62,19 +60,19 @@
   {#if hasJS && hasCheckAll}
     <div class="form-control checkbox m-b-xxs">
       <input
-        id={checkAllValue}
+        id={options.key}
         type="checkbox"
         class="input__control"
         name={optionsName}
-        value={checkAllValue}
-        bind:checked={inputCheckedAll}
-        on:change={e => checkAll(e)} />
-      <label for={checkAllValue}>
+        value={options.key}
+        bind:checked={options.checked}
+        on:change={toggleCheckedAll} />
+      <label for={options.key}>
         {checkAllLabel}
       </label>
     </div>
   {/if}
-  {#each options as listItem, mainIndex}
+  {#each options.children || [] as listItem, mainIndex}
     <div class="form-control checkbox narrow" class:m-t-xxs={mainIndex > 0}>
       <input
         id={listItem.key}
@@ -106,8 +104,7 @@
               class="input__control"
               value={subListItem.key}
               bind:checked={subListItem.checked}
-              aria-checked={subListItem.checked}
-              />
+              aria-checked={subListItem.checked} />
             <label for={subListItem.key}>
               {formatLabel(subListItem.displayName, subListItem.docCount)}
             </label>

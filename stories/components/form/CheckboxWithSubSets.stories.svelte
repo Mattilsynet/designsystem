@@ -13,7 +13,7 @@
   args={{
     legend: 'Tema',
     variation: 'primary',
-    options: [
+    options: {key: 'all',children:[
       {
         key: 'dyr',
         displayName: 'Dyr',
@@ -78,8 +78,8 @@
         docCount: 1,
         children: []
       }
-    ],
-    optionsWithoutDocCount: [
+    ]},
+    optionsWithoutDocCount:{key: 'all2', children: [
       {
         key: 'dyr2',
         displayName: 'Dyr',
@@ -112,7 +112,7 @@
           }
         ]
       }
-    ],
+    ]},
     disclosure: {
       title: 'Dyr',
       headerTag: 'h2',
@@ -121,7 +121,7 @@
       checkAllLabel:'Velg alle',
       checkAllValue: 'dyr3'
     },
-    disclosureOptions: [
+    disclosureOptions: {key: 'alldyr', checked: false,  children:[
       {
         key: 'produksjonsdyr3',
         displayName: 'Produksjonsdyr',
@@ -164,7 +164,7 @@
         displayName: 'Dyr som lider',
         children: []
       }
-    ]
+    ]}
   }}
   argTypes={{
     disableCss: {control: 'boolean'},
@@ -221,7 +221,6 @@
             options={args.disclosureOptions}
             hasCheckAll={true}
             checkAllLabel={args.disclosure.checkAllLabel}
-            checkAllValue={args.disclosure.checkAllValue}
             level1Legend={interpolate(args.disclosure.level1Legend, [
               args.disclosure.title.toLowerCase()
             ])}
