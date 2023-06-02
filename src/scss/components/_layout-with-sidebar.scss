@@ -62,7 +62,7 @@ aside {
     &.expanded {
       width: 100%;
       height: auto;
-      z-index: $zindex-dropdown;
+      z-index: var(--z-index-dropdown);
     }
 
     .aside-header {
