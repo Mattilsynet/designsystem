@@ -181,9 +181,14 @@ strong {
 }
 
 h1,h2,h3,h4,h5,h6,
-table th,
-.summary-list,
-.disclosure-header,
-.top-task{
+th,
+td,
+a:not(.button--link),
+button:not(.button--link),
+dl,
+ul,
+ol,
+p
+{
   word-break: break-word;
 }
