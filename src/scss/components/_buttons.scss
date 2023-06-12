@@ -177,7 +177,7 @@ $icon-button-border-radius: 0.25em;
     background: transparent;
     color: var(--color);
     text-decoration: underline;
-    min-width: auto;
+    min-width: max-content;
     min-height: auto;
     margin: 0;
     padding: 0;
