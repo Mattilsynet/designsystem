@@ -18,7 +18,6 @@
     margin: 0;
     padding: var(--disclosure-spacing) 0;
     overflow-wrap: anywhere;
-    word-break: break-word;
   }
   [aria-expanded='true'].disclosure-header {
     font-weight: var(--font-weight-bold);

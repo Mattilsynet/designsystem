@@ -19,7 +19,6 @@ dl {
     grid-template-columns: 1fr;
     grid-column: 1 / span2;
     gap: 0;
-    word-break: break-word;
 
     dt {
       &:first-child {
