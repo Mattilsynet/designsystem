@@ -1,6 +1,7 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf'
   import {wrapInShadowDom} from '../utils'
+  import FormErrorSummary from '../../src/svelte/components/form/FormErrorSummary.svelte'
 
   const name = 'radiobuttons'
   const options = [
@@ -38,7 +39,7 @@
 
 <Story name="Normal" let:errors let:label let:helpText let:heading let:disableCss let:errorMessage>
   <div use:wrapInShadowDom={disableCss}>
-    <div class="error-summary" role="alert" tabindex="-1" aria-labelledby="error-summary-heading">
+    <!--div class="error-summary" role="alert" tabindex="-1" aria-labelledby="error-summary-heading">
       <h2 id="error-summary-heading">
         {heading}
       </h2>
@@ -49,7 +50,8 @@
           </li>
         {/each}
       </ul>
-    </div>
+    </div-->
+    <FormErrorSummary {errors} {heading} />
 
     <form class="form-layout">
       <label class="form-label" for="inputfield"> Navn </label>
