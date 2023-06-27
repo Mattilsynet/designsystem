@@ -24,76 +24,6 @@
       }
     ],
     errorSummaryHeading: 'Feil oppstod',
-    variation: 'primary',
-    options: {
-      key: 'all',
-      children: [
-        {
-          key: 'dyr',
-          displayName: 'Dyr',
-          docCount: 49,
-          children: [
-            {
-              key: 'produksjonsdyr',
-              displayName: 'Produksjonsdyr',
-              docCount: 38,
-              children: []
-            },
-            {
-              key: 'dyresykdommer',
-              displayName: 'Dyresykdommer',
-              docCount: 2,
-              children: []
-            },
-            {
-              key: 'kjaeledyr',
-              displayName: 'Kjæledyr',
-              docCount: 1,
-              children: []
-            }
-          ]
-        },
-        {
-          key: 'fisk-og-akvakultur',
-          displayName: 'Fisk og akvakultur',
-          docCount: 1,
-          children: [
-            {
-              key: 'fiskesykdommer',
-              displayName: 'Fiskesykdommer',
-              docCount: 1,
-              children: []
-            }
-          ]
-        },
-        {
-          key: 'mat',
-          displayName: 'Mat',
-          docCount: 3,
-          children: [
-            {
-              key: 'import-av-mat',
-              displayName: 'Import av mat',
-              docCount: 1,
-              children: [
-                {
-                  key: 'kommersiell-import',
-                  displayName: 'Kommersiell import',
-                  docCount: 1,
-                  children: []
-                }
-              ]
-            }
-          ]
-        },
-        {
-          key: 'kosmetikk',
-          displayName: 'Kosmetikk',
-          docCount: 1,
-          children: []
-        }
-      ]
-    },
     disclosure: {
       title: 'Dyr',
       headerTag: 'h2',
@@ -156,6 +86,7 @@
   }}
   argTypes={{
     legend: {control: 'text'},
+    disableJs: {control: 'boolean'}
     disableCss: {control: 'boolean'}
   }} />
 
@@ -170,7 +101,10 @@
         </p>
 
         <article class="m-t-m">
-          <FormErrorSummary errors={args.errors} heading={args.errorSummaryHeading} />
+          <FormErrorSummary
+            errors={args.errors}
+            heading={args.errorSummaryHeading}
+            hiddenErrorText={args.hiddenErrorText} />
           <div class="m-t-m">
             <p>
               Donec sagittis tempus lacinia. Pellentesque nec tristique elit. Nullam odio metus,

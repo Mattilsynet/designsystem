@@ -39,18 +39,6 @@
 
 <Story name="Normal" let:errors let:label let:helpText let:heading let:disableCss let:errorMessage>
   <div use:wrapInShadowDom={disableCss}>
-    <!--div class="error-summary" role="alert" tabindex="-1" aria-labelledby="error-summary-heading">
-      <h2 id="error-summary-heading">
-        {heading}
-      </h2>
-      <ul>
-        {#each errors as error}
-          <li class="error-summary__list--link">
-            <a href={`#${error.fieldName}`}>{error.message}</a>
-          </li>
-        {/each}
-      </ul>
-    </div-->
     <FormErrorSummary {errors} {heading} />
 
     <form class="form-layout">
