@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import InputError from './InputErrorMessage.svelte'
 
   export let className = 'validation m-t-m'
@@ -13,7 +13,8 @@
   class={className}
   class:fieldsetError
   aria-invalid={!!error}
-  aria-describedby={inputErrorId}>
+  aria-describedby={inputErrorId}
+  data-testid="fieldset">
   <legend class="h2">
     {legend}
   </legend>

@@ -2,7 +2,7 @@
   export let key: string
   export let message: string
   export let hiddenErrorText = 'Feilmelding'
-  let className
+  let className = ''
   export {className as class}
 </script>
 

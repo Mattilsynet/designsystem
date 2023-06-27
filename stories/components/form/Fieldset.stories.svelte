@@ -86,7 +86,7 @@
   }}
   argTypes={{
     legend: {control: 'text'},
-    disableJs: {control: 'boolean'}
+    disableJs: {control: 'boolean'},
     disableCss: {control: 'boolean'}
   }} />
 
