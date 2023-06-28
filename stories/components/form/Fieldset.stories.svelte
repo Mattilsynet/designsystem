@@ -139,12 +139,12 @@
         <FormErrorSummary
           errors={args.errors}
           heading={args.errorSummaryHeading}
-          hiddenErrorText={args.hiddenErrorText}
-          legendClass="h2" />
+          hiddenErrorText={args.hiddenErrorText} />
         <form class="col-3-span-8 form-layout">
           <Fieldset
             legend={args.legend}
-            error={args.errors.find(error => error.key === args.fieldsetId)}>
+            error={args.errors.find(error => error.key === args.fieldsetId)}
+            legendClass="h2">
             <Disclosure
               id={args.fieldsetId}
               title={args.disclosure.title}
