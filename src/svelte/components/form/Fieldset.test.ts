@@ -17,7 +17,8 @@ describe('Fieldset', () => {
     const {getByText, getByTestId} = render(Fieldset, {
       legend,
       error,
-      hiddenErrorText
+      hiddenErrorText,
+      legendClass: 'h2'
     })
     const legendElement = getByText(legend)
     expect(legendElement).toBeInTheDocument()
