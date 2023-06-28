@@ -6,7 +6,6 @@
   import Disclosure from '../../../src/svelte/components/Disclosure.svelte'
   import {interpolate, toKebabCase} from '../../../src/ts/utils'
   import FormErrorSummary from '../../../src/svelte/components/form/FormErrorSummary.svelte'
-  import TextInput from '../../../src/svelte/components/form/TextInput.svelte'
 </script>
 
 <Meta
@@ -94,9 +93,6 @@
       <section class="article-page col-1-span-12">
         <h1>Fieldset</h1>
         <h2>Normal</h2>
-        <p>
-          To get validation for a fieldset, populate the `error: UIError` parameter with errors.
-        </p>
 
         <FormErrorSummary
           errors={args.errorsNormal}
@@ -138,7 +134,7 @@
         <h1>Fieldset</h1>
         <h2>With form validation errors</h2>
         <p>
-          To get validation for a fieldset, populate the `error: UIError` parameter with errors.
+          To get validation for a fieldset, populate the `error: ErrorDetail` parameter with errors.
         </p>
         <FormErrorSummary
           errors={args.errors}
