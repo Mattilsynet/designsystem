@@ -13,17 +13,15 @@
   title="Components/Form/Fieldset"
   args={{
     legend: 'Temaer for nyhetsbrev',
+    errorsNormal: [],
     errors: [
       {
         key: 'fieldset-id',
         message: 'Fyll inn ett av feltene.'
-      },
-      {
-        key: 'email-id',
-        message: 'Feil i e-postformat.'
       }
     ],
     errorSummaryHeading: 'Feil oppstod',
+    fieldsetId: 'fieldset-id',
     disclosure: {
       title: 'Dyr',
       headerTag: 'h2',
@@ -100,59 +98,76 @@
           To get validation for a fieldset, populate the `error: UIError` parameter with errors.
         </p>
 
-        <article class="m-t-m">
-          <FormErrorSummary
-            errors={args.errors}
-            heading={args.errorSummaryHeading}
-            hiddenErrorText={args.hiddenErrorText} />
-          <div class="m-t-m">
-            <p>
-              Donec sagittis tempus lacinia. Pellentesque nec tristique elit. Nullam odio metus,
-              hendrerit sagittis est at, hendrerit finibus ex. Sed maximus, arcu in blandit aliquet,
-              mauris urna porta magna, id viverra erat eros finibus est.
-            </p>
-            <p>
-              Phasellus tincidunt urna eu nulla semper viverra a tristique elit. Aliquam erat
-              volutpat. Sed eget sollicitudin erat, ac dapibus risus. Nunc ultrices turpis sit amet
-              turpis aliquam vestibulum. Morbi fringilla mollis maximus.
-            </p>
-            <p>
-              Cras viverra lorem vitae tortor efficitur, id sollicitudin tortor fringilla. Mauris
-              faucibus sem sit amet dolor rhoncus, non egestas ipsum tempor. Donec dapibus massa id
-              magna consequat sodales. Aliquam in dapibus nibh, eget euismod neque.
-            </p>
-          </div>
-          <form class="col-3-span-8 form-layout">
-            <Fieldset
-              legend={args.legend}
-              error={args.errors.find(error => error.key === 'fieldset-id')}>
-              <Disclosure
-                id="fieldset-id"
-                title={args.disclosure.title}
-                loadJs={!args.disableJs}
-                class="disclosure-no-border--align-left"
-                headingId={`${toKebabCase(args.disclosure.title)}-title`}
-                headerTag={args.disclosure.headerTag}>
-                <CheckboxWithSubSets
-                  variation="secondary"
-                  options={args.disclosureOptions}
-                  hasCheckAll={true}
-                  checkAllLabel={args.disclosure.checkAllLabel}
-                  level1Legend={interpolate(args.disclosure.level1Legend, [
-                    args.disclosure.title.toLowerCase()
-                  ])}
-                  level2Legend={args.disclosure.level2Legend} />
-              </Disclosure>
-            </Fieldset>
-            <TextInput
-              label="E-post"
-              id="email-id"
-              name="email"
-              class="form-field error"
-              aria-invalid="true"
-              aria-describedby="inputfield-hint inputfield-error" />
-          </form>
-        </article>
+        <FormErrorSummary
+          errors={args.errorsNormal}
+          heading={args.errorSummaryHeading}
+          hiddenErrorText={args.hiddenErrorText}
+          legendClass="h2" />
+        <form class="col-3-span-8 form-layout">
+          <Fieldset
+            legend={args.legend}
+            error={args.errorsNormal.find(error => error.key === args.fieldsetId)}>
+            <Disclosure
+              id={args.fieldsetId}
+              title={args.disclosure.title}
+              loadJs={!args.disableJs}
+              class="disclosure-no-border--align-left"
+              headingId={`${toKebabCase(args.disclosure.title)}-title`}
+              headerTag={args.disclosure.headerTag}>
+              <CheckboxWithSubSets
+                variation="secondary"
+                options={args.disclosureOptions}
+                hasCheckAll={true}
+                checkAllLabel={args.disclosure.checkAllLabel}
+                level1Legend={interpolate(args.disclosure.level1Legend, [
+                  args.disclosure.title.toLowerCase()
+                ])}
+                level2Legend={args.disclosure.level2Legend} />
+            </Disclosure>
+          </Fieldset>
+        </form>
+      </section>
+    </div>
+  </div>
+</Story>
+
+<Story name="With form validation errors" let:args>
+  <div use:wrapInShadowDom={args.disableCss}>
+    <div class="container layout-grid layout-grid--column-12">
+      <section class="article-page col-1-span-12">
+        <h1>Fieldset</h1>
+        <h2>With form validation errors</h2>
+        <p>
+          To get validation for a fieldset, populate the `error: UIError` parameter with errors.
+        </p>
+        <FormErrorSummary
+          errors={args.errors}
+          heading={args.errorSummaryHeading}
+          hiddenErrorText={args.hiddenErrorText}
+          legendClass="h2" />
+        <form class="col-3-span-8 form-layout">
+          <Fieldset
+            legend={args.legend}
+            error={args.errors.find(error => error.key === args.fieldsetId)}>
+            <Disclosure
+              id={args.fieldsetId}
+              title={args.disclosure.title}
+              loadJs={!args.disableJs}
+              class="disclosure-no-border--align-left"
+              headingId={`${toKebabCase(args.disclosure.title)}-title`}
+              headerTag={args.disclosure.headerTag}>
+              <CheckboxWithSubSets
+                variation="secondary"
+                options={args.disclosureOptions}
+                hasCheckAll={true}
+                checkAllLabel={args.disclosure.checkAllLabel}
+                level1Legend={interpolate(args.disclosure.level1Legend, [
+                  args.disclosure.title.toLowerCase()
+                ])}
+                level2Legend={args.disclosure.level2Legend} />
+            </Disclosure>
+          </Fieldset>
+        </form>
       </section>
     </div>
   </div>

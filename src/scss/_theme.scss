@@ -10,8 +10,8 @@ $focus-box-shadow: 0 0 0 0.125rem var(--color-mt-background),
 $focus-box-shadow-on-white: 0 0 0 0.125rem var(--color-mt-white),
   0 0 0 0.35rem var(--color-mt-blue-medium);
 $focus-box-shadow-no-outline: 0 0 0 0.25rem var(--color-mt-blue-medium);
-$error-box-shadow: 0 0 0 0.5rem var(--color-mt-background), 0 0 0 0.7rem var(--color-mt-red-uu);
-$error-box-shadow-small: 0 0 0 0.05rem var(--color-mt-background), 0 0 0 0.2rem var(--color-mt-red-uu);
+$error-box-shadow: 0 0 0 0.5rem var(--color-mt-background), 0 0 0 0.7rem var(--color-error);
+$error-box-shadow-small: 0 0 0 0.05rem var(--color-mt-background), 0 0 0 0.2rem var(--color-error);
 
 $breakpoint-large: 768px;
 $breakpoint-x-large: 1024px;

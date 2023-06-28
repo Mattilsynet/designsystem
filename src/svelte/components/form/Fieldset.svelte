@@ -5,17 +5,17 @@
   export let legend = ''
   export let error = null
   export let hiddenErrorText = false
+  export let legendClass = ''
   $: inputErrorId = error ? `${error.key}-error` : ''
-  $: fieldsetError = !!error
+  $: fieldsetErrorClass = !!error ? 'fieldset-error' : ''
 </script>
 
 <fieldset
-  class={className}
-  class:fieldsetError
+  class="{className} {fieldsetErrorClass}"
   aria-invalid={!!error}
   aria-describedby={inputErrorId}
   data-testid="fieldset">
-  <legend class="h2">
+  <legend class={legendClass}>
     {legend}
   </legend>
 
