@@ -138,11 +138,11 @@
             To get validation for a fieldset, populate the `error: ErrorDetail` parameter with
             errors.
           </p>
+          <FormErrorSummary
+            errors={args.errors}
+            heading={args.errorSummaryHeading}
+            hiddenErrorText={args.hiddenErrorText} />
         </div>
-        <FormErrorSummary
-          errors={args.errors}
-          heading={args.errorSummaryHeading}
-          hiddenErrorText={args.hiddenErrorText} />
         <form class="col-3-span-8 form-layout">
           <Fieldset
             legend={args.legend}
