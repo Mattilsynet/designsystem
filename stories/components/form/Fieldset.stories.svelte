@@ -131,11 +131,14 @@
   <div use:wrapInShadowDom={args.disableCss}>
     <div class="container layout-grid layout-grid--column-12">
       <section class="article-page col-1-span-12">
-        <h1>Fieldset</h1>
-        <h2>With form validation errors</h2>
-        <p>
-          To get validation for a fieldset, populate the `error: ErrorDetail` parameter with errors.
-        </p>
+        <div class="col-3-span-8 text">
+          <h1>Fieldset</h1>
+          <h2>With form validation errors</h2>
+          <p>
+            To get validation for a fieldset, populate the `error: ErrorDetail` parameter with
+            errors.
+          </p>
+        </div>
         <FormErrorSummary
           errors={args.errors}
           heading={args.errorSummaryHeading}
