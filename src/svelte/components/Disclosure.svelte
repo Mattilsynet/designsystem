@@ -9,6 +9,7 @@
   import {createMachine, assign} from 'xstate'
   import HeadingLevel from './HeadingLevel.svelte'
 
+  export let id: string | undefined = undefined
   export let loadJs = true
   export let title: string
   export let headerTag: 'h2' | 'h3' | 'h4' | 'h5' | 'h6' = 'h3'
@@ -75,7 +76,7 @@
   }
 </script>
 
-<div class="disclosure disclosure-{theme} {disclosureClass}">
+<div class="disclosure disclosure-{theme} {disclosureClass}" {id}>
   {#if onServer}
     <HeadingLevel class="disclosure-header {headerClass}" headingLevel={+headerTag.charAt(1)}>
       {#if chapter}

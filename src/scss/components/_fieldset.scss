@@ -1,4 +1,5 @@
 @use '../color-tokens' as *;
+@use '../theme' as *;
 
 fieldset {
   display: flex;
@@ -21,6 +22,23 @@ fieldset {
       width: 100%;
       border-bottom: var(--border-width-small) solid $color-secondary;
       padding-bottom: var(--spacer-xx-small);
+    }
+  }
+
+  &.validation {
+    legend {
+      float: left;
+      width: 100%;
+      margin-top: 0;
+    }
+  }
+
+  &.fieldset-error {
+    border-radius: $border-radius-small;
+    box-shadow: $error-box-shadow-small;
+
+    @media only screen and (min-width: $breakpoint-large) {
+      box-shadow: $error-box-shadow;
     }
   }
 }
