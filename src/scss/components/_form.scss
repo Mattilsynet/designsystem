@@ -334,7 +334,7 @@ label.form-label {
   margin-bottom: var(--form-group-spacer);
   padding: var(--spacer-xxx-small) var(--spacer-xx-small);
   border-left: $border-width-regular solid var(--color-error);
-  grid-column: 3/span 8;
+
   &:focus-visible {
     outline: $border-width-regular solid var(--color-error)
   }
