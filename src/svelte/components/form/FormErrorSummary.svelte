@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {ErrorDetail} from '../../../ts/types'
+  import type {ErrorDetail} from '../../../ts/types'
 
   export let errors: ErrorDetail[] = []
   export let heading: string
