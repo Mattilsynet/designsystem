@@ -20,7 +20,7 @@
 
   const DropdownMachine = createToggleMachine('dropdown')
   const {state, send} = useMachine(DropdownMachine)
-  $: isOpen = $state.value === 'open'
+  $: isOpen = $state.context.isOpen
   $: onServer = $state.value === 'serverRendered'
 
   function handleClick(e: PointerEvent) {
@@ -30,7 +30,7 @@
   }
 
   if (loadJs) {
-    onMount(() => send('MOUNT'))
+    onMount(() => send('MOUNTED'))
   }
 </script>
 
