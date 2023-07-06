@@ -206,42 +206,14 @@ aside {
     }
   }
   .container {
-    --col-1-auto-template: calc((#{$grid-1-col-width})) auto;
-
-    --chapter-col: 1 / span 1;
-    --chapter-content-col: 2 / span 1;
-    --chapter-content-both: 1 / span 2;
-    --col-1-span-12: 1 / span 12;
     --chapter-indent: var(--spacer-small);
 
     &.menu-is-expanded {
-      --col-1-auto-template: 1fr 4fr;
       --breadcrumbs-col: 3 / span 7;
-      --content-col: 3 / span 8;
-      --heading-with-chapter-col: 1 / span 12;
       width: 100%;
 
       .breadcrumbs {
         grid-column: var(--breadcrumbs-col);
-      }
-    }
-
-    &:not(.menu-is-expanded) {
-      --menu-closed-content-col: 3 / span 6;
-      --menu-closed-with-chapter-col: 2 / span 7;
-
-      .in-other-content {
-        > * {
-          grid-column: var(--menu-closed-content-col);
-        }
-        > h1 {
-          display: grid;
-          grid-column: var(--menu-closed-content-col);
-          &.heading-with-chapter {
-            grid-column: var(--menu-closed-with-chapter-col);
-            grid-template-columns: var(--col-1-auto-template);
-          }
-        }
       }
     }
   }
