@@ -230,7 +230,6 @@ aside {
       &.menu-is-expanded {
         width: calc(#{theme.$main-width});
         margin-right: 20%;
-        --col-1-auto-template: 1fr 3fr;
         --chapter-indent: var(--spacer-xx-large);
       }
     }
