@@ -32,6 +32,7 @@ export interface Chapter {
   heading: string
   url: string
   index: number
+  subChapters: Array<Chapter>
 }
 
 export interface ChapterChangeDetails {

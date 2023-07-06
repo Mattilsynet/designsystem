@@ -21,41 +21,63 @@
     chapters: [
       {
         heading: 'Formål',
+        url: '',
         index: 0
       },
       {
         heading: 'Virkeområde',
-        index: 1
+        url: '',
+        index: 1,
+        subChapters: [
+          {heading: 'Subchapter', url: '', index: 0},
+          {heading: 'Another chapter', url: '', index: 1}
+        ]
       },
       {
         heading: 'Grenseverdier',
+        url: '',
         index: 2
       },
       {
         heading: 'Registrering',
-        index: 3
+        url: '',
+        index: 3,
+        subChapters: [
+          {heading: 'Subchapter', url: '', index: 0},
+          {heading: 'Another chapter', url: '', index: 1},
+          {heading: 'Subchapter', url: '', index: 2},
+          {heading: 'Another chapter', url: '', index: 3}
+        ]
       },
       {
         heading: 'Distribusjonssystem og internt fordelingsnett',
-        index: 4
+        url: '',
+        index: 4,
+        subChapters: [
+          {heading: 'Subchapter', url: '', index: 0},
+          {heading: 'Another chapter', url: '', index: 1}
+        ]
       }
     ],
+    disableJs: false,
     disableCss: false
   }}
   argTypes={{
     showChapterNumbers: {control: 'boolean'},
     chapters: {control: 'array'},
     disableCss: {control: 'boolean'},
+    disableJs: {control: 'boolean'},
     chapterChange: {action: 'chapterChange'}
   }} />
 
-<Story name="Normal" let:showChapterNumbers let:disableCss let:chapters>
+<Story name="Normal" let:showChapterNumbers let:disableCss let:disableJs let:chapters>
   <div use:wrapInShadowDom={disableCss}>
     <div class="chapter-menu-wrapper">
       <ChapterMenu
         {chapters}
         {showChapterNumbers}
         basePath="/#"
+        loadJs={!disableJs}
         menuTitle="Innhold"
         {currentChapterNumber}
         on:chapterChange={chapterChange} />

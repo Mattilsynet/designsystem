@@ -3,11 +3,11 @@
 </script>
 
 <script lang="ts">
-  import {assign, createMachine} from 'xstate'
   import {useMachine} from '@xstate/svelte'
   import {onMount} from 'svelte'
   import {slide} from 'svelte/transition'
   import {clickOutside} from '../../ts/click-outside'
+  import {createToggleMachine} from '../../ts/toggle-machine'
 
   export let title = ''
   const bodyId = `ui-dropdown-${counter++}`
@@ -17,40 +17,10 @@
   export {className as class}
 
   const LINK_TAG: Readonly<string> = 'A'
-  interface DropdownContext {
-    isFirstRenderFinished: boolean
-  }
 
-  type DropdownEvent = {type: 'MOUNT'} | {type: 'TOGGLE'}
-
-  type DropdownState =
-    | {value: 'serverRendered'; context: DropdownContext}
-    | {value: 'open'; context: DropdownContext}
-    | {value: 'closed'; context: DropdownContext}
-
-  const DropdownMachine = createMachine<DropdownContext, DropdownEvent, DropdownState>({
-    predictableActionArguments: true,
-    id: 'dropdown',
-    initial: 'serverRendered',
-    context: {
-      isFirstRenderFinished: false
-    },
-    states: {
-      serverRendered: {
-        on: {MOUNT: 'closed'}
-      },
-      closed: {
-        exit: assign({isFirstRenderFinished: true}),
-        on: {TOGGLE: 'open'}
-      },
-      open: {
-        on: {TOGGLE: 'closed'}
-      }
-    }
-  })
-
+  const DropdownMachine = createToggleMachine('dropdown')
   const {state, send} = useMachine(DropdownMachine)
-  $: isOpen = $state.value === 'open'
+  $: isOpen = $state.context.isOpen
   $: onServer = $state.value === 'serverRendered'
 
   function handleClick(e: PointerEvent) {
@@ -60,7 +30,7 @@
   }
 
   if (loadJs) {
-    onMount(() => send('MOUNT'))
+    onMount(() => send('MOUNTED'))
   }
 </script>
 
