@@ -104,6 +104,7 @@ aside {
     }
   }
 }
+
 // tablet to desktop
 @media screen and (min-width: theme.$breakpoint-large) {
   .layout-with-sidebar {
@@ -146,6 +147,23 @@ aside {
             > .title {
               grid-column: 3 / span 9;
             }
+          }
+        }
+      }
+    }
+    //level 1
+    .in-other-content {
+      > h1 {
+        display: grid;
+        &.heading-with-chapter {
+          grid-column: 1 / span 12;
+          grid-template-columns: repeat(12, 1fr);
+          > .chapter-number {
+            margin-left: var(--chapter-indent);
+            grid-column: 1 / span 2;
+          }
+          > .title {
+            grid-column: 3 / span 8;
           }
         }
       }
@@ -205,27 +223,6 @@ aside {
 
       .breadcrumbs {
         grid-column: var(--breadcrumbs-col);
-      }
-      //level 1
-      .in-other-content {
-        > * {
-          grid-column: var(--content-col);
-        }
-        > h1 {
-          grid-column: var(--content-col);
-          display: grid;
-          &.heading-with-chapter {
-            grid-column: var(--heading-with-chapter-col);
-            grid-template-columns: repeat(12, 1fr);
-            > .chapter-number {
-              margin-left: var(--chapter-indent);
-              grid-column: 1 / span 2;
-            }
-            > .title {
-              grid-column: 3 / span 10;
-            }
-          }
-        }
       }
     }
 
