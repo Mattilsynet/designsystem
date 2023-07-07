@@ -232,51 +232,51 @@
                           {chapterIndex + 1}.
                         </span>
                       {/if}
-                      {chapter.heading}
+                      <span class="title">
+                        {chapter.heading}
+                      </span>
                     </h1>
                     {@html chapter.body}
                   </article>
                 </div>
-                {#each chapter.subchapters || [] as subChapter, subChapterIndex}
-                  <Disclosure
-                    title={subChapter.heading}
-                    headerTag="h2"
-                    theme="links"
-                    chapter={showChapterNumbers
-                      ? `${chapterIndex + 1}.${subChapterIndex + 1}`
-                      : undefined}
-                    class="layout-grid layout-grid--column-12 {showChapterNumbers
-                      ? 'disclosure-with-number'
-                      : ''}"
-                    headerClass={showChapterNumbers ? 'col-2-span-9' : 'col-3-span-8'}
-                    panelClass={showChapterNumbers ? 'col-2-span-9' : 'col-3-span-8'}>
-                    <div class="layout-grid layout-grid--column-12">
-                      <article class="article-page col-1-span-12 children-full-width">
-                        {@html subChapter.body}
-                      </article>
-                    </div>
-                    {#each subChapter.subchapters || [] as subSubChapter, subSubIndex}
-                      <Disclosure
-                        title={subSubChapter.heading}
-                        headerTag="h3"
-                        theme="links"
-                        class="layout-grid layout-grid--column-12 {showChapterNumbers
-                          ? 'disclosure-with-number'
-                          : ''}"
-                        chapter={showChapterNumbers
-                          ? `${chapterIndex + 1}.${subChapterIndex + 1}.${subSubIndex + 1}`
-                          : undefined}
-                        headerClass={'col-1-span-12'}
-                        panelClass={'col-1-span-12'}>
-                        <div class="layout-grid layout-grid--column-12">
-                          <article class="article-page col-1-span-12 children-full-width">
-                            {@html subSubChapter.body}
-                          </article>
-                        </div>
-                      </Disclosure>
-                    {/each}
-                  </Disclosure>
-                {/each}
+                <section class="layout-grid layout-grid--column-12">
+                  {#each chapter.subchapters || [] as subChapter, subChapterIndex}
+                    <Disclosure
+                      title={subChapter.heading}
+                      headerTag="h2"
+                      chapter={showChapterNumbers
+                        ? `${chapterIndex + 1}.${subChapterIndex + 1}`
+                        : undefined}
+                      class="layout-grid layout-grid--column-12 col-3-span-8 {showChapterNumbers
+                        ? 'disclosure-with-number'
+                        : ''}"
+                      headerClass={'text-h3'}>
+                      <div class="layout-grid layout-grid--column-12">
+                        <article class="article-page col-1-span-12 children-full-width">
+                          {@html subChapter.body}
+                        </article>
+                      </div>
+                      {#each subChapter.subchapters || [] as subSubChapter, subSubIndex}
+                        <Disclosure
+                          title={subSubChapter.heading}
+                          headerTag="h3"
+                          class="layout-grid layout-grid--column-12 col-3-span-10 {showChapterNumbers
+                            ? 'disclosure-with-number'
+                            : ''}"
+                          chapter={showChapterNumbers
+                            ? `${chapterIndex + 1}.${subChapterIndex + 1}.${subSubIndex + 1}`
+                            : undefined}
+                          headerClass={'text-h4'}>
+                          <div class="layout-grid layout-grid--column-12">
+                            <article class="article-page col-1-span-12 children-full-width">
+                              {@html subSubChapter.body}
+                            </article>
+                          </div>
+                        </Disclosure>
+                      {/each}
+                    </Disclosure>
+                  {/each}
+                </section>
               {/if}
             {/each}
           </div>

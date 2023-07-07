@@ -91,9 +91,10 @@
       headerClass={args.headerClass}
       class={args.class}>
       {#each args.body as log, index}
-        <article class:border-b-secondary={index < args.body.length-1}
-                 class:p-b-xs={index < args.body.length-1}
-                 class:m-b-xxs={index < args.body.length-1}>
+        <article
+          class:border-b-secondary={index < args.body.length - 1}
+          class:p-b-xs={index < args.body.length - 1}
+          class:m-b-xxs={index < args.body.length - 1}>
           <span class="text-small">01.01.2021</span>
           <HeadingLevel headingLevel={3} class="h5 m-b-xs">
             {@html log.title}
@@ -126,28 +127,6 @@
         headerTag={disclosure.headerTag}
         icon={i === 2 ? icon : undefined}
         headerClass={args.headerClass}>
-        {@html disclosure.body}
-      </Disclosure>
-    {/each}
-  </section>
-</Story>
-
-<Story
-  name="Linker"
-  args={{
-    title,
-    disableJs: false,
-    disableCss: false
-  }}
-  let:args>
-  <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading2">
-    <h2 id="heading2">{title}</h2>
-    {#each disclosures as disclosure}
-      <Disclosure
-        title={disclosure.title}
-        loadJs={!args.disableJs}
-        theme="links"
-        headerTag={disclosure.headerTag}>
         {@html disclosure.body}
       </Disclosure>
     {/each}
@@ -234,33 +213,34 @@
   let:args>
   <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading2">
     <h2 id="heading3">{title}</h2>
-    {#each disclosures as disclosure}
-      <Disclosure
-        title={disclosure.title}
-        loadJs={!args.disableJs}
-        theme="links"
-        headerTag={disclosure.headerTag}
-        class="layout-grid layout-grid--column-12"
-        headerClass="col-3-span-8"
-        panelClass="col-3-span-8">
-        {@html disclosure.body}
-      </Disclosure>
-    {/each}
-
+    <section class="layout-grid layout-grid--column-12">
+      {#each disclosures as disclosure}
+        <Disclosure
+          title={disclosure.title}
+          loadJs={!args.disableJs}
+          headerTag={disclosure.headerTag}
+          class="layout-grid layout-grid--column-12 col-3-span-8"
+          headerClass="col-1-span-12 text-h3">
+          {@html disclosure.body}
+        </Disclosure>
+      {/each}
+    </section>
     <h2>Trekkspill med kapittel nr</h2>
-    {#each disclosures as disclosure, i}
-      <Disclosure
-        title={disclosure.title}
-        loadJs={!args.disableJs}
-        theme="links"
-        headerTag={disclosure.headerTag}
-        chapter={i + 1}
-        class="{args.showNr ? 'disclosure-with-number' : ''} layout-grid layout-grid--column-12"
-        headerClass={args.showNr ? 'col-2-span-7' : 'col-3-span-8'}
-        panelClass={args.showNr ? 'col-2-span-7' : 'col-3-span-8'}>
-        {@html disclosure.body}
-      </Disclosure>
-    {/each}
+    <section class="layout-grid layout-grid--column-12">
+      {#each disclosures as disclosure, i}
+        <Disclosure
+          title={disclosure.title}
+          loadJs={!args.disableJs}
+          headerTag={disclosure.headerTag}
+          chapter={i + 1}
+          class="{args.showNr
+            ? 'disclosure-with-number'
+            : ''} layout-grid layout-grid--column-12 col-3-span-8"
+          headerClass={'text-h3'}>
+          {@html disclosure.body}
+        </Disclosure>
+      {/each}
+    </section>
   </section>
 </Story>
 
