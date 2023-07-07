@@ -46,12 +46,21 @@ aside {
       }
     }
   }
+}
+.layout-with-sidebar {
   .disclosure {
     .disclosure-header,
     .disclosure-panel {
       grid-column: 1 / span 12;
       display: grid;
       grid-template-columns: repeat(12, 1fr);
+    }
+    .disclosure-header {
+      > .title {
+        grid-column: 1 / span 11;
+      }
+    }
+    .disclosure-panel {
       > *:not(.disclosure) {
         grid-column: 1 / span 12;
       }
@@ -85,24 +94,6 @@ aside {
       }
     }
   }
-  .disclosure {
-    .disclosure-header,
-    .disclosure-panel {
-      grid-column: 1 / span 12;
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-    }
-    .disclosure-header {
-      > .title {
-        grid-column: 1 / span 11;
-      }
-    }
-    .disclosure-panel {
-      > *:not(.disclosure) {
-        grid-column: 1 / span 12;
-      }
-    }
-  }
 }
 
 // tablet to desktop
@@ -115,21 +106,21 @@ aside {
         grid-column: 3 / span 8;
       }
     }
+    .disclosure {
+      &.disclosure-with-number {
+        .disclosure-header {
+          > .chapter-number {
+            grid-column: 1 / span 2;
+          }
+          > .title {
+            grid-column: 3 / span 9;
+          }
+        }
+      }
+    }
     &.no-js {
       aside {
         margin-top: -1.25rem;
-      }
-      .disclosure {
-        &.disclosure-with-number {
-          .disclosure-header {
-            > .chapter-number {
-              grid-column: 1 / span 2;
-            }
-            > .title {
-              grid-column: 3 / span 10;
-            }
-          }
-        }
       }
     }
     &.has-js {
@@ -137,18 +128,6 @@ aside {
         top: calc(
           #{theme.$height-header-regular} + #{$mobile-menu-height} + #{theme.$border-width-regular}
         );
-      }
-      .disclosure {
-        &.disclosure-with-number {
-          .disclosure-header {
-            > .chapter-number {
-              grid-column: 1 / span 2;
-            }
-            > .title {
-              grid-column: 3 / span 9;
-            }
-          }
-        }
       }
     }
     //level 1
