@@ -106,18 +106,6 @@ aside {
         grid-column: 3 / span 8;
       }
     }
-    .disclosure {
-      &.disclosure-with-number {
-        .disclosure-header {
-          > .chapter-number {
-            grid-column: 1 / span 2;
-          }
-          > .title {
-            grid-column: 3 / span 9;
-          }
-        }
-      }
-    }
     &.no-js {
       aside {
         margin-top: -1.25rem;

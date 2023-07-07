@@ -45,6 +45,26 @@
       }
     }
   }
+  &.disclosure-with-number {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    .disclosure-header {
+      grid-column: 1 / span 12;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      > .title {
+        grid-column: 1 / span 11;
+      }
+      @media screen and (min-width: $breakpoint-large) {
+        > .chapter-number {
+          grid-column: 1 / span 2;
+        }
+        > .title {
+          grid-column: 3 / span 9;
+        }
+      }
+    }
+  }
 
   &.disclosure-bordered {
     border-top: $border-width-regular solid var(--color-secondary);
