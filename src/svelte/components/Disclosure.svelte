@@ -14,7 +14,7 @@
   export let loadJs = true
   export let title: string
   export let headerTag: 'h2' | 'h3' | 'h4' | 'h5' | 'h6' = 'h3'
-  export let theme: 'bordered' | 'links' | 'no-border' = 'bordered'
+  export let theme: 'bordered' | 'no-border' = 'bordered'
   export let icon: string | undefined = undefined
   export let headerClass = ''
   export let panelClass = ''
