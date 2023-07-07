@@ -221,16 +221,17 @@ aside {
 //extra large desktop
 @media screen and (min-width: theme.$breakpoint-xxx-large) {
   .layout-with-sidebar {
-    --content-col: 3 / span 6;
+    --content-col: 3 / span 8;
     .container {
       width: theme.$main-width;
       .chapter-navigation.col-3-span-8 {
         grid-column: var(--content-col);
       }
       &.menu-is-expanded {
+        --chapter-indent: var(--spacer-xx-large);
+
         width: calc(#{theme.$main-width});
         margin-right: 20%;
-        --chapter-indent: var(--spacer-xx-large);
       }
     }
   }
