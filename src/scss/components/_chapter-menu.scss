@@ -34,11 +34,11 @@
 
   a,
   button {
+    border-radius: 0;
     &:focus {
       outline: $border-width-large solid set-focus-color($color);
       box-shadow: none;
       outline-offset: -1px;
-      border-radius: 0;
     }
   }
   a {
