@@ -1,4 +1,7 @@
 @use '../theme';
+@use '../global/icon' as *;
+@use '../color-tokens' as *;
+
 $grid-1-col-width: calc((#{theme.$main-width}) / 12);
 $sidebar-width-expanded: calc((#{$grid-1-col-width}) * 5);
 $main-width-expanded: calc((#{$grid-1-col-width}) * 7);
@@ -20,20 +23,22 @@ aside {
   transition: height 0.3s ease;
 
   button {
-    padding-inline: var(--spacer-x-small);
+    padding-inline: var(--spacer-xx-small);
     font-size: theme.$font-size-small;
     line-height: theme.$font-size-small;
 
     &.show-menu {
-      display: inline-block;
       background-color: var(--color-primary);
       color: white;
-    }
-
-    &.close-menu {
-      display: inline-block;
-      flex: 1;
-      text-align: center;
+      width: 100%;
+      margin-right: 0;
+      &[aria-expanded='true'] {
+        background-color: var(--color-mt-rationale-blue);
+        color: var(--color-primary);
+        &:before {
+          @include close-x($color-primary);
+        }
+      }
     }
   }
 }
@@ -86,11 +91,8 @@ aside {
     }
 
     .aside-header {
-      position: relative;
       button {
-        position: absolute;
-        top: var(--spacer-xx-small);
-        right: var(--spacer-xx-small);
+        display: none;
       }
     }
   }
@@ -144,32 +146,47 @@ aside {
     height: 0;
     width: 0;
   }
-  .no-js.layout-with-sidebar {
-    aside {
-      margin-top: 0;
-    }
-  }
-  .no-js.layout-with-sidebar,
-  .has-js.layout-with-sidebar {
-    display: flex;
-
-    aside {
-      position: static;
-      overflow: visible;
-      top: 0;
-      height: auto;
-
-      h2 {
-        margin-top: var(--spacer-xx-small);
+  .layout-with-sidebar {
+    &.has-js {
+      aside {
+        .aside-header {
+          position: relative;
+          button {
+            display: block;
+            position: absolute;
+            top: var(--spacer-xx-small);
+            right: var(--spacer-xx-small);
+          }
+        }
       }
     }
-
-    aside.expanded {
-      width: $width-sidebar-expanded;
+    &.no-js {
+      aside {
+        margin-top: 0;
+      }
     }
+    &.has-js,
+    &.no-js {
+      display: flex;
 
-    aside:not(.expanded) {
-      width: $width-sidebar-closed;
+      aside {
+        position: static;
+        overflow: visible;
+        top: 0;
+        height: auto;
+
+        h2 {
+          margin-top: var(--spacer-xx-small);
+        }
+      }
+
+      aside.expanded {
+        width: $width-sidebar-expanded;
+      }
+
+      aside:not(.expanded) {
+        width: $width-sidebar-closed;
+      }
     }
   }
   .container {
@@ -205,21 +222,21 @@ aside {
 }
 
 .closed-label {
-  margin-top: var(--spacer-small);
   color: white;
   font-size: theme.$font-size-h3;
-  transform: rotate(-90deg);
+  transform: rotate(180deg);
   width: max-content;
   line-height: 2rem;
+  writing-mode: vertical-rl;
 }
 
 .btn-open {
   padding-top: var(--spacer-small);
+  gap: var(--spacer-small);
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3rem;
 }
 
 @media print {

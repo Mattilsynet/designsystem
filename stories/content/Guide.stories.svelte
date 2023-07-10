@@ -175,13 +175,12 @@
   <div class="layout-with-sidebar has-js">
     <div class="mobile-menu">
       <button
-        class="button--unstyled show-menu"
+        class="button--unstyled show-menu icon icon--hamburger-menu-before"
         aria-haspopup="true"
-        aria-expanded={isExpanded === 'expanded'}
+        aria-expanded={isExpanded}
         on:click={handleClickClose}>
-        Innhold
+        Innhold på denne siden
       </button>
-      <button class="button--unstyled close-menu" on:click={handleClickClose}> Lesevisning </button>
     </div>
     <aside class={isExpanded ? 'expanded' : ''}>
       {#if !isExpanded}
@@ -196,17 +195,16 @@
               d="M9.99996 0.158691L8.26544 1.89321L15.1297 8.7698H0.158691V11.2301H15.1297L8.26544 18.1067L9.99996 19.8412L19.8412 9.99996L9.99996 0.158691Z"
               fill="#F9F6F1" />
           </svg>
-          <div class="closed-label">Innhold</div>
+          <div class="closed-label">Innhold på denne siden</div>
         </button>
       {:else}
         <div class="aside-header">
-          <button class="button--unstyled float-right" on:click={handleClickClose}>
+          <button class="button--unstyled float-right m-r-0" on:click={handleClickClose}>
             <svg width="21.307" height="21.213" fill="none" xmlns="http://www.w3.org/2000/svg">
               <title>Close</title>
               <path stroke="#fff" stroke-width="2" d="M20.6.707.801 20.506M20.506 20.506.707.707" />
             </svg>
           </button>
-          <h2>Veileder title</h2>
         </div>
         <div class="guide-menu">
           <ChapterMenu
@@ -250,7 +248,8 @@
                       class="layout-grid layout-grid--column-12 col-3-span-8 {showChapterNumbers
                         ? 'disclosure-with-number'
                         : ''}"
-                      headerClass={'text-h3'}>
+                      headerClass={'col-1-span-12 text-h3'}
+                      panelClass={'col-1-span-12'}>
                       <div class="layout-grid layout-grid--column-12">
                         <article class="article-page col-1-span-12 children-full-width">
                           {@html subChapter.body}
@@ -266,7 +265,8 @@
                           chapter={showChapterNumbers
                             ? `${chapterIndex + 1}.${subChapterIndex + 1}.${subSubIndex + 1}`
                             : undefined}
-                          headerClass={'text-h4'}>
+                          headerClass={'col-1-span-12 text-h4'}
+                          panelClass={'col-1-span-12'}>
                           <div class="layout-grid layout-grid--column-12">
                             <article class="article-page col-1-span-12 children-full-width">
                               {@html subSubChapter.body}
