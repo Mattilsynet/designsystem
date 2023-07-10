@@ -108,15 +108,6 @@ aside {
         top: calc(
           #{theme.$height-header-regular} + #{$mobile-menu-height} + #{theme.$border-width-regular}
         );
-        .aside-header {
-          position: relative;
-          button {
-            display: block;
-            position: absolute;
-            top: var(--spacer-xx-small);
-            right: var(--spacer-xx-small);
-          }
-        }
       }
     }
     //level 1
@@ -145,32 +136,47 @@ aside {
     height: 0;
     width: 0;
   }
-  .no-js.layout-with-sidebar {
-    aside {
-      margin-top: 0;
-    }
-  }
-  .no-js.layout-with-sidebar,
-  .has-js.layout-with-sidebar {
-    display: flex;
-
-    aside {
-      position: static;
-      overflow: visible;
-      top: 0;
-      height: auto;
-
-      h2 {
-        margin-top: var(--spacer-xx-small);
+  .layout-with-sidebar {
+    &.has-js {
+      aside {
+        .aside-header {
+          position: relative;
+          button {
+            display: block;
+            position: absolute;
+            top: var(--spacer-xx-small);
+            right: var(--spacer-xx-small);
+          }
+        }
       }
     }
-
-    aside.expanded {
-      width: $width-sidebar-expanded;
+    &.no-js {
+      aside {
+        margin-top: 0;
+      }
     }
+    &.has-js,
+    &.no-js {
+      display: flex;
 
-    aside:not(.expanded) {
-      width: $width-sidebar-closed;
+      aside {
+        position: static;
+        overflow: visible;
+        top: 0;
+        height: auto;
+
+        h2 {
+          margin-top: var(--spacer-xx-small);
+        }
+      }
+
+      aside.expanded {
+        width: $width-sidebar-expanded;
+      }
+
+      aside:not(.expanded) {
+        width: $width-sidebar-closed;
+      }
     }
   }
   .container {
