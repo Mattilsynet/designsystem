@@ -20,20 +20,15 @@ aside {
   transition: height 0.3s ease;
 
   button {
-    padding-inline: var(--spacer-x-small);
+    padding-inline: var(--spacer-xx-small);
     font-size: theme.$font-size-small;
     line-height: theme.$font-size-small;
 
     &.show-menu {
-      display: inline-block;
       background-color: var(--color-primary);
       color: white;
-    }
-
-    &.close-menu {
-      display: inline-block;
-      flex: 1;
-      text-align: center;
+      width: 100%;
+      margin-right: 0;
     }
   }
 }
@@ -86,11 +81,8 @@ aside {
     }
 
     .aside-header {
-      position: relative;
       button {
-        position: absolute;
-        top: var(--spacer-xx-small);
-        right: var(--spacer-xx-small);
+        display: none;
       }
     }
   }
@@ -116,6 +108,15 @@ aside {
         top: calc(
           #{theme.$height-header-regular} + #{$mobile-menu-height} + #{theme.$border-width-regular}
         );
+        .aside-header {
+          position: relative;
+          button {
+            display: block;
+            position: absolute;
+            top: var(--spacer-xx-small);
+            right: var(--spacer-xx-small);
+          }
+        }
       }
     }
     //level 1
@@ -205,21 +206,21 @@ aside {
 }
 
 .closed-label {
-  margin-top: var(--spacer-small);
   color: white;
   font-size: theme.$font-size-h3;
-  transform: rotate(-90deg);
+  transform: rotate(180deg);
   width: max-content;
   line-height: 2rem;
+  writing-mode: vertical-rl;
 }
 
 .btn-open {
   padding-top: var(--spacer-small);
+  gap: var(--spacer-small);
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3rem;
 }
 
 @media print {
