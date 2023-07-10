@@ -175,7 +175,7 @@
   <div class="layout-with-sidebar has-js">
     <div class="mobile-menu">
       <button
-        class="button--unstyled show-menu"
+        class="button--unstyled show-menu icon icon--hamburger-menu-before"
         aria-haspopup="true"
         aria-expanded={isExpanded}
         on:click={handleClickClose}>
