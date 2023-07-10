@@ -1,4 +1,7 @@
 @use '../theme';
+@use '../global/icon' as *;
+@use '../color-tokens' as *;
+
 $grid-1-col-width: calc((#{theme.$main-width}) / 12);
 $sidebar-width-expanded: calc((#{$grid-1-col-width}) * 5);
 $main-width-expanded: calc((#{$grid-1-col-width}) * 7);
@@ -29,6 +32,13 @@ aside {
       color: white;
       width: 100%;
       margin-right: 0;
+      &[aria-expanded='true'] {
+        background-color: var(--color-mt-rationale-blue);
+        color: var(--color-primary);
+        &:before {
+          @include close-x($color-primary);
+        }
+      }
     }
   }
 }
