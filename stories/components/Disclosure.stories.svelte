@@ -220,7 +220,8 @@
           loadJs={!args.disableJs}
           headerTag={disclosure.headerTag}
           class="layout-grid layout-grid--column-12 col-3-span-8"
-          headerClass="col-1-span-12 text-h3">
+          headerClass="col-1-span-12 text-h3"
+          panelClass="col-1-span-12">
           {@html disclosure.body}
         </Disclosure>
       {/each}
@@ -236,7 +237,8 @@
           class="{args.showNr
             ? 'disclosure-with-number'
             : ''} layout-grid layout-grid--column-12 col-3-span-8"
-          headerClass={'text-h3'}>
+          headerClass={'text-h3'}
+          panelClass="col-1-span-12">
           {@html disclosure.body}
         </Disclosure>
       {/each}
