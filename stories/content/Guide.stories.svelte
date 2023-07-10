@@ -199,7 +199,7 @@
         </button>
       {:else}
         <div class="aside-header">
-          <button class="button--unstyled float-right" on:click={handleClickClose}>
+          <button class="button--unstyled float-right m-r-0" on:click={handleClickClose}>
             <svg width="21.307" height="21.213" fill="none" xmlns="http://www.w3.org/2000/svg">
               <title>Close</title>
               <path stroke="#fff" stroke-width="2" d="M20.6.707.801 20.506M20.506 20.506.707.707" />
