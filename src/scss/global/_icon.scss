@@ -31,6 +31,12 @@ $icon-gap: var(--spacer-xxx-small);
 @mixin caret-up($color) {
   background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20fill%3D%22none%22%3E%3Cg%20clip-path%3D%22url%28%23a%29%22%3E%3Cpath%20fill%3D%22#{$color}%22%20d%3D%22M1.786%2016%2010%207.636%2018.214%2016%2020%2014.182%2010%204%200%2014.182%201.786%2016Z%22%2F%3E%3C%2Fg%3E%3Cdefs%3E%3CclipPath%20id%3D%22a%22%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M0%200h20v20H0z%22%2F%3E%3C%2FclipPath%3E%3C%2Fdefs%3E%3C%2Fsvg%3E');
 }
+@mixin hamburger($color) {
+  background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218%22%20height%3D%2218%22%20fill%3D%22none%22%3E%3Cpath%20fill%3D%22#{$color}%22%20fill-rule%3D%22evenodd%22%20d%3D%22M18%2018H0v-2.25h18V18ZM18%2010.125H0v-2.25h18v2.25ZM18%202.25H0V0h18v2.25Z%22%20clip-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E');
+}
+@mixin close-x($color) {
+  background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20fill%3D%22none%22%3E%3Cg%20clip-path%3D%22url%28%23a%29%22%3E%3Cpath%20fill%3D%22#{$color}%22%20d%3D%22M20%202.5%2012.5%2010l7.5%207.5-2.5%202.5-7.5-7.5L2.5%2020%200%2017.5%207.5%2010%200%202.5%202.5%200%2010%207.5%2017.5%200%2020%202.5Z%22%2F%3E%3C%2Fg%3E%3Cdefs%3E%3CclipPath%20id%3D%22a%22%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M0%200h20v20H0z%22%2F%3E%3C%2FclipPath%3E%3C%2Fdefs%3E%3C%2Fsvg%3E');
+}
 
 @mixin icon-background {
   padding-right: var(--icon-size-normal);
@@ -96,6 +102,29 @@ $icon-gap: var(--spacer-xxx-small);
     }
   }
 
+  &--hamburger-menu-before {
+    @extend .icon-align;
+    &:before {
+      @include hamburger($color-mt-white);
+      @include icon-background;
+    }
+    &[aria-expanded='true'] {
+      &::before {
+        @include close-x($color-mt-white);
+      }
+    }
+    @media screen and (prefers-reduced-motion: no-preference) {
+      &[aria-expanded] {
+        &::before {
+          transition: transform 0.3s ease;
+        }
+      }
+
+      &[aria-expanded='true']::before {
+        transform: rotate(-180deg);
+      }
+    }
+  }
   &--newsletter-bell-before {
     @extend .icon-align;
     &:before {
