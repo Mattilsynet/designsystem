@@ -1,5 +1,5 @@
 @use '../theme';
-@use '../../../../../src/scss/global/icon' as *;
+@use '../global/icon' as *;
 @use '../color-tokens' as *;
 
 $grid-1-col-width: calc((#{theme.$main-width}) / 12);

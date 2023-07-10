@@ -2,7 +2,7 @@
 @use '../utilities/mixins' as *;
 @use '../color-tokens' as *;
 @use '../utilities/functions' as *;
-@use '../../../../../src/scss/global/icon' as *;
+@use '../global/icon' as *;
 
 .dropdown {
   --background-color: var(--color-primary);
