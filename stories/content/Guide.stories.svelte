@@ -239,7 +239,7 @@
                     {@html chapter.body}
                   </article>
                 </div>
-                <section class="layout-grid layout-grid--column-12">
+                <section class="layout-grid layout-grid--column-12 m-t-s">
                   {#each chapter.subchapters || [] as subChapter, subChapterIndex}
                     <Disclosure
                       title={subChapter.heading}
@@ -260,7 +260,7 @@
                         <Disclosure
                           title={subSubChapter.heading}
                           headerTag="h3"
-                          class="layout-grid layout-grid--column-12 col-3-span-10 {showChapterNumbers
+                          class="layout-grid layout-grid--column-12 col-1-span-12 {showChapterNumbers
                             ? 'disclosure-with-number'
                             : ''}"
                           chapter={showChapterNumbers
