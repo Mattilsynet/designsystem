@@ -1,14 +1,3 @@
-.docs-story table{
-  table-layout: initial;
-  border-collapse: initial;
-}
-.docs-story table tbody{
-}
-.docs-story table tbody tr{
-}
-.docs-story table tbody tr td{
-  background-color: red;
-}
 table tbody tr td {
   display: table-cell;
 }
