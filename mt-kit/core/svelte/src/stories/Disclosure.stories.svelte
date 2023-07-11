@@ -1,6 +1,6 @@
 <script lang="ts">
   import {Meta, Story, Template} from '@storybook/addon-svelte-csf'
-  import {splitIntoParagraphs, wrapInShadowDom} from '../utils'
+  import {splitIntoParagraphs, wrapInShadowDom} from './storybook-utils/utils'
   import Disclosure from '../../src/svelte/components/Disclosure.svelte'
   import HeadingLevel from '../../src/svelte/components/HeadingLevel.svelte'
 
