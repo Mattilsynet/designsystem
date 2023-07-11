@@ -1,5 +1,5 @@
 import type {Preview} from '@storybook/svelte'
-import '../../../../dist/app.css'
+import '@mattilsynet/designsystem-css/dist/app.css'
 import '../src/stories/storybook-utils/docs-stories.css'
 
 const preview: Preview = {
