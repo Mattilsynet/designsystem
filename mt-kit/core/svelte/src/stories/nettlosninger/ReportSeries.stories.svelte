@@ -1,8 +1,8 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf'
-  import Disclosure from '../../src/svelte/components/Disclosure.svelte'
-  import Published from '../../src/svelte/components/Published.svelte'
-  import Link from '../../src/svelte/components/Link.svelte'
+  import Disclosure from '../../svelte/components/Disclosure.svelte'
+  import Published from '../../svelte/components/Published.svelte'
+  import Link from '../../svelte/components/Link.svelte'
   import {wrapInShadowDom} from '../storybook-utils/utils'
 </script>
 

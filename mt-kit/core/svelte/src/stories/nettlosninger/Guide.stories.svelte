@@ -1,10 +1,10 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf'
-  import Dropdown from '../../src/svelte/components/Dropdown.svelte'
-  import ChapterMenu from '../../src/svelte/components/ChapterMenu.svelte'
+  import Dropdown from '../../svelte/components/Dropdown.svelte'
+  import ChapterMenu from '../../svelte/components/ChapterMenu.svelte'
   import {toKebabCase} from '../../ts/utils'
   import {action} from '@storybook/addon-actions'
-  import Disclosure from '../../src/svelte/components/Disclosure.svelte'
+  import Disclosure from '../../svelte/components/Disclosure.svelte'
 
   let chapters = [
     {index: 0, url: '?kapittel=0-innledning', heading: 'Inneldning'},

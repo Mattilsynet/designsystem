@@ -1,8 +1,8 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf'
-  import CardArticle from '../../src/svelte/components/CardArticle.svelte'
-  import Disclosure from '../../src/svelte/components/Disclosure.svelte'
-  import Published from '../../src/svelte/components/Published.svelte'
+  import CardArticle from '../../svelte/components/CardArticle.svelte'
+  import Disclosure from '../../svelte/components/Disclosure.svelte'
+  import Published from '../../svelte/components/Published.svelte'
 
   const icon = `<svg width="30" height="30" fill="none" xmlns="http://www.w3.org/2000/svg">
   <circle cx="15" cy="15" r="15" fill="#3F3E3E" />
@@ -64,13 +64,13 @@
           title="Dette er tittelen"
           text="Noe tekst i kroppen"
           linkUrl="http://"
-          linkText="Neste handling"/>
+          linkText="Neste handling" />
         <CardArticle
           type="form-intro-module"
           title="Dette er tittelen"
           text="Noe tekst i kroppen"
           linkUrl="http://"
-          linkText="Neste handling"/>
+          linkText="Neste handling" />
       </section>
 
       <section

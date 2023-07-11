@@ -1,8 +1,8 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf'
-  import CardArticle from '../../src/svelte/components/CardArticle.svelte'
-  import Disclosure from '../../src/svelte/components/Disclosure.svelte'
-  import Published from '../../src/svelte/components/Published.svelte'
+  import CardArticle from '../../svelte/components/CardArticle.svelte'
+  import Disclosure from '../../svelte/components/Disclosure.svelte'
+  import Published from '../../svelte/components/Published.svelte'
 </script>
 
 <Meta
@@ -61,13 +61,13 @@
           text="Noe tekst i kroppen"
           linkUrl="http://"
           linkText="Neste handling"
-          headerTag="h2"/>
+          headerTag="h2" />
         <CardArticle
           type="task"
           title="Dette er en h3 tittel"
           text="Noe tekst i kroppen"
           linkUrl="http://"
-          linkText="Neste handling"/>
+          linkText="Neste handling" />
       </section>
 
       <Disclosure title={'Begrunnelse'} headerTag="h2">
