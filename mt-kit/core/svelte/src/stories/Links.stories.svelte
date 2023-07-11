@@ -2,8 +2,8 @@
   import {Meta, Story} from '@storybook/addon-svelte-csf'
   import Link from '../../src/svelte/components/Link.svelte'
   import {action} from '@storybook/addon-actions'
-  // import ChapterNavigation from '../../src/svelte/components/ChapterNavigation.svelte'
-  import {wrapInShadowDom} from './utils'
+  import ChapterNavigation from '../../src/svelte/components/ChapterNavigation.svelte'
+  import {wrapInShadowDom} from './storybook-utils/utils'
 
   const chapterChangeAction = action('chapterChange')
   let currentChapterNumber = 0
@@ -136,14 +136,14 @@
     </article>
     <article>
       <h2>Neste og forrig lenker (paginering)</h2>
-      <!--      <ChapterNavigation-->
-      <!--        showChapterNumber={args.showChapterNumber}-->
-      <!--        chapters={args.chapters}-->
-      <!--        currentChapterIndex={currentChapterNumber}-->
-      <!--        on:chapterChange={chapterChange}-->
-      <!--        nextText="Neste"-->
-      <!--        previousText="Forrige"-->
-      <!--        class="chapter-navigation&#45;&#45;bottom" />-->
+      <ChapterNavigation
+        showChapterNumber={args.showChapterNumber}
+        chapters={args.chapters}
+        currentChapterIndex={currentChapterNumber}
+        on:chapterChange={chapterChange}
+        nextText="Neste"
+        previousText="Forrige"
+        class="chapter-navigation--bottom" />
     </article>
   </div>
 </Story>

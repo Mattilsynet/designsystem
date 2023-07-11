@@ -1,7 +1,7 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf'
   import TextArea from '../../../src/svelte/components/form/TextArea.svelte'
-  import {wrapInShadowDom} from '../utils'
+  import {wrapInShadowDom} from '../storybook-utils/utils'
 </script>
 
 <Meta

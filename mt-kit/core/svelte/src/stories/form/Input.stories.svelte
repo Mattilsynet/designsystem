@@ -1,7 +1,7 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf'
   import TextInput from '../../../src/svelte/components/form/TextInput.svelte'
-  import {wrapInShadowDom} from '../utils'
+  import {wrapInShadowDom} from '../storybook-utils/utils'
   import TextInputHorizontal from '../../../src/svelte/components/form/TextInputHorizontal.svelte'
 </script>
 

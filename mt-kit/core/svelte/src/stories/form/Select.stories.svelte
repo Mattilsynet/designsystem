@@ -2,7 +2,7 @@
   import {Meta, Story} from '@storybook/addon-svelte-csf'
   import Select from '../../../src/svelte/components/form/Select.svelte'
   import MultiSelect from '../../../src/svelte/components/form/MultiSelect.svelte'
-  import {wrapInShadowDom} from '../utils'
+  import {wrapInShadowDom} from '../storybook-utils/utils'
   import ResourceList from '../storybook-utils/ResourceList.svelte'
 
   let value = []

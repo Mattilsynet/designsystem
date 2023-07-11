@@ -1,6 +1,6 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf'
-  import {wrapInShadowDom} from '../utils'
+  import {wrapInShadowDom} from '../storybook-utils/utils'
   import Fieldset from '../../../src/svelte/components/form/Fieldset.svelte'
   import CheckboxWithSubSets from '../../../src/svelte/components/form/CheckboxWithSubSets.svelte'
   import Disclosure from '../../../src/svelte/components/Disclosure.svelte'

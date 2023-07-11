@@ -1,7 +1,7 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf'
   import ExpandableInputList from '../../../src/svelte/components/form/ExpandableInputList.svelte'
-  import {wrapInShadowDom} from '../utils'
+  import {wrapInShadowDom} from '../storybook-utils/utils'
 
   let inputList = [
     {

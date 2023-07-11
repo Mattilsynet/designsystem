@@ -1,7 +1,7 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf'
   import Checkbox from '../../../src/svelte/components/form/Checkbox.svelte'
-  import {wrapInShadowDom} from '../utils'
+  import {wrapInShadowDom} from '../storybook-utils/utils'
 
   const name = 'checkbox'
   let buttonCheckboxValue = []

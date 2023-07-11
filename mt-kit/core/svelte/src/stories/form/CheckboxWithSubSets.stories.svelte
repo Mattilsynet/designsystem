@@ -2,7 +2,7 @@
   import {Meta, Story} from '@storybook/addon-svelte-csf'
   import CheckboxWithSubSets from '../../../src/svelte/components/form/CheckboxWithSubSets.svelte'
   import Disclosure from '../../../src/svelte/components/Disclosure.svelte'
-  import {wrapInShadowDom} from '../utils'
+  import {wrapInShadowDom} from '../storybook-utils/utils'
   import {interpolate, toKebabCase} from '../../../src/ts/utils'
 </script>
 

@@ -1,7 +1,7 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf'
   import TextInput from '../../../src/svelte/components/form/TextInput.svelte'
-  import {wrapInShadowDom} from '../utils'
+  import {wrapInShadowDom} from '../storybook-utils/utils'
   import TextArea from '../../../src/svelte/components/form/TextArea.svelte'
   import RadioGroup from '../../../src/svelte/components/form/RadioGroup.svelte'
   import Checkbox from '../../../src/svelte/components/form/Checkbox.svelte'
