@@ -1,6 +1,6 @@
 <script lang="ts">
   import {Meta, Story} from '@storybook/addon-svelte-csf'
-  import imageFile from './assets/testbilde.8f571dae.jpg'
+  import imageFile from './assets/testbilde.jpg'
   import {wrapInShadowDom} from './storybook-utils/utils'
 </script>
 
