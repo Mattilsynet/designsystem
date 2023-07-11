@@ -40,6 +40,7 @@
     "@storybook/addon-essentials": "^7.0.26",
     "@storybook/addon-interactions": "^7.0.26",
     "@storybook/addon-links": "^7.0.26",
+    "@storybook/addon-svelte-csf": "^3.0.3",
     "@storybook/blocks": "^7.0.26",
     "@storybook/svelte": "^7.0.26",
     "@storybook/svelte-vite": "^7.0.26",
@@ -84,6 +85,7 @@
     "vite": "^4.4.2"
   },
   "dependencies": {
+    "@mattilsynet/designsystem-css": "^0.0.2",
     "@xstate/svelte": "^2.0.1",
     "gh-pages": "^5.0.0",
     "xstate": "^4.38.0"
