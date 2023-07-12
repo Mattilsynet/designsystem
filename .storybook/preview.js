@@ -1,4 +1,4 @@
-import '../dist/app.css';
+import '@mattilsynet/designsystem-css/dist/app.css'
 
 export const parameters = {
   actions: {argTypesRegex: '^on[A-Z].*'},
@@ -8,4 +8,4 @@ export const parameters = {
       date: /Date$/
     }
   }
-};
+}

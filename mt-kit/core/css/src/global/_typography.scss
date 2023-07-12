@@ -167,13 +167,38 @@ strong {
 .text-body {
   font-size: $font-size-body;
 }
+.text-h3 {
+  font-size: $font-size-h3;
+}
+.text-h4 {
+  font-size: $font-size-h4;
+}
 .text-align-right {
   text-align: right;
 }
-
+.font-normal {
+  font-weight: var(--font-weight-normal);
+}
 .text {
   @include xp-html-area;
 }
 .children-spaced-xxs {
   @include children-spaced(var(--spacer-xx-small));
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+th,
+td,
+a,
+button,
+dl,
+ul,
+ol,
+p {
+  word-break: break-word;
 }

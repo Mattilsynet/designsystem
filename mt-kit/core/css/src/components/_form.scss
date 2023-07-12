@@ -65,22 +65,25 @@ label.form-label {
 
 .form-field {
   @include error-style;
+  @include focus-outline();
+  @include disabled;
 
   --outline-style: var(--form-outline-style);
   --outline-color: var(--form-outline-color);
 
   width: 100%;
   max-width: var(--form-field-width, 30ch);
-  padding: 0.75em 0.5em;
+  padding: 0.75em $button-padding-lr;
   border: var(--border-width-small) solid var(--border-color);
   border-radius: var(--border-radius);
   background-color: #fff;
   color: inherit;
   font-family: inherit;
 
-  &:focus {
+  &:hover {
     border-color: var(--color-primary);
   }
+
   &--small-width {
     --small-input-width: 3.75rem;
     width: var(--small-input-width);
@@ -138,11 +141,6 @@ label.form-label {
     select {
       outline: none;
     }
-
-    &:focus-within {
-      outline: var(--outline-size) var(--outline-style) var(--outline-color);
-      outline-offset: var(--outline-size);
-    }
   }
 }
 
@@ -154,14 +152,18 @@ label.form-label {
   align-items: center;
   gap: var(--dimention);
 
+  &:hover {
+    .input__control {
+      border-color: var(--color-primary);
+    }
+  }
+
   input {
+    @include focus-outline();
+
     width: 1em;
     height: 1em;
     margin: 0;
-
-    &:focus + .input__control {
-      box-shadow: 0 0 0 0.05em #fff, 0 0 0.15em 0.15em var(--color-primary);
-    }
   }
 
   &__input {
@@ -187,7 +189,6 @@ label.form-label {
 .checkbox {
   .input__control {
     @include error-style;
-    @include focus-shadow(var(--color-mt-blue-medium), var(--color-primary));
     @include radio-check-error-style;
 
     appearance: none;
@@ -212,7 +213,6 @@ label.form-label {
 .radio {
   .input__control {
     @include error-style;
-    @include focus-shadow(var(--color-mt-blue-medium), var(--color-primary));
     @include radio-check-error-style;
 
     appearance: none;
@@ -235,7 +235,8 @@ label.form-label {
     transform: scale(1);
   }
 }
-.button-radio, .button-checkbox  {
+.button-radio,
+.button-checkbox {
   display: grid;
   grid-template-columns: min-content min-content;
   grid-template-rows: min-content min-content min-content min-content min-content;
@@ -250,7 +251,8 @@ label.form-label {
     gap: 0;
     display: flex;
 
-    input[type='checkbox'], input[type='radio'] {
+    input[type='checkbox'],
+    input[type='radio'] {
       &.input__control {
         opacity: 0;
         position: fixed;
@@ -289,7 +291,7 @@ label.form-label {
         }
         &:focus {
           & + .form-label {
-            box-shadow: var(--focus-box-shadow);
+            box-shadow: $focus-box-shadow;
           }
         }
       }
@@ -324,7 +326,7 @@ label.form-label {
     content: url('data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22%23A41D16%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M11%2015h2v2h-2v-2zm0-8h2v6h-2V7zm.99-5C6.47%202%202%206.48%202%2012s4.47%2010%209.99%2010C17.52%2022%2022%2017.52%2022%2012S17.52%202%2011.99%202zM12%2020c-4.42%200-8-3.58-8-8s3.58-8%208-8%208%203.58%208%208-3.58%208-8%208z%22%2F%3E%3C%2Fsvg%3E');
     display: inline-block;
     height: 26px;
-    margin-right: var(--spacer-xx-small);
+    margin-right: var(--spacer-xxx-small);
   }
 }
 
@@ -332,6 +334,10 @@ label.form-label {
   margin-bottom: var(--form-group-spacer);
   padding: var(--spacer-xxx-small) var(--spacer-xx-small);
   border-left: $border-width-regular solid var(--color-error);
+
+  &:focus-visible {
+    outline: $border-width-regular solid var(--color-error)
+  }
 
   h2 {
     color: var(--color-error);

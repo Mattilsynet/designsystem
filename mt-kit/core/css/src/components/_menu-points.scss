@@ -30,9 +30,6 @@
   a {
     grid-area: heading;
     padding-left: 0;
-    > * {
-      word-break: break-word;
-    }
   }
   p {
     grid-area: keywords;
