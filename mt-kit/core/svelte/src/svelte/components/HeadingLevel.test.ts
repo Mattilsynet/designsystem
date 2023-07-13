@@ -1,8 +1,4 @@
-/**
- * @jest-environment jsdom
- */
-
-import {render} from '@testing-library/svelte'
+import { render } from '@testing-library/svelte'
 import HeadingLevel from './HeadingLevel.svelte'
 
 describe('Heading level', () => {

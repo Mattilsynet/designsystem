@@ -1,8 +1,4 @@
-/**
- * @jest-environment jsdom
- */
-
-import {render} from '@testing-library/svelte'
+import { render } from '@testing-library/svelte'
 import MenuPoints from './MenuPointsIcons.svelte'
 
 describe('Menu points with icons', () => {
@@ -17,7 +13,7 @@ describe('Menu points with icons', () => {
         }
       ]
     }
-    const {getByTestId, getByText, queryByText} = render(MenuPoints, componentOptions)
+    const { getByTestId, getByText, queryByText } = render(MenuPoints, componentOptions)
     expect(getByText('Dyr')).toBeInTheDocument()
     expect(getByText('hello from svg')).toBeInTheDocument()
     expect(queryByText('This is the title')).not.toBeInTheDocument()
@@ -37,13 +33,13 @@ describe('Menu points with icons', () => {
         }
       ]
     }
-    const {getByTestId} = render(MenuPoints, componentOptions)
+    const { getByTestId } = render(MenuPoints, componentOptions)
     const link = getByTestId('img-icon')
     expect(link.getAttribute('src')).toEqual('icon src')
   })
 
   test('Renders without props', () => {
-    const {getByTestId} = render(MenuPoints, {})
+    const { getByTestId } = render(MenuPoints, {})
     expect(getByTestId('menu-points')).toBeInTheDocument()
   })
 })

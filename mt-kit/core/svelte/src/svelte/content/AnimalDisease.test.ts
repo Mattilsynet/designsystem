@@ -1,7 +1,4 @@
-/**
- * @jest-environment jsdom
- */
-import {render} from '@testing-library/svelte'
+import { render } from '@testing-library/svelte'
 import AnimalDisease from './AnimalDisease.svelte'
 
 describe('Animal disease', () => {
@@ -20,7 +17,7 @@ describe('Animal disease', () => {
   }
 
   test('Renders', () => {
-    const {getByText, getAllByText} = render(AnimalDisease, componentOptions)
+    const { getByText, getAllByText } = render(AnimalDisease, componentOptions)
     expect(getAllByText('Symptomer').length).toEqual(2)
     expect(
       getAllByText('Symptomer')[1].parentElement.classList.contains('display-none-important')
@@ -34,7 +31,7 @@ describe('Animal disease', () => {
   })
 
   test('Does not render accordion when body not defined', () => {
-    const {getAllByText, queryByText} = render(AnimalDisease, {
+    const { getAllByText, queryByText } = render(AnimalDisease, {
       ...componentOptions,
       text: null,
       routesOfInfection: null,
@@ -47,7 +44,7 @@ describe('Animal disease', () => {
   })
 
   test('Render properties when not defined', () => {
-    const {queryByText} = render(AnimalDisease, {})
+    const { queryByText } = render(AnimalDisease, {})
     expect(queryByText('Symptomer')).not.toBeInTheDocument()
     expect(queryByText('Hvordan smitter sykdommen?')).not.toBeInTheDocument()
     expect(queryByText('Kan sykdommen smitte mennesker?')).not.toBeInTheDocument()

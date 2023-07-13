@@ -1,8 +1,4 @@
-/**
- * @jest-environment jsdom
- */
-
-import {render} from '@testing-library/svelte'
+import { render } from '@testing-library/svelte'
 import HighlightedContent from './HighlightedContentLink.svelte'
 
 describe('Highlighted content', () => {
@@ -11,9 +7,9 @@ describe('Highlighted content', () => {
       title: 'This is the title',
       shortTitle: 'This is the short title',
       href: 'http',
-      image: {src: 'test', alt: 'alt text'}
+      image: { src: 'test', alt: 'alt text' }
     }
-    const {getByTestId, getByText, getByAltText, queryByText} = render(
+    const { getByTestId, getByText, getByAltText, queryByText } = render(
       HighlightedContent,
       componentOptions
     )
@@ -32,9 +28,9 @@ describe('Highlighted content', () => {
       shortTitle: 'This is the short title',
       displayType: 'blue',
       isExternal: true,
-      image: {src: 'test', alt: 'alt text'}
+      image: { src: 'test', alt: 'alt text' }
     }
-    const {getByText, queryByAltText} = render(HighlightedContent, componentOptions)
+    const { getByText, queryByAltText } = render(HighlightedContent, componentOptions)
     expect(getByText('This is the title')).toBeInTheDocument()
     expect(queryByAltText('alt text')).not.toBeInTheDocument()
     const headerElement = getByText('This is the title')
@@ -44,7 +40,7 @@ describe('Highlighted content', () => {
   })
 
   test('Renders without props', () => {
-    const {queryByText, queryByAltText, getByTestId} = render(HighlightedContent, {})
+    const { queryByText, queryByAltText, getByTestId } = render(HighlightedContent, {})
     expect(queryByText('This is the heading')).not.toBeInTheDocument()
     expect(queryByAltText('alt text')).not.toBeInTheDocument()
     const link = getByTestId('highlighted-content-link')
@@ -55,10 +51,10 @@ describe('Highlighted content', () => {
     const componentOptions = {
       shortTitle: 'This is the heading',
       isExternal: true,
-      image: {src: 'test', alt: 'alt text'},
+      image: { src: 'test', alt: 'alt text' },
       headerTag: 'h3'
     }
-    const {getByText} = render(HighlightedContent, componentOptions)
+    const { getByText } = render(HighlightedContent, componentOptions)
     const headerElement = getByText('This is the heading')
     expect(headerElement.tagName).toEqual('H3')
   })

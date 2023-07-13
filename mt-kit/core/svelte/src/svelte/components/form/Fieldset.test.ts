@@ -1,7 +1,4 @@
-/**
- * @jest-environment jsdom
- */
-import {render} from '@testing-library/svelte'
+import { render } from '@testing-library/svelte'
 import Fieldset from './Fieldset.svelte'
 
 describe('Fieldset', () => {
@@ -14,7 +11,7 @@ describe('Fieldset', () => {
   const hiddenErrorText = false
 
   test('Renders', () => {
-    const {getByText, getByTestId} = render(Fieldset, {
+    const { getByText, getByTestId } = render(Fieldset, {
       legend,
       error,
       hiddenErrorText,

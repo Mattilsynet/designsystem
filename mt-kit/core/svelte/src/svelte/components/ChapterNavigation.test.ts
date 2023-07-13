@@ -1,15 +1,11 @@
-/**
- * @jest-environment jsdom
- */
-
-import {render} from '@testing-library/svelte'
+import { render } from '@testing-library/svelte'
 import ChapterNavigation from './ChapterNavigation.svelte'
 
 describe('Chapter Navigation', () => {
   const chapters = [
-    {url: '1', heading: 'Intro', index: 0},
-    {url: '2', heading: 'Chapter 1', index: 1},
-    {url: '3', heading: 'Chapter 2', index: 2}
+    { url: '1', heading: 'Intro', index: 0 },
+    { url: '2', heading: 'Chapter 1', index: 1 },
+    { url: '3', heading: 'Chapter 2', index: 2 }
   ]
 
   const componentOptions = {
@@ -21,14 +17,14 @@ describe('Chapter Navigation', () => {
     startIndex: 0
   }
   test('Renders with defaults - first page', () => {
-    const {getByText, queryByText} = render(ChapterNavigation, componentOptions)
+    const { getByText, queryByText } = render(ChapterNavigation, componentOptions)
     expect(queryByText('Intro')).not.toBeInTheDocument()
     expect(getByText('Chapter 1')).toBeInTheDocument()
     expect(queryByText('Chapter 2')).not.toBeInTheDocument()
   })
 
   test('Renders from middle', () => {
-    const {getByText, queryByText} = render(ChapterNavigation, {
+    const { getByText, queryByText } = render(ChapterNavigation, {
       ...componentOptions,
       currentChapterIndex: 1
     })
@@ -38,7 +34,7 @@ describe('Chapter Navigation', () => {
   })
 
   test('Renders from last page', () => {
-    const {getByText, queryByText} = render(ChapterNavigation, {
+    const { getByText, queryByText } = render(ChapterNavigation, {
       ...componentOptions,
       currentChapterIndex: 2
     })
@@ -48,7 +44,7 @@ describe('Chapter Navigation', () => {
   })
 
   test('Renders with button text', () => {
-    const {getByText} = render(ChapterNavigation, {
+    const { getByText } = render(ChapterNavigation, {
       ...componentOptions,
       nextText: 'Next',
       previousText: 'Previous',
@@ -59,7 +55,7 @@ describe('Chapter Navigation', () => {
   })
 
   test('Renders with numbers', () => {
-    const {getByText, queryByText} = render(ChapterNavigation, {
+    const { getByText, queryByText } = render(ChapterNavigation, {
       ...componentOptions,
       showChapterNumber: true,
       currentChapterIndex: 1
@@ -70,7 +66,7 @@ describe('Chapter Navigation', () => {
   })
 
   test('Dont show chapter nav if there is 1 chapter', () => {
-    const {queryByText} = render(ChapterNavigation, {
+    const { queryByText } = render(ChapterNavigation, {
       ...componentOptions,
       chapters: componentOptions.chapters.splice(0, 1)
     })

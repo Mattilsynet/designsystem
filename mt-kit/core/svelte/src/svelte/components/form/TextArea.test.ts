@@ -1,9 +1,6 @@
-/**
- * @jest-environment jsdom
- */
-import {fireEvent, render} from '@testing-library/svelte'
+import { fireEvent, render } from '@testing-library/svelte'
 import TextArea from './TextArea.svelte'
-import {tick} from 'svelte'
+import { tick } from 'svelte'
 import TextInput from './TextInput.svelte'
 
 describe('TextArea', () => {
@@ -27,10 +24,13 @@ describe('TextArea', () => {
     maxlength: 100
   }
   test('Renders', () => {
-    const {getByLabelText, getByDisplayValue, getByPlaceholderText, getByText} = render(TextArea, {
-      ...props,
-      isRequired: !!props.validationRequired
-    })
+    const { getByLabelText, getByDisplayValue, getByPlaceholderText, getByText } = render(
+      TextArea,
+      {
+        ...props,
+        isRequired: !!props.validationRequired
+      }
+    )
     expect(getByText(props.helpText)).toBeInTheDocument()
     const byLabelText: Partial<HTMLTextAreaElement> = getByLabelText(props.label)
     expect(byLabelText).toBeInTheDocument()
@@ -47,7 +47,7 @@ describe('TextArea', () => {
   })
 
   test('Does not render properties when not defined', () => {
-    const {getByDisplayValue, queryByPlaceholderText, getByText} = render(TextArea, {
+    const { getByDisplayValue, queryByPlaceholderText, getByText } = render(TextArea, {
       value: props.value,
       error: props.error,
       name: props.name,
@@ -65,8 +65,8 @@ describe('TextArea', () => {
   })
 
   test('Render error message when defined', () => {
-    const err = {key: props.name, message: 'This is the errormessage'}
-    const {getByText, getByLabelText} = render(TextArea, {
+    const err = { key: props.name, message: 'This is the errormessage' }
+    const { getByText, getByLabelText } = render(TextArea, {
       ...props,
       error: err
     })
@@ -79,7 +79,7 @@ describe('TextArea', () => {
   })
 
   test('Render tooManyCharactersErrorText when defined', async () => {
-    const {getByText, queryByText, getByLabelText} = render(TextInput, {
+    const { getByText, queryByText, getByLabelText } = render(TextInput, {
       ...props,
       maxlength: 1,
       value: ''
@@ -90,14 +90,14 @@ describe('TextArea', () => {
     expect(error).not.toBeInTheDocument()
 
     const newValue = 'entotrefi'
-    await fireEvent.input(input, {target: {value: newValue}})
+    await fireEvent.input(input, { target: { value: newValue } })
     expect(input.value).toEqual(newValue)
     error = getByText(props.tooManyCharactersErrorText)
     expect(error).toBeInTheDocument()
   })
 
   test('Does not render aria-describedby when no helptext, error or maxlength', () => {
-    const {getByLabelText} = render(TextArea, {
+    const { getByLabelText } = render(TextArea, {
       value: props.value,
       name: props.name,
       label: props.label,
@@ -109,7 +109,7 @@ describe('TextArea', () => {
   })
 
   test('A11y for characters left', async () => {
-    const {getByLabelText} = render(TextArea, {
+    const { getByLabelText } = render(TextArea, {
       ...props,
       value: '',
       maxlength: 10
@@ -117,11 +117,11 @@ describe('TextArea', () => {
     const input = getByLabelText(/Navn/i)
     expect(input).toBeInTheDocument()
     expect(input.getAttribute('aria-describedby')).toEqual('name-maxlength name-hint')
-    await fireEvent.input(input, {target: {value: 'entotrefi'}})
+    await fireEvent.input(input, { target: { value: 'entotrefi' } })
     const characterCounter = document.querySelector('#name-maxlength')
     expect(characterCounter.getAttribute('aria-live')).toEqual('polite')
     const newValue = 'entotrefiee'
-    await fireEvent.input(input, {target: {value: newValue}})
+    await fireEvent.input(input, { target: { value: newValue } })
     await tick()
     expect(input.value).toEqual(newValue)
     expect(characterCounter.getAttribute('aria-live')).toEqual('polite')

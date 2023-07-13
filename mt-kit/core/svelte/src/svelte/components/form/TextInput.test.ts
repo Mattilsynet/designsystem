@@ -1,9 +1,6 @@
-/**
- * @jest-environment jsdom
- */
 import TextInput from './TextInput.svelte'
-import {fireEvent, render} from '@testing-library/svelte'
-import {tick} from 'svelte'
+import { fireEvent, render } from '@testing-library/svelte'
+import { tick } from 'svelte'
 
 describe('TextInput', () => {
   const props = {
@@ -23,10 +20,13 @@ describe('TextInput', () => {
     }
   }
   test('Renders', () => {
-    const {getByLabelText, getByDisplayValue, getByPlaceholderText, getByText} = render(TextInput, {
-      ...props,
-      isRequired: !!props.validationRequired
-    })
+    const { getByLabelText, getByDisplayValue, getByPlaceholderText, getByText } = render(
+      TextInput,
+      {
+        ...props,
+        isRequired: !!props.validationRequired
+      }
+    )
     expect(getByText(props.helpText)).toBeInTheDocument()
     const inputByLabel: Partial<HTMLInputElement> = getByLabelText(/Navn/)
     expect(inputByLabel).toBeInTheDocument()
@@ -42,7 +42,7 @@ describe('TextInput', () => {
   })
 
   test('Does not render properties when not defined', () => {
-    const {getByDisplayValue, queryByPlaceholderText} = render(TextInput, {
+    const { getByDisplayValue, queryByPlaceholderText } = render(TextInput, {
       value: props.value,
       properties: {}
     })
@@ -54,8 +54,8 @@ describe('TextInput', () => {
   })
 
   test('Render error message when defined', () => {
-    const err = {key: props.name, message: 'This is the errormessage'}
-    const {getByText, getByLabelText} = render(TextInput, {
+    const err = { key: props.name, message: 'This is the errormessage' }
+    const { getByText, getByLabelText } = render(TextInput, {
       ...props,
       error: err
     })
@@ -68,7 +68,7 @@ describe('TextInput', () => {
   })
 
   test('Render tooManyCharactersErrorText when defined', async () => {
-    const {getByText, queryByText, getByLabelText} = render(TextInput, {
+    const { getByText, queryByText, getByLabelText } = render(TextInput, {
       ...props,
       maxlength: 1,
       value: ''
@@ -79,14 +79,14 @@ describe('TextInput', () => {
     expect(error).not.toBeInTheDocument()
 
     const newValue = 'entotrefi'
-    await fireEvent.input(input, {target: {value: newValue}})
+    await fireEvent.input(input, { target: { value: newValue } })
     expect(input.value).toEqual(newValue)
     error = getByText(props.tooManyCharactersErrorText)
     expect(error).toBeInTheDocument()
   })
 
   test('Does not render aria-describedby when no helptext, error or maxlength', () => {
-    const {getByLabelText} = render(TextInput, {
+    const { getByLabelText } = render(TextInput, {
       ...props,
       error: undefined,
       helpText: undefined
@@ -96,8 +96,8 @@ describe('TextInput', () => {
   })
 
   test('Renders optional in label if not required', () => {
-    const err = {fieldName: props.name, message: 'This is the errormessage'}
-    const {getByText} = render(TextInput, {
+    const err = { fieldName: props.name, message: 'This is the errormessage' }
+    const { getByText } = render(TextInput, {
       ...props,
       error: err
     })
@@ -105,7 +105,7 @@ describe('TextInput', () => {
   })
 
   test('A11y for characters left', async () => {
-    const {getByLabelText} = render(TextInput, {
+    const { getByLabelText } = render(TextInput, {
       ...props,
       value: '',
       maxlength: 10
@@ -113,11 +113,11 @@ describe('TextInput', () => {
     const input = getByLabelText(/Navn/i)
     expect(input).toBeInTheDocument()
     expect(input.getAttribute('aria-describedby')).toEqual('name-maxlength name-hint')
-    await fireEvent.input(input, {target: {value: 'entotrefi'}})
+    await fireEvent.input(input, { target: { value: 'entotrefi' } })
     const characterCounter = document.querySelector('#name-maxlength')
     expect(characterCounter.getAttribute('aria-live')).toEqual('polite')
     const newValue = 'entotrefiee'
-    await fireEvent.input(input, {target: {value: newValue}})
+    await fireEvent.input(input, { target: { value: newValue } })
     await tick()
     expect(input.value).toEqual(newValue)
     expect(characterCounter.getAttribute('aria-live')).toEqual('polite')

@@ -1,8 +1,4 @@
-/**
- * @jest-environment jsdom
- */
-
-import {render} from '@testing-library/svelte'
+import { render } from '@testing-library/svelte'
 import Status from './Status.svelte'
 
 describe('Status', () => {
@@ -17,7 +13,7 @@ describe('Status', () => {
   }
 
   test('Renders', () => {
-    const {getByText, getByTestId} = render(Status, componentOptions)
+    const { getByText, getByTestId } = render(Status, componentOptions)
     expect(getByText('Dette er det Mattilsynet vil informere om')).toBeInTheDocument()
     expect(getByText('Dette er det Mattilsynet gjør med saken')).toBeInTheDocument()
     expect(getByText('Updated')).toBeInTheDocument()
@@ -32,7 +28,7 @@ describe('Status', () => {
   })
 
   test('Renders message only', () => {
-    const {getByText, getByTestId, queryByText, queryByTestId} = render(Status, {
+    const { getByText, getByTestId, queryByText, queryByTestId } = render(Status, {
       ...componentOptions,
       statusType: 'none',
       linkUrl: null,
@@ -50,14 +46,14 @@ describe('Status', () => {
   })
 
   test('Links in status - should have rel="external" when link starts with http', () => {
-    const {getByText} = render(Status, componentOptions)
+    const { getByText } = render(Status, componentOptions)
     const link = getByText('Link text')
     expect(link).toBeInTheDocument()
     expect(link.getAttribute('rel')).toEqual('external')
   })
 
   test('Links in status - should not have rel="external" when link is relative', () => {
-    const {getByText} = render(Status, {...componentOptions, linkUrl: '/varsel'})
+    const { getByText } = render(Status, { ...componentOptions, linkUrl: '/varsel' })
     const link = getByText('Link text')
     expect(link).toBeInTheDocument()
     expect(link.getAttribute('rel')).toEqual(null)

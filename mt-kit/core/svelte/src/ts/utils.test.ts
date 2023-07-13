@@ -1,8 +1,4 @@
-/**
- * @jest-environment jsdom
- */
-
-import {createInputAriaDescribedby, getFileExtension, interpolate, mapRelExternal} from './utils'
+import { createInputAriaDescribedby, getFileExtension, interpolate, mapRelExternal } from './utils'
 
 describe('getFileExtension', () => {
   test('Get file extension', () => {
@@ -53,7 +49,7 @@ describe('createInputAriaDescribedby', () => {
     const maxLength = 300
     const name = 'input-name'
     const errorMessage = 'This is the error'
-    const error = {key: name, message: errorMessage}
+    const error = { key: name, message: errorMessage }
     const res = createInputAriaDescribedby(name, error, maxLength)
     expect(res).toEqual('input-name-maxlength input-name-hint input-name-error')
   })

@@ -1,8 +1,5 @@
-/**
- * @jest-environment jsdom
- */
 import ExpandableInputList from './ExpandableInputList.svelte'
-import {fireEvent, render, RenderResult} from '@testing-library/svelte'
+import { fireEvent, render, RenderResult } from '@testing-library/svelte'
 
 describe('ExpandableInputList', () => {
   const inputList = [
@@ -68,7 +65,7 @@ describe('ExpandableInputList', () => {
   }
   test('Renders', () => {
     const renderResult = render(ExpandableInputList, componentOptions)
-    const {getByLabelText, queryByText} = renderResult
+    const { getByLabelText, queryByText } = renderResult
     testByText(['hjelpetekst', 'Hvilke land har du vært i?', 'Vis flere dyr'], renderResult, true)
     expect(queryByText('Vis færre dyr')).not.toBeInTheDocument()
     testByLabelList([/hund/i, /katt/i], renderResult, true)
@@ -78,7 +75,7 @@ describe('ExpandableInputList', () => {
 
   test('Expand list', async () => {
     const renderResult = render(ExpandableInputList, componentOptions)
-    const {getByLabelText, getByText, queryByText} = renderResult
+    const { getByLabelText, getByText, queryByText } = renderResult
     testByText(['hjelpetekst', 'Hvilke land har du vært i?'], renderResult, true)
     const showMoreButton = getByText('Vis flere dyr')
     expect(showMoreButton).toBeInTheDocument()
@@ -93,7 +90,7 @@ describe('ExpandableInputList', () => {
     testByLabelList([/fugl/i, /ilder/i, /gnager/i, /kanin/i], renderResult, true)
   })
   test('Renders expanded if values in expanded list', () => {
-    const {getByText} = render(ExpandableInputList, {
+    const { getByText } = render(ExpandableInputList, {
       ...componentOptions,
       values: {
         rodent: 1
@@ -102,7 +99,7 @@ describe('ExpandableInputList', () => {
     expect(getByText('Vis færre dyr')).toBeInTheDocument()
   })
   test('Renders collapsed if values not in expanded list', () => {
-    const {getByText} = render(ExpandableInputList, {
+    const { getByText } = render(ExpandableInputList, {
       ...componentOptions,
       values: {
         dogs: 1
@@ -113,17 +110,17 @@ describe('ExpandableInputList', () => {
   test('Show error, optional text', async () => {
     const renderResult = render(ExpandableInputList, {
       ...componentOptions,
-      fieldSetError: [{key: componentOptions.fieldSetId, message: 'Det er en feil i skjema'}],
+      fieldSetError: [{ key: componentOptions.fieldSetId, message: 'Det er en feil i skjema' }],
       showOptionalText: true
     })
-    const {getByText, rerender, queryByText, getAllByText} = renderResult
+    const { getByText, rerender, queryByText, getAllByText } = renderResult
     expect(getByText('Det er en feil i skjema')).toBeInTheDocument()
     expect(getAllByText(/Valgfritt felt/i).length).toEqual(2)
     rerender(componentOptions)
     expect(queryByText('Det er en feil i skjema')).not.toBeInTheDocument()
-    inputList[0].error = {key: 'dogs', message: 'Feil på hund input'}
-    inputList[5].error = {key: 'bird', message: 'Feil på fugl input'}
-    rerender({...componentOptions, inputList: inputList})
+    inputList[0].error = { key: 'dogs', message: 'Feil på hund input' }
+    inputList[5].error = { key: 'bird', message: 'Feil på fugl input' }
+    rerender({ ...componentOptions, inputList: inputList })
     await fireEvent.click(getByText('Vis flere dyr'))
     testByText(['Feil på hund input', 'Feil på fugl input'], renderResult, true)
   })
@@ -133,19 +130,19 @@ describe('ExpandableInputList', () => {
       ...componentOptions,
       loadJs: false
     })
-    const {getByText, rerender} = renderResult
+    const { getByText, rerender } = renderResult
     testByText(['hjelpetekst', 'Hvilke land har du vært i?'], renderResult, true)
     const showMoreButton = getByText('Vis flere dyr')
     expect(showMoreButton).toBeInTheDocument()
     testByLabelList([/hund/i, /katt/i, /fugl/i, /ilder/i, /gnager/i, /kanin/i], renderResult, true)
-    inputList[0].error = {key: 'dogs', message: 'Feil på hund input'}
-    rerender({...componentOptions, inputList: inputList})
+    inputList[0].error = { key: 'dogs', message: 'Feil på hund input' }
+    rerender({ ...componentOptions, inputList: inputList })
     testByText(['Feil på hund input'], renderResult, true)
   })
 })
 function testByText(
   list: Array<RegExp | string>,
-  {getByText, queryByText}: RenderResult,
+  { getByText, queryByText }: RenderResult,
   shouldExist: boolean
 ) {
   list.forEach(regEx => {
@@ -158,7 +155,7 @@ function testByText(
 }
 function testByLabelList(
   list: Array<RegExp>,
-  {getByLabelText, queryByLabelText}: RenderResult,
+  { getByLabelText, queryByLabelText }: RenderResult,
   shouldExist: boolean
 ) {
   list.forEach(regEx => {

@@ -1,15 +1,11 @@
-/**
- * @jest-environment jsdom
- */
-
-import {render} from '@testing-library/svelte'
+import { render } from '@testing-library/svelte'
 import ChapterMenu from './ChapterMenu.svelte'
 
 describe('Chapter menu', () => {
   const chapters = [
-    {url: '1', heading: 'Intro'},
-    {url: '2', heading: 'Chapter 1'},
-    {url: '3', heading: 'Chapter 2'}
+    { url: '1', heading: 'Intro' },
+    { url: '2', heading: 'Chapter 1' },
+    { url: '3', heading: 'Chapter 2' }
   ]
   test('Renders with defaults', () => {
     const componentOptions = {
@@ -19,7 +15,7 @@ describe('Chapter menu', () => {
       menuTitle: 'Content',
       showChapterNumbers: false
     }
-    const {getByText} = render(ChapterMenu, componentOptions)
+    const { getByText } = render(ChapterMenu, componentOptions)
     expect(getByText('Content')).toBeInTheDocument()
     expect(getByText('Intro')).toBeInTheDocument()
     expect(getByText('Chapter 1')).toBeInTheDocument()
@@ -34,7 +30,7 @@ describe('Chapter menu', () => {
       menuTitle: 'Content',
       showChapterNumbers: true
     }
-    const {getByText} = render(ChapterMenu, componentOptions)
+    const { getByText } = render(ChapterMenu, componentOptions)
     expect(getByText('Content')).toBeInTheDocument()
     expect(getByText('Intro')).toBeInTheDocument()
     expect(getByText('1. Chapter 1')).toBeInTheDocument()
@@ -49,7 +45,7 @@ describe('Chapter menu', () => {
       menuTitle: 'Content',
       showChapterNumbers: true
     }
-    const {getByText} = render(ChapterMenu, componentOptions)
+    const { getByText } = render(ChapterMenu, componentOptions)
     expect(getByText('Content')).toBeInTheDocument()
     expect(getByText('1. Intro')).toBeInTheDocument()
     expect(getByText('2. Chapter 1')).toBeInTheDocument()

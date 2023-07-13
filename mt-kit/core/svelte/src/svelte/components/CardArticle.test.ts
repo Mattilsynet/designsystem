@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import CardArticle from './CardArticle.svelte'
 import { render } from '@testing-library/svelte'
 

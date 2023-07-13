@@ -1,22 +1,18 @@
-/**
- * @jest-environment jsdom
- */
-
-import {fireEvent, render} from '@testing-library/svelte'
+import { fireEvent, render } from '@testing-library/svelte'
 import Tags from './Tags.svelte'
 
 describe('Tags', () => {
   const componentOptions = {
     tags: [
-      {text: 'Sverige', ariaLabel: ''},
-      {text: 'Norge', ariaLabel: ''},
-      {text: 'Finland', ariaLabel: ''}
+      { text: 'Sverige', ariaLabel: '' },
+      { text: 'Norge', ariaLabel: '' },
+      { text: 'Finland', ariaLabel: '' }
     ],
     isClosable: true
   }
 
   test('Renders', async () => {
-    const {getByText, queryByText} = render(Tags, componentOptions)
+    const { getByText, queryByText } = render(Tags, componentOptions)
     const sverige = getByText('Sverige')
     expect(sverige).toBeInTheDocument()
     const norway = getByText('Norge')

@@ -1,8 +1,5 @@
-/**
- * @jest-environment jsdom
- */
 import TextInputHorizontal from './TextInputHorizontal.svelte'
-import {render} from '@testing-library/svelte'
+import { render } from '@testing-library/svelte'
 
 describe('TextInput', () => {
   const props = {
@@ -16,7 +13,7 @@ describe('TextInput', () => {
     }
   }
   test('Renders', () => {
-    const {getByLabelText, getByText} = render(TextInputHorizontal, {
+    const { getByLabelText, getByText } = render(TextInputHorizontal, {
       ...props,
       isRequired: !!props.validationRequired
     })
@@ -27,7 +24,7 @@ describe('TextInput', () => {
   })
 
   test('Renders with value', () => {
-    const {getByLabelText, getByText} = render(TextInputHorizontal, {
+    const { getByLabelText, getByText } = render(TextInputHorizontal, {
       ...props,
       value: 2,
       isRequired: !!props.validationRequired
