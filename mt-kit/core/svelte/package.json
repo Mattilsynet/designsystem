@@ -10,8 +10,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
-    "test": "jest --env=jsdom",
-    "test:watch": "npm run test -- --watch",
+    "test": "vitest",
     "format": "prettier --write '{src,stories}/**/*{.ts,.svelte}'",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
@@ -80,7 +79,8 @@
     "ts-jest": "^29.1.1",
     "tslib": "^2.6.0",
     "typescript": "^5.1.6",
-    "vite": "^4.4.2"
+    "vite": "^4.4.2",
+    "vitest": "^0.33.0"
   },
   "dependencies": {
     "@mattilsynet/designsystem-css": "^0.0.2",

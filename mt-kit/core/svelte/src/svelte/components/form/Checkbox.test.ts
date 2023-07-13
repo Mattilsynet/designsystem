@@ -1,9 +1,8 @@
 /**
  * @jest-environment jsdom
  */
-import {fireEvent, render} from '@testing-library/svelte'
+import { render } from '@testing-library/svelte'
 import Checkbox from './Checkbox.svelte'
-import {raw} from '@storybook/svelte'
 
 describe('Checkbox', () => {
   const value = []
@@ -12,8 +11,8 @@ describe('Checkbox', () => {
   const error = undefined
   const helpText = 'This is the helptext'
   const options = [
-    {text: 'Ja', value: 'yes'},
-    {text: 'Nei', value: 'no'}
+    { text: 'Ja', value: 'yes' },
+    { text: 'Nei', value: 'no' }
   ]
   const properties = {
     validationRequired: {
@@ -21,7 +20,7 @@ describe('Checkbox', () => {
     }
   }
   test('Renders', () => {
-    const {getByLabelText, getByText, getByRole} = render(Checkbox, {
+    const { getByLabelText, getByText, getByRole } = render(Checkbox, {
       value,
       error,
       name,
@@ -33,14 +32,14 @@ describe('Checkbox', () => {
     expect(getByText(helpText)).toBeInTheDocument()
     expect(getByLabelText(options[0].text)).toBeInTheDocument()
     expect(getByLabelText(options[1].text)).toBeInTheDocument()
-    const fieldSet = getByRole('checkbox', {name: 'Ja'})
+    const fieldSet = getByRole('checkbox', { name: 'Ja' })
     expect(fieldSet?.getAttribute('aria-required')).toEqual('true')
     expect(fieldSet?.getAttribute('aria-describedby')).toEqual('name-hint')
   })
 
   test('Renders optional in label if not required', () => {
-    const err = {fieldName: name, message: 'This is the errormessage'}
-    const {getByText} = render(Checkbox, {
+    const err = { fieldName: name, message: 'This is the errormessage' }
+    const { getByText } = render(Checkbox, {
       value,
       error: err,
       name,
@@ -52,8 +51,8 @@ describe('Checkbox', () => {
   })
 
   test('Renders error', () => {
-    const err = {fieldName: name, message: 'This is the errormessage'}
-    const {getByText, getByRole} = render(Checkbox, {
+    const err = { fieldName: name, message: 'This is the errormessage' }
+    const { getByText, getByRole } = render(Checkbox, {
       value,
       error: err,
       name,
@@ -62,12 +61,12 @@ describe('Checkbox', () => {
       options
     })
     expect(getByText(/This is the errormessage/)).toBeInTheDocument()
-    const fieldSet = getByRole('checkbox', {name: 'Ja'})
+    const fieldSet = getByRole('checkbox', { name: 'Ja' })
     expect(fieldSet.getAttribute('aria-describedby')).toEqual('name-hint name-error')
   })
 
   test('Renders without helptext', () => {
-    const {getByRole} = render(Checkbox, {
+    const { getByRole } = render(Checkbox, {
       value,
       error: undefined,
       name,
@@ -75,12 +74,12 @@ describe('Checkbox', () => {
       helpText: undefined,
       options
     })
-    const fieldSet = getByRole('checkbox', {name: 'Ja'})
+    const fieldSet = getByRole('checkbox', { name: 'Ja' })
     expect(fieldSet.getAttribute('aria-describedby')).toBeNull()
   })
 
   test('Renders preselected', async () => {
-    const {getByRole} = render(Checkbox, {
+    const { getByRole } = render(Checkbox, {
       value: ['yes'],
       error: undefined,
       name,
@@ -88,7 +87,7 @@ describe('Checkbox', () => {
       helpText: undefined,
       options
     })
-    const fieldSet = getByRole('checkbox', {name: 'Ja'})
+    const fieldSet = getByRole('checkbox', { name: 'Ja' })
     expect(fieldSet).toBeChecked()
   })
 })
