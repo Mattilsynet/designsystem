@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import {render} from '@testing-library/svelte'
+import { render } from '@testing-library/svelte'
 import CurrentIssues from './CurrentIssues.svelte'
 
 describe('Current issues', () => {
@@ -22,9 +22,9 @@ describe('Current issues', () => {
       ]
     }
 
-    const {getByText, getByTestId} = render(CurrentIssues, componentOptions)
+    const { getByText, getByTestId } = render(CurrentIssues, componentOptions)
     const ariaLabel = getByTestId('current-issues')
-    expect(ariaLabel.classList).toContain('current-issues')
+    expect(ariaLabel.classList.contains('current-issues')).toBeTruthy()
 
     const sectionTitle = getByText('currentTitle')
     expect(sectionTitle).toBeInTheDocument()
@@ -39,9 +39,9 @@ describe('Current issues', () => {
     expect(text2).toBeInTheDocument()
 
     const span1 = getByTestId('current-issue-span-0')
-    expect(span1.classList).toContain('col-1-span-5')
+    expect(span1.classList.contains('col-1-span-5')).toBeTruthy()
     const span2 = getByTestId('current-issue-span-1')
-    expect(span2.classList).toContain('col-7-span-5')
+    expect(span2.classList.contains('col-7-span-5')).toBeTruthy()
 
     const href1 = getByTestId('current-issue-a-0')
     expect(href1).toBeInTheDocument()
@@ -62,8 +62,8 @@ describe('Current issues', () => {
       ]
     }
 
-    const {getByTestId} = render(CurrentIssues, componentOptions)
+    const { getByTestId } = render(CurrentIssues, componentOptions)
     const span1 = getByTestId('current-issue-span-0')
-    expect(span1.classList).toContain('col-1-span-12')
+    expect(span1.classList.contains('col-1-span-12')).toBeTruthy()
   })
 })

@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import {render} from '@testing-library/svelte'
+import { render } from '@testing-library/svelte'
 import MenuItems from './MenuItems.svelte'
 
 describe('Related links list', () => {
@@ -13,7 +13,7 @@ describe('Related links list', () => {
         url: '/menu',
         hasChildren: true,
         children: [
-          {title: 'Child item 1.1', url: '/menu/child1_1', hasChildren: false, children: []},
+          { title: 'Child item 1.1', url: '/menu/child1_1', hasChildren: false, children: [] },
           {
             title: 'Child item 1.2',
             url: '/menu/child1_2',
@@ -21,8 +21,8 @@ describe('Related links list', () => {
             hasChildren: false,
             children: []
           },
-          {title: 'Child item 1.3', url: '/menu/child3', hasChildren: false, children: []},
-          {title: 'Child item 1.4', url: '/menu/child4', hasChildren: false, children: []}
+          { title: 'Child item 1.3', url: '/menu/child3', hasChildren: false, children: [] },
+          { title: 'Child item 1.4', url: '/menu/child4', hasChildren: false, children: [] }
         ]
       },
       {
@@ -30,8 +30,8 @@ describe('Related links list', () => {
         url: '/menu2',
         hasChildren: true,
         children: [
-          {title: 'Child item 2.1', url: '/menu2/child2_1', hasChildren: false, children: []},
-          {title: 'Child item 2.2', url: '/menu2/child2_2', hasChildren: false, children: []}
+          { title: 'Child item 2.1', url: '/menu2/child2_1', hasChildren: false, children: [] },
+          { title: 'Child item 2.2', url: '/menu2/child2_2', hasChildren: false, children: [] }
         ]
       },
       {
@@ -39,14 +39,14 @@ describe('Related links list', () => {
         url: 'https://www.mattilsynet.no',
         hasChildren: true,
         children: [
-          {title: 'Child item 3.1', url: '/menu2/child3_1', hasChildren: false, children: []},
+          { title: 'Child item 3.1', url: '/menu2/child3_1', hasChildren: false, children: [] },
           {
             title: 'Child item 3.2 - external',
             url: 'https://www.mattilsynet.no/om_mattilsynet',
             hasChildren: false,
             children: []
           },
-          {title: 'Child item 3.3', url: '/menu2/child3_3', hasChildren: false, children: []}
+          { title: 'Child item 3.3', url: '/menu2/child3_3', hasChildren: false, children: [] }
         ]
       },
       {
@@ -85,7 +85,7 @@ describe('Related links list', () => {
   }
 
   test('Renders', () => {
-    const {getAllByText, getByText} = render(MenuItems, componentOptions)
+    const { getAllByText, getByText } = render(MenuItems, componentOptions)
     const allByText = getAllByText('Menu item 1')
     expect(allByText.length).toEqual(3)
     expect(allByText[0].parentElement.tagName).toEqual('BUTTON')
@@ -115,7 +115,7 @@ describe('Related links list', () => {
   })
 
   test('Link is active', () => {
-    const {rerender, getByText, getAllByText} = render(MenuItems, componentOptions)
+    const { rerender, getByText, getAllByText } = render(MenuItems, componentOptions)
     const notActiveItem = getByText('Child item 1.1')
     expect(notActiveItem).toBeInTheDocument()
     expect(notActiveItem.getAttribute('aria-current')).toEqual('false')
@@ -160,7 +160,7 @@ describe('Related links list', () => {
   })
 
   test('Adds rel="external" if url is external', () => {
-    const {getAllByText, getByText} = render(MenuItems, componentOptions)
+    const { getAllByText, getByText } = render(MenuItems, componentOptions)
     const menu3 = getAllByText('Menu item 3')
     expect(menu3[2].getAttribute('rel')).toEqual('external')
 

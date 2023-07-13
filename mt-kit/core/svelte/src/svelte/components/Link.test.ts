@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-import {render} from '@testing-library/svelte'
+import { render } from '@testing-library/svelte'
 import Link from './Link.svelte'
 
 describe('Link', () => {
@@ -11,14 +11,14 @@ describe('Link', () => {
     href: 'https://www.mattilsynet.no'
   }
   test('Renders', () => {
-    const {getByText} = render(Link, componentOptions)
+    const { getByText } = render(Link, componentOptions)
     const link = getByText('This is the link text')
     expect(link).toBeInTheDocument()
     expect(link.getAttribute('href')).toEqual('https://www.mattilsynet.no')
   })
 
   test('Renders pdf link', () => {
-    const {getByText} = render(Link, {
+    const { getByText } = render(Link, {
       ...componentOptions,
       class: 'document',
       fileName: 'thispdf.pdf'
@@ -29,11 +29,11 @@ describe('Link', () => {
     expect(linkPDF).toBeInTheDocument()
     expect(link.getAttribute('href')).toEqual('https://www.mattilsynet.no')
     expect(link.getAttribute('rel')).toEqual('external')
-    expect(link.classList).toContain('document')
+    expect(link.classList.contains('document')).toBeTruthy()
   })
 
   test('Render relative link', () => {
-    const {getByText} = render(Link, {
+    const { getByText } = render(Link, {
       ...componentOptions,
       href: '/dyr/dyrehold'
     })

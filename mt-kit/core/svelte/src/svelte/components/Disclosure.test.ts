@@ -1,8 +1,4 @@
-/**
- * @jest-environment jsdom
- */
-
-import {fireEvent, render} from '@testing-library/svelte'
+import { fireEvent, render } from '@testing-library/svelte'
 import Disclosure from './Disclosure.svelte'
 
 describe('Disclosure', () => {
@@ -11,7 +7,7 @@ describe('Disclosure', () => {
   }
 
   test('Renders', () => {
-    const {getAllByText} = render(Disclosure, {props: componentOptions})
+    const { getAllByText } = render(Disclosure, { props: componentOptions })
     const byText = getAllByText('Varsle om piggtrådgjerder')
     expect(byText.length).toEqual(2)
     expect(byText[0].parentElement.getAttribute('aria-expanded')).toEqual('false')
@@ -21,14 +17,14 @@ describe('Disclosure', () => {
   })
 
   test('Renders - links', () => {
-    render(Disclosure, {props: {...componentOptions, theme: 'links'}})
+    render(Disclosure, { props: { ...componentOptions, theme: 'links' } })
     const disclosure = document.querySelector('.disclosure-links')
     expect(disclosure).toBeInTheDocument()
   })
 
   test('Renders - no-border', () => {
     render(Disclosure, {
-      props: {...componentOptions, theme: 'no-border', class: 'background-mt-white'}
+      props: { ...componentOptions, theme: 'no-border', class: 'background-mt-white' }
     })
     const disclosure = document.querySelector('.disclosure-no-border')
     expect(disclosure).toBeInTheDocument()
@@ -37,7 +33,7 @@ describe('Disclosure', () => {
   })
 
   test('Renders - start open', () => {
-    const {getAllByText} = render(Disclosure, {props: {...componentOptions, startOpen: true}})
+    const { getAllByText } = render(Disclosure, { props: { ...componentOptions, startOpen: true } })
     const byText = getAllByText('Varsle om piggtrådgjerder')
     expect(byText.length > 0).toEqual(true)
     const btn = byText.find(el => {
@@ -47,8 +43,8 @@ describe('Disclosure', () => {
   })
 
   test('Render correct heading level - h2', async () => {
-    const {getAllByText} = render(Disclosure, {
-      props: {...componentOptions, headerTag: 'h2'}
+    const { getAllByText } = render(Disclosure, {
+      props: { ...componentOptions, headerTag: 'h2' }
     })
     const heading = getAllByText('Varsle om piggtrådgjerder')
     await fireEvent.click(heading[0])
@@ -58,8 +54,8 @@ describe('Disclosure', () => {
   })
 
   test('Render correct heading level - h3', async () => {
-    const {getAllByText} = render(Disclosure, {
-      props: {...componentOptions, headerTag: 'h3'}
+    const { getAllByText } = render(Disclosure, {
+      props: { ...componentOptions, headerTag: 'h3' }
     })
     const heading = getAllByText('Varsle om piggtrådgjerder')
     await fireEvent.click(heading[0])
@@ -69,8 +65,8 @@ describe('Disclosure', () => {
   })
 
   test('Render correct heading level - h4', async () => {
-    const {getAllByText} = render(Disclosure, {
-      props: {...componentOptions, headerTag: 'h4'}
+    const { getAllByText } = render(Disclosure, {
+      props: { ...componentOptions, headerTag: 'h4' }
     })
     const heading = getAllByText('Varsle om piggtrådgjerder')
     await fireEvent.click(heading[0])

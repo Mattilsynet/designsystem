@@ -3,12 +3,11 @@
 </script>
 
 <script lang="ts">
-  import {createEventDispatcher, onMount} from 'svelte'
-  import {slide} from 'svelte/transition'
-  import {useMachine} from '@xstate/svelte'
-  import {createMachine, assign} from 'xstate'
+  import { createEventDispatcher, onMount } from 'svelte'
+  import { slide } from 'svelte/transition'
+  import { useMachine } from '@xstate/svelte'
   import HeadingLevel from './HeadingLevel.svelte'
-  import {createToggleMachine} from '../../ts/toggle-machine'
+  import { createToggleMachine } from '../../ts/toggle-machine'
 
   export let id: string | undefined = undefined
   export let loadJs = true
@@ -21,11 +20,11 @@
   export let startOpen = false
   export let chapter: string | undefined = undefined
   let disclosureClass = ''
-  export {disclosureClass as class}
+  export { disclosureClass as class }
 
   const bodyId = `ui-disclosure-${counter++}`
   const disclosureMachine = createToggleMachine('disclosure')
-  const {state, send} = useMachine(disclosureMachine)
+  const { state, send } = useMachine(disclosureMachine)
 
   $: isOpen = $state.context.isOpen
   $: onServer = $state.value === 'serverRendered'
@@ -99,7 +98,7 @@
     id={bodyId}
     class="disclosure-panel {panelClass} {onServer ? 'on-server' : ''}"
     class:display-none-important={!isOpen}
-    transition:slide|local={{duration: $state.context.isFirstRenderFinished ? 300 : 0}}>
+    transition:slide|local={{ duration: $state.context.isFirstRenderFinished ? 300 : 0 }}>
     {#if !onServer}
       <HeadingLevel class="inclusively-hidden" headingLevel={+headerTag.charAt(1)}>
         {@html title}
