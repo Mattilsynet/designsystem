@@ -1,22 +1,22 @@
 <script lang="ts">
-  import {beforeUpdate} from 'svelte'
+  import { beforeUpdate } from 'svelte'
   import InputError from './InputErrorMessage.svelte'
-  import {toKebabCase, createInputAriaDescribedby} from '../../../ts/utils'
-  import type {ErrorDetail} from '../../../ts/types'
+  import { toKebabCase, createInputAriaDescribedby } from '../../../ts/utils'
+  import type { ErrorDetail } from '../../../ts/types'
 
-  export let value: Array<{value: string; text: string}> = []
+  export let value: Array<{ value: string; text: string }> = []
   export let name: string
   export let label: string
   export let error: ErrorDetail | undefined
   export let helpText: string | undefined
-  export let options: Array<{value: string; text: string}> = []
+  export let options: Array<{ value: string; text: string }> = []
   export let isRequired: boolean | undefined = undefined
   export let textOptional = 'valgfitt felt'
   export let hiddenErrorText: string | undefined
 
   export let theme: 'checkbox' | 'button' = 'checkbox'
   let className = ''
-  export {className as class}
+  export { className as class }
   let isInitialized = false
 
   beforeUpdate(() => {
@@ -35,7 +35,8 @@
   aria-required={isRequired || undefined}
   class="form-fieldset {theme === 'checkbox' ? 'checkbox' : ''} {theme === 'button'
     ? 'button-checkbox'
-    : ''} {className}">
+    : ''} {className}"
+>
   <legend class="form-legend">
     {label}
     {#if !isRequired}
@@ -64,10 +65,12 @@
         value={checkbox.value}
         bind:group={value}
         aria-required={isRequired}
-        aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)} />
+        aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)}
+      />
       <label
         class="form-label {theme === 'button' ? 'button button--secondary' : ''}"
-        for={toKebabCase(checkbox.value)}>
+        for={toKebabCase(checkbox.value)}
+      >
         {checkbox.text}
       </label>
     </div>

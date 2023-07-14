@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {Meta, Story} from '@storybook/addon-svelte-csf'
+  import { Meta, Story } from '@storybook/addon-svelte-csf'
   import CardArticle from '../../svelte/components/CardArticle.svelte'
   import Disclosure from '../../svelte/components/Disclosure.svelte'
   import Published from '../../svelte/components/Published.svelte'
@@ -28,11 +28,12 @@
     disableCss: false
   }}
   argTypes={{
-    label: {control: 'text'},
-    helpText: {control: 'text'},
-    errorMessage: {control: 'text'},
-    disableCss: {control: 'boolean'}
-  }} />
+    label: { control: 'text' },
+    helpText: { control: 'text' },
+    errorMessage: { control: 'text' },
+    disableCss: { control: 'boolean' }
+  }}
+/>
 
 <Story
   name="Normal"
@@ -41,7 +42,8 @@
   let:disableCss
   let:publishFrom
   let:professionallyUpdated
-  let:text>
+  let:text
+>
   <div class="container">
     <article class="article-page">
       <h1>{title}</h1>
@@ -61,13 +63,15 @@
           text="Noe tekst i kroppen"
           linkUrl="http://"
           linkText="Neste handling"
-          headerTag="h2" />
+          headerTag="h2"
+        />
         <CardArticle
           type="task"
           title="Dette er en h3 tittel"
           text="Noe tekst i kroppen"
           linkUrl="http://"
-          linkText="Neste handling" />
+          linkText="Neste handling"
+        />
       </section>
 
       <Disclosure title={'Begrunnelse'} headerTag="h2">

@@ -1,8 +1,8 @@
 <script lang="ts">
-  import {Meta, Story} from '@storybook/addon-svelte-csf'
+  import { Meta, Story } from '@storybook/addon-svelte-csf'
   import Published from '../../svelte/components/Published.svelte'
   import imageFile from '../assets/testbilde.jpg'
-  import {wrapInShadowDom} from '../storybook-utils/utils'
+  import { wrapInShadowDom } from '../storybook-utils/utils'
 </script>
 
 <Meta
@@ -17,11 +17,12 @@
     disableCss: false
   }}
   argTypes={{
-    label: {control: 'text'},
-    helpText: {control: 'text'},
-    errorMessage: {control: 'text'},
-    disableCss: {control: 'boolean'}
-  }} />
+    label: { control: 'text' },
+    helpText: { control: 'text' },
+    errorMessage: { control: 'text' },
+    disableCss: { control: 'boolean' }
+  }}
+/>
 
 <Story name="Normal" let:title let:intro let:disableCss let:publishFrom let:professionallyUpdated>
   <div use:wrapInShadowDom={disableCss} class="container layout-grid layout-grid--column-12">

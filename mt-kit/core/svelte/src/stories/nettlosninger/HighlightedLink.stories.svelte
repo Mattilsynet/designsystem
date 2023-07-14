@@ -1,6 +1,6 @@
 <script lang="ts">
-  import {Meta, Story} from '@storybook/addon-svelte-csf'
-  import {wrapInShadowDom} from '../storybook-utils/utils'
+  import { Meta, Story } from '@storybook/addon-svelte-csf'
+  import { wrapInShadowDom } from '../storybook-utils/utils'
   import CardArticle from '../../svelte/components/CardArticle.svelte'
 </script>
 
@@ -58,9 +58,10 @@
     disableCss: false
   }}
   argTypes={{
-    tasks: {control: 'array'},
-    disableCss: {control: 'boolean'}
-  }} />
+    tasks: { control: 'array' },
+    disableCss: { control: 'boolean' }
+  }}
+/>
 
 <Story name="Normal" let:tasks let:disableCss>
   <div use:wrapInShadowDom={disableCss} class="container layout-flex-col layout-flex-col--x-small">
@@ -74,7 +75,8 @@
         id={task.title}
         headerTag={task.headerTag}
         iconClass={task.iconClass}
-        linkTypeButton={task.linkTypeButton} />
+        linkTypeButton={task.linkTypeButton}
+      />
     {/each}
   </div>
 </Story>

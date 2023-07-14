@@ -1,7 +1,7 @@
 <script lang="ts">
   import FileUploadButton from '../FileUploadButton.svelte'
   import InputError from './InputErrorMessage.svelte'
-  import type {ErrorDetail} from '../../../ts/types'
+  import type { ErrorDetail } from '../../../ts/types'
   import Label from './Label.svelte'
 
   export let value
@@ -55,4 +55,5 @@
   {accept}
   {fileName}
   {isRequired}
-  on:removeFile={onRemoveFile} />
+  on:removeFile={onRemoveFile}
+/>

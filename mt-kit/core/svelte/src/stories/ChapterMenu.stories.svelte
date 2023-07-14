@@ -1,8 +1,8 @@
 <script lang="ts">
-  import {Meta, Story} from '@storybook/addon-svelte-csf'
+  import { Meta, Story } from '@storybook/addon-svelte-csf'
   import ChapterMenu from '../../src/svelte/components/ChapterMenu.svelte'
-  import {wrapInShadowDom} from './storybook-utils/utils'
-  import {action} from '@storybook/addon-actions'
+  import { wrapInShadowDom } from './storybook-utils/utils'
+  import { action } from '@storybook/addon-actions'
 
   const chapterChangeAction = action('chapterChange')
   let currentChapterNumber = 0
@@ -15,7 +15,7 @@
 
 <Meta
   title="Components/Chapter Menu"
-  parameters={{layout: 'fullscreen'}}
+  parameters={{ layout: 'fullscreen' }}
   args={{
     showChapterNumbers: true,
     chapters: [
@@ -29,8 +29,8 @@
         url: '',
         index: 1,
         subChapters: [
-          {heading: 'Subchapter', url: '', index: 0},
-          {heading: 'Another chapter', url: '', index: 1}
+          { heading: 'Subchapter', url: '', index: 0 },
+          { heading: 'Another chapter', url: '', index: 1 }
         ]
       },
       {
@@ -43,10 +43,10 @@
         url: '',
         index: 3,
         subChapters: [
-          {heading: 'Subchapter', url: '', index: 0},
-          {heading: 'Another chapter', url: '', index: 1},
-          {heading: 'Subchapter', url: '', index: 2},
-          {heading: 'Another chapter', url: '', index: 3}
+          { heading: 'Subchapter', url: '', index: 0 },
+          { heading: 'Another chapter', url: '', index: 1 },
+          { heading: 'Subchapter', url: '', index: 2 },
+          { heading: 'Another chapter', url: '', index: 3 }
         ]
       },
       {
@@ -54,8 +54,8 @@
         url: '',
         index: 4,
         subChapters: [
-          {heading: 'Subchapter', url: '', index: 0},
-          {heading: 'Another chapter', url: '', index: 1}
+          { heading: 'Subchapter', url: '', index: 0 },
+          { heading: 'Another chapter', url: '', index: 1 }
         ]
       }
     ],
@@ -63,12 +63,13 @@
     disableCss: false
   }}
   argTypes={{
-    showChapterNumbers: {control: 'boolean'},
-    chapters: {control: 'array'},
-    disableCss: {control: 'boolean'},
-    disableJs: {control: 'boolean'},
-    chapterChange: {action: 'chapterChange'}
-  }} />
+    showChapterNumbers: { control: 'boolean' },
+    chapters: { control: 'array' },
+    disableCss: { control: 'boolean' },
+    disableJs: { control: 'boolean' },
+    chapterChange: { action: 'chapterChange' }
+  }}
+/>
 
 <Story name="Normal" let:showChapterNumbers let:disableCss let:disableJs let:chapters>
   <div use:wrapInShadowDom={disableCss}>
@@ -80,7 +81,8 @@
         loadJs={!disableJs}
         menuTitle="Innhold"
         {currentChapterNumber}
-        on:chapterChange={chapterChange} />
+        on:chapterChange={chapterChange}
+      />
     </div>
   </div>
 </Story>

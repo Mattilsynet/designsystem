@@ -1,6 +1,6 @@
 <script lang="ts">
-  import {Meta, Story} from '@storybook/addon-svelte-csf'
-  import {wrapInShadowDom} from '../storybook-utils/utils'
+  import { Meta, Story } from '@storybook/addon-svelte-csf'
+  import { wrapInShadowDom } from '../storybook-utils/utils'
   import CurrentIssues from '../../svelte/content/CurrentIssues.svelte'
 </script>
 
@@ -24,11 +24,12 @@
     disableCss: false
   }}
   argTypes={{
-    title: {control: 'text'},
-    issues: {control: 'array'},
-    disableJs: {control: 'boolean'},
-    disableCss: {control: 'boolean'}
-  }} />
+    title: { control: 'text' },
+    issues: { control: 'array' },
+    disableJs: { control: 'boolean' },
+    disableCss: { control: 'boolean' }
+  }}
+/>
 
 <Story name="Normal" let:title let:issues let:disableCss>
   <main use:wrapInShadowDom={disableCss} class="container layout-flex-col">

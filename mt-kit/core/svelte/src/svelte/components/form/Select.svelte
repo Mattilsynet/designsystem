@@ -4,17 +4,17 @@
 
 <script lang="ts">
   import InputError from './InputErrorMessage.svelte'
-  import type {ErrorDetail} from '../../../ts/types'
-  import {createInputAriaDescribedby} from '../../../ts/utils'
+  import type { ErrorDetail } from '../../../ts/types'
+  import { createInputAriaDescribedby } from '../../../ts/utils'
   import Label from './Label.svelte'
-  import {beforeUpdate} from 'svelte'
+  import { beforeUpdate } from 'svelte'
   export let name: string
   export let label: string
   export let value: string | undefined
   export let error: ErrorDetail | undefined
   export let helpText: string | undefined
   export let isRequired: boolean | undefined = undefined
-  export let options: Array<{value: string; text: string}> = []
+  export let options: Array<{ value: string; text: string }> = []
   export let textOptional: string | undefined
   export let hiddenErrorText: string | undefined
 
@@ -47,7 +47,8 @@
   bind:value
   class="form-field"
   aria-required={isRequired}
-  aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)}>
+  aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)}
+>
   {#each options as option (option.value)}
     <option value={option.value}>
       {option.text}

@@ -1,6 +1,6 @@
 <script lang="ts">
-  import {Meta, Story} from '@storybook/addon-svelte-csf'
-  import {wrapInShadowDom} from '../storybook-utils/utils'
+  import { Meta, Story } from '@storybook/addon-svelte-csf'
+  import { wrapInShadowDom } from '../storybook-utils/utils'
   import TextInputSearch from '../../../src/svelte/components/form/Search.svelte'
 </script>
 
@@ -15,11 +15,12 @@
     loadJs: true
   }}
   argTypes={{
-    label: {control: 'text'},
-    helpText: {control: 'text'},
-    disableCss: {control: 'boolean'},
-    loadJs: {control: 'boolean'}
-  }} />
+    label: { control: 'text' },
+    helpText: { control: 'text' },
+    disableCss: { control: 'boolean' },
+    loadJs: { control: 'boolean' }
+  }}
+/>
 
 <Story
   name="Search input"
@@ -29,7 +30,8 @@
   let:searchButtonText
   let:placeholder
   let:primaryButton
-  let:helpText>
+  let:helpText
+>
   <div use:wrapInShadowDom={disableCss}>
     <article>
       <form class="form-layout">
@@ -53,7 +55,8 @@
           {label}
           {placeholder}
           {searchButtonText}
-          loadJs={args.loadJs} />
+          loadJs={args.loadJs}
+        />
       </form>
     </article>
     <article>
@@ -63,10 +66,12 @@
           {label}
           {helpText}
           {searchButtonText}
-          loadJs={args.loadJs} />
+          loadJs={args.loadJs}
+        />
       </form>
     </article>
-  </div></Story>
+  </div></Story
+>
 
 <style>
   article {

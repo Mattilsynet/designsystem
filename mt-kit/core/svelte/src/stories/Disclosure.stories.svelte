@@ -1,6 +1,6 @@
 <script lang="ts">
-  import {Meta, Story, Template} from '@storybook/addon-svelte-csf'
-  import {splitIntoParagraphs, wrapInShadowDom} from './storybook-utils/utils'
+  import { Meta, Story, Template } from '@storybook/addon-svelte-csf'
+  import { splitIntoParagraphs, wrapInShadowDom } from './storybook-utils/utils'
   import Disclosure from '../../src/svelte/components/Disclosure.svelte'
   import HeadingLevel from '../../src/svelte/components/HeadingLevel.svelte'
 
@@ -35,14 +35,15 @@
 
 <Meta
   title="Components/Trekkspill"
-  parameters={{xstate: true, inspectUrl: 'https://stately.ai/viz?inspect'}}
+  parameters={{ xstate: true, inspectUrl: 'https://stately.ai/viz?inspect' }}
   argTypes={{
-    title: {control: 'text'},
-    body: {control: 'text'},
-    headerTag: {control: 'text'},
-    disableJs: {control: 'boolean'},
-    disableCss: {control: 'boolean'}
-  }} />
+    title: { control: 'text' },
+    body: { control: 'text' },
+    headerTag: { control: 'text' },
+    disableJs: { control: 'boolean' },
+    disableCss: { control: 'boolean' }
+  }}
+/>
 
 <Template let:args>
   <section class="content" use:wrapInShadowDom={args.disableCss}>
@@ -52,7 +53,8 @@
       headerTag={args.headerTag}
       headerClass={args.headerClass}
       theme={args.theme}
-      class={args.class}>
+      class={args.class}
+    >
       {@html args.body}
       <ul>
         <li>Punkt 1</li>
@@ -70,7 +72,8 @@
     headerClass: 'text-body',
     disableJs: false,
     disableCss: false
-  }} />
+  }}
+/>
 
 <Story
   name="Endringslogg"
@@ -82,19 +85,22 @@
     disableCss: false,
     class: 'changelog'
   }}
-  let:args>
+  let:args
+>
   <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading">
     <Disclosure
       title={'Se endringer'}
       loadJs={!args.disableJs}
       headerTag={args.headerTag}
       headerClass={args.headerClass}
-      class={args.class}>
+      class={args.class}
+    >
       {#each args.body as log, index}
         <article
           class:border-b-secondary={index < args.body.length - 1}
           class:p-b-xs={index < args.body.length - 1}
-          class:m-b-xxs={index < args.body.length - 1}>
+          class:m-b-xxs={index < args.body.length - 1}
+        >
           <span class="text-small">01.01.2021</span>
           <HeadingLevel headingLevel={3} class="h5 m-b-xs">
             {@html log.title}
@@ -117,7 +123,8 @@
     disableJs: false,
     disableCss: false
   }}
-  let:args>
+  let:args
+>
   <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading">
     <h2 id="heading">{title}</h2>
     {#each disclosures as disclosure, i}
@@ -126,7 +133,8 @@
         loadJs={!args.disableJs}
         headerTag={disclosure.headerTag}
         icon={i === 2 ? icon : undefined}
-        headerClass={args.headerClass}>
+        headerClass={args.headerClass}
+      >
         {@html disclosure.body}
       </Disclosure>
     {/each}
@@ -140,7 +148,8 @@
     disableJs: false,
     disableCss: false
   }}
-  let:args>
+  let:args
+>
   <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading2">
     <h2 id="heading2">Tittel for lyseblått trekkspill</h2>
     {#each disclosures as disclosure, i}
@@ -150,7 +159,8 @@
         theme="no-border"
         class="background-mt-rationale-blue"
         headerTag={disclosure.headerTag}
-        icon={i !== 2 ? icon : undefined}>
+        icon={i !== 2 ? icon : undefined}
+      >
         {@html disclosure.body}
       </Disclosure>
     {/each}
@@ -164,7 +174,8 @@
     disableJs: false,
     disableCss: false
   }}
-  let:args>
+  let:args
+>
   <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading2">
     <h2 id="heading2">Tittel for hvit trekkspill</h2>
     {#each disclosures as disclosure, i}
@@ -175,7 +186,8 @@
         class="background-mt-white"
         startOpen={i === 1}
         headerTag={disclosure.headerTag}
-        icon={i !== 2 ? icon : undefined}>
+        icon={i !== 2 ? icon : undefined}
+      >
         {@html disclosure.body}
       </Disclosure>
     {/each}
@@ -190,7 +202,8 @@
     headerTag: disclosures[1].headerTag,
     disableJs: true,
     disableCss: true
-  }} />
+  }}
+/>
 
 <Story
   name="Large size"
@@ -200,7 +213,8 @@
     headerTag: disclosures[0].headerTag,
     disableJs: false,
     disableCss: false
-  }} />
+  }}
+/>
 
 <Story
   name="I Grid"
@@ -210,7 +224,8 @@
     disableJs: false,
     disableCss: false
   }}
-  let:args>
+  let:args
+>
   <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading2">
     <h2 id="heading3">{title}</h2>
     <section class="layout-grid layout-grid--column-12">
@@ -221,7 +236,8 @@
           headerTag={disclosure.headerTag}
           class="layout-grid layout-grid--column-12 col-3-span-8"
           headerClass="col-1-span-12 text-h3"
-          panelClass="col-1-span-12">
+          panelClass="col-1-span-12"
+        >
           {@html disclosure.body}
         </Disclosure>
       {/each}
@@ -238,7 +254,8 @@
             ? 'disclosure-with-number'
             : ''} layout-grid layout-grid--column-12 col-3-span-8"
           headerClass={'text-h3'}
-          panelClass="col-1-span-12">
+          panelClass="col-1-span-12"
+        >
           {@html disclosure.body}
         </Disclosure>
       {/each}
@@ -266,7 +283,8 @@
         icon={i === 2 ? icon : undefined}
         on:open={() => alert('opening')}
         on:close={() => alert('closing')}
-        headerClass={args.headerClass}>
+        headerClass={args.headerClass}
+      >
         {@html disclosure.body}
       </Disclosure>
     {/each}

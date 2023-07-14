@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {Meta, Story} from '@storybook/addon-svelte-csf'
+  import { Meta, Story } from '@storybook/addon-svelte-csf'
   import DialogBox from '../../src/svelte/components/DialogBox.svelte'
   import ButtonSpinner from '../../src/svelte/components/ButtonSpinner.svelte'
 
@@ -21,7 +21,8 @@
       <p>At noen setter opp nye piggtrådgjerder</p>
       <p>Eldre piggtrådgjerder som utgjør en risiko for at dyr blir skadet</p>`
   }}
-  argTypes={{}} />
+  argTypes={{}}
+/>
 
 <Story name="Normal" let:content>
   <h2>Default</h2>
@@ -54,13 +55,15 @@
         <ButtonSpinner
           formInProgressAriaLabel="Sender inn skjema, venter på svar."
           btnClassNames="button--secondary"
-          spinnerPlacement="start">
+          spinnerPlacement="start"
+        >
           Ja
         </ButtonSpinner>
         <ButtonSpinner
           formInProgressAriaLabel="Sender inn skjema, venter på svar."
           btnClassNames="button--secondary"
-          spinnerPlacement="end">
+          spinnerPlacement="end"
+        >
           Nei
         </ButtonSpinner>
       </div>

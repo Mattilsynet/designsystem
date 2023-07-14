@@ -1,9 +1,9 @@
 <script lang="ts">
-  import {Meta, Story} from '@storybook/addon-svelte-csf'
+  import { Meta, Story } from '@storybook/addon-svelte-csf'
   import CardArticle from '../../svelte/components/CardArticle.svelte'
   import SummaryDetail from '../../svelte/components/SummaryDetail.svelte'
-  import {toKebabCase} from '../../ts/utils'
-  import {wrapInShadowDom} from '../storybook-utils/utils'
+  import { toKebabCase } from '../../ts/utils'
+  import { wrapInShadowDom } from '../storybook-utils/utils'
 </script>
 
 <Meta
@@ -71,11 +71,12 @@
     ]
   }}
   argTypes={{
-    label: {control: 'text'},
-    helpText: {control: 'text'},
-    errorMessage: {control: 'text'},
-    disableCss: {control: 'boolean'}
-  }} />
+    label: { control: 'text' },
+    helpText: { control: 'text' },
+    errorMessage: { control: 'text' },
+    disableCss: { control: 'boolean' }
+  }}
+/>
 
 <Story name="Normal" let:title let:intro let:legalItems let:text let:tableOfContents let:disableCss>
   <div use:wrapInShadowDom={disableCss} class="container layout-grid layout-grid--column-12">
@@ -104,7 +105,8 @@
         <article
           id={toKebabCase(legal.title)}
           class="legal-collection legal-collection__border-top col-1-span-12"
-          aria-labelledby="collection-title-1">
+          aria-labelledby="collection-title-1"
+        >
           <h2 id="collection-title-1">{legal.title}</h2>
 
           <div class="intro">
@@ -124,7 +126,8 @@
               text="Noe tekst i kroppen"
               linkUrl="http://"
               linkText="Last ned mal for internkontroll"
-              headerTag="h4" />
+              headerTag="h4"
+            />
           </section>
 
           <section class="layout-flex-col layout-flex-col--x-small">
@@ -134,13 +137,15 @@
                 title="Dette er tittelen"
                 text="Noe tekst i kroppen"
                 linkUrl="http://"
-                linkText="Last ned mal for internkontroll" />
+                linkText="Last ned mal for internkontroll"
+              />
               <CardArticle
                 type="legal-text"
                 title="Dette er tittelen"
                 text="Noe tekst i kroppen"
                 linkUrl="http://"
-                linkText="Last ned mal for internkontroll" />
+                linkText="Last ned mal for internkontroll"
+              />
             </SummaryDetail>
           </section>
         </article>

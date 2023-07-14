@@ -1,6 +1,6 @@
 <script lang="ts">
-  import {Meta, Story} from '@storybook/addon-svelte-csf'
-  import {wrapInShadowDom} from './storybook-utils/utils'
+  import { Meta, Story } from '@storybook/addon-svelte-csf'
+  import { wrapInShadowDom } from './storybook-utils/utils'
   import FormErrorSummary from '../../src/svelte/components/form/FormErrorSummary.svelte'
 
   const name = 'radiobuttons'
@@ -24,18 +24,19 @@
     errorMessage: 'Fyll inn dette feltet.',
     heading: 'Feil oppstod',
     errors: [
-      {fieldName: 'name', message: 'Fyll inn navn'},
-      {fieldName: 'phone', message: 'Fyll inn telefonnummer'},
-      {fieldName: 'email', message: 'Fyll inn epost'}
+      { fieldName: 'name', message: 'Fyll inn navn' },
+      { fieldName: 'phone', message: 'Fyll inn telefonnummer' },
+      { fieldName: 'email', message: 'Fyll inn epost' }
     ],
     disableCss: false
   }}
   argTypes={{
-    label: {control: 'text'},
-    helpText: {control: 'text'},
-    errorMessage: {control: 'text'},
-    disableCss: {control: 'boolean'}
-  }} />
+    label: { control: 'text' },
+    helpText: { control: 'text' },
+    errorMessage: { control: 'text' },
+    disableCss: { control: 'boolean' }
+  }}
+/>
 
 <Story name="Normal" let:errors let:label let:helpText let:heading let:disableCss let:errorMessage>
   <div use:wrapInShadowDom={disableCss}>
@@ -54,7 +55,8 @@
         id="inputfield"
         name="name"
         class="form-field"
-        aria-describedby="inputfield-hint inputfield-error" />
+        aria-describedby="inputfield-hint inputfield-error"
+      />
 
       <label class="form-label" for="inputfield">
         {label}
@@ -76,7 +78,8 @@
         name="email"
         class="form-field error"
         aria-invalid="true"
-        aria-describedby="inputfield-hint inputfield-error" />
+        aria-describedby="inputfield-hint inputfield-error"
+      />
     </form>
   </div>
 </Story>
@@ -88,13 +91,15 @@
   let:helpText
   let:heading
   let:disableCss
-  let:errorMessage>
+  let:errorMessage
+>
   <div
     use:wrapInShadowDom={disableCss}
     class="error-summary"
     role="alert"
     tabindex="-1"
-    aria-labelledby="error-summary-heading-2">
+    aria-labelledby="error-summary-heading-2"
+  >
     <h2 id="error-summary-heading-2">
       {heading}
     </h2>

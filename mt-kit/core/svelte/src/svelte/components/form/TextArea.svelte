@@ -1,8 +1,8 @@
 <!--suppress XmlDuplicatedId -->
 <script lang="ts">
   import InputError from './InputErrorMessage.svelte'
-  import {countCharacters, errorOnTooManyCharacters} from '../../../ts/count-characters'
-  import {createInputAriaDescribedby} from '../../../ts/utils'
+  import { countCharacters, errorOnTooManyCharacters } from '../../../ts/count-characters'
+  import { createInputAriaDescribedby } from '../../../ts/utils'
   import type {
     AutocompleteType,
     CountCharsParams,
@@ -10,7 +10,7 @@
     InputModeType
   } from '../../../ts/types'
   import Label from './Label.svelte'
-  import {beforeUpdate} from 'svelte'
+  import { beforeUpdate } from 'svelte'
 
   export let value
   export let name: string
@@ -84,7 +84,8 @@
   {inputmode}
   aria-required={isRequired}
   aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error, maxlength)}
-  aria-invalid={!!error} />
+  aria-invalid={!!error}
+/>
 
 {#if helpText && helpTextPlacement === 'below'}
   <div id={`${name}-hint`} class="hint {helpTextClass}">

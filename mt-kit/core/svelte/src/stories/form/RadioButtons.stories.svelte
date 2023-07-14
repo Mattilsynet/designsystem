@@ -1,7 +1,7 @@
 <script lang="ts">
-  import {Meta, Story} from '@storybook/addon-svelte-csf'
+  import { Meta, Story } from '@storybook/addon-svelte-csf'
   import RadioGroup from '../../../src/svelte/components/form/RadioGroup.svelte'
-  import {wrapInShadowDom} from '../storybook-utils/utils'
+  import { wrapInShadowDom } from '../storybook-utils/utils'
 
   const name = 'radiobuttons'
   const options = [
@@ -43,11 +43,12 @@
     disableCss: false
   }}
   argTypes={{
-    label: {control: 'text'},
-    helpText: {control: 'text'},
-    errorMessage: {control: 'text'},
-    disableCss: {control: 'boolean'}
-  }} />
+    label: { control: 'text' },
+    helpText: { control: 'text' },
+    errorMessage: { control: 'text' },
+    disableCss: { control: 'boolean' }
+  }}
+/>
 
 <Story name="Normal" let:label let:helpText let:disableCss let:args>
   <div use:wrapInShadowDom={disableCss}>
@@ -61,7 +62,8 @@
         {label}
         error={undefined}
         textOptional="valgfritt"
-        theme="radio" />
+        theme="radio"
+      />
     </form>
     <h2 id="theme">Theme - button</h2>
     <form action="" class="form-layout">
@@ -73,7 +75,8 @@
         label={args.buttonRadio.label}
         error={undefined}
         textOptional={args.buttonRadio.textOptional}
-        theme="button" />
+        theme="button"
+      />
     </form>
   </div>
 </Story>
@@ -87,8 +90,9 @@
         {name}
         {helpText}
         {label}
-        error={{key: name, message: errorMessage}}
-        textOptional="valgfritt" />
+        error={{ key: name, message: errorMessage }}
+        textOptional="valgfritt"
+      />
     </form>
     <h2 id="theme">Theme - button</h2>
     <form class="form-layout">
@@ -98,9 +102,10 @@
         name={args.buttonRadio.name}
         {helpText}
         label={args.buttonRadio.label}
-        error={{key: name, message: errorMessage}}
+        error={{ key: name, message: errorMessage }}
         textOptional={args.buttonRadio.textOptional}
-        theme="button" />
+        theme="button"
+      />
     </form>
   </div>
 </Story>

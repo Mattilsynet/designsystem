@@ -1,7 +1,7 @@
 <script lang="ts">
-  import {Meta, Story} from '@storybook/addon-svelte-csf'
+  import { Meta, Story } from '@storybook/addon-svelte-csf'
   import Checkbox from '../../../src/svelte/components/form/Checkbox.svelte'
-  import {wrapInShadowDom} from '../storybook-utils/utils'
+  import { wrapInShadowDom } from '../storybook-utils/utils'
 
   const name = 'checkbox'
   let buttonCheckboxValue = []
@@ -40,16 +40,17 @@
     disableCss: false
   }}
   argTypes={{
-    label: {control: 'text'},
-    helpText: {control: 'text'},
-    errorMessage: {control: 'text'},
-    hiddenErrorText: {control: 'text'},
-    isRequired: {control: 'boolean'},
-    textOptional: {control: 'text'},
-    options: {control: 'object'},
-    buttonOptions: {control: 'object'},
-    disableCss: {control: 'boolean'}
-  }} />
+    label: { control: 'text' },
+    helpText: { control: 'text' },
+    errorMessage: { control: 'text' },
+    hiddenErrorText: { control: 'text' },
+    isRequired: { control: 'boolean' },
+    textOptional: { control: 'text' },
+    options: { control: 'object' },
+    buttonOptions: { control: 'object' },
+    disableCss: { control: 'boolean' }
+  }}
+/>
 
 <Story
   name="Normal"
@@ -59,7 +60,8 @@
   let:options
   let:buttonOptions
   let:isRequired
-  let:textOptional>
+  let:textOptional
+>
   <div use:wrapInShadowDom={disableCss}>
     <h1>Checkbox</h1>
     <h2 id="theme">Theme - checkbox</h2>
@@ -76,7 +78,8 @@
         options={buttonOptions}
         {helpText}
         theme="button"
-        bind:value={buttonCheckboxValue} />
+        bind:value={buttonCheckboxValue}
+      />
     </form>
   </div>
 </Story>
@@ -91,7 +94,8 @@
   let:options
   let:buttonOptions
   let:isRequired
-  let:textOptional>
+  let:textOptional
+>
   <div use:wrapInShadowDom={disableCss}>
     <h2 id="theme">Theme - checkbox</h2>
     <form>
@@ -103,8 +107,9 @@
         {isRequired}
         {hiddenErrorText}
         {textOptional}
-        error={{key: name, message: errorMessage}}
-        let:isRequired />
+        error={{ key: name, message: errorMessage }}
+        let:isRequired
+      />
     </form>
     <h2 id="theme">Theme - button</h2>
     <form>
@@ -116,8 +121,9 @@
         {hiddenErrorText}
         {textOptional}
         options={buttonOptions}
-        error={{key: name, message: errorMessage}}
-        theme="button" />
+        error={{ key: name, message: errorMessage }}
+        theme="button"
+      />
     </form>
   </div>
 </Story>

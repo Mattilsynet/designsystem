@@ -1,6 +1,6 @@
 <script lang="ts">
-  import {Meta, Story} from '@storybook/addon-svelte-csf'
-  import {wrapInShadowDom} from '../storybook-utils/utils'
+  import { Meta, Story } from '@storybook/addon-svelte-csf'
+  import { wrapInShadowDom } from '../storybook-utils/utils'
 </script>
 
 <Meta
@@ -9,8 +9,9 @@
     disableCss: false
   }}
   argTypes={{
-    disableCss: {control: 'boolean'}
-  }} />
+    disableCss: { control: 'boolean' }
+  }}
+/>
 <Story name="All" let:primary let:disableCss>
   <div use:wrapInShadowDom={disableCss} style="--wrap: wrap">
     <h1>Ikoner</h1>

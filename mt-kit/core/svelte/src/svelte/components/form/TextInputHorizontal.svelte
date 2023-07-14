@@ -1,11 +1,11 @@
 <!--suppress XmlDuplicatedId -->
 <script lang="ts">
   import InputError from './InputErrorMessage.svelte'
-  import type {AutocompleteType, ErrorDetail, InputModeType} from '../../../ts/types'
-  import {createInputAriaDescribedby} from '../../../ts/utils'
+  import type { AutocompleteType, ErrorDetail, InputModeType } from '../../../ts/types'
+  import { createInputAriaDescribedby } from '../../../ts/utils'
   import Label from './Label.svelte'
-  import {slide} from 'svelte/transition'
-  import {beforeUpdate} from 'svelte'
+  import { slide } from 'svelte/transition'
+  import { beforeUpdate } from 'svelte'
 
   export let value
   export let name: string
@@ -37,8 +37,9 @@
 <div
   class="input-horizontal"
   style="--gap:var(--spacer-xxx-small)"
-  in:slide={{duration: hasTransition ? 300 : 0}}
-  out:slide={{duration: hasTransition ? 300 : 0}}>
+  in:slide={{ duration: hasTransition ? 300 : 0 }}
+  out:slide={{ duration: hasTransition ? 300 : 0 }}
+>
   {#if error}
     <InputError {...error} {hiddenErrorText} />
   {/if}
@@ -66,5 +67,6 @@
     aria-invalid={!!error}
     {inputmode}
     {placeholder}
-    {autocomplete} />
+    {autocomplete}
+  />
 </div>

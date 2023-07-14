@@ -1,7 +1,7 @@
 <script lang="ts">
-  import {Meta, Story} from '@storybook/addon-svelte-csf'
+  import { Meta, Story } from '@storybook/addon-svelte-csf'
   import Breadcrumbs from '../../src/svelte/components/Breadcrumbs.svelte'
-  import {wrapInShadowDom} from './storybook-utils/utils'
+  import { wrapInShadowDom } from './storybook-utils/utils'
 
   const breadcrumbsItems = [
     {
@@ -44,7 +44,7 @@
 
 <Meta
   title="Components/Breadcrumbs"
-  parameters={{xstate: true, inspectUrl: 'https://stately.ai/viz?inspect'}}
+  parameters={{ xstate: true, inspectUrl: 'https://stately.ai/viz?inspect' }}
   args={{
     loadJs: true,
     breadcrumbsLong: {
@@ -58,7 +58,8 @@
       items: breadcrumbsItems.slice(0, 3)
     },
     disableCss: false
-  }} />
+  }}
+/>
 
 <Story name="Normal" let:breadcrumbsLong let:breadcrumbsShort let:loadJs let:disableCss>
   <div use:wrapInShadowDom={disableCss}>

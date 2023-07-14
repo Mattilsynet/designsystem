@@ -1,8 +1,8 @@
 <script lang="ts">
-  import {Meta, Story} from '@storybook/addon-svelte-csf'
+  import { Meta, Story } from '@storybook/addon-svelte-csf'
   import HighlightedContentLink from '../../svelte/content/HighlightedContentLink.svelte'
   import imageFile from '../assets/testbilde.jpg'
-  import {wrapInShadowDom} from '../storybook-utils/utils'
+  import { wrapInShadowDom } from '../storybook-utils/utils'
 </script>
 
 <Meta
@@ -15,12 +15,13 @@
     disableCss: false
   }}
   argTypes={{
-    text: {control: 'string'},
-    title: {control: 'string'},
-    shortTitle: {control: 'string'},
-    disableJs: {control: 'boolean'},
-    disableCss: {control: 'boolean'}
-  }} />
+    text: { control: 'string' },
+    title: { control: 'string' },
+    shortTitle: { control: 'string' },
+    disableJs: { control: 'boolean' },
+    disableCss: { control: 'boolean' }
+  }}
+/>
 
 <Story name="Normal" let:text let:disableCss let:title let:shortTitle let:date>
   <main use:wrapInShadowDom={disableCss} class="container layout-flex-col">
@@ -28,10 +29,11 @@
     <section class="layout-flex-col">
       <HighlightedContentLink
         href="https://www.mattilsyent.no"
-        image={{src: imageFile, alt: 'Her er alt tekst til bildet'}}
+        image={{ src: imageFile, alt: 'Her er alt tekst til bildet' }}
         headingClass="h3"
         title="Dette er tittelen"
-        shortTitle="Dette er kort tittel">
+        shortTitle="Dette er kort tittel"
+      >
         {@html text}
       </HighlightedContentLink>
     </section>
@@ -42,7 +44,8 @@
         href="https://www.mattilsyent.no"
         headingClass="h3"
         title="Dette er tittelen"
-        shortTitle="Dette er kort tittel">
+        shortTitle="Dette er kort tittel"
+      >
         {@html text}
       </HighlightedContentLink>
     </section>
@@ -56,10 +59,11 @@
       <HighlightedContentLink
         displayType="blue"
         href="https://www.mattilsyent.no"
-        image={{src: imageFile, alt: 'Her er alt tekst til bildet'}}
+        image={{ src: imageFile, alt: 'Her er alt tekst til bildet' }}
         headingClass="h3"
         title="Dette er tittelen"
-        shortTitle="Dette er kort tittel">
+        shortTitle="Dette er kort tittel"
+      >
         {@html text}
       </HighlightedContentLink>
     </section>

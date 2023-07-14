@@ -1,16 +1,16 @@
 <!--suppress XmlDuplicatedId -->
 <script lang="ts">
   import InputError from './InputErrorMessage.svelte'
-  import {countCharacters, errorOnTooManyCharacters} from '../../../ts/count-characters'
+  import { countCharacters, errorOnTooManyCharacters } from '../../../ts/count-characters'
   import type {
     AutocompleteType,
     CountCharsParams,
     ErrorDetail,
     InputModeType
   } from '../../../ts/types'
-  import {createInputAriaDescribedby} from '../../../ts/utils'
+  import { createInputAriaDescribedby } from '../../../ts/utils'
   import Label from './Label.svelte'
-  import {beforeUpdate} from 'svelte'
+  import { beforeUpdate } from 'svelte'
 
   export let value
   export let name: string
@@ -77,4 +77,5 @@
   aria-invalid={!!error}
   {inputmode}
   {placeholder}
-  {autocomplete} />
+  {autocomplete}
+/>

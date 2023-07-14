@@ -1,7 +1,7 @@
 <script lang="ts">
-  import {Meta, Story} from '@storybook/addon-svelte-csf'
+  import { Meta, Story } from '@storybook/addon-svelte-csf'
   import Notice from '../../src/svelte/components/Notice.svelte'
-  import {wrapInShadowDom} from './storybook-utils/utils'
+  import { wrapInShadowDom } from './storybook-utils/utils'
 </script>
 
 <Meta
@@ -20,10 +20,11 @@
     disableCss: false
   }}
   argTypes={{
-    disabled: {control: 'boolean'},
-    disableJs: {control: 'boolean'},
-    disableCss: {control: 'boolean'}
-  }} />
+    disabled: { control: 'boolean' },
+    disableJs: { control: 'boolean' },
+    disableCss: { control: 'boolean' }
+  }}
+/>
 
 <Story name="Normal" let:text let:text2 let:disableCss>
   <main use:wrapInShadowDom={disableCss} class="container layout-flex-col">

@@ -1,7 +1,7 @@
 <script lang="ts">
   import Label from './Label.svelte'
-  import {createInputAriaDescribedby} from '../../../ts/utils'
-  import {beforeUpdate} from 'svelte'
+  import { createInputAriaDescribedby } from '../../../ts/utils'
+  import { beforeUpdate } from 'svelte'
 
   export let value: string
   export let name: string | undefined
@@ -46,23 +46,27 @@
       bind:value
       aria-labelledby={!label && searchButtonText ? 'search-button' : undefined}
       aria-describedby={createInputAriaDescribedby(helpText ? name : undefined)}
-      {placeholder} />
+      {placeholder}
+    />
     {#if value}
       <button
         type="reset"
         class="button button--search-clear"
         on:click={() => (value = '')}
-        data-testid="search-clear">
+        data-testid="search-clear"
+      >
         <span class="inclusively-hidden">{ariaRemoveTextLabel}</span>
         <svg
           aria-hidden="true"
           width="20"
           height="20"
           fill="none"
-          xmlns="http://www.w3.org/2000/svg">
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <path
             d="M10 0C4.47 0 0 4.47 0 10s4.47 10 10 10 10-4.47 10-10S15.53 0 10 0Zm5 13.59L13.59 15 10 11.41 6.41 15 5 13.59 8.59 10 5 6.41 6.41 5 10 8.59 13.59 5 15 6.41 11.41 10 15 13.59Z"
-            fill="#464545" />
+            fill="#464545"
+          />
         </svg>
       </button>
     {/if}
@@ -72,7 +76,8 @@
       id="search-button"
       type="submit"
       class="button button--primary icon--search-before-beige"
-      aria-controls={ariaControls}>
+      aria-controls={ariaControls}
+    >
       {searchButtonText}
     </button>
   {/if}

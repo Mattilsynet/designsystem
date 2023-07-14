@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {Meta, Story} from '@storybook/addon-svelte-csf'
+  import { Meta, Story } from '@storybook/addon-svelte-csf'
   import AnimalDisease from '../../svelte/content/AnimalDisease.svelte'
   import imageFile from '../assets/testbilde.jpg'
 </script>
@@ -18,11 +18,12 @@
     disableCss: false
   }}
   argTypes={{
-    label: {control: 'text'},
-    helpText: {control: 'text'},
-    errorMessage: {control: 'text'},
-    disableCss: {control: 'boolean'}
-  }} />
+    label: { control: 'text' },
+    helpText: { control: 'text' },
+    errorMessage: { control: 'text' },
+    disableCss: { control: 'boolean' }
+  }}
+/>
 
 <Story
   name="Normal"
@@ -33,7 +34,8 @@
   let:infectionToHumans
   let:disableCss
   let:publishFrom
-  let:professionallyUpdated>
+  let:professionallyUpdated
+>
   <div class="container layout-grid layout-grid--column-12">
     <article class="col-7-span-6 animal-disease">
       <AnimalDisease
@@ -47,7 +49,8 @@
         imageAltText="Alternative text"
         caption="This is the caption"
         routesOfInfectionHeading="Hvordan smitter sykdommen?"
-        disclosureHeadClass="text-body">
+        disclosureHeadClass="text-body"
+      >
         <h2>{title}</h2>
       </AnimalDisease>
     </article>

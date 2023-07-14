@@ -1,27 +1,27 @@
 <script lang="ts">
-  import {onMount} from 'svelte'
-  import type {Breadcrumbs} from '../../ts/types'
-  import {useMachine} from '@xstate/svelte'
-  import {createMachine} from 'xstate'
+  import { onMount } from 'svelte'
+  import type { Breadcrumbs } from '../../ts/types'
+  import { useMachine } from '@xstate/svelte'
+  import { createMachine } from 'xstate'
 
   const BUTTON_ELLIPSIS = Symbol()
-  export let breadcrumbs: Breadcrumbs = {items: []}
+  export let breadcrumbs: Breadcrumbs = { items: [] }
   export let loadJs = true
   let classNames = ''
-  export {classNames as class}
+  export { classNames as class }
   const LIMIT_BEFORE_PARTIAL = 3
 
   interface BreadcrumbsContext {
-    breadcrumbsItems: Array<{url: string; title: string} | symbol>
+    breadcrumbsItems: Array<{ url: string; title: string } | symbol>
   }
 
-  type BreadcrumbsEvent = {type: 'MOUNTED'} | {type: 'TOGGLE'} | {type: 'RESET'}
+  type BreadcrumbsEvent = { type: 'MOUNTED' } | { type: 'TOGGLE' } | { type: 'RESET' }
 
   type BreadcrumbsState =
-    | {value: 'serverRendered'; context: BreadcrumbsContext}
-    | {value: 'partial'; context: BreadcrumbsContext}
-    | {value: 'full'; context: BreadcrumbsContext}
-    | {value: 'reset'; context: BreadcrumbsContext}
+    | { value: 'serverRendered'; context: BreadcrumbsContext }
+    | { value: 'partial'; context: BreadcrumbsContext }
+    | { value: 'full'; context: BreadcrumbsContext }
+    | { value: 'reset'; context: BreadcrumbsContext }
 
   const breadcrumbsMachine = createMachine<BreadcrumbsContext, BreadcrumbsEvent, BreadcrumbsState>(
     {
@@ -92,7 +92,7 @@
     }
   )
 
-  const {state, send} = useMachine(breadcrumbsMachine)
+  const { state, send } = useMachine(breadcrumbsMachine)
 
   let ariaLabel = breadcrumbs.ariaLabel ?? 'brødsmulesti'
   let showAllBreadCrumbsLabel = breadcrumbs.showAllAriaLabel ?? 'vis mer'
@@ -100,7 +100,7 @@
 
   $: isFull = $state.value !== 'partial'
   $: onServer = $state.value === 'serverRendered'
-  $: breadcrumbs, send({type: 'RESET'})
+  $: breadcrumbs, send({ type: 'RESET' })
 
   if (loadJs) {
     onMount(() => send('MOUNTED'))
@@ -119,7 +119,8 @@
             aria-expanded="false"
             aria-label={showAllBreadCrumbsLabel}
             class="button button--link forward-arrow"
-            on:click={() => send('TOGGLE')}>
+            on:click={() => send('TOGGLE')}
+          >
             ...
           </button>
         {:else if index + 1 < $state.context.breadcrumbsItems.length}

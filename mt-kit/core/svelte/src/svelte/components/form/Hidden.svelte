@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type {ErrorDetail} from '../../../ts/types'
+  import type { ErrorDetail } from '../../../ts/types'
 
   export let value
   export let name: string
@@ -13,4 +13,5 @@
   bind:value
   class:error
   aria-describedby={`${name}-hint ${name}-error`}
-  aria-invalid={!!error} />
+  aria-invalid={!!error}
+/>

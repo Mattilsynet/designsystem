@@ -1,4 +1,4 @@
-import type {ErrorDetail} from './types'
+import type { ErrorDetail } from './types'
 
 export function createInputAriaDescribedby(
   name: string | undefined,
@@ -26,9 +26,11 @@ export function toKebabCase(text: string): string {
 }
 
 export function displayDataTime(lang: string, isoDate: string): string {
-  return new Intl.DateTimeFormat(lang, {day: '2-digit', month: '2-digit', year: 'numeric'}).format(
-    new Date(isoDate)
-  )
+  return new Intl.DateTimeFormat(lang, {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric'
+  }).format(new Date(isoDate))
 }
 
 interface CompareDates {
@@ -40,9 +42,11 @@ interface CompareDates {
 }
 
 function format(date: Date, lang: string) {
-  return new Intl.DateTimeFormat(lang, {day: '2-digit', month: '2-digit', year: 'numeric'}).format(
-    date
-  )
+  return new Intl.DateTimeFormat(lang, {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric'
+  }).format(date)
 }
 
 function isAfter(date: Date, dateToCompare: Date): boolean {
@@ -59,7 +63,7 @@ export function compareDates({
   publishedFromLabel,
   professionallyUpdated,
   professionallyUpdatedLabel
-}: CompareDates): {date: string; iso?: string; label?: string} | null {
+}: CompareDates): { date: string; iso?: string; label?: string } | null {
   const publishFromDate = publishFrom ? new Date(publishFrom) : null
   const professionallyUpdatedDate = professionallyUpdated ? new Date(professionallyUpdated) : null
   if (!!publishFromDate && !!professionallyUpdatedDate) {

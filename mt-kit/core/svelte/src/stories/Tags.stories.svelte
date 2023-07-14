@@ -1,19 +1,19 @@
 <script lang="ts">
-  import {Meta, Story} from '@storybook/addon-svelte-csf'
+  import { Meta, Story } from '@storybook/addon-svelte-csf'
   import Tags from '../../src/svelte/components/Tags.svelte'
-  import {wrapInShadowDom} from './storybook-utils/utils'
+  import { wrapInShadowDom } from './storybook-utils/utils'
 
   let closableTags = [
-    {text: 'Sverige', ariaLabel: 'Fjern Sverige fra listen'},
-    {text: 'Norge', ariaLabel: 'Fjern Norge fra listen'},
-    {text: 'Finland', ariaLabel: 'Fjern Finland fra listen'}
+    { text: 'Sverige', ariaLabel: 'Fjern Sverige fra listen' },
+    { text: 'Norge', ariaLabel: 'Fjern Norge fra listen' },
+    { text: 'Finland', ariaLabel: 'Fjern Finland fra listen' }
   ]
 
   function reset() {
     closableTags = [
-      {text: 'Sverige', ariaLabel: 'Fjern Sverige fra listen'},
-      {text: 'Norge', ariaLabel: 'Fjern Norge fra listen'},
-      {text: 'Finland', ariaLabel: 'Fjern Finland fra listen'}
+      { text: 'Sverige', ariaLabel: 'Fjern Sverige fra listen' },
+      { text: 'Norge', ariaLabel: 'Fjern Norge fra listen' },
+      { text: 'Finland', ariaLabel: 'Fjern Finland fra listen' }
     ]
   }
 </script>
@@ -21,20 +21,21 @@
 <Meta
   title="Components/Tags"
   args={{
-    tags: [{text: 'Hund'}, {text: 'Katt'}, {text: 'Ilder'}],
+    tags: [{ text: 'Hund' }, { text: 'Katt' }, { text: 'Ilder' }],
     tagsWithColor: [
-      {text: 'PDF', color: 'lightblue'},
-      {text: 'Altinn', color: 'yellowgreen'},
-      {text: 'Mattilsynets skjematjenester', color: 'beige'}
+      { text: 'PDF', color: 'lightblue' },
+      { text: 'Altinn', color: 'yellowgreen' },
+      { text: 'Mattilsynets skjematjenester', color: 'beige' }
     ],
     isClosable: true,
     disableCss: false
   }}
   argTypes={{
-    tags: {control: 'array'},
-    isClosable: {control: 'boolean'},
-    disableCss: {control: 'boolean'}
-  }} />
+    tags: { control: 'array' },
+    isClosable: { control: 'boolean' },
+    disableCss: { control: 'boolean' }
+  }}
+/>
 
 <Story name="Normal" let:args>
   <div use:wrapInShadowDom={args.disableCss} />

@@ -3,7 +3,7 @@
   export let message: string
   export let hiddenErrorText = 'Feilmelding'
   let className = ''
-  export {className as class}
+  export { className as class }
 </script>
 
 <span id={`${key}-error`} class="form-error {className}">

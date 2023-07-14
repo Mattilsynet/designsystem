@@ -1,8 +1,8 @@
 <script lang="ts">
-  import {Meta, Story} from '@storybook/addon-svelte-csf'
+  import { Meta, Story } from '@storybook/addon-svelte-csf'
   import Published from '../../src/svelte/components/Published.svelte'
   import Status from '../../src/svelte/content/Status.svelte'
-  import {wrapInShadowDom} from './storybook-utils/utils'
+  import { wrapInShadowDom } from './storybook-utils/utils'
 </script>
 
 <Meta
@@ -16,11 +16,12 @@
     disableCss: false
   }}
   argTypes={{
-    intro: {control: 'text'},
-    publishFrom: {control: 'text'},
-    professionallyUpdated: {control: 'text'},
-    disableCss: {control: 'boolean'}
-  }} />
+    intro: { control: 'text' },
+    publishFrom: { control: 'text' },
+    professionallyUpdated: { control: 'text' },
+    disableCss: { control: 'boolean' }
+  }}
+/>
 
 <Story
   name="Normal"
@@ -29,7 +30,8 @@
   let:intro
   let:text
   let:statusTitle
-  let:disableCss>
+  let:disableCss
+>
   <div use:wrapInShadowDom={disableCss} class="container layout-grid layout-grid--column-12">
     <article class="article-page col-3-span-8">
       <h1>Publisert og faglig oppdatert er samme dato</h1>

@@ -22,7 +22,7 @@ export type Action<Node extends HTMLElement> = (
 } | void
 
 export interface Breadcrumbs {
-  items: Array<{url: string; title: string}>
+  items: Array<{ url: string; title: string }>
   ariaLabel?: string
   showAllAriaLabel?: string
   homeLabel?: string

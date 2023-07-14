@@ -3,23 +3,23 @@
 </script>
 
 <script lang="ts">
-  import {useMachine} from '@xstate/svelte'
-  import {onMount} from 'svelte'
-  import {slide} from 'svelte/transition'
-  import {clickOutside} from '../../ts/click-outside'
-  import {createToggleMachine} from '../../ts/toggle-machine'
+  import { useMachine } from '@xstate/svelte'
+  import { onMount } from 'svelte'
+  import { slide } from 'svelte/transition'
+  import { clickOutside } from '../../ts/click-outside'
+  import { createToggleMachine } from '../../ts/toggle-machine'
 
   export let title = ''
   const bodyId = `ui-dropdown-${counter++}`
   export let loadJs = false
   export let titleId = `${bodyId}-title`
   let className = ''
-  export {className as class}
+  export { className as class }
 
   const LINK_TAG: Readonly<string> = 'A'
 
   const DropdownMachine = createToggleMachine('dropdown')
-  const {state, send} = useMachine(DropdownMachine)
+  const { state, send } = useMachine(DropdownMachine)
   $: isOpen = $state.context.isOpen
   $: onServer = $state.value === 'serverRendered'
 
@@ -51,7 +51,8 @@
       aria-haspopup="true"
       aria-expanded={isOpen}
       aria-controls={bodyId}
-      on:click={() => send('TOGGLE')}>
+      on:click={() => send('TOGGLE')}
+    >
       {@html title}
     </button>
     <div
@@ -59,8 +60,9 @@
       id={bodyId}
       use:clickOutside={titleId}
       on:click={handleClick}
-      on:clickOutside={() => isOpen && send('TOGGLE')}>
-      <div in:slide={{duration: 300}}>
+      on:clickOutside={() => isOpen && send('TOGGLE')}
+    >
+      <div in:slide={{ duration: 300 }}>
         <slot />
       </div>
     </div>

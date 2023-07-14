@@ -7,18 +7,22 @@
 
   function setInProgress(e) {
     if (inProgress) {
-      e.preventDefault();
+      e.preventDefault()
     } else {
       inProgress = true
     }
   }
 </script>
 
-<button on:click={setInProgress} class={`button button--spinner--${spinnerPlacement === "end" ? 'end' : 'start'} ${btnClassNames}`}>
-    <span
-      role="status"
-      aria-live="assertive"
-      class:spinner={inProgress}
-      aria-label={inProgress ? formInProgressAriaLabel : ''} />
+<button
+  on:click={setInProgress}
+  class={`button button--spinner--${spinnerPlacement === 'end' ? 'end' : 'start'} ${btnClassNames}`}
+>
+  <span
+    role="status"
+    aria-live="assertive"
+    class:spinner={inProgress}
+    aria-label={inProgress ? formInProgressAriaLabel : ''}
+  />
   <slot />
 </button>

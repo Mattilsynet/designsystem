@@ -14,7 +14,8 @@
   class="{className} {fieldsetErrorClass}"
   aria-invalid={!!error}
   aria-describedby={inputErrorId}
-  data-testid="fieldset">
+  data-testid="fieldset"
+>
   <legend class={legendClass}>
     {legend}
   </legend>

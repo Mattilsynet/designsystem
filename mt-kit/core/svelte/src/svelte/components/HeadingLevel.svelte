@@ -1,9 +1,9 @@
 <script lang="ts">
   export let headingLevel: 1 | 2 | 3 | 4 | 5 | 6 = 1
   let className = undefined
-  export {className as class}
+  export { className as class }
   let idPassed = undefined
-  export {idPassed as id}
+  export { idPassed as id }
 </script>
 
 {#if headingLevel === 1}

@@ -1,7 +1,7 @@
 <script lang="ts">
-  import {createEventDispatcher} from 'svelte'
-  import type {Chapter, ChapterChangeDetails} from '../../ts/types'
-  import {toKebabCase} from '../../ts/utils'
+  import { createEventDispatcher } from 'svelte'
+  import type { Chapter, ChapterChangeDetails } from '../../ts/types'
+  import { toKebabCase } from '../../ts/utils'
   import ChapterMenuSubChapter from './ChapterMenuSubChapter.svelte'
 
   export let chapters: Array<Chapter>
@@ -12,7 +12,7 @@
   export let subChapterToggleAriaLabel = 'toggle'
   export let loadJs = true
 
-  const dispatch = createEventDispatcher<{chapterChange: ChapterChangeDetails}>()
+  const dispatch = createEventDispatcher<{ chapterChange: ChapterChangeDetails }>()
 </script>
 
 <nav class="chapter-menu" aria-labelledby="chapter-menu-title">
@@ -23,9 +23,10 @@
       {@const chapterIndex = index + startIndex}
       <li class="chapter-menu--chapter-wrapper">
         <a
-          on:click|preventDefault={dispatch('chapterChange', {index: chapter.index})}
+          on:click|preventDefault={dispatch('chapterChange', { index: chapter.index })}
           href={chapter.url}
-          aria-current={chapterIndex === currentChapterNumber ? 'page' : undefined}>
+          aria-current={chapterIndex === currentChapterNumber ? 'page' : undefined}
+        >
           {#if showChapterNumbers && chapterIndex > 0}
             {index + startIndex}.
           {/if}
@@ -37,7 +38,8 @@
           {loadJs}
           ariaLabel={subChapterToggleAriaLabel}
           parentIndex={index + startIndex}
-          subChapters={chapter.subChapters} />
+          subChapters={chapter.subChapters}
+        />
       </li>
     {/each}
   </ol>

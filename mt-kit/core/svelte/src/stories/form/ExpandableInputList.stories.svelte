@@ -1,7 +1,7 @@
 <script lang="ts">
-  import {Meta, Story} from '@storybook/addon-svelte-csf'
+  import { Meta, Story } from '@storybook/addon-svelte-csf'
   import ExpandableInputList from '../../../src/svelte/components/form/ExpandableInputList.svelte'
-  import {wrapInShadowDom} from '../storybook-utils/utils'
+  import { wrapInShadowDom } from '../storybook-utils/utils'
 
   let inputList = [
     {
@@ -66,14 +66,14 @@
         return input
       }
       return !isNaN(values[input.name])
-        ? {...input, error: undefined}
-        : {...input, error: {key: input.name, message: 'Vennligst benytt tall'}}
+        ? { ...input, error: undefined }
+        : { ...input, error: { key: input.name, message: 'Vennligst benytt tall' } }
     })
     const isValid = inputList.some(
       input => values[input.name] !== undefined && values[input.name] !== ''
     )
     if (!isValid) {
-      error = [{key: fieldSetId, message: 'Vennligs fyll inn antall dyr'}]
+      error = [{ key: fieldSetId, message: 'Vennligs fyll inn antall dyr' }]
     } else {
       error = undefined
       inputList = inputList
@@ -94,15 +94,16 @@
     disableCss: false
   }}
   argTypes={{
-    fieldSetLabel: {control: 'text'},
-    helpText: {control: 'text'},
-    expandableAriaLabel: {control: 'text'},
-    expandableText: {control: 'text'},
-    collapsableText: {control: 'text'},
-    inputList: {control: 'object'},
-    disableJs: {control: 'boolean'},
-    disableCss: {control: 'boolean'}
-  }} />
+    fieldSetLabel: { control: 'text' },
+    helpText: { control: 'text' },
+    expandableAriaLabel: { control: 'text' },
+    expandableText: { control: 'text' },
+    collapsableText: { control: 'text' },
+    inputList: { control: 'object' },
+    disableJs: { control: 'boolean' },
+    disableCss: { control: 'boolean' }
+  }}
+/>
 
 <Story name="Normal" let:disableCss let:args>
   <main use:wrapInShadowDom={disableCss}>
@@ -118,7 +119,8 @@
         collapsableText={args.collapsableText}
         expandableAriaLabel={args.expandableAriaLabel}
         bind:values
-        loadJs={!args.disableJs} />
+        loadJs={!args.disableJs}
+      />
       <button type="submit" class="button button--primary">Gå videre</button>
     </form>
   </main>

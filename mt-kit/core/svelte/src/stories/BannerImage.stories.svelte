@@ -1,7 +1,7 @@
 <script lang="ts">
-  import {Meta, Story} from '@storybook/addon-svelte-csf'
+  import { Meta, Story } from '@storybook/addon-svelte-csf'
   import imageFile from './assets/testbilde.jpg'
-  import {wrapInShadowDom} from './storybook-utils/utils'
+  import { wrapInShadowDom } from './storybook-utils/utils'
 </script>
 
 <Meta
@@ -11,9 +11,10 @@
     disableCss: false
   }}
   argTypes={{
-    bannerImage: {control: 'file'},
-    disableCss: {control: 'boolean'}
-  }} />
+    bannerImage: { control: 'file' },
+    disableCss: { control: 'boolean' }
+  }}
+/>
 
 <Story name="Normal" let:bannerImage let:disableCss>
   <div use:wrapInShadowDom={disableCss}>

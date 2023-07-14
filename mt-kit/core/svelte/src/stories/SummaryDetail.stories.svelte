@@ -1,6 +1,6 @@
 <script lang="ts">
-  import {splitIntoParagraphs} from './storybook-utils/utils'
-  import {Meta, Story} from '@storybook/addon-svelte-csf'
+  import { splitIntoParagraphs } from './storybook-utils/utils'
+  import { Meta, Story } from '@storybook/addon-svelte-csf'
   import SummaryDetail from '../../src/svelte/components/SummaryDetail.svelte'
 </script>
 
@@ -14,9 +14,10 @@
     )
   }}
   argTypes={{
-    title: {control: 'text'},
-    content: {control: 'text'}
-  }} />
+    title: { control: 'text' },
+    content: { control: 'text' }
+  }}
+/>
 
 <Story name="Normal" let:args>
   <p>Oppsummering og detaljer</p>

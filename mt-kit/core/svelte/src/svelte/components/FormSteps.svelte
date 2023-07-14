@@ -11,7 +11,8 @@
   aria-valuemin="1"
   aria-valuemax={labels.length}
   aria-valuenow={completed + 1}
-  aria-valuetext={ariaValueText}>
+  aria-valuetext={ariaValueText}
+>
   <ol class="steps" aria-hidden="true">
     {#each labels as label, index (label)}
       <li class:steps__complete={index < completed} class:steps__current={index === completed}>

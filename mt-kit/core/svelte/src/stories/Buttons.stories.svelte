@@ -1,9 +1,9 @@
 <script lang="ts">
-  import {Meta, Story} from '@storybook/addon-svelte-csf'
-  import {action} from '@storybook/addon-actions'
+  import { Meta, Story } from '@storybook/addon-svelte-csf'
+  import { action } from '@storybook/addon-actions'
   import FileUploadButton from '../../src/svelte/components/FileUploadButton.svelte'
   import ButtonSpinner from '../../src/svelte/components/ButtonSpinner.svelte'
-  import {wrapInShadowDom} from './storybook-utils/utils'
+  import { wrapInShadowDom } from './storybook-utils/utils'
 </script>
 
 <Meta
@@ -18,13 +18,14 @@
     disableCss: false
   }}
   argTypes={{
-    primary: {control: 'text'},
-    disabled: {control: 'boolean'},
-    disableJs: {control: 'boolean'},
-    disableCss: {control: 'boolean'},
-    uploadRequired: {control: 'boolean'},
-    removeFile: {action: 'removeFile'}
-  }} />
+    primary: { control: 'text' },
+    disabled: { control: 'boolean' },
+    disableJs: { control: 'boolean' },
+    disableCss: { control: 'boolean' },
+    uploadRequired: { control: 'boolean' },
+    removeFile: { action: 'removeFile' }
+  }}
+/>
 
 <Story name="Normal" let:primary let:primaryLong let:disableCss let:disabled let:secondary>
   <div use:wrapInShadowDom={disableCss}>
@@ -58,10 +59,11 @@
 
 <Story
   name="FileUpload"
-  parameters={{xstate: true}}
+  parameters={{ xstate: true }}
   let:disableJs
   let:disableCss
-  let:uploadRequired>
+  let:uploadRequired
+>
   <div use:wrapInShadowDom={disableCss}>
     <FileUploadButton
       name="file"
@@ -70,8 +72,10 @@
       loadJs={!disableJs}
       multiple={true}
       isRequired={uploadRequired}
-      on:removeFile={action('removeFile')} />
-  </div></Story>
+      on:removeFile={action('removeFile')}
+    />
+  </div></Story
+>
 
 <Story name="Loading" let:disableCss>
   <div use:wrapInShadowDom={disableCss}>
@@ -80,13 +84,15 @@
     <ButtonSpinner
       formInProgressAriaLabel="Sender inn skjema, venter på svar."
       btnClassNames="button--primary"
-      spinnerPlacement="start">
+      spinnerPlacement="start"
+    >
       Spinner placement start
     </ButtonSpinner><br />
     <ButtonSpinner
       formInProgressAriaLabel="Sender inn skjema, venter på svar."
       btnClassNames="button--primary"
-      spinnerPlacement="end">
+      spinnerPlacement="end"
+    >
       Spinner placement end
     </ButtonSpinner>
 
@@ -94,7 +100,8 @@
     <ButtonSpinner
       formInProgressAriaLabel="Sender inn skjema, venter på svar."
       btnClassNames="button--secondary"
-      spinnerPlacement="end">
+      spinnerPlacement="end"
+    >
       Send in skjema
     </ButtonSpinner>
   </div>

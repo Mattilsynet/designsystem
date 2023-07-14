@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {Meta, Story} from '@storybook/addon-svelte-csf'
+  import { Meta, Story } from '@storybook/addon-svelte-csf'
   import FormSteps from '../../src/svelte/components/FormSteps.svelte'
 
   const steps = ['Om bekymringen', 'Info om deg', 'Oppsummering', 'Bekreftelse']
@@ -11,8 +11,9 @@
     completed: 2
   }}
   argTypes={{
-    completed: {control: 'number'}
-  }} />
+    completed: { control: 'number' }
+  }}
+/>
 
 <Story name="Normal" let:completed>
   <FormSteps
@@ -20,5 +21,6 @@
     currentText="Gjeldene side"
     labels={steps}
     {completed}
-    ariaValueText={`${steps[completed]}: Steg ${completed + 1} av ${steps.length}`} />
+    ariaValueText={`${steps[completed]}: Steg ${completed + 1} av ${steps.length}`}
+  />
 </Story>

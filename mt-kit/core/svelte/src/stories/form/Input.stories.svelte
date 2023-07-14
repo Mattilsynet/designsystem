@@ -1,7 +1,7 @@
 <script lang="ts">
-  import {Meta, Story} from '@storybook/addon-svelte-csf'
+  import { Meta, Story } from '@storybook/addon-svelte-csf'
   import TextInput from '../../../src/svelte/components/form/TextInput.svelte'
-  import {wrapInShadowDom} from '../storybook-utils/utils'
+  import { wrapInShadowDom } from '../storybook-utils/utils'
   import TextInputHorizontal from '../../../src/svelte/components/form/TextInputHorizontal.svelte'
 </script>
 
@@ -33,16 +33,17 @@
     disableCss: false
   }}
   argTypes={{
-    label: {control: 'text'},
-    helpText: {control: 'text'},
-    isRequired: {control: 'boolean'},
-    textOptional: {control: 'text'},
-    errorMessage: {control: 'text'},
-    tooManyCharactersErrorText: {control: 'text'},
-    horizontal: {control: 'object'},
-    countCharactersLeftLabel: {control: 'text'},
-    disableCss: {control: 'boolean'}
-  }} />
+    label: { control: 'text' },
+    helpText: { control: 'text' },
+    isRequired: { control: 'boolean' },
+    textOptional: { control: 'text' },
+    errorMessage: { control: 'text' },
+    tooManyCharactersErrorText: { control: 'text' },
+    horizontal: { control: 'object' },
+    countCharactersLeftLabel: { control: 'text' },
+    disableCss: { control: 'boolean' }
+  }}
+/>
 
 <Story name="Input" let:label let:helpText let:disableCss let:args>
   <div use:wrapInShadowDom={disableCss}>
@@ -55,7 +56,8 @@
         inputmode="text"
         isRequired={args.isRequired}
         placeholder=""
-        autocomplete="" />
+        autocomplete=""
+      />
 
       <TextInput
         name="inputfield2"
@@ -65,7 +67,8 @@
         inputmode="text"
         isRequired={args.isRequired}
         placeholder="Skriv noe"
-        autocomplete="" />
+        autocomplete=""
+      />
 
       <TextInput
         name="inputfield3"
@@ -77,7 +80,8 @@
         placeholder=""
         autocomplete=""
         tooManyCharactersErrorText={args.tooManyCharactersErrorText}
-        maxlength={30} />
+        maxlength={30}
+      />
 
       <h2>Horisontal layout</h2>
       <div class="collapsable-input-list-grid">
@@ -92,7 +96,8 @@
             maxlength={horizontal.maxLength}
             placeholder=""
             autocomplete=""
-            inputClass="form-field--small form-field--small-width" />
+            inputClass="form-field--small form-field--small-width"
+          />
         {/each}
       </div>
     </form>
@@ -106,7 +111,8 @@
   let:errorMessage
   let:disableCss
   let:args
-  let:countCharactersLeftLabel>
+  let:countCharactersLeftLabel
+>
   <div use:wrapInShadowDom={disableCss}>
     <form class="form-layout">
       <TextInput
@@ -114,12 +120,13 @@
         {label}
         {helpText}
         countCharactersLeftLabel="karakterer igjen"
-        error={{key: 'inputfield', message: errorMessage}}
+        error={{ key: 'inputfield', message: errorMessage }}
         textOptional={args.textOptional}
         inputmode="text"
         maxlength={10}
         placeholder=""
-        autocomplete="" />
+        autocomplete=""
+      />
       <div class="collapsable-input-list-grid">
         {#each args.horizontal as horizontal, index}
           <TextInputHorizontal
@@ -128,11 +135,12 @@
             textOptional={horizontal.textOptional}
             helpText={horizontal.helpText}
             inputmode="text"
-            error={{key: 'inputfield', message: 'Feltet er påkrevd'}}
+            error={{ key: 'inputfield', message: 'Feltet er påkrevd' }}
             isRequired={horizontal.isRequired}
             placeholder=""
             autocomplete=""
-            inputClass="form-field--small form-field--small-width" />
+            inputClass="form-field--small form-field--small-width"
+          />
         {/each}
       </div>
     </form>

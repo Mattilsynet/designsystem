@@ -1,22 +1,22 @@
 <script lang="ts">
   import InputError from './InputErrorMessage.svelte'
-  import {toKebabCase, createInputAriaDescribedby} from '../../../ts/utils'
-  import type {ErrorDetail} from '../../../ts/types'
-  import {beforeUpdate} from 'svelte'
+  import { toKebabCase, createInputAriaDescribedby } from '../../../ts/utils'
+  import type { ErrorDetail } from '../../../ts/types'
+  import { beforeUpdate } from 'svelte'
 
   export let value
   export let name: string
   export let label: string
   export let helpText: string | undefined
   export let error: ErrorDetail | undefined
-  export let options: Array<{value: string; text: string}> = []
+  export let options: Array<{ value: string; text: string }> = []
   export let isRequired: boolean | undefined = undefined
   export let textOptional = 'valgfritt felt'
   export let hiddenErrorText: string | undefined
   export let loadJs = false
   export let theme: 'radio' | 'button' = 'radio'
   let className = ''
-  export {className as class}
+  export { className as class }
   let isInitialized = false
 
   beforeUpdate(() => {
@@ -32,7 +32,8 @@
   aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)}
   class="form-fieldset {theme === 'radio' ? 'radio' : ''} {theme === 'button'
     ? 'button-radio'
-    : ''} {className}">
+    : ''} {className}"
+>
   <legend class="form-legend">
     {label}
     {#if !isRequired}
@@ -51,7 +52,7 @@
   {/if}
 
   {#each options as radio (radio.value)}
-    <div class="form-control ">
+    <div class="form-control">
       <input
         type="radio"
         id={toKebabCase(radio.value)}
@@ -62,10 +63,12 @@
         value={radio.value}
         aria-required={isRequired}
         aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)}
-        checked={value === radio.value} />
+        checked={value === radio.value}
+      />
       <label
         class="form-label {theme === 'button' ? 'button button--secondary' : ''}"
-        for={toKebabCase(radio.value)}>
+        for={toKebabCase(radio.value)}
+      >
         {radio.text}
       </label>
     </div>

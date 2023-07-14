@@ -1,7 +1,7 @@
 <script lang="ts">
-  import {Meta, Story} from '@storybook/addon-svelte-csf'
+  import { Meta, Story } from '@storybook/addon-svelte-csf'
   import TextArea from '../../../src/svelte/components/form/TextArea.svelte'
-  import {wrapInShadowDom} from '../storybook-utils/utils'
+  import { wrapInShadowDom } from '../storybook-utils/utils'
 </script>
 
 <Meta
@@ -17,14 +17,15 @@
     tooManyCharactersErrorText: 'For lang tekst'
   }}
   argTypes={{
-    label: {control: 'text'},
-    helpText: {control: 'text'},
-    countCharactersLeft: {control: 'text'},
-    countCharactersTooManyLabel: {control: 'text'},
-    tooManyCharactersErrorText: {control: 'text'},
-    errorMessage: {control: 'text'},
-    disableCss: {control: 'boolean'}
-  }} />
+    label: { control: 'text' },
+    helpText: { control: 'text' },
+    countCharactersLeft: { control: 'text' },
+    countCharactersTooManyLabel: { control: 'text' },
+    tooManyCharactersErrorText: { control: 'text' },
+    errorMessage: { control: 'text' },
+    disableCss: { control: 'boolean' }
+  }}
+/>
 
 <Story
   name="TextArea normal"
@@ -33,7 +34,8 @@
   let:disableCss
   let:countCharactersLeftLabel
   let:countCharactersTooManyLabel
-  let:tooManyCharactersErrorText>
+  let:tooManyCharactersErrorText
+>
   <div use:wrapInShadowDom={disableCss}>
     <form class="form-layout">
       <TextArea
@@ -47,7 +49,8 @@
         textOptional="valgfritt felt"
         inputmode="text"
         rows="3"
-        cols="5" />
+        cols="5"
+      />
 
       <TextArea
         name="email2"
@@ -62,7 +65,8 @@
         isRequired={true}
         placeholder="Skriv inn tekst her"
         rows="3"
-        cols="5" />
+        cols="5"
+      />
     </form>
   </div>
 </Story>
@@ -74,12 +78,13 @@
         name="email"
         {label}
         {helpText}
-        error={{key: 'email', message: errorMessage}}
+        error={{ key: 'email', message: errorMessage }}
         textOptional="valgfritt felt"
         inputmode="text"
         maxlength="100"
         rows="3"
-        cols="5" />
+        cols="5"
+      />
     </form>
   </div>
 </Story>

@@ -3,9 +3,9 @@
 </script>
 
 <script lang="ts">
-  import {onMount} from 'svelte'
-  import {fly} from 'svelte/transition'
-  import type {ErrorDetail, MultiSelectOption} from '../../../ts/types'
+  import { onMount } from 'svelte'
+  import { fly } from 'svelte/transition'
+  import type { ErrorDetail, MultiSelectOption } from '../../../ts/types'
   import Label from './Label.svelte'
   import InputError from './InputErrorMessage.svelte'
 
@@ -45,7 +45,7 @@
     if (values) {
       selected = allOptions.reduce((obj, option) => {
         if (values.includes(option.value)) {
-          return {...obj, [option.value]: option}
+          return { ...obj, [option.value]: option }
         }
         return obj
       }, {})
@@ -72,7 +72,7 @@
 
   function remove(value: string): void {
     if (!readonly) {
-      const {[value]: val, ...rest} = selected
+      const { [value]: val, ...rest } = selected
       selected = rest
     }
   }
@@ -91,8 +91,8 @@
   }
 
   function maintainScrollVisibility(activeElement: HTMLElement, scrollParent: HTMLElement): void {
-    const {offsetHeight, offsetTop} = activeElement
-    const {offsetHeight: parentOffsetHeight, scrollTop} = scrollParent
+    const { offsetHeight, offsetTop } = activeElement
+    const { offsetHeight: parentOffsetHeight, scrollTop } = scrollParent
 
     const isAbove = offsetTop < scrollTop
     const isBelow = offsetTop + offsetHeight > scrollTop + parentOffsetHeight
@@ -202,13 +202,15 @@
 <div
   id="{selectId}-selected-label"
   class="text-small token-label"
-  class:hidden={!Object.values(selected).length}>
+  class:hidden={!Object.values(selected).length}
+>
   {tagsLabel}
 </div>
 <ul
   id="{selectId}-selected"
   class="token-wrapper list-unstyled"
-  aria-labelledby="{selectId}-selected-label">
+  aria-labelledby="{selectId}-selected-label"
+>
   {#each Object.values(selected) as selectedOption, index}
     <li>
       <button
@@ -218,7 +220,8 @@
         data-id={selectedOption.value}
         aria-label={selectedOption.removeAriaLabel}
         on:keydown={e => handleRemoveItemKeyDown(e, selectedOption.value)}
-        on:click|preventDefault={e => handleRemoveItem(e, selectedOption.value)}>
+        on:click|preventDefault={e => handleRemoveItem(e, selectedOption.value)}
+      >
         <span>{selectedOption.text}</span>
       </button>
     </li>
@@ -256,7 +259,8 @@
         aria-activedescendant={activeOption
           ? `${selectId}-${activeOption.value}-${activeOptionIndex}`
           : undefined}
-        {placeholder} />
+        {placeholder}
+      />
       <span class="down-arrow" aria-hidden="true" />
     {/if}
   </div>
@@ -268,9 +272,10 @@
     aria-multiselectable="true"
     bind:this={listBox}
     class:hidden={!showOptions}
-    transition:fly|local={{duration: 200, y: 5}}
+    transition:fly|local={{ duration: 200, y: 5 }}
     on:mousedown|preventDefault
-    on:mouseup|preventDefault={handleOptionMouseup}>
+    on:mouseup|preventDefault={handleOptionMouseup}
+  >
     {#each filtered as option, index}
       <li
         id="{selectId}-{option.value}-{index}"
@@ -281,7 +286,8 @@
         class:selected={selected[option.value]}
         class:active={activeOption === option}
         aria-selected={!!selected[option.value]}
-        data-value={option.value}>
+        data-value={option.value}
+      >
         {option.text}
       </li>
     {/each}

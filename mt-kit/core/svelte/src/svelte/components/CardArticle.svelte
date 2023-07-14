@@ -1,6 +1,6 @@
 <script lang="ts">
   import HeadingLevel from './HeadingLevel.svelte'
-  import {mapRelExternal} from '../../ts/utils'
+  import { mapRelExternal } from '../../ts/utils'
 
   export let headingId: string
   export let title: string
@@ -18,7 +18,8 @@
   <HeadingLevel
     id={headingId}
     class="title {iconClass} {headerTag === 'h2' ? 'h3' : ''}"
-    headingLevel={+headerTag.charAt(1)}>
+    headingLevel={+headerTag.charAt(1)}
+  >
     {@html title}
   </HeadingLevel>
 
@@ -36,10 +37,7 @@
 
   {#if linkUrl && linkText}
     <p>
-      <a
-        href={linkUrl}
-        rel={mapRelExternal(linkUrl)}
-        class="link--transport">
+      <a href={linkUrl} rel={mapRelExternal(linkUrl)} class="link--transport">
         {@html linkText}
       </a>
     </p>

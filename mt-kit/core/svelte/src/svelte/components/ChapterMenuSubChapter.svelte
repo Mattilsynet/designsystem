@@ -1,21 +1,21 @@
 <script lang="ts">
-  import type {Chapter} from '../../ts/types'
-  import {useMachine} from '@xstate/svelte'
-  import {onMount} from 'svelte'
-  import {slide} from 'svelte/transition'
-  import {createToggleMachine} from '../../ts/toggle-machine'
+  import type { Chapter } from '../../ts/types'
+  import { useMachine } from '@xstate/svelte'
+  import { onMount } from 'svelte'
+  import { slide } from 'svelte/transition'
+  import { createToggleMachine } from '../../ts/toggle-machine'
   export let showChapterNumbers = false
   export let parentIndex = 0
   export let subChapters: Array<Chapter> = []
   export let ariaLabel = 'toggle'
   export let loadJs = true
   let componentId = ''
-  export {componentId as id}
+  export { componentId as id }
 
   const SLIDE_DURATION: Readonly<number> = 500
 
   const subChapterMachine = createToggleMachine(`ChapterMenuSubSChapterMachine-${parentIndex}`)
-  const {state, send} = useMachine(subChapterMachine)
+  const { state, send } = useMachine(subChapterMachine)
 
   $: isOpen = $state.context.isOpen
   $: onServer = $state.value === 'serverRendered'
@@ -35,10 +35,15 @@
       aria-expanded={isOpen}
       on:click={() => {
         send('TOGGLE')
-      }} />
+      }}
+    />
   {/if}
   {#if isOpen || onServer}
-    <ul transition:slide={{duration: SLIDE_DURATION}} id={componentId} class="list-unstyled m-t-0">
+    <ul
+      transition:slide={{ duration: SLIDE_DURATION }}
+      id={componentId}
+      class="list-unstyled m-t-0"
+    >
       {#each subChapters || [] as subChapter, subIndex}
         <li class="layout-flex layout-flex--no-wrap">
           <a href={subChapter.url} class="chapter-menu--subchapter">

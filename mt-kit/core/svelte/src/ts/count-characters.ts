@@ -1,4 +1,4 @@
-import type {Action, CountCharsParams, ErrorDetail} from './types'
+import type { Action, CountCharsParams, ErrorDetail } from './types'
 
 export function errorOnTooManyCharacters(
   e: InputEvent,
@@ -10,7 +10,7 @@ export function errorOnTooManyCharacters(
     return
   }
   if (countCharsParams.maxlength < (e.target as HTMLInputElement).value.length) {
-    return {key: name, message: errorText}
+    return { key: name, message: errorText }
   } else {
     return
   }

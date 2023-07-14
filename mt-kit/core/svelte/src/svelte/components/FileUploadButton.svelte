@@ -1,9 +1,9 @@
 <script lang="ts">
-  import {onMount, createEventDispatcher} from 'svelte'
-  import {useMachine} from '@xstate/svelte'
-  import {createMachine, assign} from 'xstate'
-  import type {ErrorDetail} from '../../ts/types'
-  import {createInputAriaDescribedby} from '../../ts/utils'
+  import { onMount, createEventDispatcher } from 'svelte'
+  import { useMachine } from '@xstate/svelte'
+  import { createMachine, assign } from 'xstate'
+  import type { ErrorDetail } from '../../ts/types'
+  import { createInputAriaDescribedby } from '../../ts/utils'
 
   export let loadJs = true
   export let id: string
@@ -21,15 +21,15 @@
     fileNames: Array<string>
   }
 
-  type MountedEvent = {type: 'MOUNTED'}
-  type FileSelectedEvent = {type: 'FILE_SELECTED'; fileNames: Array<string>}
-  type FileRemoveEvent = {type: 'FILE_REMOVE'; fileName: string}
+  type MountedEvent = { type: 'MOUNTED' }
+  type FileSelectedEvent = { type: 'FILE_SELECTED'; fileNames: Array<string> }
+  type FileRemoveEvent = { type: 'FILE_REMOVE'; fileName: string }
   type FileUploadEvent = MountedEvent | FileSelectedEvent | FileRemoveEvent
 
   type FileUploadButtonState =
-    | {value: 'serverRendered'; context: Context}
-    | {value: 'empty'; context: Context}
-    | {value: 'selected'; context: Context}
+    | { value: 'serverRendered'; context: Context }
+    | { value: 'empty'; context: Context }
+    | { value: 'selected'; context: Context }
 
   const disclosureMachine = createMachine<Context, FileUploadEvent, FileUploadButtonState>({
     predictableActionArguments: true,
@@ -40,10 +40,10 @@
     },
     states: {
       serverRendered: {
-        on: {MOUNTED: 'empty'}
+        on: { MOUNTED: 'empty' }
       },
       empty: {
-        on: {FILE_SELECTED: 'selected'}
+        on: { FILE_SELECTED: 'selected' }
       },
       selected: {
         entry: assign<Context, FileSelectedEvent | FileRemoveEvent>({
@@ -70,7 +70,7 @@
               actions: (context, event) => {
                 removeFileFromFileList(event.fileName)
                 fileInputElement.focus()
-                dispatch('removeFile', {fileName: event.fileName})
+                dispatch('removeFile', { fileName: event.fileName })
               }
             },
             {
@@ -78,7 +78,7 @@
               actions: (context, event) => {
                 removeFileFromFileList(event.fileName)
                 fileInputElement.focus()
-                dispatch('removeFile', {fileName: event.fileName})
+                dispatch('removeFile', { fileName: event.fileName })
               }
             }
           ]
@@ -99,7 +99,7 @@
     return [...el.files].map(file => file.name)
   }
 
-  const {state, send} = useMachine(disclosureMachine)
+  const { state, send } = useMachine(disclosureMachine)
 
   $: onServer = $state.value === 'serverRendered'
 
@@ -130,8 +130,9 @@
   class:inclusively-hidden-initial={!onServer}
   aria-describedby={createInputAriaDescribedby(name, error)}
   aria-invalid={!!error}
-  on:change={e => send({type: 'FILE_SELECTED', fileNames: getFileNames(e.target)})}
-  aria-required={isRequired || undefined} />
+  on:change={e => send({ type: 'FILE_SELECTED', fileNames: getFileNames(e.target) })}
+  aria-required={isRequired || undefined}
+/>
 
 {#if !onServer}
   <label class="button button--secondary" style="width: 220px;" for={id}>
@@ -145,17 +146,20 @@
           <span class="file-button__file-name">{fileName}</span>
           <button
             class="button button--search-clear file-button__file-remove"
-            on:click={() => send({type: 'FILE_REMOVE', fileName})}>
+            on:click={() => send({ type: 'FILE_REMOVE', fileName })}
+          >
             <span class="inclusively-hidden">Slett vedlegget: "{fileName}"</span>
             <svg
               aria-hidden="true"
               width="20"
               height="20"
               fill="none"
-              xmlns="http://www.w3.org/2000/svg">
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <path
                 d="M10 0C4.47 0 0 4.47 0 10s4.47 10 10 10 10-4.47 10-10S15.53 0 10 0Zm5 13.59L13.59 15 10 11.41 6.41 15 5 13.59 8.59 10 5 6.41 6.41 5 10 8.59 13.59 5 15 6.41 11.41 10 15 13.59Z"
-                fill="#464545" />
+                fill="#464545"
+              />
             </svg>
           </button>
         </li>

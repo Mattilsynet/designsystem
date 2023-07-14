@@ -25,7 +25,8 @@
     tabindex="0"
     aria-hidden={!isOpen}
     bind:this={dialogRef}
-    aria-labelledby={dialogBoxHeadingId}>
+    aria-labelledby={dialogBoxHeadingId}
+  >
     <h2 id={dialogBoxHeadingId} class="h4 dialog-box--title {title ? '' : 'inclusively-hidden'}">
       {title ? title : ariaTitle}
     </h2>
@@ -33,9 +34,10 @@
       id={dialogCloseButtonId}
       data-testid="dialog-box-close"
       type="button"
-      class="button button--link dialog-box--close-button "
+      class="button button--link dialog-box--close-button"
       on:click={handleClose}
-      aria-label={closeBtnAriaLabel} />
+      aria-label={closeBtnAriaLabel}
+    />
 
     <div class="dialog-box--content">
       <slot />

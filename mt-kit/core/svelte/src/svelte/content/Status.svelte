@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {displayDataTime, mapRelExternal} from '../../ts/utils'
+  import { displayDataTime, mapRelExternal } from '../../ts/utils'
   import Published from '../components/Published.svelte'
 
   export let text: string
@@ -10,7 +10,7 @@
   export let linkUrl: string
   export let linkText: string
   let className: string
-  export {className as class}
+  export { className as class }
   export let lang = 'NO-nb'
 
   $: updatedDateLocalized = updatedDate ? displayDataTime(lang, updatedDate) : null

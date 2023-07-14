@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {Meta, Story} from '@storybook/addon-svelte-csf'
+  import { Meta, Story } from '@storybook/addon-svelte-csf'
   import Status from '../../svelte/content/Status.svelte'
 </script>
 
@@ -19,15 +19,16 @@
     disableCss: false
   }}
   argTypes={{
-    title: {control: 'text'},
-    text: {control: 'text'},
-    actionsTakenByMattilsynet: {control: 'text'},
+    title: { control: 'text' },
+    text: { control: 'text' },
+    actionsTakenByMattilsynet: { control: 'text' },
     statusType: 'important',
-    linkUrl: {control: 'text'},
-    linkText: {control: 'text'},
-    linkIsExternal: {control: 'boolean'},
-    disableCss: {control: 'boolean'}
-  }} />
+    linkUrl: { control: 'text' },
+    linkText: { control: 'text' },
+    linkIsExternal: { control: 'boolean' },
+    disableCss: { control: 'boolean' }
+  }}
+/>
 
 <Story
   name="Normal"
@@ -39,7 +40,8 @@
   let:linkIsExternal
   let:disableCss
   let:publishFrom
-  let:professionallyUpdated>
+  let:professionallyUpdated
+>
   <div class="container layout-grid layout-grid--column-12">
     <article class="col-3-span-8">
       <h1>Status med tekst, "hva gjør Mattilsynet" og link</h1>
@@ -50,7 +52,8 @@
         {linkText}
         {linkIsExternal}
         updatedDate={professionallyUpdated}
-        statusType="important">
+        statusType="important"
+      >
         <h2 slot="heading">{title}</h2>
       </Status>
 
