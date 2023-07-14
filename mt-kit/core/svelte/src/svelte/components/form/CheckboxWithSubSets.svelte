@@ -1,11 +1,11 @@
 <script lang="ts">
-  import {slide} from 'svelte/transition'
-  import {onMount} from 'svelte'
-  import type {CheckboxWithSubSectionsOptions} from '../../../ts/types'
-  import {interpolate} from '../../../ts/utils'
+  import { slide } from 'svelte/transition'
+  import { onMount } from 'svelte'
+  import type { CheckboxWithSubSectionsOptions } from '../../../ts/types'
+  import { interpolate } from '../../../ts/utils'
 
   let className = ''
-  export {className as class}
+  export { className as class }
   export let level1Legend: string
   export let variation: 'primary' | 'secondary' = 'primary'
   export let options: CheckboxWithSubSectionsOptions
@@ -31,8 +31,8 @@
         subCategory.checked = false
       })
     }
-    if(options.children?.length > 0) {
-      options.checked = options.children?.filter((s) => s.checked).length === options.children?.length
+    if (options.children?.length > 0) {
+      options.checked = options.children?.filter(s => s.checked).length === options.children?.length
     }
   }
 
@@ -88,7 +88,7 @@
       </label>
     </div>
     {#if (!hasJS || listItem.checked) && listItem.children && listItem.children.length > 0}
-      <fieldset class={fieldsetClass} transition:slide|local={{y: 200, duration: 200}}>
+      <fieldset class={fieldsetClass} transition:slide|local={{ y: 200, duration: 200 }}>
         <legend>
           {interpolate(level2Legend, [listItem.displayName.toLowerCase()])}
         </legend>
