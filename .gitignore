@@ -4,3 +4,4 @@ node_modules
 dist
 *.iml
 /storybook-static
+/mt-kit/core/svelte/storybook-static/
