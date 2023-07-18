@@ -10,9 +10,6 @@
   align-items: stretch;
   flex-wrap: wrap;
 
-  &::not(.readonly):hover {
-    border-bottom-color: hsl(0, 0%, 50%);
-  }
   .actions {
     align-items: center;
     display: flex;
@@ -28,6 +25,9 @@
       border-radius: $border-radius $border-radius 0 0;
       outline: $border-width-large solid var(--color-mt-blue-medium);
       z-index: 1;
+    }
+    &:hover {
+      border-color: var(--color-primary);
     }
   }
 

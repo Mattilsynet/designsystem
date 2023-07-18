@@ -40,6 +40,19 @@
       <h2>Historie</h2>
       <p class="icon--changelog-before p-tb-xxs" />
     </section>
+    <section>
+      <h2>Caret down</h2>
+      <div class="layout-flex layout-flex--no-wrap">
+        <div class="box">
+          <h2 class="h4">Normal</h2>
+          <p class="icon--caret-down-after">Text</p>
+        </div>
+        <div class="box background-primary">
+          <h2 class="h4">On primary</h2>
+          <p class="icon--caret-down-after-on-primary">Text</p>
+        </div>
+      </div>
+    </section>
   </div>
 </Story>
 
@@ -53,5 +66,14 @@
   }
   .icon--search-after {
     margin: 1rem;
+  }
+  .box {
+    padding: var(--spacer-xx-small);
+  }
+  .icon--caret-down-after-on-primary {
+    &:hover {
+      background-color: var(--color-mt-white);
+      color: var(--color-primary);
+    }
   }
 </style>

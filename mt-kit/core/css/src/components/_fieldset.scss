@@ -1,4 +1,5 @@
-@use "../color-tokens" as *;
+@use '../color-tokens' as *;
+@use '../theme' as *;
 
 fieldset {
   display: flex;
@@ -17,18 +18,27 @@ fieldset {
     font-weight: var(--font-weight-bold);
     padding-inline: 0;
 
-    &.border{
+    &.border {
       width: 100%;
       border-bottom: var(--border-width-small) solid $color-secondary;
       padding-bottom: var(--spacer-xx-small);
     }
   }
 
-  .form-control {
-    margin-top: 1rem;
-
-    &.narrow{
+  &.validation {
+    legend {
+      float: left;
+      width: 100%;
       margin-top: 0;
+    }
+  }
+
+  &.fieldset-error {
+    border-radius: $border-radius-small;
+    box-shadow: $error-box-shadow-small;
+
+    @media only screen and (min-width: $breakpoint-large) {
+      box-shadow: $error-box-shadow;
     }
   }
 }

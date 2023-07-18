@@ -8,11 +8,13 @@
   import {useMachine} from '@xstate/svelte'
   import {createMachine, assign} from 'xstate'
   import HeadingLevel from './HeadingLevel.svelte'
+  import {createToggleMachine} from '../../ts/toggle-machine'
 
+  export let id: string | undefined = undefined
   export let loadJs = true
   export let title: string
   export let headerTag: 'h2' | 'h3' | 'h4' | 'h5' | 'h6' = 'h3'
-  export let theme: 'bordered' | 'links' | 'no-border' = 'bordered'
+  export let theme: 'bordered' | 'no-border' = 'bordered'
   export let icon: string | undefined = undefined
   export let headerClass = ''
   export let panelClass = ''
@@ -21,42 +23,8 @@
   let disclosureClass = ''
   export {disclosureClass as class}
 
-  interface DisclosureContext {
-    isOpen: boolean
-    isFirstRenderFinished: boolean
-  }
-
-  type DisclosureEvent = {type: 'MOUNTED'} | {type: 'TOGGLE'}
-
-  type DisclosureState =
-    | {value: 'serverRendered'; context: DisclosureContext}
-    | {value: 'closed'; context: DisclosureContext}
-    | {value: 'open'; context: DisclosureContext}
-
   const bodyId = `ui-disclosure-${counter++}`
-  const disclosureMachine = createMachine<DisclosureContext, DisclosureEvent, DisclosureState>({
-    predictableActionArguments: true,
-    id: 'disclosure',
-    initial: 'serverRendered',
-    context: {
-      isOpen: true,
-      isFirstRenderFinished: false
-    },
-    states: {
-      serverRendered: {
-        on: {MOUNTED: 'closed'}
-      },
-      closed: {
-        entry: assign({isOpen: false}),
-        exit: assign({isFirstRenderFinished: true}),
-        on: {TOGGLE: 'open'}
-      },
-      open: {
-        entry: assign({isOpen: true}),
-        on: {TOGGLE: 'closed'}
-      }
-    }
-  })
+  const disclosureMachine = createToggleMachine('disclosure')
   const {state, send} = useMachine(disclosureMachine)
 
   $: isOpen = $state.context.isOpen
@@ -77,7 +45,7 @@
 
 <div class="disclosure disclosure-{theme} {disclosureClass}">
   {#if onServer}
-    <HeadingLevel class="disclosure-header {headerClass}" headingLevel={+headerTag.charAt(1)}>
+    <HeadingLevel {id} class="disclosure-header {headerClass}" headingLevel={+headerTag.charAt(1)}>
       {#if chapter}
         <span class="chapter-number responsive-hide">
           {chapter}
@@ -98,6 +66,7 @@
     </HeadingLevel>
   {:else}
     <button
+      {id}
       type="button"
       class="button--unstyled disclosure-header {headerTag} {headerClass}"
       aria-expanded={isOpen}
