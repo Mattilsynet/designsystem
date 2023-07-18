@@ -57,7 +57,7 @@
     "prettier": "^2.8.7",
     "prettier-plugin-svelte": "^2.8.0",
     "sass": "^1.62.0",
-    "storybook-xstate-addon": "2.3.4",
+    "storybook-xstate-addon": "2.3.8",
     "stylelint": "^15.10.1",
     "stylelint-config-standard": "^34.0.0",
     "stylelint-order": "^6.0.3",
