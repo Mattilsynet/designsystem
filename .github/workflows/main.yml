@@ -33,9 +33,11 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Install dependencies
+        working-directory: ./mt-kit/core/svelte
         run: npm install
       - run: npm run build --if-present
-      - run: npm run test
+      - run: npm run test:ci
 
       - name: Verify that storybook builds
+        working-directory: ./mt-kit/core/svelte
         run: npm run build-storybook
