@@ -66,7 +66,8 @@
         name={optionsName}
         value={options.key}
         bind:checked={options.checked}
-        on:change={toggleCheckedAll} />
+        on:change={toggleCheckedAll}
+      />
       <label for={options.key}>
         {checkAllLabel}
       </label>
@@ -82,7 +83,8 @@
         value={listItem.key}
         bind:checked={listItem.checked}
         aria-checked={listItem.checked}
-        on:change={() => mainCategory(mainIndex)} />
+        on:change={() => mainCategory(mainIndex)}
+      />
       <label for={listItem.key}>
         {formatLabel(listItem.displayName, listItem.docCount)}
       </label>
@@ -96,7 +98,8 @@
           <div
             class="form-control checkbox narrow"
             class:m-t-xs={subListIndex === 0}
-            class:m-t-xxs={subListIndex > 0}>
+            class:m-t-xxs={subListIndex > 0}
+          >
             <input
               id={subListItem.key}
               type="checkbox"
@@ -104,7 +107,8 @@
               class="input__control"
               value={subListItem.key}
               bind:checked={subListItem.checked}
-              aria-checked={subListItem.checked} />
+              aria-checked={subListItem.checked}
+            />
             <label for={subListItem.key}>
               {formatLabel(subListItem.displayName, subListItem.docCount)}
             </label>
