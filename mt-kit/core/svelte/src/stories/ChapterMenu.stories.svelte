@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Meta, Story } from '@storybook/addon-svelte-csf'
-  import ChapterMenu from '../../src/svelte/components/ChapterMenu.svelte'
+  import ChapterMenu from '../lib/svelte/components/ChapterMenu.svelte'
   import { wrapInShadowDom } from './storybook-utils/utils'
   import { action } from '@storybook/addon-actions'
 

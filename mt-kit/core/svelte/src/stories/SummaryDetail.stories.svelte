@@ -1,7 +1,7 @@
 <script lang="ts">
   import { splitIntoParagraphs } from './storybook-utils/utils'
   import { Meta, Story } from '@storybook/addon-svelte-csf'
-  import SummaryDetail from '../../src/svelte/components/SummaryDetail.svelte'
+  import SummaryDetail from '../lib/svelte/components/SummaryDetail.svelte'
 </script>
 
 <Meta

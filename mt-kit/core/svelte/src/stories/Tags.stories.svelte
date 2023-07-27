@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Meta, Story } from '@storybook/addon-svelte-csf'
-  import Tags from '../../src/svelte/components/Tags.svelte'
+  import Tags from '../lib/svelte/components/Tags.svelte'
   import { wrapInShadowDom } from './storybook-utils/utils'
 
   let closableTags = [

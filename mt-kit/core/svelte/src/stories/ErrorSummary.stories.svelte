@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Meta, Story } from '@storybook/addon-svelte-csf'
   import { wrapInShadowDom } from './storybook-utils/utils'
-  import FormErrorSummary from '../../src/svelte/components/form/FormErrorSummary.svelte'
+  import FormErrorSummary from '../lib/svelte/components/form/FormErrorSummary.svelte'
 
   const name = 'radiobuttons'
   const options = [

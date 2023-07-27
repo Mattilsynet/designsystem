@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Meta, Story } from '@storybook/addon-svelte-csf'
-  import FormSteps from '../../src/svelte/components/FormSteps.svelte'
+  import FormSteps from '../lib/svelte/components/FormSteps.svelte'
 
   const steps = ['Om bekymringen', 'Info om deg', 'Oppsummering', 'Bekreftelse']
 </script>

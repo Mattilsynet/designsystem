@@ -1,9 +1,9 @@
 <script lang="ts">
   import { Meta, Story } from '@storybook/addon-svelte-csf'
-  import CheckboxWithSubSets from '../../../src/svelte/components/form/CheckboxWithSubSets.svelte'
-  import Disclosure from '../../../src/svelte/components/Disclosure.svelte'
+  import CheckboxWithSubSets from '../../lib/svelte/components/form/CheckboxWithSubSets.svelte'
+  import Disclosure from '../../lib/svelte/components/Disclosure.svelte'
   import { wrapInShadowDom } from '../storybook-utils/utils'
-  import { interpolate, toKebabCase } from '../../../src/ts/utils'
+  import { interpolate, toKebabCase } from '../../lib/ts/utils'
 </script>
 
 <Meta

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Meta, Story } from '@storybook/addon-svelte-csf'
-  import Breadcrumbs from '../../svelte/components/Breadcrumbs.svelte'
-  import Disclosure from '../../svelte/components/Disclosure.svelte'
+  import Breadcrumbs from '../../lib/svelte/components/Breadcrumbs.svelte'
+  import Disclosure from '../../lib/svelte/components/Disclosure.svelte'
 
   import imageFile from '../assets/testbilde.jpg'
 </script>

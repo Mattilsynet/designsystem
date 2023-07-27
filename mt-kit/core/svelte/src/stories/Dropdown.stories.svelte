@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Meta, Story, Template } from '@storybook/addon-svelte-csf'
-  import Dropdown from '../../src/svelte/components/Dropdown.svelte'
-  import CardArticle from '../../src/svelte/components/CardArticle.svelte'
+  import Dropdown from '../lib/svelte/components/Dropdown.svelte'
+  import CardArticle from '../lib/svelte/components/CardArticle.svelte'
   import { wrapInShadowDom } from './storybook-utils/utils'
 
   const drinkIcon =

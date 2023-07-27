@@ -1,8 +1,8 @@
 <script lang="ts">
   import { Meta, Story } from '@storybook/addon-svelte-csf'
-  import Link from '../../src/svelte/components/Link.svelte'
+  import Link from '../lib/svelte/components/Link.svelte'
   import { action } from '@storybook/addon-actions'
-  import ChapterNavigation from '../../src/svelte/components/ChapterNavigation.svelte'
+  import ChapterNavigation from '../lib/svelte/components/ChapterNavigation.svelte'
   import { wrapInShadowDom } from './storybook-utils/utils'
 
   const chapterChangeAction = action('chapterChange')

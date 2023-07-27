@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Meta, Story } from '@storybook/addon-svelte-csf'
-  import Published from '../../svelte/components/Published.svelte'
-  import Link from '../../svelte/components/Link.svelte'
+  import Published from '../../lib/svelte/components/Published.svelte'
+  import Link from '../../lib/svelte/components/Link.svelte'
   import { wrapInShadowDom } from '../storybook-utils/utils'
 </script>
 

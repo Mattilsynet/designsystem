@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Meta, Story } from '@storybook/addon-svelte-csf'
-  import Notice from '../../src/svelte/components/Notice.svelte'
+  import Notice from '../lib/svelte/components/Notice.svelte'
   import { wrapInShadowDom } from './storybook-utils/utils'
 </script>
 
