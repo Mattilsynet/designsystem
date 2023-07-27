@@ -6,3 +6,4 @@ dist
 /storybook-static
 /mt-kit/core/svelte/storybook-static/
 /mt-kit/core/svelte/.svelte-kit/
+/mt-kit/core/svelte/.editorconfig
