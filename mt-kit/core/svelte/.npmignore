@@ -7,9 +7,11 @@ tsconfig.json
 vite.config.ts
 setuptest.js
 .storybook
+.svelte-kit
 .editorconfig
 .eslintrc.cjs
 .prettierrc
 src/**/*.md
 *.cjs
 *.tgz
+

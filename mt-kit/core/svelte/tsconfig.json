@@ -1,5 +1,5 @@
 {
-  "extends": "@tsconfig/svelte/tsconfig.json",
+  "extends": "./.svelte-kit/tsconfig.json",
   "compilerOptions": {
     "isolatedModules": true,
     "target": "ESNext",
@@ -18,6 +18,4 @@
     "esModuleInterop": true,
     "types": ["@testing-library/jest-dom", "svelte", "vitest/globals"],
   },
-//  "include": ["src/**/*.d.ts", "src/**/*.ts", "src/**/*.js", "src/**/*.svelte"],
-//  "references": [{ "path": "./tsconfig.node.json" }]
 }
