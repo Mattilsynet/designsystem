@@ -39,30 +39,3 @@ export { default as HighlightedContentLink } from './svelte/content/HighlightedC
 export { default as MenuItems } from './svelte/content/MenuItems.svelte'
 export { default as MenuPointsIcons } from './svelte/content/MenuPointsIcons.svelte'
 export { default as Status } from './svelte/content/Status.svelte'
-
-export {
-  type ErrorDetail,
-  type Breadcrumbs as BreadcrumbsType,
-  type Chapter,
-  type AutocompleteType,
-  type ChapterChangeDetails,
-  type Action,
-  type CountCharsParams,
-  type InputModeType,
-  type InputProps,
-  type MultiSelectOption,
-  type CheckboxWithSubSectionsOptions
-} from './ts/types.d.ts'
-
-export { clickOutside } from './ts/click-outside'
-export { countCharacters, errorOnTooManyCharacters } from './ts/count-characters'
-export { createToggleMachine } from './ts/toggle-machine'
-export {
-  displayDataTime,
-  toKebabCase,
-  compareDates,
-  createInputAriaDescribedby,
-  getFileExtension,
-  interpolate,
-  mapRelExternal
-} from './ts/utils'
