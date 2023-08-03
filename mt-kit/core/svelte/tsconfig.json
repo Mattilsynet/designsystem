@@ -1,0 +1,21 @@
+{
+  "extends": "./.svelte-kit/tsconfig.json",
+  "compilerOptions": {
+    "isolatedModules": true,
+    "target": "ESNext",
+    "strict": true,
+    "sourceMap": true,
+    "allowJs": true,
+    "lib": ["ESNext", "DOM"],
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "types": ["@testing-library/jest-dom", "svelte", "vitest/globals"],
+  },
+}
