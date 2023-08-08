@@ -18,6 +18,7 @@
 
 <div class="status {className}">
   <span class={statusType} data-testid="status-type" />
+
   <slot name="heading" />
 
   <div class="text">
