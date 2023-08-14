@@ -63,16 +63,16 @@
 {/if}
 
 {#if error}
-  <InputError {...error} {hiddenErrorText} />
+  <InputError {...error} {hiddenErrorText}/>
 {/if}
 
 <textarea
   id={name}
   {name}
   use:countCharacters={countCharsParams}
-  on:input={e => {
+  on:input={countCharsParams.countCharacters && (e => {
     error = errorOnTooManyCharacters(e, countCharsParams, name, tooManyCharactersErrorText)
-  }}
+  })}
   class="form-field {textAreaClass}"
   bind:value
   bind:this={textAreaRef}
