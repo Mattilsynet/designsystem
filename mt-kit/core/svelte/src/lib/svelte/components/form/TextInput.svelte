@@ -59,14 +59,17 @@
 {/if}
 
 {#if error}
-  <InputError {...error} {hiddenErrorText}/>
+  <InputError {...error} {hiddenErrorText} />
 {/if}
 
 <input
   id={name}
   {name}
   use:countCharacters={countCharsParams}
-  on:input={countCharsParams.countCharacters && (e => { error = errorOnTooManyCharacters(e, countCharsParams, name, tooManyCharactersErrorText)})}
+  on:input={countCharsParams.countCharacters &&
+    (e => {
+      error = errorOnTooManyCharacters(e, countCharsParams, name, tooManyCharactersErrorText)
+    })}
   class="form-field {inputClass}"
   bind:value
   class:error
@@ -75,5 +78,4 @@
   aria-invalid={!!error}
   {inputmode}
   {placeholder}
-  {autocomplete}
-/>
+  {autocomplete} />
