@@ -17,9 +17,9 @@
 </script>
 
 <div class="status {className}">
-  <span class="{statusType} h2" data-testid="status-type"/>
+  <span class="{statusType} h2" data-testid="status-type" />
 
-  <slot name="heading"/>
+  <slot name="heading" />
 
   <div class="text">
     {@html text}
@@ -33,6 +33,6 @@
     <a href={linkUrl} rel={mapRelExternal(linkUrl)} class="fit-content">{linkText}</a>
   {/if}
   {#if updatedDate && statusType === 'important'}
-    <Published publishFrom={updatedDate} {publishedText}/>
+    <Published publishFrom={updatedDate} {publishedText} />
   {/if}
 </div>
