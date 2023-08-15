@@ -10,8 +10,7 @@
   }}
   argTypes={{
     disableCss: { control: 'boolean' }
-  }}
-/>
+  }} />
 <Story name="All" let:primary let:disableCss>
   <div use:wrapInShadowDom={disableCss} style="--wrap: wrap">
     <h1>Ikoner</h1>
@@ -40,6 +39,10 @@
     <section>
       <h2>Historie</h2>
       <p class="icon--changelog-before p-tb-xxs" />
+    </section>
+    <section>
+      <h2>Kalender</h2>
+      <p class="icon--calendar-before p-tb-xxs">Høringsfrist: 13.05.2022</p>
     </section>
     <section>
       <h2>Caret down</h2>

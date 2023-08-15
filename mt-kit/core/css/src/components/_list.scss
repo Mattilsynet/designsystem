@@ -157,3 +157,9 @@ ol {
     }
   }
 }
+
+.li-center-vertical {
+  > * {
+    margin: auto;
+  }
+}
