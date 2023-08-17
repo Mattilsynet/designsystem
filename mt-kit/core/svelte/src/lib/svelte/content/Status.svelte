@@ -17,7 +17,8 @@
 </script>
 
 <div class="status {className}">
-  <span class={statusType} data-testid="status-type" />
+  <span class="{statusType} h2" data-testid="status-type" />
+
   <slot name="heading" />
 
   <div class="text">
