@@ -125,3 +125,10 @@
 .border-radius {
   border-radius: $border-radius;
 }
+
+.mobile-margin {
+  margin-top: var(--spacer-x-small);
+  @media only screen and (min-width: $breakpoint-large) {
+    margin-top: 0;
+  }
+}
