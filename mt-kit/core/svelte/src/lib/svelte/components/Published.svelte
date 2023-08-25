@@ -6,7 +6,7 @@
   export let lang = 'NO-nb'
   export let publishedText = 'Publisert'
   export let lastPublishedText = 'Faglig oppdatert'
-  export let dtClass
+  export let dtClass = ''
   $: dateObject = compareDates({
     lang,
     publishFrom,
