@@ -16,9 +16,9 @@
   })
 </script>
 
-<dl class="meta">
+<dl class={`meta ${dtClass}`}>
   {#if dateObject}
-    <dt class={`icon ${dtClass}`}>{dateObject.label}</dt>
+    <dt>{dateObject.label}</dt>
     <dd>
       <time datetime={dateObject.iso} data-testid="published-date">{dateObject.date}</time>
     </dd>
