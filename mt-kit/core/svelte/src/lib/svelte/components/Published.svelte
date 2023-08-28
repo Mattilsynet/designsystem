@@ -6,7 +6,9 @@
   export let lang = 'NO-nb'
   export let publishedText = 'Publisert'
   export let lastPublishedText = 'Faglig oppdatert'
-  export let dtClass = ''
+  export let dtIcon = ''
+  let className = ''
+  export { className as class }
   $: dateObject = compareDates({
     lang,
     publishFrom,
@@ -16,10 +18,10 @@
   })
 </script>
 
-<dl class={`meta ${dtClass}`}>
+<dl class="meta">
   {#if dateObject}
-    <dt>{dateObject.label}</dt>
-    <dd>
+    <dt class={`${dtIcon} ${className}`}>{dateObject.label}</dt>
+    <dd class={className}>
       <time datetime={dateObject.iso} data-testid="published-date">{dateObject.date}</time>
     </dd>
   {/if}
