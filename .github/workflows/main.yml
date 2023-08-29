@@ -1,47 +1,14 @@
-# This is a basic workflow to help you get started with Actions
+name: publish node package
+run-name: Build XP app "${{ github.ref_name }}" by @${{ github.actor }}
 
-name: Node CI
-
-# Controls when the workflow will run
+#undo!
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
-  pull_request:
-    branches:
-    - main
-    - "MTP-**"
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [18.x]
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: Install dependencies
-        working-directory: ./mt-kit/core/svelte
-        run: npm install
-      - name: Build
-        working-directory: ./mt-kit/core/svelte
-        run: npm run build --if-present
-      - name: Run test
-        working-directory: ./mt-kit/core/svelte
-        run: npm run test:ci
-
-      - name: Verify that storybook builds
-        working-directory: ./mt-kit/core/svelte
-        run: npm run build-storybook
+  publish:
+    name: 'Publish package'
+    secrets: inherit
+    uses: Mattilsynet/designsystem/.github/workflows/publish.yml@MTP-1305-automatisering-publish-job-for-designsystem
+    with:
+      working-directory: 'mt-kit/core/svelte'
