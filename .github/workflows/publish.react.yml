@@ -8,7 +8,7 @@ on:
     types:
       [closed]
     paths:
-      - mt-kit/core/svelte/**
+      - mt-kit/core/react/**
 
 jobs:
   publish:
@@ -16,4 +16,4 @@ jobs:
     secrets: inherit
     uses: Mattilsynet/designsystem/.github/workflows/publish.yml@main
     with:
-      working-directory: 'mt-kit/core/svelte'
+      working-directory: 'mt-kit/core/react'
