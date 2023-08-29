@@ -32,7 +32,7 @@ jobs:
           minor-wording: '#minor'
           patch-wording: '#patch'
           check-last-commit-only: 'true'
-          default: prerelease #TODO remove
+          bump-policy: 'ignore'
           skip-tag: 'true' #TODO remove
 
       - name: 'Setup node'
