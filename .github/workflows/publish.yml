@@ -25,6 +25,7 @@ jobs:
           DEFAULT_BUMP: patch
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RELEASE_BRANCHES: main
+          GITHUB_WORKSPACE: ${{ inputs.working-directory }}
           WITH_V: false
 
       - name: 'Setup node'
@@ -42,6 +43,7 @@ jobs:
       - name: 'Publish to GitHub registry'
         run: |
           git config --global user.email "${{ github.actor }}@users.noreply.github.com" && git config --global user.name "${{ github.actor }}"
-          npm publish
+          npm install
+          npm publish --tag ${{ steps.bump.outputs.new_tag }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
