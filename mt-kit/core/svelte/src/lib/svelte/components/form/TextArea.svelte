@@ -71,7 +71,7 @@
   {name}
   use:countCharacters={countCharsParams}
   on:input={e => {
-    error = errorOnTooManyCharacters(e, countCharsParams, name, tooManyCharactersErrorText)
+    error = errorOnTooManyCharacters(e, countCharsParams, name, tooManyCharactersErrorText) || error
   }}
   class="form-field {textAreaClass}"
   bind:value
@@ -84,8 +84,7 @@
   {inputmode}
   aria-required={isRequired}
   aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error, maxlength)}
-  aria-invalid={!!error}
-/>
+  aria-invalid={!!error} />
 
 {#if helpText && helpTextPlacement === 'below'}
   <div id={`${name}-hint`} class="hint {helpTextClass}">

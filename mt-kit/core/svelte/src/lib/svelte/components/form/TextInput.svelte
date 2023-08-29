@@ -67,7 +67,7 @@
   {name}
   use:countCharacters={countCharsParams}
   on:input={e => {
-    error = errorOnTooManyCharacters(e, countCharsParams, name, tooManyCharactersErrorText)
+    error = errorOnTooManyCharacters(e, countCharsParams, name, tooManyCharactersErrorText) || error
   }}
   class="form-field {inputClass}"
   bind:value
@@ -77,5 +77,4 @@
   aria-invalid={!!error}
   {inputmode}
   {placeholder}
-  {autocomplete}
-/>
+  {autocomplete} />
