@@ -1,0 +1,43 @@
+name: Publish node package
+run-name: Publish node package by @${{ github.actor }}
+
+on:
+  workflow_call:
+    inputs:
+      working-directory:
+        type: string
+        required: true
+
+jobs:
+  publish:
+    name: 'Bump version and Publish package'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ inputs.working-directory }}
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: 'Bump version and push tag'
+        id: bump
+        uses: anothrNick/github-tag-action@1.62.0
+        env:
+          DEFAULT_BUMP: patch
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RELEASE_BRANCHES: main
+          WITH_V: false
+
+      - name: 'Setup node'
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: https://npm.pkg.github.com/
+          scope: '@mattilsynet'
+          cache: 'npm'
+
+      - name: 'Publish to GitHub registry'
+        run: |
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com" && git config --global user.name "${{ github.actor }}"
+          npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
