@@ -34,6 +34,10 @@ jobs:
           registry-url: https://npm.pkg.github.com/
           scope: '@mattilsynet'
           cache: 'npm'
+          cache-dependency-path: |
+            mt-kit/core/svelte/package-lock.json
+            mt-kit/core/react/package-lock.json
+            mt-kit/core/css/package-lock.json
 
       - name: 'Publish to GitHub registry'
         run: |
