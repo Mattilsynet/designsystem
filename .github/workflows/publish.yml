@@ -17,16 +17,23 @@ jobs:
         working-directory: ${{ inputs.working-directory }}
     steps:
       - uses: actions/checkout@v3
+        with:
+          ref: 'main-test'
 
-      - name: 'Bump version and push tag'
-        id: bump
-        uses: anothrNick/github-tag-action@1.62.0
+      - name: 'Bump version'
+        uses: phips28/gh-action-bump-version@master
         env:
-          DEFAULT_BUMP: patch
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          RELEASE_BRANCHES: main
-          GITHUB_WORKSPACE: ${{ inputs.working-directory }}
-          WITH_V: false
+          PACKAGEJSON_DIR: ${{ inputs.working-directory }}
+        with:
+          tag-prefix:  'v'
+          target-branch: 'main-test' #TODO change
+          major-wording: '#major'
+          minor-wording: '#minor'
+          patch-wording: '#patch'
+          check-last-commit-only: 'true'
+          default: prerelease #TODO remove
+          skip-tag: 'true' #TODO remove
 
       - name: 'Setup node'
         uses: actions/setup-node@v3
@@ -42,8 +49,9 @@ jobs:
 
       - name: 'Publish to GitHub registry'
         run: |
+          git pull
           git config --global user.email "${{ github.actor }}@users.noreply.github.com" && git config --global user.name "${{ github.actor }}"
           npm install
-          npm publish --tag ${{ steps.bump.outputs.new_tag }}
+          npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
