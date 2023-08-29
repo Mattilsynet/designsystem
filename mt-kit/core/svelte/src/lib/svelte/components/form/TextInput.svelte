@@ -66,10 +66,9 @@
   id={name}
   {name}
   use:countCharacters={countCharsParams}
-  on:input={countCharsParams.countCharacters &&
-    (e => {
-      error = errorOnTooManyCharacters(e, countCharsParams, name, tooManyCharactersErrorText)
-    })}
+  on:input={e => {
+    error = errorOnTooManyCharacters(e, countCharsParams, name, tooManyCharactersErrorText) || error
+  }}
   class="form-field {inputClass}"
   bind:value
   class:error

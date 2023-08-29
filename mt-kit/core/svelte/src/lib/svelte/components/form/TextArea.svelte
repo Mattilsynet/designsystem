@@ -63,16 +63,16 @@
 {/if}
 
 {#if error}
-  <InputError {...error} {hiddenErrorText}/>
+  <InputError {...error} {hiddenErrorText} />
 {/if}
 
 <textarea
   id={name}
   {name}
   use:countCharacters={countCharsParams}
-  on:input={countCharsParams.countCharacters && (e => {
-    error = errorOnTooManyCharacters(e, countCharsParams, name, tooManyCharactersErrorText)
-  })}
+  on:input={e => {
+    error = errorOnTooManyCharacters(e, countCharsParams, name, tooManyCharactersErrorText) || error
+  }}
   class="form-field {textAreaClass}"
   bind:value
   bind:this={textAreaRef}
@@ -84,8 +84,7 @@
   {inputmode}
   aria-required={isRequired}
   aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error, maxlength)}
-  aria-invalid={!!error}
-/>
+  aria-invalid={!!error} />
 
 {#if helpText && helpTextPlacement === 'below'}
   <div id={`${name}-hint`} class="hint {helpTextClass}">
