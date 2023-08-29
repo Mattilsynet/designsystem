@@ -1,0 +1,20 @@
+name: publish node package
+run-name: Build XP app "${{ github.ref_name }}" by @${{ github.actor }}
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+    types:
+      [closed]
+    paths:
+      - mt-kit/core/svelte/**
+
+jobs:
+  publish:
+    name: 'Publish package'
+    secrets: inherit
+    uses: Mattilsynet/designsystem/.github/workflows/publish.yml@MTP-1305-automatisering-publish-job-for-designsystem
+    with:
+      working-directory: 'mt-kit/core/svelte'
