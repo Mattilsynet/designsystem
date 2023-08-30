@@ -15,7 +15,7 @@ jobs:
   publish:
     name: 'Bump version and Publish package'
     runs-on: ubuntu-latest
-    if: github.event.pull_request.user.login != 'dependabot[bot]' && github.event.pull_request.merged
+    if: github.event.pull_request.user.login != 'dependabot[bot]'
     defaults:
       run:
         working-directory: ${{ inputs.working-directory }}

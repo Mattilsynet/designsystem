@@ -23,6 +23,7 @@ on:
 jobs:
   publish:
     name: 'Publish package'
+    if: github.event.pull_request.merged || github.event_name == 'workflow_dispatch'
     secrets: inherit
     uses: Mattilsynet/designsystem/.github/workflows/publish.yml@main
     with:
