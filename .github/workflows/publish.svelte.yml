@@ -1,7 +1,17 @@
 name: Publish svelte package
-run-name: Bumping and publishing new package from "${{ github.ref_name }}" by @${{ github.actor }}
+run-name: Publishing new svelte package @${{ github.actor }}
 
 on:
+  workflow_dispatch:
+    inputs:
+      version-type:
+        description: Semantic bump
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+        default: patch
   pull_request:
     branches:
       - main
@@ -17,3 +27,4 @@ jobs:
     uses: Mattilsynet/designsystem/.github/workflows/publish.yml@main
     with:
       working-directory: 'mt-kit/core/svelte'
+      version-type: ${{ inputs.version-type }}
