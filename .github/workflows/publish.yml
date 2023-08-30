@@ -34,8 +34,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PACKAGEJSON_DIR: ${{ inputs.working-directory }}
         with:
-          tag-prefix:  'v'
-          tag-suffix: -${{ steps.split.outputs.project_name }}
+          tag-prefix: ${{ steps.split.outputs.project_name }}-
           target-branch: 'main'
           major-wording: '#major'
           minor-wording: '#minor'
