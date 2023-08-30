@@ -1,0 +1,54 @@
+name: Publish package
+run-name: Publish package by @${{ github.actor }}
+
+on:
+  workflow_call:
+    inputs:
+      working-directory:
+        type: string
+        required: true
+
+jobs:
+  publish:
+    name: 'Bump version and Publish package'
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.user.login != 'dependabot[bot]' && github.event.pull_request.merged
+    defaults:
+      run:
+        working-directory: ${{ inputs.working-directory }}
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: 'Bump version'
+        uses: phips28/gh-action-bump-version@v10.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PACKAGEJSON_DIR: ${{ inputs.working-directory }}
+        with:
+          tag-prefix:  'v'
+          target-branch: 'main'
+          major-wording: '#major'
+          minor-wording: '#minor'
+          patch-wording: '#patch'
+          check-last-commit-only: 'true'
+          bump-policy: 'ignore'
+
+      - name: 'Setup node'
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: https://npm.pkg.github.com/
+          scope: '@mattilsynet'
+          cache: 'npm'
+          cache-dependency-path: |
+            mt-kit/core/svelte/package-lock.json
+            mt-kit/core/react/package-lock.json
+            mt-kit/core/css/package-lock.json
+
+      - name: 'Publish to GitHub registry'
+        run: |
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com" && git config --global user.name "${{ github.actor }}"
+          npm install
+          npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
