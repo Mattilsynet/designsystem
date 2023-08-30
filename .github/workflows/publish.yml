@@ -20,13 +20,13 @@ jobs:
       run:
         working-directory: ${{ inputs.working-directory }}
     steps:
+      - uses: actions/checkout@v3
+
       - name: Get project name
         id: split
         env:
           DIR: ${{ inputs.working-directory }}
         run: echo "project_name=${DIR##*/}" >> $GITHUB_OUTPUT
-
-      - uses: actions/checkout@v3
 
       - name: 'Bump version'
         uses: phips28/gh-action-bump-version@v10.0.1
