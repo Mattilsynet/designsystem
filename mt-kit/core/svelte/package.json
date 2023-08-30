@@ -5,9 +5,6 @@
   "private": false,
   "homepage": "https://mattilsynet.github.io/designsystem",
   "gitRepository": "https://github.com/Mattilsynet/designsystem",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "scripts": {
     "dev": "vite",
     "build": "npm run package",

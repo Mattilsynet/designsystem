@@ -6,9 +6,6 @@
   "author": "Mattilsynet<matsdrift@mattilsynet.no>",
   "license": "MIT",
   "private": false,
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "keywords": [
     "Design system",
     "Mattilsynet",

@@ -10,9 +10,6 @@
   "module": "./dist/designsystem-react.es.js",
   "types": "./dist/index.d.ts",
   "source": "src/index.ts",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "exports": {
     ".": {
       "import": "./dist/designsystem-react.js",
