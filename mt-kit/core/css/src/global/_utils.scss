@@ -170,6 +170,12 @@
     }
   }
 
+  &--small {
+    > * + * {
+      margin-top: var(--spacer-small);
+    }
+  }
+
   &--medium {
     > * + * {
       margin-top: var(--spacer-medium);
