@@ -43,6 +43,18 @@ jobs:
           bump-policy: 'ignore'
           version-type: ${{ inputs.version-type }}
 
+      - name: 'Set node to use NpmJs registry'
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: https://registry.npmjs.org/
+          scope: '@mattilsynet'
+          cache: 'npm'
+          cache-dependency-path: |
+            mt-kit/core/svelte/package-lock.json
+            mt-kit/core/react/package-lock.json
+            mt-kit/core/css/package-lock.json
+
       - name: 'Publish to npmjs registry'
         run: |
           git pull
