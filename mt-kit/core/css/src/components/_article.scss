@@ -36,34 +36,3 @@
     }
   }
 }
-
-.meta {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  font-size: $font-size-small;
-  gap: var(--spacer-xxx-small);
-
-  @media only screen and (min-width: $breakpoint-large) {
-    display: flex;
-
-    :nth-child(3) {
-      padding-left: var(--spacer-xxx-small);
-      border-left: $border-width-small solid var(--color-mt-beige);
-    }
-  }
-
-  dt {
-    font-weight: $font-weight-normal;
-    &::after {
-      content: ':';
-    }
-  }
-  dd {
-    margin-right: var(--spacer-medium);
-    font-weight: normal;
-
-    @media only screen and (min-width: $breakpoint-large) {
-      margin-right: 0;
-    }
-  }
-}
