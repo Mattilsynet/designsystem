@@ -43,7 +43,17 @@ jobs:
           bump-policy: 'ignore'
           version-type: ${{ inputs.version-type }}
 
-      - name: 'Setup node'
+      - name: 'Publish to npmjs registry'
+        run: |
+          git pull
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com" && git config --global user.name "${{ github.actor }}"
+          npm install
+          npm run build
+          npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPMJS_TOKEN }}
+
+      - name: 'Set node to use GitHub registry'
         uses: actions/setup-node@v3
         with:
           node-version: '16.x'
@@ -56,10 +66,6 @@ jobs:
             mt-kit/core/css/package-lock.json
 
       - name: 'Publish to GitHub registry'
-        run: |
-          git pull
-          git config --global user.email "${{ github.actor }}@users.noreply.github.com" && git config --global user.name "${{ github.actor }}"
-          npm install
-          npm publish
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
