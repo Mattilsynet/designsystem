@@ -11,7 +11,7 @@
   export let fileInputName: string
   export let fileNameInputName: string
   export let helpText: string | undefined
-  export let fileName: string | undefined
+  export let fileName: string | Array<string> | undefined
   export let error: ErrorDetail | undefined
   export let isRequired: boolean | undefined = undefined
   export let accept: string | undefined
@@ -22,12 +22,26 @@
   let uuidInput: HTMLInputElement
   let nameInput: HTMLInputElement
 
-  function onRemoveFile() {
+  function onRemoveFile(e: CustomEvent): void {
+    //update file. This handles one file upload to mats
     uuidInput.value = ''
-    nameInput.value = ''
-    //update inputs
     value = undefined
-    fileName = undefined
+
+    // update filename. This handles multiple files
+    const values: Array<string> = nameInput.value.split(',')
+    nameInput.value = values.filter(v => v !== e.detail.fileName).join(',')
+    fileName = filterFileName(fileName, e.detail.fileName)
+  }
+
+  function filterFileName(
+    fileName: string | Array<string> | undefined,
+    removeFileName: string
+  ): Array<string> | undefined {
+    if (typeof fileName === 'string' || fileName === undefined) {
+      return undefined
+    } else {
+      return fileName.filter(v => v !== removeFileName)
+    }
   }
 </script>
 
@@ -43,8 +57,13 @@
   <InputError message={error.message} key={fileInputName} {hiddenErrorText} />
 {/if}
 
-<input type="hidden" bind:this={uuidInput} {name} value={value || ''} />
-<input type="hidden" bind:this={nameInput} name={fileNameInputName} value={fileName || ''} />
+<input type="hidden" bind:this={uuidInput} {name} value={value || ''} data-testid={name} />
+<input
+  type="hidden"
+  bind:this={nameInput}
+  name={fileNameInputName}
+  value={fileName || ''}
+  data-testid={fileNameInputName} />
 
 <FileUploadButton
   {error}
@@ -55,5 +74,4 @@
   {accept}
   {fileName}
   {isRequired}
-  on:removeFile={onRemoveFile}
-/>
+  on:removeFile={onRemoveFile} />
