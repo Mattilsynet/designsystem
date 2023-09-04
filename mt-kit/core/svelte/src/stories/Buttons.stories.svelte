@@ -12,6 +12,7 @@
     primary: 'Gå videre',
     primaryLong: 'Send inn til Mattilsynet',
     secondary: 'Avbryt',
+    inProgress: false,
     uploadRequired: false,
     disabled: false,
     disableJs: false,
@@ -19,13 +20,13 @@
   }}
   argTypes={{
     primary: { control: 'text' },
+    inProgress: { control: 'boolean' },
     disabled: { control: 'boolean' },
     disableJs: { control: 'boolean' },
     disableCss: { control: 'boolean' },
     uploadRequired: { control: 'boolean' },
     removeFile: { action: 'removeFile' }
-  }}
-/>
+  }} />
 
 <Story name="Normal" let:primary let:primaryLong let:disableCss let:disabled let:secondary>
   <div use:wrapInShadowDom={disableCss}>
@@ -62,8 +63,7 @@
   parameters={{ xstate: true }}
   let:disableJs
   let:disableCss
-  let:uploadRequired
->
+  let:uploadRequired>
   <div use:wrapInShadowDom={disableCss}>
     <FileUploadButton
       name="file"
@@ -72,12 +72,10 @@
       loadJs={!disableJs}
       multiple={true}
       isRequired={uploadRequired}
-      on:removeFile={action('removeFile')}
-    />
-  </div></Story
->
+      on:removeFile={action('removeFile')} />
+  </div></Story>
 
-<Story name="Loading" let:disableCss>
+<Story name="Loading" let:disableCss let:inProgress>
   <div use:wrapInShadowDom={disableCss}>
     <h1>Loading</h1>
     <p class="description">Hovedknapp</p>
@@ -85,14 +83,14 @@
       formInProgressAriaLabel="Sender inn skjema, venter på svar."
       btnClassNames="button--primary"
       spinnerPlacement="start"
-    >
+      {inProgress}>
       Spinner placement start
     </ButtonSpinner><br />
     <ButtonSpinner
       formInProgressAriaLabel="Sender inn skjema, venter på svar."
       btnClassNames="button--primary"
-      spinnerPlacement="end"
-    >
+      {inProgress}
+      spinnerPlacement="end">
       Spinner placement end
     </ButtonSpinner>
 
@@ -100,8 +98,8 @@
     <ButtonSpinner
       formInProgressAriaLabel="Sender inn skjema, venter på svar."
       btnClassNames="button--secondary"
-      spinnerPlacement="end"
-    >
+      {inProgress}
+      spinnerPlacement="end">
       Send in skjema
     </ButtonSpinner>
   </div>
