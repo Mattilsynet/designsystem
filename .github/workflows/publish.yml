@@ -9,7 +9,7 @@ on:
         required: true
       version-type:
         type: string
-        default: patch
+        required: false
 
 jobs:
   publish:
@@ -24,6 +24,8 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: '1'
 
       - name: Get project name
         id: split
@@ -42,8 +44,7 @@ jobs:
           major-wording: '#major'
           minor-wording: '#minor'
           patch-wording: '#patch'
-          check-last-commit-only: 'true'
-          bump-policy: 'ignore'
+          bump-policy: 'last-commit'
           version-type: ${{ inputs.version-type }}
 
       - name: 'Set node to use NpmJs registry'
