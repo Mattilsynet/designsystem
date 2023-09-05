@@ -18,4 +18,5 @@
     "esModuleInterop": true,
     "types": ["@testing-library/jest-dom", "svelte", "vitest/globals"],
   },
+  "include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.test.ts", "src/**/*.svelte", "./*.js", "./*.ts"]
 }
