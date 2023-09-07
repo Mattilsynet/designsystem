@@ -119,6 +119,7 @@
         }
       ]
     },
+    border: false,
     disclosure: {
       title: 'Dyr',
       headerTag: 'h2',
@@ -182,8 +183,7 @@
       options: ['primary', 'secondary'],
       control: 'radio'
     }
-  }}
-/>
+  }} />
 
 <Story
   name="Normal"
@@ -192,8 +192,7 @@
   let:disableCss
   let:variation
   let:optionsWithoutDocCount
-  let:args
->
+  let:args>
   <div class="container layout-grid layout-grid--column-12" use:wrapInShadowDom={disableCss}>
     <section class="article-page col-1-span-12">
       <h1>Nested checkbox</h1>
@@ -205,18 +204,17 @@
           {options}
           {variation}
           level1Legend={legend}
-          level2Legend={`${legend} i `}
-        />
+          level2Legend={`${legend} i `} />
       </form>
-      <h2>Nested checkboxes without doc count</h2>
+      <h2>Nested checkboxes without doc count and border</h2>
       <p>User variation="primary" (default) when checkboxes stand alone</p>
       <form>
         <CheckboxWithSubSets
           options={optionsWithoutDocCount}
           {variation}
           level1Legend="Tema uten antall"
-          level2Legend={`${legend} i `}
-        />
+          border={args.border}
+          level2Legend={`${legend} i `} />
       </form>
       <h2>Nestede checkboxet inside disclosure</h2>
       <p>
@@ -229,8 +227,7 @@
           loadJs={!args.disableJs}
           class="disclosure-no-border--align-left"
           headingId={`${toKebabCase(args.disclosure.title)}-title`}
-          headerTag={args.disclosure.headerTag}
-        >
+          headerTag={args.disclosure.headerTag}>
           <CheckboxWithSubSets
             variation="secondary"
             options={args.disclosureOptions}
@@ -239,8 +236,7 @@
             level1Legend={interpolate(args.disclosure.level1Legend, [
               args.disclosure.title.toLowerCase()
             ])}
-            level2Legend={args.disclosure.level2Legend}
-          />
+            level2Legend={args.disclosure.level2Legend} />
         </Disclosure>
       </form>
     </section>
