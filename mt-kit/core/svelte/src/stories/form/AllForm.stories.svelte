@@ -138,7 +138,7 @@
         {helpText}
         error={undefined}
         isRequired={true}
-        textOptional="valgfritt felt"
+        textOptional="(valgfritt felt)"
         inputmode="text"
         placeholder=""
         autocomplete=""
@@ -152,7 +152,7 @@
         {countCharactersLeftLabel}
         error={undefined}
         isRequired={true}
-        textOptional="valgfritt felt"
+        textOptional="(valgfritt felt)"
         inputmode="text"
         maxlength="300"
         rows="3"
@@ -202,7 +202,7 @@
         {countCharactersLeftLabel}
         error={{ key: 'name', message: errorMessage }}
         isRequired={true}
-        textOptional="valgfritt felt"
+        textOptional="(valgfritt felt)"
         inputmode="text"
         placeholder=""
         autocomplete=""
@@ -214,7 +214,7 @@
         {helpText}
         error={{ key: 'textfield', message: errorMessage }}
         isRequired={true}
-        textOptional="valgfritt felt"
+        textOptional="(valgfritt felt)"
         inputmode="text"
         maxlength="300"
         rows="3"

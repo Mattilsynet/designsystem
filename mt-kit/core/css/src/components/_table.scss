@@ -105,9 +105,18 @@ table {
       overflow-wrap: anywhere;
       vertical-align: text-top;
     }
+
     th {
       font-weight: $font-weight-bold;
+
+      &.width-20 {
+        width: 20%;
+      }
+      &.width-60 {
+        width: 60%;
+      }
     }
+
     tr {
       th:first-child,
       td:first-child {

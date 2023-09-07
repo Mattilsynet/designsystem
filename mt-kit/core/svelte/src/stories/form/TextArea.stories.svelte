@@ -46,7 +46,7 @@
         {countCharactersTooManyLabel}
         {tooManyCharactersErrorText}
         maxlength="100"
-        textOptional="valgfritt felt"
+        textOptional="(valgfritt felt)"
         inputmode="text"
         rows="3"
         cols="5"
@@ -59,7 +59,7 @@
         {countCharactersLeftLabel}
         {countCharactersTooManyLabel}
         {tooManyCharactersErrorText}
-        textOptional="valgfritt felt"
+        textOptional="(valgfritt felt)"
         inputmode="text"
         maxlength="100"
         isRequired={true}
@@ -79,7 +79,7 @@
         {label}
         {helpText}
         error={{ key: 'email', message: errorMessage }}
-        textOptional="valgfritt felt"
+        textOptional="(valgfritt felt)"
         inputmode="text"
         maxlength="100"
         rows="3"
