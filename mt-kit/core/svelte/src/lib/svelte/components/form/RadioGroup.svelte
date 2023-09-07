@@ -1,6 +1,6 @@
 <script lang="ts">
   import InputError from './InputErrorMessage.svelte'
-  import { toKebabCase, createInputAriaDescribedby } from '../../../ts/utils'
+  import { createInputAriaDescribedby, toKebabCase } from '../../../ts/utils'
   import type { ErrorDetail } from '../../../ts/types'
   import { beforeUpdate } from 'svelte'
 
@@ -11,7 +11,7 @@
   export let error: ErrorDetail | undefined
   export let options: Array<{ value: string; text: string }> = []
   export let isRequired: boolean | undefined = undefined
-  export let textOptional = 'valgfritt felt'
+  export let textOptional = '(valgfritt felt)'
   export let hiddenErrorText: string | undefined
   export let loadJs = false
   export let theme: 'radio' | 'button' = 'radio'
@@ -32,12 +32,11 @@
   aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)}
   class="form-fieldset {theme === 'radio' ? 'radio' : ''} {theme === 'button'
     ? 'button-radio'
-    : ''} {className}"
->
+    : ''} {className}">
   <legend class="form-legend">
     {label}
     {#if !isRequired}
-      <span class="text-small">({textOptional})</span>
+      <span class="text-small">{textOptional}</span>
     {/if}
   </legend>
 
@@ -63,12 +62,10 @@
         value={radio.value}
         aria-required={isRequired}
         aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)}
-        checked={value === radio.value}
-      />
+        checked={value === radio.value} />
       <label
         class="form-label {theme === 'button' ? 'button button--secondary' : ''}"
-        for={toKebabCase(radio.value)}
-      >
+        for={toKebabCase(radio.value)}>
         {radio.text}
       </label>
     </div>

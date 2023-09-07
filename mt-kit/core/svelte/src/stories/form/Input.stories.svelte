@@ -11,19 +11,19 @@
     label: 'Når skjedde det?',
     helpText: 'Skriv når hendelsen skjedde og om det har pågått over lengere periode.',
     errorMessage: 'Fyll inn dette feltet.',
-    textOptional: 'valgfritt felt',
+    textOptional: '(valgfritt felt)',
     isRequired: false,
     horizontal: [
       {
         label: 'Hund, antall',
-        textOptional: 'Valgfritt felt',
+        textOptional: '(Valgfritt felt)',
         helpText: 'Hjelpetekst',
         isRequired: true,
         maxLength: 2
       },
       {
         label: 'Katt, antall',
-        textOptional: 'Valgfritt felt',
+        textOptional: '(Valgfritt felt)',
         helpText: 'Hjelpetekst',
         isRequired: true
       }
