@@ -13,6 +13,7 @@
   export let hasCheckAll = false
   export let checkAllLabel = 'Velg alle'
   export let level2Legend = ``
+  export let level3Legend = ``
   export let helpText: string | undefined
   export let border: boolean = true
 
@@ -41,7 +42,7 @@
     return `${displayName} ${docCount ? `(${docCount})` : ''}`
   }
 
-  function toggleCheckedAll(e: Event) {
+  function toggleCheckedAll(e: Event): void {
     options.children = options.children?.map(state => {
       return {
         ...state,
@@ -114,6 +115,33 @@
               {formatLabel(subListItem.displayName, subListItem.docCount)}
             </label>
           </div>
+          {#if subListItem.checked && subListItem.children && subListItem.children.length > 0}
+            <fieldset
+              class={'checkbox-subsets--secondary'}
+              transition:slide|local={{ y: 200, duration: 200 }}>
+              <legend>
+                {interpolate(level3Legend, [subListItem.displayName.toLowerCase()])}
+              </legend>
+              {#each subListItem.children as subSubListItem, subSubListIndex}
+                <div
+                  class="form-control checkbox narrow"
+                  class:m-t-0={subSubListIndex === 0}
+                  class:m-t-xxs={subSubListIndex > 0}>
+                  <input
+                    id={subSubListItem.key}
+                    type="checkbox"
+                    name={optionsName}
+                    class="input__control"
+                    value={subSubListItem.key}
+                    bind:checked={subSubListItem.checked}
+                    aria-checked={subSubListItem.checked} />
+                  <label for={subSubListItem.key}>
+                    {formatLabel(subSubListItem.displayName, subSubListItem.docCount)}
+                  </label>
+                </div>
+              {/each}
+            </fieldset>
+          {/if}
         {/each}
       </fieldset>
     {/if}
