@@ -1,6 +1,11 @@
-# Design system for Mattilsynet
+# Designsystem for Mattilsynet
 
-[![npm version](https://badge.fury.io/js/@mattilsynet%2Fdesignsystem.svg)](https://badge.fury.io/js/@mattilsynet%2Fdesignsystem)
+
+
+| css    | [![npm version](https://badge.fury.io/js/@mattilsynet%2Fdesignsystem-css.svg)](https://badge.fury.io/js/@mattilsynet%2Fdesignsystem-css)       | [![Publish css package](https://github.com/Mattilsynet/designsystem/actions/workflows/publish.css.yml/badge.svg)](https://github.com/Mattilsynet/designsystem/actions/workflows/publish.css.yml)          |
+|--------|------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| svelte | [![npm version](https://badge.fury.io/js/@mattilsynet%2Fdesignsystem-svelte.svg)](https://badge.fury.io/js/@mattilsynet%2Fdesignsystem-svelte) | [![Publish svelte package](https://github.com/Mattilsynet/designsystem/actions/workflows/publish.svelte.yml/badge.svg)](https://github.com/Mattilsynet/designsystem/actions/workflows/publish.svelte.yml) |
+| react  | [![npm version](https://badge.fury.io/js/@mattilsynet%2Fdesignsystem-react.svg)](https://badge.fury.io/js/@mattilsynet%2Fdesignsystem-react)   | [![Publish react package](https://github.com/Mattilsynet/designsystem/actions/workflows/publish.react.yml/badge.svg)](https://github.com/Mattilsynet/designsystem/actions/workflows/publish.react.yml)    |
 
 ## Opening in storybook
 
