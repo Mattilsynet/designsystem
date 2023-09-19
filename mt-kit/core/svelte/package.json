@@ -93,7 +93,7 @@
     "vitest": "^0.33.0"
   },
   "dependencies": {
-    "@mattilsynet/designsystem-css": "^0.0.8",
+    "@mattilsynet/designsystem-css": "^0.0.12",
     "@xstate/svelte": "^2.0.1",
     "gh-pages": "^5.0.0",
     "xstate": "^4.38.0"
