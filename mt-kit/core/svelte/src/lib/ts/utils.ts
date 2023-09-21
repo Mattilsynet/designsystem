@@ -25,7 +25,11 @@ export function toKebabCase(text: string): string {
     .toLowerCase()
 }
 
-export function displayDataTime(lang: string, isoDate: string): string {
+export function displayDataTime(lang: string, isoDate?: string): string {
+  if (!isoDate) {
+    return ''
+  }
+
   return new Intl.DateTimeFormat(lang, {
     day: '2-digit',
     month: '2-digit',
