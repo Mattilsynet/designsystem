@@ -1,5 +1,6 @@
 @use '../utilities/mixins' as *;
 @use '../theme' as *;
+@use '../global/icon' as *;
 
 .notice {
   --notice-padding: var(--spacer-x-small);
@@ -17,12 +18,13 @@
     margin-top: 0;
   }
 
-  &.important > :first-child {
+  &.important > :first-child,
+  &.important > .inclusively-hidden + * {
     margin-top: 0;
 
     &::before {
       // 20 x 20 size image
-      content: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8Y2lyY2xlIGN4PSIxNSIgY3k9IjE1IiByPSIxNSIgZmlsbD0iI0UyMzEyOCIvPgogIDxwYXRoIGQ9Ik0xMy4zNjcgNy42NTRoMy4wNTd2My42NTNsLS43OTEgNi43MThoLTEuNDU1bC0uODEtNi43MThWNy42NTRabS4wNjggMTEuNTI0aDIuOTFWMjJoLTIuOTF2LTIuODIyWiIgZmlsbD0iI2ZmZiIvPgo8L3N2Zz4K');
+      content: $icon-important;
       width: 1.4rem;
       height: 1.2rem;
       float: left;
@@ -31,7 +33,7 @@
 
       @media only screen and (min-width: $breakpoint-large) {
         // 30 x 30 size image
-        content: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTUiIGN5PSIxNSIgcj0iMTUiIGZpbGw9IiNFMjMxMjgiLz4KPHBhdGggZD0iTTEzLjM2NzIgNy42NTQzSDE2LjQyMzhWMTEuMzA2NkwxNS42MzI4IDE4LjAyNTRIMTQuMTc3N0wxMy4zNjcyIDExLjMwNjZWNy42NTQzWk0xMy40MzU1IDE5LjE3NzdIMTYuMzQ1N1YyMkgxMy40MzU1VjE5LjE3NzdaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K');
+        content: $icon-important-large;
         width: 2rem;
         height: 2rem;
         margin-top: -0.25rem;

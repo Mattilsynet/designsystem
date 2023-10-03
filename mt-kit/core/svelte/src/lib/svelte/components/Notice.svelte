@@ -1,5 +1,5 @@
 <script lang="ts">
-  export let infoType: 'important' | 'none'
+  export let infoType: 'important' | 'none' = 'none'
   export let iconText: string | undefined
   export let text: string
 </script>

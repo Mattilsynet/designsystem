@@ -15,6 +15,7 @@
   <li >vil varsle om farlige eller ulovlige hunder</li>
   <li >vil varsle om dyr som forstyrrer ro og orden</li>
 </ul>`,
+    iconText: 'Denne teksten er skjult',
     disabled: false,
     disableJs: false,
     disableCss: false
@@ -26,12 +27,12 @@
   }}
 />
 
-<Story name="Normal" let:text let:text2 let:disableCss>
+<Story name="Normal" let:text let:text2 let:disableCss let:iconText>
   <main use:wrapInShadowDom={disableCss} class="container layout-flex-col">
     <h1>Varseltekst</h1>
     <section class="layout-flex-col">
       <h2>Med varsel icon</h2>
-      <Notice infoType="important" {text} />
+      <Notice infoType="important" {text} iconText={iconText}/>
       <Notice infoType="important" text={text2} />
     </section>
     <section class="layout-flex-col">
