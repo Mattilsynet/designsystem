@@ -9,7 +9,7 @@ const config: StorybookConfig = {
     '@storybook/addon-a11y'
   ],
   framework: {
-    name: '@storybook/svelte-vite',
+    name: '@storybook/sveltekit',
     options: {}
   },
   docs: {
