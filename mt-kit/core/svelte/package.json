@@ -1,6 +1,6 @@
 {
   "name": "@mattilsynet/designsystem-svelte",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Design system for Mattilsynet",
   "private": false,
   "homepage": "https://mattilsynet.github.io/designsystem",
@@ -93,7 +93,7 @@
     "vitest": "^0.33.0"
   },
   "dependencies": {
-    "@mattilsynet/designsystem-css": "^0.0.12",
+    "@mattilsynet/designsystem-css": "^0.0.13",
     "@xstate/svelte": "^2.0.1",
     "gh-pages": "^5.0.0",
     "xstate": "^4.38.0"
