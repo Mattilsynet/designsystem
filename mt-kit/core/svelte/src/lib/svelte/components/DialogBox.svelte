@@ -5,7 +5,14 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte'
 
-  const dispatch = createEventDispatcher()
+  // export declare function createEventDispatcher<EventMap extends {} = any>(): <
+  //   EventKey extends Extract<keyof EventMap, string>
+  // >(
+  //   type: EventKey,
+  //   detail?: EventMap[EventKey]
+  // ) => void
+
+  const dispatch = createEventDispatcher<{ closingDialog: boolean }>()
 
   export let isOpen = true
   export let title = ''
@@ -18,9 +25,7 @@
 
   function handleClose() {
     isOpen = false
-    dispatch('closingDialog', {
-      shouldReappear: false
-    })
+    dispatch('closingDialog', false)
   }
 </script>
 
