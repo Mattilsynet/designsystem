@@ -12,7 +12,7 @@
   display: inline-block;
   position: relative;
 
-  a {
+  .mt-link {
     border-radius: 0;
   }
 
@@ -108,13 +108,13 @@
     font-size: $font-size-small;
     button,
     .button,
-    a {
+    .mt-link {
       font-size: $font-size-small;
     }
 
     @media only screen and (min-width: $breakpoint-large) {
       font-size: $font-size-label;
-      a {
+      .mt-link {
         font-size: $font-size-body;
       }
       button,
@@ -214,7 +214,7 @@
       z-index: 2000;
     }
 
-    a {
+    .mt-link {
       color: var(--color-mt-white);
     }
   }
@@ -250,7 +250,7 @@
 .menu-row {
   display: flex;
   flex-direction: column;
-  a {
+  .mt-link {
     text-decoration: none;
     svg {
       height: 1.5rem;
@@ -289,13 +289,13 @@
     &.menu-level-2 {
       margin-top: var(--spacer-small);
       margin-bottom: var(--spacer-small);
-      a {
+      .mt-link {
         font-size: $font-size-h4;
       }
     }
     &.menu-level-2,
     &.menu-level-3 {
-      a {
+      .mt-link {
         width: fit-content;
       }
     }
@@ -309,7 +309,7 @@
       }
       &.menu-level-2 {
         grid-column: span 2;
-        a {
+        .mt-link {
           font-size: $font-size-label;
         }
       }
@@ -318,7 +318,7 @@
 }
 .menu {
   --menu-small-link-font-size-mobile: 1.125rem; //18px
-  a {
+  .mt-link {
     text-decoration: none;
 
     &.small-link {
@@ -336,7 +336,7 @@
     }
   }
   > li {
-    > a {
+    > .mt-link {
       padding-left: var(--spacer-xx-small);
     }
   }
@@ -400,7 +400,7 @@
       }
     }
     > li {
-      > a {
+      > .mt-link {
         padding-left: 0;
       }
     }

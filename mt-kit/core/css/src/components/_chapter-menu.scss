@@ -21,7 +21,7 @@
     display: grid;
     grid-template-columns: auto min-content;
     grid-template-areas: 'link btn' 'sub sub';
-    a[aria-current] {
+    .mt-link[aria-current] {
       grid-area: link;
     }
     button.icon--caret-down-after-on-primary {
@@ -41,7 +41,7 @@
       outline-offset: -1px;
     }
   }
-  a {
+  .mt-link {
     display: block;
     color: var(--color-mt-white);
     text-decoration: none;
@@ -67,7 +67,7 @@
   .chapter-menu {
     color: var(--color-mt-text-dark);
     background-color: transparent;
-    a {
+    .mt-link {
       &[aria-current='page'] {
         background-color: transparent;
       }
