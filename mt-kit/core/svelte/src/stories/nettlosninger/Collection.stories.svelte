@@ -13,7 +13,7 @@
     intro: 'Regelveiledning samleside ingress',
     tableOfContents: 'Innhold på siden',
     text: `<h2>Andre overskrift</h2>
-      <p>Paragraf med tekst. Paragraf med tekst. <a href="">Paragraf med tekst.</a> Paragraf med tekst</p>
+      <p>Paragraf med tekst. Paragraf med tekst. <a class="mt-link" href="">Paragraf med tekst.</a> Paragraf med tekst</p>
       <ul>
         <li>Valget om å skaffe dyr må være godt gjennomtenkt. Er hele familien enige og innstilt på det?</li>
         <li>
@@ -27,7 +27,7 @@
         title: 'Første regelveiledning',
         intro: 'Første regelveiledning intro tekst.',
         text: `<h2>Andre overskrift</h2>
-          <p>Paragraf med tekst. Paragraf med tekst. <a href="">Paragraf med tekst.</a> Paragraf med tekst</p>
+          <p>Paragraf med tekst. Paragraf med tekst. <a class="mt-link" href="">Paragraf med tekst.</a> Paragraf med tekst</p>
           <ul>
             <li>Valget om å skaffe dyr må være godt gjennomtenkt. Er hele familien enige og innstilt på det?</li>
             <li>
@@ -57,7 +57,7 @@
         title: 'Andre regelveiledning',
         intro: 'Andre regelveiledning intro tekst.',
         text: `<h2>Andre overskrift</h2>
-          <p>Paragraf med tekst. Paragraf med tekst. <a href="">Paragraf med tekst.</a> Paragraf med tekst</p>
+          <p>Paragraf med tekst. Paragraf med tekst. <a class="mt-link" href="">Paragraf med tekst.</a> Paragraf med tekst</p>
           <ul>
             <li>Valget om å skaffe dyr må være godt gjennomtenkt. Er hele familien enige og innstilt på det?</li>
             <li>
@@ -75,8 +75,7 @@
     helpText: { control: 'text' },
     errorMessage: { control: 'text' },
     disableCss: { control: 'boolean' }
-  }}
-/>
+  }} />
 
 <Story name="Normal" let:title let:intro let:legalItems let:text let:tableOfContents let:disableCss>
   <div use:wrapInShadowDom={disableCss} class="container layout-grid layout-grid--column-12">
@@ -93,7 +92,7 @@
         <ol class="list-unstyled">
           {#each legalItems as legal}
             <li>
-              <a href="#{toKebabCase(legal.title)}" class="down-arrow">{legal.title}</a>
+              <a href="#{toKebabCase(legal.title)}" class="mt-link down-arrow">{legal.title}</a>
             </li>
           {/each}
         </ol>
@@ -105,8 +104,7 @@
         <article
           id={toKebabCase(legal.title)}
           class="legal-collection legal-collection__border-top col-1-span-12"
-          aria-labelledby="collection-title-1"
-        >
+          aria-labelledby="collection-title-1">
           <h2 id="collection-title-1">{legal.title}</h2>
 
           <div class="intro">
@@ -126,8 +124,7 @@
               text="Noe tekst i kroppen"
               linkUrl="http://"
               linkText="Last ned mal for internkontroll"
-              headerTag="h4"
-            />
+              headerTag="h4" />
           </section>
 
           <section class="layout-flex-col layout-flex-col--x-small">
@@ -137,15 +134,13 @@
                 title="Dette er tittelen"
                 text="Noe tekst i kroppen"
                 linkUrl="http://"
-                linkText="Last ned mal for internkontroll"
-              />
+                linkText="Last ned mal for internkontroll" />
               <CardArticle
                 type="legal-text"
                 title="Dette er tittelen"
                 text="Noe tekst i kroppen"
                 linkUrl="http://"
-                linkText="Last ned mal for internkontroll"
-              />
+                linkText="Last ned mal for internkontroll" />
             </SummaryDetail>
           </section>
         </article>

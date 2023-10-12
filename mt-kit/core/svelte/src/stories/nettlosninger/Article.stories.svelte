@@ -21,8 +21,7 @@
     helpText: { control: 'text' },
     errorMessage: { control: 'text' },
     disableCss: { control: 'boolean' }
-  }}
-/>
+  }} />
 
 <Story name="Normal" let:title let:intro let:disableCss let:publishFrom let:professionallyUpdated>
   <div use:wrapInShadowDom={disableCss} class="container layout-grid layout-grid--column-12">
@@ -40,7 +39,8 @@
 
       <h2>Andre overskrift</h2>
       <p>
-        Paragraf med tekst. Paragraf med tekst. <a href="">Paragraf med tekst.</a> Paragraf med tekst
+        Paragraf med tekst. Paragraf med tekst. <a class="mt-link" href="">Paragraf med tekst.</a>
+        Paragraf med tekst
       </p>
       <ul>
         <li>

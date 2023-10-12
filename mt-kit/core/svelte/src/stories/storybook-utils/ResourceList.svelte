@@ -6,12 +6,12 @@
 <ul class="list-unstyled layout-flex">
   {#if figmaUrl}
     <li>
-      <a href={figmaUrl} class="icon--figma"> Figma </a>
+      <a href={figmaUrl} class="mt-link icon--figma"> Figma </a>
     </li>
   {/if}
   {#if githubUrl}
     <li>
-      <a href={githubUrl} class="icon--github"> GitHub </a>
+      <a href={githubUrl} class="mt-link icon--github"> GitHub </a>
     </li>
   {/if}
 </ul>

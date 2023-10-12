@@ -29,8 +29,7 @@
     formLinkUrl: { control: 'text' },
     formLinkText: { control: 'text' },
     disableCss: { control: 'boolean' }
-  }}
-/>
+  }} />
 
 <Story
   name="Normal"
@@ -40,8 +39,7 @@
   let:moreText
   let:formLinkUrl
   let:formLinkText
-  let:disableCss
->
+  let:disableCss>
   <div use:wrapInShadowDom={disableCss} class="container layout-grid layout-grid--column-12">
     <div class="layout-flex-col form-intro col-3-span-8">
       <article class="content">
@@ -62,7 +60,7 @@
         {/if}
 
         {#if formLinkUrl && formLinkText}
-          <a href={formLinkUrl} class="link--transport link--transport--primary">
+          <a href={formLinkUrl} class="mt-link link--transport link--transport--primary">
             {formLinkText}
           </a>
         {/if}
@@ -79,8 +77,7 @@
   let:moreText
   let:formLinkUrl
   let:formLinkText
-  let:disableCss
->
+  let:disableCss>
   <div use:wrapInShadowDom={disableCss} class="container">
     <CardArticle
       type="form-intro-module"
@@ -89,8 +86,7 @@
       {intro}
       {title}
       {text}
-      id={title}
-    />
+      id={title} />
   </div>
 </Story>
 
@@ -102,8 +98,7 @@
   let:moreText
   let:formLinkUrl
   let:formLinkText
-  let:disableCss
->
+  let:disableCss>
   <div use:wrapInShadowDom={disableCss} class="container">
     <CardArticle
       type="form-intro-module"
@@ -113,7 +108,6 @@
       {title}
       {text}
       headerTag="h2"
-      id={title}
-    />
+      id={title} />
   </div>
 </Story>

@@ -34,23 +34,21 @@
     <a
       href={nextChapter ? nextChapter.url : undefined}
       on:click|preventDefault={dispatch('chapterChange', { index: nextChapterIndex })}
-      class="multi-line text-align-right {!hasNextChapter(currentChapterIndex)
+      class="mt-link multi-line text-align-right {!hasNextChapter(currentChapterIndex)
         ? 'inclusively-hidden-initial'
         : ''}"
-      aria-disabled={!hasNextChapter(currentChapterIndex)}
-    >
+      aria-disabled={!hasNextChapter(currentChapterIndex)}>
       <span class="next-link">{nextText}</span>
       {showChapterNumber ? `${nextChapterNumber}.` : ''}
       {nextChapter ? nextChapter.heading : ''}
     </a>
     <a
       href={previousChapter ? previousChapter.url : undefined}
-      class="multi-line {!hasPreviousChapter(currentChapterIndex)
+      class="mt-link multi-line {!hasPreviousChapter(currentChapterIndex)
         ? 'inclusively-hidden-initial'
         : ''}"
       on:click|preventDefault={dispatch('chapterChange', { index: previousChapterIndex })}
-      aria-disabled={!hasPreviousChapter(currentChapterIndex)}
-    >
+      aria-disabled={!hasPreviousChapter(currentChapterIndex)}>
       <span class="previous-link">{previousText}</span>
       {showChapterNumber ? `${previousChapterNumber}.` : ''}
       {previousChapter ? previousChapter.heading : ''}

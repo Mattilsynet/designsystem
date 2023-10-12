@@ -18,8 +18,7 @@
   <HeadingLevel
     id={headingId}
     class="title {iconClass} {headerTag === 'h2' ? 'h3' : ''}"
-    headingLevel={+headerTag.charAt(1)}
-  >
+    headingLevel={+headerTag.charAt(1)}>
     {@html title}
   </HeadingLevel>
 
@@ -37,7 +36,7 @@
 
   {#if linkUrl && linkText}
     <p>
-      <a href={linkUrl} rel={mapRelExternal(linkUrl)} class="link--transport">
+      <a href={linkUrl} rel={mapRelExternal(linkUrl)} class="mt-link link--transport">
         {@html linkText}
       </a>
     </p>

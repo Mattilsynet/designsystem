@@ -17,8 +17,7 @@
     style="--gap: var(--spacer-x-small)"
     role="alert"
     tabindex="-1"
-    aria-labelledby="error-summary-heading"
-  >
+    aria-labelledby="error-summary-heading">
     <h2 id="error-summary-heading">
       {heading}
     </h2>
@@ -26,7 +25,7 @@
       {#each errors as error}
         {#if linkToFields}
           <li class="error-summary__list--link">
-            <a href={`#${error.key}`} rel="external" class="inline-flex">{error.message}</a>
+            <a href={`#${error.key}`} rel="external" class="mt-link inline-flex">{error.message}</a>
           </li>
         {:else}
           <li>

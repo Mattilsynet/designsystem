@@ -8,7 +8,7 @@
 <Meta
   title="Innhold/Fremhevet innhold"
   args={{
-    text: `<p>Haster det? Er det fare for at dyr dør eller blir påført store belastninger. Ring mattilsynet på tlf. <a href="tel:22400000">22 40 00 00</a> eller politiet <a href="tel:02800">02800</a></p>`,
+    text: `<p>Haster det? Er det fare for at dyr dør eller blir påført store belastninger. Ring mattilsynet på tlf. <a class="mt-link" href="tel:22400000">22 40 00 00</a> eller politiet <a class="mt-link" href="tel:02800">02800</a></p>`,
     title: `<h3 class="heading">Tilsyn med småfe</h3>`,
     shortTitle: `<h3 class="heading">Tilsyn med småfe</h3>`,
     disableJs: false,
@@ -20,8 +20,7 @@
     shortTitle: { control: 'string' },
     disableJs: { control: 'boolean' },
     disableCss: { control: 'boolean' }
-  }}
-/>
+  }} />
 
 <Story name="Normal" let:text let:disableCss let:title let:shortTitle let:date>
   <main use:wrapInShadowDom={disableCss} class="container layout-flex-col">
@@ -32,8 +31,7 @@
         image={{ src: imageFile, alt: 'Her er alt tekst til bildet' }}
         headingClass="h3"
         title="Dette er tittelen"
-        shortTitle="Dette er kort tittel"
-      >
+        shortTitle="Dette er kort tittel">
         {@html text}
       </HighlightedContentLink>
     </section>
@@ -44,8 +42,7 @@
         href="https://www.mattilsyent.no"
         headingClass="h3"
         title="Dette er tittelen"
-        shortTitle="Dette er kort tittel"
-      >
+        shortTitle="Dette er kort tittel">
         {@html text}
       </HighlightedContentLink>
     </section>
@@ -62,8 +59,7 @@
         image={{ src: imageFile, alt: 'Her er alt tekst til bildet' }}
         headingClass="h3"
         title="Dette er tittelen"
-        shortTitle="Dette er kort tittel"
-      >
+        shortTitle="Dette er kort tittel">
         {@html text}
       </HighlightedContentLink>
     </section>
