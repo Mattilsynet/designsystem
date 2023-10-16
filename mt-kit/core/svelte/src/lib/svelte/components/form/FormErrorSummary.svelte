@@ -25,7 +25,7 @@
       {#each errors as error}
         {#if linkToFields}
           <li class="error-summary__list--link">
-            <a href={`#${error.key}`} rel="external" class="mt-link inline-flex">{error.message}</a>
+            <a href={`#${error.key}`} rel="external" class="inline-flex">{error.message}</a>
           </li>
         {:else}
           <li>

@@ -23,7 +23,6 @@
       {@const chapterIndex = index + startIndex}
       <li class="chapter-menu--chapter-wrapper">
         <a
-          class="mt-link"
           on:click|preventDefault={dispatch('chapterChange', { index: chapter.index })}
           href={chapter.url}
           aria-current={chapterIndex === currentChapterNumber ? 'page' : undefined}>

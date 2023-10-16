@@ -73,7 +73,7 @@
         <ol class="alt-language" aria-labelledby={titleId}>
           {#each args.items as item}
             <li>
-              <a href={item.url} class="mt-link forward-arrow-small">{item.title}</a>
+              <a href={item.url} class="forward-arrow-small">{item.title}</a>
             </li>
           {/each}
         </ol>

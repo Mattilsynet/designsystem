@@ -36,7 +36,7 @@
               <a
                 href={item.url}
                 rel={item.url === '/dyr' ? 'external' : mapRelExternal(item.url)}
-                class="mt-link forward-arrow-small on-primary no-underline hover-indent"
+                class="forward-arrow-small on-primary no-underline hover-indent"
                 aria-current={item.isActive ? 'page' : false}>
                 {item.title}
               </a>
@@ -46,7 +46,7 @@
                 <a
                   href={child.url}
                   rel={mapRelExternal(child.url)}
-                  class="mt-link forward-arrow-small no-underline hover-indent on-primary small-link"
+                  class="forward-arrow-small no-underline hover-indent on-primary small-link"
                   aria-current={child.isActive ? 'page' : false}>
                   {child.title}
                 </a>
@@ -60,7 +60,7 @@
         <a
           href={item.url}
           rel={mapRelExternal(item.url)}
-          class="mt-link disclosure-header no-underline hover-indent layout-flex layout-flex--center-vertical layout-full-width on-primary menu-level-1 border-radius-0"
+          class="disclosure-header no-underline hover-indent layout-flex layout-flex--center-vertical layout-full-width on-primary menu-level-1 border-radius-0"
           aria-current={item.isActive ? 'page' : false}>
           {#if item.iconResource}
             {@html item.iconResource}
@@ -78,7 +78,7 @@
         <a
           href={right.url}
           rel={mapRelExternal(right.url)}
-          class="mt-link no-underline hover-indent on-primary menu-level-1 p-r-xxs forward-arrow-end border-radius-0 small-link"
+          class="no-underline hover-indent on-primary menu-level-1 p-r-xxs forward-arrow-end border-radius-0 small-link"
           aria-current={right.isActive ? 'page' : false}>
           {right.title}
         </a>

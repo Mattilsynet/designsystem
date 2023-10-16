@@ -34,7 +34,7 @@
     <a
       href={nextChapter ? nextChapter.url : undefined}
       on:click|preventDefault={dispatch('chapterChange', { index: nextChapterIndex })}
-      class="mt-link multi-line text-align-right {!hasNextChapter(currentChapterIndex)
+      class="multi-line text-align-right {!hasNextChapter(currentChapterIndex)
         ? 'inclusively-hidden-initial'
         : ''}"
       aria-disabled={!hasNextChapter(currentChapterIndex)}>
@@ -44,7 +44,7 @@
     </a>
     <a
       href={previousChapter ? previousChapter.url : undefined}
-      class="mt-link multi-line {!hasPreviousChapter(currentChapterIndex)
+      class="multi-line {!hasPreviousChapter(currentChapterIndex)
         ? 'inclusively-hidden-initial'
         : ''}"
       on:click|preventDefault={dispatch('chapterChange', { index: previousChapterIndex })}

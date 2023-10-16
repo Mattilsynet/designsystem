@@ -24,7 +24,7 @@
       data-testid="current-issue-span-{index}">
       {#if issue.title}
         <a
-          class="mt-link self-start {headingClass}"
+          class="self-start {headingClass}"
           rel={mapRelExternal(issue.href)}
           href={issue.href}
           data-testid="current-issue-a-{index}">
