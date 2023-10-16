@@ -3,6 +3,11 @@
 </script>
 
 <script lang="ts">
+  import { createEventDispatcher } from 'svelte'
+  import type { CloseDialogEvent } from '../../ts'
+
+  const dispatch = createEventDispatcher<CustomEvent<CloseDialogEvent>>()
+
   export let isOpen = true
   export let title = ''
   export let ariaTitle = ''
@@ -12,8 +17,11 @@
   const dialogBoxHeadingId = `ui-dialog-box-${instanceCounter++}`
   const dialogCloseButtonId = `dialog-close-button-${instanceCounter++}`
 
-  function handleClose() {
+  function handleClose(): void {
     isOpen = false
+    dispatch<CustomEvent<CloseDialogEvent>>('closingDialog', {
+      shouldReappear: false
+    });
   }
 </script>
 
@@ -25,8 +33,7 @@
     tabindex="0"
     aria-hidden={!isOpen}
     bind:this={dialogRef}
-    aria-labelledby={dialogBoxHeadingId}
-  >
+    aria-labelledby={dialogBoxHeadingId}>
     <h2 id={dialogBoxHeadingId} class="h4 dialog-box--title {title ? '' : 'inclusively-hidden'}">
       {title ? title : ariaTitle}
     </h2>
@@ -36,8 +43,7 @@
       type="button"
       class="button button--link dialog-box--close-button"
       on:click={handleClose}
-      aria-label={closeBtnAriaLabel}
-    />
+      aria-label={closeBtnAriaLabel} />
 
     <div class="dialog-box--content">
       <slot />

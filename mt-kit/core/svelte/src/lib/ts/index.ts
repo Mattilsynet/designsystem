@@ -6,6 +6,7 @@ export {
   type ChapterChangeDetails,
   type Action,
   type CountCharsParams,
+  type CloseDialogEvent,
   type InputModeType,
   type InputProps,
   type MultiSelectOption,

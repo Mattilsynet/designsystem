@@ -110,3 +110,7 @@ export interface CountCharsParams {
   countCharactersLeftLabel?: string
   countCharactersTooManyLabel?: string
 }
+
+export interface CloseDialogEvent {
+    shouldReappear: boolean
+}
