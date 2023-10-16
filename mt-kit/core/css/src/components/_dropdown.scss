@@ -3,6 +3,7 @@
 @use '../color-tokens' as *;
 @use '../utilities/functions' as *;
 @use '../global/icon' as *;
+@use '../global/links' as *;
 
 .dropdown {
   --background-color: var(--color-primary);
@@ -12,7 +13,8 @@
   display: inline-block;
   position: relative;
 
-  .mt-link {
+  a {
+    @extend .mt-link;
     border-radius: 0;
   }
 
@@ -108,13 +110,13 @@
     font-size: $font-size-small;
     button,
     .button,
-    .mt-link {
+    a {
       font-size: $font-size-small;
     }
 
     @media only screen and (min-width: $breakpoint-large) {
       font-size: $font-size-label;
-      .mt-link {
+      a {
         font-size: $font-size-body;
       }
       button,
@@ -214,7 +216,7 @@
       z-index: 2000;
     }
 
-    .mt-link {
+    a {
       color: var(--color-mt-white);
     }
   }
@@ -250,7 +252,8 @@
 .menu-row {
   display: flex;
   flex-direction: column;
-  .mt-link {
+  a {
+    @extend .mt-link;
     text-decoration: none;
     svg {
       height: 1.5rem;
@@ -289,13 +292,13 @@
     &.menu-level-2 {
       margin-top: var(--spacer-small);
       margin-bottom: var(--spacer-small);
-      .mt-link {
+      a {
         font-size: $font-size-h4;
       }
     }
     &.menu-level-2,
     &.menu-level-3 {
-      .mt-link {
+      a {
         width: fit-content;
       }
     }
@@ -309,7 +312,7 @@
       }
       &.menu-level-2 {
         grid-column: span 2;
-        .mt-link {
+        a {
           font-size: $font-size-label;
         }
       }
@@ -318,7 +321,8 @@
 }
 .menu {
   --menu-small-link-font-size-mobile: 1.125rem; //18px
-  .mt-link {
+  a {
+    @extend .mt-link;
     text-decoration: none;
 
     &.small-link {
@@ -336,7 +340,7 @@
     }
   }
   > li {
-    > .mt-link {
+    > a {
       padding-left: var(--spacer-xx-small);
     }
   }
@@ -400,7 +404,7 @@
       }
     }
     > li {
-      > .mt-link {
+      > a {
         padding-left: 0;
       }
     }

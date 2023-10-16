@@ -1,6 +1,7 @@
 @use '../theme' as *;
 @use '../utilities/functions' as *;
 @use '../color-tokens' as *;
+@use '../global/links' as *;
 
 .chapter-menu {
   $color: $color-primary;
@@ -21,7 +22,7 @@
     display: grid;
     grid-template-columns: auto min-content;
     grid-template-areas: 'link btn' 'sub sub';
-    .mt-link[aria-current] {
+    a[aria-current] {
       grid-area: link;
     }
     button.icon--caret-down-after-on-primary {
@@ -41,7 +42,8 @@
       outline-offset: -1px;
     }
   }
-  .mt-link {
+  a {
+    @extend .mt-link;
     display: block;
     color: var(--color-mt-white);
     text-decoration: none;
@@ -67,7 +69,7 @@
   .chapter-menu {
     color: var(--color-mt-text-dark);
     background-color: transparent;
-    .mt-link {
+    a {
       &[aria-current='page'] {
         background-color: transparent;
       }

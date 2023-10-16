@@ -1,6 +1,7 @@
 @use '../theme' as *;
 @use '../utilities/mixins' as *;
 @use '../components/layout-with-sidebar';
+@use '../global/links';
 
 .disclosure {
   --disclosure-spacing: var(--spacer-x-small);
@@ -8,6 +9,9 @@
 
   @media only screen and (min-width: $breakpoint-large) {
     --disclosure-spacing: var(--spacer-xx-small);
+  }
+  a {
+    @extend .mt-link;
   }
 
   .disclosure-header {

@@ -1,4 +1,5 @@
 @use '../theme' as *;
+@use '../global/links' as *;
 
 .page-summary {
   --gap: var(--spacer-xx-small);
@@ -16,7 +17,8 @@
     margin-top: var(--space-section);
   }
 
-  .mt-link {
+  a {
+    @extend .mt-link;
     grid-area: link;
     border-bottom: var(--border);
     padding-bottom: var(--heading-padding-bottom);

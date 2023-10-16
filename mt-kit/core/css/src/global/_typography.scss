@@ -1,6 +1,7 @@
 @use 'sass:math';
 @use '../theme' as *;
 @use '../utilities/mixins' as *;
+@use '../global/links' as *;
 
 // Modular type scales
 // By: Tim Brown
@@ -181,6 +182,9 @@ strong {
 }
 .text {
   @include xp-html-area;
+  a {
+    @extend .mt-link;
+  }
 }
 .children-spaced-xxs {
   @include children-spaced(var(--spacer-xx-small));

@@ -1,5 +1,6 @@
 @use '../theme' as *;
 @use '../color-tokens' as *;
+@use '../global/links' as *;
 
 :root {
   @include color-tokens();
@@ -58,5 +59,11 @@ body {
 
   footer {
     margin-top: var(--spacer-small);
+
+  }
+  .footer {
+    a {
+      @extend .mt-link;
+    }
   }
 }

@@ -1,6 +1,7 @@
 @use '../theme' as *;
 @use '../utilities/mixins' as *;
 @use '../components/layout-with-sidebar';
+@use '../global/links';
 
 .intro {
   font-size: $font-size-intro;
@@ -14,7 +15,9 @@
 
 .article-page {
   @include article-spacing;
-
+  a {
+    @extend .mt-link;
+  }
   details,
   section > details,
   section + .disclosure {

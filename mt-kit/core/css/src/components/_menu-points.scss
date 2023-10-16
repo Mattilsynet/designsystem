@@ -1,4 +1,5 @@
 @use '../theme' as *;
+@use '../global/links' as *;
 
 .menu-point {
   --svg-color: var(--color-mt-blue);
@@ -27,7 +28,8 @@
     }
   }
 
-  .mt-link {
+  a {
+    @extend .mt-link;
     grid-area: heading;
     padding-left: 0;
   }
