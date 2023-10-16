@@ -4,15 +4,9 @@
 
 <script lang="ts">
   import { createEventDispatcher } from 'svelte'
+  import type { CloseDialogEvent } from '../../ts'
 
-  // export declare function createEventDispatcher<EventMap extends {} = any>(): <
-  //   EventKey extends Extract<keyof EventMap, string>
-  // >(
-  //   type: EventKey,
-  //   detail?: EventMap[EventKey]
-  // ) => void
-
-  const dispatch = createEventDispatcher<{ closingDialog: boolean }>()
+  const dispatch = createEventDispatcher<CustomEvent<CloseDialogEvent>>()
 
   export let isOpen = true
   export let title = ''
@@ -23,9 +17,11 @@
   const dialogBoxHeadingId = `ui-dialog-box-${instanceCounter++}`
   const dialogCloseButtonId = `dialog-close-button-${instanceCounter++}`
 
-  function handleClose() {
+  function handleClose(): void {
     isOpen = false
-    dispatch('closingDialog', false)
+    dispatch<CustomEvent<CloseDialogEvent>>('closingDialog', {
+      shouldReappear: false
+    });
   }
 </script>
 
