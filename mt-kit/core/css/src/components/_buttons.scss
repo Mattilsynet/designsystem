@@ -298,7 +298,7 @@ $icon-button-border-radius: 0.25em;
   }
 }
 
-.icon-button {
+.mt-icon-button {
   color: var(--color-mt-blue);
   background: transparent;
   border: var(--border-width-regular) solid transparent;
@@ -321,7 +321,4 @@ $icon-button-border-radius: 0.25em;
   }
 }
 
-.color--primary {
-  @extend .mt-button--primary;
-}
 // stylelint-enable
