@@ -198,7 +198,7 @@
       <h1>Nested checkbox</h1>
       <h2>Nested checkbox with doc count</h2>
       <p>Use variation="primary" (default) when checkboxes stand alone</p>
-      <form>
+      <form class="mt-form">
         <CheckboxWithSubSets
           helpText="Velg et tema"
           {options}
@@ -208,7 +208,7 @@
       </form>
       <h2>Nested checkboxes without doc count and border</h2>
       <p>User variation="primary" (default) when checkboxes stand alone</p>
-      <form>
+      <form class="mt-form">
         <CheckboxWithSubSets
           options={optionsWithoutDocCount}
           {variation}
@@ -221,7 +221,7 @@
         Use variation="secondary" when checkboxes are used in combination with another component
         which has the title for the checkboxes, eg. Disclosure
       </p>
-      <form>
+      <form class="mt-form">
         <Disclosure
           title={args.disclosure.title}
           loadJs={!args.disableJs}

@@ -62,7 +62,7 @@
 
 <Story name="Normal" let:label let:helpText let:disableCss>
   <div use:wrapInShadowDom={disableCss}>
-    <form>
+    <form class="mt-form">
       <Select
         options={[
           { text: 'Hund', value: 'dog' },
@@ -86,6 +86,7 @@
     <section>
       <h2>Normal</h2>
       <form
+        class="mt-form"
         on:keyup|preventDefault={handleFormKeyUp}
         on:keydown|stopPropagation={handleFormKeyDown}
         on:submit|preventDefault={handleSubmit}>

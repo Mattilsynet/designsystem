@@ -24,8 +24,7 @@
     tooManyCharactersErrorText: { control: 'text' },
     errorMessage: { control: 'text' },
     disableCss: { control: 'boolean' }
-  }}
-/>
+  }} />
 
 <Story
   name="TextArea normal"
@@ -34,10 +33,9 @@
   let:disableCss
   let:countCharactersLeftLabel
   let:countCharactersTooManyLabel
-  let:tooManyCharactersErrorText
->
+  let:tooManyCharactersErrorText>
   <div use:wrapInShadowDom={disableCss}>
-    <form class="form-layout">
+    <form class="mt-form form-layout">
       <TextArea
         name="email"
         {label}
@@ -49,8 +47,7 @@
         textOptional="(valgfritt felt)"
         inputmode="text"
         rows="3"
-        cols="5"
-      />
+        cols="5" />
 
       <TextArea
         name="email2"
@@ -65,15 +62,14 @@
         isRequired={true}
         placeholder="Skriv inn tekst her"
         rows="3"
-        cols="5"
-      />
+        cols="5" />
     </form>
   </div>
 </Story>
 
 <Story name="TextArea with error" let:label let:helpText let:errorMessage let:disableCss>
   <div use:wrapInShadowDom={disableCss}>
-    <form class="form-layout">
+    <form class="mt-form form-layout">
       <TextArea
         name="email"
         {label}
@@ -83,8 +79,7 @@
         inputmode="text"
         maxlength="100"
         rows="3"
-        cols="5"
-      />
+        cols="5" />
     </form>
   </div>
 </Story>
