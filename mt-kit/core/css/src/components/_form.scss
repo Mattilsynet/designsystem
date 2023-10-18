@@ -11,7 +11,7 @@ $form-border-radius: 0.25em !default;
 $form-outline-style: solid !default;
 $form-outline-color: $color-mt-blue-medium !default;
 
-form {
+.mt-form {
   --form-group-spacer: var(--spacer-small);
   --form-field-width: #{$form-field-width};
   --form-text-color: #{$form-text-color};
@@ -30,7 +30,7 @@ form {
     }
   }
 }
-form,
+.mt-form,
 fieldset {
   > * {
     margin-top: var(--form-text-space);
