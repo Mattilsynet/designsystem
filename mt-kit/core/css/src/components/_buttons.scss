@@ -7,7 +7,7 @@ $icon-button-padding: $button-padding-lr;
 $icon-button-border-radius: 0.25em;
 
 // stylelint-disable order/properties-order
-.button {
+.mt-button {
   @include focus-outline();
   @include disabled;
 
@@ -194,7 +194,7 @@ $icon-button-border-radius: 0.25em;
     flex-shrink: 0;
   }
 
-  &:not(.button-icon) .button__icon {
+  &:not(.mt-button-icon) .mt-button__icon {
     margin-right: 0.5em;
   }
 
@@ -317,6 +317,6 @@ $icon-button-border-radius: 0.25em;
 }
 
 .color--primary {
-  @extend .button--primary;
+  @extend .mt-button--primary;
 }
 // stylelint-enable
