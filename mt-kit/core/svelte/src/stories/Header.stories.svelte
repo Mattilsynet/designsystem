@@ -176,7 +176,7 @@
       <Dropdown
         title="Språk/language"
         loadJs={!args.disableJs}
-        class="button__small-text responsive-hide"
+        class="mt-button__small-text responsive-hide"
         let:titleId>
         <ol class="alt-language m-t-0" aria-labelledby={titleId}>
           {#each args.items as item}
@@ -188,12 +188,12 @@
       </Dropdown>
       <Link
         href="#"
-        class="dropdown button button--link button__small-text layout-flex layout-flex--center-vertical no-underline icon--search-after"
+        class="dropdown mt-button mt-button--link mt-button__small-text layout-flex layout-flex--center-vertical no-underline icon--search-after"
         style="--wrap: none; --gap: var(--spacer-xxx-small)"
         linkText={args.search.linkText} />
       <Dropdown
         title={args.menu.title}
-        class="button__small-text full-menu"
+        class="mt-button__small-text full-menu"
         loadJs={!args.disableJs}
         let:titleId>
         <nav class="layout-grid layout-grid--column-12 container">

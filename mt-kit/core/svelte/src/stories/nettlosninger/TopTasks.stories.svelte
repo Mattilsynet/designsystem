@@ -72,7 +72,7 @@
       style="gap: var(--spacer-x-small);">
       {#each topTasks as task, index}
         {#if task && task.url}
-          <a href={task.url} class="mt-link button button--primary top-task">
+          <a href={task.url} class="mt-link mt-button mt-button--primary top-task">
             <h3 class="heading">{@html task.title}</h3>
             <span class="text">{@html task.intro}</span>
           </a>

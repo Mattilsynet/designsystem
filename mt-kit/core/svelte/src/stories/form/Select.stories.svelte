@@ -58,8 +58,7 @@
     helpText: { control: 'text' },
     errorMessage: { control: 'text' },
     disableCss: { control: 'boolean' }
-  }}
-/>
+  }} />
 
 <Story name="Normal" let:label let:helpText let:disableCss>
   <div use:wrapInShadowDom={disableCss}>
@@ -73,8 +72,7 @@
         {helpText}
         name="animal"
         error={undefined}
-        idPrefix="select-box-"
-      />
+        idPrefix="select-box-" />
     </form>
   </div>
 </Story>
@@ -84,15 +82,13 @@
     <h1>Flervalg</h1>
     <ResourceList
       figmaUrl="https://www.figma.com/file/dp856nY6joVcAUSVSmPSRO/MT-Eksternt-Designsystem?node-id=1871%3A5152&t=3fZ5xL2MGOLfFwqv-4"
-      githubUrl="https://github.com/Mattilsynet/designsystem/blob/main/src/svelte/components/form/MultiSelect.svelte"
-    />
+      githubUrl="https://github.com/Mattilsynet/designsystem/blob/main/src/svelte/components/form/MultiSelect.svelte" />
     <section>
       <h2>Normal</h2>
       <form
         on:keyup|preventDefault={handleFormKeyUp}
         on:keydown|stopPropagation={handleFormKeyDown}
-        on:submit|preventDefault={handleSubmit}
-      >
+        on:submit|preventDefault={handleSubmit}>
         <MultiSelect
           options={args.multiselect.options}
           preferredOptions={args.multiselect.preferredOptions}
@@ -104,9 +100,8 @@
           bind:values={value}
           tagsLabel={args.multiselect.tagsLabel}
           isRequired={args.multiselect.isRequired}
-          helpText={args.multiselect.helpText}
-        />
-        <button type="submit" class="button">Submit</button>
+          helpText={args.multiselect.helpText} />
+        <button type="submit" class="mt-button">Submit</button>
         <p>
           Values:
           {JSON.stringify(value, null, 2)}

@@ -15,16 +15,14 @@
     <li
       class={`${tag.color ? tag.color : ''} ${
         isClosable ? 'tag-list-item' : 'tag-list-item tag-text'
-      }`}
-    >
+      }`}>
       {#if isClosable}
         <button
-          class="button button--secondary button--small closable m-r-0 m-t-0"
+          class="mt-button mt-button--secondary mt-button--small closable m-r-0 m-t-0"
           on:click={() => {
             handleClick(i)
           }}
-          aria-label={tag.ariaLabel}
-        >
+          aria-label={tag.ariaLabel}>
           {tag.text}
         </button>
       {:else}

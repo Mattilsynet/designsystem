@@ -32,28 +32,29 @@
   <div use:wrapInShadowDom={disableCss}>
     <h1>Knapper</h1>
     <p class="description">Hovedknapp - stor</p>
-    <button class="button button--primary" {disabled}>{primary}</button>
-    <button class="button button--primary" {disabled}>{primaryLong}</button>
-    <button class="button button--primary" {disabled} style="width: 15rem">{primaryLong}</button>
+    <button class="mt-button mt-button--primary" {disabled}>{primary}</button>
+    <button class="mt-button mt-button--primary" {disabled}>{primaryLong}</button>
+    <button class="mt-button mt-button--primary" {disabled} style="width: 15rem"
+      >{primaryLong}</button>
 
     <p class="description">Sekundær - stor</p>
-    <button class="button button--secondary" {disabled}>{secondary}</button>
+    <button class="mt-button mt-button--secondary" {disabled}>{secondary}</button>
 
     <p class="description">Lenkeknapp</p>
-    <button class="button button--link"> ... </button>
+    <button class="mt-button mt-button--link"> ... </button>
 
     <p class="description">Flat - stor</p>
-    <button class="button button--flat">Uten ikon</button>
+    <button class="mt-button mt-button--flat">Uten ikon</button>
 
     <p class="description">Flat med icon - stor</p>
-    <button class="button button--flat closable">Med ikon</button>
+    <button class="mt-button mt-button--flat closable">Med ikon</button>
 
     <p class="description">Flat med icon på venstre side</p>
-    <button class="button button--flat icon--search-before">Søk</button>
+    <button class="mt-button mt-button--flat icon--search-before">Søk</button>
 
     <p class="description">På blå - stor</p>
     <div class="background-mt-blue p-xxs">
-      <button type="button" class="button button--on-primary">{primary}</button>
+      <button type="button" class="mt-button mt-button--on-primary">{primary}</button>
     </div>
   </div>
 </Story>
@@ -81,14 +82,14 @@
     <p class="description">Hovedknapp</p>
     <ButtonSpinner
       formInProgressAriaLabel="Sender inn skjema, venter på svar."
-      btnClassNames="button--primary"
+      btnClassNames="mt-button--primary"
       spinnerPlacement="start"
       {inProgress}>
       Spinner placement start
     </ButtonSpinner><br />
     <ButtonSpinner
       formInProgressAriaLabel="Sender inn skjema, venter på svar."
-      btnClassNames="button--primary"
+      btnClassNames="mt-button--primary"
       {inProgress}
       spinnerPlacement="end">
       Spinner placement end
@@ -97,7 +98,7 @@
     <p class="description">Sekundær</p>
     <ButtonSpinner
       formInProgressAriaLabel="Sender inn skjema, venter på svar."
-      btnClassNames="button--secondary"
+      btnClassNames="mt-button--secondary"
       {inProgress}
       spinnerPlacement="end">
       Send in skjema

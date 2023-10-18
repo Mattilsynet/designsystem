@@ -309,7 +309,7 @@
         aria-labelledby={''}
         style="gap: var(--spacer-x-small);">
         {#each cards.slice(0, 6 - index) as link}
-          <a href={link.href} class="mt-link button button--primary transport-card">
+          <a href={link.href} class="mt-link mt-button mt-button--primary transport-card">
             <svg
               width="61"
               height="61"

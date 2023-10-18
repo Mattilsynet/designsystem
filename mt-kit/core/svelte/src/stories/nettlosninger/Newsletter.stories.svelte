@@ -13,7 +13,6 @@
 <Story name="Nyhetsbrev" let:disableCss let:disabled>
   <h1 class="m-b-m">Nyhetsbrev</h1>
   <h2 class="m-b-s">Lenke til påmelding</h2>
-  <a href="#" class="mt-link button button--secondary icon--newsletter-bell-before" {disabled}>
-    Abonner på nyhetsbrev
-  </a>
+  <a href="#" class="mt-link mt-button mt-button--secondary icon--newsletter-bell-before" {disabled}
+    >Abonner på nyhetsbrev</a>
 </Story>

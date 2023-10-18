@@ -121,14 +121,14 @@
           <button
             id="feedback_yes"
             type="button"
-            class="button button--secondary"
+            class="mt-button mt-button--secondary"
             on:click={() => {
               handleClick('yes')
             }}>Ja</button>
           <button
             id="feedback_no"
             type="button"
-            class="button button--secondary"
+            class="mt-button mt-button--secondary"
             on:click={() => {
               handleClick('no')
             }}>Nei</button>
@@ -149,7 +149,7 @@
             labelClass={hideFeedbackText ? '' : 'hide-feedback'} />
           <button
             type="submit"
-            class="button button--primary {hideFeedbackText ? '' : 'hide-feedback'}">
+            class="mt-button mt-button--primary {hideFeedbackText ? '' : 'hide-feedback'}">
             Send svar
           </button>
         </form>
