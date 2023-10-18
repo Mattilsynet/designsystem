@@ -14,7 +14,7 @@ $type-scales: (
   'perfectFourth': 1.333,
   'augmentedFourth': 1.414,
   'perfectFifth': 1.5,
-  'goldenRatio': 1.618
+  'goldenRatio': 1.618,
 );
 
 @function type-ratio($scale) {
@@ -199,7 +199,7 @@ h6,
 th,
 td,
 a,
-button,
+.mt-button,
 dl,
 ul,
 ol,

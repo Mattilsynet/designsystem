@@ -39,12 +39,12 @@ fieldset {
 
 ul + .form-label,
 ol + .form-label,
-.button + .form-label,
+.mt-button + .form-label,
 .form-field + .form-label,
-.form-field + button,
-[type='hidden'] + button,
+.form-field + .mt-button,
+[type='hidden'] + .mt-button,
 .form-field + fieldset,
-fieldset + button,
+fieldset + .mt-button,
 fieldset + fieldset,
 fieldset + .form-label {
   margin-top: var(--form-group-spacer);
@@ -239,8 +239,8 @@ label.form-label {
     transform: scale(1);
   }
 }
-.button-radio,
-.button-checkbox {
+.mt-button-radio,
+.mt-button-checkbox {
   display: grid;
   grid-template-columns: min-content min-content;
   grid-template-rows: min-content min-content min-content min-content min-content;
@@ -340,7 +340,7 @@ label.form-label {
   border-left: $border-width-regular solid var(--color-error);
 
   &:focus-visible {
-    outline: $border-width-regular solid var(--color-error)
+    outline: $border-width-regular solid var(--color-error);
   }
   a {
     @extend .mt-link;
