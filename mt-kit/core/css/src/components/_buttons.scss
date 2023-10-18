@@ -258,6 +258,11 @@ $icon-button-border-radius: 0.25em;
     }
   }
   &.closable {
+    &:hover {
+      &:after {
+        background-color: var(--background);
+      }
+    }
     &:after {
       width: var(--icon-size-normal);
       height: var(--icon-size-normal);
