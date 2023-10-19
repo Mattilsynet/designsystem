@@ -67,14 +67,13 @@
     <button
       {id}
       type="button"
-      class="button--unstyled disclosure-header {headerTag} {headerClass}"
+      class="mt-button--unstyled disclosure-header {headerTag} {headerClass}"
       aria-expanded={isOpen}
       aria-controls={bodyId}
       on:click={() => {
         dispatchOpen(!isOpen)
         send('TOGGLE')
-      }}
-    >
+      }}>
       {#if chapter}
         <span class="chapter-number responsive-hide">
           {chapter}
@@ -99,8 +98,7 @@
     id={bodyId}
     class="disclosure-panel {panelClass} {onServer ? 'on-server' : ''}"
     class:display-none-important={!isOpen}
-    transition:slide|local={{ duration: $state.context.isFirstRenderFinished ? 300 : 0 }}
-  >
+    transition:slide|local={{ duration: $state.context.isFirstRenderFinished ? 300 : 0 }}>
     {#if !onServer}
       <HeadingLevel class="inclusively-hidden" headingLevel={+headerTag.charAt(1)}>
         {@html title}

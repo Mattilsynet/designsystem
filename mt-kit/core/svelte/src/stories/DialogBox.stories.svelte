@@ -21,8 +21,7 @@
       <p>At noen setter opp nye piggtrådgjerder</p>
       <p>Eldre piggtrådgjerder som utgjør en risiko for at dyr blir skadet</p>`
   }}
-  argTypes={{}}
-/>
+  argTypes={{}} />
 
 <Story name="Normal" let:content>
   <h2>Default</h2>
@@ -54,16 +53,14 @@
       <div class="layout-flex" style="margin-top: 20px;">
         <ButtonSpinner
           formInProgressAriaLabel="Sender inn skjema, venter på svar."
-          btnClassNames="button--secondary"
-          spinnerPlacement="start"
-        >
+          btnClassNames="mt-button--secondary"
+          spinnerPlacement="start">
           Ja
         </ButtonSpinner>
         <ButtonSpinner
           formInProgressAriaLabel="Sender inn skjema, venter på svar."
-          btnClassNames="button--secondary"
-          spinnerPlacement="end"
-        >
+          btnClassNames="mt-button--secondary"
+          spinnerPlacement="end">
           Nei
         </ButtonSpinner>
       </div>
@@ -72,7 +69,7 @@
   <hr />
   <h2>Vises ved endring</h2>
   <div class="tags-wrapper">
-    <button class="button toggle-button" on:click={handleClick}>Toggle dialog</button>
+    <button class="mt-button toggle-button" on:click={handleClick}>Toggle dialog</button>
     <DialogBox {title} isOpen={showDialog} {closeBtnAriaLabel}>
       <p>Dialogboks innhold</p>
     </DialogBox>

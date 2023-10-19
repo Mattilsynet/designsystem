@@ -34,8 +34,7 @@
     tags: { control: 'array' },
     isClosable: { control: 'boolean' },
     disableCss: { control: 'boolean' }
-  }}
-/>
+  }} />
 
 <Story name="Normal" let:args>
   <div use:wrapInShadowDom={args.disableCss} />
@@ -48,7 +47,7 @@
     <article>
       <h2>Lukkbare tags</h2>
       <Tags bind:tags={closableTags} isClosable={args.isClosable} />
-      <button class="button button--link" on:click={reset}>Gjenopprett tags</button>
+      <button class="mt-button mt-button--link" on:click={reset}>Gjenopprett tags</button>
     </article>
     <article>
       <h2>Tags med forskjellige farger</h2>

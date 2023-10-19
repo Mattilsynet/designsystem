@@ -37,7 +37,7 @@
 <div class="dropdown {className} {onServer ? 'on-server' : ''}" class:visible={isOpen || onServer}>
   {#if onServer}
     <details>
-      <summary class="button button--link">
+      <summary class="mt-button mt-button--link">
         {@html title}
       </summary>
       <div id={bodyId} class="dropdown-content">
@@ -47,12 +47,11 @@
   {:else}
     <button
       id={titleId}
-      class="button button--link"
+      class="mt-button mt-button--link"
       aria-haspopup="true"
       aria-expanded={isOpen}
       aria-controls={bodyId}
-      on:click={() => send('TOGGLE')}
-    >
+      on:click={() => send('TOGGLE')}>
       {@html title}
     </button>
     <div
@@ -60,8 +59,7 @@
       id={bodyId}
       use:clickOutside={titleId}
       on:click={handleClick}
-      on:clickOutside={() => isOpen && send('TOGGLE')}
-    >
+      on:clickOutside={() => isOpen && send('TOGGLE')}>
       <div in:slide={{ duration: 300 }}>
         <slot />
       </div>

@@ -202,26 +202,23 @@
 <div
   id="{selectId}-selected-label"
   class="text-small token-label"
-  class:hidden={!Object.values(selected).length}
->
+  class:hidden={!Object.values(selected).length}>
   {tagsLabel}
 </div>
 <ul
   id="{selectId}-selected"
   class="token-wrapper list-unstyled"
-  aria-labelledby="{selectId}-selected-label"
->
+  aria-labelledby="{selectId}-selected-label">
   {#each Object.values(selected) as selectedOption, index}
     <li>
       <button
         id="{selectId}-remove-{index}"
         type="button"
-        class="button button--flat button--small closable token"
+        class="mt-button mt-button--flat mt-button--small closable token"
         data-id={selectedOption.value}
         aria-label={selectedOption.removeAriaLabel}
         on:keydown={e => handleRemoveItemKeyDown(e, selectedOption.value)}
-        on:click|preventDefault={e => handleRemoveItem(e, selectedOption.value)}
-      >
+        on:click|preventDefault={e => handleRemoveItem(e, selectedOption.value)}>
         <span>{selectedOption.text}</span>
       </button>
     </li>
@@ -259,8 +256,7 @@
         aria-activedescendant={activeOption
           ? `${selectId}-${activeOption.value}-${activeOptionIndex}`
           : undefined}
-        {placeholder}
-      />
+        {placeholder} />
       <span class="down-arrow" aria-hidden="true" />
     {/if}
   </div>
@@ -274,8 +270,7 @@
     class:hidden={!showOptions}
     transition:fly|local={{ duration: 200, y: 5 }}
     on:mousedown|preventDefault
-    on:mouseup|preventDefault={handleOptionMouseup}
-  >
+    on:mouseup|preventDefault={handleOptionMouseup}>
     {#each filtered as option, index}
       <li
         id="{selectId}-{option.value}-{index}"
@@ -286,8 +281,7 @@
         class:selected={selected[option.value]}
         class:active={activeOption === option}
         aria-selected={!!selected[option.value]}
-        data-value={option.value}
-      >
+        data-value={option.value}>
         {option.text}
       </li>
     {/each}

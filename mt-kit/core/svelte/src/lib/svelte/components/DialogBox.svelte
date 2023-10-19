@@ -41,7 +41,7 @@
       id={dialogCloseButtonId}
       data-testid="dialog-box-close"
       type="button"
-      class="button button--link dialog-box--close-button"
+      class="mt-button mt-button--link dialog-box--close-button"
       on:click={handleClose}
       aria-label={closeBtnAriaLabel} />
 

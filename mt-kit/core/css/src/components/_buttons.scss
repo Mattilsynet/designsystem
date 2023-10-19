@@ -7,7 +7,7 @@ $icon-button-padding: $button-padding-lr;
 $icon-button-border-radius: 0.25em;
 
 // stylelint-disable order/properties-order
-.button {
+.mt-button {
   @include focus-outline();
   @include disabled;
 
@@ -194,7 +194,7 @@ $icon-button-border-radius: 0.25em;
     flex-shrink: 0;
   }
 
-  &:not(.button-icon) .button__icon {
+  &:not(.mt-button-icon) .mt-button__icon {
     margin-right: 0.5em;
   }
 
@@ -258,6 +258,11 @@ $icon-button-border-radius: 0.25em;
     }
   }
   &.closable {
+    &:hover {
+      &:after {
+        background-color: var(--background);
+      }
+    }
     &:after {
       width: var(--icon-size-normal);
       height: var(--icon-size-normal);
@@ -293,7 +298,7 @@ $icon-button-border-radius: 0.25em;
   }
 }
 
-.icon-button {
+.mt-icon-button {
   color: var(--color-mt-blue);
   background: transparent;
   border: var(--border-width-regular) solid transparent;
@@ -316,7 +321,4 @@ $icon-button-border-radius: 0.25em;
   }
 }
 
-.color--primary {
-  @extend .button--primary;
-}
 // stylelint-enable

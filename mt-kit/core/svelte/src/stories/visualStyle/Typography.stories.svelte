@@ -48,12 +48,12 @@
     <a class="mt-link" href="">{link}</a>
     <a
       href={link.href}
-      class="mt-link button button--primary button--space-between layout-full-width forward-arrow-end padded"
+      class="mt-link mt-button mt-button--primary mt-button--space-between layout-full-width forward-arrow-end padded"
       style="--gap: var(--spacer-x-small)">
       Transportlenke
     </a>
     <div class="layout-grid layout-grid--column-3">
-      <a href={link.href} class="mt-link button button--primary transport-card">
+      <a href={link.href} class="mt-link mt-button mt-button--primary transport-card">
         <svg
           width="61"
           height="61"

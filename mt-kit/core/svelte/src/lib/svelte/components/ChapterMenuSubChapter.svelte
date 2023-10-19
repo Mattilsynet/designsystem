@@ -28,7 +28,7 @@
 {#if subChapters.length > 0}
   {#if !onServer}
     <button
-      class="button button--on-primary icon-button icon--caret-down-after-on-primary m-r-0"
+      class="mt-button mt-button--on-primary mt-icon-button icon--caret-down-after-on-primary m-r-0"
       aria-label={ariaLabel}
       aria-haspopup="true"
       aria-controls={componentId}

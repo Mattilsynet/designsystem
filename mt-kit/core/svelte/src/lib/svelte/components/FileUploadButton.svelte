@@ -135,7 +135,7 @@
   aria-required={isRequired || undefined} />
 
 {#if !onServer}
-  <label class="button button--secondary" style="width: 220px;" for={id}>
+  <label class="mt-button mt-button--secondary" style="width: 220px;" for={id}>
     {buttonText}
   </label>
 
@@ -146,7 +146,7 @@
           <span class="file-button__file-name">{fileName}</span>
           <button
             type="button"
-            class="button button--search-clear file-button__file-remove"
+            class="mt-button mt-button--search-clear file-button__file-remove"
             on:click={() => send({ type: 'FILE_REMOVE', fileName })}
             data-testid={`remove-${fileName}`}>
             <span class="inclusively-hidden">Slett vedlegget: "{fileName}"</span>

@@ -17,7 +17,9 @@
 <button
   {type}
   on:click={setInProgress}
-  class={`button button--spinner--${spinnerPlacement === 'end' ? 'end' : 'start'} ${btnClassNames}`}
+  class={`mt-button mt-button--spinner--${
+    spinnerPlacement === 'end' ? 'end' : 'start'
+  } ${btnClassNames}`}
   data-testid="spinner">
   <span
     role="status"

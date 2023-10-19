@@ -2,8 +2,7 @@
 @use '../theme' as *;
 
 .form-intro {
-  button,
-  .button {
+  .mt-button {
     margin-top: var(--spacer-small);
   }
 }

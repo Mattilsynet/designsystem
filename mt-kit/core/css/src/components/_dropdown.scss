@@ -59,8 +59,7 @@
     right: 0;
     border: $border-width-regular solid var(--color-mt-blue);
 
-    > button,
-    .button {
+    > .mt-button {
       color: transparent;
     }
 
@@ -74,19 +73,19 @@
       box-shadow: none;
     }
   }
-  button.button--link,
-  &.button,
+  .mt-button.mt-button--link,
+  &.mt-button,
   .dropdown-title,
-  summary.button {
+  summary.mt-button {
     font-weight: var(--font-weight-light);
     text-decoration: none;
     &:hover {
       text-decoration: underline;
     }
   }
-  summary.button,
+  summary.mt-button,
   .dropdown-title,
-  button {
+  .mt-button {
     padding: 0.1875rem;
     position: relative;
     z-index: 0;
@@ -106,10 +105,9 @@
   }
 
   // Currently used in the header
-  &.button__small-text {
+  &.mt-button__small-text {
     font-size: $font-size-small;
-    button,
-    .button,
+    .mt-button,
     a {
       font-size: $font-size-small;
     }
@@ -119,8 +117,7 @@
       a {
         font-size: $font-size-body;
       }
-      button,
-      .button {
+      .mt-button {
         font-size: $font-size-label;
       }
     }
@@ -130,7 +127,7 @@
     position: inherit;
     padding: 0;
     margin-right: 0;
-    & > button,
+    & > .mt-button,
     > details {
       color: var(--color-mt-text-dark);
       --icon-size: 1rem;
@@ -169,7 +166,7 @@
       }
     }
     &.visible,
-    & details > summary.button {
+    & details > summary.mt-button {
       color: var(--color-mt-text-dark);
       .dropdown-content {
         padding: var(--spacer-small) 0;
@@ -182,8 +179,8 @@
       .menu-level-1 {
         padding: var(--spacer-xx-small);
       }
-      & > button,
-      summary.button {
+      & > .mt-button,
+      summary.mt-button {
         --icon-size: 1.4rem;
       }
       .disclosure-header {
@@ -211,8 +208,8 @@
     }
 
     .dropdown-title,
-    button,
-    summary.button {
+    .mt-button,
+    summary.mt-button {
       z-index: 2000;
     }
 

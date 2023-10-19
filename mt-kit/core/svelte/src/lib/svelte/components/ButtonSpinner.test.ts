@@ -13,7 +13,7 @@ describe('ButtonSpinner', () => {
     render(ButtonSpinner, { props: componentOptions })
     const spinner = screen.getByTestId('spinner')
     expect(spinner).toBeInTheDocument()
-    expect(spinner.classList.contains('button--spinner--end')).toEqual(true)
+    expect(spinner.classList.contains('mt-button--spinner--end')).toEqual(true)
     fireEvent.click(screen.getByTestId('spinner'))
     expect(await screen.findByLabelText('In progress')).toBeInTheDocument()
   })

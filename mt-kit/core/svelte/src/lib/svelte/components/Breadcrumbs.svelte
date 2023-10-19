@@ -118,7 +118,7 @@
             type="button"
             aria-expanded="false"
             aria-label={showAllBreadCrumbsLabel}
-            class="button button--link forward-arrow"
+            class="mt-button mt-button--link forward-arrow"
             on:click={() => send('TOGGLE')}>
             ...
           </button>

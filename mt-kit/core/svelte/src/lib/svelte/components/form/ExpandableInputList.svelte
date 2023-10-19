@@ -53,8 +53,7 @@
   aria-describedby={createInputAriaDescribedby(
     fieldSetHelpText ? fieldSetId : undefined,
     fieldSetError
-  )}
->
+  )}>
   <legend class="form-legend">{fieldSetLabel}</legend>
 
   {#if fieldSetHelpText}
@@ -69,8 +68,7 @@
       class=""
       role="alert"
       tabindex="-1"
-      aria-labelledby="error-summary-heading"
-    >
+      aria-labelledby="error-summary-heading">
       <h2 id="error-summary-heading" class="inclusively-hidden">
         {fieldSetErrorHeading}
       </h2>
@@ -98,22 +96,20 @@
         error={outside.error}
         {showOptionalText}
         labelClass="text-body"
-        inputClass="form-field--small form-field--small-width"
-      />
+        inputClass="form-field--small form-field--small-width" />
     {/each}
 
     {#if loadJs}
       {#if insides.length > 0}
         <button
           type="button"
-          class="button button--flat button--small expandable self-start"
+          class="mt-button mt-button--flat mt-button--small expandable self-start"
           class:m-t-xxs={showMore}
           aria-expanded={showMore}
           aria-controls={bodyId}
           aria-label={createAriaLabel(showMore)}
           on:click|preventDefault={() => (showMore = !showMore)}
-          style="order: {insides.length + outsides.length};"
-        >
+          style="order: {insides.length + outsides.length};">
           {#if showMore}
             {@html collapsableText}
           {:else}
@@ -135,8 +131,7 @@
               hasTransition={true}
               {showOptionalText}
               labelClass="text-body"
-              inputClass="form-field--small form-field--small-width"
-            />
+              inputClass="form-field--small form-field--small-width" />
           {/each}
         {/if}
       {/if}
@@ -160,8 +155,7 @@
               hasTransition={true}
               {showOptionalText}
               labelClass="text-body"
-              inputClass="form-field--small form-field--small-width"
-            />
+              inputClass="form-field--small form-field--small-width" />
           {/each}
         </div>
       </details>

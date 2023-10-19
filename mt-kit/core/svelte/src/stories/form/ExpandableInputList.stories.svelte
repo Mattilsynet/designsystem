@@ -102,8 +102,7 @@
     inputList: { control: 'object' },
     disableJs: { control: 'boolean' },
     disableCss: { control: 'boolean' }
-  }}
-/>
+  }} />
 
 <Story name="Normal" let:disableCss let:args>
   <main use:wrapInShadowDom={disableCss}>
@@ -119,9 +118,8 @@
         collapsableText={args.collapsableText}
         expandableAriaLabel={args.expandableAriaLabel}
         bind:values
-        loadJs={!args.disableJs}
-      />
-      <button type="submit" class="button button--primary">Gå videre</button>
+        loadJs={!args.disableJs} />
+      <button type="submit" class="mt-button mt-button--primary">Gå videre</button>
     </form>
   </main>
 </Story>

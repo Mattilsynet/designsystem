@@ -34,7 +34,7 @@
   aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)}
   aria-required={isRequired || undefined}
   class="form-fieldset {theme === 'checkbox' ? 'checkbox' : ''} {theme === 'button'
-    ? 'button-checkbox'
+    ? 'mt-button-checkbox'
     : ''} {className}">
   <legend class="form-legend">
     {label}
@@ -66,7 +66,7 @@
         aria-required={isRequired}
         aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)} />
       <label
-        class="form-label {theme === 'button' ? 'button button--secondary' : ''}"
+        class="form-label {theme === 'button' ? 'mt-button mt-button--secondary' : ''}"
         for={toKebabCase(checkbox.value)}>
         {checkbox.text}
       </label>

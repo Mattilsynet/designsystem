@@ -86,7 +86,7 @@
           <div class="card-grid col-2-span-10">
             <div class="layout-grid layout-grid--column-3">
               {#each transportCards as card}
-                <a href={card.href} class="mt-link button button--primary transport-card">
+                <a href={card.href} class="mt-link mt-button mt-button--primary transport-card">
                   <svg
                     width="61"
                     height="61"
