@@ -1,6 +1,7 @@
 @use '../theme' as *;
 @use '../utilities/functions' as *;
 @use '../color-tokens' as *;
+@use '../global/links' as *;
 
 .chapter-menu {
   $color: $color-primary;
@@ -42,6 +43,7 @@
     }
   }
   a {
+    @extend .mt-link;
     display: block;
     color: var(--color-mt-white);
     text-decoration: none;

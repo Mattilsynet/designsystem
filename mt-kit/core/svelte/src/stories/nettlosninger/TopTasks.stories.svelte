@@ -52,14 +52,12 @@
     topTasks: { control: 'array' },
     disabled: { control: 'boolean' },
     disableCss: { control: 'boolean' }
-  }}
-/>
+  }} />
 
 <Story name="Normal" let:topTasks let:icon let:disableCss let:title let:intro let:path>
   <div
     use:wrapInShadowDom={disableCss}
-    class="layout-grid layout-grid--column-12 top-tasks-container"
-  >
+    class="layout-grid layout-grid--column-12 top-tasks-container">
     <h2 id={path} class="top-tasks-text col-1-span-12">
       {@html title}
     </h2>
@@ -71,11 +69,10 @@
       class:layout-flex--basis-3={topTasks.length !== 2 && topTasks.length !== 4}
       class:layout-flex--basis-2={topTasks.length === 2 || topTasks.length === 4}
       aria-labelledby={path}
-      style="gap: var(--spacer-x-small);"
-    >
+      style="gap: var(--spacer-x-small);">
       {#each topTasks as task, index}
         {#if task && task.url}
-          <a href={task.url} class="button button--primary top-task">
+          <a href={task.url} class="mt-link button button--primary top-task">
             <h3 class="heading">{@html task.title}</h3>
             <span class="text">{@html task.intro}</span>
           </a>

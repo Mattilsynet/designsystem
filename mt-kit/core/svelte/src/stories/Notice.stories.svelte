@@ -7,7 +7,7 @@
 <Meta
   title="Components/Notice"
   args={{
-    text: `<p>Haster det? Er det fare for at dyr dør eller blir påført store belastninger. Ring mattilsynet på tlf. <a href="tel:22400000">22 40 00 00</a> eller politiet <a href="tel:02800">02800</a></p>`,
+    text: `<p>Haster det? Er det fare for at dyr dør eller blir påført store belastninger. Ring mattilsynet på tlf. <a class="mt-link"href="tel:22400000">22 40 00 00</a> eller politiet <a class="mt-link"href="tel:02800">02800</a></p>`,
     text2: `<p><strong>Ring politiet på tlf. 02800 hvis du</strong></p>
 <ul >
   <li >har kjørt på et dyr</li>
@@ -24,15 +24,14 @@
     disabled: { control: 'boolean' },
     disableJs: { control: 'boolean' },
     disableCss: { control: 'boolean' }
-  }}
-/>
+  }} />
 
 <Story name="Normal" let:text let:text2 let:disableCss let:iconText>
   <main use:wrapInShadowDom={disableCss} class="container layout-flex-col">
     <h1>Varseltekst</h1>
     <section class="layout-flex-col">
       <h2>Med varsel icon</h2>
-      <Notice infoType="important" {text} iconText={iconText}/>
+      <Notice infoType="important" {text} {iconText} />
       <Notice infoType="important" text={text2} />
     </section>
     <section class="layout-flex-col">

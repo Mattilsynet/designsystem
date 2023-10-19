@@ -1,6 +1,8 @@
 @use '../theme' as *;
+@use '../global/links' as *;
 
 .breadcrumbs {
+
   font-size: 1rem;
   ol {
     display: flex;
@@ -15,6 +17,9 @@
       .button--link {
         border-radius: 0;
         line-height: 1;
+      }
+      a {
+        @extend .mt-link;
       }
       &:first-child {
         a::before {
@@ -57,10 +62,8 @@
         &:nth-last-child(2) {
           a::before {
             transform: rotateY(0);
+            margin-right: var(--spacer-xxx-small);
           }
-        }
-        a::before {
-          margin-right: var(--spacer-xxx-small);
         }
         .last-breadcrumb::before {
           content: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNiIgaGVpZ2h0PSIxMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNLjIgMS40MyAzLjY2MSA1IC4yIDguNTdsMS4wNjYgMS4wOTdMNS44IDUgMS4yNjYuMzMzLjIgMS40M1oiIGZpbGw9IiM0NjQ1NDUiLz48L3N2Zz4=');

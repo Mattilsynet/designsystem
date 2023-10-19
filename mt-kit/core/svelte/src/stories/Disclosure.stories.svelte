@@ -18,7 +18,7 @@
         splitIntoParagraphs(
           `Alle har plikt til å vise nødvendig aktsomhet for å hindre at det oppstår fare for at smittsom dyresykdom utvikler seg eller sprer seg. Alle har også har plikt til å varsle Mattilsynet dersom de mistenker alvorlig smittsom dyresykdom.\nVi har en rekke regler for å forebygge alvorlige, smittsomme dyresykdommer. Disse reglene gjelder alle som driver virksomhet som kan bidra til at smitte spres til dyr. Dette gjelder en rekke virksomheter som dyreeiere, slakterier, importører, transportvirksomheter, veterinærer og mange andre.\nMattilsynet har ansvar for å føre tilsyn med at regelverket følges, sørge for forebyggende tiltak og overvåke sykdomstilstanden i landet. I tillegg har Mattilsynet ansvar for å ha beredskap for å bekjempe utbrudd av alvorlige smittsomme dyresykdommer. En rekke private og offentlige aktører har ansvar for å bistå Mattilsynet ved bekjempelsesarbeidet ved slike utbrudd.`
         ) +
-        `<a class="forward-arrow-end-link fit-content s-Bsk4fvxPVqY0" href="https://lovdata.no/dokument/SF/forskrift/2004-08-20-1204">Se hele forskriften</a> <p class="text-small s-Bsk4fvxPVqY0">Kilde: Lovdata.no</p>`,
+        `<a class="mt-link forward-arrow-end-link fit-content s-Bsk4fvxPVqY0" href="https://lovdata.no/dokument/SF/forskrift/2004-08-20-1204">Se hele forskriften</a> <p class="text-small s-Bsk4fvxPVqY0">Kilde: Lovdata.no</p>`,
       headerTag: 'h3'
     },
     {
@@ -42,8 +42,7 @@
     headerTag: { control: 'text' },
     disableJs: { control: 'boolean' },
     disableCss: { control: 'boolean' }
-  }}
-/>
+  }} />
 
 <Template let:args>
   <section class="content" use:wrapInShadowDom={args.disableCss}>
@@ -53,8 +52,7 @@
       headerTag={args.headerTag}
       headerClass={args.headerClass}
       theme={args.theme}
-      class={args.class}
-    >
+      class={args.class}>
       {@html args.body}
       <ul>
         <li>Punkt 1</li>
@@ -72,8 +70,7 @@
     headerClass: 'text-body',
     disableJs: false,
     disableCss: false
-  }}
-/>
+  }} />
 
 <Story
   name="Endringslogg"
@@ -85,22 +82,19 @@
     disableCss: false,
     class: 'changelog'
   }}
-  let:args
->
+  let:args>
   <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading">
     <Disclosure
       title={'Se endringer'}
       loadJs={!args.disableJs}
       headerTag={args.headerTag}
       headerClass={args.headerClass}
-      class={args.class}
-    >
+      class={args.class}>
       {#each args.body as log, index}
         <article
           class:border-b-secondary={index < args.body.length - 1}
           class:p-b-xs={index < args.body.length - 1}
-          class:m-b-xxs={index < args.body.length - 1}
-        >
+          class:m-b-xxs={index < args.body.length - 1}>
           <span class="text-small">01.01.2021</span>
           <HeadingLevel headingLevel={3} class="h5 m-b-xs">
             {@html log.title}
@@ -123,8 +117,7 @@
     disableJs: false,
     disableCss: false
   }}
-  let:args
->
+  let:args>
   <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading">
     <h2 id="heading">{title}</h2>
     {#each disclosures as disclosure, i}
@@ -133,8 +126,7 @@
         loadJs={!args.disableJs}
         headerTag={disclosure.headerTag}
         icon={i === 2 ? icon : undefined}
-        headerClass={args.headerClass}
-      >
+        headerClass={args.headerClass}>
         {@html disclosure.body}
       </Disclosure>
     {/each}
@@ -148,8 +140,7 @@
     disableJs: false,
     disableCss: false
   }}
-  let:args
->
+  let:args>
   <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading2">
     <h2 id="heading2">Tittel for lyseblått trekkspill</h2>
     {#each disclosures as disclosure, i}
@@ -159,8 +150,7 @@
         theme="no-border"
         class="background-mt-rationale-blue"
         headerTag={disclosure.headerTag}
-        icon={i !== 2 ? icon : undefined}
-      >
+        icon={i !== 2 ? icon : undefined}>
         {@html disclosure.body}
       </Disclosure>
     {/each}
@@ -174,8 +164,7 @@
     disableJs: false,
     disableCss: false
   }}
-  let:args
->
+  let:args>
   <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading2">
     <h2 id="heading2">Tittel for hvit trekkspill</h2>
     {#each disclosures as disclosure, i}
@@ -186,8 +175,7 @@
         class="background-mt-white"
         startOpen={i === 1}
         headerTag={disclosure.headerTag}
-        icon={i !== 2 ? icon : undefined}
-      >
+        icon={i !== 2 ? icon : undefined}>
         {@html disclosure.body}
       </Disclosure>
     {/each}
@@ -202,8 +190,7 @@
     headerTag: disclosures[1].headerTag,
     disableJs: true,
     disableCss: true
-  }}
-/>
+  }} />
 
 <Story
   name="Large size"
@@ -213,8 +200,7 @@
     headerTag: disclosures[0].headerTag,
     disableJs: false,
     disableCss: false
-  }}
-/>
+  }} />
 
 <Story
   name="I Grid"
@@ -224,8 +210,7 @@
     disableJs: false,
     disableCss: false
   }}
-  let:args
->
+  let:args>
   <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading2">
     <h2 id="heading3">{title}</h2>
     <section class="layout-grid layout-grid--column-12">
@@ -236,8 +221,7 @@
           headerTag={disclosure.headerTag}
           class="layout-grid layout-grid--column-12 col-3-span-8"
           headerClass="col-1-span-12 text-h3"
-          panelClass="col-1-span-12"
-        >
+          panelClass="col-1-span-12">
           {@html disclosure.body}
         </Disclosure>
       {/each}
@@ -254,8 +238,7 @@
             ? 'disclosure-with-number'
             : ''} layout-grid layout-grid--column-12 col-3-span-8"
           headerClass={'text-h3'}
-          panelClass="col-1-span-12"
-        >
+          panelClass="col-1-span-12">
           {@html disclosure.body}
         </Disclosure>
       {/each}
@@ -283,8 +266,7 @@
         icon={i === 2 ? icon : undefined}
         on:open={() => alert('opening')}
         on:close={() => alert('closing')}
-        headerClass={args.headerClass}
-      >
+        headerClass={args.headerClass}>
         {@html disclosure.body}
       </Disclosure>
     {/each}

@@ -37,8 +37,7 @@
     title: { control: 'text' },
     content: { control: 'array' },
     disableCss: { control: 'boolean' }
-  }}
-/>
+  }} />
 
 <Story name="Normal" let:args let:disableCss>
   <div use:wrapInShadowDom={args.disableCss}>
@@ -46,7 +45,7 @@
     <ol class="list list-unstyled">
       {#each args.content as item}
         <li class="layout-flex layout-flex--no-wrap layout-flex--space-between">
-          <a href={item.url}>{item.displayName}</a>
+          <a class="mt-link" href={item.url}>{item.displayName}</a>
         </li>
       {/each}
     </ol>

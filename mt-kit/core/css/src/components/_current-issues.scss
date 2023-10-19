@@ -1,4 +1,5 @@
 @use '../theme' as *;
+@use '../global/links' as *;
 
 .current-issues {
   --border-color: var(--color-mt-green);
@@ -9,7 +10,9 @@
 
   background-color: var(--color-mt-light-green);
   padding: var(--spacer-small) var(--spacer-x-small) var(--spacer-x-small);
-
+  a {
+    @extend .mt-link;
+  }
   span {
     gap: 0;
     margin-top: var(--spacer-x-small);

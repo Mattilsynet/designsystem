@@ -1,5 +1,6 @@
 @use '../utilities/mixins' as *;
 @use '../theme' as *;
+@use '../global/links' as *;
 
 .tasks {
   display: flex;
@@ -12,7 +13,9 @@
   @include card-article;
 
   background-color: var(--color-mt-white);
-
+  a {
+    @extend .mt-link
+  }
   .title {
     display: flex;
     align-items: center;

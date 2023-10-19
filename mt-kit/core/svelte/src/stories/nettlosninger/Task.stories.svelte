@@ -45,7 +45,7 @@
 
               <p>Når geiter flyttes til ei anna eller ny småfebesetning, skal dyreholderen sende med en attest fra en veterinær som har undersøkt dyra i avsenderbesetninga. Attesten skal bekrefte at dyra som flyttes,
                   ikke har symptomer på smittsomme dyresjukdommer. Attesten skal også bekrefte at
-                  <a href="https://lovdata.no/dokument/SF/forskrift/2002-06-27-732#KAPITTEL_16">krava i Dyrehelseforskrifta,
+                  <a class="mt-link" href="https://lovdata.no/dokument/SF/forskrift/2002-06-27-732#KAPITTEL_16">krava i Dyrehelseforskrifta,
                   vedlegg VII er oppfylt</a>.
               </p>
 
@@ -75,7 +75,7 @@
 
               <p>Når geiter flyttes til ei anna eller ny småfebesetning, skal dyreholderen sende med en attest fra en veterinær som har undersøkt dyra i avsenderbesetninga. Attesten skal bekrefte at dyra som flyttes,
                   ikke har symptomer på smittsomme dyresjukdommer. Attesten skal også bekrefte at
-                  <a href="https://lovdata.no/dokument/SF/forskrift/2002-06-27-732#KAPITTEL_16">krava i Dyrehelseforskrifta,
+                  <a class="mt-link" href="https://lovdata.no/dokument/SF/forskrift/2002-06-27-732#KAPITTEL_16">krava i Dyrehelseforskrifta,
                   vedlegg VII er oppfylt</a>.
               </p>
 
@@ -113,8 +113,7 @@
   argTypes={{
     disabled: { control: 'boolean' },
     disableCss: { control: 'boolean' }
-  }}
-/>
+  }} />
 
 <Story name="Normal" let:tasks let:disableCss>
   <div use:wrapInShadowDom={disableCss} class="container layout-flex-col layout-flex-col--x-small">
@@ -127,8 +126,7 @@
         title={task.title}
         text={task.text}
         id={task.title}
-        headerTag={task.headerTag}
-      />
+        headerTag={task.headerTag} />
     {/each}
   </div>
 </Story>

@@ -3,6 +3,7 @@
 @use '../color-tokens' as *;
 @use '../utilities/functions' as *;
 @use '../global/icon' as *;
+@use '../global/links' as *;
 
 .dropdown {
   --background-color: var(--color-primary);
@@ -13,6 +14,7 @@
   position: relative;
 
   a {
+    @extend .mt-link;
     border-radius: 0;
   }
 
@@ -251,6 +253,7 @@
   display: flex;
   flex-direction: column;
   a {
+    @extend .mt-link;
     text-decoration: none;
     svg {
       height: 1.5rem;
@@ -319,6 +322,7 @@
 .menu {
   --menu-small-link-font-size-mobile: 1.125rem; //18px
   a {
+    @extend .mt-link;
     text-decoration: none;
 
     &.small-link {

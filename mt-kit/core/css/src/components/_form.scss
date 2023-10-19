@@ -1,6 +1,7 @@
 @use '../color-tokens' as *;
 @use '../theme' as *;
 @use '../utilities/mixins' as *;
+@use '../global/links';
 
 //stylelint-disable no-descending-specificity
 $form-field-width: 100% !default;
@@ -24,6 +25,9 @@ form {
 
   .hint {
     font-size: $font-size-small;
+    a {
+      @extend .mt-link;
+    }
   }
 }
 form,
@@ -338,7 +342,9 @@ label.form-label {
   &:focus-visible {
     outline: $border-width-regular solid var(--color-error)
   }
-
+  a {
+    @extend .mt-link;
+  }
   h2 {
     color: var(--color-error);
   }

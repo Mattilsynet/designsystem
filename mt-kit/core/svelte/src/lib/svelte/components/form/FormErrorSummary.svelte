@@ -17,8 +17,7 @@
     style="--gap: var(--spacer-x-small)"
     role="alert"
     tabindex="-1"
-    aria-labelledby="error-summary-heading"
-  >
+    aria-labelledby="error-summary-heading">
     <h2 id="error-summary-heading">
       {heading}
     </h2>

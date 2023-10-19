@@ -1,4 +1,5 @@
 @use '../theme' as *;
+@use '../global/links' as *;
 
 .chapter-navigation {
   display: flex;
@@ -14,6 +15,7 @@
   }
 
   a {
+    @extend .mt-link;
     text-decoration: none;
     font-size: $font-size-small;
     margin-top: var(--spacer-xxx-small);

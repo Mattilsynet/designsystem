@@ -11,4 +11,5 @@
   $: fileType = getFileExtension(fileName) ? `(${getFileExtension(fileName)})` : ''
 </script>
 
-<a class={className} rel={mapRelExternal(href)} {href} {style}>{@html linkText} {fileType}</a>
+<a class="mt-link {className}" rel={mapRelExternal(href)} {href} {style}
+  >{@html linkText} {fileType}</a>

@@ -25,8 +25,7 @@
         <a
           on:click|preventDefault={dispatch('chapterChange', { index: chapter.index })}
           href={chapter.url}
-          aria-current={chapterIndex === currentChapterNumber ? 'page' : undefined}
-        >
+          aria-current={chapterIndex === currentChapterNumber ? 'page' : undefined}>
           {#if showChapterNumbers && chapterIndex > 0}
             {index + startIndex}.
           {/if}
@@ -38,8 +37,7 @@
           {loadJs}
           ariaLabel={subChapterToggleAriaLabel}
           parentIndex={index + startIndex}
-          subChapters={chapter.subChapters}
-        />
+          subChapters={chapter.subChapters} />
       </li>
     {/each}
   </ol>

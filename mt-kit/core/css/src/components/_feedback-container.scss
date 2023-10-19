@@ -1,14 +1,18 @@
 @use '../theme' as *;
+@use '../global/links' as *;
 
 $feedback-box-breakpoint: 70rem; //1120px;
 $feedback-box-breakpoint-height: 48.75rem; //780px;
-
 
 .feedback-container {
   --width-outside-content: 10.25rem; // 196px
   --feedback-from-top: 15vh;
   --feedback-from-right: -10vh;
   --feedback-box-width: 16.25rem; // 260px;
+
+  a {
+    @extend .mt-link;
+  }
 
   .feedback-box {
     margin: 0 auto;
@@ -57,7 +61,6 @@ $feedback-box-breakpoint-height: 48.75rem; //780px;
   }
 }
 
-
 .feedback-container.onWidePage {
   margin-bottom: var(--spacer-x-small);
 }
@@ -82,26 +85,26 @@ $feedback-box-breakpoint-height: 48.75rem; //780px;
 }
 
 @media only screen and (min-width: $feedback-box-breakpoint) {
-    .feedback-container.default {
-      width: $main-width;
-      margin-left: auto;
-      margin-right: auto;
-      position: fixed;
-      top: 0;
+  .feedback-container.default {
+    width: $main-width;
+    margin-left: auto;
+    margin-right: auto;
+    position: fixed;
+    top: 0;
 
-      .feedback-box {
-        padding: 0;
-        max-width: var(--feedback-box-width);
-        top: var(--feedback-from-top);
-        right: 0;
-        text-align: left;
-        opacity: 1;
-        visibility: visible;
-        position: absolute;
-        z-index: var(--z-index-feedback);
-      }
+    .feedback-box {
+      padding: 0;
+      max-width: var(--feedback-box-width);
+      top: var(--feedback-from-top);
+      right: 0;
+      text-align: left;
+      opacity: 1;
+      visibility: visible;
+      position: absolute;
+      z-index: var(--z-index-feedback);
     }
   }
+}
 
 @media only screen and (min-height: $feedback-box-breakpoint-height) {
   .feedback-container {

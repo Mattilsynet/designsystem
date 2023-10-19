@@ -1,5 +1,6 @@
 @use '../utilities/mixins' as *;
 @use '../theme' as *;
+@use '../global/links' as *;
 
 .status {
   border: $border-width-small solid var(--color-mt-brown);
@@ -16,6 +17,17 @@
     overflow-wrap: anywhere;
   }
 
+  a {
+    @extend .mt-link;
+    grid-area: link;
+    margin-top: var(--spacer-x-small);
+  }
+
+  dl {
+    grid-area: date;
+    margin-top: var(--spacer-xx-small);
+  }
+
   .important {
     grid-area: icon;
     display: flex;
@@ -28,11 +40,6 @@
       width: 2rem;
       height: 2rem;
     }
-  }
-
-  dl {
-    grid-area: date;
-    margin-top: var(--spacer-xx-small);
   }
 
   .text {
@@ -51,10 +58,5 @@
 
   .action {
     grid-area: actions;
-  }
-
-  a {
-    grid-area: link;
-    margin-top: var(--spacer-x-small);
   }
 }

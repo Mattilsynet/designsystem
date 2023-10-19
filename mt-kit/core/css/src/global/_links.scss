@@ -7,7 +7,7 @@
 $transportlink-default-color: 'primary' !default;
 $transportlink-colors: 'error' !default;
 
-a {
+.mt-link {
   @include focus-outline();
   @include disabled;
   $transport-card-list-font-size: $font-size-label;
@@ -286,7 +286,7 @@ a {
       color: var(--color-mt-white);
       padding: var(--spacer-x-small);
 
-      a {
+      .mt-link {
         color: var(--color-mt-white);
       }
       &:hover {

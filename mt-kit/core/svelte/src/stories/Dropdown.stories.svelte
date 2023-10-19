@@ -21,7 +21,7 @@
         headingId: 'testarticle',
         title: 'Det er mulig å klikke utenfor',
         intro: 'Du kan klikke utenfor den blå rammen når dropdown er åpen for å lukke den.',
-        text: '<p>Du kan teste det. En liten tekst med en lenke til <a href="https://mattilsynet.no">Mattilsynet</a>.</p>'
+        text: '<p>Du kan teste det. En liten tekst med en lenke til <a class="mt-link" href="https://mattilsynet.no">Mattilsynet</a>.</p>'
       },
       items: [
         {
@@ -64,8 +64,7 @@
     buttonLabel: { control: 'text' },
     disableJs: { control: 'boolean' },
     disableCss: { control: 'boolean' }
-  }}
-/>
+  }} />
 
 <Template let:args>
   <div use:wrapInShadowDom={args.disableCss}>
@@ -85,8 +84,7 @@
         headingId={args.cardArticle.headingId}
         title={args.cardArticle.title}
         intro={args.cardArticle.intro}
-        text={args.cardArticle.text}
-      />
+        text={args.cardArticle.text} />
     </section>
   </div>
 </Template>
@@ -100,7 +98,7 @@
         <ol class="alt-language" aria-labelledby={titleId}>
           {#each args.items as item}
             <li>
-              <a href={item.url} class="forward-arrow-small">{item.title}</a>
+              <a href={item.url} class="mt-link forward-arrow-small">{item.title}</a>
             </li>
           {/each}
         </ol>

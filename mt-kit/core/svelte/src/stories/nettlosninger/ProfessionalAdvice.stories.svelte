@@ -11,7 +11,7 @@
     title: 'Dette er det viktig at du vet før du får kjæledyr',
     intro: 'Å anskaffe seg et dyr er et stort ansvar og det er tid- og ',
     text: `<h2>Andre overskrift</h2>
-      <p>Paragraf med tekst. Paragraf med tekst. <a href="">Paragraf med tekst.</a> Paragraf med tekst</p>
+      <p>Paragraf med tekst. Paragraf med tekst. <a class="mt-link" href="">Paragraf med tekst.</a> Paragraf med tekst</p>
       <ul>
         <li>Valget om å skaffe dyr må være godt gjennomtenkt. Er hele familien enige og innstilt på det?</li>
         <li>
@@ -32,8 +32,7 @@
     helpText: { control: 'text' },
     errorMessage: { control: 'text' },
     disableCss: { control: 'boolean' }
-  }}
-/>
+  }} />
 
 <Story
   name="Normal"
@@ -42,8 +41,7 @@
   let:disableCss
   let:publishFrom
   let:professionallyUpdated
-  let:text
->
+  let:text>
   <div class="container">
     <article class="article-page">
       <h1>{title}</h1>
@@ -63,15 +61,13 @@
           text="Noe tekst i kroppen"
           linkUrl="http://"
           linkText="Neste handling"
-          headerTag="h2"
-        />
+          headerTag="h2" />
         <CardArticle
           type="task"
           title="Dette er en h3 tittel"
           text="Noe tekst i kroppen"
           linkUrl="http://"
-          linkText="Neste handling"
-        />
+          linkText="Neste handling" />
       </section>
 
       <Disclosure title={'Begrunnelse'} headerTag="h2">

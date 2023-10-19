@@ -119,8 +119,7 @@
             aria-expanded="false"
             aria-label={showAllBreadCrumbsLabel}
             class="button button--link forward-arrow"
-            on:click={() => send('TOGGLE')}
-          >
+            on:click={() => send('TOGGLE')}>
             ...
           </button>
         {:else if index + 1 < $state.context.breadcrumbsItems.length}
