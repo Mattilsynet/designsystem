@@ -11,10 +11,11 @@
 </script>
 
 <fieldset
-  class="mt-fieldset {className} {fieldsetErrorClass}"
+  class="mt-fieldset layout-flex layout-flex-col {className} {fieldsetErrorClass}"
   aria-invalid={!!error}
   aria-describedby={inputErrorId}
-  data-testid="fieldset">
+  data-testid="fieldset"
+  style="--gap: 0">
   <legend class={legendClass}>
     {legend}
   </legend>

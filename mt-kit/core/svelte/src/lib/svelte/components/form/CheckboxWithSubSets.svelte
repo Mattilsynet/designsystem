@@ -52,7 +52,7 @@
   }
 </script>
 
-<fieldset class={`mt-fieldset ${className}`}>
+<fieldset class={`mt-fieldset layout-flex layout-flex-col ${className}`} style="--gap: 0">
   <legend
     id="legend"
     class="form-legend"
