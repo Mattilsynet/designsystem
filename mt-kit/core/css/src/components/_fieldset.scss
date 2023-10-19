@@ -1,7 +1,7 @@
 @use '../color-tokens' as *;
 @use '../theme' as *;
 
-fieldset {
+.mt-fieldset {
   display: flex;
   flex-direction: column;
   min-width: 0;

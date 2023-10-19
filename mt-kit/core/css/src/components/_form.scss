@@ -31,7 +31,7 @@ $form-outline-color: $color-mt-blue-medium !default;
   }
 }
 .mt-form,
-fieldset {
+.mt-fieldset {
   > * {
     margin-top: var(--form-text-space);
   }
@@ -43,10 +43,10 @@ ol + .form-label,
 .form-field + .form-label,
 .form-field + .mt-button,
 [type='hidden'] + .mt-button,
-.form-field + fieldset,
-fieldset + .mt-button,
-fieldset + fieldset,
-fieldset + .form-label {
+.form-field + .mt-fieldset,
+.mt-fieldset + .mt-button,
+.mt-fieldset + .mt-fieldset,
+.mt-fieldset + .form-label {
   margin-top: var(--form-group-spacer);
 }
 
