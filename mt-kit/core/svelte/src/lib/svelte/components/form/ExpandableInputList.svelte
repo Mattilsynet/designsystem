@@ -49,7 +49,7 @@
 
 <fieldset
   id={fieldSetId}
-  class="expandable-input-list"
+  class="mt-fieldset expandable-input-list"
   aria-describedby={createInputAriaDescribedby(
     fieldSetHelpText ? fieldSetId : undefined,
     fieldSetError

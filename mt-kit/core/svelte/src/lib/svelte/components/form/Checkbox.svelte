@@ -33,7 +33,7 @@
   id={name}
   aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)}
   aria-required={isRequired || undefined}
-  class="form-fieldset {theme === 'checkbox' ? 'checkbox' : ''} {theme === 'button'
+  class="mt-fieldset form-fieldset {theme === 'checkbox' ? 'checkbox' : ''} {theme === 'button'
     ? 'mt-button-checkbox'
     : ''} {className}">
   <legend class="form-legend">

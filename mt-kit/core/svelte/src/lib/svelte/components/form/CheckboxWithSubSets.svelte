@@ -52,7 +52,7 @@
   }
 </script>
 
-<fieldset class={className}>
+<fieldset class={`mt-fieldset ${className}`}>
   <legend
     id="legend"
     class="form-legend"
@@ -94,7 +94,9 @@
       </label>
     </div>
     {#if (!hasJS || listItem.checked) && listItem.children && listItem.children.length > 0}
-      <fieldset class={fieldsetClass} transition:slide|local={{ y: 200, duration: 200 }}>
+      <fieldset
+        class={`mt-fieldset ${fieldsetClass}`}
+        transition:slide|local={{ y: 200, duration: 200 }}>
         <legend>
           {interpolate(level2Legend, [listItem.displayName.toLowerCase()])}
         </legend>
@@ -117,7 +119,7 @@
           </div>
           {#if subListItem.checked && subListItem.children && subListItem.children.length > 0}
             <fieldset
-              class={'checkbox-subsets--secondary'}
+              class={'mt-fieldset checkbox-subsets--secondary'}
               transition:slide|local={{ y: 200, duration: 200 }}>
               <legend>
                 {interpolate(level3Legend, [subListItem.displayName.toLowerCase()])}
