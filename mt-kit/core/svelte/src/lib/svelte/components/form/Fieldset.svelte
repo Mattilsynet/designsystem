@@ -1,7 +1,8 @@
 <script lang="ts">
   import InputError from './InputErrorMessage.svelte'
 
-  export let className = 'validation m-t-m'
+  let className = ''
+  export { className as class }
   export let legend = ''
   export let error = null
   export let hiddenErrorText = false
@@ -11,7 +12,7 @@
 </script>
 
 <fieldset
-  class="mt-fieldset layout-flex layout-flex-col {className} {fieldsetErrorClass}"
+  class="mt-fieldset layout-flex layout-flex-col {className} {fieldsetErrorClass} "
   aria-invalid={!!error}
   aria-describedby={inputErrorId}
   data-testid="fieldset"
