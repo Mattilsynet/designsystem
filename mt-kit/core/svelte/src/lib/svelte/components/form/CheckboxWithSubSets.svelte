@@ -55,7 +55,7 @@
 <fieldset class={`mt-fieldset layout-flex checkbox layout-flex-col ${className}`} style="--gap: 0">
   <legend
     id="legend"
-    class="form-legend"
+    class="mt-legend form-legend"
     class:border
     class:inclusively-hidden={variation === 'secondary'}>
     {level1Legend}
@@ -97,7 +97,7 @@
       <fieldset
         class={`mt-fieldset checkbox ${fieldsetClass}`}
         transition:slide|local={{ y: 200, duration: 200 }}>
-        <legend>
+        <legend class="mt-legend">
           {interpolate(level2Legend, [listItem.displayName.toLowerCase()])}
         </legend>
         {#each listItem.children as subListItem, subListIndex}
@@ -118,7 +118,7 @@
             <fieldset
               class={'mt-fieldset checkbox checkbox-subsets--secondary'}
               transition:slide|local={{ y: 200, duration: 200 }}>
-              <legend>
+              <legend class="mt-legend">
                 {interpolate(level3Legend, [subListItem.displayName.toLowerCase()])}
               </legend>
               {#each subListItem.children as subSubListItem, subSubListIndex}

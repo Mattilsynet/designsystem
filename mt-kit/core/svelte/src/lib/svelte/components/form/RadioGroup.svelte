@@ -33,7 +33,7 @@
   class="mt-fieldset form-fieldset {theme === 'radio' ? 'radio' : ''} {theme === 'button'
     ? 'mt-button-radio'
     : ''} {className}">
-  <legend class="form-legend">
+  <legend class="mt-legend form-legend">
     {label}
     {#if !isRequired}
       <span class="text-small">{textOptional}</span>

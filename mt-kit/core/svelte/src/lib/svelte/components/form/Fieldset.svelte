@@ -17,7 +17,7 @@
   aria-describedby={inputErrorId}
   data-testid="fieldset"
   style="--gap: 0">
-  <legend class={legendClass}>
+  <legend class="mt-legend {legendClass}">
     {legend}
   </legend>
 
