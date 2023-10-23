@@ -7,31 +7,31 @@
   .meta {
     font-size: 0.75rem !important; //12px;
   }
-  h1,
-  .h1 {
+  .mt-h1,
+  .text > h1 {
     font-size: $font-size-h3;
     page-break-inside: avoid;
     break-inside: avoid;
   }
-  h2,
-  .h2 {
+  .mt-h2,
+  .text > h2 {
     font-size: $font-size-h4;
     page-break-inside: avoid;
     break-inside: avoid;
   }
-  h3,
-  .h3,
+  .mt-h3,
+  .text > h3,
   .intro > * {
     font-size: $font-size-small;
     page-break-inside: avoid;
     break-inside: avoid;
   }
-  h4,
-  .h4,
-  h5,
-  .h5,
-  h6,
-  .h6 {
+  .mt-h4,
+  .text > h4,
+  .mt-h5,
+  .text > h5,
+  .mt-h6,
+  .text > h6 {
     font-size: 0.875rem; //14px
     page-break-inside: avoid;
     break-inside: avoid;
