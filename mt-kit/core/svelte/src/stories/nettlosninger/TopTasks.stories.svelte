@@ -58,7 +58,7 @@
   <div
     use:wrapInShadowDom={disableCss}
     class="layout-grid layout-grid--column-12 top-tasks-container">
-    <h2 id={path} class="top-tasks-text col-1-span-12">
+    <h2 id={path} class="mt-h2 top-tasks-text col-1-span-12">
       {@html title}
     </h2>
     {#if intro}
@@ -73,7 +73,7 @@
       {#each topTasks as task, index}
         {#if task && task.url}
           <a href={task.url} class="mt-link mt-button mt-button--primary top-task">
-            <h3 class="heading">{@html task.title}</h3>
+            <h3 class="mt-h3 heading">{@html task.title}</h3>
             <span class="text">{@html task.intro}</span>
           </a>
         {/if}

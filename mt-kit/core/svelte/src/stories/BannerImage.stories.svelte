@@ -13,12 +13,11 @@
   argTypes={{
     bannerImage: { control: 'file' },
     disableCss: { control: 'boolean' }
-  }}
-/>
+  }} />
 
 <Story name="Normal" let:bannerImage let:disableCss>
   <div use:wrapInShadowDom={disableCss}>
-    <h1>Toppbilde</h1>
+    <h1 class="mt-h1">Toppbilde</h1>
     <div class="banner-image" style={`--banner-image-url: url(${bannerImage})`}>
       <div class="banner-image--layout" />
     </div>

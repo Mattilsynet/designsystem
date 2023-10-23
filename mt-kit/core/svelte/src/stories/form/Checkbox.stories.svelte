@@ -61,12 +61,12 @@
   let:isRequired
   let:textOptional>
   <div use:wrapInShadowDom={disableCss}>
-    <h1>Checkbox</h1>
-    <h2 id="theme">Theme - checkbox</h2>
+    <h1 class="mt-h1">Checkbox</h1>
+    <h2 id="theme" class="mt-h2">Theme - checkbox</h2>
     <form class="mt-form">
       <Checkbox {name} {label} {helpText} {options} {isRequired} {textOptional} />
     </form>
-    <h2 id="theme">Theme - button</h2>
+    <h2 id="theme" class="mt-h2">Theme - button</h2>
     <form action="" class="mt-form form-layout">
       <Checkbox
         {name}
@@ -93,7 +93,7 @@
   let:isRequired
   let:textOptional>
   <div use:wrapInShadowDom={disableCss}>
-    <h2 id="theme">Theme - checkbox</h2>
+    <h2 id="theme" class="mt-h2">Theme - checkbox</h2>
     <form class="mt-form">
       <Checkbox
         {name}
@@ -106,7 +106,7 @@
         error={{ key: name, message: errorMessage }}
         let:isRequired />
     </form>
-    <h2 id="theme">Theme - button</h2>
+    <h2 id="theme" class="mt-h2">Theme - button</h2>
     <form class="mt-form">
       <Checkbox
         {name}

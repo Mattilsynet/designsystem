@@ -7,9 +7,9 @@
   title="Innhold/Status"
   args={{
     title: 'Dette er viktig',
-    text: '<p>Dette er en melding om at det har skjedd noe</p><h3>Overkrift</h3><p>Mer tekst kommer her</p>',
+    text: '<p>Dette er en melding om at det har skjedd noe</p><h3 class="mt-h3">Overkrift</h3><p>Mer tekst kommer her</p>',
     actionsTakenByMattilsynet:
-      '<p>Dette er gjør Mattilsynet</p><h3>Overkrift</h3><p>Mer tekst kommer her</p>',
+      '<p>Dette er gjør Mattilsynet</p><h3 class="mt-h3">Overkrift</h3><p>Mer tekst kommer her</p>',
     statusType: 'important',
     linkUrl: 'https://www.mattilsynet.no',
     linkText: 'Mattilsynet',
@@ -27,8 +27,7 @@
     linkText: { control: 'text' },
     linkIsExternal: { control: 'boolean' },
     disableCss: { control: 'boolean' }
-  }}
-/>
+  }} />
 
 <Story
   name="Normal"
@@ -40,11 +39,10 @@
   let:linkIsExternal
   let:disableCss
   let:publishFrom
-  let:professionallyUpdated
->
+  let:professionallyUpdated>
   <div class="container layout-grid layout-grid--column-12">
     <article class="col-3-span-8">
-      <h1>Status med tekst, "hva gjør Mattilsynet" og link</h1>
+      <h1 class="mt-h1">Status med tekst, "hva gjør Mattilsynet" og link</h1>
       <Status
         {text}
         {actionsTakenByMattilsynet}
@@ -52,14 +50,13 @@
         {linkText}
         {linkIsExternal}
         updatedDate={professionallyUpdated}
-        statusType="important"
-      >
-        <h2 slot="heading">{title}</h2>
+        statusType="important">
+        <h2 slot="heading" class="mt-h2">{title}</h2>
       </Status>
 
-      <h1 class="margin-top">Status med tekst og link</h1>
+      <h1 class="mt-h1 margin-top">Status med tekst og link</h1>
       <Status {text} {linkUrl} {linkText} {linkIsExternal} statusType="none">
-        <h2 slot="heading">{title}</h2>
+        <h2 slot="heading" class="mt-h2">{title}</h2>
       </Status>
     </article>
   </div>

@@ -80,7 +80,7 @@
           class="layout-grid layout-grid--column-12 col-1-span-12 row-gap">
           <div class="layout-grid layout-grid--column-12 col-1-span-12">
             <section class="content col-3-span-8">
-              <h1>Varsle Mattilsynet</h1>
+              <h1 class="mt-h1">Varsle Mattilsynet</h1>
             </section>
           </div>
           <div class="card-grid col-2-span-10">
@@ -118,7 +118,7 @@
           </div>
           <div class="layout-grid layout-grid--column-12 col-1-span-12">
             <section class="content col-3-span-8">
-              <h2>Nyttig å vite</h2>
+              <h2 class="mt-h2">Nyttig å vite</h2>
               <Disclosure title={'Kan jeg være anonym?'}>
                 <p>
                   Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem

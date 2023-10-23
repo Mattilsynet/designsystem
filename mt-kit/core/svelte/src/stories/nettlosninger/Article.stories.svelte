@@ -26,7 +26,7 @@
 <Story name="Normal" let:title let:intro let:disableCss let:publishFrom let:professionallyUpdated>
   <div use:wrapInShadowDom={disableCss} class="container layout-grid layout-grid--column-12">
     <article class="article-page col-1-span-12">
-      <h1>{title}</h1>
+      <h1 class="mt-h1">{title}</h1>
       <div class="intro">
         <p>{intro}</p>
       </div>
@@ -37,7 +37,7 @@
         <figcaption>Bildetekst</figcaption>
       </figure>
 
-      <h2>Andre overskrift</h2>
+      <h2 class="mt-h2">Andre overskrift</h2>
       <p>
         Paragraf med tekst. Paragraf med tekst. <a class="mt-link" href="">Paragraf med tekst.</a>
         Paragraf med tekst
@@ -61,11 +61,11 @@
       </ul>
       <p>Paragraf med tekst</p>
 
-      <h2>Enda en overskrift</h2>
+      <h2 class="mt-h2">Enda en overskrift</h2>
       <p>Paragraf med tekst</p>
       <p>Paragraf med tekst</p>
 
-      <h3>Underoverskrift</h3>
+      <h3 class="mt-h3">Underoverskrift</h3>
       <p>Paragraf med tekst</p>
       <p>Paragraf med tekst</p>
     </article>

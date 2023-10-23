@@ -45,8 +45,7 @@
     professionallyUpdated: { control: 'text' },
     publications: { control: 'array' },
     disableCss: { control: 'boolean' }
-  }}
-/>
+  }} />
 
 <Story
   name="Normal"
@@ -56,12 +55,11 @@
   let:publishFrom
   let:professionallyUpdated
   let:publications
-  let:disableCss
->
+  let:disableCss>
   <div class="layout-grid layout-grid--column-12" use:wrapInShadowDom={disableCss}>
     <article class="article-page col-1-span-12 report">
       <span>Rapport</span>
-      <h1>{@html title}</h1>
+      <h1 class="mt-h1">{@html title}</h1>
       {#if intro}
         <div class="intro">
           {@html intro}
@@ -75,8 +73,7 @@
           theme="no-border"
           class="background-mt-white col-3-span-8"
           startOpen={index === 0}
-          headerTag="h2"
-        >
+          headerTag="h2">
           {#if publication.text}
             <div class="text">
               {@html publication.text}
@@ -111,8 +108,7 @@
                     class="document forward-arrow-end-link"
                     href={publication.file.url}
                     linkText={publication.title}
-                    fileName={publication.file.text}
-                  />
+                    fileName={publication.file.text} />
                 {/if}
               </dd>
             {/if}

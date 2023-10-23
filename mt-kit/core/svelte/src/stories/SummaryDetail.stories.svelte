@@ -16,8 +16,7 @@
   argTypes={{
     title: { control: 'text' },
     content: { control: 'text' }
-  }}
-/>
+  }} />
 
 <Story name="Normal" let:args>
   <p>Oppsummering og detaljer</p>
@@ -53,8 +52,8 @@
       {@html args.content}
     </SummaryDetail>
     <hr />
-    <h2>Med heading-tag i oppsummeringen</h2>
-    <SummaryDetail title={`<h2>${args.title}</h2>`} detailsClass="with-bold">
+    <h2 class="mt-h2">Med heading-tag i oppsummeringen</h2>
+    <SummaryDetail title={`<h2 class="mt-h2">${args.title}</h2>`} detailsClass="with-bold">
       {@html args.content}
     </SummaryDetail>
   </main>

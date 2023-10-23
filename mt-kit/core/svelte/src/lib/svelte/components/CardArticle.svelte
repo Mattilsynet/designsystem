@@ -17,7 +17,7 @@
 <article class={type} aria-labelledby={headingId}>
   <HeadingLevel
     id={headingId}
-    class="title {iconClass} {headerTag === 'h2' ? 'h3' : ''}"
+    class="title {iconClass} {headerTag === 'h2' ? 'mt-h3' : ''}"
     headingLevel={+headerTag.charAt(1)}>
     {@html title}
   </HeadingLevel>

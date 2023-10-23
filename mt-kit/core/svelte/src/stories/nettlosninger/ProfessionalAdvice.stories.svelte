@@ -10,7 +10,7 @@
   args={{
     title: 'Dette er det viktig at du vet før du får kjæledyr',
     intro: 'Å anskaffe seg et dyr er et stort ansvar og det er tid- og ',
-    text: `<h2>Andre overskrift</h2>
+    text: `<h2 class="mt-h2">Andre overskrift</h2>
       <p>Paragraf med tekst. Paragraf med tekst. <a class="mt-link" href="">Paragraf med tekst.</a> Paragraf med tekst</p>
       <ul>
         <li>Valget om å skaffe dyr må være godt gjennomtenkt. Er hele familien enige og innstilt på det?</li>
@@ -20,7 +20,7 @@
         </li>
       </ul>
       <p>Paragraf med tekst</p>
-      <h3>Underoverskrift</h3>
+      <h3 class="mt-h3">Underoverskrift</h3>
       <p>Paragraf med tekst</p>
       <p>Paragraf med tekst</p>`,
     publishFrom: '2021-06-24T11:40:02.889Z',
@@ -44,7 +44,7 @@
   let:text>
   <div class="container">
     <article class="article-page">
-      <h1>{title}</h1>
+      <h1 class="mt-h1">{title}</h1>
       <div class="intro">
         <p>{intro}</p>
       </div>
@@ -53,7 +53,7 @@
       {@html text}
 
       <section class="layout-flex-col layout-flex-col--x-small" aria-labelledby="how-to-heading">
-        <h2 id="how-to-heading">Dette gjør du</h2>
+        <h2 id="how-to-heading" class="mt-h2">Dette gjør du</h2>
         <p>Litt tekst her</p>
         <CardArticle
           type="task"

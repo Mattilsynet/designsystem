@@ -79,12 +79,12 @@
 
 <Story name="Velg fler" let:args let:disableCss>
   <div use:wrapInShadowDom={disableCss}>
-    <h1>Flervalg</h1>
+    <h1 class="mt-h1">Flervalg</h1>
     <ResourceList
       figmaUrl="https://www.figma.com/file/dp856nY6joVcAUSVSmPSRO/MT-Eksternt-Designsystem?node-id=1871%3A5152&t=3fZ5xL2MGOLfFwqv-4"
       githubUrl="https://github.com/Mattilsynet/designsystem/blob/main/src/svelte/components/form/MultiSelect.svelte" />
     <section>
-      <h2>Normal</h2>
+      <h2 class="mt-h2">Normal</h2>
       <form
         class="mt-form"
         on:keyup|preventDefault={handleFormKeyUp}

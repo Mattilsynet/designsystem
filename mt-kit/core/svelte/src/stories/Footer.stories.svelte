@@ -61,23 +61,23 @@
       </a>
     </header>
     <main class="container content">
-      <h1>Bekymringsmelding til Mattilsynet</h1>
+      <h1 class="mt-h1">Bekymringsmelding til Mattilsynet</h1>
     </main>
     <footer class="footer">
       <div class="col">
-        <h2>Mattilsynet Beta</h2>
+        <h2 class="mt-h2">Mattilsynet Beta</h2>
         <p>
           Vi jobber med å forbedre våre nettsider, resten av innholdet finner du på
           <a class="mt-link" href="mattilsynet.no">mattilsynet.no</a>
         </p>
       </div>
       <div class="col">
-        <h2>Innhold</h2>
+        <h2 class="mt-h2">Innhold</h2>
         <a class="mt-link" href="">Varsle Mattilsynet</a>
         <a class="mt-link" href="">Personvernerklæring</a>
       </div>
       <div class="col">
-        <h2>Kontakt oss på</h2>
+        <h2 class="mt-h2">Kontakt oss på</h2>
         <p>Ring oss på <a class="mt-link" href="">22 40 00 00</a></p>
         <a class="mt-link" href="">Help og kontakt</a>
       </div>

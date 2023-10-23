@@ -96,7 +96,7 @@
           class:p-b-xs={index < args.body.length - 1}
           class:m-b-xxs={index < args.body.length - 1}>
           <span class="text-small">01.01.2021</span>
-          <HeadingLevel headingLevel={3} class="h5 m-b-xs">
+          <HeadingLevel headingLevel={3} class="mt-h5 m-b-xs">
             {@html log.title}
           </HeadingLevel>
           <div class="text">
@@ -119,7 +119,7 @@
   }}
   let:args>
   <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading">
-    <h2 id="heading">{title}</h2>
+    <h2 id="heading" class="mt-h2">{title}</h2>
     {#each disclosures as disclosure, i}
       <Disclosure
         title={disclosure.title}
@@ -142,7 +142,7 @@
   }}
   let:args>
   <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading2">
-    <h2 id="heading2">Tittel for lyseblått trekkspill</h2>
+    <h2 id="heading2" class="mt-h2">Tittel for lyseblått trekkspill</h2>
     {#each disclosures as disclosure, i}
       <Disclosure
         title={disclosure.title}
@@ -166,7 +166,7 @@
   }}
   let:args>
   <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading2">
-    <h2 id="heading2">Tittel for hvit trekkspill</h2>
+    <h2 id="heading2" class="mt-h2">Tittel for hvit trekkspill</h2>
     {#each disclosures as disclosure, i}
       <Disclosure
         title={disclosure.title}
@@ -212,7 +212,7 @@
   }}
   let:args>
   <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading2">
-    <h2 id="heading3">{title}</h2>
+    <h2 id="heading3" class="mt-h2">{title}</h2>
     <section class="layout-grid layout-grid--column-12">
       {#each disclosures as disclosure}
         <Disclosure
@@ -226,7 +226,7 @@
         </Disclosure>
       {/each}
     </section>
-    <h2>Trekkspill med kapittel nr</h2>
+    <h2 class="mt-h2">Trekkspill med kapittel nr</h2>
     <section class="layout-grid layout-grid--column-12">
       {#each disclosures as disclosure, i}
         <Disclosure
@@ -257,7 +257,7 @@
   }}
   let:args
   ><section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading">
-    <h2 id="heading">{title}</h2>
+    <h2 id="heading" class="mt-h2">{title}</h2>
     {#each disclosures as disclosure, i}
       <Disclosure
         title={disclosure.title}
