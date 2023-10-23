@@ -10,8 +10,6 @@
 
   function getClassName(className: string, headingLevel: HeadingLevel): string {
     const regExpExecArray = /mt-h[1-6]/g.exec(className)
-    console.log('className', className)
-    console.log('regExpExecArray', regExpExecArray)
     return regExpExecArray ? regExpExecArray.input : `mt-h${headingLevel} ${className}`
   }
 </script>

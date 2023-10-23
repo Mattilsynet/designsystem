@@ -11,7 +11,7 @@ describe('Heading level', () => {
     const h1 = document.querySelector('h1')
     expect(h1).toBeDefined()
     expect(h1.getAttribute('id')).toEqual('thisIsTheId')
-    expect(h1.getAttribute('class')).toEqual('class-name')
+    expect(h1.getAttribute('class')).toEqual('mt-h1 class-name')
   })
 
   test('Does not render attr when undefined', () => {
@@ -19,7 +19,7 @@ describe('Heading level', () => {
     const h1 = document.querySelector('h1')
     expect(h1).toBeDefined()
     expect(h1.getAttribute('id')).toEqual(null)
-    expect(h1.getAttribute('class')).toEqual(null)
+    expect(h1.getAttribute('class')).toEqual('mt-h1 ')
   })
 
   test('Renders passed heading level', () => {
@@ -32,6 +32,6 @@ describe('Heading level', () => {
     const h3 = document.querySelector('h3')
     expect(h3).toBeDefined()
     expect(h3.getAttribute('id')).toEqual('thisIsTheId')
-    expect(h3.getAttribute('class')).toEqual('class-name')
+    expect(h3.getAttribute('class')).toEqual('mt-h3 class-name')
   })
 })
