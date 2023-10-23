@@ -47,14 +47,13 @@
     helpText: { control: 'text' },
     errorMessage: { control: 'text' },
     disableCss: { control: 'boolean' }
-  }}
-/>
+  }} />
 
 <Story name="Normal" let:label let:helpText let:disableCss let:args>
   <div use:wrapInShadowDom={disableCss}>
     <h1>Radioknapper</h1>
     <h2>Theme - radio</h2>
-    <form class="form-layout">
+    <form class="mt-form form-layout">
       <RadioGroup
         {options}
         {name}
@@ -62,11 +61,10 @@
         {label}
         error={undefined}
         textOptional="valgfritt"
-        theme="radio"
-      />
+        theme="radio" />
     </form>
     <h2 id="theme">Theme - button</h2>
-    <form action="" class="form-layout">
+    <form action="" class="mt-form form-layout">
       <RadioGroup
         options={buttonOptions}
         bind:value={buttonRadioValue}
@@ -75,8 +73,7 @@
         label={args.buttonRadio.label}
         error={undefined}
         textOptional={args.buttonRadio.textOptional}
-        theme="button"
-      />
+        theme="button" />
     </form>
   </div>
 </Story>
@@ -84,18 +81,17 @@
 <Story name="Radio with error" let:label let:helpText let:disableCss let:errorMessage let:args>
   <div use:wrapInShadowDom={disableCss}>
     <h2>Theme - radio</h2>
-    <form class="form-layout">
+    <form class="mt-form form-layout">
       <RadioGroup
         {options}
         {name}
         {helpText}
         {label}
         error={{ key: name, message: errorMessage }}
-        textOptional="valgfritt"
-      />
+        textOptional="valgfritt" />
     </form>
     <h2 id="theme">Theme - button</h2>
-    <form class="form-layout">
+    <form class="mt-form form-layout">
       <RadioGroup
         options={buttonOptions}
         bind:value={buttonRadioValue}
@@ -104,8 +100,7 @@
         label={args.buttonRadio.label}
         error={{ key: name, message: errorMessage }}
         textOptional={args.buttonRadio.textOptional}
-        theme="button"
-      />
+        theme="button" />
     </form>
   </div>
 </Story>

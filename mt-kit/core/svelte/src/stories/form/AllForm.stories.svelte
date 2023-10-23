@@ -117,8 +117,7 @@
     helpText: { control: 'text' },
     countCharactersLeftLabel: { control: 'text' },
     disableCss: { control: 'boolean' }
-  }}
-/>
+  }} />
 
 <Story
   name="Normal"
@@ -128,10 +127,9 @@
   let:checkboxLabel
   let:checkboxWithSubsetsLegend
   let:countCharactersLeftLabel
-  let:args
->
+  let:args>
   <div use:wrapInShadowDom={args.disableCss}>
-    <form class="form-layout">
+    <form class="mt-form form-layout">
       <TextInput
         name="inputfield"
         {label}
@@ -141,8 +139,7 @@
         textOptional="(valgfritt felt)"
         inputmode="text"
         placeholder=""
-        autocomplete=""
-      />
+        autocomplete="" />
 
       <!-- TextArea   -->
       <TextArea
@@ -156,8 +153,7 @@
         inputmode="text"
         maxlength="300"
         rows="3"
-        cols="5"
-      />
+        cols="5" />
 
       <!--  Radio -->
       <RadioGroup
@@ -167,8 +163,7 @@
         {helpText}
         label={radioLabel}
         isRequired={true}
-        textOptional="valgfritt"
-      />
+        textOptional="valgfritt" />
 
       <!-- Checkbox -->
       <Checkbox name={checkboxName} label={checkboxLabel} {helpText} options={checkBoxOptions} />
@@ -177,8 +172,7 @@
       <CheckboxWithSubSets
         name={checkboxWithSubsetsName}
         legend={checkboxWithSubsetsLegend}
-        options={checkboxWithSubsetsOptions}
-      />
+        options={checkboxWithSubsetsOptions} />
     </form>
   </div>
 </Story>
@@ -191,10 +185,9 @@
   let:radioLabel
   let:checkboxLabel
   let:args
-  let:countCharactersLeftLabel
->
+  let:countCharactersLeftLabel>
   <div use:wrapInShadowDom={args.disableCss}>
-    <form class="form-layout">
+    <form class="mt-form form-layout">
       <TextInput
         name="name"
         {label}
@@ -205,8 +198,7 @@
         textOptional="(valgfritt felt)"
         inputmode="text"
         placeholder=""
-        autocomplete=""
-      />
+        autocomplete="" />
 
       <TextArea
         name="textfield"
@@ -218,8 +210,7 @@
         inputmode="text"
         maxlength="300"
         rows="3"
-        cols="5"
-      />
+        cols="5" />
 
       <!--  Radio -->
       <RadioGroup
@@ -229,8 +220,7 @@
         {helpText}
         label={radioLabel}
         isRequired="true"
-        textOptional="valgfritt"
-      />
+        textOptional="valgfritt" />
 
       <!--    Checkbox-->
       <Checkbox
@@ -238,8 +228,7 @@
         label={checkboxLabel}
         {helpText}
         options={checkBoxOptions}
-        error={{ key: checkboxName, message: errorMessage }}
-      />
+        error={{ key: checkboxName, message: errorMessage }} />
     </form>
   </div>
 </Story>

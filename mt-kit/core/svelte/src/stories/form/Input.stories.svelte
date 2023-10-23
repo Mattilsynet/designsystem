@@ -42,12 +42,11 @@
     horizontal: { control: 'object' },
     countCharactersLeftLabel: { control: 'text' },
     disableCss: { control: 'boolean' }
-  }}
-/>
+  }} />
 
 <Story name="Input" let:label let:helpText let:disableCss let:args>
   <div use:wrapInShadowDom={disableCss}>
-    <form class="form-layout">
+    <form class="mt-form form-layout">
       <TextInput
         name="inputfield"
         {label}
@@ -56,8 +55,7 @@
         inputmode="text"
         isRequired={args.isRequired}
         placeholder=""
-        autocomplete=""
-      />
+        autocomplete="" />
 
       <TextInput
         name="inputfield2"
@@ -67,8 +65,7 @@
         inputmode="text"
         isRequired={args.isRequired}
         placeholder="Skriv noe"
-        autocomplete=""
-      />
+        autocomplete="" />
 
       <TextInput
         name="inputfield3"
@@ -80,8 +77,7 @@
         placeholder=""
         autocomplete=""
         tooManyCharactersErrorText={args.tooManyCharactersErrorText}
-        maxlength={30}
-      />
+        maxlength={30} />
 
       <h2>Horisontal layout</h2>
       <div class="collapsable-input-list-grid">
@@ -96,8 +92,7 @@
             maxlength={horizontal.maxLength}
             placeholder=""
             autocomplete=""
-            inputClass="form-field--small form-field--small-width"
-          />
+            inputClass="form-field--small form-field--small-width" />
         {/each}
       </div>
     </form>
@@ -111,10 +106,9 @@
   let:errorMessage
   let:disableCss
   let:args
-  let:countCharactersLeftLabel
->
+  let:countCharactersLeftLabel>
   <div use:wrapInShadowDom={disableCss}>
-    <form class="form-layout">
+    <form class="mt-form form-layout">
       <TextInput
         name="inputfield"
         {label}
@@ -125,8 +119,7 @@
         inputmode="text"
         maxlength={10}
         placeholder=""
-        autocomplete=""
-      />
+        autocomplete="" />
       <div class="collapsable-input-list-grid">
         {#each args.horizontal as horizontal, index}
           <TextInputHorizontal
@@ -139,8 +132,7 @@
             isRequired={horizontal.isRequired}
             placeholder=""
             autocomplete=""
-            inputClass="form-field--small form-field--small-width"
-          />
+            inputClass="form-field--small form-field--small-width" />
         {/each}
       </div>
     </form>

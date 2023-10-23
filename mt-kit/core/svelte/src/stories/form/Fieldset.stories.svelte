@@ -85,8 +85,7 @@
     legend: { control: 'text' },
     disableJs: { control: 'boolean' },
     disableCss: { control: 'boolean' }
-  }}
-/>
+  }} />
 
 <Story name="Normal" let:args>
   <div use:wrapInShadowDom={args.disableCss}>
@@ -99,21 +98,18 @@
           errors={args.errorsNormal}
           heading={args.errorSummaryHeading}
           hiddenErrorText={args.hiddenErrorText}
-          legendClass="h2"
-        />
-        <form class="col-3-span-8 form-layout">
+          legendClass="h2" />
+        <form class="mt-form col-3-span-8 form-layout">
           <Fieldset
             legend={args.legend}
-            error={args.errorsNormal.find(error => error.key === args.fieldsetId)}
-          >
+            error={args.errorsNormal.find(error => error.key === args.fieldsetId)}>
             <Disclosure
               id={args.fieldsetId}
               title={args.disclosure.title}
               loadJs={!args.disableJs}
               class="disclosure-no-border--align-left"
               headingId={`${toKebabCase(args.disclosure.title)}-title`}
-              headerTag={args.disclosure.headerTag}
-            >
+              headerTag={args.disclosure.headerTag}>
               <CheckboxWithSubSets
                 variation="secondary"
                 options={args.disclosureOptions}
@@ -122,8 +118,7 @@
                 level1Legend={interpolate(args.disclosure.level1Legend, [
                   args.disclosure.title.toLowerCase()
                 ])}
-                level2Legend={args.disclosure.level2Legend}
-              />
+                level2Legend={args.disclosure.level2Legend} />
             </Disclosure>
           </Fieldset>
         </form>
@@ -146,23 +141,20 @@
           <FormErrorSummary
             errors={args.errors}
             heading={args.errorSummaryHeading}
-            hiddenErrorText={args.hiddenErrorText}
-          />
+            hiddenErrorText={args.hiddenErrorText} />
         </div>
-        <form class="col-3-span-8 form-layout">
+        <form class="mt-form col-3-span-8 form-layout">
           <Fieldset
             legend={args.legend}
             error={args.errors.find(error => error.key === args.fieldsetId)}
-            legendClass="h2"
-          >
+            legendClass="h2">
             <Disclosure
               id={args.fieldsetId}
               title={args.disclosure.title}
               loadJs={!args.disableJs}
               class="disclosure-no-border--align-left"
               headingId={`${toKebabCase(args.disclosure.title)}-title`}
-              headerTag={args.disclosure.headerTag}
-            >
+              headerTag={args.disclosure.headerTag}>
               <CheckboxWithSubSets
                 variation="secondary"
                 options={args.disclosureOptions}
@@ -171,8 +163,7 @@
                 level1Legend={interpolate(args.disclosure.level1Legend, [
                   args.disclosure.title.toLowerCase()
                 ])}
-                level2Legend={args.disclosure.level2Legend}
-              />
+                level2Legend={args.disclosure.level2Legend} />
             </Disclosure>
           </Fieldset>
         </form>

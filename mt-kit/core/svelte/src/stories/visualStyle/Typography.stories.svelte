@@ -41,7 +41,7 @@
     <p class="intro">{intro}</p>
     <p>{paragraph}</p>
     <p class="text-small">{small}</p>
-    <form action="">
+    <form action="" class="mt-form">
       <label for="input" class="form-label">{label}</label>
       <input id="input" class="form-field" type="text" />
     </form>
@@ -98,7 +98,7 @@
     <p>{paragraph}</p>
 
     <p class="text-small">{small}</p>
-    <form action="">
+    <form action="" class="mt-form">
       <label for="input">{label}</label>
       <input id="input" class="form-field" type="text" />
     </form>

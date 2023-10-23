@@ -35,14 +35,13 @@
     helpText: { control: 'text' },
     errorMessage: { control: 'text' },
     disableCss: { control: 'boolean' }
-  }}
-/>
+  }} />
 
 <Story name="Normal" let:errors let:label let:helpText let:heading let:disableCss let:errorMessage>
   <div use:wrapInShadowDom={disableCss}>
     <FormErrorSummary {errors} {heading} />
 
-    <form class="form-layout">
+    <form class="mt-form form-layout">
       <label class="form-label" for="inputfield"> Navn </label>
 
       {#if helpText}
@@ -55,8 +54,7 @@
         id="inputfield"
         name="name"
         class="form-field"
-        aria-describedby="inputfield-hint inputfield-error"
-      />
+        aria-describedby="inputfield-hint inputfield-error" />
 
       <label class="form-label" for="inputfield">
         {label}
@@ -78,8 +76,7 @@
         name="email"
         class="form-field error"
         aria-invalid="true"
-        aria-describedby="inputfield-hint inputfield-error"
-      />
+        aria-describedby="inputfield-hint inputfield-error" />
     </form>
   </div>
 </Story>
@@ -91,15 +88,13 @@
   let:helpText
   let:heading
   let:disableCss
-  let:errorMessage
->
+  let:errorMessage>
   <div
     use:wrapInShadowDom={disableCss}
     class="error-summary"
     role="alert"
     tabindex="-1"
-    aria-labelledby="error-summary-heading-2"
-  >
+    aria-labelledby="error-summary-heading-2">
     <h2 id="error-summary-heading-2">
       {heading}
     </h2>

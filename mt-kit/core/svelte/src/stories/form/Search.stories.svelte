@@ -19,8 +19,7 @@
     helpText: { control: 'text' },
     disableCss: { control: 'boolean' },
     loadJs: { control: 'boolean' }
-  }}
-/>
+  }} />
 
 <Story
   name="Search input"
@@ -30,48 +29,44 @@
   let:searchButtonText
   let:placeholder
   let:primaryButton
-  let:helpText
->
+  let:helpText>
   <div use:wrapInShadowDom={disableCss}>
     <article>
-      <form class="form-layout">
+      <form class="mt-form form-layout">
         <TextInputSearch name="inputfield_3" {searchButtonText} loadJs={args.loadJs} />
       </form>
     </article>
     <article>
-      <form class="form-layout">
+      <form class="mt-form form-layout">
         <TextInputSearch name="inputfield_1" {label} loadJs={args.loadJs} />
       </form>
     </article>
     <article>
-      <form class="form-layout">
+      <form class="mt-form form-layout">
         <TextInputSearch name="inputfield_2" {label} {searchButtonText} loadJs={args.loadJs} />
       </form>
     </article>
     <article>
-      <form class="form-layout">
+      <form class="mt-form form-layout">
         <TextInputSearch
           name="inputfield_3"
           {label}
           {placeholder}
           {searchButtonText}
-          loadJs={args.loadJs}
-        />
+          loadJs={args.loadJs} />
       </form>
     </article>
     <article>
-      <form class="form-layout">
+      <form class="mt-form form-layout">
         <TextInputSearch
           name="inputfield_4"
           {label}
           {helpText}
           {searchButtonText}
-          loadJs={args.loadJs}
-        />
+          loadJs={args.loadJs} />
       </form>
     </article>
-  </div></Story
->
+  </div></Story>
 
 <style>
   article {

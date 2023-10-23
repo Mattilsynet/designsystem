@@ -133,7 +133,7 @@
               handleClick('no')
             }}>Nei</button>
         </div>
-        <form name="feedback_form" class="form-layout" on:submit|preventDefault>
+        <form name="feedback_form" class="mt-form form-layout" on:submit|preventDefault>
           <TextArea
             name="feedback_text"
             bind:textAreaRef={feedbackTextInput}
