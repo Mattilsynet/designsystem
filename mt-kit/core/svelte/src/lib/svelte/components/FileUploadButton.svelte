@@ -124,7 +124,7 @@
   </label>
 
   {#if $state.value === 'selected'}
-    <ol class="list-unstyled file-button__file-list" aria-label="Vedlegg">
+    <ol class="mt-ol list-unstyled file-button__file-list" aria-label="Vedlegg">
       {#each $state.context.fileNames as fileName}
         <li>
           <span class="file-button__file-name">{fileName}</span>

@@ -17,7 +17,7 @@
   })
 </script>
 
-<dl class="meta">
+<dl class="mt-dl meta">
   {#if dateObject}
     <dt class={dtClass}>{dateObject.label}</dt>
     <dd class={ddClass}>

@@ -9,7 +9,7 @@
   args={{
     text: `<p>Haster det? Er det fare for at dyr dør eller blir påført store belastninger. Ring mattilsynet på tlf. <a class="mt-link"href="tel:22400000">22 40 00 00</a> eller politiet <a class="mt-link"href="tel:02800">02800</a></p>`,
     text2: `<p><strong>Ring politiet på tlf. 02800 hvis du</strong></p>
-<ul >
+<ul class="mt-ul">
   <li >har kjørt på et dyr</li>
   <li >har funnet et sykt, skadd eller hjelpeløst dyr</li>
   <li >vil varsle om farlige eller ulovlige hunder</li>

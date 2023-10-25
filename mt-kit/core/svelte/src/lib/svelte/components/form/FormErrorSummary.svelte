@@ -21,7 +21,7 @@
     <h2 id="error-summary-heading" class="mt-h2">
       {heading}
     </h2>
-    <ul>
+    <ul class="mt-ul">
       {#each errors as error}
         {#if linkToFields}
           <li class="error-summary__list--link">

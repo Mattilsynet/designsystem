@@ -71,7 +71,7 @@
             {@html text}
           </div>
         {/if}
-        <dl class="report-list">
+        <dl class="mt-dl report-list">
           {#if subjectToExamination}
             <dt>Hva undersøkte vi?</dt>
             <dd class="text">{@html subjectToExamination}</dd>

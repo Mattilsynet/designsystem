@@ -42,7 +42,7 @@
         Paragraf med tekst. Paragraf med tekst. <a class="mt-link" href="">Paragraf med tekst.</a>
         Paragraf med tekst
       </p>
-      <ul>
+      <ul class="mt-ul">
         <li>
           Valget om å skaffe dyr må være godt gjennomtenkt. Er hele familien enige og innstilt på
           det?
@@ -53,7 +53,7 @@
         </li>
         <li>
           Barn kan miste interessen og dyr lever i mange år.
-          <ul>
+          <ul class="mt-ul">
             <li>Under punkt</li>
             <li>Under punkt</li>
           </ul>

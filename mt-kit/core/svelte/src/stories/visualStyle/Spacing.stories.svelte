@@ -125,7 +125,7 @@
                   Ipsum has been the industry's standard dummy text ever since the 1500s
                 </p>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                <ul>
+                <ul class="mt-ul">
                   <li>
                     Lorem Ipsum is simply dummy text of the dummy text of the dummy text of the
                   </li>
@@ -133,7 +133,7 @@
                   <li>Lorem Ipsum is simply dummy text of the dummy text of the</li>
                   <li>
                     Lorem Ipsum is simply dummy text of the dummy text of the
-                    <ul>
+                    <ul class="mt-ul">
                       <li>Lorem Ipsum is simply dummy</li>
                       <li>Lorem Ipsum is simply dummy</li>
                     </ul>

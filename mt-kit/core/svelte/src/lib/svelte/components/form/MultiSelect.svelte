@@ -207,7 +207,7 @@
 </div>
 <ul
   id="{selectId}-selected"
-  class="token-wrapper list-unstyled"
+  class="mt-ul token-wrapper list-unstyled"
   aria-labelledby="{selectId}-selected-label">
   {#each Object.values(selected) as selectedOption, index}
     <li>
@@ -262,7 +262,7 @@
   </div>
   <ul
     id="list"
-    class="options"
+    class="mt-ul options"
     role="listbox"
     data-testid="multiselect-list"
     aria-multiselectable="true"

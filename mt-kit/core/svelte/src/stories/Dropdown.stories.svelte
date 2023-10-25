@@ -70,7 +70,7 @@
   <div use:wrapInShadowDom={args.disableCss}>
     <section class="preview-wrapper">
       <Dropdown title={args.buttonLabel} loadJs={!args.disableJs} let:titleId>
-        <ol class="alt-language" aria-labelledby={titleId}>
+        <ol class="mt-ol alt-language" aria-labelledby={titleId}>
           {#each args.items as item}
             <li>
               <a href={item.url} class="forward-arrow-small">{item.title}</a>
@@ -95,7 +95,7 @@
   {#each [configs[0], configs[1]] as args, i}
     <section class={`preview-wrapper`}>
       <Dropdown title={args.buttonLabel} loadJs={!args.disableJs} let:titleId>
-        <ol class="alt-language" aria-labelledby={titleId}>
+        <ol class="mt-ol alt-language" aria-labelledby={titleId}>
           {#each args.items as item}
             <li>
               <a href={item.url} class="mt-link forward-arrow-small">{item.title}</a>

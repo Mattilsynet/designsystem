@@ -179,7 +179,7 @@
 <Story name="Lenkeliste" let:cards let:disableCss let:disabled let:secondary>
   <div use:wrapInShadowDom={disableCss}>
     <h1 class="mt-h1">Lenkeliste</h1>
-    <ul class="layout-grid list-unstyled">
+    <ul class="mt-ul layout-grid list-unstyled">
       {#each cards as link}
         <li>
           <Link href={link.href} class="forward-arrow-end-link" linkText={link.text} />
@@ -192,7 +192,7 @@
 <Story name="Dokumentlenke" let:cards let:disableCss let:disabled let:secondary>
   <div use:wrapInShadowDom={disableCss}>
     <h1 class="mt-h1">Dokumentlenker</h1>
-    <ul class="layout-grid list-unstyled">
+    <ul class="mt-ul layout-grid list-unstyled">
       <li>
         <Link
           href={cards[3].href}
@@ -213,7 +213,7 @@
   <div use:wrapInShadowDom={disableCss}>
     <h1 class="mt-h1">Transportlenker</h1>
 
-    <ul class="list-unstyled col-1-span-3">
+    <ul class="mt-ul list-unstyled col-1-span-3">
       <li>
         <h3 class="mt-h3">Default</h3>
         <a href="#" class="mt-link link--transport"> Dyr og dyrehold </a>
@@ -249,7 +249,7 @@
       <li>
         <h3 class="mt-h3">Secondary Large</h3>
         <ul
-          class="list-unstyled no-space-between no-space-top gap-small lines-top lines-between gap-small"
+          class="mt-ul list-unstyled no-space-between no-space-top gap-small lines-top lines-between gap-small"
           class:two-col={twoColumns}
           style="--space-section: var(--spacer-x-small);">
           {#each cards as link, index}
@@ -267,7 +267,7 @@
 <Story name="Transportliste" let:cards let:disableCss let:disabled let:secondary>
   <div use:wrapInShadowDom={disableCss}>
     <h1 class="mt-h1">Transportlenkeliste</h1>
-    <ul class="layout-grid list-unstyled transport-list">
+    <ul class="mt-ul layout-grid list-unstyled transport-list">
       {#each cards as link}
         <li>
           <Link
@@ -283,7 +283,7 @@
 <Story name="Transportliste sekundær" let:cards let:twoColumns let:disableCss>
   <h1 class="mt-h1 p-b-xs">Transportlenkeliste sekundær</h1>
   <ul
-    class="list-unstyled no-space-between no-space-top gap-small lines-top lines-between gap-small"
+    class="mt-ul list-unstyled no-space-between no-space-top gap-small lines-top lines-between gap-small"
     class:two-col={twoColumns}
     style="--space-section: var(--spacer-x-small);">
     {#each cards as link, index}
