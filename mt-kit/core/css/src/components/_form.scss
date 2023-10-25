@@ -36,8 +36,8 @@ $form-outline-color: $color-mt-blue-medium !default;
     margin-top: 0;
   }
 
-  ul + .form-label,
-  ol + .form-label,
+  .mt-ul + .form-label,
+  .mt-ol + .form-label,
   .mt-button + .form-label,
   .form-field + .form-label,
   [type='hidden'] + .mt-button,
