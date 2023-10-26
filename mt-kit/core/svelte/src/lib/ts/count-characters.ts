@@ -32,6 +32,7 @@ export const countCharacters: Action<HTMLInputElement | HTMLTextAreaElement> = (
   const counterElHidden = document.createElement('div')
   counterElVisible.classList.add('self-end')
   counterElVisible.classList.add('text-small')
+  counterElVisible.classList.add('count-character')
   counterElVisible.setAttribute('aria-hidden', 'true')
   counterElHidden.classList.add('inclusively-hidden')
   counterElHidden.setAttribute('aria-live', 'polite')

@@ -54,7 +54,7 @@
   {/if}
 
   {#each options as checkbox (checkbox.value)}
-    <div class="form-control checkbox">
+    <div class="form-control">
       <input
         type="checkbox"
         id={toKebabCase(checkbox.value)}

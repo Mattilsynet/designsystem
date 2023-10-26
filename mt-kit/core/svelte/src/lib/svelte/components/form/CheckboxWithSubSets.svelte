@@ -52,7 +52,7 @@
   }
 </script>
 
-<fieldset class={`mt-fieldset layout-flex layout-flex-col ${className}`} style="--gap: 0">
+<fieldset class={`mt-fieldset layout-flex checkbox layout-flex-col ${className}`} style="--gap: 0">
   <legend
     id="legend"
     class="form-legend"
@@ -64,7 +64,7 @@
     <p class="hint">{helpText}</p>
   {/if}
   {#if hasJS && hasCheckAll}
-    <div class="form-control checkbox m-b-xxs">
+    <div class="form-control">
       <input
         id={options.key}
         type="checkbox"
@@ -79,7 +79,7 @@
     </div>
   {/if}
   {#each options.children || [] as listItem, mainIndex}
-    <div class="form-control checkbox narrow" class:m-t-xxs={mainIndex > 0}>
+    <div class="form-control narrow" class:m-t-xxs={mainIndex > 0}>
       <input
         id={listItem.key}
         type="checkbox"
@@ -95,16 +95,13 @@
     </div>
     {#if (!hasJS || listItem.checked) && listItem.children && listItem.children.length > 0}
       <fieldset
-        class={`mt-fieldset ${fieldsetClass}`}
+        class={`mt-fieldset checkbox ${fieldsetClass}`}
         transition:slide|local={{ y: 200, duration: 200 }}>
         <legend>
           {interpolate(level2Legend, [listItem.displayName.toLowerCase()])}
         </legend>
         {#each listItem.children as subListItem, subListIndex}
-          <div
-            class="form-control checkbox narrow"
-            class:m-t-xs={subListIndex === 0}
-            class:m-t-xxs={subListIndex > 0}>
+          <div class="form-control narrow">
             <input
               id={subListItem.key}
               type="checkbox"
@@ -119,16 +116,13 @@
           </div>
           {#if subListItem.checked && subListItem.children && subListItem.children.length > 0}
             <fieldset
-              class={'mt-fieldset checkbox-subsets--secondary'}
+              class={'mt-fieldset checkbox checkbox-subsets--secondary'}
               transition:slide|local={{ y: 200, duration: 200 }}>
               <legend>
                 {interpolate(level3Legend, [subListItem.displayName.toLowerCase()])}
               </legend>
               {#each subListItem.children as subSubListItem, subSubListIndex}
-                <div
-                  class="form-control checkbox narrow"
-                  class:m-t-0={subSubListIndex === 0}
-                  class:m-t-xxs={subSubListIndex > 0}>
+                <div class="form-control narrow">
                   <input
                     id={subSubListItem.key}
                     type="checkbox"
