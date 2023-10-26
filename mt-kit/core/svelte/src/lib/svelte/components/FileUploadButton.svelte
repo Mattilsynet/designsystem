@@ -118,22 +118,6 @@
   }
 </script>
 
-<input
-  type="file"
-  {id}
-  {name}
-  {multiple}
-  {accept}
-  bind:this={fileInputElement}
-  class="form-field"
-  class:error
-  class:inclusively-hidden-initial={!onServer}
-  aria-describedby={createInputAriaDescribedby(name, error)}
-  aria-invalid={!!error}
-  data-testid={name}
-  on:change={e => send({ type: 'FILE_SELECTED', fileNames: getFileNames(e.target) })}
-  aria-required={isRequired || undefined} />
-
 {#if !onServer}
   <label class="mt-button mt-button--secondary" style="width: 220px;" for={id}>
     {buttonText}
@@ -166,3 +150,19 @@
     </ol>
   {/if}
 {/if}
+
+<input
+  type="file"
+  {id}
+  {name}
+  {multiple}
+  {accept}
+  bind:this={fileInputElement}
+  class="form-field"
+  class:error
+  class:inclusively-hidden-initial={!onServer}
+  aria-describedby={createInputAriaDescribedby(name, error)}
+  aria-invalid={!!error}
+  data-testid={name}
+  on:change={e => send({ type: 'FILE_SELECTED', fileNames: getFileNames(e.target) })}
+  aria-required={isRequired || undefined} />

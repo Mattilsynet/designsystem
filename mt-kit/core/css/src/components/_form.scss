@@ -34,7 +34,7 @@ $form-outline-color: $color-mt-blue-medium !default;
   }
   > .inclusively-hidden,
   > .inclusively-hidden-initial,
-  > .inclusively-hidden-initial + .mt-button {
+  > [type='hidden'] + label.mt-button {
     margin-top: 0;
   }
 
@@ -44,6 +44,7 @@ $form-outline-color: $color-mt-blue-medium !default;
   .form-field + .form-label,
   [type='hidden'] + .mt-button,
   .form-field + .mt-fieldset,
+  .form-field + .mt-button,
   .mt-fieldset + .mt-button,
   .mt-button + .mt-button,
   .count-character + .form-label,
