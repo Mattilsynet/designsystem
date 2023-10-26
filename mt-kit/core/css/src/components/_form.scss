@@ -27,8 +27,6 @@ $form-outline-color: $color-mt-blue-medium !default;
       @extend .mt-link;
     }
   }
-}
-.mt-form {
   > * {
     margin-top: var(--form-text-space);
   }
