@@ -1,9 +1,11 @@
 @use '../utilities/layout';
 @use '../global/utils';
 
-.checkbox-subsets {
+.mt-fieldset.checkbox-subsets {
   &--primary {
     @extend .m-l-m;
+    display: flex;
+    flex-direction: column;
     legend {
       @extend .inclusively-hidden;
     }
@@ -14,12 +16,17 @@
     @extend .m-l-m;
     @extend .p-xs;
     background: var(--color-mt-light-beige);
+    display: flex;
+    flex-direction: column;
 
     legend {
       float: left;
       width: 100%;
       font-weight: var(--font-weight-normal);
       margin-top: 0;
+      + .form-control {
+        @extend .m-t-xs;
+      }
     }
   }
 }

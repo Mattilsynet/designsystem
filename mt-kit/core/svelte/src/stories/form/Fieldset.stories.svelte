@@ -101,6 +101,7 @@
           legendClass="h2" />
         <form class="mt-form col-3-span-8 form-layout">
           <Fieldset
+            class="validation m-t-m"
             legend={args.legend}
             error={args.errorsNormal.find(error => error.key === args.fieldsetId)}>
             <Disclosure
@@ -145,6 +146,7 @@
         </div>
         <form class="mt-form col-3-span-8 form-layout">
           <Fieldset
+            class="validation m-t-m"
             legend={args.legend}
             error={args.errors.find(error => error.key === args.fieldsetId)}
             legendClass="h2">

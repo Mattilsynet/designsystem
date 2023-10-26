@@ -12,14 +12,12 @@ $form-outline-style: solid !default;
 $form-outline-color: $color-mt-blue-medium !default;
 
 .mt-form {
-  --form-group-spacer: var(--spacer-small);
   --form-field-width: #{$form-field-width};
   --form-text-color: #{$form-text-color};
   --border-color: #{$form-border-color};
   --border-radius: #{$form-border-radius};
   --form-outline-style: #{$form-outline-style};
   --form-outline-color: #{$form-outline-color};
-  --form-text-space: var(--spacer-xxx-small);
 
   color: var(--form-text-color);
 
@@ -29,25 +27,29 @@ $form-outline-color: $color-mt-blue-medium !default;
       @extend .mt-link;
     }
   }
-}
-.mt-form,
-fieldset {
   > * {
     margin-top: var(--form-text-space);
   }
-}
+  > .inclusively-hidden,
+  > .inclusively-hidden-initial,
+  > [type='hidden'] + label.mt-button {
+    margin-top: 0;
+  }
 
-ul + .form-label,
-ol + .form-label,
-.mt-button + .form-label,
-.form-field + .form-label,
-.form-field + .mt-button,
-[type='hidden'] + .mt-button,
-.form-field + fieldset,
-fieldset + .mt-button,
-fieldset + fieldset,
-fieldset + .form-label {
-  margin-top: var(--form-group-spacer);
+  ul + .form-label,
+  ol + .form-label,
+  .mt-button + .form-label,
+  .form-field + .form-label,
+  [type='hidden'] + .mt-button,
+  .form-field + .mt-fieldset,
+  .form-field + .mt-button,
+  .mt-fieldset + .mt-button,
+  .count-character + .form-label,
+  .count-character + .mt-fieldset,
+  .mt-fieldset + .mt-fieldset,
+  .mt-fieldset + .form-label {
+    margin-top: var(--form-group-spacer);
+  }
 }
 
 [type='radio'] + .form-label,
@@ -189,7 +191,14 @@ label.form-label {
     border: $border-width-small solid var(--border-color);
   }
 }
-
+.checkbox,
+.radio {
+  display: flex;
+  flex-direction: column;
+  .form-control + .form-control {
+    margin-top: var(--form-control-vertical);
+  }
+}
 .checkbox {
   .input__control {
     @include error-style;

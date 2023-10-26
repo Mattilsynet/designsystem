@@ -30,7 +30,7 @@
 <fieldset
   id={name}
   aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)}
-  class="form-fieldset {theme === 'radio' ? 'radio' : ''} {theme === 'button'
+  class="mt-fieldset form-fieldset {theme === 'radio' ? 'radio' : ''} {theme === 'button'
     ? 'mt-button-radio'
     : ''} {className}">
   <legend class="form-legend">
