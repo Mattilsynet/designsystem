@@ -29,6 +29,10 @@
   --z-index-dropdown: #{$zindex-dropdown};
   --z-index-feedback: #{$zindex-tooltip};
 
+  --form-group-spacer: var(--spacer-small);
+  --form-text-space: var(--spacer-xxx-small);
+  --form-control-vertical: var(--spacer-xxx-small);
+
   @media only screen and (min-width: $breakpoint-large) {
     --icon-size-normal: #{$icon-size-large};
     --spacer-xxx-small: #{$spacer-xx-small};
@@ -59,7 +63,6 @@ body {
 
   footer {
     margin-top: var(--spacer-small);
-
   }
   .footer {
     a {

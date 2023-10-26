@@ -19,7 +19,7 @@ $feedback-box-breakpoint-height: 48.75rem; //780px;
     max-width: var(--feedback-box-width);
 
     form > *,
-    fieldset > * {
+    .mt-fieldset > * {
       margin-top: 0;
     }
 
