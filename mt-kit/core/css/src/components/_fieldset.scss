@@ -15,8 +15,8 @@
   }
 
   legend {
+    padding-inline: 0;
     &.border {
-      padding-inline: 0;
       font-weight: var(--font-weight-bold);
       width: 100%;
       border-bottom: var(--border-width-small) solid $color-secondary;
