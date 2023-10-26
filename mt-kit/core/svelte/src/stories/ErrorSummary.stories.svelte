@@ -90,20 +90,7 @@
   let:disableCss
   let:errorMessage>
   <div
-    use:wrapInShadowDom={disableCss}
-    class="error-summary"
-    role="alert"
-    tabindex="-1"
-    aria-labelledby="error-summary-heading-2">
-    <h2 id="error-summary-heading-2" class="mt-h2">
-      {heading}
-    </h2>
-    <ul class="mt-ul">
-      {#each errors as error}
-        <li>
-          {error.message}
-        </li>
-      {/each}
-    </ul>
+    use:wrapInShadowDom={disableCss} >
+    <FormErrorSummary {errors} {heading} linkToFields={false} />
   </div>
 </Story>
