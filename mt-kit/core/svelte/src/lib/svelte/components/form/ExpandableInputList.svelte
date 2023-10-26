@@ -72,7 +72,7 @@
       <h2 id="error-summary-heading" class="mt-h2 inclusively-hidden">
         {fieldSetErrorHeading}
       </h2>
-      <ul class="mt-ul list-unstyled">
+      <ul class="mt-ul m-t-xxs list-unstyled">
         {#each fieldSetError as error}
           <li class="form-error">
             {error.message}

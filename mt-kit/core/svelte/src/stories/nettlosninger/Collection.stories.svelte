@@ -92,7 +92,7 @@
         <h2 id="table-of-contents" class="mt-h4">
           {tableOfContents}
         </h2>
-        <ol class="mt-ol list-unstyled">
+        <ol class="mt-ol m-t-xxs list-unstyled">
           {#each legalItems as legal}
             <li>
               <a href="#{toKebabCase(legal.title)}" class="mt-link down-arrow">{legal.title}</a>

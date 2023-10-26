@@ -19,7 +19,7 @@
       <span class="icon--search-after">Søk</span>
 
       <h2 class="mt-h2">Liste hake</h2>
-      <ul class="mt-ul list-unstyled">
+      <ul class="mt-ul m-t-xxs list-unstyled">
         <li class="icon--list-checkmark-before">nummer en</li>
         <li class="icon--list-checkmark-before">dette er en lengre tekst over to linjer</li>
         <li><a href="" class="mt-link icon--list-checkmark-before fit-content">nummer to</a></li>

@@ -3,7 +3,7 @@
   export let githubUrl: string | undefined = undefined
 </script>
 
-<ul class="mt-ul list-unstyled layout-flex">
+<ul class="mt-ul m-t-xxs list-unstyled layout-flex">
   {#if figmaUrl}
     <li>
       <a href={figmaUrl} class="mt-link icon--figma"> Figma </a>
