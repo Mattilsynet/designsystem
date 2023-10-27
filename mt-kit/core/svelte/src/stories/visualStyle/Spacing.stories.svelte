@@ -71,7 +71,7 @@
   let:link
   let:disableCss>
   <body class="mt-body">
-    <header class="mt-header heademt-header-wrapper mt-header-wrapper--regular" />
+    <header class="mt-header mt-header-wrapper mt-header-wrapper--regular" />
     <div class="container content layout-grid layout-grid--column-12">
       <Breadcrumbs {breadcrumbs} class="col-3-span-8" />
       <main id="main" class="layout-grid layout-grid--column-12 col-1-span-12">
