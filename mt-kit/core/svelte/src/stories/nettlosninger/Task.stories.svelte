@@ -41,7 +41,7 @@
       {
         title: 'Næringsmiddelhygieneforordningens vedlegg II kap VIII',
         intro: ``,
-        text: `<h4>Geiter</h4>
+        text: `<h4 class="mt-h4">Geiter</h4>
 
               <p>Når geiter flyttes til ei anna eller ny småfebesetning, skal dyreholderen sende med en attest fra en veterinær som har undersøkt dyra i avsenderbesetninga. Attesten skal bekrefte at dyra som flyttes,
                   ikke har symptomer på smittsomme dyresjukdommer. Attesten skal også bekrefte at
@@ -49,7 +49,7 @@
                   vedlegg VII er oppfylt</a>.
               </p>
 
-              <h4>Sauer</h4>
+              <h4 class="mt-h4">Sauer</h4>
 
               <p>Kravet til veterinærattest gjelder også når sauer flyttes over fylkesgrenser til ei anna eller ny småfebesetning.</p>
 
@@ -71,7 +71,7 @@
       {
         title: 'Fjerde oppgaven med headinger som ikke egentlig skal brukes',
         intro: ``,
-        text: `<h3>Geiter</h3>
+        text: `<h3 class="mt-h3">Geiter</h3>
 
               <p>Når geiter flyttes til ei anna eller ny småfebesetning, skal dyreholderen sende med en attest fra en veterinær som har undersøkt dyra i avsenderbesetninga. Attesten skal bekrefte at dyra som flyttes,
                   ikke har symptomer på smittsomme dyresjukdommer. Attesten skal også bekrefte at
@@ -79,7 +79,7 @@
                   vedlegg VII er oppfylt</a>.
               </p>
 
-              <h4>Sauer</h4>
+              <h4 class="mt-h4">Sauer</h4>
 
               <p>Kravet til veterinærattest gjelder også når sauer flyttes over fylkesgrenser til ei anna eller ny småfebesetning.</p>
 

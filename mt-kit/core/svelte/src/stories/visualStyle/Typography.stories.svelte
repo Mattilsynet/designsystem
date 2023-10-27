@@ -34,10 +34,22 @@
   let:label
   let:disableCss>
   <div use:wrapInShadowDom={disableCss} class="layout-flex-col">
-    <h1>{h1}</h1>
-    <h2>{h2}</h2>
-    <h3>{h3}</h3>
-    <h4>{h4}</h4>
+    <h1 class="mt-h1">{h1}</h1>
+    <div class="text m-t-0">
+      <h1>{h1}</h1>
+    </div>
+    <h2 class="mt-h2">{h2}</h2>
+    <div class="text m-t-0">
+      <h2>{h2}</h2>
+    </div>
+    <h3 class="mt-h3">{h3}</h3>
+    <div class="text m-t-0">
+      <h3>{h3}</h3>
+    </div>
+    <h4 class="mt-h4">{h4}</h4>
+    <div class="text m-t-0">
+      <h4>{h4}</h4>
+    </div>
     <p class="intro">{intro}</p>
     <p>{paragraph}</p>
     <p class="text-small">{small}</p>
@@ -84,10 +96,10 @@
 
 <Story name="Headings" let:h1 let:h2 let:h3 let:h4 let:disableCss>
   <div use:wrapInShadowDom={disableCss} class="layout-flex-col">
-    <h1>{h1}</h1>
-    <h2>{h2}</h2>
-    <h3>{h3}</h3>
-    <h4>{h4}</h4>
+    <h1 class="mt-h1">{h1}</h1>
+    <h2 class="mt-h2">{h2}</h2>
+    <h3 class="mt-h3">{h3}</h3>
+    <h4 class="mt-h4">{h4}</h4>
   </div>
 </Story>
 

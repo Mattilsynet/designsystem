@@ -91,8 +91,8 @@
   <div use:wrapInShadowDom={args.disableCss}>
     <div class="container layout-grid layout-grid--column-12">
       <section class="article-page col-1-span-12">
-        <h1>Fieldset</h1>
-        <h2>Normal</h2>
+        <h1 class="mt-h1">Fieldset</h1>
+        <h2 class="mt-h2">Normal</h2>
 
         <FormErrorSummary
           errors={args.errorsNormal}
@@ -133,8 +133,8 @@
     <div class="container layout-grid layout-grid--column-12">
       <section class="article-page col-1-span-12">
         <div class="col-3-span-8 text">
-          <h1>Fieldset</h1>
-          <h2>With form validation errors</h2>
+          <h1 class="mt-h1">Fieldset</h1>
+          <h2 class="mt-h2">With form validation errors</h2>
           <p>
             To get validation for a fieldset, populate the `error: ErrorDetail` parameter with
             errors.
@@ -149,7 +149,7 @@
             class="validation m-t-m"
             legend={args.legend}
             error={args.errors.find(error => error.key === args.fieldsetId)}
-            legendClass="h2">
+            legendClass="mt-h2">
             <Disclosure
               id={args.fieldsetId}
               title={args.disclosure.title}

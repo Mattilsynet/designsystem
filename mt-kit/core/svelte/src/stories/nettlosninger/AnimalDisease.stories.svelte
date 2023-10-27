@@ -22,8 +22,7 @@
     helpText: { control: 'text' },
     errorMessage: { control: 'text' },
     disableCss: { control: 'boolean' }
-  }}
-/>
+  }} />
 
 <Story
   name="Normal"
@@ -34,8 +33,7 @@
   let:infectionToHumans
   let:disableCss
   let:publishFrom
-  let:professionallyUpdated
->
+  let:professionallyUpdated>
   <div class="container layout-grid layout-grid--column-12">
     <article class="col-7-span-6 animal-disease">
       <AnimalDisease
@@ -49,9 +47,8 @@
         imageAltText="Alternative text"
         caption="This is the caption"
         routesOfInfectionHeading="Hvordan smitter sykdommen?"
-        disclosureHeadClass="text-body"
-      >
-        <h2>{title}</h2>
+        disclosureHeadClass="text-body">
+        <h2 class="mt-h2">{title}</h2>
       </AnimalDisease>
     </article>
   </div>

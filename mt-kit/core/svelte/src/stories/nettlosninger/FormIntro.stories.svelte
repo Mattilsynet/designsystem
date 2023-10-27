@@ -14,7 +14,7 @@
             <li>at noen setter opp nye piggtrådgjerder</li>
             <li>eldre piggtrådgjerder som utgjør en risiko for at dyr blir skadet</li>
            </ul>`,
-    moreText: `<h2>Du bør varsle</h2>
+    moreText: `<h2 class="mt-h2">Du bør varsle</h2>
                <p>At noen setter opp nye piggtrådgjerder</p>
                <p>Eldre piggtrådgjerder som utgjør en risiko for at dyr blir skadet</p>`,
     formLinkUrl: 'http://',
@@ -43,7 +43,7 @@
   <div use:wrapInShadowDom={disableCss} class="container layout-grid layout-grid--column-12">
     <div class="layout-flex-col form-intro col-3-span-8">
       <article class="content">
-        <h1>{title}</h1>
+        <h1 class="mt-h1">{title}</h1>
 
         {#if intro}
           <div class="intro">

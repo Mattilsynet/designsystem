@@ -1,6 +1,7 @@
 @use '../theme' as *;
 @use '../color-tokens' as *;
 @use '../global/links' as *;
+@use '../global/typography' as *;
 
 :root {
   @include color-tokens();
@@ -67,6 +68,21 @@ body {
   .footer {
     a {
       @extend .mt-link;
+    }
+    h2 {
+      @extend .mt-h2;
+    }
+    h3 {
+      @extend .mt-h3;
+    }
+    h4 {
+      @extend .mt-h4;
+    }
+    h5 {
+      @extend .mt-h5;
+    }
+    h6 {
+      @extend .mt-h6;
     }
   }
 }

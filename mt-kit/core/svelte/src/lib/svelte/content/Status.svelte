@@ -17,7 +17,7 @@
 </script>
 
 <div class="status {className}">
-  <span class="{statusType} h2" data-testid="status-type" />
+  <span class="{statusType} mt-h2" data-testid="status-type" />
 
   <slot name="heading" />
 

@@ -91,25 +91,25 @@
 
 <Story name="Normal" let:primary let:disableCss let:args let:disabled let:secondary>
   <div use:wrapInShadowDom={disableCss}>
-    <h1>Normale lenker</h1>
+    <h1 class="mt-h1">Normale lenker</h1>
     <article>
-      <h2>Bruk alene:</h2>
+      <h2 class="mt-h2">Bruk alene:</h2>
       <p>
         <Link linkText={primary} href="https://mattilsynet.no/" />
       </p>
     </article>
     <article>
-      <h2>Bruk i text:</h2>
+      <h2 class="mt-h2">Bruk i text:</h2>
       <p>Les mer om <Link href="https://mattilsynet.no/" linkText={args.inText} /> her.</p>
     </article>
     <article>
-      <h2>Tilbakelenke</h2>
+      <h2 class="mt-h2">Tilbakelenke</h2>
       <p>
         <Link href="https://mattilsynet.no/" class="back-arrow" linkText="Tilbake" />
       </p>
     </article>
     <article>
-      <h2>Ankerlenke</h2>
+      <h2 class="mt-h2">Ankerlenke</h2>
       <p>
         <Link
           href="https://mattilsynet.no/"
@@ -118,7 +118,7 @@
       </p>
     </article>
     <article>
-      <h2>Pdf lenke</h2>
+      <h2 class="mt-h2">Pdf lenke</h2>
       <p>
         <Link href="https://mattilsynet.no/some.pdf" class="document" linkText="thisIsAPdf" />
         <Link
@@ -129,13 +129,13 @@
       </p>
     </article>
     <article>
-      <h2>Flere linjer</h2>
+      <h2 class="mt-h2">Flere linjer</h2>
       <div class="wrapper">
         <Link href="#" class="inline-flex" linkText={args.cards[5].text} />
       </div>
     </article>
     <article>
-      <h2>Neste og forrig lenker (paginering)</h2>
+      <h2 class="mt-h2">Neste og forrig lenker (paginering)</h2>
       <ChapterNavigation
         showChapterNumber={args.showChapterNumber}
         chapters={args.chapters}
@@ -150,7 +150,7 @@
 
 <Story name="Små lenker" let:smallLinks let:disableCss let:path>
   <div use:wrapInShadowDom={disableCss}>
-    <h1 id="small-1">Mange lenker</h1>
+    <h1 id="small-1" class="mt-h1">Mange lenker</h1>
     <section
       class="layout-grid layout-grid--auto-fill-desktop m-t-xxs"
       style="--gap: var(--spacer-small)"
@@ -158,17 +158,17 @@
       {#each smallLinks as link, index}
         {#if link && link.url}
           <a href={link.url} class="mt-link no-underline">
-            <h3 class="h4 forward-arrow-after">{@html link.text}</h3>
+            <h3 class="mt-h4 forward-arrow-after">{@html link.text}</h3>
           </a>
         {/if}
       {/each}
     </section>
-    <h2 id="small-2" class="m-t-xs">Få lenker</h2>
+    <h2 id="small-2" class="mt-h2 m-t-xs">Få lenker</h2>
     <section class="layout-grid layout-grid--auto-fill-desktop m-t-xxs" aria-labelledby="small-2">
       {#each smallLinks.slice(0, 2) as link, index}
         {#if link && link.url}
           <a href={link.url} class="mt-link no-underline">
-            <h4 class="forward-arrow-after">{@html link.text}</h4>
+            <h4 class="mt-h4 forward-arrow-after">{@html link.text}</h4>
           </a>
         {/if}
       {/each}
@@ -178,7 +178,7 @@
 
 <Story name="Lenkeliste" let:cards let:disableCss let:disabled let:secondary>
   <div use:wrapInShadowDom={disableCss}>
-    <h1>Lenkeliste</h1>
+    <h1 class="mt-h1">Lenkeliste</h1>
     <ul class="layout-grid list-unstyled">
       {#each cards as link}
         <li>
@@ -191,7 +191,7 @@
 
 <Story name="Dokumentlenke" let:cards let:disableCss let:disabled let:secondary>
   <div use:wrapInShadowDom={disableCss}>
-    <h1>Dokumentlenker</h1>
+    <h1 class="mt-h1">Dokumentlenker</h1>
     <ul class="layout-grid list-unstyled">
       <li>
         <Link
@@ -211,25 +211,25 @@
 
 <Story name="Transportlenker" let:disableCss let:smallLinks let:twoColumns let:cards let:disabled>
   <div use:wrapInShadowDom={disableCss}>
-    <h1>Transportlenker</h1>
+    <h1 class="mt-h1">Transportlenker</h1>
 
     <ul class="list-unstyled col-1-span-3">
       <li>
-        <h3>Default</h3>
+        <h3 class="mt-h3">Default</h3>
         <a href="#" class="mt-link link--transport"> Dyr og dyrehold </a>
       </li>
 
       <br />
 
       <li>
-        <h3>Primary</h3>
+        <h3 class="mt-h3">Primary</h3>
         <a href="#" class="mt-link link--transport link--transport--primary"> Mat og vann </a>
       </li>
 
       <br />
 
       <li>
-        <h3>Primary Large</h3>
+        <h3 class="mt-h3">Primary Large</h3>
         <a href="#" class="mt-link link--transport link--transport--primary-large">
           Fisk og akvakultur
         </a>
@@ -238,7 +238,7 @@
       <br />
 
       <li>
-        <h3>Secondary</h3>
+        <h3 class="mt-h3">Secondary</h3>
         <a href="#" class="mt-link link--transport link--transport--secondary">
           Planter og dyrking
         </a>
@@ -247,7 +247,7 @@
       <br />
 
       <li>
-        <h3>Secondary Large</h3>
+        <h3 class="mt-h3">Secondary Large</h3>
         <ul
           class="list-unstyled no-space-between no-space-top gap-small lines-top lines-between gap-small"
           class:two-col={twoColumns}
@@ -266,7 +266,7 @@
 
 <Story name="Transportliste" let:cards let:disableCss let:disabled let:secondary>
   <div use:wrapInShadowDom={disableCss}>
-    <h1>Transportlenkeliste</h1>
+    <h1 class="mt-h1">Transportlenkeliste</h1>
     <ul class="layout-grid list-unstyled transport-list">
       {#each cards as link}
         <li>
@@ -281,7 +281,7 @@
 </Story>
 
 <Story name="Transportliste sekundær" let:cards let:twoColumns let:disableCss>
-  <h1 class="p-b-xs">Transportlenkeliste sekundær</h1>
+  <h1 class="mt-h1 p-b-xs">Transportlenkeliste sekundær</h1>
   <ul
     class="list-unstyled no-space-between no-space-top gap-small lines-top lines-between gap-small"
     class:two-col={twoColumns}
@@ -300,7 +300,7 @@
 
 <Story name="Transportkort" let:cards let:icon let:disableCss let:disabled let:secondary>
   <div use:wrapInShadowDom={disableCss} class="container">
-    <h1>Transportkort</h1>
+    <h1 class="mt-h1">Transportkort</h1>
     {#each cards as card, index}
       <section
         class="layout-flex layout-flex--centered"

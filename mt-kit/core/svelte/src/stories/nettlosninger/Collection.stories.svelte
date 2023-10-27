@@ -12,7 +12,7 @@
     title: 'Regelveiledning samleside overskrift',
     intro: 'Regelveiledning samleside ingress',
     tableOfContents: 'Innhold på siden',
-    text: `<h2>Andre overskrift</h2>
+    text: `<h2 class="mt-h2">Andre overskrift</h2>
       <p>Paragraf med tekst. Paragraf med tekst. <a class="mt-link" href="">Paragraf med tekst.</a> Paragraf med tekst</p>
       <ul>
         <li>Valget om å skaffe dyr må være godt gjennomtenkt. Er hele familien enige og innstilt på det?</li>
@@ -26,7 +26,7 @@
       {
         title: 'Første regelveiledning',
         intro: 'Første regelveiledning intro tekst.',
-        text: `<h2>Andre overskrift</h2>
+        text: `<h2 class="mt-h2">Andre overskrift</h2>
           <p>Paragraf med tekst. Paragraf med tekst. <a class="mt-link" href="">Paragraf med tekst.</a> Paragraf med tekst</p>
           <ul>
             <li>Valget om å skaffe dyr må være godt gjennomtenkt. Er hele familien enige og innstilt på det?</li>
@@ -56,7 +56,7 @@
       {
         title: 'Andre regelveiledning',
         intro: 'Andre regelveiledning intro tekst.',
-        text: `<h2>Andre overskrift</h2>
+        text: `<h2 class="mt-h2">Andre overskrift</h2>
           <p>Paragraf med tekst. Paragraf med tekst. <a class="mt-link" href="">Paragraf med tekst.</a> Paragraf med tekst</p>
           <ul>
             <li>Valget om å skaffe dyr må være godt gjennomtenkt. Er hele familien enige og innstilt på det?</li>
@@ -80,13 +80,13 @@
 <Story name="Normal" let:title let:intro let:legalItems let:text let:tableOfContents let:disableCss>
   <div use:wrapInShadowDom={disableCss} class="container layout-grid layout-grid--column-12">
     <article class="article-page col-1-span-12 legal-guidance">
-      <h1>{title}</h1>
+      <h1 class="mt-h1">{title}</h1>
       <div class="intro">
         <p>{intro}</p>
       </div>
 
       <section class="table-of-contents" aria-labelledby="table-of-contents">
-        <h2 id="table-of-contents" class="h4">
+        <h2 id="table-of-contents" class="mt-h4">
           {tableOfContents}
         </h2>
         <ol class="list-unstyled">
@@ -105,7 +105,7 @@
           id={toKebabCase(legal.title)}
           class="legal-collection legal-collection__border-top col-1-span-12"
           aria-labelledby="collection-title-1">
-          <h2 id="collection-title-1">{legal.title}</h2>
+          <h2 id="collection-title-1" class="mt-h2">{legal.title}</h2>
 
           <div class="intro">
             {legal.intro}
@@ -114,7 +114,7 @@
           {@html legal.text}
 
           <section class="article-page children-full-width" aria-labelledby="how-to-heading-1">
-            <h3 id="how-to-heading-1">
+            <h3 id="how-to-heading-1" class="mt-h3">
               {legal.howToDoItTitle}
             </h3>
             {@html legal.howToDoIt}

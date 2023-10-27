@@ -23,7 +23,7 @@
       <a
         href={menuPoint.url}
         rel={mapRelExternal(menuPoint.url)}
-        class="animated-header-arrow-after no-underline hover-indent {headerTag}"
+        class="animated-header-arrow-after no-underline hover-indent mt-{headerTag}"
         aria-describedby={toKebabCase(menuPoint.keywords)}
         data-testid="menupoints-link">
         {@html menuPoint.text}

@@ -13,12 +13,12 @@
   }} />
 <Story name="All" let:primary let:disableCss>
   <div use:wrapInShadowDom={disableCss} style="--wrap: wrap">
-    <h1>Ikoner</h1>
+    <h1 class="mt-h1">Ikoner</h1>
     <section class="layout-flex layout-flex-col">
-      <h2>Søk</h2>
+      <h2 class="mt-h2">Søk</h2>
       <span class="icon--search-after">Søk</span>
 
-      <h2>Liste hake</h2>
+      <h2 class="mt-h2">Liste hake</h2>
       <ul class="list-unstyled">
         <li class="icon--list-checkmark-before">nummer en</li>
         <li class="icon--list-checkmark-before">dette er en lengre tekst over to linjer</li>
@@ -26,33 +26,33 @@
       </ul>
     </section>
     <section>
-      <h2>Ikoner til alert icons</h2>
+      <h2 class="mt-h2">Ikoner til alert icons</h2>
       <p class="icon--alert-filled-error-before">Avvist</p>
       <p class="icon--alert-filled-error-before">Ikke medhold</p>
       <p class="icon--alert-filled-success-before">Medhold</p>
       <p class="icon--alert-filled-warning-before">Delvis medhold</p>
     </section>
     <section>
-      <h2>Bjelleikon</h2>
+      <h2 class="mt-h2">Bjelleikon</h2>
       <p class="icon--newsletter-bell-before p-tb-xxs" />
     </section>
     <section>
-      <h2>Historie</h2>
+      <h2 class="mt-h2">Historie</h2>
       <p class="icon--changelog-before p-tb-xxs" />
     </section>
     <section>
-      <h2>Kalender</h2>
+      <h2 class="mt-h2">Kalender</h2>
       <p class="icon--calendar-before p-tb-xxs">Høringsfrist: 13.05.2022</p>
     </section>
     <section>
-      <h2>Caret down</h2>
+      <h2 class="mt-h2">Caret down</h2>
       <div class="layout-flex layout-flex--no-wrap">
         <div class="box">
-          <h2 class="h4">Normal</h2>
+          <h2 class="mt-h4">Normal</h2>
           <p class="icon--caret-down-after">Text</p>
         </div>
         <div class="box background-primary">
-          <h2 class="h4">On primary</h2>
+          <h2 class="mt-h4">On primary</h2>
           <p class="icon--caret-down-after-on-primary">Text</p>
         </div>
       </div>

@@ -34,8 +34,7 @@
     findings: { control: 'text' },
     file: { control: 'object' },
     disableCss: { control: 'boolean' }
-  }}
-/>
+  }} />
 
 <Story
   name="Normal"
@@ -52,12 +51,11 @@
   let:organisationPerformingAssignment
   let:file
   let:linkGroups
-  let:disableCss
->
+  let:disableCss>
   <div class="layout-grid layout-grid--column-12" use:wrapInShadowDom={disableCss}>
     <article class="article-page col-1-span-12 report">
       <span>{reportType}</span>
-      <h1>{@html title}</h1>
+      <h1 class="mt-h1">{@html title}</h1>
 
       {#if intro}
         <div class="intro">
@@ -102,8 +100,7 @@
                   class="document forward-arrow-end-link"
                   href={file.url}
                   linkText={title}
-                  fileName={file.text}
-                />
+                  fileName={file.text} />
               {/if}
             </dd>
           {/if}

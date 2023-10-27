@@ -51,8 +51,7 @@ $level-size: $type-base-size;
 
   // Output heading styles
   // Assign to element and create utility class
-  h#{$level},
-  .h#{$level} {
+  .mt-h#{$level} {
     font-size: $level-size;
 
     // Recommendation courtesy of this brilliant work:
@@ -92,37 +91,27 @@ $level-size: $type-base-size;
 
 // :is() unprefixed support July 2021: 90%+
 //:is(h1, h2, h3, h4, .h1, .h2, .h3, .h4) {
-h1,
-h2,
-h3,
-h4,
-.h1,
-.h2,
-.h3,
-.h4 {
+.mt-h1,
+.mt-h2,
+.mt-h3,
+.mt-h4 {
   line-height: calc(2px + 2ex + 2px);
   // Help prevent overflow of long words/names/URLs
   overflow-wrap: break-word;
 }
-h1,
-.h1,
-h2,
-.h2,
+.mt-h1,
+.mt-h2,
 .intro {
   font-weight: var(--font-weight-light);
 }
-h3,
-.h3 {
+.mt-h3 {
   font-weight: var(--font-weight-normal);
 }
-h4,
-.h4 {
+.mt-h4 {
   font-weight: var(--font-weight-bold);
 }
-h5,
-h6,
-.h5,
-.h6 {
+.mt-h5,
+.mt-h6 {
   font-size: $font-size-h4;
 }
 $content-selectors: '.content' !default;
@@ -134,11 +123,11 @@ $content-selectors: '.content' !default;
     margin-top: var(--content-spacer);
   }
 
-  > * + h2,
-  > * + h3,
-  > h3,
-  > * + h4,
-  > h4 {
+  > * + .mt-h2,
+  > * + .mt-h3,
+  > .mt-h3,
+  > * + .mt-h4,
+  > .mt-h4 {
     margin-top: var(--spacer-medium);
   }
 
@@ -185,17 +174,36 @@ strong {
   a {
     @extend .mt-link;
   }
+
+  h1 {
+    @extend .mt-h1;
+  }
+  h2 {
+    @extend .mt-h2;
+  }
+  h3 {
+    @extend .mt-h3;
+  }
+  h4 {
+    @extend .mt-h4;
+  }
+  h5 {
+    @extend .mt-h5;
+  }
+  h6 {
+    @extend .mt-h6;
+  }
 }
 .children-spaced-xxs {
   @include children-spaced(var(--spacer-xx-small));
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
+.mt-h1,
+.mt-h2,
+.mt-h3,
+.mt-h4,
+.mt-h5,
+.mt-h6,
 th,
 td,
 a,

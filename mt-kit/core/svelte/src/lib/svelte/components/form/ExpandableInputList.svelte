@@ -69,7 +69,7 @@
       role="alert"
       tabindex="-1"
       aria-labelledby="error-summary-heading">
-      <h2 id="error-summary-heading" class="inclusively-hidden">
+      <h2 id="error-summary-heading" class="mt-h2 inclusively-hidden">
         {fieldSetErrorHeading}
       </h2>
       <ul class="list-unstyled">

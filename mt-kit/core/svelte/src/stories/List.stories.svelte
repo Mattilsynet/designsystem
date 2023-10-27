@@ -41,7 +41,7 @@
 
 <Story name="Normal" let:args let:disableCss>
   <div use:wrapInShadowDom={args.disableCss}>
-    <h1>Dokument liste</h1>
+    <h1 class="mt-h1">Dokument liste</h1>
     <ol class="list list-unstyled">
       {#each args.content as item}
         <li class="layout-flex layout-flex--no-wrap layout-flex--space-between">

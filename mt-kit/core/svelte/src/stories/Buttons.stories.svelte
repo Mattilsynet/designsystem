@@ -30,7 +30,7 @@
 
 <Story name="Normal" let:primary let:primaryLong let:disableCss let:disabled let:secondary>
   <div use:wrapInShadowDom={disableCss}>
-    <h1>Knapper</h1>
+    <h1 class="mt-h1">Knapper</h1>
     <p class="description">Hovedknapp - stor</p>
     <button class="mt-button mt-button--primary" {disabled}>{primary}</button>
     <button class="mt-button mt-button--primary" {disabled}>{primaryLong}</button>
@@ -78,7 +78,7 @@
 
 <Story name="Loading" let:disableCss let:inProgress>
   <div use:wrapInShadowDom={disableCss}>
-    <h1>Loading</h1>
+    <h1 class="mt-h1">Loading</h1>
     <p class="description">Hovedknapp</p>
     <ButtonSpinner
       formInProgressAriaLabel="Sender inn skjema, venter på svar."

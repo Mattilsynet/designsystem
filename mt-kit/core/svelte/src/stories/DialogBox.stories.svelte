@@ -17,20 +17,20 @@
 <Meta
   title="Components/Dialogboks"
   args={{
-    content: `<h2>Du bør varsle</h2>
+    content: `<h2 class="mt-h2">Du bør varsle</h2>
       <p>At noen setter opp nye piggtrådgjerder</p>
       <p>Eldre piggtrådgjerder som utgjør en risiko for at dyr blir skadet</p>`
   }}
   argTypes={{}} />
 
 <Story name="Normal" let:content>
-  <h2>Default</h2>
+  <h2 class="mt-h2">Default</h2>
   <div class="tags-wrapper">
     <DialogBox {title} {isOpen} {closeBtnAriaLabel}>
       <p>Dialogboks innhold</p>
     </DialogBox>
   </div>
-  <h2>Ingen tittel</h2>
+  <h2 class="mt-h2">Ingen tittel</h2>
   <div class="tags-wrapper">
     <DialogBox title="" {isOpen} {ariaTitle} {closeBtnAriaLabel}>
       <p>Dialogboks innhold</p>
@@ -38,7 +38,7 @@
   </div>
 
   <hr />
-  <h2>Enkel</h2>
+  <h2 class="mt-h2">Enkel</h2>
   <div class="tags-wrapper">
     <DialogBox {isOpen} {ariaTitle} {closeBtnAriaLabel}>
       {#if content}
@@ -47,7 +47,7 @@
     </DialogBox>
   </div>
   <hr />
-  <h2>Avansert</h2>
+  <h2 class="mt-h2">Avansert</h2>
   <div class="tags-wrapper">
     <DialogBox title="Fant du det du lette etter?" {isOpen} {closeBtnAriaLabel}>
       <div class="layout-flex" style="margin-top: 20px;">
@@ -67,7 +67,7 @@
     </DialogBox>
   </div>
   <hr />
-  <h2>Vises ved endring</h2>
+  <h2 class="mt-h2">Vises ved endring</h2>
   <div class="tags-wrapper">
     <button class="mt-button toggle-button" on:click={handleClick}>Toggle dialog</button>
     <DialogBox {title} isOpen={showDialog} {closeBtnAriaLabel}>

@@ -38,19 +38,19 @@
 
 <Story name="Normal" let:args>
   <div use:wrapInShadowDom={args.disableCss} />
-  <h1>Tags</h1>
+  <h1 class="mt-h1">Tags</h1>
   <div class="tags-wrapper">
     <article>
-      <h2>Tags</h2>
+      <h2 class="mt-h2">Tags</h2>
       <Tags tags={args.tags} />
     </article>
     <article>
-      <h2>Lukkbare tags</h2>
+      <h2 class="mt-h2">Lukkbare tags</h2>
       <Tags bind:tags={closableTags} isClosable={args.isClosable} />
       <button class="mt-button mt-button--link" on:click={reset}>Gjenopprett tags</button>
     </article>
     <article>
-      <h2>Tags med forskjellige farger</h2>
+      <h2 class="mt-h2">Tags med forskjellige farger</h2>
       <Tags tags={args.tagsWithColor} />
     </article>
   </div>

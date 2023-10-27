@@ -106,7 +106,7 @@
 
 <Story name="Normal" let:disableCss let:args>
   <main use:wrapInShadowDom={disableCss}>
-    <h1>Utvidebarliste med inputs</h1>
+    <h1 class="mt-h1">Utvidebarliste med inputs</h1>
     <form class="mt-form" on:submit|preventDefault={handleSubmit}>
       <ExpandableInputList
         inputList={args.inputList}

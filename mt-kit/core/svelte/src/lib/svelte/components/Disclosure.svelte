@@ -67,7 +67,7 @@
     <button
       {id}
       type="button"
-      class="mt-button--unstyled disclosure-header {headerTag} {headerClass}"
+      class="mt-button--unstyled disclosure-header mt-{headerTag} {headerClass}"
       aria-expanded={isOpen}
       aria-controls={bodyId}
       on:click={() => {

@@ -62,12 +62,11 @@
     menuPoints: { control: 'array' },
     disableJs: { control: 'boolean' },
     disableCss: { control: 'boolean' }
-  }}
-/>
+  }} />
 
 <Story name="Normal" let:menuPoints let:disableCss>
   <main use:wrapInShadowDom={disableCss} class="container layout-flex-col">
-    <h1 class="m-b-m">Menypunkter</h1>
+    <h1 class="mt-h1 m-b-m">Menypunkter</h1>
     <MenuPointsIcons {menuPoints} />
   </main>
 </Story>

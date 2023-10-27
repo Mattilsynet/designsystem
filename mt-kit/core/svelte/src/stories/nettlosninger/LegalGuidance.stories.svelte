@@ -18,7 +18,7 @@
   args={{
     title: 'Dette er det viktig at du vet før du får kjæledyr',
     intro: 'Å anskaffe seg et dyr er et stort ansvar og det er tid- og ',
-    text: `<h2>Andre overskrift</h2>
+    text: `<h2 class="mt-h2">Andre overskrift</h2>
       <p>Paragraf med tekst. Paragraf med tekst. <a class="mt-link" href="">Paragraf med tekst.</a> Paragraf med tekst</p>
       <ul>
         <li>Valget om å skaffe dyr må være godt gjennomtenkt. Er hele familien enige og innstilt på det?</li>
@@ -48,7 +48,7 @@
   let:text>
   <div class="container layout-grid layout-grid--column-12">
     <article class="article-page col-1-span-12 legal-guidance">
-      <h1>{title}</h1>
+      <h1 class="mt-h1">{title}</h1>
       <div class="intro">
         <p>{intro}</p>
       </div>
@@ -57,7 +57,7 @@
       {@html text}
 
       <section class="layout-flex-col layout-flex-col--x-small" aria-labelledby="how-to-heading">
-        <h2 id="how-to-heading">Slik gjør du</h2>
+        <h2 id="how-to-heading" class="mt-h2">Slik gjør du</h2>
         <p>Litt tekst her</p>
         <CardArticle
           type="task"
@@ -76,7 +76,7 @@
       <section
         class="layout-flex-col layout-flex-col--x-small"
         aria-labelledby="regulations-heading">
-        <h2 id="regulations-heading">Regelverk</h2>
+        <h2 id="regulations-heading" class="mt-h2">Regelverk</h2>
         <Disclosure
           title="Næringsmiddelhygieneforordningens vedlegg II, kap. I nr. 3"
           headerTag="h3"

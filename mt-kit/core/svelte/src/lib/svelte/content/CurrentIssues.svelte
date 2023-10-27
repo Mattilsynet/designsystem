@@ -3,7 +3,7 @@
   import { mapRelExternal } from '../../ts/utils'
 
   export let title = 'Aktuelle saker'
-  export let headingClass = 'h4'
+  export let headingClass = 'mt-h4'
   export let headerTag: 'h2' | 'h3' | 'h4' = 'h2'
   export let issues = []
 </script>
@@ -12,7 +12,8 @@
   class="layout-grid layout-grid--column-12 current-issues"
   data-testid="current-issues"
   aria-labelledby="current-issues-heading">
-  <HeadingLevel class="col-1-span-12 heading h3" headingLevel={+headerTag.charAt(1)}>
+  <!--  todo-->
+  <HeadingLevel class="col-1-span-12 heading mt-h3" headingLevel={+headerTag.charAt(1)}>
     {title}
   </HeadingLevel>
   {#each issues as issue, index}

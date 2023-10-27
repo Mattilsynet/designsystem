@@ -28,14 +28,14 @@
 
 <Story name="Normal" let:text let:text2 let:disableCss let:iconText>
   <main use:wrapInShadowDom={disableCss} class="container layout-flex-col">
-    <h1>Varseltekst</h1>
+    <h1 class="mt-h1">Varseltekst</h1>
     <section class="layout-flex-col">
-      <h2>Med varsel icon</h2>
+      <h2 class="mt-h2">Med varsel icon</h2>
       <Notice infoType="important" {text} {iconText} />
       <Notice infoType="important" text={text2} />
     </section>
     <section class="layout-flex-col">
-      <h2>Uten icon</h2>
+      <h2 class="mt-h2">Uten icon</h2>
       <Notice infoType="none" {text} />
     </section>
   </main>

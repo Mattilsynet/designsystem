@@ -21,7 +21,7 @@
     isOpen = false
     dispatch<CustomEvent<CloseDialogEvent>>('closingDialog', {
       shouldReappear: false
-    });
+    })
   }
 </script>
 
@@ -34,7 +34,7 @@
     aria-hidden={!isOpen}
     bind:this={dialogRef}
     aria-labelledby={dialogBoxHeadingId}>
-    <h2 id={dialogBoxHeadingId} class="h4 dialog-box--title {title ? '' : 'inclusively-hidden'}">
+    <h2 id={dialogBoxHeadingId} class="mt-h4 dialog-box--title {title ? '' : 'inclusively-hidden'}">
       {title ? title : ariaTitle}
     </h2>
     <button

@@ -195,8 +195,8 @@
   let:args>
   <div class="container layout-grid layout-grid--column-12" use:wrapInShadowDom={disableCss}>
     <section class="article-page col-1-span-12">
-      <h1>Nested checkbox</h1>
-      <h2>Nested checkbox with doc count</h2>
+      <h1 class="mt-h1">Nested checkbox</h1>
+      <h2 class="mt-h2">Nested checkbox with doc count</h2>
       <p>Use variation="primary" (default) when checkboxes stand alone</p>
       <form class="mt-form">
         <CheckboxWithSubSets
@@ -206,7 +206,7 @@
           level1Legend={legend}
           level2Legend={`${legend} i `} />
       </form>
-      <h2>Nested checkboxes without doc count and border</h2>
+      <h2 class="mt-h2">Nested checkboxes without doc count and border</h2>
       <p>User variation="primary" (default) when checkboxes stand alone</p>
       <form class="mt-form">
         <CheckboxWithSubSets
@@ -216,7 +216,7 @@
           border={args.border}
           level2Legend={`${legend} i `} />
       </form>
-      <h2>Nestede checkboxet inside disclosure</h2>
+      <h2 class="mt-h2">Nestede checkboxet inside disclosure</h2>
       <p>
         Use variation="secondary" when checkboxes are used in combination with another component
         which has the title for the checkboxes, eg. Disclosure

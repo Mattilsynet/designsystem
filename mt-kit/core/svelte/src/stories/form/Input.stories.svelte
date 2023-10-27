@@ -79,7 +79,7 @@
         tooManyCharactersErrorText={args.tooManyCharactersErrorText}
         maxlength={30} />
 
-      <h2>Horisontal layout</h2>
+      <h2 class="mt-h2">Horisontal layout</h2>
       <div class="collapsable-input-list-grid">
         {#each args.horizontal as horizontal}
           <TextInputHorizontal

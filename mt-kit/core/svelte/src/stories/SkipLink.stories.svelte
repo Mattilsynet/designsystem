@@ -10,6 +10,6 @@
 
 <Story name="Hidden focusable link" let:label>
   <a href="" class="mt-link visually-hidden-focusable">{label}</a>
-  <h2>Hidden focusable link</h2>
+  <h2 class="mt-h2">Hidden focusable link</h2>
   <p>Press tab to focus the link, and make it visible.</p>
 </Story>

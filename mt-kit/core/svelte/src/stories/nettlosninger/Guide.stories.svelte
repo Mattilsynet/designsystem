@@ -199,9 +199,7 @@
         </button>
       {:else}
         <div class="aside-header">
-          <button
-            class="mt-button--unstyled float-right m-r-0"
-            on:click={handleClickClose}>
+          <button class="mt-button--unstyled float-right m-r-0" on:click={handleClickClose}>
             <svg width="21.307" height="21.213" fill="none" xmlns="http://www.w3.org/2000/svg">
               <title>Close</title>
               <path stroke="#fff" stroke-width="2" d="M20.6.707.801 20.506M20.506 20.506.707.707" />
@@ -226,7 +224,8 @@
               {#if chapterIndex === currentChapterNumber}
                 <div class="layout-grid layout-grid--column-12">
                   <article class="article-page col-1-span-12 in-other-content">
-                    <h1 class={showChapterNumbers ? 'heading-with-chapter col-2-span-9' : ''}>
+                    <h1
+                      class="mt-h1 {showChapterNumbers ? 'heading-with-chapter col-2-span-9' : ''}">
                       {#if showChapterNumbers}
                         <span class="chapter-number">
                           {chapterIndex + 1}.
@@ -287,7 +286,7 @@
     </div>
   </div>
   <footer class="footer footer--regular" aria-labelledby="footer-title">
-    <h2 id="footer-title" class="inclusively-hidden">Footer</h2>
+    <h2 id="footer-title" class="mt-h2 inclusively-hidden">Footer</h2>
     <div class="col">Col 1</div>
     <div class="col">Col 2</div>
     <div class="col">Col 3</div>
