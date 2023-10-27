@@ -13,7 +13,7 @@ Credit to Andy Bell's Modern CSS Reset
 }
 
 /* Remove default margin */
-body,
+.mt-body,
 h1,
 h2,
 h3,
@@ -49,7 +49,7 @@ html:focus-within {
 }
 
 /* Set core body defaults */
-body {
+.mt-body {
   min-height: 100vh;
   font-family: system-ui, sans-serif;
   text-rendering: optimizeSpeed;
