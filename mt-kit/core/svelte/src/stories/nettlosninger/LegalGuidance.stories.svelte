@@ -21,7 +21,6 @@
     text: `<h2 class="mt-h2">Andre overskrift</h2>
       <p>Paragraf med tekst. Paragraf med tekst. <a class="mt-link" href="">Paragraf med tekst.</a> Paragraf med tekst</p>
       <ul>
-<!--      <ul class="mt-ul">-->
         <li>Valget om å skaffe dyr må være godt gjennomtenkt. Er hele familien enige og innstilt på det?</li>
         <li>
           En voksen person må være hovedansvarlig for dyret. I følge dyrevelferdsloven kan barn under 16 år ikke ha et

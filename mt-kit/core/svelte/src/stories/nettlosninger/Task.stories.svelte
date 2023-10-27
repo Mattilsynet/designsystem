@@ -15,7 +15,6 @@
         Det skal utarbeides skriftlige rutiner for etterlevelse av forskriftsfestede krav om å ivareta dyrenes velferd,
         blant annet om
       </p>
-<!--      <ul class="mt-ul">-->
       <ul >
         <li>Kompetanse</li>
         <li>fôring og stell</li>
@@ -58,7 +57,6 @@
 
               <p>Veterinærattestene skal ikke være eldre enn 7 dager når dyra flyttes. Attesten skal oppbevares i mottakerbesetninga i 5 år og legges fram når Mattilsynet ber om det.</p>
 
-<!--              <ul class="mt-ul">-->
               <ul>
                 <li>En eller to</li>
                 <li>tre og fire og fem og seks</li>
@@ -89,7 +87,6 @@
 
               <p>Veterinærattestene skal ikke være eldre enn 7 dager når dyra flyttes. Attesten skal oppbevares i mottakerbesetninga i 5 år og legges fram når Mattilsynet ber om det.</p>
 
-<!--              <ul class="mt-ul">-->
               <ul>
                 <li>En eller to</li>
                 <li>tre og fire og fem og seks</li>

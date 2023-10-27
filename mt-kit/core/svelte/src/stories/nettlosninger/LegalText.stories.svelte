@@ -16,7 +16,6 @@
         blant annet om
       </p>
       <ul ">
-<!--      <ul class="mt-ul">-->
         <li>Kompetanse</li>
         <li>fôring og stell</li>
         <li>aktivisering og mosjon</li>

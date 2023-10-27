@@ -25,7 +25,6 @@
     isExpanded = !isExpanded
   }
   let body = `<p>Innhold i underkapittel</p>
-<!--<ul class="mt-ul">-->
 <ul >
 <li>liste 1</li>
 <li>liste 2</li>
