@@ -9,7 +9,7 @@
   args={{
     text: `<p>Haster det? Er det fare for at dyr dør eller blir påført store belastninger. Ring mattilsynet på tlf. <a class="mt-link"href="tel:22400000">22 40 00 00</a> eller politiet <a class="mt-link"href="tel:02800">02800</a></p>`,
     text2: `<p><strong>Ring politiet på tlf. 02800 hvis du</strong></p>
-<ul class="mt-ul">
+<ul >
   <li >har kjørt på et dyr</li>
   <li >har funnet et sykt, skadd eller hjelpeløst dyr</li>
   <li >vil varsle om farlige eller ulovlige hunder</li>
@@ -27,7 +27,7 @@
   }} />
 
 <Story name="Normal" let:text let:text2 let:disableCss let:iconText>
-  <main use:wrapInShadowDom={disableCss} class="container layout-flex-col">
+  <main use:wrapInShadowDom={disableCss} class="mt-main container layout-flex-col">
     <h1 class="mt-h1">Varseltekst</h1>
     <section class="layout-flex-col">
       <h2 class="mt-h2">Med varsel icon</h2>

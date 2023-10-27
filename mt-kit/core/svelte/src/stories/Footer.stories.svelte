@@ -62,7 +62,7 @@
         </a>
       </div>
     </header>
-    <main class="container content">
+    <main class="mt-main container content">
       <h1 class="mt-h1">Bekymringsmelding til Mattilsynet</h1>
     </main>
     <footer class="mt-footer">

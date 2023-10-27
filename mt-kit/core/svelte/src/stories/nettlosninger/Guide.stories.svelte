@@ -217,7 +217,7 @@
       {/if}
     </aside>
     <div class="container content {isExpanded ? 'menu-is-expanded' : ''}">
-      <main id="main">
+      <main id="main" class="mt-main">
         <div data-portal-region="main">
           <div>
             {#each chapters as chapter, chapterIndex}
