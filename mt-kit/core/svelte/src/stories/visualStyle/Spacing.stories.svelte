@@ -161,7 +161,7 @@
         </div>
       </main>
     </div>
-    <footer class="footer" />
+    <footer class="mt-footer" />
   </body>
 </Story>
 

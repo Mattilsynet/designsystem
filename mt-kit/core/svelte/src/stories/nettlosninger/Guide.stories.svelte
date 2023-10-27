@@ -25,7 +25,7 @@
     isExpanded = !isExpanded
   }
   let body = `<p>Innhold i underkapittel</p>
-<ul >
+<ul>
 <li>liste 1</li>
 <li>liste 2</li>
 </ul>
@@ -285,7 +285,7 @@
       </main>
     </div>
   </div>
-  <footer class="footer footer--regular" aria-labelledby="footer-title">
+  <footer class="mt-footer footer--regular" aria-labelledby="footer-title">
     <h2 id="footer-title" class="mt-h2 inclusively-hidden">Footer</h2>
     <div class="col">Col 1</div>
     <div class="col">Col 2</div>

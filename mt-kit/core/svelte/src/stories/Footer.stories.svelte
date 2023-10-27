@@ -63,7 +63,7 @@
     <main class="container content">
       <h1 class="mt-h1">Bekymringsmelding til Mattilsynet</h1>
     </main>
-    <footer class="footer">
+    <footer class="mt-footer">
       <div class="col">
         <h2 class="mt-h2">Mattilsynet Beta</h2>
         <p>
