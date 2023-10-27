@@ -133,8 +133,8 @@
   }} />
 
 <Story name="Normal" let:title let:disableCss let:args let:disableJs>
-  <header use:wrapInShadowDom={disableCss}>
-    <div class="container header header--regular">
+  <header class="mt-header" use:wrapInShadowDom={disableCss}>
+    <div class="container mt-header-wrapper mt-header-wrapper--regular">
       <a href="https://mattilsynet.no/" class="mt-link fit-content">
         <svg viewBox="0 0 184 36" fill="none" xmlns="http://www.w3.org/2000/svg">
           <title>Gå til forsiden</title>

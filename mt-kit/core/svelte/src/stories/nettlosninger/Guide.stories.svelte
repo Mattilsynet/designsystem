@@ -120,8 +120,8 @@
   }} />
 
 <Story name="Normal" let:showChapterNumbers let:menu let:disableJs let:chapters>
-  <header>
-    <div class="container header header--regular">
+  <header class="mt-header">
+    <div class="container mt-header-wrapper mt-header-wrapper--regular">
       <a class="mt-link" href="https://mattilsynet.no/">
         <svg viewBox="0 0 184 36" fill="none" xmlns="http://www.w3.org/2000/svg">
           <title>Gå til forsiden</title>
