@@ -41,7 +41,7 @@ $form-outline-color: 'var(--form-outline-color)' !default;
   .mt-ol + .mt-label,
   .mt-button + .mt-label,
   .form-field + .mt-label,
-  [type='hidden'] + .mt-button,
+  .mt-input[type='hidden'] + .mt-button,
   .form-field + .mt-fieldset,
   .form-field + .mt-button,
   .mt-fieldset + .mt-button,

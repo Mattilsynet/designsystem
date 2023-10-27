@@ -2,15 +2,15 @@
 @use '../utilities/mixins' as *;
 @use '../theme' as *;
 
-[type='radio'] + .form-label,
-[type='checkbox'] + .form-label {
+.mt-input[type='radio'] + .form-label,
+.mt-input[type='checkbox'] + .form-label {
   font-size: inherit;
   font-weight: normal;
 }
 
 
-[type='checkbox'],
-[type='radio'] {
+.mt-input[type='checkbox'],
+.mt-input[type='radio'] {
   width: 1em;
   height: 1em;
   margin: 0;
@@ -34,15 +34,15 @@
   }
 }
 
-[type='radio'] {
+.mt-input[type='radio'] {
   border-radius: 50%;
 }
 
-[type='radio']:checked {
+.mt-input[type='radio']:checked {
   background-image: var(--radio-checked-img);
 }
 
-[type='checkbox'] {
+.mt-input[type='checkbox'] {
   &:checked {
     background-color: var(--color-primary);
     background-image: var(--checkbox-checked-img);
