@@ -161,7 +161,7 @@ $form-outline-color: 'var(--form-outline-color)' !default;
     }
   }
 
-  input {
+  .mt-input {
     @include focus-outline();
 
     width: 1em;
@@ -237,7 +237,7 @@ $form-outline-color: 'var(--form-outline-color)' !default;
   .form-error {
     grid-column: span 2;
   }
-  input {
+  .mt-input {
     justify-self: end;
   }
 }

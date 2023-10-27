@@ -1,6 +1,6 @@
 @use '../theme' as *;
 
-input[type='file'].form-field {
+.mt-input[type='file'].form-field {
   background-color: transparent;
 
   &.inclusively-hidden-initial + .mt-label.mt-button {
