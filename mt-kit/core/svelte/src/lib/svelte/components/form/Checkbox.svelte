@@ -60,7 +60,7 @@
         type="checkbox"
         id={toKebabCase(checkbox.value)}
         {name}
-        class="input__control"
+        class="mt-input input__control"
         class:error
         value={checkbox.value}
         bind:group={value}

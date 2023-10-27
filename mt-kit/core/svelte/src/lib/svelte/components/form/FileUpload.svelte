@@ -57,9 +57,10 @@
   <InputError message={error.message} key={fileInputName} {hiddenErrorText} />
 {/if}
 
-<input type="hidden" bind:this={uuidInput} {name} value={value || ''} data-testid={name} />
+<input type="hidden" class="mt-input" bind:this={uuidInput} {name} value={value || ''} data-testid={name} />
 <input
   type="hidden"
+  class="mt-input"
   bind:this={nameInput}
   name={fileNameInputName}
   value={fileName || ''}

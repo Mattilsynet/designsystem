@@ -69,7 +69,7 @@
   on:input={e => {
     error = errorOnTooManyCharacters(e, countCharsParams, name, tooManyCharactersErrorText) || error
   }}
-  class="form-field {inputClass}"
+  class="mt-input form-field {inputClass}"
   bind:value
   class:error
   aria-required={isRequired || undefined}

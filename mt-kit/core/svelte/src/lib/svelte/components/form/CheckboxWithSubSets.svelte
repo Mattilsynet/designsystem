@@ -69,7 +69,7 @@
       <input
         id={options.key}
         type="checkbox"
-        class="input__control"
+        class="mt-input input__control"
         name={optionsName}
         value={options.key}
         bind:checked={options.checked}
@@ -84,7 +84,7 @@
       <input
         id={listItem.key}
         type="checkbox"
-        class="input__control"
+        class="mt-input input__control"
         name={optionsName}
         value={listItem.key}
         bind:checked={listItem.checked}
@@ -109,7 +109,7 @@
               id={subListItem.key}
               type="checkbox"
               name={optionsName}
-              class="input__control"
+              class="mt-input input__control"
               value={subListItem.key}
               bind:checked={subListItem.checked}
               aria-checked={subListItem.checked} />
@@ -134,7 +134,7 @@
                     id={subSubListItem.key}
                     type="checkbox"
                     name={optionsName}
-                    class="input__control"
+                    class="mt-input input__control"
                     value={subSubListItem.key}
                     bind:checked={subSubListItem.checked}
                     aria-checked={subSubListItem.checked} />

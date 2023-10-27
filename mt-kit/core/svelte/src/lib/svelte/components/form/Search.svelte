@@ -41,7 +41,7 @@
       id={name}
       type="search"
       {name}
-      class="form-field {inputClass}"
+      class="mt-input form-field {inputClass}"
       class:hasButton={!!searchButtonText}
       bind:value
       aria-labelledby={!label && searchButtonText ? 'search-button' : undefined}

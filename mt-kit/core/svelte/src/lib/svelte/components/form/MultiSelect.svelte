@@ -225,7 +225,7 @@
   {/each}
 </ul>
 
-<input type="text" value={values} {name} class="hidden" />
+<input type="text" value={values} {name} class="mt-input hidden" />
 
 {#if helpText}
   <div id={`${name}-hint`} class="hint m-t-xxs">
@@ -242,6 +242,7 @@
     {#if !readonly}
       <input
         id={`${name}-input`}
+        class="mt-input"
         autocomplete="off"
         bind:value={inputValue}
         bind:this={input}

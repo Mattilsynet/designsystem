@@ -56,7 +56,7 @@
         type="radio"
         id={toKebabCase(radio.value)}
         {name}
-        class="input__control"
+        class="mt-input input__control"
         class:error
         bind:group={value}
         value={radio.value}
