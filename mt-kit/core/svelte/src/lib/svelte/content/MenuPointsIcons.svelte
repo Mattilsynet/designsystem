@@ -18,7 +18,7 @@
           {@html menuPoint.iconResource}
         </div>
       {:else if menuPoint.icon}
-        <img src={menuPoint.icon} alt="" aria-hidden="true" data-testid="img-icon" />
+        <img src={menuPoint.icon} alt="" class="mt-img" aria-hidden="true" data-testid="img-icon" />
       {/if}
       <a
         href={menuPoint.url}
