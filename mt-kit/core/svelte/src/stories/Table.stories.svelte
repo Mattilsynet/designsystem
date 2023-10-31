@@ -10,43 +10,43 @@
     intro: `<p>Paragraf med tekst. Paragraf med tekst.`,
     statusTitle: `Status tittel`,
     text: `<p>Status tekst</p>
-<table role="table">
-<caption>Dette er tittelen til tabellen</caption>
-<thead>
-<tr role="row">
-<th role="columnheader" scope="col">Kolonne 1</th>
-<th role="columnheader" scope="col">Kolonne 2</th>
-<th role="columnheader" scope="col">Kolonne 3</th>
-<th role="columnheader" scope="col">Kolonne 4</th>
-<th role="columnheader" scope="col">Kolonne 5</th>
-<th role="columnheader" scope="col">Kolonne 6</th>
+<table role="table" class="mt-table">
+<caption class="mt-caption">Dette er tittelen til tabellen</caption>
+<thead class="mt-thead">
+<tr role="row" class="mt-tr">
+<th role="columnheader" scope="col" class="mt-th">Kolonne 1</th>
+<th role="columnheader" scope="col" class="mt-th">Kolonne 2</th>
+<th role="columnheader" scope="col" class="mt-th">Kolonne 3</th>
+<th role="columnheader" scope="col" class="mt-th">Kolonne 4</th>
+<th role="columnheader" scope="col" class="mt-th">Kolonne 5</th>
+<th role="columnheader" scope="col" class="mt-th">Kolonne 6</th>
 </tr>
 </thead>
-<tbody>
-<tr role="row">
-<td class="text" role="cell"><span class="responsive-table__heading" aria-hidden="true">Rad 1 tittel 1:</span>Rad 1</td>
-<td class="text" role="cell"><span class="responsive-table__heading" aria-hidden="true">Rad 1 tittel 2:</span><p>Rad 1 - med beskrivende tekst</p></td>
-<td class="text" role="cell"><span class="responsive-table__heading" aria-hidden="true">Rad 1 tittel 3:</span>Rad 1 - med mer beskrivende tekst</td>
-<td class="text" role="cell"><span class="responsive-table__heading" aria-hidden="true">Rad 1 tittel 4:</span>Rad 1</td>
-<td class="text" role="cell"><span class="responsive-table__heading" aria-hidden="true">Rad 1 tittel 5:</span><p>Rad 1 med en lang beskrivende og status tekst</p></td>
-<td class="text" role="cell"><span class="responsive-table__heading" aria-hidden="true">Rad 1 tittel 6:</span>Rad 1</td>
+<tbody class="mt-tbody">
+<tr role="row" class="mt-tr">
+<td class="text" role="cell" class="mt-td"><span class="responsive-table__heading" aria-hidden="true">Rad 1 tittel 1:</span>Rad 1</td>
+<td class="text" role="cell" class="mt-td"><span class="responsive-table__heading" aria-hidden="true">Rad 1 tittel 2:</span><p>Rad 1 - med beskrivende tekst</p></td>
+<td class="text" role="cell" class="mt-td"><span class="responsive-table__heading" aria-hidden="true">Rad 1 tittel 3:</span>Rad 1 - med mer beskrivende tekst</td>
+<td class="text" role="cell" class="mt-td"><span class="responsive-table__heading" aria-hidden="true">Rad 1 tittel 4:</span>Rad 1</td>
+<td class="text" role="cell" class="mt-td"><span class="responsive-table__heading" aria-hidden="true">Rad 1 tittel 5:</span><p>Rad 1 med en lang beskrivende og status tekst</p></td>
+<td class="text" role="cell" class="mt-td"><span class="responsive-table__heading" aria-hidden="true">Rad 1 tittel 6:</span>Rad 1</td>
 </tr>
-<tr role="row">
-<td class="text" role="cell"><span class="responsive-table__heading" aria-hidden="true">Rad 2 tittel 1:</span>Rad 2</td>
-<td class="text" role="cell"><span class="responsive-table__heading" aria-hidden="true">Rad 2 tittel 2:</span>Rad 2 - med beskrivende tekst</td>
-<td class="text" role="cell"><span class="responsive-table__heading" aria-hidden="true">Rad 2 tittel 3:</span>Rad 2 - med mer beskrivende tekst</td>
-<td class="text" role="cell"><span class="responsive-table__heading" aria-hidden="true">Rad 2 tittel 4:</span><p>Rad 2</p> <ul><li>liste item 1</li><li>liste item 2</li></ul></td>
-<td class="text" role="cell"><span class="responsive-table__heading" aria-hidden="true">Rad 2 tittel 5:</span>Rad 2 med en lang beskrivende og status tekst </td>
-<td class="text" role="cell"><span class="responsive-table__heading" aria-hidden="true">Rad 2 tittel 6:</span>Rad 2</td>
+<tr role="row" class="mt-tr">
+<td class="text" role="cell" class="mt-td"><span class="responsive-table__heading" aria-hidden="true">Rad 2 tittel 1:</span>Rad 2</td>
+<td class="text" role="cell" class="mt-td"><span class="responsive-table__heading" aria-hidden="true">Rad 2 tittel 2:</span>Rad 2 - med beskrivende tekst</td>
+<td class="text" role="cell" class="mt-td"><span class="responsive-table__heading" aria-hidden="true">Rad 2 tittel 3:</span>Rad 2 - med mer beskrivende tekst</td>
+<td class="text" role="cell" class="mt-td"><span class="responsive-table__heading" aria-hidden="true">Rad 2 tittel 4:</span><p>Rad 2</p> <ul><li>liste item 1</li><li>liste item 2</li></ul></td>
+<td class="text" role="cell" class="mt-td"><span class="responsive-table__heading" aria-hidden="true">Rad 2 tittel 5:</span>Rad 2 med en lang beskrivende og status tekst </td>
+<td class="text" role="cell" class="mt-td"><span class="responsive-table__heading" aria-hidden="true">Rad 2 tittel 6:</span>Rad 2</td>
 </tr>
 </tr>
-<tr role="row">
-<td class="text" role="cell"><span class="responsive-table__heading" aria-hidden="true">Rad 3 tittel 1:</span>Rad 3</td>
-<td class="text" role="cell"><span class="responsive-table__heading" aria-hidden="true">Rad 3 tittel 2:</span>Rad 3 - med beskrivende tekst</td>
-<td class="text" role="cell"><span class="responsive-table__heading" aria-hidden="true">Rad 3 tittel 3:</span>Rad 3 - med mer beskrivende tekst</td>
-<td class="text" role="cell"><span class="responsive-table__heading" aria-hidden="true">Rad 3 tittel 4:</span>Rad 3</td>
-<td class="text" role="cell"><span class="responsive-table__heading" aria-hidden="true">Rad 3 tittel 5:</span>Rad 3 med en lang beskrivende og status tekst </td>
-<td class="text" role="cell"><span class="responsive-table__heading" aria-hidden="true">Rad 3 tittel 6:</span>Rad 3</td>
+<tr role="row" class="mt-tr">
+<td class="text" role="cell" class="mt-td"><span class="responsive-table__heading" aria-hidden="true">Rad 3 tittel 1:</span>Rad 3</td>
+<td class="text" role="cell" class="mt-td"><span class="responsive-table__heading" aria-hidden="true">Rad 3 tittel 2:</span>Rad 3 - med beskrivende tekst</td>
+<td class="text" role="cell" class="mt-td"><span class="responsive-table__heading" aria-hidden="true">Rad 3 tittel 3:</span>Rad 3 - med mer beskrivende tekst</td>
+<td class="text" role="cell" class="mt-td"><span class="responsive-table__heading" aria-hidden="true">Rad 3 tittel 4:</span>Rad 3</td>
+<td class="text" role="cell" class="mt-td"><span class="responsive-table__heading" aria-hidden="true">Rad 3 tittel 5:</span>Rad 3 med en lang beskrivende og status tekst </td>
+<td class="text" role="cell" class="mt-td"><span class="responsive-table__heading" aria-hidden="true">Rad 3 tittel 6:</span>Rad 3</td>
 </tr>
 </tbody>
 </table>`,

@@ -35,13 +35,13 @@
               selvstendig ansvar for dyr.
             </li>
           </ul>
-          <table class="responsive-table col-2-span-10" role="table">
-          <caption>Merkeregler for flaskevann</caption>
-          <thead role="rowgroup">
-          <tr role="row"><th role="columnheader" scope="col">Produkt/merking med</th>
-          <th role="columnheader" scope="col">Handelsnavn/varenavn/varemerke</th>
-          <th role="columnheader" scope="col">Kilde/utvinningssted for kilden (for naturlig mineralvann/kildevann)</th>
-          <th role="columnheader" scope="col">Varebetegnelse</th></tr></thead>
+          <table class="mt-table responsive-table col-2-span-10" role="table">
+          <caption class="mt-caption">Merkeregler for flaskevann</caption>
+          <thead role="rowgroup" class="mt-thead">
+          <tr role="row" class="mt-tr"><th role="columnheader" scope="col" class="mt-th">Produkt/merking med</th>
+          <th role="columnheader" scope="col" class="mt-th">Handelsnavn/varenavn/varemerke</th>
+          <th role="columnheader" scope="col" class="mt-th">Kilde/utvinningssted for kilden (for naturlig mineralvann/kildevann)</th>
+          <th role="columnheader" scope="col" class="mt-th">Varebetegnelse</th></tr></thead>
           <tbody><tr role="row">
           <td class="text" role="cell"><span class="responsive-table__heading" aria-hidden="true">Produkt/merking med</span>Naturlig mineralvann/kildevann</td>
           <td class="text" role="cell"><span class="responsive-table__heading" aria-hidden="true">Handelsnavn/varenavn/varemerke</span>Skal ikke frambys under mer enn ett handelsnavn/varenavn.</td>

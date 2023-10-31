@@ -3,6 +3,7 @@
 @use '../components/layout-with-sidebar';
 @use '../global/links';
 @use '../components/list';
+@use '../components/table';
 
 .intro {
   font-size: $font-size-intro;
@@ -21,6 +22,27 @@
   }
   ul {
     @extend .mt-ul;
+  }
+  table {
+    @extend .mt-table;
+    thead {
+      @extend .mt-thead;
+      tr {
+        @extend .mt-tr;
+        th {
+          @extend .mt-th;
+        }
+      }
+    }
+    tbody {
+      @extend .mt-tbody;
+      tr {
+        @extend .mt-tr;
+        td {
+          @extend .mt-td;
+        }
+      }
+    }
   }
   details,
   section > details,
