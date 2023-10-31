@@ -14,8 +14,8 @@
 
 <svelte:window on:beforeprint={beforePrint} on:afterPrint={afterPrint} />
 
-<details class={detailsClass} data-test-id={testId} bind:open={isOpen}>
-  <summary>{@html title}</summary>
+<details class="mt-details {detailsClass}" data-test-id={testId} bind:open={isOpen}>
+  <summary class="mt-summary">{@html title}</summary>
   <div class="summary-wrapper">
     <slot />
   </div>

@@ -2,6 +2,7 @@
 @use '../utilities/mixins' as *;
 @use '../components/layout-with-sidebar';
 @use '../components/image';
+@use '../components/summary-details';
 @use '../global/links';
 @use '../components/list';
 @use '../components/table';
@@ -32,6 +33,12 @@
   }
   strong {
     @extend .mt-strong;
+  }
+  details {
+    @extend .mt-details;
+    summary {
+      @extend .mt-summary;
+    }
   }
   table {
     @extend .mt-table;

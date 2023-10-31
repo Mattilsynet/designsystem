@@ -1,5 +1,6 @@
 @use '../theme' as *;
 @use '../components/list' as *;
+@use '../components/summary-details' as *;
 
 .form-page,
 .multipage-form-view {
@@ -7,7 +8,12 @@
   --space-section: var(--spacer-medium);
 
   gap: 0;
-
+  details {
+    @extend .mt-details;
+    summary {
+      @extend .mt-summary;
+    }
+  }
   .steps {
     margin-top: var(--space-steps);
   }
