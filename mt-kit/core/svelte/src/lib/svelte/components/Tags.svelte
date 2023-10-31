@@ -10,7 +10,7 @@
   }
 </script>
 
-<ul class="list-unstyled tags">
+<ul class="mt-ul m-t-xxs list-unstyled tags">
   {#each tags as tag, i}
     <li
       class={`${tag.color ? tag.color : ''} ${

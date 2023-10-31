@@ -14,7 +14,7 @@
     tableOfContents: 'Innhold på siden',
     text: `<h2 class="mt-h2">Andre overskrift</h2>
       <p>Paragraf med tekst. Paragraf med tekst. <a class="mt-link" href="">Paragraf med tekst.</a> Paragraf med tekst</p>
-      <ul>
+      <ul >
         <li>Valget om å skaffe dyr må være godt gjennomtenkt. Er hele familien enige og innstilt på det?</li>
         <li>
           En voksen person må være hovedansvarlig for dyret. I følge dyrevelferdsloven kan barn under 16 år ikke ha et
@@ -28,7 +28,7 @@
         intro: 'Første regelveiledning intro tekst.',
         text: `<h2 class="mt-h2">Andre overskrift</h2>
           <p>Paragraf med tekst. Paragraf med tekst. <a class="mt-link" href="">Paragraf med tekst.</a> Paragraf med tekst</p>
-          <ul>
+          <ul >
             <li>Valget om å skaffe dyr må være godt gjennomtenkt. Er hele familien enige og innstilt på det?</li>
             <li>
               En voksen person må være hovedansvarlig for dyret. I følge dyrevelferdsloven kan barn under 16 år ikke ha et
@@ -58,7 +58,7 @@
         intro: 'Andre regelveiledning intro tekst.',
         text: `<h2 class="mt-h2">Andre overskrift</h2>
           <p>Paragraf med tekst. Paragraf med tekst. <a class="mt-link" href="">Paragraf med tekst.</a> Paragraf med tekst</p>
-          <ul>
+          <ul >
             <li>Valget om å skaffe dyr må være godt gjennomtenkt. Er hele familien enige og innstilt på det?</li>
             <li>
               En voksen person må være hovedansvarlig for dyret. I følge dyrevelferdsloven kan barn under 16 år ikke ha et
@@ -89,7 +89,7 @@
         <h2 id="table-of-contents" class="mt-h4">
           {tableOfContents}
         </h2>
-        <ol class="list-unstyled">
+        <ol class="mt-ol m-t-xxs list-unstyled">
           {#each legalItems as legal}
             <li>
               <a href="#{toKebabCase(legal.title)}" class="mt-link down-arrow">{legal.title}</a>

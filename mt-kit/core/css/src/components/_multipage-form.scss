@@ -1,4 +1,5 @@
 @use '../theme' as *;
+@use '../components/list' as *;
 
 .form-page,
 .multipage-form-view {
@@ -41,6 +42,15 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-section);
+
+  ul {
+    @extend .mt-ul;
+    li {
+      ul {
+        margin-top: var(--spacer-xx-small);
+      }
+    }
+  }
 
   section {
     .layout-flex-col {

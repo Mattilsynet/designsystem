@@ -9,13 +9,14 @@
   background-color: var(--color-mt-blue);
   color: var(--color-mt-white);
   margin: var(--spacer-xx-small);
-
   li {
     border-top: $border-width-small solid var(--color-mt-background);
     margin-top: 0;
-
     &:last-child {
       border-bottom: $border-width-small solid var(--color-mt-background);
+    }
+    & + li.chapter-menu--chapter-wrapper {
+      margin-top: 0;
     }
   }
   &--chapter-wrapper {

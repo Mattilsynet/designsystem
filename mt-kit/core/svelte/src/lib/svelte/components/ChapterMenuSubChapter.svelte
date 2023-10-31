@@ -41,7 +41,7 @@
     <ul
       transition:slide={{ duration: SLIDE_DURATION }}
       id={componentId}
-      class="list-unstyled m-t-0">
+      class="mt-ul list-unstyled m-t-0">
       {#each subChapters || [] as subChapter, subIndex}
         <li class="layout-flex layout-flex--no-wrap">
           <a href={subChapter.url} class="mt-link chapter-menu--subchapter">

@@ -14,7 +14,7 @@
             <li>at noen setter opp nye piggtrådgjerder</li>
             <li>eldre piggtrådgjerder som utgjør en risiko for at dyr blir skadet</li>
            </ul>`,
-    moreText: `<h2 class="mt-h2">Du bør varsle</h2>
+    moreText: `<h2>Du bør varsle</h2>
                <p>At noen setter opp nye piggtrådgjerder</p>
                <p>Eldre piggtrådgjerder som utgjør en risiko for at dyr blir skadet</p>`,
     formLinkUrl: 'http://',
@@ -41,31 +41,31 @@
   let:formLinkText
   let:disableCss>
   <div use:wrapInShadowDom={disableCss} class="container layout-grid layout-grid--column-12">
-    <div class="layout-flex-col form-intro col-3-span-8">
-      <article class="content">
-        <h1 class="mt-h1">{title}</h1>
+    <article class="article-page col-1-span-12">
+      <h1>{title}</h1>
 
-        {#if intro}
-          <div class="intro">
-            {@html intro}
-          </div>
-        {/if}
+      {#if intro}
+        <div class="intro">
+          {@html intro}
+        </div>
+      {/if}
 
-        {#if text}
-          {@html text}
-        {/if}
+      {#if text}
+        {@html text}
+      {/if}
 
-        {#if moreText}
-          {@html moreText}
-        {/if}
+      {#if moreText}
+        {@html moreText}
+      {/if}
 
-        {#if formLinkUrl && formLinkText}
+      {#if formLinkUrl && formLinkText}
+        <p>
           <a href={formLinkUrl} class="mt-link link--transport link--transport--primary">
             {formLinkText}
           </a>
-        {/if}
-      </article>
-    </div>
+        </p>
+      {/if}
+    </article>
   </div>
 </Story>
 

@@ -54,7 +54,7 @@
       theme={args.theme}
       class={args.class}>
       {@html args.body}
-      <ul>
+      <ul class="mt-ul">
         <li>Punkt 1</li>
         <li>Punkt 2</li>
       </ul>

@@ -3,7 +3,7 @@
 
 $step-ring-size: 2.125rem;
 
-ol.steps {
+.mt-ol.steps {
   display: flex;
   flex-flow: row wrap;
   gap: var(--spacer-xx-small);
@@ -13,11 +13,14 @@ ol.steps {
   margin-top: 0;
   margin-bottom: 0;
 
-  li {
+  .mt-li {
     display: flex;
     align-items: center;
     margin-top: 0;
     font-size: $font-size-small;
+    & + .mt-li {
+      margin-top: 0;
+    }
 
     &:before {
       margin-right: 0;
@@ -51,7 +54,7 @@ ol.steps {
   }
 
   @media only screen and (min-width: $breakpoint-large) {
-    li {
+    .mt-li {
       &:before {
         margin-right: var(--spacer-xx-small);
       }

@@ -3,7 +3,7 @@
   export let githubUrl: string | undefined = undefined
 </script>
 
-<ul class="list-unstyled layout-flex">
+<ul class="mt-ul m-t-xxs list-unstyled layout-flex">
   {#if figmaUrl}
     <li>
       <a href={figmaUrl} class="mt-link icon--figma"> Figma </a>
@@ -20,7 +20,7 @@
   .list-unstyled {
     margin-top: var(--spacer-xxx-small);
   }
-  li {
+  .mt-ul > li {
     margin-top: 0;
   }
 </style>

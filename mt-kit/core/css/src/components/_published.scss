@@ -1,6 +1,6 @@
 @use '../theme' as *;
 
-.meta {
+.mt-dl.meta {
   display: grid;
   grid-template-columns: auto 1fr;
   font-size: $font-size-small;

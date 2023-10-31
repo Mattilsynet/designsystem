@@ -20,7 +20,7 @@
   export let loadJs = true
 </script>
 
-<ol class="menu menu--icon border col-1-span-8" aria-labelledby={titleId}>
+<ol class="mt-ol m-t-xxs menu menu--icon border col-1-span-8" aria-labelledby={titleId}>
   {#each itemsLeft as item}
     {#if item.children && item.children.length > 0}
       <li>
@@ -31,7 +31,7 @@
           headerClass="menu-level-1"
           {loadJs}
           icon={item.iconResource}>
-          <ol class="sub-menu">
+          <ol class="mt-ol m-t-xxs sub-menu">
             <li class="menu-level-2">
               <a
                 href={item.url}
@@ -72,7 +72,7 @@
   {/each}
 </ol>
 {#if itemsRight}
-  <ol class="menu border col-10-span-3">
+  <ol class="mt-ol m-t-xxs menu border col-10-span-3">
     {#each itemsRight as right}
       <li>
         <a
@@ -87,7 +87,7 @@
   </ol>
 {/if}
 {#if itemsBottom}
-  <ol class="col-1-span-8 menu-row m-t-s p-lr-0">
+  <ol class="mt-ol col-1-span-8 menu-row m-t-s p-lr-0">
     {#each itemsBottom as bottom}
       <li class="m-t-0">
         <a

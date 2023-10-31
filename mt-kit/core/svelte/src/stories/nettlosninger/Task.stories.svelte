@@ -15,7 +15,7 @@
         Det skal utarbeides skriftlige rutiner for etterlevelse av forskriftsfestede krav om å ivareta dyrenes velferd,
         blant annet om
       </p>
-      <ul>
+      <ul >
         <li>Kompetanse</li>
         <li>fôring og stell</li>
         <li>aktivisering og mosjon</li>

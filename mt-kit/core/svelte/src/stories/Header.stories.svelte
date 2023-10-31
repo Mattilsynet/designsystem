@@ -178,7 +178,7 @@
         loadJs={!args.disableJs}
         class="mt-button__small-text responsive-hide"
         let:titleId>
-        <ol class="alt-language m-t-0" aria-labelledby={titleId}>
+        <ol class="mt-ol alt-language m-t-0" aria-labelledby={titleId}>
           {#each args.items as item}
             <li>
               <a href={item.url} class="mt-link forward-arrow-small">{item.title}</a>
@@ -204,7 +204,9 @@
             itemsLanguage={args.items}
             loadJs={!args.disableJs}
             {titleId} />
-          <ol class="alt-language col-1-span-8 m-t-m responsive-show" aria-labelledby={titleId}>
+          <ol
+            class="mt-ol alt-language col-1-span-8 m-t-m responsive-show"
+            aria-labelledby={titleId}>
             {#each args.items as item}
               <li>
                 <a href={item.url} class="mt-link forward-arrow-small">{item.title}</a>

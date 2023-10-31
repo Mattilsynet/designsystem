@@ -1,6 +1,6 @@
 @use '../theme' as *;
 
-dl {
+.mt-dl {
   --spacer: 1rem;
 
   display: grid;
@@ -74,16 +74,14 @@ dl {
   }
 }
 
-ol.list-unstyled,
-ul.list-unstyled {
+.mt-ol.list-unstyled,
+.mt-ul.list-unstyled {
   padding-left: 0;
   list-style: none;
 }
 
-ul,
-ol {
-  margin-top: var(--spacer-xx-small);
-
+.mt-ul,
+.mt-ol {
   li {
     line-height: 140%;
     & + li {
@@ -141,7 +139,7 @@ ol {
   }
 }
 
-.list {
+.mt-ol.list {
   > li {
     border-top: $border-width-small solid var(--color-mt-beige-50);
     margin-top: 0;

@@ -11,11 +11,12 @@
   aria-valuemin="1"
   aria-valuemax={labels.length}
   aria-valuenow={completed + 1}
-  aria-valuetext={ariaValueText}
->
-  <ol class="steps" aria-hidden="true">
+  aria-valuetext={ariaValueText}>
+  <ol class="mt-ol m-t-xxs steps" aria-hidden="true">
     {#each labels as label, index (label)}
-      <li class:steps__complete={index < completed} class:steps__current={index === completed}>
+      <li class="mt-li"
+          class:steps__complete={index < completed}
+          class:steps__current={index === completed}>
         <span class="responsive-hide">{label}</span>
       </li>
     {/each}

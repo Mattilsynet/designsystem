@@ -84,7 +84,7 @@
           class="background-mt-rationale-blue"
           {icon}>
           <p>Begrunnelsen kommer her</p>
-          <ul>
+          <ul class="mt-ul">
             <li>Punkt 1</li>
             <li>Punkt 2</li>
           </ul>
@@ -96,7 +96,7 @@
           class="background-mt-rationale-blue"
           {icon}>
           <p>Begrunnelsen kommer her</p>
-          <ul>
+          <ul class="mt-ul">
             <li>Punkt 1</li>
             <li>Punkt 2</li>
           </ul>
