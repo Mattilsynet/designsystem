@@ -30,6 +30,9 @@
   ul {
     @extend .mt-ul;
   }
+  strong {
+    @extend .mt-strong;
+  }
   table {
     @extend .mt-table;
     thead {
