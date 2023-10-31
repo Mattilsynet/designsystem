@@ -32,34 +32,34 @@ $form-outline-color: $color-mt-blue-medium !default;
   }
   > .inclusively-hidden,
   > .inclusively-hidden-initial,
-  > [type='hidden'] + label.mt-button {
+  > [type='hidden'] + .mt-label.mt-button {
     margin-top: 0;
   }
 
-  .mt-ul + .form-label,
-  .mt-ol + .form-label,
-  .mt-button + .form-label,
-  .form-field + .form-label,
+  .mt-ul + .mt-label,
+  .mt-ol + .mt-label,
+  .mt-button + .mt-label,
+  .form-field + .mt-label,
   [type='hidden'] + .mt-button,
   .form-field + .mt-fieldset,
   .form-field + .mt-button,
   .mt-fieldset + .mt-button,
-  .count-character + .form-label,
+  .count-character + .mt-label,
   .count-character + .mt-fieldset,
   .mt-fieldset + .mt-fieldset,
-  .mt-fieldset + .form-label {
+  .mt-fieldset + .mt-label {
     margin-top: var(--form-group-spacer);
   }
 }
 
-[type='radio'] + .form-label,
-[type='checkbox'] + .form-label {
+[type='radio'] + .mt-label,
+[type='checkbox'] + .mt-label {
   font-size: inherit;
   font-weight: normal;
 }
 
 .mt-legend.form-legend,
-label.form-label {
+label.mt-label {
   display: block;
   font-size: $font-size-label;
   font-weight: var(--font-weight-normal);
@@ -270,7 +270,7 @@ label.form-label {
         opacity: 0;
         position: fixed;
         width: 0;
-        & + .form-label {
+        & + .mt-label {
           display: flex;
           align-items: center;
           background-color: transparent;
@@ -280,7 +280,7 @@ label.form-label {
           }
         }
         &:checked {
-          & + .form-label {
+          & + .mt-label {
             font-weight: var(--font-weight-bold);
             &:before {
               width: $icon-size-large;
@@ -303,7 +303,7 @@ label.form-label {
           }
         }
         &:focus {
-          & + .form-label {
+          & + .mt-label {
             box-shadow: $focus-box-shadow;
           }
         }
