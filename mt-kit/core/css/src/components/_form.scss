@@ -148,12 +148,12 @@ $form-outline-color: 'var(--form-outline-color)' !default;
 }
 
 .form-control {
-  --dimention: 1.5em;
+
 
   display: inline-grid;
   grid-template-columns: 1em 1fr;
   align-items: center;
-  gap: var(--dimention);
+  gap: var(--radio-checkbox-dimention);
 
   &:hover {
     .input__control {
@@ -163,10 +163,6 @@ $form-outline-color: 'var(--form-outline-color)' !default;
 
   .mt-input {
     @include focus-outline();
-
-    width: 1em;
-    height: 1em;
-    margin: 0;
   }
 
   &__input {
@@ -183,9 +179,6 @@ $form-outline-color: 'var(--form-outline-color)' !default;
   .input__control {
     display: grid;
     place-content: center;
-    width: var(--dimention);
-    height: var(--dimention);
-    border: $border-width-small solid var(--border-color);
   }
 }
 
