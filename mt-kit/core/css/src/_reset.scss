@@ -19,7 +19,7 @@ h2,
 h3,
 h4,
 p,
-figure,
+.mt-figure,
 blockquote,
 .mt-fieldset,
 .mt-legend,
@@ -71,7 +71,7 @@ a {
 }
 
 /* Make images easier to work with */
-img,
+.mt-img,
 picture,
   // 🟣
 svg {

@@ -1,6 +1,7 @@
 @use '../theme' as *;
 @use '../utilities/mixins' as *;
 @use '../components/layout-with-sidebar';
+@use '../components/image';
 @use '../global/links';
 @use '../components/list';
 @use '../components/table';
@@ -19,6 +20,12 @@
   @include article-spacing;
   a {
     @extend .mt-link;
+  }
+  figure {
+    @extend .mt-figure;
+    img {
+      @extend .mt-img;
+    }
   }
   ul {
     @extend .mt-ul;

@@ -1,6 +1,7 @@
 @use '../theme' as *;
 
-figure {
+.mt-figure {
+  margin: 0;
   align-self: center;
   figcaption {
     margin-top: var(--spacer-xxx-small);
