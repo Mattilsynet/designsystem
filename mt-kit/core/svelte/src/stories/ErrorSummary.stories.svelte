@@ -42,7 +42,7 @@
     <FormErrorSummary {errors} {heading} />
 
     <form class="mt-form form-layout">
-      <label class="form-label" for="inputfield"> Navn </label>
+      <label class="mt-label" for="inputfield"> Navn </label>
 
       {#if helpText}
         <div class="hint">
@@ -56,7 +56,7 @@
         class="form-field"
         aria-describedby="inputfield-hint inputfield-error" />
 
-      <label class="form-label" for="inputfield">
+      <label class="mt-label" for="inputfield">
         {label}
       </label>
 

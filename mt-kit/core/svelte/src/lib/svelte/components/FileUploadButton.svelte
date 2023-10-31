@@ -119,7 +119,7 @@
 </script>
 
 {#if !onServer}
-  <label class="mt-button mt-button--secondary" style="width: 220px;" for={id}>
+  <label class="mt-label mt-button mt-button--secondary" style="width: 220px;" for={id}>
     {buttonText}
   </label>
 

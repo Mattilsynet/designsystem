@@ -66,7 +66,7 @@
         aria-required={isRequired}
         aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)} />
       <label
-        class="form-label {theme === 'button' ? 'mt-button mt-button--secondary' : ''}"
+        class="mt-label {theme === 'button' ? 'mt-button mt-button--secondary' : ''}"
         for={toKebabCase(checkbox.value)}>
         {checkbox.text}
       </label>
