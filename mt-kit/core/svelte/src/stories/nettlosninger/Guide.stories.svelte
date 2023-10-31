@@ -182,7 +182,7 @@
         Innhold på denne siden
       </button>
     </div>
-    <aside class={isExpanded ? 'expanded' : ''}>
+    <aside class={`mt-aside ${isExpanded ? 'expanded' : ''}`}>
       {#if !isExpanded}
         <button class="mt-button--unstyled btn-open" on:click={handleClickClose}>
           <svg
