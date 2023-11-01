@@ -19,7 +19,7 @@ describe('Fieldset', () => {
     })
     const legendElement = getByText(legend)
     expect(legendElement).toBeInTheDocument()
-    expect(legendElement?.getAttribute('class')).toEqual(`h2`)
+    expect(legendElement?.getAttribute('class')).toEqual(`mt-legend h2`)
     expect(getByText(error.message)).toBeInTheDocument()
     const fieldSet = getByTestId('fieldset')
     expect(fieldSet?.getAttribute('aria-describedby')).toEqual(`${error.key}-error`)

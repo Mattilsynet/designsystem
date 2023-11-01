@@ -54,7 +54,7 @@
     fieldSetHelpText ? fieldSetId : undefined,
     fieldSetError
   )}>
-  <legend class="form-legend">{fieldSetLabel}</legend>
+  <legend class="mt-legend form-legend">{fieldSetLabel}</legend>
 
   {#if fieldSetHelpText}
     <div id={`${fieldSetId}-hint`} class="hint">
