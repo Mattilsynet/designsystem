@@ -3,7 +3,7 @@
   @page {
     margin: 2cm;
   }
-  main,
+  .mt-main,
   .meta {
     font-size: 0.75rem !important; //12px;
   }
@@ -74,7 +74,7 @@
     max-width: 500px;
   }
 
-  footer.footer,
+  .mt-footer,
   .feedback-container {
     display: none;
   }

@@ -65,7 +65,7 @@
   }} />
 
 <Story name="Normal" let:menuPoints let:disableCss>
-  <main use:wrapInShadowDom={disableCss} class="container layout-flex-col">
+  <main use:wrapInShadowDom={disableCss} class="mt-main container layout-flex-col">
     <h1 class="mt-h1 m-b-m">Menypunkter</h1>
     <MenuPointsIcons {menuPoints} />
   </main>

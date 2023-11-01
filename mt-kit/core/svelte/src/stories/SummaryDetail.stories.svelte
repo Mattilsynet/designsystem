@@ -20,7 +20,7 @@
 
 <Story name="Normal" let:args>
   <p>Oppsummering og detaljer</p>
-  <main class="container layout-flex-col">
+  <main class="mt-main container layout-flex-col">
     <SummaryDetail title={args.title}>
       {@html args.content}
     </SummaryDetail>
@@ -29,7 +29,7 @@
 
 <Story name="Med linje på venstre side" let:args>
   <p>Oppsummering og detaljer med linje på venstre side</p>
-  <main class="container layout-flex-col">
+  <main class="mt-main container layout-flex-col">
     <SummaryDetail title={args.title} detailsClass="with-border">
       {@html args.content}
     </SummaryDetail>
@@ -38,7 +38,7 @@
 
 <Story name="Med ikon" let:args>
   <p>Oppsummering og detaljer med ikon</p>
-  <main class="container layout-flex-col">
+  <main class="mt-main container layout-flex-col">
     <SummaryDetail title={args.title} detailsClass="with-icon">
       {@html args.content}
     </SummaryDetail>
@@ -47,7 +47,7 @@
 
 <Story name="Med fet skrift" let:args>
   <p>Oppsummering og detaljer med fet skrift</p>
-  <main class="container layout-flex-col">
+  <main class="mt-main container layout-flex-col">
     <SummaryDetail title={args.title} detailsClass="with-bold">
       {@html args.content}
     </SummaryDetail>
@@ -61,7 +61,7 @@
 
 <Story name="Med fet skrift og ikon" let:args>
   <p>Oppsummering og detaljer med fet skrift og ikon!</p>
-  <main class="container layout-flex-col">
+  <main class="mt-main container layout-flex-col">
     <SummaryDetail title={args.title} detailsClass="with-bold with-icon">
       {@html args.content}
     </SummaryDetail>

@@ -70,11 +70,11 @@
   let:label
   let:link
   let:disableCss>
-  <body>
-    <header class="header header--regular" />
+  <body class="mt-body">
+    <header class="mt-header mt-header-wrapper mt-header-wrapper--regular" />
     <div class="container content layout-grid layout-grid--column-12">
       <Breadcrumbs {breadcrumbs} class="col-3-span-8" />
-      <main id="main" class="layout-grid layout-grid--column-12 col-1-span-12">
+      <main id="main" class="mt-main layout-grid layout-grid--column-12 col-1-span-12">
         <div
           data-portal-region="main"
           class="layout-grid layout-grid--column-12 col-1-span-12 row-gap">
@@ -161,7 +161,7 @@
         </div>
       </main>
     </div>
-    <footer class="footer" />
+    <footer class="mt-footer" />
   </body>
 </Story>
 

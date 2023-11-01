@@ -222,11 +222,11 @@ Only use if it does NOT affect accessibility
   }
 }
 
-header {
+.mt-header {
   border-bottom: $border-red-regular;
 }
 
-.header {
+.mt-header-wrapper {
   display: grid;
   grid-template-columns: 1fr max-content max-content max-content;
   align-items: center;
@@ -245,8 +245,7 @@ header {
   }
 }
 
-footer,
-.footer {
+.mt-footer {
   display: flex;
   flex-direction: column;
   justify-self: center;

@@ -47,7 +47,7 @@
   }
 }
 
-body {
+.mt-body {
   display: grid;
   grid-template-rows: auto 1fr auto;
   row-gap: 0;
@@ -57,15 +57,13 @@ body {
   font-size: $font-size-body;
 
   .layout-with-sidebar {
-    & + footer {
+    & + .mt-footer {
       margin-top: 0;
     }
   }
 
-  footer {
+  .mt-footer {
     margin-top: var(--spacer-small);
-  }
-  .footer {
     a {
       @extend .mt-link;
     }

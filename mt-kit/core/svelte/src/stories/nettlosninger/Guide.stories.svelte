@@ -25,7 +25,7 @@
     isExpanded = !isExpanded
   }
   let body = `<p>Innhold i underkapittel</p>
-<ul >
+<ul>
 <li>liste 1</li>
 <li>liste 2</li>
 </ul>
@@ -120,8 +120,8 @@
   }} />
 
 <Story name="Normal" let:showChapterNumbers let:menu let:disableJs let:chapters>
-  <header>
-    <div class="container header header--regular">
+  <header class="mt-header">
+    <div class="container mt-header-wrapper mt-header-wrapper--regular">
       <a class="mt-link" href="https://mattilsynet.no/">
         <svg viewBox="0 0 184 36" fill="none" xmlns="http://www.w3.org/2000/svg">
           <title>Gå til forsiden</title>
@@ -217,7 +217,7 @@
       {/if}
     </aside>
     <div class="container content {isExpanded ? 'menu-is-expanded' : ''}">
-      <main id="main">
+      <main id="main" class="mt-main">
         <div data-portal-region="main">
           <div>
             {#each chapters as chapter, chapterIndex}
@@ -285,7 +285,7 @@
       </main>
     </div>
   </div>
-  <footer class="footer footer--regular" aria-labelledby="footer-title">
+  <footer class="mt-footer footer--regular" aria-labelledby="footer-title">
     <h2 id="footer-title" class="mt-h2 inclusively-hidden">Footer</h2>
     <div class="col">Col 1</div>
     <div class="col">Col 2</div>
