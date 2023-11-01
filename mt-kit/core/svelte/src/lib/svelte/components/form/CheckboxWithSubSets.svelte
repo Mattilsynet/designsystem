@@ -73,7 +73,7 @@
         value={options.key}
         bind:checked={options.checked}
         on:change={toggleCheckedAll} />
-      <label for={options.key}>
+      <label class="mt-label" for={options.key}>
         {checkAllLabel}
       </label>
     </div>
@@ -89,7 +89,7 @@
         bind:checked={listItem.checked}
         aria-checked={listItem.checked}
         on:change={() => mainCategory(mainIndex)} />
-      <label for={listItem.key}>
+      <label class="mt-label" for={listItem.key}>
         {formatLabel(listItem.displayName, listItem.docCount)}
       </label>
     </div>
@@ -110,7 +110,7 @@
               value={subListItem.key}
               bind:checked={subListItem.checked}
               aria-checked={subListItem.checked} />
-            <label for={subListItem.key}>
+            <label class="mt-label" for={subListItem.key}>
               {formatLabel(subListItem.displayName, subListItem.docCount)}
             </label>
           </div>
@@ -131,7 +131,7 @@
                     value={subSubListItem.key}
                     bind:checked={subSubListItem.checked}
                     aria-checked={subSubListItem.checked} />
-                  <label for={subSubListItem.key}>
+                  <label class="mt-label" for={subSubListItem.key}>
                     {formatLabel(subSubListItem.displayName, subSubListItem.docCount)}
                   </label>
                 </div>

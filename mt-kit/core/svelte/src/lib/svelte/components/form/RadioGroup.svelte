@@ -64,7 +64,7 @@
         aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)}
         checked={value === radio.value} />
       <label
-        class="form-label {theme === 'button' ? 'mt-button mt-button--secondary' : ''}"
+        class="mt-label {theme === 'button' ? 'mt-button mt-button--secondary' : ''}"
         for={toKebabCase(radio.value)}>
         {radio.text}
       </label>

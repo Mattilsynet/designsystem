@@ -54,7 +54,7 @@
     <p>{paragraph}</p>
     <p class="text-small">{small}</p>
     <form action="" class="mt-form">
-      <label for="input" class="form-label">{label}</label>
+      <label for="input" class="mt-label">{label}</label>
       <input id="input" class="form-field" type="text" />
     </form>
     <a class="mt-link" href="">{link}</a>
@@ -111,7 +111,7 @@
 
     <p class="text-small">{small}</p>
     <form action="" class="mt-form">
-      <label for="input">{label}</label>
+      <label for="input" class="mt-label">{label}</label>
       <input id="input" class="form-field" type="text" />
     </form>
     <a class="mt-link" href="">{link}</a>

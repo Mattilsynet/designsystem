@@ -3,7 +3,7 @@
 input[type='file'].form-field {
   background-color: transparent;
 
-  &.inclusively-hidden + label.button {
+  &.inclusively-hidden + .mt-label.button {
     padding-right: var(--spacer-medium);
 
     &:before {
@@ -12,7 +12,7 @@ input[type='file'].form-field {
     }
   }
 
-  &:focus + label.button {
+  &:focus + .mt-label.button {
     border-color: var(--button-background);
     box-shadow: $focus-box-shadow;
   }

@@ -4,7 +4,7 @@
     gap: var(--spacer-xx-small);
     grid-template-columns: max-content;
 
-    .form-field + .form-label {
+    .form-field + .mt-label {
       margin-top: 0;
     }
   }

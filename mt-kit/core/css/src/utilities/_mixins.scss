@@ -42,7 +42,7 @@
 
 @mixin radio-check-error-style {
   &.error {
-    + label {
+    + .mt-label {
       color: var(--color-error);
     }
   }
