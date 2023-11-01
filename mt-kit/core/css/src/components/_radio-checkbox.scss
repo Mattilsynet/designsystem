@@ -1,13 +1,12 @@
-@use "../color-tokens" as *;
+@use '../color-tokens' as *;
 @use '../utilities/mixins' as *;
 @use '../theme' as *;
 
-.mt-input[type='radio'] + .form-label,
-.mt-input[type='checkbox'] + .form-label {
+.mt-input[type='radio'] + .mt-label,
+.mt-input[type='checkbox'] + .mt-label {
   font-size: inherit;
   font-weight: normal;
 }
-
 
 .mt-input[type='checkbox'],
 .mt-input[type='radio'] {
@@ -76,7 +75,6 @@
   .input__control {
     @include error-style;
     @include radio-check-error-style;
-
   }
 
   .input__control svg {
@@ -95,7 +93,6 @@
   .input__control {
     @include error-style;
     @include radio-check-error-style;
-
   }
   .input__control::before {
     content: '';
@@ -134,7 +131,7 @@
         opacity: 0;
         position: fixed;
         width: 0;
-        & + .form-label {
+        & + .mt-label {
           display: flex;
           align-items: center;
           background-color: transparent;
@@ -144,7 +141,7 @@
           }
         }
         &:checked {
-          & + .form-label {
+          & + .mt-label {
             font-weight: var(--font-weight-bold);
             &:before {
               width: $icon-size-large;
@@ -152,9 +149,9 @@
               display: inline-block;
               content: '';
               -webkit-mask: url('data:image/svg+xml,%3Csvg%20width%3D%2220%22%20height%3D%2217%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M2.609%205.613%200%209.023%208.645%2016.5%2020%203.215%2017.254.5%208.663%2011.162%202.609%205.612Z%22%20fill%3D%22%23075B7A%22%2F%3E%3C%2Fsvg%3E')
-              no-repeat 50% 50%;
+                no-repeat 50% 50%;
               mask: url('data:image/svg+xml,%3Csvg%20width%3D%2220%22%20height%3D%2217%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M2.609%205.613%200%209.023%208.645%2016.5%2020%203.215%2017.254.5%208.663%2011.162%202.609%205.612Z%22%20fill%3D%22%23075B7A%22%2F%3E%3C%2Fsvg%3E')
-              no-repeat 50% 50%;
+                no-repeat 50% 50%;
               -webkit-mask-size: cover;
               mask-size: cover;
               background-color: var(--color-mt-blue);
@@ -167,7 +164,7 @@
           }
         }
         &:focus {
-          & + .form-label {
+          & + .mt-label {
             box-shadow: $focus-box-shadow;
           }
         }
