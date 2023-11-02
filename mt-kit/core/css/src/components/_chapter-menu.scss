@@ -5,7 +5,7 @@
 
 .chapter-menu {
   $color: $color-primary;
-  --bg-active: var(--active-on-dark);
+  --bg-active: var(--chapter-menu-active-on-dark);
   --color-active: var(--color-mt-blue);
   --link-color: var(--color-mt-white);
 

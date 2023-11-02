@@ -10,7 +10,7 @@
   --color-links: #{$color-links};
   --focus-on-light: var(--color-mt-blue-medium);
   --focus-on-dark: var(--color-mt-beige);
-  --active-on-dark: var(--color-mt-rationale-blue);
+  --chapter-menu-active-on-dark: var(--color-mt-rationale-blue);
 
   --grey-medium: hsl(#{$color-grey-hue}, 15%, 50%);
   --grey-light: hsl(#{$color-grey-hue}, 20%, 85%);
@@ -98,7 +98,7 @@
 
   --focus-on-light: var(--color-mt-blue-medium);
   --focus-on-dark: var(--color-mt-new-beige-medium);
-  --active-on-dark: var(--color-mt-new-green-light);
+  --chapter-menu-active-on-dark: var(--color-mt-new-green-light);
 
   //--mt-color-background-default: beige;
   //
