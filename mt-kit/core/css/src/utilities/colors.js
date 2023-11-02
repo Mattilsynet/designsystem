@@ -104,6 +104,10 @@ module.exports = [
     color: '#ffffff',
   },
   {
+    name: 'mt-new-granskog-dark',
+    color: '#032C30',
+  },
+  {
     name: 'mt-new-green',
     color: '#033E42',
   },

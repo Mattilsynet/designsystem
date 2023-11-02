@@ -38,6 +38,7 @@ title: Color Token Contrast
   - `color-error`
   - `color-error-50`
   - `color-on-mt-yellowgreen`
+  - `color-mt-new-granskog-dark`
   - `color-mt-new-green`
   - `color-on-mt-new-lys-furu`
 
@@ -68,6 +69,7 @@ title: Color Token Contrast
   - `color-mt-yellowgreen`
   - `color-mt-yellowgreen-lighter`
   - `color-mt-new-white`
+  - `color-on-mt-new-granskog-dark`
   - `color-on-mt-new-green`
   - `color-mt-new-lys-furu`
   - `color-mt-new-green-light`
@@ -107,6 +109,7 @@ title: Color Token Contrast
   - `color-error`
   - `color-error-50`
   - `color-on-mt-yellowgreen`
+  - `color-mt-new-granskog-dark`
   - `color-mt-new-green`
   - `color-on-mt-new-lys-furu`
 
@@ -118,6 +121,7 @@ title: Color Token Contrast
   - `color-on-mt-grey`
   - `color-on-mt-blue-medium`
   - `color-on-secondary`
+  - `color-mt-new-granskog-dark`
   - `color-mt-new-green`
 
 ## color-on-mt-beige
@@ -149,6 +153,7 @@ title: Color Token Contrast
   - `color-on-mt-light-blue`
   - `color-on-mt-grey`
   - `color-on-mt-blue-medium`
+  - `color-mt-new-granskog-dark`
   - `color-mt-new-green`
 
 ## color-on-mt-beige-50
@@ -199,6 +204,7 @@ title: Color Token Contrast
   - `color-error-50`
   - `color-on-mt-yellowgreen`
   - `color-on-mt-yellowgreen-lighter`
+  - `color-mt-new-granskog-dark`
   - `color-mt-new-green`
   - `color-on-mt-new-lys-furu`
   - `color-on-mt-new-beige-medium`
@@ -236,6 +242,7 @@ title: Color Token Contrast
   - `color-error-50`
   - `color-on-mt-yellowgreen`
   - `color-on-mt-yellowgreen-lighter`
+  - `color-mt-new-granskog-dark`
   - `color-mt-new-green`
   - `color-on-mt-new-lys-furu`
   - `color-on-mt-new-green-light`
@@ -273,6 +280,7 @@ title: Color Token Contrast
   - `color-mt-yellowgreen`
   - `color-mt-yellowgreen-lighter`
   - `color-mt-new-white`
+  - `color-on-mt-new-granskog-dark`
   - `color-on-mt-new-green`
   - `color-mt-new-lys-furu`
   - `color-mt-new-green-light`
@@ -299,6 +307,7 @@ title: Color Token Contrast
   - `color-error`
   - `color-error-50`
   - `color-on-mt-yellowgreen`
+  - `color-mt-new-granskog-dark`
   - `color-mt-new-green`
   - `color-on-mt-new-lys-furu`
   - `color-on-mt-new-beige-medium`
@@ -337,6 +346,7 @@ title: Color Token Contrast
   - `color-error`
   - `color-error-50`
   - `color-on-mt-yellowgreen`
+  - `color-mt-new-granskog-dark`
   - `color-mt-new-green`
   - `color-on-mt-new-lys-furu`
   - `color-on-mt-new-beige-medium`
@@ -397,12 +407,14 @@ title: Color Token Contrast
   - `color-on-mt-blue-medium`
   - `color-on-secondary`
   - `color-mt-text-dark`
+  - `color-mt-new-granskog-dark`
   - `color-mt-new-green`
 
 ## color-mt-grey
   - `color-on-mt-red`
   - `color-on-mt-light-blue`
   - `color-on-mt-blue-medium`
+  - `color-mt-new-granskog-dark`
   - `color-mt-new-green`
 
 ## color-on-mt-grey
@@ -455,6 +467,7 @@ title: Color Token Contrast
   - `color-on-mt-yellowgreen`
   - `color-on-mt-yellowgreen-lighter`
   - `color-on-mt-new-white`
+  - `color-mt-new-granskog-dark`
   - `color-mt-new-green`
   - `color-on-mt-new-lys-furu`
   - `color-on-mt-new-green-light`
@@ -495,6 +508,7 @@ title: Color Token Contrast
   - `color-on-secondary`
   - `color-mt-text-dark`
   - `color-on-mt-yellowgreen`
+  - `color-mt-new-granskog-dark`
   - `color-mt-new-green`
   - `color-on-mt-new-lys-furu`
 
@@ -537,6 +551,7 @@ title: Color Token Contrast
   - `color-error`
   - `color-error-50`
   - `color-on-mt-yellowgreen`
+  - `color-mt-new-granskog-dark`
   - `color-mt-new-green`
   - `color-on-mt-new-lys-furu`
   - `color-on-mt-new-beige-medium`
@@ -594,6 +609,7 @@ title: Color Token Contrast
   - `color-on-mt-yellowgreen`
   - `color-on-mt-yellowgreen-lighter`
   - `color-on-mt-new-white`
+  - `color-mt-new-granskog-dark`
   - `color-mt-new-green`
   - `color-on-mt-new-lys-furu`
   - `color-on-mt-new-green-light`
@@ -624,6 +640,7 @@ title: Color Token Contrast
   - `color-mt-yellowgreen`
   - `color-mt-yellowgreen-lighter`
   - `color-mt-new-white`
+  - `color-on-mt-new-granskog-dark`
   - `color-on-mt-new-green`
   - `color-mt-new-lys-furu`
   - `color-mt-new-green-light`
@@ -635,6 +652,7 @@ title: Color Token Contrast
   - `color-on-mt-light-blue`
   - `color-on-mt-grey`
   - `color-on-mt-blue-medium`
+  - `color-mt-new-granskog-dark`
   - `color-mt-new-green`
 
 ## color-on-secondary
@@ -694,6 +712,7 @@ title: Color Token Contrast
   - `color-on-mt-blue-medium`
   - `color-on-secondary`
   - `color-mt-text-dark`
+  - `color-mt-new-granskog-dark`
   - `color-mt-new-green`
 
 ## color-error
@@ -738,6 +757,7 @@ title: Color Token Contrast
   - `color-on-mt-yellowgreen`
   - `color-on-mt-yellowgreen-lighter`
   - `color-on-mt-new-white`
+  - `color-mt-new-granskog-dark`
   - `color-mt-new-green`
   - `color-on-mt-new-lys-furu`
   - `color-on-mt-new-green-light`
@@ -777,6 +797,7 @@ title: Color Token Contrast
   - `color-error`
   - `color-error-50`
   - `color-on-mt-yellowgreen`
+  - `color-mt-new-granskog-dark`
   - `color-mt-new-green`
   - `color-on-mt-new-lys-furu`
 
@@ -793,6 +814,7 @@ title: Color Token Contrast
   - `color-on-secondary`
   - `color-mt-text-dark`
   - `color-on-mt-yellowgreen`
+  - `color-mt-new-granskog-dark`
   - `color-mt-new-green`
 
 ## color-on-mt-yellowgreen
@@ -837,6 +859,7 @@ title: Color Token Contrast
   - `color-error-50`
   - `color-on-mt-yellowgreen`
   - `color-on-mt-yellowgreen-lighter`
+  - `color-mt-new-granskog-dark`
   - `color-mt-new-green`
   - `color-on-mt-new-lys-furu`
   - `color-on-mt-new-beige-medium`
@@ -876,6 +899,7 @@ title: Color Token Contrast
   - `color-on-mt-yellowgreen`
   - `color-on-mt-yellowgreen-lighter`
   - `color-on-mt-new-white`
+  - `color-mt-new-granskog-dark`
   - `color-mt-new-green`
   - `color-on-mt-new-lys-furu`
   - `color-on-mt-new-green-light`
@@ -886,6 +910,40 @@ title: Color Token Contrast
   - `color-on-primary`
   - `color-on-error`
   - `color-mt-new-white`
+
+## color-mt-new-granskog-dark
+  - `color-on-mt-blue`
+  - `color-on-mt-red-uu`
+  - `color-mt-beige`
+  - `color-mt-beige-50`
+  - `color-mt-light-beige`
+  - `color-mt-background`
+  - `color-mt-lighter-light-blue`
+  - `color-mt-rationale-blue`
+  - `color-on-mt-brown`
+  - `color-mt-grey`
+  - `color-mt-white`
+  - `color-mt-green`
+  - `color-mt-light-green`
+  - `color-on-primary`
+  - `color-secondary`
+  - `color-on-mt-text-dark`
+  - `color-on-error`
+  - `color-on-error-50`
+  - `color-mt-yellowgreen`
+  - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-new-granskog-dark`
+  - `color-on-mt-new-green`
+  - `color-mt-new-lys-furu`
+  - `color-mt-new-green-light`
+  - `color-mt-new-beige-medium`
+
+## color-on-mt-new-granskog-dark
+  - `color-on-mt-red`
+  - `color-on-mt-light-blue`
+  - `color-on-mt-blue-medium`
+  - `color-mt-new-granskog-dark`
 
 ## color-mt-new-green
   - `color-on-mt-blue`
@@ -918,6 +976,7 @@ title: Color Token Contrast
   - `color-on-mt-red`
   - `color-on-mt-light-blue`
   - `color-on-mt-blue-medium`
+  - `color-mt-new-granskog-dark`
   - `color-mt-new-green`
 
 ## color-mt-new-lys-furu
@@ -934,6 +993,7 @@ title: Color Token Contrast
   - `color-on-secondary`
   - `color-mt-text-dark`
   - `color-on-mt-yellowgreen`
+  - `color-mt-new-granskog-dark`
   - `color-mt-new-green`
   - `color-on-mt-new-lys-furu`
 
@@ -979,6 +1039,7 @@ title: Color Token Contrast
   - `color-error-50`
   - `color-on-mt-yellowgreen`
   - `color-on-mt-yellowgreen-lighter`
+  - `color-mt-new-granskog-dark`
   - `color-mt-new-green`
   - `color-on-mt-new-lys-furu`
   - `color-on-mt-new-green-light`
@@ -1011,6 +1072,7 @@ title: Color Token Contrast
   - `color-error`
   - `color-error-50`
   - `color-on-mt-yellowgreen`
+  - `color-mt-new-granskog-dark`
   - `color-mt-new-green`
   - `color-on-mt-new-lys-furu`
   - `color-on-mt-new-beige-medium`
