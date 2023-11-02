@@ -108,8 +108,8 @@ module.exports = [
     color: '#032C30',
   },
   {
-    name: 'mt-new-green',
-    color: '#033E42',
+    name: 'mt-new-granskog',
+    color: '#054449',
   },
   {
     name: 'mt-new-lys-furu',
