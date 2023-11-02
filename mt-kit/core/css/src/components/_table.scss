@@ -1,12 +1,12 @@
 @use '../theme' as *;
 
-table {
+.mt-table {
   font-size: $font-size-small;
   table-layout: fixed;
   width: 100%;
   border-collapse: collapse;
 
-  caption {
+  .mt-caption {
     margin-bottom: var(--spacer-xx-small);
     font-weight: $font-weight-bold;
     text-align: left;
@@ -16,7 +16,7 @@ table {
     width: 100%;
   }
 
-  thead {
+  .mt-thead {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -25,8 +25,8 @@ table {
     clip-path: inset(50%);
   }
 
-  tbody {
-    tr {
+  .mt-tbody {
+    .mt-tr {
       display: block;
       padding: var(--spacer-x-small);
       border-top: $border-radius-small solid var(--color-mt-beige-50);
@@ -37,7 +37,7 @@ table {
       &:last-child {
         border-bottom: $border-radius-small solid var(--color-mt-beige-50);
       }
-      td {
+      .mt-td {
         display: flex;
         flex-direction: column;
         margin-top: var(--spacer-xx-small);
@@ -65,7 +65,7 @@ table {
     .responsive-table__heading {
       display: none;
     }
-    thead {
+    .mt-thead {
       clip: auto;
       -webkit-clip-path: none;
       clip-path: none;
@@ -74,7 +74,7 @@ table {
       overflow: auto;
       position: relative;
       width: auto;
-      th {
+      .mt-th {
         word-wrap: break-word;
         max-width: 1px;
         -webkit-hyphens: auto; /* iOS 4.2+ */
@@ -84,21 +84,21 @@ table {
         border-top: $border-width-regular solid var(--color-mt-beige-50);
         border-bottom: $border-width-regular solid var(--color-mt-beige-50);
       }
-      tr:first-child {
+      .mt-tr:first-child {
         background-color: var(--color-mt-light-beige);
       }
     }
-    tbody {
-      tr {
+    .mt-tbody {
+      .mt-tr {
         display: table-row;
-        td.text {
+        .mt-td.text {
           display: table-cell;
         }
       }
     }
 
-    th,
-    td {
+    .mt-th,
+    .mt-td {
       text-align: left;
       border: $border-radius-small solid var(--color-mt-beige-50);
       padding: var(--spacer-xx-small);
@@ -106,7 +106,7 @@ table {
       vertical-align: text-top;
     }
 
-    th {
+    .mt-th {
       font-weight: $font-weight-bold;
 
       &.width-20 {
@@ -117,13 +117,13 @@ table {
       }
     }
 
-    tr {
+    .mt-tr {
       th:first-child,
       td:first-child {
         border-left: none;
       }
-      th:last-child,
-      td:last-child {
+      .mt-th:last-child,
+      .mt-td:last-child {
         border-right: none;
       }
     }
