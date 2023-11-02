@@ -120,6 +120,10 @@ module.exports = [
     color: '#E2F1DF',
   },
   {
+    name: 'mt-new-beige',
+    color: '#FAF6F3',
+  },
+  {
     name: 'mt-new-beige-medium',
     color: '#F8DE9C',
   },

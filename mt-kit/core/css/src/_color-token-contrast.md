@@ -17,6 +17,7 @@ title: Color Token Contrast
   - `color-mt-yellowgreen-lighter`
   - `color-mt-new-white`
   - `color-mt-new-green-light`
+  - `color-mt-new-beige`
   - `color-mt-new-beige-medium`
 
 ## color-on-mt-blue
@@ -73,6 +74,7 @@ title: Color Token Contrast
   - `color-on-mt-new-granskog`
   - `color-mt-new-lys-furu`
   - `color-mt-new-green-light`
+  - `color-mt-new-beige`
   - `color-mt-new-beige-medium`
 
 ## color-mt-red-uu
@@ -90,6 +92,7 @@ title: Color Token Contrast
   - `color-mt-yellowgreen-lighter`
   - `color-mt-new-white`
   - `color-mt-new-green-light`
+  - `color-mt-new-beige`
   - `color-mt-new-beige-medium`
 
 ## color-on-mt-red-uu
@@ -145,6 +148,7 @@ title: Color Token Contrast
   - `color-mt-new-white`
   - `color-mt-new-lys-furu`
   - `color-mt-new-green-light`
+  - `color-mt-new-beige`
   - `color-mt-new-beige-medium`
 
 ## color-mt-beige-50
@@ -179,6 +183,7 @@ title: Color Token Contrast
   - `color-mt-new-white`
   - `color-mt-new-lys-furu`
   - `color-mt-new-green-light`
+  - `color-mt-new-beige`
   - `color-mt-new-beige-medium`
 
 ## color-mt-light-beige
@@ -217,6 +222,7 @@ title: Color Token Contrast
   - `color-on-error`
   - `color-mt-new-white`
   - `color-mt-new-green-light`
+  - `color-mt-new-beige`
 
 ## color-mt-background
   - `color-mt-blue`
@@ -246,6 +252,7 @@ title: Color Token Contrast
   - `color-mt-new-granskog`
   - `color-on-mt-new-lys-furu`
   - `color-on-mt-new-green-light`
+  - `color-on-mt-new-beige`
   - `color-on-mt-new-beige-medium`
 
 ## color-on-mt-background
@@ -254,6 +261,7 @@ title: Color Token Contrast
   - `color-on-primary`
   - `color-on-error`
   - `color-mt-new-white`
+  - `color-mt-new-beige`
 
 ## color-mt-light-blue
   - `color-on-mt-red`
@@ -284,6 +292,7 @@ title: Color Token Contrast
   - `color-on-mt-new-granskog`
   - `color-mt-new-lys-furu`
   - `color-mt-new-green-light`
+  - `color-mt-new-beige`
   - `color-mt-new-beige-medium`
 
 ## color-mt-lighter-light-blue
@@ -324,6 +333,7 @@ title: Color Token Contrast
   - `color-mt-yellowgreen-lighter`
   - `color-mt-new-white`
   - `color-mt-new-green-light`
+  - `color-mt-new-beige`
 
 ## color-mt-rationale-blue
   - `color-mt-blue`
@@ -371,6 +381,7 @@ title: Color Token Contrast
   - `color-mt-new-white`
   - `color-mt-new-lys-furu`
   - `color-mt-new-green-light`
+  - `color-mt-new-beige`
   - `color-mt-new-beige-medium`
 
 ## color-mt-brown
@@ -393,6 +404,7 @@ title: Color Token Contrast
   - `color-mt-new-white`
   - `color-mt-new-lys-furu`
   - `color-mt-new-green-light`
+  - `color-mt-new-beige`
   - `color-mt-new-beige-medium`
 
 ## color-on-mt-brown
@@ -440,6 +452,7 @@ title: Color Token Contrast
   - `color-mt-new-white`
   - `color-mt-new-lys-furu`
   - `color-mt-new-green-light`
+  - `color-mt-new-beige`
   - `color-mt-new-beige-medium`
 
 ## color-mt-white
@@ -471,6 +484,7 @@ title: Color Token Contrast
   - `color-mt-new-granskog`
   - `color-on-mt-new-lys-furu`
   - `color-on-mt-new-green-light`
+  - `color-on-mt-new-beige`
   - `color-on-mt-new-beige-medium`
 
 ## color-on-mt-white
@@ -493,6 +507,7 @@ title: Color Token Contrast
   - `color-mt-new-white`
   - `color-mt-new-lys-furu`
   - `color-mt-new-green-light`
+  - `color-mt-new-beige`
   - `color-mt-new-beige-medium`
 
 ## color-mt-green
@@ -528,6 +543,7 @@ title: Color Token Contrast
   - `color-mt-new-white`
   - `color-mt-new-lys-furu`
   - `color-mt-new-green-light`
+  - `color-mt-new-beige`
   - `color-mt-new-beige-medium`
 
 ## color-mt-light-green
@@ -568,6 +584,7 @@ title: Color Token Contrast
   - `color-mt-yellowgreen-lighter`
   - `color-mt-new-white`
   - `color-mt-new-green-light`
+  - `color-mt-new-beige`
 
 ## color-primary
   - `color-on-mt-blue`
@@ -582,6 +599,7 @@ title: Color Token Contrast
   - `color-mt-yellowgreen-lighter`
   - `color-mt-new-white`
   - `color-mt-new-green-light`
+  - `color-mt-new-beige`
   - `color-mt-new-beige-medium`
 
 ## color-on-primary
@@ -613,6 +631,7 @@ title: Color Token Contrast
   - `color-mt-new-granskog`
   - `color-on-mt-new-lys-furu`
   - `color-on-mt-new-green-light`
+  - `color-on-mt-new-beige`
   - `color-on-mt-new-beige-medium`
 
 ## color-mt-blue-medium
@@ -644,6 +663,7 @@ title: Color Token Contrast
   - `color-on-mt-new-granskog`
   - `color-mt-new-lys-furu`
   - `color-mt-new-green-light`
+  - `color-mt-new-beige`
   - `color-mt-new-beige-medium`
 
 ## color-secondary
@@ -676,6 +696,7 @@ title: Color Token Contrast
   - `color-mt-new-white`
   - `color-mt-new-lys-furu`
   - `color-mt-new-green-light`
+  - `color-mt-new-beige`
   - `color-mt-new-beige-medium`
 
 ## color-mt-text-dark
@@ -698,6 +719,7 @@ title: Color Token Contrast
   - `color-mt-new-white`
   - `color-mt-new-lys-furu`
   - `color-mt-new-green-light`
+  - `color-mt-new-beige`
   - `color-mt-new-beige-medium`
 
 ## color-on-mt-text-dark
@@ -730,6 +752,7 @@ title: Color Token Contrast
   - `color-mt-yellowgreen-lighter`
   - `color-mt-new-white`
   - `color-mt-new-green-light`
+  - `color-mt-new-beige`
   - `color-mt-new-beige-medium`
 
 ## color-on-error
@@ -761,6 +784,7 @@ title: Color Token Contrast
   - `color-mt-new-granskog`
   - `color-on-mt-new-lys-furu`
   - `color-on-mt-new-green-light`
+  - `color-on-mt-new-beige`
   - `color-on-mt-new-beige-medium`
 
 ## color-error-50
@@ -778,6 +802,7 @@ title: Color Token Contrast
   - `color-mt-yellowgreen-lighter`
   - `color-mt-new-white`
   - `color-mt-new-green-light`
+  - `color-mt-new-beige`
   - `color-mt-new-beige-medium`
 
 ## color-on-error-50
@@ -835,6 +860,7 @@ title: Color Token Contrast
   - `color-mt-new-white`
   - `color-mt-new-lys-furu`
   - `color-mt-new-green-light`
+  - `color-mt-new-beige`
   - `color-mt-new-beige-medium`
 
 ## color-mt-yellowgreen-lighter
@@ -873,6 +899,7 @@ title: Color Token Contrast
   - `color-mt-yellowgreen-lighter`
   - `color-mt-new-white`
   - `color-mt-new-green-light`
+  - `color-mt-new-beige`
 
 ## color-mt-new-white
   - `color-mt-blue`
@@ -903,6 +930,7 @@ title: Color Token Contrast
   - `color-mt-new-granskog`
   - `color-on-mt-new-lys-furu`
   - `color-on-mt-new-green-light`
+  - `color-on-mt-new-beige`
   - `color-on-mt-new-beige-medium`
 
 ## color-on-mt-new-white
@@ -937,6 +965,7 @@ title: Color Token Contrast
   - `color-on-mt-new-granskog`
   - `color-mt-new-lys-furu`
   - `color-mt-new-green-light`
+  - `color-mt-new-beige`
   - `color-mt-new-beige-medium`
 
 ## color-on-mt-new-granskog-dark
@@ -970,6 +999,7 @@ title: Color Token Contrast
   - `color-on-mt-new-granskog`
   - `color-mt-new-lys-furu`
   - `color-mt-new-green-light`
+  - `color-mt-new-beige`
   - `color-mt-new-beige-medium`
 
 ## color-on-mt-new-granskog
@@ -1014,6 +1044,7 @@ title: Color Token Contrast
   - `color-mt-new-white`
   - `color-mt-new-lys-furu`
   - `color-mt-new-green-light`
+  - `color-mt-new-beige`
   - `color-mt-new-beige-medium`
 
 ## color-mt-new-green-light
@@ -1052,6 +1083,46 @@ title: Color Token Contrast
   - `color-on-error`
   - `color-mt-new-white`
   - `color-mt-new-green-light`
+  - `color-mt-new-beige`
+
+## color-mt-new-beige
+  - `color-mt-blue`
+  - `color-on-mt-red`
+  - `color-mt-red-uu`
+  - `color-on-mt-beige`
+  - `color-on-mt-beige-50`
+  - `color-on-mt-light-beige`
+  - `color-on-mt-background`
+  - `color-on-mt-light-blue`
+  - `color-on-mt-lighter-light-blue`
+  - `color-on-mt-rationale-blue`
+  - `color-mt-brown`
+  - `color-on-mt-grey`
+  - `color-on-mt-white`
+  - `color-on-mt-green`
+  - `color-on-mt-light-green`
+  - `color-primary`
+  - `color-on-mt-blue-medium`
+  - `color-on-secondary`
+  - `color-mt-text-dark`
+  - `color-error`
+  - `color-error-50`
+  - `color-on-mt-yellowgreen`
+  - `color-on-mt-yellowgreen-lighter`
+  - `color-mt-new-granskog-dark`
+  - `color-mt-new-granskog`
+  - `color-on-mt-new-lys-furu`
+  - `color-on-mt-new-green-light`
+  - `color-on-mt-new-beige`
+  - `color-on-mt-new-beige-medium`
+
+## color-on-mt-new-beige
+  - `color-mt-background`
+  - `color-mt-white`
+  - `color-on-primary`
+  - `color-on-error`
+  - `color-mt-new-white`
+  - `color-mt-new-beige`
 
 ## color-mt-new-beige-medium
   - `color-mt-blue`
@@ -1089,4 +1160,5 @@ title: Color Token Contrast
   - `color-mt-yellowgreen-lighter`
   - `color-mt-new-white`
   - `color-mt-new-green-light`
+  - `color-mt-new-beige`
   - `color-mt-new-beige-medium`

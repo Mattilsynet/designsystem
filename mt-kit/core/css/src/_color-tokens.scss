@@ -59,10 +59,12 @@ $color-mt-new-lys-furu: #9BCAB9 !default;
 $color-on-mt-new-lys-furu: #38544A !default;
 $color-mt-new-green-light: #E2F1DF !default;
 $color-on-mt-new-green-light: #5E705A !default;
+$color-mt-new-beige: #FAF6F3 !default;
+$color-on-mt-new-beige: #77706B !default;
 $color-mt-new-beige-medium: #F8DE9C !default;
 $color-on-mt-new-beige-medium: #746131 !default;
 
-$base-color-tokens: ("mt-blue", "mt-red", "mt-red-uu", "mt-beige", "mt-beige-50", "mt-light-beige", "mt-background", "mt-light-blue", "mt-lighter-light-blue", "mt-rationale-blue", "mt-brown", "mt-grey", "mt-white", "mt-green", "mt-light-green", "primary", "mt-blue-medium", "secondary", "mt-text-dark", "error", "error-50", "mt-yellowgreen", "mt-yellowgreen-lighter", "mt-new-white", "mt-new-granskog-dark", "mt-new-granskog", "mt-new-lys-furu", "mt-new-green-light", "mt-new-beige-medium");
+$base-color-tokens: ("mt-blue", "mt-red", "mt-red-uu", "mt-beige", "mt-beige-50", "mt-light-beige", "mt-background", "mt-light-blue", "mt-lighter-light-blue", "mt-rationale-blue", "mt-brown", "mt-grey", "mt-white", "mt-green", "mt-light-green", "primary", "mt-blue-medium", "secondary", "mt-text-dark", "error", "error-50", "mt-yellowgreen", "mt-yellowgreen-lighter", "mt-new-white", "mt-new-granskog-dark", "mt-new-granskog", "mt-new-lys-furu", "mt-new-green-light", "mt-new-beige", "mt-new-beige-medium");
 
 $color-tokens: (
   "color-mt-blue": $color-mt-blue,
@@ -121,6 +123,8 @@ $color-tokens: (
   "color-on-mt-new-lys-furu": $color-on-mt-new-lys-furu,
   "color-mt-new-green-light": $color-mt-new-green-light,
   "color-on-mt-new-green-light": $color-on-mt-new-green-light,
+  "color-mt-new-beige": $color-mt-new-beige,
+  "color-on-mt-new-beige": $color-on-mt-new-beige,
   "color-mt-new-beige-medium": $color-mt-new-beige-medium,
   "color-on-mt-new-beige-medium": $color-on-mt-new-beige-medium
 ) !default;
@@ -182,6 +186,8 @@ $color-tokens: (
   --color-on-mt-new-lys-furu: #{$color-on-mt-new-lys-furu};
   --color-mt-new-green-light: #{$color-mt-new-green-light};
   --color-on-mt-new-green-light: #{$color-on-mt-new-green-light};
+  --color-mt-new-beige: #{$color-mt-new-beige};
+  --color-on-mt-new-beige: #{$color-on-mt-new-beige};
   --color-mt-new-beige-medium: #{$color-mt-new-beige-medium};
   --color-on-mt-new-beige-medium: #{$color-on-mt-new-beige-medium};
 }
