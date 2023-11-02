@@ -11,6 +11,7 @@
   --focus-on-light: var(--color-mt-blue-medium);
   --focus-on-dark: var(--color-mt-beige);
   --chapter-menu-active-on-dark: var(--color-mt-rationale-blue);
+  --dialog-box-bg: var(--color-mt-lighter-light-blue);
 
   --grey-medium: hsl(#{$color-grey-hue}, 15%, 50%);
   --grey-light: hsl(#{$color-grey-hue}, 20%, 85%);
@@ -98,7 +99,8 @@
 
   --focus-on-light: var(--color-mt-blue-medium);
   --focus-on-dark: var(--color-mt-new-beige-medium);
-  --chapter-menu-active-on-dark: var(--color-mt-new-green-light);
+  --chapter-menu-active-on-dark: var(--color-mt-new-lys-furu);
+  --dialog-box-bg: var(--color-mt-new-green-light);
 
   //--mt-color-background-default: beige;
   //
@@ -156,9 +158,9 @@
   --mt-button-primary-bg: var(--color-primary);
   --mt-button-primary-color: var(--color-mt-new-white);
   --mt-button-primary-border: var(--color-primary);
-  --mt-button-primary-bg-hover: var(--color-mt-new-green-light);
+  --mt-button-primary-bg-hover: var(--color-mt-new-lys-furu);
   --mt-button-primary-color-hover: var(--color-primary);
-  --mt-button-primary-border-hover: var(--color-mt-new-green-light);
+  --mt-button-primary-border-hover: var(--color-mt-new-lys-furu);
   --mt-button-primary-bg-focus: var(--color-primary);
   --mt-button-primary-color-focus: var(--color-mt-new-white);
   --mt-button-primary-border-focus: var(--color-primary);
@@ -166,12 +168,12 @@
   --mt-button-primary-color-disabled: purple;
   --mt-button-primary-border-disabled: purple;
 
-  --mt-button-no-primary-border-focus-shadow: var(--color-mt-new-green-light);
+  --mt-button-no-primary-border-focus-shadow: var(--color-mt-new-lys-furu);
 
   --mt-button-neutral-bg: var(--color-mt-new-white);
   --mt-button-neutral-color: var(--color-primary);
   --mt-button-neutral-border: var(--color-primary);
-  --mt-button-neutral-bg-hover: var(--color-mt-new-green-light);
+  --mt-button-neutral-bg-hover: var(--color-mt-new-lys-furu);
   --mt-button-neutral-color-hover: var(--color-primary);
   --mt-button-neutral-border-hover: var(--color-primary);
   --mt-button-neutral-bg-focus: var(--color-mt-new-white);
@@ -184,7 +186,7 @@
   --mt-button-flat-bg: var(--color-mt-new-white);
   --mt-button-flat-color: var(--color-primary);
   --mt-button-flat-border: var(--color-mt-new-white);
-  --mt-button-flat-bg-hover: var(--color-mt-new-green-light);
+  --mt-button-flat-bg-hover: var(--color-mt-new-lys-furu);
   --mt-button-flat-color-hover: var(--color-primary);
   --mt-button-flat-border-hover: var(--color-primary);
   --mt-button-flat-bg-focus: var(--color-mt-new-white);

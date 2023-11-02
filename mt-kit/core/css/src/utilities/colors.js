@@ -108,8 +108,12 @@ module.exports = [
     color: '#033E42',
   },
   {
-    name: 'mt-new-green-light',
+    name: 'mt-new-lys-furu',
     color: '#9BCAB9',
+  },
+  {
+    name: 'mt-new-green-light',
+    color: '#E2F1DF',
   },
   {
     name: 'mt-new-beige-medium',
