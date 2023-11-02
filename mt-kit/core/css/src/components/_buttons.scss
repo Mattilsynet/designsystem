@@ -1,5 +1,6 @@
 @use '../theme' as *;
 @use '../utilities/mixins' as *;
+@use '../global/body' as *;
 $button-default-color: 'primary' !default;
 $button-colors: 'error' !default;
 
@@ -62,19 +63,19 @@ $icon-button-border-radius: 0.25em;
     }
   }
   &--primary {
-    border-color: var(--color-primary);
+    border-color: var(--mt-button-primary-border);
     &:hover,
     &:active {
-      background-color: var(--color-mt-text-dark);
-      color: var(--color-mt-background);
-      border-color: var(--color-mt-text-dark);
+      background-color: var(--mt-button-primary-bg-hover);
+      color: var(--mt-button-primary-color-hover);
+      border-color: var(--mt-button-primary-border-hover);
     }
     &:disabled,
     &[disabled],
     &.disabled {
-      background-color: var(--color-mt-grey);
-      color: var(--color-mt-background);
-      border-color: var(--color-mt-grey);
+      background-color: var(--mt-button-primary-bg-disabled);
+      color: var(--mt-button-primary-color-disabled);
+      border-color: var(--mt-button-primary-border-disabled);
     }
   }
   &--on-primary {
@@ -86,7 +87,7 @@ $icon-button-border-radius: 0.25em;
     &:focus-within {
       outline: none;
       border-color: transparent;
-      box-shadow: 0 0 0 0.25rem var(--color-mt-beige);
+      box-shadow: 0 0 0 0.25rem var(--mt-button-no-primary-border-focus-shadow);
     }
   }
   &--secondary {
@@ -101,16 +102,16 @@ $icon-button-border-radius: 0.25em;
 
     &:hover,
     &:active {
-      background-color: var(--color);
-      color: var(--background);
+      background-color: var(--mt-button-neutral-bg-hover);
+      color: var(--mt-button-neutral-color-hover);
     }
 
     &:disabled,
     &[disabled],
     &.disabled {
-      background-color: var(--color-mt-background);
-      color: var(--color-mt-grey);
-      border-color: var(--color-mt-grey);
+      background-color: var(--mt-button-neutral-bg-disabled);
+      color: var(--mt-button-neutral-color-disabled);
+      border-color: var(--mt-button-neutral-border-disabled);
     }
   }
   &--search-clear {
@@ -160,16 +161,16 @@ $icon-button-border-radius: 0.25em;
     padding: 0.25em $icon-button-padding;
   }
   &--flat {
-    background: transparent;
-    color: var(--color-mt-blue);
+    background: var(--mt-button-flat-bg);
+    color: var(--mt-button-flat-color);
 
     &:hover {
-      border-color: var(--color-mt-blue);
-      background: transparent;
+      border-color: var(--mt-button-flat-border-hover);
+      background: var(--mt-button-flat-bg-hover);
     }
     &:focus,
     &:focus-visible {
-      border-color: var(--color-primary);
+      border-color: var(--mt-button-flat-border-focus);
     }
   }
   &--link {
@@ -185,6 +186,7 @@ $icon-button-border-radius: 0.25em;
     &:hover {
       background: transparent;
       color: var(--color);
+      text-decoration: none;
     }
   }
 
@@ -260,7 +262,7 @@ $icon-button-border-radius: 0.25em;
   &.closable {
     &:hover {
       &:after {
-        background-color: var(--background);
+        background-color: var(--mt-button-flat-color-hover);
       }
     }
     &:after {

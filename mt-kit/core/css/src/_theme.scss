@@ -6,10 +6,10 @@ $border-radius-small: 0.01em !default;
 $border-radius: 0.25em !default;
 $border-red-regular: $border-width-regular solid $color-mt-red;
 $focus-box-shadow: 0 0 0 0.125rem var(--color-mt-background),
-  0 0 0 0.35rem var(--color-mt-blue-medium);
+  0 0 0 0.35rem var(--mt-button-primary-bg-focus);
 $focus-box-shadow-on-white: 0 0 0 0.125rem var(--color-mt-white),
-  0 0 0 0.35rem var(--color-mt-blue-medium);
-$focus-box-shadow-no-outline: 0 0 0 0.25rem var(--color-mt-blue-medium);
+  0 0 0 0.35rem var(--mt-button-primary-bg-focus);
+$focus-box-shadow-no-outline: 0 0 0 0.25rem var(--mt-button-primary-bg-focus);
 $error-box-shadow: 0 0 0 0.5rem var(--color-mt-background), 0 0 0 0.7rem var(--color-error);
 $error-box-shadow-small: 0 0 0 0.05rem var(--color-mt-background), 0 0 0 0.2rem var(--color-error);
 
