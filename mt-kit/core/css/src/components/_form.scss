@@ -32,6 +32,7 @@ $form-outline-color: $color-mt-blue-medium !default;
   }
   > .inclusively-hidden,
   > .inclusively-hidden-initial,
+  > .inclusively-hidden-initial + .mt-label.mt-button,
   > [type='hidden'] + .mt-label.mt-button {
     margin-top: 0;
   }
@@ -46,6 +47,7 @@ $form-outline-color: $color-mt-blue-medium !default;
   .mt-fieldset + .mt-button,
   .count-character + .mt-label,
   .count-character + .mt-fieldset,
+  .mt-label + [type='submit'],
   .mt-fieldset + .mt-fieldset,
   .mt-fieldset + .mt-label {
     margin-top: var(--form-group-spacer);
