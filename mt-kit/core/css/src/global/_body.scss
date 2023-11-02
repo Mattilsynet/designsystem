@@ -12,6 +12,8 @@
   --focus-on-dark: var(--color-mt-beige);
   --chapter-menu-active-on-dark: var(--color-mt-rationale-blue);
   --dialog-box-bg: var(--color-mt-lighter-light-blue);
+  --dialog-box-box-shadow: var(--color-mt-blue-medium);
+  --dialog-box-close-hover: var(--color-mt-brown);
 
   --grey-medium: hsl(#{$color-grey-hue}, 15%, 50%);
   --grey-light: hsl(#{$color-grey-hue}, 20%, 85%);
@@ -101,7 +103,8 @@
   --focus-on-dark: var(--color-mt-new-beige-medium);
   --chapter-menu-active-on-dark: var(--color-mt-new-lys-furu);
   --dialog-box-bg: var(--color-mt-new-green-light);
-
+  --dialog-box-box-shadow: var(--color-mt-new-green);
+  --dialog-box-close-hover: var(--color-mt-new-green);
   //--mt-color-background-default: beige;
   //
   //--mt-color-surface-default: beige;
