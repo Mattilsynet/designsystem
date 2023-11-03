@@ -14,6 +14,10 @@
   --dialog-box-bg: var(--color-mt-lighter-light-blue);
   --dialog-box-box-shadow: var(--color-mt-blue-medium);
   --dialog-box-close-hover: var(--color-mt-brown);
+  --disclosure-bordered-border: var(--color-secondary);
+
+  --highlighted-blue-bg: var(--color-primary);
+  --highlighted-blue-color: var(--color-mt-white);
 
   --grey-medium: hsl(#{$color-grey-hue}, 15%, 50%);
   --grey-light: hsl(#{$color-grey-hue}, 20%, 85%);
@@ -100,11 +104,16 @@
   --color-links: var(--color-primary);
 
   --focus-on-light: var(--color-mt-blue-medium);
-  --focus-on-dark: var(--color-mt-new-beige-medium);
-  --chapter-menu-active-on-dark: var(--color-mt-new-lys-furu);
-  --dialog-box-bg: var(--color-mt-new-green-light);
-  --dialog-box-box-shadow: var(--color-mt-new-granskog);
-  --dialog-box-close-hover: var(--color-mt-new-granskog);
+  --focus-on-dark: var(--color-mt-mellombeige);
+  --chapter-menu-active-on-dark: var(--color-mt-lys-furu);
+  --dialog-box-bg: var(--color-mt-bg-furu);
+  --dialog-box-box-shadow: var(--color-mt-granskog);
+  --dialog-box-close-hover: var(--color-mt-granskog);
+  --disclosure-bordered-border: var(--color-mt-granskog);
+  --highlighted-bg: var(--col);
+  --highlighted-color: var(--col);
+  --highlighted-blue-bg: var(--color-mt-white);
+  --highlighted-blue-color: var(--color-primary);
 
   //--mt-color-background-default: beige;
   //
@@ -156,15 +165,15 @@
   //--mt-color-border-status-warning: beige;
   //--mt-color-border-status-info: beige;
 
-  --mt-footer-background: var(--color-mt-new-granskog);
+  --mt-footer-background: var(--color-mt-granskog);
   --mt-footer-color: var(--color-mt-new-white);
 
   --mt-button-primary-bg: var(--color-primary);
   --mt-button-primary-color: var(--color-mt-new-white);
   --mt-button-primary-border: var(--color-primary);
-  --mt-button-primary-bg-hover: var(--color-mt-new-lys-furu);
+  --mt-button-primary-bg-hover: var(--color-mt-lys-furu);
   --mt-button-primary-color-hover: var(--color-primary);
-  --mt-button-primary-border-hover: var(--color-mt-new-lys-furu);
+  --mt-button-primary-border-hover: var(--color-mt-lys-furu);
   --mt-button-primary-bg-focus: var(--color-primary);
   --mt-button-primary-color-focus: var(--color-mt-new-white);
   --mt-button-primary-border-focus: var(--color-primary);
@@ -172,12 +181,12 @@
   --mt-button-primary-color-disabled: purple;
   --mt-button-primary-border-disabled: purple;
 
-  --mt-button-no-primary-border-focus-shadow: var(--color-mt-new-lys-furu);
+  --mt-button-no-primary-border-focus-shadow: var(--color-mt-lys-furu);
 
   --mt-button-neutral-bg: var(--color-mt-new-white);
   --mt-button-neutral-color: var(--color-primary);
   --mt-button-neutral-border: var(--color-primary);
-  --mt-button-neutral-bg-hover: var(--color-mt-new-green-light);
+  --mt-button-neutral-bg-hover: var(--color-mt-bg-furu);
   --mt-button-neutral-color-hover: var(--color-primary);
   --mt-button-neutral-border-hover: var(--color-primary);
   --mt-button-neutral-bg-focus: var(--color-mt-new-white);
@@ -190,7 +199,7 @@
   --mt-button-flat-bg: var(--color-mt-new-white);
   --mt-button-flat-color: var(--color-primary);
   --mt-button-flat-border: var(--color-mt-new-white);
-  --mt-button-flat-bg-hover: var(--color-mt-new-green-light);
+  --mt-button-flat-bg-hover: var(--color-mt-bg-furu);
   --mt-button-flat-color-hover: var(--color-primary);
   --mt-button-flat-border-hover: var(--color-primary);
   --mt-button-flat-bg-focus: var(--color-mt-new-white);
