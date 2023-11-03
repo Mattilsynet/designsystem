@@ -7,6 +7,9 @@
 :root {
   @include color-tokens();
 
+  --body-background: var(--color-mt-background);
+  --body-color: var(--color-mt-text-dark);
+
   --color-links: #{$color-links};
   --focus-on-light: var(--color-mt-blue-medium);
   --focus-on-dark: var(--color-mt-beige);
@@ -101,6 +104,11 @@
 }
 [data-theme='green'] {
   @include color-tokens-new();
+  --body-background: var(--color-mt-background);
+  --body-color: var(--color-mt-text-dark);
+  background-color: var(--body-background);
+  color: var(--body-color);
+
   --color-links: var(--color-primary);
 
   --focus-on-light: var(--color-mt-blue-medium);
@@ -214,8 +222,8 @@
   display: grid;
   grid-template-rows: auto 1fr auto;
   row-gap: 0;
-  background-color: var(--color-mt-background);
-  color: var(--color-mt-text-dark);
+  background-color: var(--body-background);
+  color: var(--body-color);
   font-family: $font-family;
   font-size: $font-size-body;
 
