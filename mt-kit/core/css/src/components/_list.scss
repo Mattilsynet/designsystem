@@ -40,7 +40,7 @@
 
   &.custom-borders {
     --spacer: var(--spacer-xx-small);
-    --border: var(--border-radius-small) solid var(--color-secondary);
+    --border: var(--border-radius-small) solid var(--mt-button-neutral-border);
 
     gap: 0;
     display: flex;
@@ -101,7 +101,7 @@
     }
   }
   &.lines-between {
-    --border-color: var(--color-mt-beige);
+    --border-color: var(--mt-button-neutral-border);
     --border-width: #{$border-width-regular};
     --border-style: solid;
     --border: var(--border-width) var(--border-style) var(--border-color);
@@ -141,11 +141,11 @@
 
 .mt-ol.list {
   > li {
-    border-top: $border-width-small solid var(--color-mt-beige-50);
+    border-top: $border-width-small solid var(--mt-button-neutral-border);
     margin-top: 0;
-    padding: var(--spacer-small);
+    padding: var(--spacer-x-small);
     &:last-child {
-      border-bottom: var(--border-width-small) solid var(--color-mt-beige-50);
+      border-bottom: var(--border-width-small) solid var(--mt-button-neutral-border);
     }
     &:nth-child(even) {
       background-color: var(--color-mt-white);
