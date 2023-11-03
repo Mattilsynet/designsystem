@@ -27,15 +27,17 @@
 {/if}
 
 {#each questionsAnswers as { question, answer, imageUrl, imageAltText, caption }}
-  <Disclosure title={question} {loadJs} headerClass={disclosureHeadClass}>
-    {@html answer}
-    {#if imageUrl}
-      <figure>
-        <img src={imageUrl} alt={imageAltText ? imageAltText : undefined} />
-        {#if caption}
-          <figcaption>{caption}</figcaption>
-        {/if}
-      </figure>
-    {/if}
-  </Disclosure>
+  {#if question && answer}
+    <Disclosure title={question} {loadJs} headerClass={disclosureHeadClass}>
+      {@html answer}
+      {#if imageUrl}
+        <figure>
+          <img src={imageUrl} alt={imageAltText ? imageAltText : undefined} />
+          {#if caption}
+            <figcaption>{caption}</figcaption>
+          {/if}
+        </figure>
+      {/if}
+    </Disclosure>
+  {/if}
 {/each}
