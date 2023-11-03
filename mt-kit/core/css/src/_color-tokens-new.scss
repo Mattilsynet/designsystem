@@ -1,7 +1,7 @@
 @use './color-tokens' as *;
 
 @mixin color-tokens-new() {
-  --color-mt-blue: #{$color-mt-new-granskog};
+  --color-mt-blue: #{$color-mt-granskog};
   --color-on-mt-blue: #{$color-on-mt-blue};
   --color-mt-red: #{$color-mt-red};
   --color-on-mt-red: #{$color-on-mt-red};
@@ -13,7 +13,7 @@
   --color-on-mt-beige-50: #{$color-on-mt-beige-50};
   --color-mt-light-beige: #{$color-mt-light-beige};
   --color-on-mt-light-beige: #{$color-on-mt-light-beige};
-  --color-mt-background: #{$color-mt-new-white};
+  --color-mt-background: #{$color-mt-bg-beige};
   --color-on-mt-background: #{$color-on-mt-background};
   --color-mt-light-blue: #{$color-mt-light-blue};
   --color-on-mt-light-blue: #{$color-on-mt-light-blue};
@@ -29,15 +29,15 @@
   --color-on-mt-white: #{$color-on-mt-white};
   --color-mt-green: #{$color-mt-green};
   --color-on-mt-green: #{$color-on-mt-green};
-  --color-mt-light-green: #{$color-mt-new-lys-furu};
+  --color-mt-light-green: #{$color-mt-lys-furu};
   --color-on-mt-light-green: #{$color-on-mt-light-green};
-  --color-primary: #{$color-mt-new-granskog};
+  --color-primary: #{$color-mt-granskog};
   --color-on-primary: #{$color-on-primary};
   --color-mt-blue-medium: #{$color-mt-blue-medium};
   --color-on-mt-blue-medium: #{$color-on-mt-blue-medium};
   --color-secondary: #{$color-secondary};
   --color-on-secondary: #{$color-on-secondary};
-  --color-mt-text-dark: #{$color-mt-new-granskog-dark};
+  --color-mt-text-dark: #{$color-mt-granskog-dark};
   --color-on-mt-text-dark: #{$color-on-mt-text-dark};
   --color-error: #{$color-error};
   --color-on-error: #{$color-on-error};
@@ -49,8 +49,8 @@
   --color-on-mt-yellowgreen-lighter: #{$color-on-mt-yellowgreen-lighter};
   --color-mt-new-white: #{$color-mt-new-white};
   --color-on-mt-new-white: #{$color-on-mt-new-white};
-  --color-mt-new-granskog: #{$color-mt-new-granskog};
-  --color-on-mt-new-granskog: #{$color-on-mt-new-granskog};
-  --color-mt-new-lys-furu: #{$color-mt-new-lys-furu};
-  --color-on-mt-new-lys-furu: #{$color-on-mt-new-lys-furu};
+  --color-mt-granskog: #{$color-mt-granskog};
+  --color-on-mt-granskog: #{$color-on-mt-granskog};
+  --color-mt-lys-furu: #{$color-mt-lys-furu};
+  --color-on-mt-lys-furu: #{$color-on-mt-lys-furu};
 }

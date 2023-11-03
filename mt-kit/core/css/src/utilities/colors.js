@@ -104,27 +104,75 @@ module.exports = [
     color: '#ffffff',
   },
   {
-    name: 'mt-new-granskog-dark',
-    color: '#032C30',
-  },
-  {
-    name: 'mt-new-granskog',
+    name: 'mt-granskog',
     color: '#054449',
   },
   {
-    name: 'mt-new-lys-furu',
-    color: '#9BCAB9',
+    name: 'mt-granskog-dark',
+    color: '#032C30',
   },
   {
-    name: 'mt-new-green-light',
+    name: 'mt-furu',
+    color: '#68B096',
+  },
+  {
+    name: 'mt-lys-furu',
+    color: '#8AC2AE',
+  },
+  {
+    name: 'mt-bg-furu', //bg geen
     color: '#E2F1DF',
   },
   {
-    name: 'mt-new-beige',
-    color: '#FAF6F3',
+    name: 'mt-fjord',
+    color: '#153F7B',
   },
   {
-    name: 'mt-new-beige-medium',
+    name: 'mt-lys-fjord',
+    color: '#9ECCED',
+  },
+  {
+    name: 'mt-bg-fjord',
+    color: '#D8EAF3',
+  },
+  {
+    name: 'mt-rognebaer-contrast',
+    color: '#92301C',
+  },
+  {
+    name: 'mt-rognebaer',
+    color: '#DA573B',
+  },
+  {
+    name: 'mt-lys-rognebaer',
+    color: '#F9C4AA',
+  },
+  {
+    name: 'mt-bg-rognebaer',
+    color: '#FFE4D6',
+  },
+  {
+    name: 'mt-sommerdag-contrast',
+    color: '#F1BE3C',
+  },
+  {
+    name: 'mt-sommerdag',
+    color: '#F9CC76',
+  },
+  {
+    name: 'mt-lys-sommerdag',
     color: '#F8DE9C',
+  },
+  {
+    name: 'mt-bg-sommerdag',
+    color: '#FBECC6',
+  },
+  {
+    name: 'mt-mellombeige',
+    color: '#EDDED4',
+  },
+  {
+    name: 'mt-bg-beige',
+    color: '#FAF6F3',
   },
 ];
