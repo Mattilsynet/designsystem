@@ -21,6 +21,9 @@
 
   --highlighted-blue-bg: var(--color-primary);
   --highlighted-blue-color: var(--color-mt-white);
+  --highlighted-blue-bg-hover: var(--color-mt-text-dark);
+  --highlighted-blue-color-hover: var(--color-mt-background);
+  --highlighted-blue-border-hover: var(--color-mt-text-dark);
 
   --grey-medium: hsl(#{$color-grey-hue}, 15%, 50%);
   --grey-light: hsl(#{$color-grey-hue}, 20%, 85%);
@@ -125,8 +128,14 @@
   --disclosure-bordered-border: var(--color-mt-granskog);
   --highlighted-bg: var(--col);
   --highlighted-color: var(--col);
+
   --highlighted-blue-bg: var(--color-mt-white);
-  --highlighted-blue-color: var(--color-primary);
+  --highlighted-blue-color: var(--color-mt-text-dark);
+  --highlighted-blue-link-color: var(--color-mt-text-dark);
+  --highlighted-blue-bg-hover: var(--color-mt-lys-furu);
+  --highlighted-blue-color-hover: var(--color-mt-text-dark);
+  --highlighted-blue-border-hover: var(--color-mt-text-dark);
+
   --steps-bg: var(--color-mt-granskog);
   --steps-color: var(--color-mt-new-white);
 
