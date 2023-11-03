@@ -175,6 +175,7 @@ module.exports = [
   {
     name: 'mt-mellombeige',
     color: '#EDDED4',
+    onColor: '#032C30',
   },
   {
     name: 'mt-bg-beige',
