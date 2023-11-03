@@ -3,7 +3,7 @@
   export let headingLevel: HeadingLevel = 1
   let className = ''
   export { className as class }
-  let idPassed = undefined
+  let idPassed: string | undefined | null = undefined
   export { idPassed as id }
 
   className = getClassName(className, headingLevel)
