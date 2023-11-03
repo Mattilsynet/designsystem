@@ -102,6 +102,7 @@ module.exports = [
   {
     name: 'mt-new-white',
     color: '#ffffff',
+    onColor: '#032C30',
   },
   {
     name: 'mt-granskog',
@@ -120,8 +121,9 @@ module.exports = [
     color: '#8AC2AE',
   },
   {
-    name: 'mt-bg-furu', //bg geen
+    name: 'mt-bg-furu',
     color: '#E2F1DF',
+    onColor: '#032C30',
   },
   {
     name: 'mt-fjord',
@@ -134,6 +136,7 @@ module.exports = [
   {
     name: 'mt-bg-fjord',
     color: '#D8EAF3',
+    onColor: '#032C30',
   },
   {
     name: 'mt-rognebaer-contrast',
@@ -150,6 +153,7 @@ module.exports = [
   {
     name: 'mt-bg-rognebaer',
     color: '#FFE4D6',
+    onColor: '#032C30',
   },
   {
     name: 'mt-sommerdag-contrast',
@@ -166,6 +170,7 @@ module.exports = [
   {
     name: 'mt-bg-sommerdag',
     color: '#FBECC6',
+    onColor: '#032C30',
   },
   {
     name: 'mt-mellombeige',
@@ -174,5 +179,6 @@ module.exports = [
   {
     name: 'mt-bg-beige',
     color: '#FAF6F3',
+    onColor: '#032C30',
   },
 ];
