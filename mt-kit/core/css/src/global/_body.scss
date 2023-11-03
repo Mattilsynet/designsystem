@@ -49,6 +49,11 @@
   --form-text-space: var(--spacer-xxx-small);
   --form-control-vertical: var(--spacer-xxx-small);
 
+  --mt-header-bg: transparent;
+  --mt-header-footer-border: var(--color-mt-red);
+  --mt-footer-background: transparent;
+  --mt-footer-color: var(--color-mt-text-dark);
+
   --mt-button-primary-bg: var(--color-primary);
   --mt-button-primary-color: var(--color-mt-new-white);
   --mt-button-primary-border: var(--color-primary);
@@ -172,7 +177,8 @@
   //--mt-color-border-status-success: beige;
   //--mt-color-border-status-warning: beige;
   //--mt-color-border-status-info: beige;
-
+  --mt-header-bg: var(--color-mt-new-white);
+  --mt-header-footer-border: transparent;
   --mt-footer-background: var(--color-mt-granskog);
   --mt-footer-color: var(--color-mt-new-white);
 
