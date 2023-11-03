@@ -46,7 +46,7 @@ details {
   --detail-margin: var(--spacer-xxx-small);
   --detail-padding: var(--spacer-xxx-small);
   --summary-margin-bottom: var(--spacer-xx-small);
-  --border: #{$border-width-regular} solid var(--color-mt-beige);
+  --border: #{$border-width-regular} solid var(--mt-button-neutral-border);
 
   margin-top: var(--spacer-xxx-small);
 
@@ -59,7 +59,7 @@ details {
 
     display: inline;
     line-height: 140%;
-    color: var(--color-mt-blue);
+    color: var(--mt-button-neutral-border);
     list-style: none;
     cursor: pointer;
     > h3 {
