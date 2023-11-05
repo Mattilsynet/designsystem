@@ -29,13 +29,13 @@
     .mt-tr {
       display: block;
       padding: var(--spacer-x-small);
-      border-top: $border-radius-small solid var(--color-mt-beige-50);
+      border-top: $border-radius-small solid var(--table-border);
       &:nth-child(odd) {
-        background-color: var(--color-mt-white);
+        background-color: var(--table-row-bg-odd);
       }
 
       &:last-child {
-        border-bottom: $border-radius-small solid var(--color-mt-beige-50);
+        border-bottom: $border-radius-small solid var(--table-border);
       }
       .mt-td {
         display: flex;
@@ -81,11 +81,11 @@
         -moz-hyphens: auto; /* Firefox 5+ */
         -ms-hyphens: auto; /* IE 10+ */
         hyphens: auto;
-        border-top: $border-width-regular solid var(--color-mt-beige-50);
-        border-bottom: $border-width-regular solid var(--color-mt-beige-50);
+        border-top: $border-width-regular solid var(--table-border);
+        border-bottom: $border-width-regular solid var(--table-border);
       }
       .mt-tr:first-child {
-        background-color: var(--color-mt-light-beige);
+        background-color: var(--table-header-bg);
       }
     }
     .mt-tbody {
@@ -100,7 +100,7 @@
     .mt-th,
     .mt-td {
       text-align: left;
-      border: $border-radius-small solid var(--color-mt-beige-50);
+      border: $border-radius-small solid var(--table-border);
       padding: var(--spacer-xx-small);
       overflow-wrap: anywhere;
       vertical-align: text-top;

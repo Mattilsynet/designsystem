@@ -27,6 +27,10 @@
 
   --colored-card-bg: var(--color-mt-rationale-blue);
 
+  --table-header-bg: var(--color-mt-light-beige);
+  --table-border: var(--color-mt-beige-50);
+  --table-row-bg-odd: var(--color-mt-white);
+
   --grey-medium: hsl(#{$color-grey-hue}, 15%, 50%);
   --grey-light: hsl(#{$color-grey-hue}, 20%, 85%);
   --background-body: #{$color-background-body};
@@ -142,6 +146,10 @@
   --steps-color: var(--color-mt-new-white);
 
   --colored-card-bg: var(--color-mt-bg-furu);
+
+  --table-header-bg: var(--color-mt-bg-furu);
+  --table-border: var(--color-mt-granskog);
+  --table-row-bg-odd: var(--color-mt-new-white);
   //--mt-color-background-default: beige;
   //
   //--mt-color-surface-default: beige;
