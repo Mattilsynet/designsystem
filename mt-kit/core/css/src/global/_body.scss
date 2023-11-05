@@ -31,6 +31,17 @@
   --table-border: var(--color-mt-beige-50);
   --table-row-bg-odd: var(--color-mt-white);
 
+  --tag-info-bg: var(--color-mt-rationale-blue);
+  --tag-info-border: var(--color-mt-blue-medium);
+  --tag-success-bg: var(--color-mt-yellowgreen-lighter);
+  --tag-success-border: var(--color-mt-yellowgreen);
+  --tag-warning-bg: var(--color-mt-light-beige); //todo
+  --tag-warning-border: var(--color-mt-beige); //todo
+  --tag-error-bg: var(--color-error-50); //todo
+  --tag-error-border: var(--color-error); //todo
+  --tag-neutral-bg: var(--color-mt-light-beige);
+  --tag-neutral-border: var(--color-mt-beige);
+
   --grey-medium: hsl(#{$color-grey-hue}, 15%, 50%);
   --grey-light: hsl(#{$color-grey-hue}, 20%, 85%);
   --background-body: #{$color-background-body};
@@ -150,6 +161,17 @@
   --table-header-bg: var(--color-mt-bg-furu);
   --table-border: var(--color-mt-granskog);
   --table-row-bg-odd: var(--color-mt-new-white);
+
+  --tag-info-bg: var(--color-mt-bg-fjord);
+  --tag-info-border: var(--color-primary);
+  --tag-success-bg: var(--color-mt-bg-furu);
+  --tag-success-border: var(--color-primary);
+  --tag-warning-bg: var(--color-mt-bg-sommerdag);
+  --tag-warning-border: var(--color-primary);
+  --tag-error-bg: var(--color-mt-bg-rognebaer);
+  --tag-error-border: var(--color-primary);
+  --tag-neutral-bg: var(--color-mt-mellombeige);
+  --tag-neutral-border: var(--color-primary);
   //--mt-color-background-default: beige;
   //
   //--mt-color-surface-default: beige;

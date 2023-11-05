@@ -1,7 +1,7 @@
 <script lang="ts">
   export let tags: Array<{ text: string; ariaLabel: string; color: TagColors }> = []
   export let isClosable = false
-  type TagColors = 'lightblue' | 'yellowgreen' | 'beige'
+  type TagColors = 'info' | 'success' | 'warning' | 'error' | 'neutral'
 
   function handleClick(index: number) {
     tags = tags.filter((tag, tagIndex) => {
