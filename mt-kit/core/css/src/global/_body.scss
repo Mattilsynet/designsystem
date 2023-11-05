@@ -25,6 +25,8 @@
   --highlighted-blue-color-hover: var(--color-mt-background);
   --highlighted-blue-border-hover: var(--color-mt-text-dark);
 
+  --colored-card-bg: var(--color-mt-rationale-blue);
+
   --grey-medium: hsl(#{$color-grey-hue}, 15%, 50%);
   --grey-light: hsl(#{$color-grey-hue}, 20%, 85%);
   --background-body: #{$color-background-body};
@@ -139,6 +141,7 @@
   --steps-bg: var(--color-mt-granskog);
   --steps-color: var(--color-mt-new-white);
 
+  --colored-card-bg: var(--color-mt-bg-furu);
   //--mt-color-background-default: beige;
   //
   //--mt-color-surface-default: beige;

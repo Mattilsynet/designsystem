@@ -4,7 +4,7 @@
 .legal-text {
   @include card-article;
 
-  background-color: var(--color-mt-rationale-blue);
+  background-color: var(--colored-card-bg);
 
   > :first-child {
     display: flex;
