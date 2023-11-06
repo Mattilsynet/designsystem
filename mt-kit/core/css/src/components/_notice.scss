@@ -24,7 +24,7 @@
 
     &::before {
       // 20 x 20 size image
-      content: $icon-important;
+      content: var(--icon-important);
       width: 1.4rem;
       height: 1.2rem;
       float: left;
@@ -33,7 +33,7 @@
 
       @media only screen and (min-width: $breakpoint-large) {
         // 30 x 30 size image
-        content: $icon-important-large;
+        content: var(--icon-important-large);
         width: 2rem;
         height: 2rem;
         margin-top: -0.25rem;

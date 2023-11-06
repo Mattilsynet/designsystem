@@ -374,7 +374,7 @@ $transportlink-colors: 'error' !default;
 
     &:after {
       content: '';
-      background-image: $icon-arrow-blue;
+      background-image: var(--icon-arrow-blue);
       margin-left: var(--spacer-xxx-small);
       padding-right: var(--icon-size-normal);
       width: var(--icon-size-normal);
@@ -399,7 +399,7 @@ $transportlink-colors: 'error' !default;
       border-radius: $border-radius;
 
       &:after {
-        background-image: $icon-arrow-white;
+        background-image: var(--icon-arrow-white);
       }
 
       &:hover {
@@ -418,7 +418,7 @@ $transportlink-colors: 'error' !default;
 
         &:after {
           //todo
-          background-image: $icon-arrow-white;
+          background-image: var(--icon-arrow-white);
         }
 
         &:hover {
