@@ -43,6 +43,16 @@
   --tag-neutral-border: var(--color-mt-beige);
 
   --checkbox-subset-secondary-bg: var(--color-mt-light-beige);
+  --radio-checked-img: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2.5' fill='%23075A78'/%3e%3c/svg%3e");
+  --checkbox-checked-img: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
+  --checkbox-indeterminate-img: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='24' height='24' rx='4' fill='%23075B7A'/%3E%3Cline x1='6.5' y1='12.5' x2='17.5' y2='12.5' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
+  --radio-chekbox-button-before-bg-hover: var(--color-mt-white);
+  --radio-checkbox-bg-hover: var(--color-mt-blue);
+  --radio-checkbox-color-hover: var(--color-mt-white);
+  --form-border-width: #{$border-width-small};
+  --form-border-color: var(--color-secondary);
+  --form-border-color-hover: var(--color-mt-blue-medium);
+  --form-outline-color: var(--color-primary);
 
   --grey-medium: hsl(#{$color-grey-hue}, 15%, 50%);
   --grey-light: hsl(#{$color-grey-hue}, 20%, 85%);
@@ -176,6 +186,18 @@
   --tag-neutral-border: var(--color-primary);
 
   --checkbox-subset-secondary-bg: var(--color-mt-mellombeige);
+
+  --radio-checked-img: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2.5' fill='%23054449'/%3e%3c/svg%3e");
+  --checkbox-checked-img: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
+  --checkbox-indeterminate-img: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='24' height='24' rx='4' fill='%23054449'/%3E%3Cline x1='6.5' y1='12.5' x2='17.5' y2='12.5' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
+
+  --radio-chekbox-button-before-bg-hover: var(--color-primary);
+  --radio-checkbox-bg-hover: var(--color-mt-bg-furu);
+  --radio-checkbox-color-hover: var(--color-primary);
+  --form-border-width: #{$border-width-regular};
+  --form-border-color: var(--color-primary);
+  --form-border-color-hover: var(--color-primary);
+  --form-outline-color: var(--color-mt-blue-medium);
 
   //--mt-color-background-default: beige;
   //
