@@ -89,8 +89,7 @@ $form-outline-color: 'var(--form-outline-color)' !default;
   font-family: inherit;
 
   &:hover {
-    outline: $border-width-small solid var(--form-border-color-hover);
-    border-color: var(--form-border-color-hover);
+    @include form-inputs-hover-style;
   }
 
   &--small-width {
@@ -163,8 +162,7 @@ $form-outline-color: 'var(--form-outline-color)' !default;
 
   &:hover {
     .input__control {
-      outline: $border-width-small solid var(--form-border-color-hover);
-      border-color: var(--form-border-color-hover);
+      @include form-inputs-hover-style;
     }
   }
 

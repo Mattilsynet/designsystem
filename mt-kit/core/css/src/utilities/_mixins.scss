@@ -17,6 +17,11 @@
   }
 }
 
+@mixin form-inputs-hover-style {
+  outline: $border-width-small solid var(--form-border-color-hover);
+  border-color: var(--form-border-color-hover);
+}
+
 @mixin disabled {
   &:disabled,
   &[disabled],
