@@ -13,7 +13,7 @@
   const bodyId = `ui-dropdown-${counter++}`
   export let loadJs = false
   export let titleId = `${bodyId}-title`
-  export let icon = 'icon--hamburger-menu-on-light-after'
+  export let icon = ''
   let className = ''
   export { className as class }
 
