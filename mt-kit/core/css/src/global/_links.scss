@@ -66,7 +66,7 @@ $transportlink-colors: 'error' !default;
     color: var(--color-links);
     margin-left: var(--indent);
     &::before {
-      content: url('data:image/svg+xml,%3Csvg%20width%3D%2215%22%20height%3D%2216%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M11.52%208H2.88V6.4h8.64V8Zm-5.04%202.91h-3.6v-1.6h3.6v1.6Zm5.04-5.82H2.88v-1.6h8.64v1.6ZM12.8%201.6H1.6v12.8h11.2V1.6ZM0%200v16h14.4V0H0Z%22%20fill%3D%22%23075B7A%22%2F%3E%3C%2Fsvg%3E');
+      content: var(--icon-document);
       margin-right: var(--spacer-xxx-small);
       display: inline-block;
       width: var(--icon-width);
