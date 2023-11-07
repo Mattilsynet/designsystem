@@ -56,7 +56,7 @@
         </Disclosure>
       </li>
     {:else}
-      <li class="disclosure disclosure-no-border">
+      <li class="disclosure disclosure-no-border on-primary">
         <a
           href={item.url}
           rel={mapRelExternal(item.url)}
