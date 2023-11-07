@@ -35,9 +35,6 @@ aside {
       &[aria-expanded='true'] {
         background-color: var(--chapter-menu-active-on-dark);
         color: var(--color-primary);
-        &:before {
-          @include close-x($color-primary);
-        }
       }
     }
   }
