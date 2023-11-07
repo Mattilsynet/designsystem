@@ -2,17 +2,19 @@
   import Disclosure from '../components/Disclosure.svelte'
   import HeadingLevel from '../components/HeadingLevel.svelte'
 
-  export let title: string | undefined
-  export let facts: string | undefined
-  export let disclosureHeadClass = 'text-body'
-  export let loadJs = true
-  export let questionsAnswers: Array<{
+  type QuestionAnswer = {
     question: string
     answer: string
     imageUrl?: string
     imageAltText?: string
     caption?: string
-  }> = []
+  }
+
+  export let title: string | undefined
+  export let facts: string | undefined
+  export let disclosureHeadClass = 'text-body'
+  export let loadJs = true
+  export let questionsAnswers: Array<QuestionAnswer> = []
   export let headerTag: 'h2' | 'h3' | 'h4' = 'h2'
 </script>
 
@@ -32,7 +34,7 @@
       {@html answer}
       {#if imageUrl}
         <figure>
-          <img src={imageUrl} alt={imageAltText ? imageAltText : undefined} />
+          <img src={imageUrl} alt={imageAltText ? imageAltText : ''} />
           {#if caption}
             <figcaption>{caption}</figcaption>
           {/if}
