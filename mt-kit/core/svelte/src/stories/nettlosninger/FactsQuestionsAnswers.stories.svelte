@@ -35,7 +35,7 @@
 
 <Story name="Normal" let:title let:facts let:questionsAnswers let:disableCss let:loadJs>
   <div class="container layout-grid layout-grid--column-12" use:wrapInShadowDom={disableCss}>
-    <article class="col-1-span-6 animal-disease">
+    <article class="col-1-span-6 facts-questions-answers">
       <FactsQuestionsAnswers {facts} {title} {questionsAnswers} {loadJs} />
     </article>
   </div>
