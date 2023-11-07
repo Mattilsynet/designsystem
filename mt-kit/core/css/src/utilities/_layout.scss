@@ -246,14 +246,18 @@ Only use if it does NOT affect accessibility
 }
 
 .mt-footer {
-  display: flex;
-  flex-direction: column;
-  justify-self: center;
-  width: $main-width;
-  padding: var(--spacer-small) 0;
+  padding-bottom: var(--spacer-small);
   gap: var(--spacer-x-small);
-  border-top: $border-red-regular;
-
+  background-color: var(--mt-footer-background);
+  color: var(--mt-footer-color);
+  width: $full-width;
+  margin-top: var(--spacer-large);
+  .footer-wrapper {
+    padding-top: var(--spacer-large);
+    display: flex;
+    flex-direction: row;
+    justify-self: center;
+  }
   svg {
     align-self: center;
   }
@@ -275,7 +279,6 @@ Only use if it does NOT affect accessibility
   @media only screen and (min-width: $breakpoint-large) {
     flex-direction: row;
     gap: var(--spacer-x-small);
-    padding: var(--spacer-large) 0;
 
     svg {
       margin-top: 0;
