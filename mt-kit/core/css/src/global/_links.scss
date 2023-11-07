@@ -153,7 +153,7 @@ $transportlink-colors: 'error' !default;
       padding-left: var(--spacer-xxx-small);
     }
     &:after {
-      content: var(--icon-arrow-primary);
+      content: var(--icon-arrow-primary-hover);
       display: inline-block;
       height: 1.3125rem;
       margin-left: var(--spacer-xxx-small);
