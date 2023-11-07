@@ -15,7 +15,7 @@
   export let disclosureHeadClass = 'text-body'
   export let loadJs = true
   export let questionsAnswers: Array<QuestionAnswer> = []
-  export let headerTag: 'h2' | 'h3' | 'h4' = 'h2'
+  export let headerTag: 'h1' | 'h2' | 'h3' | 'h4' = 'h2'
 </script>
 
 {#if title}
