@@ -1,26 +1,34 @@
 import { render } from '@testing-library/svelte'
-import AnimalDisease from './AnimalDisease.svelte'
+import FactsQuestionsAnswers from './FactsQuestionsAnswers.svelte'
 
-describe('Animal disease', () => {
+describe('Facts Questions Answers', () => {
   const componentOptions = {
     title: 'This is the title for animal disease',
-    text: `<p>This is some text about the disease</p>`,
-    symptomsHeading: 'Symptomer',
-    symptoms: '<p>Describing the symptoms</p>',
-    routesOfInfectionHeading: 'Hvordan smitter sykdommen?',
-    routesOfInfection: '<p>Describing the routes of the infaction</p>',
-    infectionToHumansHeading: 'Kan sykdommen smitte til mennesker?',
-    infectionToHumans: '<a href="https://www.mattilsynet.no">Mattilsynet</a>',
-    imageUrl: 'http://localhost:3003',
-    imageAltText: 'Alt text',
-    caption: 'Figure caption'
+    facts: `<p>This is some text about the disease</p>`,
+    questionsAnswers: [
+      {
+        question: 'Symptomer',
+        answer: '<p>Describing the symptoms</p>',
+        imageUrl: 'http://localhost:3003',
+        imageAltText: 'Alt text',
+        caption: 'Figure caption'
+      },
+      {
+        question: 'Hvordan smitter sykdommen?',
+        answer: '<p>Describing the routes of the infaction</p>'
+      },
+      {
+        question: 'Kan sykdommen smitte til mennesker?',
+        answer: '<a href="https://www.mattilsynet.no">Mattilsynet</a>'
+      }
+    ]
   }
 
   test('Renders', () => {
-    const { getByText, getAllByText } = render(AnimalDisease, componentOptions)
+    const { getByText, getAllByText } = render(FactsQuestionsAnswers, componentOptions)
     expect(getAllByText('Symptomer').length).toEqual(2)
     expect(
-      getAllByText('Symptomer')[1].parentElement.classList.contains('display-none-important')
+      getAllByText('Symptomer')?.[1]?.parentElement?.classList?.contains('display-none-important')
     ).toEqual(true)
     expect(getByText('This is some text about the disease')).toBeInTheDocument()
     expect(getAllByText('Hvordan smitter sykdommen?').length).toEqual(2)
@@ -31,11 +39,10 @@ describe('Animal disease', () => {
   })
 
   test('Does not render accordion when body not defined', () => {
-    const { getAllByText, queryByText } = render(AnimalDisease, {
+    const { getAllByText, queryByText } = render(FactsQuestionsAnswers, {
       ...componentOptions,
-      text: null,
-      routesOfInfection: null,
-      infectionToHumans: null
+      facts: undefined,
+      questionsAnswers: [{ ...componentOptions.questionsAnswers[0] }]
     })
     expect(getAllByText('Symptomer').length).toEqual(2)
     expect(queryByText('This is some text about the disease')).not.toBeInTheDocument()
@@ -44,7 +51,7 @@ describe('Animal disease', () => {
   })
 
   test('Render properties when not defined', () => {
-    const { queryByText } = render(AnimalDisease, {})
+    const { queryByText } = render(FactsQuestionsAnswers, {})
     expect(queryByText('Symptomer')).not.toBeInTheDocument()
     expect(queryByText('Hvordan smitter sykdommen?')).not.toBeInTheDocument()
     expect(queryByText('Kan sykdommen smitte mennesker?')).not.toBeInTheDocument()

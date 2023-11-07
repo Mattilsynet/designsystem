@@ -33,7 +33,7 @@ export { default as Published } from './svelte/components/Published.svelte'
 export { default as SummaryDetail } from './svelte/components/SummaryDetail.svelte'
 export { default as Tags } from './svelte/components/Tags.svelte'
 
-export { default as AnimalDisease } from './svelte/content/AnimalDisease.svelte'
+export { default as FactsQuestionsAnswers } from './svelte/content/FactsQuestionsAnswers.svelte'
 export { default as CurrentIssues } from './svelte/content/CurrentIssues.svelte'
 export { default as HighlightedContentLink } from './svelte/content/HighlightedContentLink.svelte'
 export { default as MenuItems } from './svelte/content/MenuItems.svelte'
