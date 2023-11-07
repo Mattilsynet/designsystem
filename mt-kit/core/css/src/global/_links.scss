@@ -98,7 +98,7 @@ $transportlink-colors: 'error' !default;
 
   &.forward-arrow {
     &::before {
-      content: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNiIgaGVpZ2h0PSIxMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNLjIgMS40MyAzLjY2MSA1IC4yIDguNTdsMS4wNjYgMS4wOTdMNS44IDUgMS4yNjYuMzMzLjIgMS40M1oiIGZpbGw9IiM0NjQ1NDUiLz48L3N2Zz4=');
+      content: var(--icon-carret-breadcrumb);
       display: inline-block;
       margin-right: var(--spacer-x-small);
     }
@@ -123,7 +123,7 @@ $transportlink-colors: 'error' !default;
     }
     &:after {
       display: block;
-      background-image: url('data:image/svg+xml,%3Csvg%20width%3D%2221%22%20height%3D%2221%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M10.5.167%208.677%201.988l7.208%207.22H.166v2.584h15.72l-7.208%207.22%201.821%201.821L20.833%2010.5%2010.499.167Z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E');
+      background-image: var(--icon-arrow-primary-hover);
       margin-left: var(--spacer-xxx-small);
       padding-right: var(--icon-size-normal);
       content: '';
@@ -134,8 +134,7 @@ $transportlink-colors: 'error' !default;
     }
     &.blue-arrow {
       &:after {
-        //todo
-        background-image: url('data:image/svg+xml,%3Csvg%20width%3D%2221%22%20height%3D%2221%22%20viewBox%3D%220%200%2021%2021%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M10.1592%200.158204L8.39668%201.9207L15.3717%208.9082L0.159179%208.9082L0.159179%2011.4082L15.3717%2011.4082L8.39668%2018.3957L10.1592%2020.1582L20.1592%2010.1582L10.1592%200.158204Z%22%20fill%3D%22%23075B7A%22%2F%3E%0A%3C%2Fsvg%3E');
+        background-image: var(--icon-arrow-primary-hover);
       }
     }
     &--large {
@@ -154,7 +153,7 @@ $transportlink-colors: 'error' !default;
       padding-left: var(--spacer-xxx-small);
     }
     &:after {
-      content: url('data:image/svg+xml,%3Csvg%20width%3D%2214%22%20height%3D%2214%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M7.002.11%205.788%201.325l4.805%204.813H.113V7.86h10.48l-4.805%204.814%201.214%201.214L13.892%207%207.001.11Z%22%20fill%3D%22%23075B7A%22%2F%3E%3C%2Fsvg%3E');
+      content: var(--icon-arrow-primary);
       display: inline-block;
       height: 1.3125rem;
       margin-left: var(--spacer-xxx-small);
@@ -194,7 +193,7 @@ $transportlink-colors: 'error' !default;
 
     &:after {
       margin-left: var(--spacer-xxx-small);
-      background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0ibTYgLjA5NS0xLjA0IDEuMDQgNC4xMTggNC4xMjdILjA5NXYxLjQ3Nmg4Ljk4M2wtNC4xMTkgNC4xMjZMNiAxMS45MDQgMTEuOTA1IDYgNiAuMDk1WiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==');
+      background-image: var(--icon-arrow-primary-hover);
       content: '';
       width: var(--icon-size);
       height: var(--icon-size);
@@ -237,7 +236,7 @@ $transportlink-colors: 'error' !default;
   &.forward-arrow-after {
     display: block;
     &::after {
-      content: url('data:image/svg+xml,%3Csvg%20width%3D%2214%22%20height%3D%2214%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M7.002.11%205.788%201.325l4.805%204.813H.113V7.86h10.48l-4.805%204.814%201.214%201.214L13.892%207%207.001.11Z%22%20fill%3D%22%23075B7A%22%2F%3E%3C%2Fsvg%3E');
+      content: var(--icon-arrow-primary-hover);
       display: inline-block;
       margin-left: var(--spacer-xxx-small);
       margin-right: -2rem;
@@ -349,7 +348,7 @@ $transportlink-colors: 'error' !default;
       padding-left: var(--spacer-xxx-small);
     }
     &::after {
-      content: url('data:image/svg+xml,%3Csvg%20width%3D%2221%22%20height%3D%2221%22%20viewBox%3D%220%200%2021%2021%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M10.1592%200.158204L8.39668%201.9207L15.3717%208.9082L0.159179%208.9082L0.159179%2011.4082L15.3717%2011.4082L8.39668%2018.3957L10.1592%2020.1582L20.1592%2010.1582L10.1592%200.158204Z%22%20fill%3D%22%23075B7A%22%2F%3E%0A%3C%2Fsvg%3E');
+      content: var(--icon-arrow-primary-hover);
       display: inline-block;
       margin-right: -2rem;
       margin-left: var(--spacer-xxx-small);

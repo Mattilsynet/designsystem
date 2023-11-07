@@ -104,7 +104,7 @@ $icon-github: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.or
     }
   }
 
-  &--hamburger-menu-before {
+  &--hamburger-menu-on-dark-before {
     @extend .icon-align;
 
     &:before {
@@ -114,7 +114,7 @@ $icon-github: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.or
 
     &[aria-expanded='true'] {
       &::before {
-        @include close-x($color-mt-white);
+        @include close-x($color-primary);
       }
     }
 
@@ -130,7 +130,32 @@ $icon-github: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.or
       }
     }
   }
+  &--hamburger-menu-on-light-after {
+    @extend .icon-align;
 
+    &::after {
+      @include icon-background;
+      background-image: var(--icon-hamburger);
+    }
+
+    &[aria-expanded='true'] {
+      &::after {
+        background-image: var(--icon-x);
+      }
+    }
+
+    @media screen and (prefers-reduced-motion: no-preference) {
+      &[aria-expanded] {
+        &::after {
+          transition: transform 0.3s ease;
+        }
+      }
+
+      &[aria-expanded='true']::after {
+        transform: rotate(-180deg);
+      }
+    }
+  }
   &--newsletter-bell-before {
     @extend .icon-align;
 
@@ -249,7 +274,7 @@ $icon-github: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.or
 
     &:after {
       display: block;
-      background-image: var(--icon-arrow-white);
+      background-image: var(--icon-arrow-primary-hover);
       @include icon-background;
     }
   }

@@ -13,6 +13,7 @@
   const bodyId = `ui-dropdown-${counter++}`
   export let loadJs = false
   export let titleId = `${bodyId}-title`
+  export let icon = 'icon--hamburger-menu-on-light-after'
   let className = ''
   export { className as class }
 
@@ -37,7 +38,7 @@
 <div class="dropdown {className} {onServer ? 'on-server' : ''}" class:visible={isOpen || onServer}>
   {#if onServer}
     <details>
-      <summary class="mt-button mt-button--link">
+      <summary class="mt-button mt-button--link {icon}">
         {@html title}
       </summary>
       <div id={bodyId} class="dropdown-content">
@@ -47,7 +48,7 @@
   {:else}
     <button
       id={titleId}
-      class="mt-button mt-button--link"
+      class="mt-button mt-button--link {icon}"
       aria-haspopup="true"
       aria-expanded={isOpen}
       aria-controls={bodyId}
