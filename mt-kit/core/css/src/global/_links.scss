@@ -78,7 +78,7 @@ $transportlink-colors: 'error' !default;
     width: fit-content;
     color: var(--color-links);
     &::before {
-      content: url('data:image/svg+xml,%3Csvg%20width%3D%228%22%20height%3D%2212%22%20fill%3D%22%23075A78%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M7.41%201.41L6%200%200%206l6%206%201.41-1.41L2.83%206l4.58-4.59z%22%2F%3E%3C%2Fsvg%3E');
+      content: var(--icon-carret-back);
       display: inline-block;
       height: 1.375rem;
       margin-right: var(--spacer-xx-small);
@@ -153,7 +153,7 @@ $transportlink-colors: 'error' !default;
       padding-left: var(--spacer-xxx-small);
     }
     &:after {
-      content: var(--icon-arrow-primary-small);
+      content: var(--icon-arrow-right-primary-small);
       display: inline-block;
       height: 1.3125rem;
       margin-left: var(--spacer-xxx-small);
@@ -168,7 +168,7 @@ $transportlink-colors: 'error' !default;
       text-decoration: none;
     }
     &:after {
-      content: var(--icon-next-flat);
+      content: var(--icon-arrow-right-primary-x-small);
       display: inline-block;
       margin-left: var(--spacer-xxx-small);
     }
@@ -180,7 +180,7 @@ $transportlink-colors: 'error' !default;
       text-decoration: none;
     }
     &:before {
-      content: url('data:image/svg+xml,%3Csvg%20width%3D%2212%22%20height%3D%2212%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20clip-path%3D%22url%28%23a%29%22%3E%3Cpath%20d%3D%22m6%2011.904%201.04-1.04-4.118-4.126h8.982V5.26H2.922L7.04%201.135%206%20.095.095%206%206%2011.904Z%22%20fill%3D%22%23075B7A%22%2F%3E%3C%2Fg%3E%3Cdefs%3E%3CclipPath%20id%3D%22a%22%3E%3Cpath%20fill%3D%22%23fff%22%20transform%3D%22rotate%2890%206%206%29%22%20d%3D%22M0%200h12v12H0z%22%2F%3E%3C%2FclipPath%3E%3C%2Fdefs%3E%3C%2Fsvg%3E');
+      content: var(--icon-arrow-left-primary-x-small);
       display: inline-block;
       margin-right: var(--spacer-xxx-small);
     }
@@ -209,14 +209,20 @@ $transportlink-colors: 'error' !default;
     justify-content: flex-start;
     padding: var(--spacer-x-small);
     gap: var(--spacer-xxx-small);
-
+    &:hover {
+      .heading {
+        &::after {
+          content: var(--icon-arrow-primary-hover);
+        }
+      }
+    }
     .heading {
       width: 100%;
       text-align: left;
       padding-right: 2rem;
 
       &::after {
-        content: url('data:image/svg+xml,%3Csvg%20width%3D%2220%22%20height%3D%2221%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20clip-path%3D%22url%28%23clip0%29%22%3E%3Cpath%20d%3D%22M10%20.659L8.265%202.393%2015.13%209.27H.159v2.46h14.97l-6.864%206.877L10%2020.34l9.841-9.841L10%20.659z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fg%3E%3Cdefs%3E%3CclipPath%20id%3D%22clip0%22%3E%3Cpath%20fill%3D%22%23fff%22%20transform%3D%22rotate%28-90%2010.25%2010.25%29%22%20d%3D%22M0%200h20v20H0z%22%2F%3E%3C%2FclipPath%3E%3C%2Fdefs%3E%3C%2Fsvg%3E');
+        content: var(--icon-arrow-primary);
         display: inline-block;
         height: 1.75rem;
         margin-left: var(--spacer-xxx-small);
@@ -253,7 +259,13 @@ $transportlink-colors: 'error' !default;
     justify-content: flex-start;
     padding: var(--spacer-x-small);
     gap: var(--spacer-xx-small);
-
+    &:hover {
+      .text {
+        &::after {
+          content: var(--icon-arrow-primary-hover);
+        }
+      }
+    }
     .text {
       display: flex;
       align-items: center;
@@ -262,7 +274,7 @@ $transportlink-colors: 'error' !default;
       line-height: 140%;
 
       &::after {
-        content: url('data:image/svg+xml,%3Csvg%20width%3D%2220%22%20height%3D%2221%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20clip-path%3D%22url%28%23clip0%29%22%3E%3Cpath%20d%3D%22M10%20.659L8.265%202.393%2015.13%209.27H.159v2.46h14.97l-6.864%206.877L10%2020.34l9.841-9.841L10%20.659z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fg%3E%3Cdefs%3E%3CclipPath%20id%3D%22clip0%22%3E%3Cpath%20fill%3D%22%23fff%22%20transform%3D%22rotate%28-90%2010.25%2010.25%29%22%20d%3D%22M0%200h20v20H0z%22%2F%3E%3C%2FclipPath%3E%3C%2Fdefs%3E%3C%2Fsvg%3E');
+        content: var(--icon-arrow-primary);
         display: inline-block;
         height: 1.75rem;
       }
