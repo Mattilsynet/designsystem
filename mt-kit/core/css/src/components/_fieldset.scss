@@ -5,7 +5,6 @@
   min-width: 0;
   padding: 0;
   border: 0;
-
   > * {
     margin-top: var(--form-text-space);
   }
@@ -17,10 +16,9 @@
 
   .mt-legend {
     padding-inline: 0;
-
     &.border {
       font-weight: var(--font-weight-bold);
-      width: fit-content;
+      width: 100%;
       border-bottom: var(--border-width-small) solid $color-secondary;
       padding-bottom: var(--spacer-xx-small);
     }
