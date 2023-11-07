@@ -69,7 +69,7 @@
     &:focus,
     :focus-visible,
     &:focus-visible {
-      outline: $border-width-large solid set-focus-color($color);
+      outline: $border-width-large solid var(--menu-focus);
       box-shadow: none;
     }
   }
