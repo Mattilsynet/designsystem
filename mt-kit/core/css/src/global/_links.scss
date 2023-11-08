@@ -360,7 +360,7 @@ $transportlink-colors: 'error' !default;
       padding-left: var(--spacer-xxx-small);
     }
     &::after {
-      content: var(--icon-arrow-primary-hover);
+      content: var(--icon-arrow-right-primary);
       display: inline-block;
       margin-right: -2rem;
       margin-left: var(--spacer-xxx-small);
