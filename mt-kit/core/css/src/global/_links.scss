@@ -451,7 +451,7 @@ $transportlink-colors: 'error' !default;
       @extend .no-underline;
       background-color: transparent;
       color: var(--color-primary);
-      border: var(--border-width-regular) solid var(--transport-link-border);
+      border: var(--border-width-regular) solid var(--list-border);
       font-weight: var(--font-weight-bold);
       padding: var(--transportlink-padding);
       border-radius: $border-radius;

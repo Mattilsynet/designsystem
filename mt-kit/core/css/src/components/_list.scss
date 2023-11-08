@@ -101,7 +101,7 @@
     }
   }
   &.lines-between {
-    --border-color: var(--transport-link-border);
+    --border-color: var(--list-border);
     --border-width: #{$border-width-regular};
     --border-style: solid;
     --border: var(--border-width) var(--border-style) var(--border-color);
@@ -141,11 +141,11 @@
 
 .mt-ol.list {
   > li {
-    border-top: $border-width-small solid var(--mt-button-neutral-border);
+    border-top: $border-width-small solid var(--list-border);
     margin-top: 0;
     padding: var(--spacer-x-small);
     &:last-child {
-      border-bottom: var(--border-width-small) solid var(--mt-button-neutral-border);
+      border-bottom: var(--border-width-small) solid var(--list-border);
     }
     &:nth-child(even) {
       background-color: var(--color-mt-white);
