@@ -101,7 +101,7 @@
     }
   }
   &.lines-between {
-    --border-color: var(--mt-button-neutral-border);
+    --border-color: var(--transport-link-border);
     --border-width: #{$border-width-regular};
     --border-style: solid;
     --border: var(--border-width) var(--border-style) var(--border-color);

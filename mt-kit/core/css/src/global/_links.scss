@@ -451,14 +451,14 @@ $transportlink-colors: 'error' !default;
       @extend .no-underline;
       background-color: transparent;
       color: var(--color-primary);
-      border: var(--border-width-regular) solid var(--mt-button-neutral-border);
+      border: var(--border-width-regular) solid var(--transport-link-border);
       font-weight: var(--font-weight-bold);
       padding: var(--transportlink-padding);
       border-radius: $border-radius;
 
       &-large {
         @extend .no-underline;
-        color: var(--mt-button-neutral-color);
+        color: var(--transport-link-color);
         transition: padding-left ease-in-out 150ms;
         padding: var(--spacer-xx-small) 0;
         width: 100%;
