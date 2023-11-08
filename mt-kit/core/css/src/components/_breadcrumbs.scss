@@ -22,7 +22,7 @@
       }
       &:first-child {
         a::before {
-          content: var(--icon-carret-breadcrumb);
+          content: var(--icon-carret-right-small);
           display: inline-block;
           margin-right: var(--spacer-xx-small);
         }
@@ -65,7 +65,7 @@
           }
         }
         .last-breadcrumb::before {
-          content: var(--icon-carret-breadcrumb);
+          content: var(--icon-carret-right-small);
           display: inline-block;
           margin-right: var(--spacer-xxx-small);
         }
