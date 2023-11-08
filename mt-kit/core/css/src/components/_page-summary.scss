@@ -3,7 +3,7 @@
 
 .page-summary {
   --gap: var(--spacer-xx-small);
-  --border: 2px solid var(--color-mt-beige);
+  --border: $border-width-regular solid var(--list-border);
   --heading-padding-bottom: var(--spacer-xxx-small);
   --space-section: var(--spacer-small);
 
