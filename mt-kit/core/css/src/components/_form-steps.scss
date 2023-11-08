@@ -38,8 +38,7 @@ $step-ring-size: 2.125rem;
     }
 
     &:not(:last-of-type):after {
-      //todo
-      content: url('data:image/svg+xml,%3Csvg%20width%3D%2210%22%20height%3D%2214%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M.907%201.645L6.328%207l-5.42%205.355L2.575%2014l7.102-7-7.102-7L.907%201.645z%22%20fill%3D%22%23403F3F%22%2F%3E%3C%2Fsvg%3E');
+      content: var(--icon-carret-right);
       margin-left: var(--spacer-xx-small);
       height: 1rem;
       display: inline-block;
