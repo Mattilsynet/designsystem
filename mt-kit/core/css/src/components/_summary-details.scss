@@ -46,7 +46,7 @@ details {
   --detail-margin: var(--spacer-xxx-small);
   --detail-padding: var(--spacer-xxx-small);
   --summary-margin-bottom: var(--spacer-xx-small);
-  --border: #{$border-width-regular} solid var(--mt-button-neutral-border);
+  --border: #{$border-width-regular} solid var(--list-border);
 
   margin-top: var(--spacer-xxx-small);
 
@@ -66,7 +66,7 @@ details {
       margin-top: 0;
     }
     &::after {
-      content: var(--icon-carret-down);
+      content: var(--icon-carret-down-primary);
       display: inline-block;
       margin-left: var(--spacer-xxx-small);
     }
