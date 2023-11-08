@@ -242,7 +242,7 @@ $transportlink-colors: 'error' !default;
   &.forward-arrow-after {
     display: block;
     &::after {
-      content: var(--icon-arrow-primary-hover);
+      content: var(--icon-arrow-right-primary-small);
       display: inline-block;
       margin-left: var(--spacer-xxx-small);
       margin-right: -2rem;
