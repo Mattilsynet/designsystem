@@ -217,11 +217,12 @@
 }
 [data-theme='green'] {
   @include color-tokens-new();
-  --body-background: var(--color-mt-background);
+  --body-background: var(--color-mt-bg-beige);
   --body-color: var(--color-mt-text-dark);
   background-color: var(--body-background);
   color: var(--body-color);
 
+  --color-text: var(--color-mt-granskog-dark);
   --color-links: var(--color-mt-granskog-dark);
 
   --focus-on-light: var(--color-mt-granskog);
@@ -420,7 +421,7 @@
 
   --mt-button-no-primary-border-focus-shadow: var(--color-mt-lys-furu);
 
-  --mt-button-neutral-bg: var(--color-mt-new-white);
+  --mt-button-neutral-bg: var(--color-mt-bg-beige);
   --mt-button-neutral-color: var(--color-primary);
   --mt-button-neutral-border: var(--color-primary);
   --mt-button-neutral-bg-hover: var(--color-mt-bg-furu);
