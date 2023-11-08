@@ -335,7 +335,7 @@ $transportlink-colors: 'error' !default;
 
         &::after {
           display: flex;
-          content: var(--icon-arrow-primary-hover); //todo dark or granskog
+          content: var(--icon-arrow-right-primary);
         }
       }
       time + .heading {
