@@ -3,7 +3,7 @@
 
 .page-summary {
   --gap: var(--spacer-xx-small);
-  --border: $border-width-regular solid var(--list-border);
+  --pagesummary-border: #{$border-width-regular} solid var(--list-border);
   --heading-padding-bottom: var(--spacer-xxx-small);
   --space-section: var(--spacer-small);
 
@@ -20,7 +20,7 @@
   a {
     @extend .mt-link;
     grid-area: link;
-    border-bottom: var(--border);
+    border-bottom: var(--pagesummary-border);
     padding-bottom: var(--heading-padding-bottom);
     align-self: end;
     word-break: normal;
@@ -28,7 +28,7 @@
 
   h3 {
     grid-area: heading;
-    border-bottom: var(--border);
+    border-bottom: var(--pagesummary-border);
     padding-bottom: var(--heading-padding-bottom);
     align-self: end;
   }
