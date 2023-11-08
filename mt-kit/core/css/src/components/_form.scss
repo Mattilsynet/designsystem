@@ -201,7 +201,8 @@ $form-outline-color: 'var(--form-outline-color)' !default;
     margin-top: var(--form-control-vertical);
   }
 }
-.checkbox {
+.checkbox,
+.mt-button-checkbox {
   .input__control {
     @include error-style;
     @include radio-check-error-style;
@@ -225,7 +226,8 @@ $form-outline-color: 'var(--form-outline-color)' !default;
   }
 }
 
-.radio {
+.radio,
+.mt-button-radio {
   .input__control {
     @include error-style;
     @include radio-check-error-style;
