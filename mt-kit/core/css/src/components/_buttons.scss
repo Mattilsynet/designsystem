@@ -94,7 +94,7 @@ $icon-button-border-radius: 0.25em;
     --button-focus-inner: var(--button-background);
     --button-focus-outer: var(--button-color);
     --color: var(--button-background);
-    --background: var(--mt-button-neutral-bg); //transparent? what if on other than background
+    --background: var(--mt-button-neutral-bg);
 
     border-color: var(--color);
     color: var(--color);
