@@ -5,6 +5,9 @@
 
 .chapter-menu {
   $color: $color-primary;
+  --bg-active: var(--chapter-menu-active-on-dark);
+  --color-active: var(--color-mt-blue);
+  --link-color: var(--color-mt-white);
 
   background-color: var(--color-mt-blue);
   color: var(--color-mt-white);
@@ -46,7 +49,7 @@
   a {
     @extend .mt-link;
     display: block;
-    color: var(--color-mt-white);
+    color: var(--link-color);
     text-decoration: none;
     width: 100%;
     padding: var(--spacer-xxx-small) 0;
@@ -55,8 +58,8 @@
       text-decoration: underline;
     }
     &[aria-current='page'] {
-      background-color: var(--color-mt-rationale-blue);
-      color: var(--color-mt-blue);
+      background-color: var(--bg-active);
+      color: var(--color-active);
       font-weight: $font-weight-bold;
       padding-left: var(--spacer-xxx-small);
     }

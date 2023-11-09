@@ -3,22 +3,6 @@
 
 $icon-figma: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2290%22%20height%3D%2290%22%20fill%3D%22none%22%3E%3Cpath%20fill%3D%22%231E1E1E%22%20d%3D%22M0%200h90v90H0z%22%2F%3E%3Cg%20clip-path%3D%22url%28%23a%29%22%3E%3Cpath%20fill%3D%22%231ABCFE%22%20d%3D%22M45%2045.5a9.5%209.5%200%201%201%2019%200%209.5%209.5%200%200%201-19%200Z%22%2F%3E%3Cpath%20fill%3D%22%230ACF83%22%20d%3D%22M26%2064.5a9.5%209.5%200%200%201%209.5-9.5H45v9.5a9.5%209.5%200%201%201-19%200Z%22%2F%3E%3Cpath%20fill%3D%22%23FF7262%22%20d%3D%22M45%2017v19h9.5a9.5%209.5%200%201%200%200-19H45Z%22%2F%3E%3Cpath%20fill%3D%22%23F24E1E%22%20d%3D%22M26%2026.5a9.5%209.5%200%200%200%209.5%209.5H45V17h-9.5a9.5%209.5%200%200%200-9.5%209.5Z%22%2F%3E%3Cpath%20fill%3D%22%23A259FF%22%20d%3D%22M26%2045.5a9.5%209.5%200%200%200%209.5%209.5H45V36h-9.5a9.5%209.5%200%200%200-9.5%209.5Z%22%2F%3E%3C%2Fg%3E%3Cdefs%3E%3CclipPath%20id%3D%22a%22%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M26%2017h38v57H26z%22%2F%3E%3C%2FclipPath%3E%3C%2Fdefs%3E%3C%2Fsvg%3E');
 $icon-github: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M0%200v24h24V0H0zm14.534%2019.59c-.406.078-.534-.171-.534-.384v-2.195c0-.747-.262-1.233-.55-1.481%201.782-.198%203.654-.875%203.654-3.947%200-.874-.311-1.588-.824-2.147.083-.202.357-1.016-.079-2.117%200%200-.671-.215-2.198.82A7.603%207.603%200%200%200%2012%207.868a7.643%207.643%200%200%200-2.003.269c-1.528-1.035-2.2-.82-2.2-.82-.434%201.102-.16%201.915-.077%202.118a3.092%203.092%200%200%200-.824%202.147c0%203.064%201.867%203.751%203.645%203.954-.229.2-.436.552-.508%201.07-.457.204-1.614.557-2.328-.666%200%200-.423-.768-1.227-.825%200%200-.78-.01-.055.487%200%200%20.525.246.889%201.17%200%200%20.463%201.428%202.688.944v1.489c0%20.211-.129.459-.528.385A8%208%200%200%201%2012%204a8%208%200%200%201%202.534%2015.59z%22%2F%3E%3C%2Fsvg%3E');
-$icon-list-checkmark: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2213%22%20height%3D%2218%22%20fill%3D%22none%22%3E%3Cpath%20fill%3D%22%23075B7A%22%20d%3D%22M5.729%2017.334%202.995%209.336l-1.67%201.02-.474-.897L3.936%207.71l2.434%207.313L11.39.257h1.292L6.87%2017.334H5.73Z%22%2F%3E%3C%2Fsvg%3E');
-$icon-alert-filled-error: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22none%22%3E%3Ccircle%20cx%3D%228%22%20cy%3D%228%22%20r%3D%228%22%20fill%3D%22%23E23128%22%2F%3E%3Cg%20clip-path%3D%22url%28%23a%29%22%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M11.2%205.6%208.8%208l2.4%202.4-.8.8L8%208.8l-2.4%202.4-.8-.8L7.2%208%204.8%205.6l.8-.8L8%207.2l2.4-2.4.8.8Z%22%2F%3E%3C%2Fg%3E%3Cdefs%3E%3CclipPath%20id%3D%22a%22%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M4.8%204.8h6.4v6.4H4.8z%22%2F%3E%3C%2FclipPath%3E%3C%2Fdefs%3E%3C%2Fsvg%3E');
-$icon-alert-filled-success: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22none%22%3E%3Ccircle%20cx%3D%228%22%20cy%3D%228%22%20r%3D%228%22%20fill%3D%22%23B0B71A%22%2F%3E%3Cpath%20fill%3D%22%233F3E3E%22%20d%3D%22M5.043%207.329%204%208.54%207.458%2011.2%2012%206.476l-1.098-.965L7.465%209.3%205.043%207.33Z%22%2F%3E%3C%2Fsvg%3E');
-$icon-alert-filled-warning: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22none%22%3E%3Ccircle%20cx%3D%228%22%20cy%3D%228%22%20r%3D%228%22%20fill%3D%22%23EFA60B%22%2F%3E%3Cpath%20fill%3D%22%233F3E3E%22%20d%3D%22M5.043%207.329%204%208.54%207.458%2011.2%2012%206.476l-1.098-.965L7.465%209.3%205.043%207.33Z%22%2F%3E%3C%2Fsvg%3E');
-$icon-alert-filled-repealed: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22none%22%3E%3Ccircle%20cx%3D%228%22%20cy%3D%228%22%20r%3D%228%22%20fill%3D%22%23676560%22%2F%3E%3Cpath%20fill%3D%22%23fff%22%20fill-rule%3D%22evenodd%22%20d%3D%22M11.209%204.304v-.5h-1v.829a4.258%204.258%200%200%200-4.527.069%204.098%204.098%200%200%200-1.684%202.212%204.003%204.003%200%200%200%20.14%202.761%204.124%204.124%200%200%200%201.896%202.04%204.269%204.269%200%200%200%202.78.401c.945-.183%201.799-.68%202.415-1.41.616-.732.954-1.65.954-2.6h-1.2c0%20.663-.236%201.309-.672%201.826a3.002%203.002%200%200%201-1.726%201.006c-.68.132-1.387.03-1.997-.288a2.924%202.924%200%200%201-1.346-1.444%202.803%202.803%200%200%201-.098-1.935%202.898%202.898%200%200%201%201.192-1.564%203.058%203.058%200%200%201%202.783-.28h-.577v1h2.667V4.304Z%22%20clip-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E');
-$icon-search-blue-medium: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAxOSAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMC40NTI1IDEwLjk4M0wxMC40ODMgMTAuOTUyNUMxMi4yODg5IDkuMTMwMTYgMTIuMjgzOSA2LjE4ODg3IDEwLjQ2NzggNC4zNzI3OUM4LjY0NjY1IDIuNTUxNjQgNS42OTM5OCAyLjU1MTY0IDMuODcyODIgNC4zNzI3OUMyLjA1MTY2IDYuMTkzOTUgMi4wNTE2NiA5LjE0NjYzIDMuODcyODIgMTAuOTY3OEM1LjY4ODg5IDEyLjc4MzkgOC42MzAxOCAxMi43ODg5IDEwLjQ1MjUgMTAuOTgzWk0xMS4yMjM4IDEzLjM3MjVDOC40OTE5OSAxNS4zMTk0IDQuNjc0OTMgMTUuMDY3NCAyLjIyNDA3IDEyLjYxNjVDLTAuNTA3NjYgOS44ODQ4IC0wLjUwNzY2IDUuNDU1NzggMi4yMjQwNyAyLjcyNDA1QzQuOTU1ODEgLTAuMDA3Njg2MTIgOS4zODQ4MiAtMC4wMDc2ODY0NiAxMi4xMTY2IDIuNzI0MDVDMTQuNTY3NCA1LjE3NDkxIDE0LjgxOTQgOC45OTE5NyAxMi44NzI1IDExLjcyMzhMMTguNzExNSAxNy41NjI3TDE3LjA2MjggMTkuMjExNUwxMS4yMjM4IDEzLjM3MjVaIiBmaWxsPSJyZ2JhKDUxLDEzOSwxNjMsMSkiLz4KPC9zdmc+Cg==');
-$icon-search-beige: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAxOSAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMC40NTI1IDEwLjk4M0wxMC40ODMgMTAuOTUyNUMxMi4yODg5IDkuMTMwMTYgMTIuMjgzOSA2LjE4ODg3IDEwLjQ2NzggNC4zNzI3OUM4LjY0NjY1IDIuNTUxNjQgNS42OTM5OCAyLjU1MTY0IDMuODcyODIgNC4zNzI3OUMyLjA1MTY2IDYuMTkzOTUgMi4wNTE2NiA5LjE0NjYzIDMuODcyODIgMTAuOTY3OEM1LjY4ODg5IDEyLjc4MzkgOC42MzAxOCAxMi43ODg5IDEwLjQ1MjUgMTAuOTgzWk0xMS4yMjM4IDEzLjM3MjVDOC40OTE5OSAxNS4zMTk0IDQuNjc0OTMgMTUuMDY3NCAyLjIyNDA3IDEyLjYxNjVDLTAuNTA3NjYgOS44ODQ4IC0wLjUwNzY2IDUuNDU1NzggMi4yMjQwNyAyLjcyNDA1QzQuOTU1ODEgLTAuMDA3Njg2MTIgOS4zODQ4MiAtMC4wMDc2ODY0NiAxMi4xMTY2IDIuNzI0MDVDMTQuNTY3NCA1LjE3NDkxIDE0LjgxOTQgOC45OTE5NyAxMi44NzI1IDExLjcyMzhMMTguNzExNSAxNy41NjI3TDE3LjA2MjggMTkuMjExNUwxMS4yMjM4IDEzLjM3MjVaIiBmaWxsPSJoc2woMzcsIDM5JSwgOTElKSIvPgo8L3N2Zz4=');
-$icon-search-black: url('data:image/svg+xml,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%201%2020%2020%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20clip-path%3D%22url%28%23a%29%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22m10.953%2010.983.03-.03a4.663%204.663%200%201%200-.03.03Zm.77%202.39a6.995%206.995%200%201%201%201.649-1.649l5.84%205.838-1.65%201.65-5.838-5.84Z%22%20fill%3D%22%233F3E3E%22%2F%3E%3C%2Fg%3E%3Cdefs%3E%3CclipPath%20id%3D%22a%22%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M0%200h20v20H0z%22%2F%3E%3C%2FclipPath%3E%3C%2Fdefs%3E%3C%2Fsvg%3E');
-$icon-arrow-white: url('data:image/svg+xml,%3Csvg%20width%3D%2221%22%20height%3D%2221%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M10.5.167%208.677%201.988l7.208%207.22H.166v2.584h15.72l-7.208%207.22%201.821%201.821L20.833%2010.5%2010.499.167Z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E');
-$icon-arrow-blue: url('data:image/svg+xml,%3Csvg%20width%3D%2221%22%20height%3D%2221%22%20viewBox%3D%220%200%2021%2021%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M10.1592%200.158204L8.39668%201.9207L15.3717%208.9082L0.159179%208.9082L0.159179%2011.4082L15.3717%2011.4082L8.39668%2018.3957L10.1592%2020.1582L20.1592%2010.1582L10.1592%200.158204Z%22%20fill%3D%22%23075B7A%22%2F%3E%0A%3C%2Fsvg%3E');
-$icon-newsletter-blue: url('data:image/svg+xml, %0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20fill%3D%22none%22%3E%3Cpath%20fill%3D%22%23075B7A%22%20d%3D%22M5.567%201.62%204.132.155A10.765%2010.765%200%200%200%200%208.205h2.006a8.808%208.808%200%200%201%201.045-3.708A8.6%208.6%200%200%201%205.567%201.62Zm12.427%206.585H20A10.831%2010.831%200%200%200%2015.868.154L14.443%201.62A8.653%208.653%200%200%201%2016.95%204.5a8.862%208.862%200%200%201%201.045%203.704Zm-1.976.513c0-3.149-1.645-5.785-4.514-6.482v-.698C11.505.688%2010.834%200%2010%200c-.832%200-1.505.687-1.505%201.538v.698c-2.878.697-4.513%203.323-4.513%206.482v5.128l-2.006%202.051v1.026h16.048v-1.026l-2.006-2.05V8.717ZM10%2020c.14%200%20.27-.01.401-.041a2.046%202.046%200%200%200%201.444-1.21%202.1%202.1%200%200%200%20.151-.8H7.984C7.994%2019.077%208.887%2020%2010%2020Z%22%2F%3E%3C%2Fsvg%3E');
-$icon-newsletter-white: url('data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20fill%3D%22none%22%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M5.567%201.62%204.132.155A10.765%2010.765%200%200%200%200%208.205h2.006a8.808%208.808%200%200%201%201.045-3.708A8.6%208.6%200%200%201%205.567%201.62Zm12.427%206.585H20A10.831%2010.831%200%200%200%2015.868.154L14.443%201.62A8.653%208.653%200%200%201%2016.95%204.5a8.862%208.862%200%200%201%201.045%203.704Zm-1.976.513c0-3.149-1.645-5.785-4.514-6.482v-.698C11.505.688%2010.834%200%2010%200c-.832%200-1.505.687-1.505%201.538v.698c-2.878.697-4.513%203.323-4.513%206.482v5.128l-2.006%202.051v1.026h16.048v-1.026l-2.006-2.05V8.717ZM10%2020c.14%200%20.27-.01.401-.041a2.046%202.046%200%200%200%201.444-1.21%202.1%202.1%200%200%200%20.151-.8H7.984C7.994%2019.077%208.887%2020%2010%2020Z%22%2F%3E%3C%2Fsvg%3E');
-$icon-changelog-blue: url('data:image/svg+xml, %0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2221%22%20height%3D%2220%22%20fill%3D%22none%22%3E%3Cpath%20fill%3D%22%23075B7A%22%20fill-rule%3D%22evenodd%22%20d%3D%22M18.022.012v5.557h-5.667v-1.5h2.896a8.101%208.101%200%200%200-3.968-1.49%208.146%208.146%200%200%200-5.215%201.27%207.745%207.745%200%200%200-3.186%204.18%207.508%207.508%200%200%200%20.262%205.182%207.811%207.811%200%200%200%203.595%203.859%208.172%208.172%200%200%200%205.318.767%208.005%208.005%200%200%200%204.603-2.684%207.583%207.583%200%200%200%201.798-4.889h2c0%202.257-.804%204.44-2.269%206.178a10.004%2010.004%200%200%201-5.751%203.359c-2.254.436-4.593.099-6.623-.957a9.81%209.81%200%200%201-4.512-4.85%209.508%209.508%200%200%201-.33-6.56%209.745%209.745%200%200%201%204.005-5.26A10.146%2010.146%200%200%201%2011.473.587c1.84.177%203.587.849%205.049%201.932V.012h1.5Zm-6.966%207.175a1%201%200%201%200-2%200v4.329l.503.287%203.134%201.795a1%201%200%201%200%20.994-1.735l-2.631-1.507v-3.17Z%22%20clip-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E');
-$icon-calendar: url('data:image/svg+xml, %3Csvg%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M3.5122%209.22374H6.53659V11.9635H3.5122V9.22374Z%22%20fill%3D%22%233F3E3E%22%2F%3E%0A%3Cpath%20d%3D%22M6.53659%2013.8813H3.5122V16.621H6.53659V13.8813Z%22%20fill%3D%22%233F3E3E%22%2F%3E%0A%3Cpath%20d%3D%22M8.4878%209.22374H11.5122V11.9635H8.4878V9.22374Z%22%20fill%3D%22%233F3E3E%22%2F%3E%0A%3Cpath%20d%3D%22M11.5122%2013.8813H8.4878V16.621H11.5122V13.8813Z%22%20fill%3D%22%233F3E3E%22%2F%3E%0A%3Cpath%20d%3D%22M16.4878%209.22374V11.9635H13.4634V9.22374H16.4878Z%22%20fill%3D%22%233F3E3E%22%2F%3E%0A%3Cpath%20d%3D%22M16.4878%2016.621V13.8813H13.4634V16.621H16.4878Z%22%20fill%3D%22%233F3E3E%22%2F%3E%0A%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M4.92683%200C5.33094%200%205.65854%200.306654%205.65854%200.684932V1.18721H14.2439V0.684932C14.2439%200.306654%2014.5715%200%2014.9756%200C15.3797%200%2015.7073%200.306654%2015.7073%200.684932V1.18721H19.6098C19.8253%201.18721%2020%201.35076%2020%201.55251V19.6347C20%2019.8365%2019.8253%2020%2019.6098%2020H0.390244C0.174718%2020%200%2019.8365%200%2019.6347V1.55251C0%201.35076%200.174718%201.18721%200.390244%201.18721H4.19512V0.684932C4.19512%200.306654%204.52272%200%204.92683%200ZM14.2439%202.55708V2.69406C14.2439%203.07234%2014.5715%203.379%2014.9756%203.379C15.3797%203.379%2015.7073%203.07234%2015.7073%202.69406V2.55708H18.5366V5.84475H1.46341V2.55708H4.19512V2.69406C4.19512%203.07234%204.52272%203.379%204.92683%203.379C5.33094%203.379%205.65854%203.07234%205.65854%202.69406V2.55708H14.2439ZM1.46341%207.21461V18.6301H18.5366V7.21461H1.46341Z%22%20fill%3D%22%233F3E3E%22%2F%3E%0A%3C%2Fsvg%3E%0A');
-$icon-important: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8Y2lyY2xlIGN4PSIxNSIgY3k9IjE1IiByPSIxNSIgZmlsbD0iI0UyMzEyOCIvPgogIDxwYXRoIGQ9Ik0xMy4zNjcgNy42NTRoMy4wNTd2My42NTNsLS43OTEgNi43MThoLTEuNDU1bC0uODEtNi43MThWNy42NTRabS4wNjggMTEuNTI0aDIuOTFWMjJoLTIuOTF2LTIuODIyWiIgZmlsbD0iI2ZmZiIvPgo8L3N2Zz4K');
-$icon-important-large: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTUiIGN5PSIxNSIgcj0iMTUiIGZpbGw9IiNFMjMxMjgiLz4KPHBhdGggZD0iTTEzLjM2NzIgNy42NTQzSDE2LjQyMzhWMTEuMzA2NkwxNS42MzI4IDE4LjAyNTRIMTQuMTc3N0wxMy4zNjcyIDExLjMwNjZWNy42NTQzWk0xMy40MzU1IDE5LjE3NzdIMTYuMzQ1N1YyMkgxMy40MzU1VjE5LjE3NzdaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K');
 
 .icon-align {
   display: flex;
@@ -115,22 +99,22 @@ $icon-important-large: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaW
     @extend .icon-align;
 
     &:before {
-      background-image: $icon-changelog-blue;
+      background-image: var(--icon-changelog);
       @include icon-background;
     }
   }
 
-  &--hamburger-menu-before {
+  &--hamburger-menu-on-dark-before {
     @extend .icon-align;
 
     &:before {
-      @include hamburger($color-mt-white);
+      background-image: var(--icon-hamburger-on-dark);
       @include icon-background;
     }
 
     &[aria-expanded='true'] {
       &::before {
-        @include close-x($color-mt-white);
+        background-image: var(--icon-x-on-dark);
       }
     }
 
@@ -146,18 +130,43 @@ $icon-important-large: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaW
       }
     }
   }
+  &--hamburger-menu-on-light-after {
+    @extend .icon-align;
 
+    &::after {
+      @include icon-background;
+      background-image: var(--icon-hamburger);
+    }
+
+    &[aria-expanded='true'] {
+      &::after {
+        background-image: var(--icon-x);
+      }
+    }
+
+    @media screen and (prefers-reduced-motion: no-preference) {
+      &[aria-expanded] {
+        &::after {
+          transition: transform 0.3s ease;
+        }
+      }
+
+      &[aria-expanded='true']::after {
+        transform: rotate(-180deg);
+      }
+    }
+  }
   &--newsletter-bell-before {
     @extend .icon-align;
 
     &:before {
-      background-image: $icon-newsletter-blue;
+      background-image: var(--icon-newsletter-neutral);
       @include icon-background;
     }
 
     &:hover {
       &:before {
-        background-image: $icon-newsletter-white;
+        background-image: var(--icon-newsletter-neutral-hover);
       }
     }
   }
@@ -166,7 +175,7 @@ $icon-important-large: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaW
     @extend .icon-align;
 
     &:before {
-      background-image: $icon-alert-filled-error;
+      background-image: var(--icon-alert-filled-error);
       @include icon-background;
     }
   }
@@ -175,7 +184,7 @@ $icon-important-large: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaW
     @extend .icon-align;
 
     &:before {
-      background-image: $icon-alert-filled-success;
+      background-image: var(--icon-alert-filled-success);
       @include icon-background;
     }
   }
@@ -184,7 +193,7 @@ $icon-important-large: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaW
     @extend .icon-align;
 
     &:before {
-      background-image: $icon-alert-filled-warning;
+      background-image: var(--icon-alert-filled-warning);
       @include icon-background;
     }
   }
@@ -193,7 +202,7 @@ $icon-important-large: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaW
     @extend .icon-align;
 
     &:before {
-      background-image: $icon-alert-filled-repealed;
+      background-image: var(--icon-alert-filled-repealed);
       @include icon-background;
     }
   }
@@ -220,25 +229,33 @@ $icon-important-large: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaW
     @extend .icon-align, .icon-align--baseline;
 
     &:before {
-      background-image: $icon-list-checkmark;
+      background-image: var(--icon-list-checkmark);
       @include icon-background;
     }
   }
 
   &--search-before {
     @extend .icon-align;
-
     &:before {
-      background-image: $icon-search-blue-medium;
+      background-image: var(--icon-search-neutral);
       @include icon-background;
+    }
+    &:hover {
+      &:before {
+        background-image: var(--icon-search-neutral-hover);
+      }
     }
   }
 
-  &--search-before-beige {
+  &--search-before-primary {
     @extend .icon--search-before;
-
     &:before {
-      background-image: $icon-search-beige;
+      background-image: var(--icon-search-primary);
+    }
+    &:hover {
+      &:before {
+        background-image: var(--icon-search-primary-hover);
+      }
     }
   }
 
@@ -247,7 +264,7 @@ $icon-important-large: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaW
 
     &:after {
       display: block;
-      background-image: $icon-search-black;
+      background-image: var(--icon-search-black);
       @include icon-background;
     }
   }
@@ -257,7 +274,7 @@ $icon-important-large: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaW
 
     &:after {
       display: block;
-      background-image: $icon-arrow-white;
+      background-image: var(--icon-arrow-primary-hover);
       @include icon-background;
     }
   }
@@ -266,7 +283,7 @@ $icon-important-large: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaW
     @extend .icon-align;
 
     &:before {
-      background-image: $icon-calendar;
+      background-image: var(--icon-calendar);
       @include icon-background;
     }
   }

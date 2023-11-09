@@ -98,6 +98,10 @@
   padding: var(--spacer-xxx-small);
 }
 
+.p-t-s {
+  padding-top: var(--spacer-small);
+}
+
 .p-t-xs {
   padding-top: var(--spacer-x-small);
 }
@@ -152,7 +156,7 @@
 }
 
 .border-b-secondary {
-  border-bottom: $border-width-regular solid var(--color-secondary);
+  border-bottom: $border-width-regular solid var(--list-border);
 }
 
 .border-radius-0 {

@@ -2,13 +2,9 @@
 @use '../global/links' as *;
 
 .current-issues {
-  --border-color: var(--color-mt-green);
-  --border-width: #{$border-width-regular};
-  --border-style: solid;
-  --border: var(--border-width) var(--border-style) var(--border-color);
   --issues-padding: var(--spacer-x-small);
 
-  background-color: var(--color-mt-light-green);
+  background-color: var(--current-issues-bg);
   padding: var(--spacer-small) var(--spacer-x-small) var(--spacer-x-small);
   a {
     @extend .mt-link;
@@ -22,12 +18,11 @@
   h3,
   h4 {
     display: flex;
-    border-bottom: var(--border);
     padding-bottom: var(--spacer-x-small);
     &::before {
-      content: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2227%22%20height%3D%2234%22%20fill%3D%22none%22%3E%3Cpath%20fill%3D%22%233F3E3E%22%20fill-rule%3D%22evenodd%22%20d%3D%22M26.5%201.964V0l-1.588%201.155-10.737%207.809H3c-1.021%200-1.8.327-2.321.87A2.4%202.4%200%200%200%200%2011.464V21.464c0%20.726.325%201.276.79%201.611.416.299.883.389%201.21.389h6.5v9.555h2v-9.555h3.691l10.746%207.326%201.563%201.066V1.964Zm-11.412%208.809L24.5%203.928v24.144l-9.437-6.434-.255-.174H2V11.463a.32.32%200%200%201%20.022-.09.462.462%200%200%201%20.1-.155c.078-.082.3-.255.878-.255H14.825l.263-.191Z%22%20clip-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E');
+      content: var(--icon-current-issue);
       margin-right: var(--spacer-x-small);
-      height: #{$menu-point-icon-height};
+      height: var(--menu-point-icon-height);
       width: #{$icon-size-x-large};
     }
   }

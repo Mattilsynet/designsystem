@@ -15,6 +15,17 @@ title: Color Token Contrast
   - `color-on-primary`
   - `color-on-error`
   - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-mt-bg-furu`
+  - `color-mt-bg-fjord`
+  - `color-mt-lys-rognebaer`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-sommerdag`
+  - `color-mt-lys-sommerdag`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-beige`
 
 ## color-on-mt-blue
   - `color-mt-blue`
@@ -35,6 +46,22 @@ title: Color Token Contrast
   - `color-error`
   - `color-error-50`
   - `color-on-mt-yellowgreen`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-on-mt-lys-furu`
+  - `color-on-mt-bg-furu`
+  - `color-mt-fjord`
+  - `color-on-mt-lys-fjord`
+  - `color-on-mt-bg-fjord`
+  - `color-mt-rognebaer-contrast`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-sommerdag-contrast`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-beige`
 
 ## color-mt-red
   - No safe options
@@ -62,6 +89,25 @@ title: Color Token Contrast
   - `color-on-error-50`
   - `color-mt-yellowgreen`
   - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-on-mt-granskog-dark`
+  - `color-mt-furu`
+  - `color-mt-lys-furu`
+  - `color-mt-bg-furu`
+  - `color-on-mt-fjord`
+  - `color-mt-lys-fjord`
+  - `color-mt-bg-fjord`
+  - `color-on-mt-rognebaer-contrast`
+  - `color-mt-rognebaer`
+  - `color-mt-lys-rognebaer`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-sommerdag-contrast`
+  - `color-mt-sommerdag`
+  - `color-mt-lys-sommerdag`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-beige`
 
 ## color-mt-red-uu
   - `color-on-mt-blue`
@@ -76,6 +122,18 @@ title: Color Token Contrast
   - `color-on-error`
   - `color-on-error-50`
   - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-mt-bg-furu`
+  - `color-mt-lys-fjord`
+  - `color-mt-bg-fjord`
+  - `color-mt-lys-rognebaer`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-sommerdag`
+  - `color-mt-lys-sommerdag`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-beige`
 
 ## color-on-mt-red-uu
   - `color-on-mt-red`
@@ -94,6 +152,22 @@ title: Color Token Contrast
   - `color-error`
   - `color-error-50`
   - `color-on-mt-yellowgreen`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-on-mt-lys-furu`
+  - `color-on-mt-bg-furu`
+  - `color-mt-fjord`
+  - `color-on-mt-lys-fjord`
+  - `color-on-mt-bg-fjord`
+  - `color-mt-rognebaer-contrast`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-sommerdag-contrast`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-beige`
 
 ## color-mt-beige
   - `color-on-mt-red`
@@ -103,6 +177,17 @@ title: Color Token Contrast
   - `color-on-mt-grey`
   - `color-on-mt-blue-medium`
   - `color-on-secondary`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-fjord`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-beige`
 
 ## color-on-mt-beige
   - `color-on-mt-blue`
@@ -122,6 +207,22 @@ title: Color Token Contrast
   - `color-on-error-50`
   - `color-mt-yellowgreen`
   - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-mt-lys-furu`
+  - `color-mt-bg-furu`
+  - `color-on-mt-fjord`
+  - `color-mt-lys-fjord`
+  - `color-mt-bg-fjord`
+  - `color-on-mt-rognebaer-contrast`
+  - `color-mt-lys-rognebaer`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-sommerdag-contrast`
+  - `color-mt-sommerdag`
+  - `color-mt-lys-sommerdag`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-beige`
 
 ## color-mt-beige-50
   - `color-on-mt-red`
@@ -129,6 +230,17 @@ title: Color Token Contrast
   - `color-on-mt-light-blue`
   - `color-on-mt-grey`
   - `color-on-mt-blue-medium`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-fjord`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-beige`
 
 ## color-on-mt-beige-50
   - `color-on-mt-blue`
@@ -150,6 +262,22 @@ title: Color Token Contrast
   - `color-on-error-50`
   - `color-mt-yellowgreen`
   - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-mt-lys-furu`
+  - `color-mt-bg-furu`
+  - `color-on-mt-fjord`
+  - `color-mt-lys-fjord`
+  - `color-mt-bg-fjord`
+  - `color-on-mt-rognebaer-contrast`
+  - `color-mt-lys-rognebaer`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-sommerdag-contrast`
+  - `color-mt-sommerdag`
+  - `color-mt-lys-sommerdag`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-beige`
 
 ## color-mt-light-beige
   - `color-mt-blue`
@@ -174,6 +302,25 @@ title: Color Token Contrast
   - `color-error-50`
   - `color-on-mt-yellowgreen`
   - `color-on-mt-yellowgreen-lighter`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-on-mt-lys-furu`
+  - `color-on-mt-bg-furu`
+  - `color-mt-fjord`
+  - `color-on-mt-lys-fjord`
+  - `color-on-mt-bg-fjord`
+  - `color-mt-rognebaer-contrast`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-lys-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-sommerdag-contrast`
+  - `color-on-mt-sommerdag`
+  - `color-on-mt-lys-sommerdag`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-beige`
 
 ## color-on-mt-light-beige
   - `color-mt-light-beige`
@@ -181,6 +328,11 @@ title: Color Token Contrast
   - `color-mt-white`
   - `color-on-primary`
   - `color-on-error`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-mt-bg-furu`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-bg-beige`
 
 ## color-mt-background
   - `color-mt-blue`
@@ -206,12 +358,34 @@ title: Color Token Contrast
   - `color-error-50`
   - `color-on-mt-yellowgreen`
   - `color-on-mt-yellowgreen-lighter`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-on-mt-lys-furu`
+  - `color-on-mt-bg-furu`
+  - `color-mt-fjord`
+  - `color-on-mt-lys-fjord`
+  - `color-on-mt-bg-fjord`
+  - `color-mt-rognebaer-contrast`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-lys-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-sommerdag-contrast`
+  - `color-on-mt-sommerdag`
+  - `color-on-mt-lys-sommerdag`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-beige`
 
 ## color-on-mt-background
   - `color-mt-background`
   - `color-mt-white`
   - `color-on-primary`
   - `color-on-error`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-mt-bg-beige`
 
 ## color-mt-light-blue
   - `color-on-mt-red`
@@ -237,6 +411,25 @@ title: Color Token Contrast
   - `color-on-error-50`
   - `color-mt-yellowgreen`
   - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-on-mt-granskog-dark`
+  - `color-mt-furu`
+  - `color-mt-lys-furu`
+  - `color-mt-bg-furu`
+  - `color-on-mt-fjord`
+  - `color-mt-lys-fjord`
+  - `color-mt-bg-fjord`
+  - `color-on-mt-rognebaer-contrast`
+  - `color-mt-rognebaer`
+  - `color-mt-lys-rognebaer`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-sommerdag-contrast`
+  - `color-mt-sommerdag`
+  - `color-mt-lys-sommerdag`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-beige`
 
 ## color-mt-lighter-light-blue
   - `color-mt-blue`
@@ -259,6 +452,25 @@ title: Color Token Contrast
   - `color-error`
   - `color-error-50`
   - `color-on-mt-yellowgreen`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-on-mt-lys-furu`
+  - `color-on-mt-bg-furu`
+  - `color-mt-fjord`
+  - `color-on-mt-lys-fjord`
+  - `color-on-mt-bg-fjord`
+  - `color-mt-rognebaer-contrast`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-lys-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-sommerdag-contrast`
+  - `color-on-mt-sommerdag`
+  - `color-on-mt-lys-sommerdag`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-beige`
 
 ## color-on-mt-lighter-light-blue
   - `color-mt-light-beige`
@@ -270,6 +482,13 @@ title: Color Token Contrast
   - `color-on-primary`
   - `color-on-error`
   - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-mt-bg-furu`
+  - `color-mt-bg-fjord`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-bg-beige`
 
 ## color-mt-rationale-blue
   - `color-mt-blue`
@@ -292,6 +511,25 @@ title: Color Token Contrast
   - `color-error`
   - `color-error-50`
   - `color-on-mt-yellowgreen`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-on-mt-lys-furu`
+  - `color-on-mt-bg-furu`
+  - `color-mt-fjord`
+  - `color-on-mt-lys-fjord`
+  - `color-on-mt-bg-fjord`
+  - `color-mt-rognebaer-contrast`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-lys-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-sommerdag-contrast`
+  - `color-on-mt-sommerdag`
+  - `color-on-mt-lys-sommerdag`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-beige`
 
 ## color-on-mt-rationale-blue
   - `color-on-mt-blue`
@@ -310,6 +548,22 @@ title: Color Token Contrast
   - `color-on-error-50`
   - `color-mt-yellowgreen`
   - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-mt-lys-furu`
+  - `color-mt-bg-furu`
+  - `color-on-mt-fjord`
+  - `color-mt-lys-fjord`
+  - `color-mt-bg-fjord`
+  - `color-on-mt-rognebaer-contrast`
+  - `color-mt-lys-rognebaer`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-sommerdag-contrast`
+  - `color-mt-sommerdag`
+  - `color-mt-lys-sommerdag`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-beige`
 
 ## color-mt-brown
   - `color-on-mt-blue`
@@ -328,6 +582,22 @@ title: Color Token Contrast
   - `color-on-error-50`
   - `color-mt-yellowgreen`
   - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-mt-lys-furu`
+  - `color-mt-bg-furu`
+  - `color-on-mt-fjord`
+  - `color-mt-lys-fjord`
+  - `color-mt-bg-fjord`
+  - `color-on-mt-rognebaer-contrast`
+  - `color-mt-lys-rognebaer`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-sommerdag-contrast`
+  - `color-mt-sommerdag`
+  - `color-mt-lys-sommerdag`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-beige`
 
 ## color-on-mt-brown
   - `color-on-mt-red`
@@ -341,11 +611,33 @@ title: Color Token Contrast
   - `color-on-mt-blue-medium`
   - `color-on-secondary`
   - `color-mt-text-dark`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-fjord`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-beige`
 
 ## color-mt-grey
   - `color-on-mt-red`
   - `color-on-mt-light-blue`
   - `color-on-mt-blue-medium`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-fjord`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-beige`
 
 ## color-on-mt-grey
   - `color-on-mt-blue`
@@ -367,6 +659,22 @@ title: Color Token Contrast
   - `color-on-error-50`
   - `color-mt-yellowgreen`
   - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-mt-lys-furu`
+  - `color-mt-bg-furu`
+  - `color-on-mt-fjord`
+  - `color-mt-lys-fjord`
+  - `color-mt-bg-fjord`
+  - `color-on-mt-rognebaer-contrast`
+  - `color-mt-lys-rognebaer`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-sommerdag-contrast`
+  - `color-mt-sommerdag`
+  - `color-mt-lys-sommerdag`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-beige`
 
 ## color-mt-white
   - `color-mt-blue`
@@ -392,6 +700,25 @@ title: Color Token Contrast
   - `color-error-50`
   - `color-on-mt-yellowgreen`
   - `color-on-mt-yellowgreen-lighter`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-on-mt-lys-furu`
+  - `color-on-mt-bg-furu`
+  - `color-mt-fjord`
+  - `color-on-mt-lys-fjord`
+  - `color-on-mt-bg-fjord`
+  - `color-mt-rognebaer-contrast`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-lys-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-sommerdag-contrast`
+  - `color-on-mt-sommerdag`
+  - `color-on-mt-lys-sommerdag`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-beige`
 
 ## color-on-mt-white
   - `color-on-mt-blue`
@@ -410,6 +737,22 @@ title: Color Token Contrast
   - `color-on-error-50`
   - `color-mt-yellowgreen`
   - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-mt-lys-furu`
+  - `color-mt-bg-furu`
+  - `color-on-mt-fjord`
+  - `color-mt-lys-fjord`
+  - `color-mt-bg-fjord`
+  - `color-on-mt-rognebaer-contrast`
+  - `color-mt-lys-rognebaer`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-sommerdag-contrast`
+  - `color-mt-sommerdag`
+  - `color-mt-lys-sommerdag`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-beige`
 
 ## color-mt-green
   - `color-on-mt-red`
@@ -424,6 +767,19 @@ title: Color Token Contrast
   - `color-on-secondary`
   - `color-mt-text-dark`
   - `color-on-mt-yellowgreen`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-on-mt-lys-furu`
+  - `color-on-mt-bg-furu`
+  - `color-mt-fjord`
+  - `color-on-mt-bg-fjord`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-beige`
 
 ## color-on-mt-green
   - `color-on-mt-blue`
@@ -438,6 +794,20 @@ title: Color Token Contrast
   - `color-on-error`
   - `color-on-error-50`
   - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-mt-bg-furu`
+  - `color-mt-lys-fjord`
+  - `color-mt-bg-fjord`
+  - `color-on-mt-rognebaer-contrast`
+  - `color-mt-lys-rognebaer`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-sommerdag-contrast`
+  - `color-mt-sommerdag`
+  - `color-mt-lys-sommerdag`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-beige`
 
 ## color-mt-light-green
   - `color-mt-blue`
@@ -460,6 +830,25 @@ title: Color Token Contrast
   - `color-error`
   - `color-error-50`
   - `color-on-mt-yellowgreen`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-on-mt-lys-furu`
+  - `color-on-mt-bg-furu`
+  - `color-mt-fjord`
+  - `color-on-mt-lys-fjord`
+  - `color-on-mt-bg-fjord`
+  - `color-mt-rognebaer-contrast`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-lys-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-sommerdag-contrast`
+  - `color-on-mt-sommerdag`
+  - `color-on-mt-lys-sommerdag`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-beige`
 
 ## color-on-mt-light-green
   - `color-mt-light-beige`
@@ -471,6 +860,13 @@ title: Color Token Contrast
   - `color-on-primary`
   - `color-on-error`
   - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-mt-bg-furu`
+  - `color-mt-bg-fjord`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-bg-beige`
 
 ## color-primary
   - `color-on-mt-blue`
@@ -483,6 +879,17 @@ title: Color Token Contrast
   - `color-on-primary`
   - `color-on-error`
   - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-mt-bg-furu`
+  - `color-mt-bg-fjord`
+  - `color-mt-lys-rognebaer`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-sommerdag`
+  - `color-mt-lys-sommerdag`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-beige`
 
 ## color-on-primary
   - `color-mt-blue`
@@ -508,6 +915,25 @@ title: Color Token Contrast
   - `color-error-50`
   - `color-on-mt-yellowgreen`
   - `color-on-mt-yellowgreen-lighter`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-on-mt-lys-furu`
+  - `color-on-mt-bg-furu`
+  - `color-mt-fjord`
+  - `color-on-mt-lys-fjord`
+  - `color-on-mt-bg-fjord`
+  - `color-mt-rognebaer-contrast`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-lys-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-sommerdag-contrast`
+  - `color-on-mt-sommerdag`
+  - `color-on-mt-lys-sommerdag`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-beige`
 
 ## color-mt-blue-medium
   - `color-on-mt-red`
@@ -533,6 +959,25 @@ title: Color Token Contrast
   - `color-on-error-50`
   - `color-mt-yellowgreen`
   - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-on-mt-granskog-dark`
+  - `color-mt-furu`
+  - `color-mt-lys-furu`
+  - `color-mt-bg-furu`
+  - `color-on-mt-fjord`
+  - `color-mt-lys-fjord`
+  - `color-mt-bg-fjord`
+  - `color-on-mt-rognebaer-contrast`
+  - `color-mt-rognebaer`
+  - `color-mt-lys-rognebaer`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-sommerdag-contrast`
+  - `color-mt-sommerdag`
+  - `color-mt-lys-sommerdag`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-beige`
 
 ## color-secondary
   - `color-on-mt-red`
@@ -540,6 +985,17 @@ title: Color Token Contrast
   - `color-on-mt-light-blue`
   - `color-on-mt-grey`
   - `color-on-mt-blue-medium`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-fjord`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-beige`
 
 ## color-on-secondary
   - `color-on-mt-blue`
@@ -559,6 +1015,22 @@ title: Color Token Contrast
   - `color-on-error-50`
   - `color-mt-yellowgreen`
   - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-mt-lys-furu`
+  - `color-mt-bg-furu`
+  - `color-on-mt-fjord`
+  - `color-mt-lys-fjord`
+  - `color-mt-bg-fjord`
+  - `color-on-mt-rognebaer-contrast`
+  - `color-mt-lys-rognebaer`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-sommerdag-contrast`
+  - `color-mt-sommerdag`
+  - `color-mt-lys-sommerdag`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-beige`
 
 ## color-mt-text-dark
   - `color-on-mt-blue`
@@ -577,6 +1049,22 @@ title: Color Token Contrast
   - `color-on-error-50`
   - `color-mt-yellowgreen`
   - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-mt-lys-furu`
+  - `color-mt-bg-furu`
+  - `color-on-mt-fjord`
+  - `color-mt-lys-fjord`
+  - `color-mt-bg-fjord`
+  - `color-on-mt-rognebaer-contrast`
+  - `color-mt-lys-rognebaer`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-sommerdag-contrast`
+  - `color-mt-sommerdag`
+  - `color-mt-lys-sommerdag`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-beige`
 
 ## color-on-mt-text-dark
   - `color-on-mt-red`
@@ -590,6 +1078,17 @@ title: Color Token Contrast
   - `color-on-mt-blue-medium`
   - `color-on-secondary`
   - `color-mt-text-dark`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-fjord`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-beige`
 
 ## color-error
   - `color-on-mt-blue`
@@ -604,6 +1103,18 @@ title: Color Token Contrast
   - `color-on-error`
   - `color-on-error-50`
   - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-mt-bg-furu`
+  - `color-mt-lys-fjord`
+  - `color-mt-bg-fjord`
+  - `color-mt-lys-rognebaer`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-sommerdag`
+  - `color-mt-lys-sommerdag`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-beige`
 
 ## color-on-error
   - `color-mt-blue`
@@ -629,6 +1140,25 @@ title: Color Token Contrast
   - `color-error-50`
   - `color-on-mt-yellowgreen`
   - `color-on-mt-yellowgreen-lighter`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-on-mt-lys-furu`
+  - `color-on-mt-bg-furu`
+  - `color-mt-fjord`
+  - `color-on-mt-lys-fjord`
+  - `color-on-mt-bg-fjord`
+  - `color-mt-rognebaer-contrast`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-lys-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-sommerdag-contrast`
+  - `color-on-mt-sommerdag`
+  - `color-on-mt-lys-sommerdag`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-beige`
 
 ## color-error-50
   - `color-on-mt-blue`
@@ -643,6 +1173,18 @@ title: Color Token Contrast
   - `color-on-error`
   - `color-on-error-50`
   - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-mt-bg-furu`
+  - `color-mt-lys-fjord`
+  - `color-mt-bg-fjord`
+  - `color-mt-lys-rognebaer`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-sommerdag`
+  - `color-mt-lys-sommerdag`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-beige`
 
 ## color-on-error-50
   - `color-on-mt-red`
@@ -661,6 +1203,22 @@ title: Color Token Contrast
   - `color-error`
   - `color-error-50`
   - `color-on-mt-yellowgreen`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-on-mt-lys-furu`
+  - `color-on-mt-bg-furu`
+  - `color-mt-fjord`
+  - `color-on-mt-lys-fjord`
+  - `color-on-mt-bg-fjord`
+  - `color-mt-rognebaer-contrast`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-sommerdag-contrast`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-beige`
 
 ## color-mt-yellowgreen
   - `color-on-mt-red`
@@ -675,6 +1233,18 @@ title: Color Token Contrast
   - `color-on-secondary`
   - `color-mt-text-dark`
   - `color-on-mt-yellowgreen`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-on-mt-bg-furu`
+  - `color-mt-fjord`
+  - `color-on-mt-bg-fjord`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-beige`
 
 ## color-on-mt-yellowgreen
   - `color-on-mt-blue`
@@ -691,6 +1261,21 @@ title: Color Token Contrast
   - `color-on-error-50`
   - `color-mt-yellowgreen`
   - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-mt-lys-furu`
+  - `color-mt-bg-furu`
+  - `color-mt-lys-fjord`
+  - `color-mt-bg-fjord`
+  - `color-on-mt-rognebaer-contrast`
+  - `color-mt-lys-rognebaer`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-sommerdag-contrast`
+  - `color-mt-sommerdag`
+  - `color-mt-lys-sommerdag`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-beige`
 
 ## color-mt-yellowgreen-lighter
   - `color-mt-blue`
@@ -714,6 +1299,25 @@ title: Color Token Contrast
   - `color-error-50`
   - `color-on-mt-yellowgreen`
   - `color-on-mt-yellowgreen-lighter`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-on-mt-lys-furu`
+  - `color-on-mt-bg-furu`
+  - `color-mt-fjord`
+  - `color-on-mt-lys-fjord`
+  - `color-on-mt-bg-fjord`
+  - `color-mt-rognebaer-contrast`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-lys-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-sommerdag-contrast`
+  - `color-on-mt-sommerdag`
+  - `color-on-mt-lys-sommerdag`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-beige`
 
 ## color-on-mt-yellowgreen-lighter
   - `color-mt-light-beige`
@@ -722,3 +1326,1289 @@ title: Color Token Contrast
   - `color-on-primary`
   - `color-on-error`
   - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-mt-bg-furu`
+  - `color-mt-bg-fjord`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-bg-beige`
+
+## color-mt-new-white
+  - `color-mt-blue`
+  - `color-on-mt-red`
+  - `color-mt-red-uu`
+  - `color-on-mt-beige`
+  - `color-on-mt-beige-50`
+  - `color-on-mt-light-beige`
+  - `color-on-mt-background`
+  - `color-on-mt-light-blue`
+  - `color-on-mt-lighter-light-blue`
+  - `color-on-mt-rationale-blue`
+  - `color-mt-brown`
+  - `color-on-mt-grey`
+  - `color-on-mt-white`
+  - `color-on-mt-green`
+  - `color-on-mt-light-green`
+  - `color-primary`
+  - `color-on-mt-blue-medium`
+  - `color-on-secondary`
+  - `color-mt-text-dark`
+  - `color-error`
+  - `color-error-50`
+  - `color-on-mt-yellowgreen`
+  - `color-on-mt-yellowgreen-lighter`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-on-mt-lys-furu`
+  - `color-on-mt-bg-furu`
+  - `color-mt-fjord`
+  - `color-on-mt-lys-fjord`
+  - `color-on-mt-bg-fjord`
+  - `color-mt-rognebaer-contrast`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-lys-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-sommerdag-contrast`
+  - `color-on-mt-sommerdag`
+  - `color-on-mt-lys-sommerdag`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-beige`
+
+## color-on-mt-new-white
+  - `color-on-mt-blue`
+  - `color-on-mt-red-uu`
+  - `color-mt-beige`
+  - `color-mt-beige-50`
+  - `color-mt-light-beige`
+  - `color-mt-background`
+  - `color-mt-lighter-light-blue`
+  - `color-mt-rationale-blue`
+  - `color-on-mt-brown`
+  - `color-mt-grey`
+  - `color-mt-white`
+  - `color-mt-green`
+  - `color-mt-light-green`
+  - `color-on-primary`
+  - `color-secondary`
+  - `color-on-mt-text-dark`
+  - `color-on-error`
+  - `color-on-error-50`
+  - `color-mt-yellowgreen`
+  - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-on-mt-granskog-dark`
+  - `color-mt-furu`
+  - `color-mt-lys-furu`
+  - `color-mt-bg-furu`
+  - `color-on-mt-fjord`
+  - `color-mt-lys-fjord`
+  - `color-mt-bg-fjord`
+  - `color-on-mt-rognebaer-contrast`
+  - `color-mt-lys-rognebaer`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-sommerdag-contrast`
+  - `color-mt-sommerdag`
+  - `color-mt-lys-sommerdag`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-beige`
+
+## color-mt-granskog
+  - `color-on-mt-blue`
+  - `color-on-mt-red-uu`
+  - `color-mt-beige`
+  - `color-mt-beige-50`
+  - `color-mt-light-beige`
+  - `color-mt-background`
+  - `color-mt-lighter-light-blue`
+  - `color-mt-rationale-blue`
+  - `color-on-mt-brown`
+  - `color-mt-grey`
+  - `color-mt-white`
+  - `color-mt-green`
+  - `color-mt-light-green`
+  - `color-on-primary`
+  - `color-secondary`
+  - `color-on-mt-text-dark`
+  - `color-on-error`
+  - `color-on-error-50`
+  - `color-mt-yellowgreen`
+  - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-mt-lys-furu`
+  - `color-mt-bg-furu`
+  - `color-on-mt-fjord`
+  - `color-mt-lys-fjord`
+  - `color-mt-bg-fjord`
+  - `color-on-mt-rognebaer-contrast`
+  - `color-mt-lys-rognebaer`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-sommerdag-contrast`
+  - `color-mt-sommerdag`
+  - `color-mt-lys-sommerdag`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-beige`
+
+## color-on-mt-granskog
+  - `color-mt-blue`
+  - `color-on-mt-red`
+  - `color-mt-red-uu`
+  - `color-on-mt-beige`
+  - `color-on-mt-beige-50`
+  - `color-on-mt-light-beige`
+  - `color-on-mt-background`
+  - `color-on-mt-light-blue`
+  - `color-on-mt-lighter-light-blue`
+  - `color-on-mt-rationale-blue`
+  - `color-mt-brown`
+  - `color-on-mt-grey`
+  - `color-on-mt-white`
+  - `color-on-mt-green`
+  - `color-on-mt-light-green`
+  - `color-primary`
+  - `color-on-mt-blue-medium`
+  - `color-on-secondary`
+  - `color-mt-text-dark`
+  - `color-error`
+  - `color-error-50`
+  - `color-on-mt-yellowgreen`
+  - `color-on-mt-yellowgreen-lighter`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-on-mt-lys-furu`
+  - `color-on-mt-bg-furu`
+  - `color-mt-fjord`
+  - `color-on-mt-lys-fjord`
+  - `color-on-mt-bg-fjord`
+  - `color-mt-rognebaer-contrast`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-lys-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-sommerdag-contrast`
+  - `color-on-mt-sommerdag`
+  - `color-on-mt-lys-sommerdag`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-beige`
+
+## color-mt-granskog-dark
+  - `color-on-mt-blue`
+  - `color-on-mt-red-uu`
+  - `color-mt-beige`
+  - `color-mt-beige-50`
+  - `color-mt-light-beige`
+  - `color-mt-background`
+  - `color-mt-lighter-light-blue`
+  - `color-mt-rationale-blue`
+  - `color-on-mt-brown`
+  - `color-mt-grey`
+  - `color-mt-white`
+  - `color-mt-green`
+  - `color-mt-light-green`
+  - `color-on-primary`
+  - `color-secondary`
+  - `color-on-mt-text-dark`
+  - `color-on-error`
+  - `color-on-error-50`
+  - `color-mt-yellowgreen`
+  - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-on-mt-granskog-dark`
+  - `color-mt-furu`
+  - `color-mt-lys-furu`
+  - `color-mt-bg-furu`
+  - `color-on-mt-fjord`
+  - `color-mt-lys-fjord`
+  - `color-mt-bg-fjord`
+  - `color-on-mt-rognebaer-contrast`
+  - `color-mt-lys-rognebaer`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-sommerdag-contrast`
+  - `color-mt-sommerdag`
+  - `color-mt-lys-sommerdag`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-beige`
+
+## color-on-mt-granskog-dark
+  - `color-on-mt-red`
+  - `color-on-mt-light-blue`
+  - `color-on-mt-blue-medium`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog-dark`
+  - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-fjord`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-beige`
+
+## color-mt-furu
+  - `color-on-mt-red`
+  - `color-on-mt-light-blue`
+  - `color-on-mt-blue-medium`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-fjord`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-beige`
+
+## color-on-mt-furu
+  - `color-on-mt-blue`
+  - `color-on-mt-red-uu`
+  - `color-mt-beige`
+  - `color-mt-beige-50`
+  - `color-mt-light-beige`
+  - `color-mt-background`
+  - `color-mt-lighter-light-blue`
+  - `color-mt-rationale-blue`
+  - `color-on-mt-brown`
+  - `color-mt-grey`
+  - `color-mt-white`
+  - `color-mt-green`
+  - `color-mt-light-green`
+  - `color-on-primary`
+  - `color-secondary`
+  - `color-on-mt-text-dark`
+  - `color-on-error`
+  - `color-on-error-50`
+  - `color-mt-yellowgreen`
+  - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-mt-furu`
+  - `color-mt-lys-furu`
+  - `color-mt-bg-furu`
+  - `color-on-mt-fjord`
+  - `color-mt-lys-fjord`
+  - `color-mt-bg-fjord`
+  - `color-on-mt-rognebaer-contrast`
+  - `color-mt-lys-rognebaer`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-sommerdag-contrast`
+  - `color-mt-sommerdag`
+  - `color-mt-lys-sommerdag`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-beige`
+
+## color-mt-lys-furu
+  - `color-on-mt-red`
+  - `color-on-mt-beige`
+  - `color-on-mt-beige-50`
+  - `color-on-mt-light-blue`
+  - `color-on-mt-rationale-blue`
+  - `color-mt-brown`
+  - `color-on-mt-grey`
+  - `color-on-mt-white`
+  - `color-on-mt-blue-medium`
+  - `color-on-secondary`
+  - `color-mt-text-dark`
+  - `color-on-mt-yellowgreen`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-on-mt-lys-furu`
+  - `color-on-mt-bg-furu`
+  - `color-mt-fjord`
+  - `color-on-mt-bg-fjord`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-beige`
+
+## color-on-mt-lys-furu
+  - `color-on-mt-blue`
+  - `color-on-mt-red-uu`
+  - `color-mt-light-beige`
+  - `color-mt-background`
+  - `color-mt-lighter-light-blue`
+  - `color-mt-rationale-blue`
+  - `color-mt-white`
+  - `color-mt-green`
+  - `color-mt-light-green`
+  - `color-on-primary`
+  - `color-on-error`
+  - `color-on-error-50`
+  - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-mt-lys-furu`
+  - `color-mt-bg-furu`
+  - `color-mt-lys-fjord`
+  - `color-mt-bg-fjord`
+  - `color-on-mt-rognebaer-contrast`
+  - `color-mt-lys-rognebaer`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-sommerdag-contrast`
+  - `color-mt-sommerdag`
+  - `color-mt-lys-sommerdag`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-beige`
+
+## color-mt-bg-furu
+  - `color-mt-blue`
+  - `color-on-mt-red`
+  - `color-mt-red-uu`
+  - `color-on-mt-beige`
+  - `color-on-mt-beige-50`
+  - `color-on-mt-light-beige`
+  - `color-on-mt-light-blue`
+  - `color-on-mt-lighter-light-blue`
+  - `color-on-mt-rationale-blue`
+  - `color-mt-brown`
+  - `color-on-mt-grey`
+  - `color-on-mt-white`
+  - `color-on-mt-green`
+  - `color-on-mt-light-green`
+  - `color-primary`
+  - `color-on-mt-blue-medium`
+  - `color-on-secondary`
+  - `color-mt-text-dark`
+  - `color-error`
+  - `color-error-50`
+  - `color-on-mt-yellowgreen`
+  - `color-on-mt-yellowgreen-lighter`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-on-mt-lys-furu`
+  - `color-on-mt-bg-furu`
+  - `color-mt-fjord`
+  - `color-on-mt-lys-fjord`
+  - `color-on-mt-bg-fjord`
+  - `color-mt-rognebaer-contrast`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-lys-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-sommerdag-contrast`
+  - `color-on-mt-sommerdag`
+  - `color-on-mt-lys-sommerdag`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-beige`
+
+## color-on-mt-bg-furu
+  - `color-on-mt-blue`
+  - `color-on-mt-red-uu`
+  - `color-mt-beige`
+  - `color-mt-beige-50`
+  - `color-mt-light-beige`
+  - `color-mt-background`
+  - `color-mt-lighter-light-blue`
+  - `color-mt-rationale-blue`
+  - `color-on-mt-brown`
+  - `color-mt-grey`
+  - `color-mt-white`
+  - `color-mt-green`
+  - `color-mt-light-green`
+  - `color-on-primary`
+  - `color-secondary`
+  - `color-on-mt-text-dark`
+  - `color-on-error`
+  - `color-on-error-50`
+  - `color-mt-yellowgreen`
+  - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-on-mt-granskog-dark`
+  - `color-mt-furu`
+  - `color-mt-lys-furu`
+  - `color-mt-bg-furu`
+  - `color-on-mt-fjord`
+  - `color-mt-lys-fjord`
+  - `color-mt-bg-fjord`
+  - `color-on-mt-rognebaer-contrast`
+  - `color-mt-lys-rognebaer`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-sommerdag-contrast`
+  - `color-mt-sommerdag`
+  - `color-mt-lys-sommerdag`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-beige`
+
+## color-mt-fjord
+  - `color-on-mt-blue`
+  - `color-on-mt-red-uu`
+  - `color-mt-light-beige`
+  - `color-mt-background`
+  - `color-mt-lighter-light-blue`
+  - `color-mt-rationale-blue`
+  - `color-mt-white`
+  - `color-mt-green`
+  - `color-mt-light-green`
+  - `color-on-primary`
+  - `color-on-error`
+  - `color-on-error-50`
+  - `color-mt-yellowgreen`
+  - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-mt-lys-furu`
+  - `color-mt-bg-furu`
+  - `color-on-mt-fjord`
+  - `color-mt-lys-fjord`
+  - `color-mt-bg-fjord`
+  - `color-on-mt-rognebaer-contrast`
+  - `color-mt-lys-rognebaer`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-sommerdag-contrast`
+  - `color-mt-sommerdag`
+  - `color-mt-lys-sommerdag`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-beige`
+
+## color-on-mt-fjord
+  - `color-on-mt-red`
+  - `color-on-mt-beige`
+  - `color-on-mt-beige-50`
+  - `color-on-mt-light-blue`
+  - `color-on-mt-rationale-blue`
+  - `color-mt-brown`
+  - `color-on-mt-grey`
+  - `color-on-mt-white`
+  - `color-on-mt-blue-medium`
+  - `color-on-secondary`
+  - `color-mt-text-dark`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-on-mt-bg-furu`
+  - `color-mt-fjord`
+  - `color-on-mt-bg-fjord`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-beige`
+
+## color-mt-lys-fjord
+  - `color-on-mt-red`
+  - `color-mt-red-uu`
+  - `color-on-mt-beige`
+  - `color-on-mt-beige-50`
+  - `color-on-mt-light-blue`
+  - `color-on-mt-rationale-blue`
+  - `color-mt-brown`
+  - `color-on-mt-grey`
+  - `color-on-mt-white`
+  - `color-on-mt-green`
+  - `color-on-mt-blue-medium`
+  - `color-on-secondary`
+  - `color-mt-text-dark`
+  - `color-error`
+  - `color-error-50`
+  - `color-on-mt-yellowgreen`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-on-mt-lys-furu`
+  - `color-on-mt-bg-furu`
+  - `color-mt-fjord`
+  - `color-on-mt-lys-fjord`
+  - `color-on-mt-bg-fjord`
+  - `color-mt-rognebaer-contrast`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-sommerdag-contrast`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-beige`
+
+## color-on-mt-lys-fjord
+  - `color-on-mt-blue`
+  - `color-on-mt-red-uu`
+  - `color-mt-light-beige`
+  - `color-mt-background`
+  - `color-mt-lighter-light-blue`
+  - `color-mt-rationale-blue`
+  - `color-mt-white`
+  - `color-mt-light-green`
+  - `color-on-primary`
+  - `color-on-error`
+  - `color-on-error-50`
+  - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-mt-bg-furu`
+  - `color-mt-lys-fjord`
+  - `color-mt-bg-fjord`
+  - `color-mt-lys-rognebaer`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-sommerdag`
+  - `color-mt-lys-sommerdag`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-beige`
+
+## color-mt-bg-fjord
+  - `color-mt-blue`
+  - `color-on-mt-red`
+  - `color-mt-red-uu`
+  - `color-on-mt-beige`
+  - `color-on-mt-beige-50`
+  - `color-on-mt-light-blue`
+  - `color-on-mt-lighter-light-blue`
+  - `color-on-mt-rationale-blue`
+  - `color-mt-brown`
+  - `color-on-mt-grey`
+  - `color-on-mt-white`
+  - `color-on-mt-green`
+  - `color-on-mt-light-green`
+  - `color-primary`
+  - `color-on-mt-blue-medium`
+  - `color-on-secondary`
+  - `color-mt-text-dark`
+  - `color-error`
+  - `color-error-50`
+  - `color-on-mt-yellowgreen`
+  - `color-on-mt-yellowgreen-lighter`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-on-mt-lys-furu`
+  - `color-on-mt-bg-furu`
+  - `color-mt-fjord`
+  - `color-on-mt-lys-fjord`
+  - `color-on-mt-bg-fjord`
+  - `color-mt-rognebaer-contrast`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-lys-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-sommerdag-contrast`
+  - `color-on-mt-sommerdag`
+  - `color-on-mt-lys-sommerdag`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-beige`
+
+## color-on-mt-bg-fjord
+  - `color-on-mt-blue`
+  - `color-on-mt-red-uu`
+  - `color-mt-beige`
+  - `color-mt-beige-50`
+  - `color-mt-light-beige`
+  - `color-mt-background`
+  - `color-mt-lighter-light-blue`
+  - `color-mt-rationale-blue`
+  - `color-on-mt-brown`
+  - `color-mt-grey`
+  - `color-mt-white`
+  - `color-mt-green`
+  - `color-mt-light-green`
+  - `color-on-primary`
+  - `color-secondary`
+  - `color-on-mt-text-dark`
+  - `color-on-error`
+  - `color-on-error-50`
+  - `color-mt-yellowgreen`
+  - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-on-mt-granskog-dark`
+  - `color-mt-furu`
+  - `color-mt-lys-furu`
+  - `color-mt-bg-furu`
+  - `color-on-mt-fjord`
+  - `color-mt-lys-fjord`
+  - `color-mt-bg-fjord`
+  - `color-on-mt-rognebaer-contrast`
+  - `color-mt-lys-rognebaer`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-sommerdag-contrast`
+  - `color-mt-sommerdag`
+  - `color-mt-lys-sommerdag`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-beige`
+
+## color-mt-rognebaer-contrast
+  - `color-on-mt-blue`
+  - `color-on-mt-red-uu`
+  - `color-mt-light-beige`
+  - `color-mt-background`
+  - `color-mt-lighter-light-blue`
+  - `color-mt-rationale-blue`
+  - `color-mt-white`
+  - `color-mt-light-green`
+  - `color-on-primary`
+  - `color-on-error`
+  - `color-on-error-50`
+  - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-mt-bg-furu`
+  - `color-mt-lys-fjord`
+  - `color-mt-bg-fjord`
+  - `color-on-mt-rognebaer-contrast`
+  - `color-mt-lys-rognebaer`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-sommerdag-contrast`
+  - `color-mt-sommerdag`
+  - `color-mt-lys-sommerdag`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-beige`
+
+## color-on-mt-rognebaer-contrast
+  - `color-on-mt-red`
+  - `color-on-mt-beige`
+  - `color-on-mt-beige-50`
+  - `color-on-mt-light-blue`
+  - `color-on-mt-rationale-blue`
+  - `color-mt-brown`
+  - `color-on-mt-grey`
+  - `color-on-mt-white`
+  - `color-on-mt-green`
+  - `color-on-mt-blue-medium`
+  - `color-on-secondary`
+  - `color-mt-text-dark`
+  - `color-on-mt-yellowgreen`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-on-mt-lys-furu`
+  - `color-on-mt-bg-furu`
+  - `color-mt-fjord`
+  - `color-on-mt-bg-fjord`
+  - `color-mt-rognebaer-contrast`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-beige`
+
+## color-mt-rognebaer
+  - `color-on-mt-red`
+  - `color-on-mt-light-blue`
+  - `color-on-mt-blue-medium`
+  - `color-on-mt-rognebaer`
+
+## color-on-mt-rognebaer
+  - `color-on-mt-blue`
+  - `color-on-mt-red-uu`
+  - `color-mt-beige`
+  - `color-mt-beige-50`
+  - `color-mt-light-beige`
+  - `color-mt-background`
+  - `color-mt-lighter-light-blue`
+  - `color-mt-rationale-blue`
+  - `color-on-mt-brown`
+  - `color-mt-grey`
+  - `color-mt-white`
+  - `color-mt-green`
+  - `color-mt-light-green`
+  - `color-on-primary`
+  - `color-secondary`
+  - `color-on-mt-text-dark`
+  - `color-on-error`
+  - `color-on-error-50`
+  - `color-mt-yellowgreen`
+  - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-on-mt-granskog-dark`
+  - `color-mt-furu`
+  - `color-mt-lys-furu`
+  - `color-mt-bg-furu`
+  - `color-on-mt-fjord`
+  - `color-mt-lys-fjord`
+  - `color-mt-bg-fjord`
+  - `color-on-mt-rognebaer-contrast`
+  - `color-mt-rognebaer`
+  - `color-mt-lys-rognebaer`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-sommerdag-contrast`
+  - `color-mt-sommerdag`
+  - `color-mt-lys-sommerdag`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-beige`
+
+## color-mt-lys-rognebaer
+  - `color-mt-blue`
+  - `color-on-mt-red`
+  - `color-mt-red-uu`
+  - `color-on-mt-beige`
+  - `color-on-mt-beige-50`
+  - `color-on-mt-light-blue`
+  - `color-on-mt-rationale-blue`
+  - `color-mt-brown`
+  - `color-on-mt-grey`
+  - `color-on-mt-white`
+  - `color-on-mt-green`
+  - `color-primary`
+  - `color-on-mt-blue-medium`
+  - `color-on-secondary`
+  - `color-mt-text-dark`
+  - `color-error`
+  - `color-error-50`
+  - `color-on-mt-yellowgreen`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-on-mt-lys-furu`
+  - `color-on-mt-bg-furu`
+  - `color-mt-fjord`
+  - `color-on-mt-lys-fjord`
+  - `color-on-mt-bg-fjord`
+  - `color-mt-rognebaer-contrast`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-lys-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-sommerdag-contrast`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-beige`
+
+## color-on-mt-lys-rognebaer
+  - `color-mt-light-beige`
+  - `color-mt-background`
+  - `color-mt-lighter-light-blue`
+  - `color-mt-rationale-blue`
+  - `color-mt-white`
+  - `color-mt-light-green`
+  - `color-on-primary`
+  - `color-on-error`
+  - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-mt-bg-furu`
+  - `color-mt-bg-fjord`
+  - `color-mt-lys-rognebaer`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-sommerdag`
+  - `color-mt-lys-sommerdag`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-beige`
+
+## color-mt-bg-rognebaer
+  - `color-mt-blue`
+  - `color-on-mt-red`
+  - `color-mt-red-uu`
+  - `color-on-mt-beige`
+  - `color-on-mt-beige-50`
+  - `color-on-mt-light-blue`
+  - `color-on-mt-lighter-light-blue`
+  - `color-on-mt-rationale-blue`
+  - `color-mt-brown`
+  - `color-on-mt-grey`
+  - `color-on-mt-white`
+  - `color-on-mt-green`
+  - `color-on-mt-light-green`
+  - `color-primary`
+  - `color-on-mt-blue-medium`
+  - `color-on-secondary`
+  - `color-mt-text-dark`
+  - `color-error`
+  - `color-error-50`
+  - `color-on-mt-yellowgreen`
+  - `color-on-mt-yellowgreen-lighter`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-on-mt-lys-furu`
+  - `color-on-mt-bg-furu`
+  - `color-mt-fjord`
+  - `color-on-mt-lys-fjord`
+  - `color-on-mt-bg-fjord`
+  - `color-mt-rognebaer-contrast`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-lys-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-sommerdag-contrast`
+  - `color-on-mt-sommerdag`
+  - `color-on-mt-lys-sommerdag`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-beige`
+
+## color-on-mt-bg-rognebaer
+  - `color-on-mt-blue`
+  - `color-on-mt-red-uu`
+  - `color-mt-beige`
+  - `color-mt-beige-50`
+  - `color-mt-light-beige`
+  - `color-mt-background`
+  - `color-mt-lighter-light-blue`
+  - `color-mt-rationale-blue`
+  - `color-on-mt-brown`
+  - `color-mt-grey`
+  - `color-mt-white`
+  - `color-mt-green`
+  - `color-mt-light-green`
+  - `color-on-primary`
+  - `color-secondary`
+  - `color-on-mt-text-dark`
+  - `color-on-error`
+  - `color-on-error-50`
+  - `color-mt-yellowgreen`
+  - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-on-mt-granskog-dark`
+  - `color-mt-furu`
+  - `color-mt-lys-furu`
+  - `color-mt-bg-furu`
+  - `color-on-mt-fjord`
+  - `color-mt-lys-fjord`
+  - `color-mt-bg-fjord`
+  - `color-on-mt-rognebaer-contrast`
+  - `color-mt-lys-rognebaer`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-sommerdag-contrast`
+  - `color-mt-sommerdag`
+  - `color-mt-lys-sommerdag`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-beige`
+
+## color-mt-sommerdag-contrast
+  - `color-on-mt-red`
+  - `color-on-mt-beige`
+  - `color-on-mt-beige-50`
+  - `color-on-mt-light-blue`
+  - `color-on-mt-rationale-blue`
+  - `color-mt-brown`
+  - `color-on-mt-grey`
+  - `color-on-mt-white`
+  - `color-on-mt-green`
+  - `color-on-mt-blue-medium`
+  - `color-on-secondary`
+  - `color-mt-text-dark`
+  - `color-on-mt-yellowgreen`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-on-mt-lys-furu`
+  - `color-on-mt-bg-furu`
+  - `color-mt-fjord`
+  - `color-on-mt-bg-fjord`
+  - `color-mt-rognebaer-contrast`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-sommerdag-contrast`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-beige`
+
+## color-on-mt-sommerdag-contrast
+  - `color-on-mt-blue`
+  - `color-on-mt-red-uu`
+  - `color-mt-light-beige`
+  - `color-mt-background`
+  - `color-mt-lighter-light-blue`
+  - `color-mt-rationale-blue`
+  - `color-mt-white`
+  - `color-mt-light-green`
+  - `color-on-primary`
+  - `color-on-error`
+  - `color-on-error-50`
+  - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-mt-bg-furu`
+  - `color-mt-lys-fjord`
+  - `color-mt-bg-fjord`
+  - `color-mt-lys-rognebaer`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-sommerdag-contrast`
+  - `color-mt-sommerdag`
+  - `color-mt-lys-sommerdag`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-beige`
+
+## color-mt-sommerdag
+  - `color-mt-blue`
+  - `color-on-mt-red`
+  - `color-mt-red-uu`
+  - `color-on-mt-beige`
+  - `color-on-mt-beige-50`
+  - `color-on-mt-light-blue`
+  - `color-on-mt-rationale-blue`
+  - `color-mt-brown`
+  - `color-on-mt-grey`
+  - `color-on-mt-white`
+  - `color-on-mt-green`
+  - `color-primary`
+  - `color-on-mt-blue-medium`
+  - `color-on-secondary`
+  - `color-mt-text-dark`
+  - `color-error`
+  - `color-error-50`
+  - `color-on-mt-yellowgreen`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-on-mt-lys-furu`
+  - `color-on-mt-bg-furu`
+  - `color-mt-fjord`
+  - `color-on-mt-lys-fjord`
+  - `color-on-mt-bg-fjord`
+  - `color-mt-rognebaer-contrast`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-lys-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-sommerdag-contrast`
+  - `color-on-mt-sommerdag`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-beige`
+
+## color-on-mt-sommerdag
+  - `color-mt-light-beige`
+  - `color-mt-background`
+  - `color-mt-lighter-light-blue`
+  - `color-mt-rationale-blue`
+  - `color-mt-white`
+  - `color-mt-light-green`
+  - `color-on-primary`
+  - `color-on-error`
+  - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-mt-bg-furu`
+  - `color-mt-bg-fjord`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-sommerdag`
+  - `color-mt-lys-sommerdag`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-beige`
+
+## color-mt-lys-sommerdag
+  - `color-mt-blue`
+  - `color-on-mt-red`
+  - `color-mt-red-uu`
+  - `color-on-mt-beige`
+  - `color-on-mt-beige-50`
+  - `color-on-mt-light-blue`
+  - `color-on-mt-rationale-blue`
+  - `color-mt-brown`
+  - `color-on-mt-grey`
+  - `color-on-mt-white`
+  - `color-on-mt-green`
+  - `color-primary`
+  - `color-on-mt-blue-medium`
+  - `color-on-secondary`
+  - `color-mt-text-dark`
+  - `color-error`
+  - `color-error-50`
+  - `color-on-mt-yellowgreen`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-on-mt-lys-furu`
+  - `color-on-mt-bg-furu`
+  - `color-mt-fjord`
+  - `color-on-mt-lys-fjord`
+  - `color-on-mt-bg-fjord`
+  - `color-mt-rognebaer-contrast`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-lys-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-sommerdag-contrast`
+  - `color-on-mt-sommerdag`
+  - `color-on-mt-lys-sommerdag`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-beige`
+
+## color-on-mt-lys-sommerdag
+  - `color-mt-light-beige`
+  - `color-mt-background`
+  - `color-mt-lighter-light-blue`
+  - `color-mt-rationale-blue`
+  - `color-mt-white`
+  - `color-mt-light-green`
+  - `color-on-primary`
+  - `color-on-error`
+  - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-mt-bg-furu`
+  - `color-mt-bg-fjord`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-lys-sommerdag`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-beige`
+
+## color-mt-bg-sommerdag
+  - `color-mt-blue`
+  - `color-on-mt-red`
+  - `color-mt-red-uu`
+  - `color-on-mt-beige`
+  - `color-on-mt-beige-50`
+  - `color-on-mt-light-beige`
+  - `color-on-mt-light-blue`
+  - `color-on-mt-lighter-light-blue`
+  - `color-on-mt-rationale-blue`
+  - `color-mt-brown`
+  - `color-on-mt-grey`
+  - `color-on-mt-white`
+  - `color-on-mt-green`
+  - `color-on-mt-light-green`
+  - `color-primary`
+  - `color-on-mt-blue-medium`
+  - `color-on-secondary`
+  - `color-mt-text-dark`
+  - `color-error`
+  - `color-error-50`
+  - `color-on-mt-yellowgreen`
+  - `color-on-mt-yellowgreen-lighter`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-on-mt-lys-furu`
+  - `color-on-mt-bg-furu`
+  - `color-mt-fjord`
+  - `color-on-mt-lys-fjord`
+  - `color-on-mt-bg-fjord`
+  - `color-mt-rognebaer-contrast`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-lys-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-sommerdag-contrast`
+  - `color-on-mt-sommerdag`
+  - `color-on-mt-lys-sommerdag`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-beige`
+
+## color-on-mt-bg-sommerdag
+  - `color-on-mt-blue`
+  - `color-on-mt-red-uu`
+  - `color-mt-beige`
+  - `color-mt-beige-50`
+  - `color-mt-light-beige`
+  - `color-mt-background`
+  - `color-mt-lighter-light-blue`
+  - `color-mt-rationale-blue`
+  - `color-on-mt-brown`
+  - `color-mt-grey`
+  - `color-mt-white`
+  - `color-mt-green`
+  - `color-mt-light-green`
+  - `color-on-primary`
+  - `color-secondary`
+  - `color-on-mt-text-dark`
+  - `color-on-error`
+  - `color-on-error-50`
+  - `color-mt-yellowgreen`
+  - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-on-mt-granskog-dark`
+  - `color-mt-furu`
+  - `color-mt-lys-furu`
+  - `color-mt-bg-furu`
+  - `color-on-mt-fjord`
+  - `color-mt-lys-fjord`
+  - `color-mt-bg-fjord`
+  - `color-on-mt-rognebaer-contrast`
+  - `color-mt-lys-rognebaer`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-sommerdag-contrast`
+  - `color-mt-sommerdag`
+  - `color-mt-lys-sommerdag`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-beige`
+
+## color-mt-mellombeige
+  - `color-mt-blue`
+  - `color-on-mt-red`
+  - `color-mt-red-uu`
+  - `color-on-mt-beige`
+  - `color-on-mt-beige-50`
+  - `color-on-mt-light-blue`
+  - `color-on-mt-rationale-blue`
+  - `color-mt-brown`
+  - `color-on-mt-grey`
+  - `color-on-mt-white`
+  - `color-on-mt-green`
+  - `color-primary`
+  - `color-on-mt-blue-medium`
+  - `color-on-secondary`
+  - `color-mt-text-dark`
+  - `color-error`
+  - `color-error-50`
+  - `color-on-mt-yellowgreen`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-on-mt-lys-furu`
+  - `color-on-mt-bg-furu`
+  - `color-mt-fjord`
+  - `color-on-mt-lys-fjord`
+  - `color-on-mt-bg-fjord`
+  - `color-mt-rognebaer-contrast`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-lys-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-sommerdag-contrast`
+  - `color-on-mt-sommerdag`
+  - `color-on-mt-lys-sommerdag`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-beige`
+
+## color-on-mt-mellombeige
+  - `color-on-mt-blue`
+  - `color-on-mt-red-uu`
+  - `color-mt-beige`
+  - `color-mt-beige-50`
+  - `color-mt-light-beige`
+  - `color-mt-background`
+  - `color-mt-lighter-light-blue`
+  - `color-mt-rationale-blue`
+  - `color-on-mt-brown`
+  - `color-mt-grey`
+  - `color-mt-white`
+  - `color-mt-green`
+  - `color-mt-light-green`
+  - `color-on-primary`
+  - `color-secondary`
+  - `color-on-mt-text-dark`
+  - `color-on-error`
+  - `color-on-error-50`
+  - `color-mt-yellowgreen`
+  - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-on-mt-granskog-dark`
+  - `color-mt-furu`
+  - `color-mt-lys-furu`
+  - `color-mt-bg-furu`
+  - `color-on-mt-fjord`
+  - `color-mt-lys-fjord`
+  - `color-mt-bg-fjord`
+  - `color-on-mt-rognebaer-contrast`
+  - `color-mt-lys-rognebaer`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-sommerdag-contrast`
+  - `color-mt-sommerdag`
+  - `color-mt-lys-sommerdag`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-beige`
+
+## color-mt-bg-beige
+  - `color-mt-blue`
+  - `color-on-mt-red`
+  - `color-mt-red-uu`
+  - `color-on-mt-beige`
+  - `color-on-mt-beige-50`
+  - `color-on-mt-light-beige`
+  - `color-on-mt-background`
+  - `color-on-mt-light-blue`
+  - `color-on-mt-lighter-light-blue`
+  - `color-on-mt-rationale-blue`
+  - `color-mt-brown`
+  - `color-on-mt-grey`
+  - `color-on-mt-white`
+  - `color-on-mt-green`
+  - `color-on-mt-light-green`
+  - `color-primary`
+  - `color-on-mt-blue-medium`
+  - `color-on-secondary`
+  - `color-mt-text-dark`
+  - `color-error`
+  - `color-error-50`
+  - `color-on-mt-yellowgreen`
+  - `color-on-mt-yellowgreen-lighter`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-on-mt-lys-furu`
+  - `color-on-mt-bg-furu`
+  - `color-mt-fjord`
+  - `color-on-mt-lys-fjord`
+  - `color-on-mt-bg-fjord`
+  - `color-mt-rognebaer-contrast`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-lys-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-sommerdag-contrast`
+  - `color-on-mt-sommerdag`
+  - `color-on-mt-lys-sommerdag`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-beige`
+
+## color-on-mt-bg-beige
+  - `color-on-mt-blue`
+  - `color-on-mt-red-uu`
+  - `color-mt-beige`
+  - `color-mt-beige-50`
+  - `color-mt-light-beige`
+  - `color-mt-background`
+  - `color-mt-lighter-light-blue`
+  - `color-mt-rationale-blue`
+  - `color-on-mt-brown`
+  - `color-mt-grey`
+  - `color-mt-white`
+  - `color-mt-green`
+  - `color-mt-light-green`
+  - `color-on-primary`
+  - `color-secondary`
+  - `color-on-mt-text-dark`
+  - `color-on-error`
+  - `color-on-error-50`
+  - `color-mt-yellowgreen`
+  - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-on-mt-granskog-dark`
+  - `color-mt-furu`
+  - `color-mt-lys-furu`
+  - `color-mt-bg-furu`
+  - `color-on-mt-fjord`
+  - `color-mt-lys-fjord`
+  - `color-mt-bg-fjord`
+  - `color-on-mt-rognebaer-contrast`
+  - `color-mt-lys-rognebaer`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-sommerdag-contrast`
+  - `color-mt-sommerdag`
+  - `color-mt-lys-sommerdag`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-beige`

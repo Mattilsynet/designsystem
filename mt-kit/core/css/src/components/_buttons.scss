@@ -1,5 +1,6 @@
 @use '../theme' as *;
 @use '../utilities/mixins' as *;
+@use '../global/body' as *;
 $button-default-color: 'primary' !default;
 $button-colors: 'error' !default;
 
@@ -62,19 +63,19 @@ $icon-button-border-radius: 0.25em;
     }
   }
   &--primary {
-    border-color: var(--color-primary);
+    border-color: var(--mt-button-primary-border);
     &:hover,
     &:active {
-      background-color: var(--color-mt-text-dark);
-      color: var(--color-mt-background);
-      border-color: var(--color-mt-text-dark);
+      background-color: var(--mt-button-primary-bg-hover);
+      color: var(--mt-button-primary-color-hover);
+      border-color: var(--mt-button-primary-border-hover);
     }
     &:disabled,
     &[disabled],
     &.disabled {
-      background-color: var(--color-mt-grey);
-      color: var(--color-mt-background);
-      border-color: var(--color-mt-grey);
+      background-color: var(--mt-button-primary-bg-disabled);
+      color: var(--mt-button-primary-color-disabled);
+      border-color: var(--mt-button-primary-border-disabled);
     }
   }
   &--on-primary {
@@ -86,14 +87,14 @@ $icon-button-border-radius: 0.25em;
     &:focus-within {
       outline: none;
       border-color: transparent;
-      box-shadow: 0 0 0 0.25rem var(--color-mt-beige);
+      box-shadow: 0 0 0 0.25rem var(--mt-button-no-primary-border-focus-shadow);
     }
   }
   &--secondary {
     --button-focus-inner: var(--button-background);
     --button-focus-outer: var(--button-color);
     --color: var(--button-background);
-    --background: var(--color-mt-background);
+    --background: var(--mt-button-neutral-bg);
 
     border-color: var(--color);
     color: var(--color);
@@ -101,16 +102,16 @@ $icon-button-border-radius: 0.25em;
 
     &:hover,
     &:active {
-      background-color: var(--color);
-      color: var(--background);
+      background-color: var(--mt-button-neutral-bg-hover);
+      color: var(--mt-button-neutral-color-hover);
     }
 
     &:disabled,
     &[disabled],
     &.disabled {
-      background-color: var(--color-mt-background);
-      color: var(--color-mt-grey);
-      border-color: var(--color-mt-grey);
+      background-color: var(--mt-button-neutral-bg-disabled);
+      color: var(--mt-button-neutral-color-disabled);
+      border-color: var(--mt-button-neutral-border-disabled);
     }
   }
   &--search-clear {
@@ -160,16 +161,16 @@ $icon-button-border-radius: 0.25em;
     padding: 0.25em $icon-button-padding;
   }
   &--flat {
-    background: transparent;
-    color: var(--color-mt-blue);
+    background: var(--mt-button-flat-bg);
+    color: var(--mt-button-flat-color);
 
     &:hover {
-      border-color: var(--color-mt-blue);
-      background: transparent;
+      border-color: var(--mt-button-flat-border-hover);
+      background: var(--mt-button-flat-bg-hover);
     }
     &:focus,
     &:focus-visible {
-      border-color: var(--color-primary);
+      border-color: var(--mt-button-flat-border-focus);
     }
   }
   &--link {
@@ -252,7 +253,7 @@ $icon-button-border-radius: 0.25em;
 
   &.forward-arrow {
     &::before {
-      content: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNiIgaGVpZ2h0PSIxMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNLjIgMS40MyAzLjY2MSA1IC4yIDguNTdsMS4wNjYgMS4wOTdMNS44IDUgMS4yNjYuMzMzLjIgMS40M1oiIGZpbGw9IiM0NjQ1NDUiLz48L3N2Zz4=');
+      content: var(--icon-carret-right-small);
       display: inline-block;
       margin-right: var(--spacer-xxx-small);
     }
@@ -260,7 +261,7 @@ $icon-button-border-radius: 0.25em;
   &.closable {
     &:hover {
       &:after {
-        background-color: var(--background);
+        background-color: var(--mt-button-flat-color-hover);
       }
     }
     &:after {
@@ -285,14 +286,15 @@ $icon-button-border-radius: 0.25em;
 
     &[aria-expanded] {
       &::after {
-        content: url('data:image/svg+xml,%3Csvg%20width%3D%2220%22%20height%3D%2212%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M17.4667.545%209.9991%208.1481%202.5316.545.9082%202.198l9.091%209.2561L19.09%202.1978%2017.4667.5449Z%22%20fill%3D%22%23075B7A%22%2F%3E%3C%2Fsvg%3E');
+        content: var(--icon-carret-down-primary);
         display: inline-block;
         margin-left: var(--spacer-xxx-small);
       }
     }
     &[aria-expanded='true'] {
       &::after {
-        transform: rotateX(180deg);
+        transform: rotate(-180deg);
+        margin-bottom: 0.25rem;
       }
     }
   }

@@ -23,9 +23,11 @@
   args={{
     tags: [{ text: 'Hund' }, { text: 'Katt' }, { text: 'Ilder' }],
     tagsWithColor: [
-      { text: 'PDF', color: 'lightblue' },
-      { text: 'Altinn', color: 'yellowgreen' },
-      { text: 'Mattilsynets skjematjenester', color: 'beige' }
+      { text: 'PDF', color: 'info' },
+      { text: 'Altinn', color: 'success' },
+      { text: 'Altinn', color: 'warning' },
+      { text: 'Altinn', color: 'error' },
+      { text: 'Mattilsynets skjematjenester', color: 'neutral' }
     ],
     isClosable: true,
     disableCss: false

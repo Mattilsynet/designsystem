@@ -17,14 +17,21 @@
 [data-portal-region='main'] {
   gap: var(--spacer-medium);
 }
-
+//todo remove after 22.11.2023
 [data-portal-component-type='layout'].bg-lighter-light-blue,
-[data-portal-component-type='layout'].bg-light-beige {
+[data-portal-component-type='layout'].bg-light-beige,
+//todo end
+[data-portal-component-type='layout'].background-mt-bg-furu,
+[data-portal-component-type='layout'].background-mt-mellombeige {
   padding-top: var(--spacer-small);
   padding-bottom: var(--spacer-small);
 
+  //todo remove after 22.11.2023
   & + [data-portal-component-type='layout'].bg-light-beige,
-  + [data-portal-component-type='layout'].bg-lighter-light-blue {
+  + [data-portal-component-type='layout'].bg-lighter-light-blue,
+  //todo end
+  & + [data-portal-component-type='layout'].background-mt-mellombeige,
+  + [data-portal-component-type='layout'].background-mt-bg-furu {
     margin-top: 0;
   }
 }
@@ -223,7 +230,8 @@ Only use if it does NOT affect accessibility
 }
 
 .mt-header {
-  border-bottom: $border-red-regular;
+  background-color: var(--mt-header-bg);
+  border-bottom: $border-width-regular solid var(--mt-header-footer-border);
 }
 
 .mt-header-wrapper {
@@ -231,9 +239,6 @@ Only use if it does NOT affect accessibility
   grid-template-columns: 1fr max-content max-content max-content;
   align-items: center;
 
-  svg {
-    height: 1.8rem;
-  }
   &--regular {
     height: $height-header-mobile;
   }

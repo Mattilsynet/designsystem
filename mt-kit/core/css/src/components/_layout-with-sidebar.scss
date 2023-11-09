@@ -33,11 +33,8 @@ aside {
       width: 100%;
       margin-right: 0;
       &[aria-expanded='true'] {
-        background-color: var(--color-mt-rationale-blue);
+        background-color: var(--chapter-menu-active-on-dark);
         color: var(--color-primary);
-        &:before {
-          @include close-x($color-primary);
-        }
       }
     }
   }

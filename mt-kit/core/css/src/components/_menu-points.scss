@@ -2,26 +2,30 @@
 @use '../global/links' as *;
 
 .menu-point {
-  --svg-color: var(--color-mt-blue);
+  --svg-color: var(--mt-button-neutral-color);
   --icon-padding: var(--spacer-xxx-small);
   --title-gap: var(--spacer-xx-small);
 
   display: grid;
-  grid-template-columns: $menu-point-icon-width 1fr;
+  grid-template-columns: max-content 1fr;
   grid-column-gap: var(--icon-padding);
   grid-template-rows: min-content min-content;
   grid-row-gap: var(--title-gap);
   grid-template-areas: 'icon heading' 'empty keywords';
+  align-items: center;
 
   .svg-wrapper,
   img {
     grid-area: icon;
     align-self: start;
     justify-self: center;
-    height: $menu-point-icon-height;
+    height: var(--menu-point-icon-height);
     svg {
       height: inherit;
       width: inherit;
+      circle {
+        fill: var(--menu-point-svg-circle);
+      }
       path {
         fill: var(--svg-color);
       }

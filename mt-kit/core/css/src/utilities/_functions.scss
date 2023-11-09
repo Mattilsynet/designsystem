@@ -1,10 +1,13 @@
 @use '../color-tokens' as *;
 
+$focus-color-on-light: var(--focus-on-light);
+$focus-color-on-dark: var(--focus-on-dark);
+
 @function set-focus-color($bg) {
   @if (lightness($bg) > 50) {
-    @return $color-mt-blue-medium;
+    @return $focus-color-on-light;
   } @else {
-    @return $color-mt-beige;
+    @return $focus-color-on-dark;
   }
 }
 

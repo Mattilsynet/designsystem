@@ -2,9 +2,9 @@
 @use '../utilities/mixins' as *;
 @use '../color-tokens' as *;
 .dialog-box {
-  --background: var(--color-mt-lighter-light-blue);
+  --background: var(--dialog-box-bg);
   --min-clickable-width-height: 2.75rem; // 44px
-  --close-btn-box-shadow: 0 0 0 0.225rem var(--color-mt-blue-medium);
+  --close-btn-box-shadow: 0 0 0 0.225rem var(--dialog-box-box-shadow);
 
   background-color: var(--background);
   width: 100%;
@@ -20,7 +20,7 @@
   &:focus-visible {
     outline: none;
     border-color: var(--color-primary);
-    box-shadow: 0 0 0 2px var(--color-mt-background), 0 0 0 0.35rem var(--color-mt-blue-medium);
+    box-shadow: 0 0 0 2px var(--color-mt-background), 0 0 0 0.35rem var(--dialog-box-box-shadow);
   }
 
   &--title {
@@ -35,14 +35,15 @@
     min-width: var(--min-clickable-width-height);
     max-width: var(--min-clickable-width-height);
     height: var(--min-clickable-width-height);
-    background-image: url('data:image/svg+xml,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20stroke%3D%22%23075B7A%22%20stroke-width%3D%222%22%20d%3D%22m.7071%201.5151%2016.8246%2016.8246M1.6722%2018.3398%2018.4968%201.5152%22%2F%3E%3C%2Fsvg%3E');
+    background-image: var(--icon-x-flat);
 
     &:hover,
     &:active {
-      background-image: url('data:image/svg+xml, %3Csvg%20width%3D%2220%22%20height%3D%2220%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20stroke%3D%22%23FFFFFF%22%20stroke-width%3D%222%22%20d%3D%22m.7071%201.5151%2016.8246%2016.8246M1.6722%2018.3398%2018.4968%201.5152%22%2F%3E%3C%2Fsvg%3E');
-      background-color: $color-mt-brown;
+      background-image: var(--icon-x-flat-hover);
+      background-color: var(--dialog-box-close-hover);
       background-position: center;
       background-repeat: no-repeat;
+      border: var(--border-width-regular) solid var(--dialog-box-close-border-hover);
     }
 
     &:focus {

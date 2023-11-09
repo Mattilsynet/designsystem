@@ -25,8 +25,8 @@ input[type='file'].form-field {
     margin-top: $file-list-item-spacing;
 
     li {
-      border-top: $border-width-small solid var(--color-secondary);
-      border-bottom: $border-width-small solid var(--color-secondary);
+      border-top: $border-width-small solid var(--disclosure-bordered-border);
+      border-bottom: $border-width-small solid var(--disclosure-bordered-border);
       padding-top: $file-list-item-spacing;
       padding-bottom: $file-list-item-spacing;
       display: flex;

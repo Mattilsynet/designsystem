@@ -6,10 +6,10 @@
 //stylelint-disable no-descending-specificity
 $form-field-width: 100% !default;
 $form-text-color: 'var(--color-text)' !default;
-$form-border-color: $color-secondary !default;
+$form-border-color: 'var(--form-border-color)' !default;
 $form-border-radius: 0.25em !default;
 $form-outline-style: solid !default;
-$form-outline-color: $color-mt-blue-medium !default;
+$form-outline-color: 'var(--form-outline-color)' !default;
 
 .mt-form {
   --form-field-width: #{$form-field-width};
@@ -89,7 +89,7 @@ $form-outline-color: $color-mt-blue-medium !default;
   font-family: inherit;
 
   &:hover {
-    border-color: var(--color-primary);
+    @include form-inputs-hover-style;
   }
 
   &--small-width {
@@ -162,7 +162,7 @@ $form-outline-color: $color-mt-blue-medium !default;
 
   &:hover {
     .input__control {
-      border-color: var(--color-primary);
+      @include form-inputs-hover-style;
     }
   }
 
@@ -201,7 +201,8 @@ $form-outline-color: $color-mt-blue-medium !default;
     margin-top: var(--form-control-vertical);
   }
 }
-.checkbox {
+.checkbox,
+.mt-button-checkbox {
   .input__control {
     @include error-style;
     @include radio-check-error-style;
@@ -225,7 +226,8 @@ $form-outline-color: $color-mt-blue-medium !default;
   }
 }
 
-.radio {
+.radio,
+.mt-button-radio {
   .input__control {
     @include error-style;
     @include radio-check-error-style;
@@ -277,8 +279,8 @@ $form-outline-color: $color-mt-blue-medium !default;
           align-items: center;
           background-color: transparent;
           &:hover {
-            background-color: var(--color-mt-blue);
-            color: var(--color-mt-white);
+            background-color: var(--radio-checkbox-bg-hover);
+            color: var(--radio-checkbox-color-hover);
           }
         }
         &:checked {
@@ -295,11 +297,11 @@ $form-outline-color: $color-mt-blue-medium !default;
                 no-repeat 50% 50%;
               -webkit-mask-size: cover;
               mask-size: cover;
-              background-color: var(--color-mt-blue);
+              background-color: var(--color-primary);
             }
             &:hover {
               &:before {
-                background-color: var(--color-mt-white);
+                background-color: var(--radio-chekbox-button-before-bg-hover);
               }
             }
           }
