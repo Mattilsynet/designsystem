@@ -103,7 +103,7 @@
           </legend>
         {/if}
         {#each listItem.children as subListItem, subListIndex}
-          <div class="form-control narrow 2" class:m-t-0={!level2Legend && subListIndex === 0}>
+          <div class="form-control narrow" class:m-t-0={!level2Legend && subListIndex === 0}>
             <input
               id={subListItem.key}
               type="checkbox"
@@ -127,7 +127,7 @@
               {/if}
               {#each subListItem.children as subSubListItem, subSubListIndex}
                 <div
-                  class="form-control narrow 3"
+                  class="form-control narrow"
                   class:m-t-0={!level3Legend && subListIndex === 0}>
                   <input
                     id={subSubListItem.key}
