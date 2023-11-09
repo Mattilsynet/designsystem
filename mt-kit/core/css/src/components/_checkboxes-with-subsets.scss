@@ -1,11 +1,26 @@
 @use '../utilities/layout';
 @use '../global/utils';
 
-.mt-fieldset.checkbox-subsets {
+.mt-fieldset .checkbox-subsets {
+  --gap: var(--spacer-xx-small);
+  gap: var(--gap);
+  display: inline-flex;
+
+  .form-control {
+    display: inherit;
+    gap: var(--gap);
+
+    &.m-t-0 {
+      margin-top: 0;
+    }
+  }
+
   &--primary {
     @extend .m-l-m;
     display: flex;
     flex-direction: column;
+    gap: 0;
+
     legend {
       @extend .inclusively-hidden;
     }
@@ -18,8 +33,9 @@
     background: var(--color-mt-light-beige);
     display: flex;
     flex-direction: column;
+    gap: 0;
 
-    legend {
+    .form-control legend {
       float: left;
       width: 100%;
       font-weight: var(--font-weight-normal);

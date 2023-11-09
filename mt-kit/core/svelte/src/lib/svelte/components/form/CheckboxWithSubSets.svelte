@@ -64,7 +64,7 @@
     <p class="hint">{helpText}</p>
   {/if}
   {#if hasJS && hasCheckAll}
-    <div class="form-control">
+    <div class="form-control checkbox-subsets">
       <input
         id={options.key}
         type="checkbox"
@@ -79,7 +79,7 @@
     </div>
   {/if}
   {#each options.children || [] as listItem, mainIndex}
-    <div class="form-control narrow" class:m-t-xxs={mainIndex > 0}>
+    <div class="form-control narrow checkbox-subsets" class:m-t-xxs={mainIndex > 0}>
       <input
         id={listItem.key}
         type="checkbox"
@@ -95,13 +95,15 @@
     </div>
     {#if (!hasJS || listItem.checked) && listItem.children && listItem.children.length > 0}
       <fieldset
-        class={`mt-fieldset checkbox ${fieldsetClass}`}
+        class={`mt-fieldset checkbox checkbox-subsets ${fieldsetClass}`}
         transition:slide|local={{ y: 200, duration: 200 }}>
-        <legend class="mt-legend">
-          {interpolate(level2Legend, [listItem.displayName.toLowerCase()])}
-        </legend>
+        {#if level2Legend}
+          <legend class="mt-legend">
+            {interpolate(level2Legend, [listItem.displayName.toLowerCase()])}
+          </legend>
+        {/if}
         {#each listItem.children as subListItem, subListIndex}
-          <div class="form-control narrow">
+          <div class="form-control narrow" class:m-t-0={!level2Legend && subListIndex === 0}>
             <input
               id={subListItem.key}
               type="checkbox"
@@ -118,11 +120,15 @@
             <fieldset
               class={'mt-fieldset checkbox checkbox-subsets--secondary'}
               transition:slide|local={{ y: 200, duration: 200 }}>
-              <legend class="mt-legend">
-                {interpolate(level3Legend, [subListItem.displayName.toLowerCase()])}
-              </legend>
+              {#if level3Legend}
+                <legend class="mt-legend">
+                  {interpolate(level3Legend, [subListItem.displayName.toLowerCase()])}
+                </legend>
+              {/if}
               {#each subListItem.children as subSubListItem, subSubListIndex}
-                <div class="form-control narrow">
+                <div
+                  class="form-control narrow"
+                  class:m-t-0={!level3Legend && subSubListIndex === 0}>
                   <input
                     id={subSubListItem.key}
                     type="checkbox"
