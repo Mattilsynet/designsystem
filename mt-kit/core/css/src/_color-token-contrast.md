@@ -16,6 +16,7 @@ title: Color Token Contrast
   - `color-on-error`
   - `color-mt-yellowgreen-lighter`
   - `color-mt-new-white`
+  - `color-on-mt-granskog`
   - `color-mt-bg-furu`
   - `color-mt-bg-fjord`
   - `color-mt-lys-rognebaer`
@@ -122,6 +123,7 @@ title: Color Token Contrast
   - `color-on-error-50`
   - `color-mt-yellowgreen-lighter`
   - `color-mt-new-white`
+  - `color-on-mt-granskog`
   - `color-mt-bg-furu`
   - `color-mt-lys-fjord`
   - `color-mt-bg-fjord`
@@ -206,6 +208,7 @@ title: Color Token Contrast
   - `color-mt-yellowgreen`
   - `color-mt-yellowgreen-lighter`
   - `color-mt-new-white`
+  - `color-on-mt-granskog`
   - `color-mt-lys-furu`
   - `color-mt-bg-furu`
   - `color-on-mt-fjord`
@@ -260,6 +263,7 @@ title: Color Token Contrast
   - `color-mt-yellowgreen`
   - `color-mt-yellowgreen-lighter`
   - `color-mt-new-white`
+  - `color-on-mt-granskog`
   - `color-mt-lys-furu`
   - `color-mt-bg-furu`
   - `color-on-mt-fjord`
@@ -325,6 +329,7 @@ title: Color Token Contrast
   - `color-on-primary`
   - `color-on-error`
   - `color-mt-new-white`
+  - `color-on-mt-granskog`
   - `color-mt-bg-furu`
   - `color-mt-bg-sommerdag`
   - `color-mt-bg-beige`
@@ -379,6 +384,7 @@ title: Color Token Contrast
   - `color-on-primary`
   - `color-on-error`
   - `color-mt-new-white`
+  - `color-on-mt-granskog`
   - `color-mt-bg-beige`
 
 ## color-mt-light-blue
@@ -477,6 +483,7 @@ title: Color Token Contrast
   - `color-on-error`
   - `color-mt-yellowgreen-lighter`
   - `color-mt-new-white`
+  - `color-on-mt-granskog`
   - `color-mt-bg-furu`
   - `color-mt-bg-fjord`
   - `color-mt-bg-rognebaer`
@@ -542,6 +549,7 @@ title: Color Token Contrast
   - `color-mt-yellowgreen`
   - `color-mt-yellowgreen-lighter`
   - `color-mt-new-white`
+  - `color-on-mt-granskog`
   - `color-mt-lys-furu`
   - `color-mt-bg-furu`
   - `color-on-mt-fjord`
@@ -575,6 +583,7 @@ title: Color Token Contrast
   - `color-mt-yellowgreen`
   - `color-mt-yellowgreen-lighter`
   - `color-mt-new-white`
+  - `color-on-mt-granskog`
   - `color-mt-lys-furu`
   - `color-mt-bg-furu`
   - `color-on-mt-fjord`
@@ -651,6 +660,7 @@ title: Color Token Contrast
   - `color-mt-yellowgreen`
   - `color-mt-yellowgreen-lighter`
   - `color-mt-new-white`
+  - `color-on-mt-granskog`
   - `color-mt-lys-furu`
   - `color-mt-bg-furu`
   - `color-on-mt-fjord`
@@ -728,6 +738,7 @@ title: Color Token Contrast
   - `color-mt-yellowgreen`
   - `color-mt-yellowgreen-lighter`
   - `color-mt-new-white`
+  - `color-on-mt-granskog`
   - `color-mt-lys-furu`
   - `color-mt-bg-furu`
   - `color-on-mt-fjord`
@@ -784,6 +795,7 @@ title: Color Token Contrast
   - `color-on-error-50`
   - `color-mt-yellowgreen-lighter`
   - `color-mt-new-white`
+  - `color-on-mt-granskog`
   - `color-mt-bg-furu`
   - `color-mt-lys-fjord`
   - `color-mt-bg-fjord`
@@ -849,6 +861,7 @@ title: Color Token Contrast
   - `color-on-error`
   - `color-mt-yellowgreen-lighter`
   - `color-mt-new-white`
+  - `color-on-mt-granskog`
   - `color-mt-bg-furu`
   - `color-mt-bg-fjord`
   - `color-mt-bg-rognebaer`
@@ -867,6 +880,7 @@ title: Color Token Contrast
   - `color-on-error`
   - `color-mt-yellowgreen-lighter`
   - `color-mt-new-white`
+  - `color-on-mt-granskog`
   - `color-mt-bg-furu`
   - `color-mt-bg-fjord`
   - `color-mt-lys-rognebaer`
@@ -1002,6 +1016,7 @@ title: Color Token Contrast
   - `color-mt-yellowgreen`
   - `color-mt-yellowgreen-lighter`
   - `color-mt-new-white`
+  - `color-on-mt-granskog`
   - `color-mt-lys-furu`
   - `color-mt-bg-furu`
   - `color-on-mt-fjord`
@@ -1035,6 +1050,7 @@ title: Color Token Contrast
   - `color-mt-yellowgreen`
   - `color-mt-yellowgreen-lighter`
   - `color-mt-new-white`
+  - `color-on-mt-granskog`
   - `color-mt-lys-furu`
   - `color-mt-bg-furu`
   - `color-on-mt-fjord`
@@ -1088,6 +1104,7 @@ title: Color Token Contrast
   - `color-on-error-50`
   - `color-mt-yellowgreen-lighter`
   - `color-mt-new-white`
+  - `color-on-mt-granskog`
   - `color-mt-bg-furu`
   - `color-mt-lys-fjord`
   - `color-mt-bg-fjord`
@@ -1157,6 +1174,7 @@ title: Color Token Contrast
   - `color-on-error-50`
   - `color-mt-yellowgreen-lighter`
   - `color-mt-new-white`
+  - `color-on-mt-granskog`
   - `color-mt-bg-furu`
   - `color-mt-lys-fjord`
   - `color-mt-bg-fjord`
@@ -1244,6 +1262,7 @@ title: Color Token Contrast
   - `color-mt-yellowgreen`
   - `color-mt-yellowgreen-lighter`
   - `color-mt-new-white`
+  - `color-on-mt-granskog`
   - `color-mt-lys-furu`
   - `color-mt-bg-furu`
   - `color-mt-lys-fjord`
@@ -1308,6 +1327,7 @@ title: Color Token Contrast
   - `color-on-error`
   - `color-mt-yellowgreen-lighter`
   - `color-mt-new-white`
+  - `color-on-mt-granskog`
   - `color-mt-bg-furu`
   - `color-mt-bg-fjord`
   - `color-mt-bg-rognebaer`
@@ -1437,17 +1457,45 @@ title: Color Token Contrast
   - `color-mt-bg-beige`
 
 ## color-on-mt-granskog
+  - `color-mt-blue`
   - `color-on-mt-red`
+  - `color-mt-red-uu`
+  - `color-on-mt-beige`
+  - `color-on-mt-beige-50`
+  - `color-on-mt-light-beige`
+  - `color-on-mt-background`
   - `color-on-mt-light-blue`
+  - `color-on-mt-lighter-light-blue`
+  - `color-on-mt-rationale-blue`
+  - `color-mt-brown`
+  - `color-on-mt-grey`
+  - `color-on-mt-white`
+  - `color-on-mt-green`
+  - `color-on-mt-light-green`
+  - `color-primary`
   - `color-on-mt-blue-medium`
+  - `color-on-secondary`
+  - `color-mt-text-dark`
+  - `color-error`
+  - `color-error-50`
+  - `color-on-mt-yellowgreen`
+  - `color-on-mt-yellowgreen-lighter`
   - `color-on-mt-new-white`
   - `color-mt-granskog`
   - `color-mt-granskog-dark`
   - `color-on-mt-furu`
+  - `color-on-mt-lys-furu`
   - `color-on-mt-bg-furu`
+  - `color-mt-fjord`
+  - `color-on-mt-lys-fjord`
   - `color-on-mt-bg-fjord`
+  - `color-mt-rognebaer-contrast`
   - `color-on-mt-rognebaer`
+  - `color-on-mt-lys-rognebaer`
   - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-sommerdag-contrast`
+  - `color-on-mt-sommerdag`
+  - `color-on-mt-lys-sommerdag`
   - `color-on-mt-bg-sommerdag`
   - `color-on-mt-mellombeige`
   - `color-on-mt-bg-beige`
@@ -1602,6 +1650,7 @@ title: Color Token Contrast
   - `color-on-error-50`
   - `color-mt-yellowgreen-lighter`
   - `color-mt-new-white`
+  - `color-on-mt-granskog`
   - `color-mt-lys-furu`
   - `color-mt-bg-furu`
   - `color-mt-lys-fjord`
@@ -1715,6 +1764,7 @@ title: Color Token Contrast
   - `color-mt-yellowgreen`
   - `color-mt-yellowgreen-lighter`
   - `color-mt-new-white`
+  - `color-on-mt-granskog`
   - `color-mt-lys-furu`
   - `color-mt-bg-furu`
   - `color-on-mt-fjord`
@@ -1803,6 +1853,7 @@ title: Color Token Contrast
   - `color-on-error-50`
   - `color-mt-yellowgreen-lighter`
   - `color-mt-new-white`
+  - `color-on-mt-granskog`
   - `color-mt-bg-furu`
   - `color-mt-lys-fjord`
   - `color-mt-bg-fjord`
@@ -1910,6 +1961,7 @@ title: Color Token Contrast
   - `color-on-error-50`
   - `color-mt-yellowgreen-lighter`
   - `color-mt-new-white`
+  - `color-on-mt-granskog`
   - `color-mt-bg-furu`
   - `color-mt-lys-fjord`
   - `color-mt-bg-fjord`
@@ -2047,6 +2099,7 @@ title: Color Token Contrast
   - `color-on-error`
   - `color-mt-yellowgreen-lighter`
   - `color-mt-new-white`
+  - `color-on-mt-granskog`
   - `color-mt-bg-furu`
   - `color-mt-bg-fjord`
   - `color-mt-lys-rognebaer`
@@ -2183,6 +2236,7 @@ title: Color Token Contrast
   - `color-on-error-50`
   - `color-mt-yellowgreen-lighter`
   - `color-mt-new-white`
+  - `color-on-mt-granskog`
   - `color-mt-bg-furu`
   - `color-mt-lys-fjord`
   - `color-mt-bg-fjord`
@@ -2244,6 +2298,7 @@ title: Color Token Contrast
   - `color-on-error`
   - `color-mt-yellowgreen-lighter`
   - `color-mt-new-white`
+  - `color-on-mt-granskog`
   - `color-mt-bg-furu`
   - `color-mt-bg-fjord`
   - `color-mt-bg-rognebaer`
@@ -2303,6 +2358,7 @@ title: Color Token Contrast
   - `color-on-error`
   - `color-mt-yellowgreen-lighter`
   - `color-mt-new-white`
+  - `color-on-mt-granskog`
   - `color-mt-bg-furu`
   - `color-mt-bg-fjord`
   - `color-mt-bg-rognebaer`

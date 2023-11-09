@@ -107,6 +107,7 @@ module.exports = [
   {
     name: 'mt-granskog',
     color: '#054449',
+    onColor: '#FAF6F3',
   },
   {
     name: 'mt-granskog-dark',
