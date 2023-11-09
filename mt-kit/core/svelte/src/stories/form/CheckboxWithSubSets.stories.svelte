@@ -235,8 +235,7 @@
             checkAllLabel={args.disclosure.checkAllLabel}
             level1Legend={interpolate(args.disclosure.level1Legend, [
               args.disclosure.title.toLowerCase()
-            ])}
-            level2Legend={args.disclosure.level2Legend} />
+            ])} />
         </Disclosure>
       </form>
     </section>
