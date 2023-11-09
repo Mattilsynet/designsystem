@@ -134,7 +134,7 @@ $transportlink-colors: 'error' !default;
     }
     &.blue-arrow {
       &:after {
-        background-image: var(--icon-arrow-primary-hover);
+        background-image: var(--icon-arrow-right-primary);
       }
     }
     &--large {
