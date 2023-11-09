@@ -30,7 +30,7 @@
     }
 
     dd:not(:last-child) {
-      border-bottom: $border-radius-small solid var(--color-secondary);
+      border-bottom: $border-radius-small solid var(--list-border);
     }
 
     @media only screen and (min-width: $breakpoint-large) {
@@ -43,7 +43,7 @@
 
       dt:not(:nth-last-child(2)) {
         padding-right: var(--spacer-x-small);
-        border-bottom: $border-radius-small solid var(--color-secondary);
+        border-bottom: $border-radius-small solid var(--list-border);
       }
     }
   }
