@@ -125,6 +125,7 @@
   --multiselect-option-before-selected: url('data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%2224%22%20height%3D%2224%22%20rx%3D%224%22%20fill%3D%22%23075B7A%22%2F%3E%3Cpath%20d%3D%22M6.826%209.98%205%2012.365l6.051%205.234L19%208.3l-1.922-1.9-6.014%207.463L6.826%209.98Z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E');
 
   --current-issues-bg: var(--color-mt-light-green);
+  --changelog-panel-bg: var(--color-mt-light-beige);
 
   --grey-medium: hsl(#{$color-grey-hue}, 15%, 50%);
   --grey-light: hsl(#{$color-grey-hue}, 20%, 85%);
@@ -347,6 +348,7 @@
   --chapter-navigation-border: var(--color-primary);
 
   --current-issues-bg: var(--color-mt-bg-furu);
+  --changelog-panel-bg: var(--color-mt-mellombeige);
 
   --mt-header-bg: var(--color-mt-new-white);
   --mt-header-footer-border: transparent;
