@@ -146,7 +146,7 @@
       transform-origin: center center;
     }
     .disclosure-panel {
-      border-top: $border-width-small solid var(--color-secondary); //todo
+      border-top: $border-width-small solid var(--list-border);
       margin: 0 var(--spacer-x-small);
       &.on-server {
         > :first-child {
