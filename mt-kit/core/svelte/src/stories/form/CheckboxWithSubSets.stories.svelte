@@ -8,8 +8,7 @@
 
 <Meta
   title="Components/Form/CheckboxWithSubsets"
-  disableCss:
-  false
+  disableCss={false}
   args={{
     legend: 'Tema',
     variation: 'primary',

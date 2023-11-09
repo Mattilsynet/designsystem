@@ -128,7 +128,7 @@
               {#each subListItem.children as subSubListItem, subSubListIndex}
                 <div
                   class="form-control narrow"
-                  class:m-t-0={!level3Legend && subListIndex === 0}>
+                  class:m-t-0={!level3Legend && subSubListIndex === 0}>
                   <input
                     id={subSubListItem.key}
                     type="checkbox"
