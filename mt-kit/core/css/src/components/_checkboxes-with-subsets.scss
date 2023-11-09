@@ -7,7 +7,7 @@
   display: inline-flex;
 
   .form-control {
-    display: inline-flex;
+    display: inherit;
     gap: var(--gap);
 
     &.m-t-0 {
