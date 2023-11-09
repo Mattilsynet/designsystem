@@ -383,13 +383,13 @@
   --mt-button-neutral-color-disabled: #6d7073;
   --mt-button-neutral-border-disabled: #6d7073;
 
-  --mt-button-flat-bg: var(--color-mt-new-white);
+  --mt-button-flat-bg: transparent;
   --mt-button-flat-color: var(--color-primary);
-  --mt-button-flat-border: var(--color-mt-new-white);
+  --mt-button-flat-border: transparent;
   --mt-button-flat-bg-hover: var(--color-mt-bg-furu);
   --mt-button-flat-color-hover: var(--color-primary);
   --mt-button-flat-border-hover: var(--color-primary);
-  --mt-button-flat-bg-focus: var(--color-mt-new-white);
+  --mt-button-flat-bg-focus: transparent;
   --mt-button-flat-color-focus: var(--color-primary);
   --mt-button-flat-border-focus: var(--color-primary);
   --mt-button-flat-bg-disabled: var(--color-mt-bg-beige);
