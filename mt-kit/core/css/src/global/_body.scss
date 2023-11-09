@@ -127,6 +127,7 @@
   --current-issues-bg: var(--color-mt-light-green);
   --changelog-panel-bg: var(--color-mt-light-beige);
   --menu-point-svg-circle: var(--color-mt-background);
+  --menu-point-icon-height: 2.125rem; //34px
 
   --grey-medium: hsl(#{$color-grey-hue}, 15%, 50%);
   --grey-light: hsl(#{$color-grey-hue}, 20%, 85%);
@@ -351,6 +352,8 @@
   --current-issues-bg: var(--color-mt-bg-furu);
   --changelog-panel-bg: var(--color-mt-mellombeige);
   --menu-point-svg-circle: var(--mt-button-neutral-bg-hover);
+  --menu-point-icon-height: 3.5rem; // 56px
+
   --mt-header-bg: var(--color-mt-new-white);
   --mt-header-footer-border: transparent;
   --mt-footer-background: var(--color-mt-granskog);

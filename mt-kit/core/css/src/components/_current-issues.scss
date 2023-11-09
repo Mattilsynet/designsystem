@@ -22,7 +22,7 @@
     &::before {
       content: var(--icon-current-issue);
       margin-right: var(--spacer-x-small);
-      height: #{$menu-point-icon-height};
+      height: var(--menu-point-icon-height);
       width: #{$icon-size-x-large};
     }
   }

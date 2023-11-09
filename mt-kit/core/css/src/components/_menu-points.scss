@@ -19,7 +19,7 @@
     grid-area: icon;
     align-self: start;
     justify-self: center;
-    height: $menu-point-icon-height;
+    height: var(--menu-point-icon-height);
     svg {
       height: inherit;
       width: inherit;
