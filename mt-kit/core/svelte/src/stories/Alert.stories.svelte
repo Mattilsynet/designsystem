@@ -10,7 +10,7 @@
     alerts: [
       {
         severity: 'info',
-        text: `<h1 class="mt-h4">Skal ha en heading her</h1><p>Paragrafen kommer under. Det skal være en <a href="www.mattilsynet.no">leneke til en side</a></p><p>Andre paragraphen. Det skal være en <a href="www.mattilsynet.no">leneke til en side</a></p>`
+        text: `<h1 class="mt-h4">Kan legge inn tittel</h1><p>Paragrafen kommer under. Det skal være en <a href="www.mattilsynet.no">leneke til en side</a></p><p>Andre paragraphen. Det skal være en <a href="www.mattilsynet.no">leneke til en side</a></p>`
       },
       {
         severity: 'success',
@@ -33,6 +33,9 @@
 
 <Story name="Normal" let:alerts let:disableCss>
   <div use:wrapInShadowDom={disableCss} class="wrapper">
+    <Alert severity={alerts[0].severity}>
+      <p>Informasjon som kommer på en linje</p>
+    </Alert>
     <Alert severity={alerts[0].severity}>
       {@html alerts[0].text}
     </Alert>
