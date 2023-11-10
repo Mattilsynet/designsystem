@@ -253,12 +253,13 @@
   a {
     @extend .mt-link;
     text-decoration: none;
+    border-bottom: $border-width-regular solid transparent;
     svg {
       height: 1.5rem;
     }
     &:hover,
     &[aria-current='page'] {
-      border-bottom: $border-width-regular solid var(--color-mt-white);
+      border-bottom: $border-width-regular solid var(--color-links);
     }
   }
   li {
