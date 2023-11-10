@@ -18,11 +18,10 @@
   h3,
   h4 {
     display: flex;
-    padding-bottom: var(--spacer-x-small);
+    padding-bottom: 0;
     &::before {
       content: var(--icon-current-issue);
       margin-right: var(--spacer-x-small);
-      height: var(--menu-point-icon-height);
       width: #{$icon-size-x-large};
     }
   }
