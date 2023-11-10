@@ -21,6 +21,8 @@ aside {
   height: $mobile-menu-height;
   overflow: hidden;
   transition: height 0.3s ease;
+  border-top: theme.$border-width-large solid var(--color-primary);
+  border-bottom: theme.$border-width-large solid var(--color-primary);
 
   button {
     padding-inline: var(--spacer-xx-small);
@@ -32,9 +34,17 @@ aside {
       color: white;
       width: 100%;
       margin-right: 0;
+      border: theme.$border-width-regular solid transparent;
+      &:focus {
+        border: theme.$border-width-regular solid var(--body-background);
+      }
       &[aria-expanded='true'] {
         background-color: var(--chapter-menu-active-on-dark);
         color: var(--color-primary);
+        border: theme.$border-width-regular solid var(--chapter-menu-active-on-dark);
+        &:focus {
+          border: theme.$border-width-regular solid var(--body-background);
+        }
       }
     }
   }
@@ -146,6 +156,13 @@ aside {
   .layout-with-sidebar {
     &.has-js {
       aside {
+        .mt-button--unstyled {
+          border: theme.$border-width-large solid transparent;
+          &:focus {
+            border: theme.$border-width-large solid var(--mt-button-no-primary-border-focus-shadow);
+            box-shadow: none;
+          }
+        }
         .aside-header {
           position: relative;
           button {
