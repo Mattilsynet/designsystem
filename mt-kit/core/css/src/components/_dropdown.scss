@@ -342,6 +342,11 @@
     > a {
       padding-left: var(--spacer-xx-small);
     }
+    > a.hover-indent.menu-level-1 {
+      &:hover {
+        padding-left: var(--spacer-small);
+      }
+    }
   }
   &--right {
     > :first-child {
