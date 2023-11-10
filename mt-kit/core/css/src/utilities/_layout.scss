@@ -183,6 +183,27 @@ Only use if it does NOT affect accessibility
     display: inline-block;
   }
 }
+/*
+Only use if it does NOT affect accessibility
+*/
+.responsive-hide-flex-xx-large {
+  display: none;
+
+  @media only screen and (min-width: $breakpoint-xx-large) {
+    display: flex;
+  }
+}
+
+/*
+Only use if it does NOT affect accessibility
+*/
+.responsive-show-flex-xx-large {
+  display: flex;
+
+  @media only screen and (min-width: $breakpoint-xx-large) {
+    display: none;
+  }
+}
 
 /*
 Only use if it does NOT affect accessibility
