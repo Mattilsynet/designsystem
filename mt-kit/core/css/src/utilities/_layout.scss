@@ -264,6 +264,12 @@ Only use if it does NOT affect accessibility
     flex-direction: column;
     justify-self: center;
     gap: var(--spacer-x-small);
+    a {
+      color: var(--mt-footer-links-color);
+      &:focus {
+        box-shadow: 0 0 0 0.25rem var(--mt-footer-link-color-focus);
+      }
+    }
   }
 
   svg {
