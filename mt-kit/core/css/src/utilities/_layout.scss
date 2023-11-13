@@ -35,6 +35,7 @@
     margin-top: 0;
   }
 }
+
 [data-portal-component-type] {
   & + [data-portal-component-type] {
     margin-top: var(--spacer-small);
@@ -252,17 +253,25 @@ Only use if it does NOT affect accessibility
 
 .mt-footer {
   padding-bottom: var(--spacer-small);
-  gap: var(--spacer-x-small);
   background-color: var(--mt-footer-background);
   color: var(--mt-footer-color);
-  width: $full-width;
+  width: 100%;
   margin-top: var(--spacer-large);
+
   .footer-wrapper {
     padding-top: var(--spacer-large);
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-self: center;
+    gap: var(--spacer-x-small);
+    a {
+      color: var(--mt-footer-links-color);
+      &:focus {
+        box-shadow: 0 0 0 0.25rem var(--mt-footer-link-color-focus);
+      }
+    }
   }
+
   svg {
     align-self: center;
   }
@@ -282,21 +291,25 @@ Only use if it does NOT affect accessibility
   }
 
   @media only screen and (min-width: $breakpoint-large) {
-    flex-direction: row;
-    gap: var(--spacer-x-small);
-
     svg {
       margin-top: 0;
       align-self: flex-start;
     }
+
+    .footer-wrapper {
+      flex-direction: row;
+    }
   }
 }
+
 .display-none {
   display: none;
 }
+
 .display-none-important {
   display: none !important;
 }
+
 .float-right {
   float: right;
 }

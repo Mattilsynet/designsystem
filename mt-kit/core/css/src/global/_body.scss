@@ -160,6 +160,8 @@
   --mt-header-footer-border: var(--color-mt-red);
   --mt-footer-background: transparent;
   --mt-footer-color: var(--color-mt-text-dark);
+  --mt-footer-links-color: var(--color-links);
+  --mt-footer-link-color-focus: var(--color-mt-blue-medium);
 
   --mt-button-primary-bg: var(--color-primary);
   --mt-button-primary-color: var(--color-mt-new-white);
@@ -357,7 +359,9 @@
   --mt-header-bg: var(--color-mt-new-white);
   --mt-header-footer-border: transparent;
   --mt-footer-background: var(--color-mt-granskog);
-  --mt-footer-color: var(--color-mt-new-white);
+  --mt-footer-color: var(--color-mt-bg-furu);
+  --mt-footer-links-color: var(--color-mt-bg-furu);
+  --mt-footer-link-color-focus: var(--color-mt-bg-beige);
 
   --mt-button-primary-bg: var(--color-primary);
   --mt-button-primary-color: var(--color-mt-new-white);
