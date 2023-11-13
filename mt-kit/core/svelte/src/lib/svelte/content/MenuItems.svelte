@@ -87,7 +87,7 @@
   </ol>
 {/if}
 {#if itemsBottom}
-  <ol class="mt-ol col-1-span-8 menu-row m-t-s p-lr-0">
+  <ol class="mt-ol col-1-span-8 menu-row m-t-s p-lr-0 no-space-between">
     {#each itemsBottom as bottom}
       <li class="m-t-0">
         <a
