@@ -4,6 +4,8 @@
   import SuccessOutline from '../components/icons/SuccessOutline.svelte'
   import DangerOutline from '../components/icons/DangerOutline.svelte'
 
+  let className = ''
+  export { className as class }
   export let severity: 'info' | 'success' | 'warning' | 'danger' = 'info'
   export let iconTitle: string | undefined = undefined
 
@@ -15,7 +17,7 @@
   }
 </script>
 
-<div class="mt-alert {severity}" {...$$restProps}>
+<div class="mt-alert {className} {severity}" {...$$restProps}>
   <svelte:component this={icons[severity]} title={iconTitle} />
   <div class="mt-alert-wrapper">
     <slot />
