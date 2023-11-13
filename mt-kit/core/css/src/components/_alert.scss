@@ -2,13 +2,14 @@
 @use '../global/links' as *;
 .mt-alert {
   --icon-alert-size: #{$icon-alert-size};
-  padding: var(--spacer-xx-small);
+  --alert-spacing: var(--spacer-xx-small);
+  padding: var(--alert-spacing);
   border-radius: $border-radius;
   border: $border-width-regular solid var(--color-mt-granskog-dark);
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: min-content auto;
-  column-gap: var(--spacer-xx-small);
+  column-gap: var(--alert-spacing);
   svg {
     height: var(--icon-alert-size);
     width: var(--icon-alert-size);
