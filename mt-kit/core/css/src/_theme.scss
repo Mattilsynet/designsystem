@@ -12,7 +12,8 @@ $focus-box-shadow-on-white: 0 0 0 0.125rem var(--color-mt-white),
 $focus-box-shadow-no-outline: 0 0 0 0.25rem var(--mt-button-primary-bg-focus);
 $error-box-shadow: 0 0 0 0.5rem var(--color-mt-background), 0 0 0 0.7rem var(--color-error);
 $error-box-shadow-small: 0 0 0 0.05rem var(--color-mt-background), 0 0 0 0.2rem var(--color-error);
-$error-box-shadow-medium: 0 0 0 1.05rem var(--color-mt-background), 0 0 0 1.2rem var(--color-error);
+$error-box-shadow-medium: 0 0 0 var(--spacer-xx-small) var(--color-mt-background),
+  0 0 0 calc(var(--spacer-xx-small) + $border-width-large) var(--color-error);
 
 $breakpoint-large: 768px;
 $breakpoint-x-large: 1024px;
