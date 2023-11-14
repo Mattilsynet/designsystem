@@ -214,6 +214,13 @@
           level1Legend="Tema uten antall"
           border={args.border}
           level2Legend={`${legend} i `} />
+        <h2 class="mt-h3">Variation = secondary</h2>
+        <CheckboxWithSubSets
+          options={optionsWithoutDocCount}
+          variation="secondary"
+          level1Legend="legend 1"
+          level2Legend="legend 2"
+          border={args.border} />
       </form>
       <h2 class="mt-h2">Nestede checkboxet inside disclosure</h2>
       <p>
