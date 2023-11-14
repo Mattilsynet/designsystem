@@ -22,4 +22,5 @@
   <div class="mt-alert-wrapper">
     <slot />
   </div>
+  <slot name="right" />
 </div>
