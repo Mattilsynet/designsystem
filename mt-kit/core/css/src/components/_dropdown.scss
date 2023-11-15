@@ -129,7 +129,6 @@
     margin-right: 0;
     & > .mt-button,
     > details {
-      color: var(--menu-color);
       --icon-size: 1rem;
 
       &[aria-expanded]::after,
