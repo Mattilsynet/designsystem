@@ -55,6 +55,8 @@ $color-mt-granskog: #054449 !default;
 $color-on-mt-granskog: #FAF6F3 !default;
 $color-mt-granskog-dark: #032C30 !default;
 $color-on-mt-granskog-dark: #5B979C !default;
+$color-mt-mellom-furu: #3D7561 !default;
+$color-on-mt-mellom-furu: #E2EEE9 !default;
 $color-mt-furu: #68B096 !default;
 $color-on-mt-furu: #184032 !default;
 $color-mt-lys-furu: #8AC2AE !default;
@@ -88,7 +90,7 @@ $color-on-mt-mellombeige: #032C30 !default;
 $color-mt-bg-beige: #FAF6F3 !default;
 $color-on-mt-bg-beige: #032C30 !default;
 
-$base-color-tokens: ("mt-blue", "mt-red", "mt-red-uu", "mt-beige", "mt-beige-50", "mt-light-beige", "mt-background", "mt-light-blue", "mt-lighter-light-blue", "mt-rationale-blue", "mt-brown", "mt-grey", "mt-white", "mt-green", "mt-light-green", "primary", "mt-blue-medium", "secondary", "mt-text-dark", "error", "error-50", "mt-yellowgreen", "mt-yellowgreen-lighter", "mt-new-white", "mt-granskog", "mt-granskog-dark", "mt-furu", "mt-lys-furu", "mt-bg-furu", "mt-fjord", "mt-lys-fjord", "mt-bg-fjord", "mt-rognebaer-contrast", "mt-rognebaer", "mt-lys-rognebaer", "mt-bg-rognebaer", "mt-sommerdag-contrast", "mt-sommerdag", "mt-lys-sommerdag", "mt-bg-sommerdag", "mt-mellombeige", "mt-bg-beige");
+$base-color-tokens: ("mt-blue", "mt-red", "mt-red-uu", "mt-beige", "mt-beige-50", "mt-light-beige", "mt-background", "mt-light-blue", "mt-lighter-light-blue", "mt-rationale-blue", "mt-brown", "mt-grey", "mt-white", "mt-green", "mt-light-green", "primary", "mt-blue-medium", "secondary", "mt-text-dark", "error", "error-50", "mt-yellowgreen", "mt-yellowgreen-lighter", "mt-new-white", "mt-granskog", "mt-granskog-dark", "mt-mellom-furu", "mt-furu", "mt-lys-furu", "mt-bg-furu", "mt-fjord", "mt-lys-fjord", "mt-bg-fjord", "mt-rognebaer-contrast", "mt-rognebaer", "mt-lys-rognebaer", "mt-bg-rognebaer", "mt-sommerdag-contrast", "mt-sommerdag", "mt-lys-sommerdag", "mt-bg-sommerdag", "mt-mellombeige", "mt-bg-beige");
 
 $color-tokens: (
   "color-mt-blue": $color-mt-blue,
@@ -143,6 +145,8 @@ $color-tokens: (
   "color-on-mt-granskog": $color-on-mt-granskog,
   "color-mt-granskog-dark": $color-mt-granskog-dark,
   "color-on-mt-granskog-dark": $color-on-mt-granskog-dark,
+  "color-mt-mellom-furu": $color-mt-mellom-furu,
+  "color-on-mt-mellom-furu": $color-on-mt-mellom-furu,
   "color-mt-furu": $color-mt-furu,
   "color-on-mt-furu": $color-on-mt-furu,
   "color-mt-lys-furu": $color-mt-lys-furu,
@@ -230,6 +234,8 @@ $color-tokens: (
   --color-on-mt-granskog: #{$color-on-mt-granskog};
   --color-mt-granskog-dark: #{$color-mt-granskog-dark};
   --color-on-mt-granskog-dark: #{$color-on-mt-granskog-dark};
+  --color-mt-mellom-furu: #{$color-mt-mellom-furu};
+  --color-on-mt-mellom-furu: #{$color-on-mt-mellom-furu};
   --color-mt-furu: #{$color-mt-furu};
   --color-on-mt-furu: #{$color-on-mt-furu};
   --color-mt-lys-furu: #{$color-mt-lys-furu};
