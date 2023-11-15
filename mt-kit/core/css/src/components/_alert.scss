@@ -1,0 +1,44 @@
+@use '../theme' as *;
+@use '../global/links' as *;
+.mt-alert {
+  --icon-alert-size: #{$icon-alert-size};
+  --alert-spacing: var(--spacer-xx-small);
+  padding: var(--alert-spacing);
+  border-radius: $border-radius;
+  border: $border-width-regular solid var(--color-mt-granskog-dark);
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: min-content auto;
+  column-gap: var(--alert-spacing);
+  align-items: start;
+  svg {
+    height: var(--icon-alert-size);
+    width: var(--icon-alert-size);
+    max-width: unset;
+    circle {
+      fill-opacity: 0;
+    }
+  }
+  a {
+    @extend .mt-link;
+  }
+  * + p {
+    margin-top: var(--spacer-xxx-small);
+  }
+  &.info {
+    background-color: var(--tag-info-bg);
+    border: $border-width-regular solid var(--tag-info-border);
+  }
+  &.success {
+    background-color: var(--tag-success-bg);
+    border: $border-width-regular solid var(--tag-success-border);
+  }
+  &.warning {
+    background-color: var(--tag-warning-bg);
+    border: $border-width-regular solid var(--tag-warning-border);
+  }
+  &.danger {
+    background-color: var(--tag-error-bg);
+    border: $border-width-regular solid var(--tag-error-border);
+  }
+}

@@ -1,3 +1,4 @@
+export { default as Alert } from './svelte/components/Alert.svelte'
 export { default as Checkbox } from './svelte/components/form/Checkbox.svelte'
 export { default as CheckboxWithSubSets } from './svelte/components/form/CheckboxWithSubSets.svelte'
 export { default as ExpandableInputList } from './svelte/components/form/ExpandableInputList.svelte'
@@ -14,6 +15,7 @@ export { default as Select } from './svelte/components/form/Select.svelte'
 export { default as TextArea } from './svelte/components/form/TextArea.svelte'
 export { default as TextInput } from './svelte/components/form/TextInput.svelte'
 export { default as TextInputHorizontal } from './svelte/components/form/TextInputHorizontal.svelte'
+export { default as XIcon } from './svelte/components/icons/XIcon.svelte'
 
 export { default as Breadcrumbs } from './svelte/components/Breadcrumbs.svelte'
 export { default as ButtonSpinner } from './svelte/components/ButtonSpinner.svelte'
