@@ -278,6 +278,15 @@ $icon-github: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.or
       @include icon-background;
     }
   }
+  &--arrow-forward-x-small-after {
+    @extend .icon-align;
+
+    &:after {
+      display: block;
+      background-image: var(--icon-arrow-right-primary-x-small);
+      @include icon-background;
+    }
+  }
 
   &--calendar-before {
     @extend .icon-align;
