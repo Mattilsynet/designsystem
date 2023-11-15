@@ -115,7 +115,7 @@ module.exports = [
   },
   {
     name: 'mt-mellom-furu',
-    color: '#3D7561',
+    color: '#3C725E',
   },
   {
     name: 'mt-furu',

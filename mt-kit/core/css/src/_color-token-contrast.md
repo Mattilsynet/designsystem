@@ -310,6 +310,7 @@ title: Color Token Contrast
   - `color-on-mt-new-white`
   - `color-mt-granskog`
   - `color-mt-granskog-dark`
+  - `color-mt-mellom-furu`
   - `color-on-mt-furu`
   - `color-on-mt-lys-furu`
   - `color-on-mt-bg-furu`
@@ -335,7 +336,6 @@ title: Color Token Contrast
   - `color-on-error`
   - `color-mt-new-white`
   - `color-on-mt-granskog`
-  - `color-on-mt-mellom-furu`
   - `color-mt-bg-furu`
   - `color-mt-bg-sommerdag`
   - `color-mt-bg-beige`
@@ -1586,6 +1586,7 @@ title: Color Token Contrast
   - `color-on-mt-bg-beige`
 
 ## color-mt-mellom-furu
+  - `color-mt-light-beige`
   - `color-mt-background`
   - `color-mt-white`
   - `color-on-primary`
@@ -1594,6 +1595,8 @@ title: Color Token Contrast
   - `color-on-mt-granskog`
   - `color-on-mt-mellom-furu`
   - `color-mt-bg-furu`
+  - `color-mt-bg-fjord`
+  - `color-mt-bg-rognebaer`
   - `color-mt-bg-sommerdag`
   - `color-mt-bg-beige`
 
@@ -1603,7 +1606,6 @@ title: Color Token Contrast
   - `color-mt-red-uu`
   - `color-on-mt-beige`
   - `color-on-mt-beige-50`
-  - `color-on-mt-light-beige`
   - `color-on-mt-light-blue`
   - `color-on-mt-lighter-light-blue`
   - `color-on-mt-rationale-blue`
@@ -1983,6 +1985,7 @@ title: Color Token Contrast
   - `color-on-mt-new-white`
   - `color-mt-granskog`
   - `color-mt-granskog-dark`
+  - `color-mt-mellom-furu`
   - `color-on-mt-furu`
   - `color-on-mt-lys-furu`
   - `color-on-mt-bg-furu`
@@ -2232,6 +2235,7 @@ title: Color Token Contrast
   - `color-on-mt-new-white`
   - `color-mt-granskog`
   - `color-mt-granskog-dark`
+  - `color-mt-mellom-furu`
   - `color-on-mt-furu`
   - `color-on-mt-lys-furu`
   - `color-on-mt-bg-furu`
