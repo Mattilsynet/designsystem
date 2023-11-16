@@ -19,10 +19,17 @@
   h4 {
     display: flex;
     padding-bottom: 0;
+    align-items: center;
+    gap: var(--spacer-x-small);
     &::before {
-      content: var(--icon-current-issue);
-      margin-right: var(--spacer-x-small);
-      width: #{$icon-size-x-large};
+      display: block;
+      background-image: var(--icon-current-issue);
+      padding-right: var(--current-issues-icon-size);
+      content: '';
+      width: var(--current-issues-icon-size);
+      height: var(--current-issues-icon-size);
+      background-size: var(--current-issues-icon-size) var(--current-issues-icon-size);
+      background-repeat: no-repeat;
     }
   }
 
