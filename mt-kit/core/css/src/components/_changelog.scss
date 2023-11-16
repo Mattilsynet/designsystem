@@ -6,6 +6,7 @@
     .disclosure-header.disclosure-header {
       color: var(--color-mt-blue);
       gap: var(--spacer-xx-small);
+      display: flex;
     }
 
     .disclosure-panel {
