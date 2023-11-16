@@ -123,7 +123,7 @@ $transportlink-colors: 'error' !default;
     }
     &:after {
       display: block;
-      background-image: var(--icon-arrow-primary-hover);
+      background-image: var(--icon-arrow-right-on-primary);
       margin-left: var(--spacer-xxx-small);
       padding-right: var(--icon-size-normal);
       content: '';
@@ -193,7 +193,7 @@ $transportlink-colors: 'error' !default;
 
     &:after {
       margin-left: var(--spacer-xxx-small);
-      background-image: var(--icon-arrow-primary-hover);
+      background-image: var(--icon-arrow-right-on-primary);
       content: '';
       width: var(--icon-size);
       height: var(--icon-size);
@@ -242,7 +242,7 @@ $transportlink-colors: 'error' !default;
   &.forward-arrow-after {
     display: block;
     &::after {
-      content: var(--icon-arrow-right-link-small);
+      content: var(--icon-arrow-right-primary-small);
       display: inline-block;
       margin-left: var(--spacer-xxx-small);
       margin-right: -2rem;
@@ -365,7 +365,7 @@ $transportlink-colors: 'error' !default;
       padding-left: var(--spacer-xxx-small);
     }
     &::after {
-      content: var(--icon-arrow-right-link);
+      content: var(--icon-arrow-right-primary);
       display: inline-block;
       margin-right: -2rem;
       margin-left: var(--spacer-xxx-small);
@@ -382,7 +382,6 @@ $transportlink-colors: 'error' !default;
     --transportlink-padding: 0.875rem 1.5rem;
 
     font-size: $font-size-body;
-    color: var(--color-primary);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -390,7 +389,7 @@ $transportlink-colors: 'error' !default;
 
     &:after {
       content: '';
-      background-image: var(--icon-arrow-blue);
+      background-image: var(--icon-arrow-right-primary);
       margin-left: var(--spacer-xxx-small);
       padding-right: var(--icon-size-normal);
       width: var(--icon-size-normal);
@@ -455,7 +454,6 @@ $transportlink-colors: 'error' !default;
     &--secondary {
       @extend .no-underline;
       background-color: transparent;
-      color: var(--color-primary);
       border: var(--border-width-regular) solid var(--list-border);
       font-weight: var(--font-weight-bold);
       padding: var(--transportlink-padding);
@@ -463,7 +461,6 @@ $transportlink-colors: 'error' !default;
 
       &-large {
         @extend .no-underline;
-        color: var(--transport-link-color);
         transition: padding-left ease-in-out 150ms;
         padding: var(--spacer-xx-small) 0;
         width: 100%;
