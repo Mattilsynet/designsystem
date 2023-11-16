@@ -287,6 +287,51 @@ $icon-github: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.or
       @include icon-background;
     }
   }
+  &--arrow-right-primary-small-after {
+    @extend .icon-align;
+
+    &:after {
+      display: block;
+      background-image: var(--icon-arrow-right-primary-small);
+      @include icon-background;
+    }
+  }
+  &--arrow-primary-after {
+    @extend .icon-align;
+
+    &:after {
+      display: block;
+      background-image: var(--icon-arrow-primary);
+      @include icon-background;
+    }
+  }
+  &--arrow-primary-hover-after {
+    @extend .icon-align;
+
+    &:after {
+      display: block;
+      background-image: var(--icon-arrow-primary-hover);
+      @include icon-background;
+    }
+  }
+  &--arrow-right-primary-after {
+    @extend .icon-align;
+
+    &:after {
+      display: block;
+      background-image: var(--icon-arrow-right-primary);
+      @include icon-background;
+    }
+  }
+  &--arrow-right-on-primary-after {
+    @extend .icon-align;
+
+    &:after {
+      display: block;
+      background-image: var(--icon-arrow-right-on-primary);
+      @include icon-background;
+    }
+  }
 
   &--calendar-before {
     @extend .icon-align;

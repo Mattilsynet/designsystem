@@ -93,7 +93,7 @@
         <a
           href={bottom.url}
           rel={mapRelExternal(bottom.url)}
-          class="mt-link layout-flex layout-flex--center-vertical on-primary icon--arrow-forward-x-small-after"
+          class="mt-link layout-flex layout-flex--center-vertical on-primary icon--arrow-right-on-primary-after"
           aria-current={bottom.isActive ? 'page' : false}
           style="gap: var(--spacer-xxx-small)">
           {#if bottom.iconResource}
