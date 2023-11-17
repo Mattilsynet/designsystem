@@ -13,6 +13,7 @@
   export let isRequired: boolean | undefined = undefined
   export let textOptional = '(valgfitt felt)'
   export let hiddenErrorText: string | undefined
+  export let onChange = (): void => {}
 
   export let theme: 'checkbox' | 'button' = 'checkbox'
   let className = ''
@@ -64,6 +65,7 @@
         value={checkbox.value}
         bind:group={value}
         aria-required={isRequired}
+        on:change={onChange}
         aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)} />
       <label
         class="mt-label {theme === 'button' ? 'mt-button mt-button--secondary' : ''}"
