@@ -259,6 +259,14 @@ $transportlink-colors: 'error' !default;
     justify-content: flex-start;
     padding: var(--spacer-x-small);
     gap: var(--spacer-xx-small);
+    svg {
+      path {
+        fill: var(--mt-button-primary-color);
+      }
+      circle {
+        fill: transparent;
+      }
+    }
     &:hover {
       .text {
         &::after {
