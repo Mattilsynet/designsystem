@@ -175,7 +175,7 @@ module.exports = [
   },
   {
     name: 'mt-mellombeige',
-    color: '#EDDED4',
+    color: '#F4ECE6',
     onColor: '#032C30',
   },
   {
