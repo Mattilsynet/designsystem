@@ -300,11 +300,11 @@ $transportlink-colors: 'error' !default;
 
     &--promotion {
       --promotion-bg: var(--color-mt-bg-fjord);
-
+      display: grid;
       background-color: var(--promotion-bg);
       color: var(--color-text);
       align-items: center;
-      gap: var(--spacer-medium);
+      gap: 0;
       padding: var(--spacer-small) var(--spacer-medium);
       border-radius: $border-radius $border-radius $border-radius-large $border-radius;
 
@@ -314,13 +314,8 @@ $transportlink-colors: 'error' !default;
       }
 
       @media only screen and (min-width: $breakpoint-large) {
-        flex-direction: row;
-        gap: var(--spacer-xx-large);
-        > .highlighted-text {
-          flex: 1;
-        }
         > .highlighted-text + img {
-          flex: 1;
+          width: 100%;
         }
       }
     }
