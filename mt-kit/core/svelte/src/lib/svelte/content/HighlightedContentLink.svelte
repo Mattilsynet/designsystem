@@ -14,7 +14,7 @@
   export let headingClass = ''
   export let headerTag: 'h2' | 'h3' = 'h2'
 
-  type HighlightedContentDisplayType = 'white' | 'blue' | 'promotion'
+  type HighlightedContentDisplayType = 'white' | 'blue' | 'campaign'
 </script>
 
 {#if displayType === 'blue'}
@@ -30,7 +30,7 @@
     </HeadingLevel>
     <slot />
   </a>
-{:else if displayType === 'promotion'}
+{:else if displayType === 'campaign'}
   <a
     href={url}
     rel={mapRelExternal(url)}

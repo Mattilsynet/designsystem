@@ -65,14 +65,14 @@
     </section>
   </main>
 </Story>
-<Story name="Promotion" let:text let:disableCss let:title let:shortTitle let:date>
+<Story name="Campaign" let:text let:disableCss let:title let:shortTitle let:date>
   <h2 class="mt-h2">Fremhevet innhold - promotion</h2>
   <main
     use:wrapInShadowDom={disableCss}
     class="mt-main container layout-grid layout-grid--column-12">
     <section class="col-1-span-12 layout-grid layout-grid--column-12 highlighted">
       <HighlightedContentLink
-        displayType="promotion"
+        displayType="campaign"
         href="https://www.mattilsyent.no"
         class="col-1-span-12 layout-grid layout-grid--column-12"
         image={{ src: imageFile, alt: 'Her er alt tekst til bildet' }}
