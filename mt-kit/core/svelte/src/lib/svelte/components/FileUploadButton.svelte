@@ -135,7 +135,7 @@
   aria-required={isRequired || undefined} />
 
 {#if !onServer}
-  <label class="mt-label mt-button mt-button--secondary" style="width: 220px;" for={id}>
+  <label class="mt-label mt-button mt-button--secondary" for={id}>
     {buttonText}
   </label>
 
