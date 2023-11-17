@@ -297,6 +297,33 @@ $transportlink-colors: 'error' !default;
     gap: var(--spacer-xx-small);
     background-color: var(--color-mt-white);
     text-decoration: none;
+
+    &--promotion {
+      --promotion-bg: var(--color-mt-bg-fjord);
+
+      background-color: var(--promotion-bg);
+      color: var(--color-text);
+      align-items: center;
+      gap: var(--spacer-medium);
+      padding: var(--spacer-small) var(--spacer-medium);
+      border-radius: $border-radius $border-radius $border-radius-large $border-radius;
+
+      h2,
+      h3 {
+        margin-top: 0;
+      }
+
+      @media only screen and (min-width: $breakpoint-large) {
+        flex-direction: row;
+        gap: var(--spacer-xx-large);
+        > .highlighted-text {
+          flex: 1;
+        }
+        > .highlighted-text + img {
+          flex: 1;
+        }
+      }
+    }
     &--blue {
       background-color: var(--highlighted-blue-bg);
       color: var(--highlighted-blue-color);

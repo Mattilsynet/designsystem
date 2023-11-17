@@ -65,6 +65,22 @@
     </section>
   </main>
 </Story>
+<Story name="Promotion" let:text let:disableCss let:title let:shortTitle let:date>
+  <h2 class="mt-h2">Fremhevet innhold - promotion</h2>
+  <main use:wrapInShadowDom={disableCss} class="mt-main container layout-flex-col">
+    <section class="layout-flex-col">
+      <HighlightedContentLink
+        displayType="promotion"
+        href="https://www.mattilsyent.no"
+        image={{ src: imageFile, alt: 'Her er alt tekst til bildet' }}
+        headingClass="mt-h3"
+        title="Dette er tittelen"
+        shortTitle="Dette er kort tittel">
+        {@html text}
+      </HighlightedContentLink>
+    </section>
+  </main>
+</Story>
 
 <style lang="scss">
   main {

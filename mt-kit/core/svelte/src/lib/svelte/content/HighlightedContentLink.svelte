@@ -14,7 +14,7 @@
   export let headingClass = ''
   export let headerTag: 'h2' | 'h3' = 'h2'
 
-  type HighlightedContentDisplayType = 'white' | 'blue'
+  type HighlightedContentDisplayType = 'white' | 'blue' | 'promotion'
 </script>
 
 {#if displayType === 'blue'}
@@ -29,6 +29,23 @@
       {title}
     </HeadingLevel>
     <slot />
+  </a>
+{:else if displayType === 'promotion'}
+  <a
+    href={url}
+    rel={mapRelExternal(url)}
+    class="mt-link highlighted-content highlighted-content--{displayType} {className}">
+    <span class="layout-flex layout-flex-col highlighted-text" style="gap:0">
+      {#if shortTitle}
+        <HeadingLevel class="heading {headingClass}" headingLevel={+headerTag.charAt(1)}>
+          {shortTitle}
+        </HeadingLevel>
+      {/if}
+      <slot />
+    </span>
+    {#if image && image.src}
+      <img src={image.src} alt={image.alt} />
+    {/if}
   </a>
 {:else}
   <a
