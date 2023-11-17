@@ -304,7 +304,6 @@ $transportlink-colors: 'error' !default;
       background-color: var(--campaign-bg);
       color: var(--color-text);
       align-items: center;
-      gap: 0;
       padding: var(--spacer-small) var(--spacer-medium);
       border-radius: $border-radius $border-radius $border-radius-large $border-radius;
 
@@ -314,6 +313,7 @@ $transportlink-colors: 'error' !default;
       }
 
       @media only screen and (min-width: $breakpoint-large) {
+        gap: 0;
         > .highlighted-text + img {
           width: 100%;
         }
