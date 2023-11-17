@@ -11,6 +11,7 @@
   export let options: CheckboxWithSubSectionsOptions
   export let optionsName = 'kategori'
   export let hasCheckAll = false
+  export let forceCheckAll = false
   export let checkAllLabel = 'Velg alle'
   export let level2Legend = ``
   export let level3Legend = ``
@@ -63,7 +64,7 @@
   {#if helpText}
     <p class="hint">{helpText}</p>
   {/if}
-  {#if hasJS && hasCheckAll}
+  {#if hasJS && hasCheckAll || forceCheckAll}
     <div class="form-control checkbox-subsets">
       <input
         id={options.key}
