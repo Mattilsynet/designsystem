@@ -298,10 +298,10 @@ $transportlink-colors: 'error' !default;
     background-color: var(--color-mt-white);
     text-decoration: none;
 
-    &--promotion {
-      --promotion-bg: var(--color-mt-bg-fjord);
+    &--campaign {
+      --campaign-bg: var(--color-mt-bg-fjord);
       display: grid;
-      background-color: var(--promotion-bg);
+      background-color: var(--campaign-bg);
       color: var(--color-text);
       align-items: center;
       gap: 0;
