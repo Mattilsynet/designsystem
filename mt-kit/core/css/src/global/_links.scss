@@ -319,10 +319,9 @@ $transportlink-colors: 'error' !default;
       h3 {
         margin-top: 0;
       }
-
-      @media only screen and (min-width: $breakpoint-large) {
+      > .highlighted-text {
         gap: 0;
-        > .highlighted-text + img {
+        & + img {
           width: 100%;
         }
       }
