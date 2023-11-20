@@ -1,9 +1,10 @@
 @use '../theme' as *;
+@use '../global/typography';
+@use '../global/links';
 @use '../utilities/mixins' as *;
 @use '../components/layout-with-sidebar';
 @use '../components/image';
 @use '../components/summary-details';
-@use '../global/links';
 @use '../components/list';
 @use '../components/table';
 
