@@ -53,7 +53,7 @@
       <input
         id="inputfield"
         name="name"
-        class="form-field"
+        class="mt-input form-field"
         aria-describedby="inputfield-hint inputfield-error" />
 
       <label class="mt-label" for="inputfield">
@@ -74,7 +74,7 @@
       <input
         id="email"
         name="email"
-        class="form-field error"
+        class="mt-input form-field error"
         aria-invalid="true"
         aria-describedby="inputfield-hint inputfield-error" />
     </form>

@@ -125,7 +125,7 @@
   {multiple}
   {accept}
   bind:this={fileInputElement}
-  class="form-field"
+  class="mt-input form-field"
   class:error
   class:inclusively-hidden-initial={!onServer}
   aria-describedby={createInputAriaDescribedby(name, error)}

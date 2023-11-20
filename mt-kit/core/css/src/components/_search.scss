@@ -3,10 +3,10 @@
 .search-wrap {
   display: flex;
 
-  input[type='search']::-webkit-search-cancel-button {
+  .mt-input[type='search']::-webkit-search-cancel-button {
     -webkit-appearance: none;
   }
-  input[type='search'] {
+  .mt-input[type='search'] {
     position: inherit;
   }
 
@@ -22,7 +22,7 @@
     z-index: 1;
   }
 
-  input[type='search'].hasButton {
+  .mt-input[type='search'].hasButton {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     border-right: 0 none;

@@ -59,7 +59,7 @@
   <input
     id={name}
     {name}
-    class="form-field {inputClass}"
+    class="mt-input form-field {inputClass}"
     bind:value
     class:error
     aria-required={isRequired || undefined}
