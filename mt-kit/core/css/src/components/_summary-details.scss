@@ -1,47 +1,6 @@
 @use '../theme' as *;
 @use '../utilities/mixins' as *;
 
-.with-border {
-  & summary {
-    border-bottom: var(--border);
-  }
-  & .summary-wrapper {
-    margin-left: var(--detail-margin);
-    padding-left: var(--detail-padding);
-    border-left: var(--border);
-  }
-}
-.with-bold {
-  & summary {
-    font-weight: $font-weight-bold;
-    display: inline-flex;
-    align-items: center;
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      margin-top: 0;
-      font-size: $font-size-body;
-      font-weight: $font-weight-bold;
-    }
-  }
-}
-
-.with-icon {
-  & summary {
-    display: inline-flex;
-    align-items: center;
-    &::before {
-      // blue sircle with § inside icon
-      content: var(--icon-legislation);
-      display: inline-block;
-      margin-right: var(--spacer-xxx-small);
-      height: 1.55rem;
-    }
-  }
-}
-
 .mt-details {
   --detail-margin: var(--spacer-xxx-small);
   --detail-padding: var(--spacer-xxx-small);
@@ -54,9 +13,50 @@
   &:focus-visible {
     box-shadow: $focus-box-shadow-no-outline;
   }
+
+  &.with-border {
+    & .mt-summary {
+      border-bottom: var(--border);
+    }
+    & .summary-wrapper {
+      margin-left: var(--detail-margin);
+      padding-left: var(--detail-padding);
+      border-left: var(--border);
+    }
+  }
+  &.with-bold {
+    & .mt-summary {
+      font-weight: $font-weight-bold;
+      display: inline-flex;
+      align-items: center;
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin-top: 0;
+        font-size: $font-size-body;
+        font-weight: $font-weight-bold;
+      }
+    }
+  }
+
+  &.with-icon {
+    & .mt-summary {
+      display: inline-flex;
+      align-items: center;
+      &::before {
+        // blue sircle with § inside icon
+        content: var(--icon-legislation);
+        display: inline-block;
+        margin-right: var(--spacer-xxx-small);
+        height: 1.55rem;
+      }
+    }
+  }
+
   .mt-summary {
     @include focus-outline();
-
     display: inline;
     line-height: 140%;
     color: var(--mt-button-neutral-border);
@@ -75,7 +75,7 @@
     }
   }
   &[open] {
-    summary {
+    .mt-summary {
       margin-bottom: var(--summary-margin-bottom);
       &::after {
         transform: rotateX(180deg);
