@@ -33,10 +33,10 @@
     <Disclosure title={question} {loadJs} headerClass={disclosureHeadClass}>
       {@html answer}
       {#if imageUrl}
-        <figure>
-          <img src={imageUrl} alt={imageAltText ? imageAltText : ''} />
+        <figure class="mt-figure">
+          <img src={imageUrl} alt={imageAltText ? imageAltText : ''} class="mt-img" />
           {#if caption}
-            <figcaption>{caption}</figcaption>
+            <figcaption class="mt-caption">{caption}</figcaption>
           {/if}
         </figure>
       {/if}
