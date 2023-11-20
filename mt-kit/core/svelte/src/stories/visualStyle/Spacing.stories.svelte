@@ -148,8 +148,8 @@
               <p>
                 <strong>Takk for at du meldte fra til oss!</strong>
               </p>
-              <figure>
-                <img src={imageFile} alt="Alternativ bildetekst" />
+              <figure class="mt-figure">
+                <img src={imageFile} alt="Alternativ bildetekst" class="mt-img"/>
                 <figcaption>Bildetekst</figcaption>
               </figure>
               <p>

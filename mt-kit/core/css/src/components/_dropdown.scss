@@ -29,11 +29,11 @@
     box-shadow: none;
   }
 
-  details {
+  .mt-details {
     margin-top: 0;
     &[open] {
-      summary {
-        --color: var(--mt-button-neutral-color);
+      .mt-summary {
+        color: var(--mt-button-neutral-color);
         &::after {
           transform: rotate(-180deg);
           content: var(--icon-carret-down);
@@ -41,8 +41,8 @@
         }
       }
     }
-    summary {
-      --color: var(--color-mt-text-dark);
+    .mt-summary {
+      color: var(--color-mt-text-dark);
     }
   }
 
@@ -76,14 +76,14 @@
   .mt-button.mt-button--link,
   &.mt-button,
   .dropdown-title,
-  summary.mt-button {
+  .mt-summary.mt-button {
     font-weight: var(--font-weight-light);
     text-decoration: none;
     &:hover {
       text-decoration: underline;
     }
   }
-  summary.mt-button,
+  .mt-summary.mt-button,
   .dropdown-title,
   .mt-button {
     padding: 0.1875rem;
@@ -128,16 +128,16 @@
     padding: 0;
     margin-right: 0;
     & > .mt-button,
-    > details {
+    > .mt-details {
       --icon-size: 1rem;
 
       &[aria-expanded]::after,
-      > summary::after {
+      > .mt-summary::after {
         @include icon-background;
         background-image: var(--icon-hamburger);
       }
 
-      &[open] > summary::after,
+      &[open] > .mt-summary::after,
       &[aria-expanded='true']::after {
         background-image: var(--icon-x);
       }
@@ -165,7 +165,7 @@
       }
     }
     &.visible,
-    & details > summary.mt-button {
+    & .mt-details > .mt-summary.mt-button {
       color: var(--color-mt-text-dark);
       .dropdown-content {
         padding: var(--spacer-small) 0;
@@ -179,7 +179,7 @@
         padding: var(--spacer-xx-small);
       }
       & > .mt-button,
-      summary.mt-button {
+      .mt-summary.mt-button {
         --icon-size: 1.4rem;
       }
       .disclosure-header {
@@ -208,7 +208,7 @@
 
     .dropdown-title,
     .mt-button,
-    summary.mt-button {
+    .mt-summary.mt-button {
       z-index: 2000;
     }
 

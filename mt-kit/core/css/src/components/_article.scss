@@ -1,7 +1,10 @@
 @use '../theme' as *;
+@use '../global/typography';
+@use '../global/links';
 @use '../utilities/mixins' as *;
 @use '../components/layout-with-sidebar';
-@use '../global/links';
+@use '../components/image';
+@use '../components/summary-details';
 @use '../components/list';
 @use '../components/table';
 
@@ -20,8 +23,23 @@
   a {
     @extend .mt-link;
   }
+  figure {
+    @extend .mt-figure;
+    img {
+      @extend .mt-img;
+    }
+  }
   ul {
     @extend .mt-ul;
+  }
+  strong {
+    @extend .mt-strong;
+  }
+  details {
+    @extend .mt-details;
+    summary {
+      @extend .mt-summary;
+    }
   }
   table {
     @extend .mt-table;

@@ -136,8 +136,8 @@
         {/if}
       {/if}
     {:else}
-      <details bind:open={showMore}>
-        <summary>
+      <details bind:open={showMore} class="mt-details">
+        <summary class="mt-summary">
           {@html expandableText}
         </summary>
         <div class="collapsable-input-list">

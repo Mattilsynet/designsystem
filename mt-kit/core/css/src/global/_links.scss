@@ -355,7 +355,7 @@ $transportlink-colors: 'error' !default;
       }
     }
 
-    img {
+    .mt-img {
       width: 100%;
     }
     .highlighted-text {
@@ -383,7 +383,7 @@ $transportlink-colors: 'error' !default;
 
     @media only screen and (min-width: $breakpoint-large) {
       flex-direction: row;
-      img {
+      .mt-img {
         width: 17rem;
       }
     }

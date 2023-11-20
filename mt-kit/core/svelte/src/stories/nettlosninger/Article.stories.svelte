@@ -32,8 +32,8 @@
       </div>
       <Published {publishFrom} {professionallyUpdated} />
 
-      <figure class="col-2-span-10">
-        <img src={imageFile} alt="Alternativ bildetekst" />
+      <figure class="mt-figure col-2-span-10">
+        <img src={imageFile} alt="Alternativ bildetekst" class="mt-img" />
         <figcaption>Bildetekst</figcaption>
       </figure>
 

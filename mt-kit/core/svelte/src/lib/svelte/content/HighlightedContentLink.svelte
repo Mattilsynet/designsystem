@@ -54,7 +54,7 @@
     class="mt-link highlighted-content {className}"
     data-testid="highlighted-content-link">
     {#if image && image.src}
-      <img src={image.src} alt={image.alt} />
+      <img src={image.src} alt={image.alt} class="mt-img"/>
     {/if}
     <span class="layout-flex layout-flex-col highlighted-text" style="gap:0">
       {#if shortTitle}

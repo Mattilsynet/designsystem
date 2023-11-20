@@ -10,7 +10,7 @@ $width-sidebar-closed: 3.5rem; //56px;
 $width-sidebar-expanded: min(#{$sidebar-width-expanded}, 30rem);
 $mobile-menu-height: 3rem;
 
-aside {
+.mt-aside {
   background-color: var(--color-primary);
   color: white;
 }
@@ -50,7 +50,7 @@ aside {
   }
 }
 .no-js.layout-with-sidebar {
-  aside {
+  .mt-aside {
     margin-top: -0.6rem;
     .aside-header {
       h2 {
@@ -82,7 +82,7 @@ aside {
 
 // mobile layout
 .has-js.layout-with-sidebar {
-  aside {
+  .mt-aside {
     position: absolute;
     top: calc(#{theme.$height-header-mobile} + #{$mobile-menu-height});
 
@@ -116,12 +116,12 @@ aside {
       }
     }
     &.no-js {
-      aside {
+      .mt-aside {
         margin-top: -1.25rem;
       }
     }
     &.has-js {
-      aside {
+      .mt-aside {
         top: calc(
           #{theme.$height-header-regular} + #{$mobile-menu-height} + #{theme.$border-width-regular}
         );
@@ -155,7 +155,7 @@ aside {
   }
   .layout-with-sidebar {
     &.has-js {
-      aside {
+      .mt-aside {
         .mt-button--unstyled {
           border: theme.$border-width-large solid transparent;
           &:focus {
@@ -183,7 +183,7 @@ aside {
     &.no-js {
       display: flex;
 
-      aside {
+      .mt-aside {
         position: static;
         overflow: visible;
         top: 0;
@@ -194,11 +194,11 @@ aside {
         }
       }
 
-      aside.expanded {
+      .mt-aside.expanded {
         width: $width-sidebar-expanded;
       }
 
-      aside:not(.expanded) {
+      .mt-aside:not(.expanded) {
         width: $width-sidebar-closed;
       }
     }
@@ -257,7 +257,7 @@ aside {
   .has-js.layout-with-sidebar {
     display: flex;
     flex-direction: column;
-    aside {
+    .mt-aside {
       position: initial;
       background-color: transparent;
       color: var(--color-mt-text-dark);

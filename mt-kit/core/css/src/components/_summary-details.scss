@@ -42,7 +42,7 @@
   }
 }
 
-details {
+.mt-details {
   --detail-margin: var(--spacer-xxx-small);
   --detail-padding: var(--spacer-xxx-small);
   --summary-margin-bottom: var(--spacer-xx-small);
@@ -54,7 +54,7 @@ details {
   &:focus-visible {
     box-shadow: $focus-box-shadow-no-outline;
   }
-  summary {
+  .mt-summary {
     @include focus-outline();
 
     display: inline;
