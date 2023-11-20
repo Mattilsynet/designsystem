@@ -6,7 +6,9 @@
   let idPassed: string | undefined = undefined
   export { idPassed as id }
 
-  className = getClassName(className, headingLevel)
+  $: {
+    className = getClassName(className, headingLevel)
+  }
 
   function getClassName(className: string, headingLevel: HeadingLevel): string {
     const regExpExecArray = /mt-h[1-6]/g.exec(className)
