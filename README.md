@@ -2,10 +2,12 @@
 
 
 
-| css    | [![npm version](https://badge.fury.io/js/@mattilsynet%2Fdesignsystem-css.svg)](https://badge.fury.io/js/@mattilsynet%2Fdesignsystem-css)       | [![Publish css package](https://github.com/Mattilsynet/designsystem/actions/workflows/publish.css.yml/badge.svg)](https://github.com/Mattilsynet/designsystem/actions/workflows/publish.css.yml)          |
-|--------|------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| svelte | [![npm version](https://badge.fury.io/js/@mattilsynet%2Fdesignsystem-svelte.svg)](https://badge.fury.io/js/@mattilsynet%2Fdesignsystem-svelte) | [![Publish svelte package](https://github.com/Mattilsynet/designsystem/actions/workflows/publish.svelte.yml/badge.svg)](https://github.com/Mattilsynet/designsystem/actions/workflows/publish.svelte.yml) |
-| react  | [![npm version](https://badge.fury.io/js/@mattilsynet%2Fdesignsystem-react.svg)](https://badge.fury.io/js/@mattilsynet%2Fdesignsystem-react)   | [![Publish react package](https://github.com/Mattilsynet/designsystem/actions/workflows/publish.react.yml/badge.svg)](https://github.com/Mattilsynet/designsystem/actions/workflows/publish.react.yml)    |
+| css    | [![npm version](https://badge.fury.io/js/@mattilsynet%2Fdesignsystem-css.svg)](https://badge.fury.io/js/@mattilsynet%2Fdesignsystem-css)       |
+|--------|------------------------------------------------------------------------------------------------------------------------------------------------|
+| svelte | [![npm version](https://badge.fury.io/js/@mattilsynet%2Fdesignsystem-svelte.svg)](https://badge.fury.io/js/@mattilsynet%2Fdesignsystem-svelte) |
+| react  | [![npm version](https://badge.fury.io/js/@mattilsynet%2Fdesignsystem-react.svg)](https://badge.fury.io/js/@mattilsynet%2Fdesignsystem-react)   |
+
+[![Publish all packages](https://github.com/Mattilsynet/designsystem/actions/workflows/publish.all.yml/badge.svg)](https://github.com/Mattilsynet/designsystem/actions/workflows/publish.all.yml)
 
 ## Opening in storybook
 
