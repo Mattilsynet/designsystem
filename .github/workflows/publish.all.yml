@@ -50,8 +50,7 @@ jobs:
               - react/**
 
       - name: 'Print changed directories'
-        run: |
-          echo "outputs: ${{ fromJson(steps.changed-files.outputs) }}"
+        run: echo "outputs = ${{ steps.changed-files.outputs }}"
 
   print:
     runs-on: ubuntu-latest
