@@ -1,5 +1,5 @@
-name: Publish css package
-run-name: Publishing new css package @${{ github.actor }}
+name: Publish all changed packages
+run-name: Publishing new package(s) @${{ github.actor }}
 
 on:
   workflow_dispatch:
@@ -49,20 +49,10 @@ jobs:
       - name: 'Changed files output'
         run: echo "${{ toJSON(steps.changed-files.outputs) }}"
 
-  print:
-    runs-on: ubuntu-latest
-    name: 'Print changed directories'
-    needs: changes
-    steps:
-      - name: 'Print changed directories'
-        run: |
-          echo "css: ${{ needs.changes.outputs.css }}"
-          echo "svelte: ${{ needs.changes.outputs.svelte }}"
-          echo "react: ${{ needs.changes.outputs.react }}"
   publish-css:
     name: 'Publish css package'
     if: ${{ needs.changes.outputs.css == 'true' }}
-    needs: changes
+    needs: [changes]
     secrets: inherit
     uses: Mattilsynet/designsystem/.github/workflows/publish.yml@main
     with:
@@ -72,7 +62,7 @@ jobs:
   publish-svelte:
     name: 'Publish svelte package'
     if: ${{ needs.changes.outputs.svelte == 'true' }}
-    needs: changes
+    needs: [changes, publish-css]
     secrets: inherit
     uses: Mattilsynet/designsystem/.github/workflows/publish.yml@main
     with:
@@ -82,7 +72,7 @@ jobs:
   publish-react:
     name: 'Publish react package'
     if: ${{ needs.changes.outputs.react == 'true' }}
-    needs: changes
+    needs: [changes, publish-svelte]
     secrets: inherit
     uses: Mattilsynet/designsystem/.github/workflows/publish.yml@main
     with:
