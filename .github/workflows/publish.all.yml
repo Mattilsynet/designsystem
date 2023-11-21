@@ -25,9 +25,6 @@ jobs:
     if: github.event.pull_request.merged || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     name: 'Get changed directories'
-    defaults:
-      run:
-        working-directory: 'mt-kit/core'
     outputs:
       css: ${{ steps.changed-files.outputs.css_any_changed }}
       svelte: ${{ steps.changed-files.outputs.svelte_any_changed }}
@@ -42,17 +39,15 @@ jobs:
         uses: tj-actions/changed-files@v40
         with:
           files_yaml: |
-            test:
-              - css/**
             css:
-              - css/**
+              - mt-kit/core/css/**
             svelte:
-              - svelte/**
+              - mt-kit/core/svelte/**
             react:
-              - react/**
+              - mt-kit/core/react/**
 
-      - name: 'Print changed directories'
-        run: echo "outputs = ${{ toJSON(steps.changed-files.outputs) }}"
+      - name: 'Changed files output'
+        run: echo "${{ toJSON(steps.changed-files.outputs) }}"
 
   print:
     runs-on: ubuntu-latest
