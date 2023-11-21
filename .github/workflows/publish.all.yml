@@ -42,6 +42,8 @@ jobs:
         uses: tj-actions/changed-files@v40
         with:
           files_yaml: |
+            test:
+              - css/**
             css:
               - css/**
             svelte:
@@ -50,7 +52,7 @@ jobs:
               - react/**
 
       - name: 'Print changed directories'
-        run: echo "outputs = ${{ steps.changed-files.outputs }}"
+        run: echo "outputs = ${{ toJSON(steps.changed-files.outputs) }}"
 
   print:
     runs-on: ubuntu-latest
@@ -64,7 +66,7 @@ jobs:
           echo "react: ${{ needs.changes.outputs.react }}"
   publish-css:
     name: 'Publish css package'
-    if: ${{ needs.changes.outputs.css }}
+    if: ${{ needs.changes.outputs.css == 'true' }}
     needs: changes
     secrets: inherit
     uses: Mattilsynet/designsystem/.github/workflows/publish.yml@main
@@ -74,7 +76,7 @@ jobs:
 
   publish-svelte:
     name: 'Publish svelte package'
-    if: ${{ needs.changes.outputs.svelte }}
+    if: ${{ needs.changes.outputs.svelte == 'true' }}
     needs: changes
     secrets: inherit
     uses: Mattilsynet/designsystem/.github/workflows/publish.yml@main
@@ -84,7 +86,7 @@ jobs:
 
   publish-react:
     name: 'Publish react package'
-    if: ${{ needs.changes.outputs.react }}
+    if: ${{ needs.changes.outputs.react == 'true' }}
     needs: changes
     secrets: inherit
     uses: Mattilsynet/designsystem/.github/workflows/publish.yml@main
