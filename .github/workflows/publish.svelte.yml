@@ -12,13 +12,6 @@ on:
           - minor
           - major
         default: patch
-  pull_request:
-    branches:
-      - main
-    types:
-      [closed]
-    paths:
-      - mt-kit/core/svelte/**
 
 jobs:
   publish:

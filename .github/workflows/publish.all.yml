@@ -1,0 +1,94 @@
+name: Publish css package
+run-name: Publishing new css package @${{ github.actor }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      version-type:
+        description: Semantic bump
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+        default: patch
+  pull_request:
+    branches:
+      - main
+    types:
+      [closed]
+    paths:
+      - mt-kit/core/**
+
+jobs:
+  changes:
+    if: github.event.pull_request.merged || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    name: 'Get changed directories'
+    defaults:
+      run:
+        working-directory: 'mt-kit/core'
+    outputs:
+      css: ${{ steps.changed-files.outputs.css_any_changed }}
+      svelte: ${{ steps.changed-files.outputs.svelte_any_changed }}
+      react: ${{ steps.changed-files.outputs.react_any_changed }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: 'Get all css, svelte and react files that have changed'
+        id: changed-files
+        uses: tj-actions/changed-files@v40
+        with:
+          files_yaml: |
+            css:
+              - css/**
+            svelte:
+              - svelte/**
+            react:
+              - react/**
+
+      - name: 'Print changed directories'
+        run: |
+          echo "outputs: ${{ fromJson(steps.changed-files.outputs) }}"
+
+  print:
+    runs-on: ubuntu-latest
+    name: 'Print changed directories'
+    needs: changes
+    steps:
+      - name: 'Print changed directories'
+        run: |
+          echo "css: ${{ needs.changes.outputs.css }}"
+          echo "svelte: ${{ needs.changes.outputs.svelte }}"
+          echo "react: ${{ needs.changes.outputs.react }}"
+  publish-css:
+    name: 'Publish css package'
+    if: ${{ needs.changes.outputs.css }}
+    needs: changes
+    secrets: inherit
+    uses: Mattilsynet/designsystem/.github/workflows/publish.yml@main
+    with:
+      working-directory: 'mt-kit/core/css'
+      version-type: ${{ inputs.version-type }}
+
+  publish-svelte:
+    name: 'Publish svelte package'
+    if: ${{ needs.changes.outputs.svelte }}
+    needs: changes
+    secrets: inherit
+    uses: Mattilsynet/designsystem/.github/workflows/publish.yml@main
+    with:
+      working-directory: 'mt-kit/core/svelte'
+      version-type: ${{ inputs.version-type }}
+
+  publish-react:
+    name: 'Publish react package'
+    if: ${{ needs.changes.outputs.react }}
+    needs: changes
+    secrets: inherit
+    uses: Mattilsynet/designsystem/.github/workflows/publish.yml@main
+    with:
+      working-directory: 'mt-kit/core/react'
+      version-type: ${{ inputs.version-type }}
