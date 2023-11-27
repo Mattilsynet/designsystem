@@ -3,7 +3,7 @@
   export { className as class }
   export let style = ''
   export let caption = ''
-  export let headers: string[] = []
+  export let headers: Array<{}> = [{}]
   export let rows: Array<{}> = [{}]
 </script>
 
@@ -12,7 +12,7 @@
     {caption}
   </caption>
 {/if}
-<table class="mt-table responsive-table m-t-xxs {className}" id="table-{caption}" style={style}>
+<table class="mt-table responsive-table m-t-xxs {className}" id="table-{caption}" {style}>
   <thead class="mt-thead">
     <tr class="mt-tr">
       {#each headers as header}

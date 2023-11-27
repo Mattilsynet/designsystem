@@ -110,9 +110,9 @@
         <th slot="headers" let:header role="columnheader" scope="col" class="mt-th {header.class}"
           >{header.text}</th>
         <tr class="mt-tr" slot="row" let:row>
-          <TableCol header={headers[0]}>{row.tittel1}</TableCol>
-          <TableCol header={headers[1]}>{@html row.tittel2}</TableCol>
-          <TableCol header={headers[2]}>{row.tittel3}</TableCol>
+          <TableCol header={headers[0]?.text}>{row.tittel1}</TableCol>
+          <TableCol header={headers[1]?.text}>{@html row.tittel2}</TableCol>
+          <TableCol header={headers[2]?.text}>{row.tittel3}</TableCol>
         </tr>
       </Table>
       <h2 class="p-t-s mt-h2">Tabell uten bruk av komponenter</h2>
