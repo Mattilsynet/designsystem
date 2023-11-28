@@ -96,7 +96,7 @@
   let:headers
   let:rows
   let:disableCss>
-  <tr use:wrapInShadowDom={disableCss} class="container layout-grid layout-grid--column-12">
+  <div use:wrapInShadowDom={disableCss} class="container layout-grid layout-grid--column-12">
     <article class="article-page new-thing col-1-span-12">
       <h1 class="mt-h1">Publisert og faglig oppdatert er samme dato</h1>
       <div class="intro">
@@ -107,8 +107,9 @@
         {statusTitle}
       </div>
       <Table {headers} {rows} style="--spacer-large: var(--spacer-x-small)">
-        <th slot="headers" let:header role="columnheader" scope="col" class="mt-th {header.class}"
-          >{header.text}</th>
+        <th slot="headers" let:header role="columnheader" scope="col" class="mt-th {header.class}">
+          {header.text}
+        </th>
         <tr class="mt-tr" slot="row" let:row>
           <TableCol header={headers[0]?.text}>{row.tittel1}</TableCol>
           <TableCol header={headers[1]?.text}>{@html row.tittel2}</TableCol>
@@ -118,4 +119,5 @@
       <h2 class="p-t-s mt-h2">Tabell uten bruk av komponenter</h2>
       {@html text}
     </article>
-  </tr></Story>
+  </div>
+</Story>
