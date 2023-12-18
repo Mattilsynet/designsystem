@@ -23,6 +23,8 @@ $mobile-menu-height: 3rem;
   transition: height 0.3s ease;
   border-top: theme.$border-width-large solid var(--color-primary);
   border-bottom: theme.$border-width-large solid var(--color-primary);
+  position: sticky;
+  top: 0;
 
   button {
     padding-inline: var(--spacer-xx-small);
@@ -83,9 +85,8 @@ $mobile-menu-height: 3rem;
 // mobile layout
 .has-js.layout-with-sidebar {
   .mt-aside {
-    position: absolute;
-    top: calc(#{theme.$height-header-mobile} + #{$mobile-menu-height});
-
+    top: $mobile-menu-height;
+    position: sticky;
     width: 5.8125rem;
     height: 0;
     overflow: hidden;

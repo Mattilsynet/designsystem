@@ -16,7 +16,7 @@
 </script>
 
 <nav class="chapter-menu" aria-labelledby="chapter-menu-title">
-  <h2 id="chapter-menu-title" class="mt-h4">{menuTitle}</h2>
+  <h2 id="chapter-menu-title" class="inclusively-hidden">{menuTitle}</h2>
 
   <ol class="mt-ol m-t-xxs list-unstyled">
     {#each chapters as chapter, index}
