@@ -94,8 +94,7 @@ $mobile-menu-height: 3rem;
 
     &.expanded {
       width: 100%;
-      height: auto;
-      max-height: 100vh;
+      height: 100vh;
       overflow-y: scroll;
       z-index: var(--z-index-dropdown);
     }
@@ -192,6 +191,7 @@ $mobile-menu-height: 3rem;
 
         h2 {
           margin-top: var(--spacer-xx-small);
+          display: inline-block;
         }
       }
 

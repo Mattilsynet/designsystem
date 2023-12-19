@@ -22,6 +22,11 @@
       margin-top: 0;
     }
   }
+
+  h2{
+    display: none;
+  }
+
   &--chapter-wrapper {
     display: grid;
     grid-template-columns: auto min-content;
