@@ -90,7 +90,7 @@ $mobile-menu-height: 3rem;
     width: 5.8125rem;
     height: 0;
     overflow: hidden;
-    transition: width 0.3s ease, height 0.3s ease, top 0.3s ease;
+    transition: width 0.001s ease, height 0.001s ease, top 0.001s ease;
 
     &.expanded {
       width: 100%;
@@ -156,6 +156,7 @@ $mobile-menu-height: 3rem;
   .layout-with-sidebar {
     &.has-js {
       .mt-aside {
+        transition: width 0.3s ease, height 0.3s ease, top 0.3s ease;
         .mt-button--unstyled {
           border: theme.$border-width-large solid transparent;
           &:focus {
