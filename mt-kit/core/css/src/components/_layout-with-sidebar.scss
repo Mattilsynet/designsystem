@@ -198,6 +198,7 @@ $mobile-menu-height: 3rem;
 
       .mt-aside.expanded {
         width: $width-sidebar-expanded;
+        height: auto;
       }
 
       .mt-aside:not(.expanded) {
