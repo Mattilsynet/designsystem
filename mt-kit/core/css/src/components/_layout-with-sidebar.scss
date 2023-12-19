@@ -125,9 +125,7 @@ $mobile-menu-height: 3rem;
     }
     &.has-js {
       .mt-aside {
-        top: calc(
-          #{theme.$height-header-regular} + #{$mobile-menu-height} + #{theme.$border-width-regular}
-        );
+        top: $mobile-menu-height;
       }
     }
     //level 1
