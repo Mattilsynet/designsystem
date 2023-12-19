@@ -12,6 +12,8 @@
 
   button.icon--search-before-primary {
     flex: content;
+    word-break: normal;
+    min-width: auto;
     margin: 0;
     width: auto;
     border-top-left-radius: 0;
@@ -23,6 +25,7 @@
   }
 
   .mt-input[type='search'].hasButton {
+    height: 100%;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     border-right: 0 none;
