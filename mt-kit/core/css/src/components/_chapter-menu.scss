@@ -12,7 +12,7 @@
   background-color: var(--color-mt-blue);
   color: var(--color-mt-white);
   margin: var(--spacer-xx-small);
-  padding-top: var(--spacer-xx-small);
+
   li {
     border-bottom: $border-width-small solid var(--color-mt-background);
     margin-top: 0;
@@ -68,6 +68,12 @@
     &.chapter-menu--subchapter {
       padding-left: var(--spacer-xx-small);
     }
+  }
+}
+
+@media screen and (min-width: $breakpoint-xx-large) {
+  .chapter-menu{
+     padding-top: var(--spacer-xx-small);
   }
 }
 
