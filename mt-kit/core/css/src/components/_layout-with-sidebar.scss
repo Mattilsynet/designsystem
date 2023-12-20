@@ -23,6 +23,8 @@ $mobile-menu-height: 3rem;
   transition: height 0.3s ease;
   border-top: theme.$border-width-large solid var(--color-primary);
   border-bottom: theme.$border-width-large solid var(--color-primary);
+  position: sticky;
+  top: 0;
 
   button {
     padding-inline: var(--spacer-xx-small);
@@ -83,17 +85,17 @@ $mobile-menu-height: 3rem;
 // mobile layout
 .has-js.layout-with-sidebar {
   .mt-aside {
-    position: absolute;
-    top: calc(#{theme.$height-header-mobile} + #{$mobile-menu-height});
-
+    top: $mobile-menu-height;
+    position: sticky;
     width: 5.8125rem;
     height: 0;
     overflow: hidden;
-    transition: width 0.3s ease, height 0.3s ease, top 0.3s ease;
+    transition: width 0.001s ease, height 0.001s ease, top 0.001s ease;
 
     &.expanded {
       width: 100%;
-      height: auto;
+      height: 100vh;
+      overflow-y: scroll;
       z-index: var(--z-index-dropdown);
     }
 
@@ -122,9 +124,7 @@ $mobile-menu-height: 3rem;
     }
     &.has-js {
       .mt-aside {
-        top: calc(
-          #{theme.$height-header-regular} + #{$mobile-menu-height} + #{theme.$border-width-regular}
-        );
+        top: $mobile-menu-height;
       }
     }
     //level 1
@@ -156,6 +156,7 @@ $mobile-menu-height: 3rem;
   .layout-with-sidebar {
     &.has-js {
       .mt-aside {
+        transition: width 0.3s ease, height 0.3s ease, top 0.3s ease;
         .mt-button--unstyled {
           border: theme.$border-width-large solid transparent;
           &:focus {
@@ -188,14 +189,11 @@ $mobile-menu-height: 3rem;
         overflow: visible;
         top: 0;
         height: auto;
-
-        h2 {
-          margin-top: var(--spacer-xx-small);
-        }
       }
 
       .mt-aside.expanded {
         width: $width-sidebar-expanded;
+        height: auto;
       }
 
       .mt-aside:not(.expanded) {
