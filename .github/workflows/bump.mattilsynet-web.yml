@@ -1,0 +1,33 @@
+name: Bump designsystem in mattilsynet-web
+
+on:
+  workflow_dispatch:
+  workflow_call:
+
+jobs:
+  open-pr:
+    runs-on: ubuntu-latest
+    name: 'Open PR to bump version in package.json'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: Mattilsynet/mattilsynet-web
+          ssh-key: ${{ secrets.MATTILSYNET_WEB_DEPLOY_KEY }}
+          ref: main
+          path: mattilsynet-web
+
+      - name: 'Bump versions'
+        working-directory: mattilsynet-web/frontend-app
+        run: |
+          npx npm-check-updates '/^@mattilsynet.*$/' -u
+          npm i
+          git checkout -b bump-designsystem-${{ github.run_id }}
+          git add .
+          git commit -m "chore: bump designsystem packages"
+          git push origin bump-designsystem-${{ github.run_id }}
+
+      - name: 'Open PR'
+        env:
+          GH_TOKEN: ${{ secrets.MATTILSYNET_WEB_PAT }}
+        run: |
+          gh pr create --title "chore: bump designsystem packages" --body "automatic ds bump" --head "bump-designsystem-${{ github.run_id }}" --base main --label dependencies
