@@ -25,6 +25,7 @@ $mobile-menu-height: 3rem;
   border-bottom: theme.$border-width-large solid var(--color-primary);
   position: sticky;
   top: 0;
+  z-index: var(--z-index-dropdown);
 
   button {
     padding-inline: var(--spacer-xx-small);
@@ -95,7 +96,7 @@ $mobile-menu-height: 3rem;
     &.expanded {
       width: 100%;
       height: 100vh;
-      overflow-y: scroll;
+      overflow-y: auto;
       z-index: var(--z-index-dropdown);
     }
 
