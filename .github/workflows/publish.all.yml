@@ -85,4 +85,4 @@ jobs:
     if: always() && ${{ contains(needs.changes.outputs.*, 'true') }}
     needs: [ changes, publish-react ]
     secrets: inherit
-    uses: Mattilsynet/designsystem/.github/workflows/bump.mattilsynet-web@MTP-1334-automatisering-sjekk-ut-web-og-bump-ds
+    uses: Mattilsynet/designsystem/.github/workflows/bump.mattilsynet-web.yml@MTP-1334-automatisering-sjekk-ut-web-og-bump-ds
