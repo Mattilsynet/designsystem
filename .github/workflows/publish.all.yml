@@ -79,3 +79,10 @@ jobs:
     with:
       working-directory: 'mt-kit/core/react'
       version-type: ${{ inputs.version-type }}
+
+  bump-mattilsynet-web:
+    name: 'Bump designsystem versions in mattilsynet-web'
+    if: always() && ${{ contains(needs.changes.outputs.*, 'true') }}
+    needs: [ changes, publish-react ]
+    secrets: inherit
+    uses: Mattilsynet/designsystem/.github/workflows/bump.mattilsynet-web@MTP-1334-automatisering-sjekk-ut-web-og-bump-ds
