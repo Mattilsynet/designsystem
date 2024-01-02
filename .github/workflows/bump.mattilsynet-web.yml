@@ -9,6 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     name: 'Open PR to bump version in package.json'
     steps:
+      - name: 'Set git user'
+        run: |
+          git config --global user.name "Designsystem"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+
       - uses: actions/checkout@v4
         with:
           repository: Mattilsynet/mattilsynet-web
