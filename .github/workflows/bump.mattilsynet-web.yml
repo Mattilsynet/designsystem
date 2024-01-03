@@ -32,6 +32,7 @@ jobs:
           git push origin bump-designsystem-${{ github.run_id }}
 
       - name: 'Open PR'
+        working-directory: mattilsynet-web/frontend-app
         env:
           GH_TOKEN: ${{ secrets.MATTILSYNET_WEB_PAT }}
         run: |
