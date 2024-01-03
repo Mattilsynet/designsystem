@@ -12,6 +12,18 @@ on:
           - minor
           - major
         default: patch
+      publish-css:
+        description: Publish css package
+        type: boolean
+        default: false
+      publish-svelte:
+        description: Publish svelte package
+        type: boolean
+        default: false
+      publish-react:
+        description: Publish react package
+        type: boolean
+        default: false
   pull_request:
     branches:
       - main
@@ -52,7 +64,7 @@ jobs:
 
   publish-css:
     name: 'Publish css package'
-    if: ${{ needs.changes.outputs.css == 'true' }}
+    if: inputs.publish-css || needs.changes.outputs.css == 'true'
     needs: [changes]
     secrets: inherit
     uses: Mattilsynet/designsystem/.github/workflows/publish.yml@main
@@ -62,7 +74,7 @@ jobs:
 
   publish-svelte:
     name: 'Publish svelte package'
-    if: always() && ${{ needs.changes.outputs.svelte == 'true' }}
+    if: always() && inputs.publish-svelte || needs.changes.outputs.svelte == 'true'
     needs: [changes, publish-css]
     secrets: inherit
     uses: Mattilsynet/designsystem/.github/workflows/publish.yml@main
@@ -72,7 +84,7 @@ jobs:
 
   publish-react:
     name: 'Publish react package'
-    if: always() && ${{ needs.changes.outputs.react == 'true' }}
+    if: always() && inputs.publish-react || needs.changes.outputs.react == 'true'
     needs: [changes, publish-svelte]
     secrets: inherit
     uses: Mattilsynet/designsystem/.github/workflows/publish.yml@main
