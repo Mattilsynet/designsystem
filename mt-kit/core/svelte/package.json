@@ -64,7 +64,7 @@
     "@sveltejs/package": "^2.2.5",
     "@sveltejs/vite-plugin-svelte": "^2.5.3",
     "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/svelte": "^4.0.4",
+    "@testing-library/svelte": "^4.0.5",
     "@tsconfig/svelte": "^5.0.2",
     "@types/testing-library__jest-dom": "^5.14.7",
     "@typescript-eslint/eslint-plugin": "^6.9.0",
