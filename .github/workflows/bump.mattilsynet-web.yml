@@ -1,4 +1,4 @@
-name: Bump designsystem in mattilsynet-web
+name: Bump designsystem versions in mattilsynet-web
 
 on:
   workflow_dispatch:
@@ -7,7 +7,7 @@ on:
 jobs:
   open-pr:
     runs-on: ubuntu-latest
-    name: 'Open PR to bump version in package.json'
+    name: 'Bump DS version and open PR'
     steps:
       - name: 'Set git user'
         run: |
