@@ -79,3 +79,14 @@ jobs:
     with:
       working-directory: 'mt-kit/core/react'
       version-type: ${{ inputs.version-type }}
+
+  bump-mattilsynet-web:
+    name: 'Bump designsystem versions in mattilsynet-web'
+    if: |
+      always() &&
+      needs.publish-css.result == 'success' ||
+      needs.publish-svelte.result == 'success' ||
+      needs.publish-react.result == 'success'
+    needs: [ publish-css, publish-svelte, publish-react ]
+    secrets: inherit
+    uses: Mattilsynet/designsystem/.github/workflows/bump.mattilsynet-web.yml@main

@@ -1,6 +1,6 @@
 {
   "name": "@mattilsynet/designsystem-react",
-  "private": true,
+  "private": false,
   "version": "0.0.3",
   "type": "module",
   "files": [
