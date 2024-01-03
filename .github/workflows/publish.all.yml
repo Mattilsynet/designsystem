@@ -72,7 +72,7 @@ jobs:
 
   publish-react:
     name: 'Publish react package'
-    if: false && always() && ${{ needs.changes.outputs.react == 'true' }}
+    if: always() && ${{ needs.changes.outputs.react == 'true' }}
     needs: [changes, publish-svelte]
     secrets: inherit
     uses: Mattilsynet/designsystem/.github/workflows/publish.yml@main
