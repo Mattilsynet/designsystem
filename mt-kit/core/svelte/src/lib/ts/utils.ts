@@ -98,7 +98,18 @@ export function compareDates({
   }
   return null
 }
-
+export function addDays(date: Date, days: number): Date {
+  const newDate = new Date(date)
+  newDate.setDate(newDate.getDate() + days)
+  return newDate
+}
+export function longMonthDate(format: DateTimeFormat, date: Date): string {
+  return new Intl.DateTimeFormat(format, {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+  }).format(date)
+}
 export function getFileExtension(fileName?: string): string | null {
   if (!fileName) {
     return null
