@@ -24,6 +24,10 @@
     }
   }
 
+  li:has(.chapter-menu--subchapter){
+    border-bottom: none;
+  }
+
   &--chapter-wrapper {
     display: grid;
     grid-template-columns: auto min-content;
@@ -54,7 +58,7 @@
     color: var(--link-color);
     text-decoration: none;
     width: 100%;
-    padding: var(--spacer-xxx-small) 0;
+    padding: var(--spacer-xx-small) 0;
 
     &:hover {
       text-decoration: underline;
@@ -67,6 +71,7 @@
     }
     &.chapter-menu--subchapter {
       padding-left: var(--spacer-xx-small);
+      border-bottom: none;
     }
   }
 }

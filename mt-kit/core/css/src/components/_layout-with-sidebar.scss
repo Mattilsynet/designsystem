@@ -18,25 +18,51 @@ $mobile-menu-height: 3rem;
 .mobile-menu {
   display: flex;
   flex-direction: row;
-  height: $mobile-menu-height;
+  align-items: center;
+  justify-content: space-between;
+  min-height: $mobile-menu-height;
   overflow: hidden;
   transition: height 0.3s ease;
   border-top: theme.$border-width-large solid var(--color-primary);
   border-bottom: theme.$border-width-large solid var(--color-primary);
-  position: sticky;
-  top: 0;
-  z-index: var(--z-index-dropdown);
+
+  padding: var(--spacer-xx-small) var(--spacer-x-small);
+  background-color: var(--color-primary);
+
+  .chapter-title-link {
+    color: var(--color-mt-white);
+    height: 100%;
+    a {
+      padding-right: var(--spacer-x-small);
+    }
+    p {
+      font-size: theme.$font-size-small;
+      line-height: theme.$font-size-small; color: var(--color-mt-white);
+    }
+  }
+
+  &[aria-expanded='true'] {
+    background-color: var(--chapter-menu-active-on-dark);
+    color: var(--color-primary);
+
+    p {
+      color: var(--color-primary);
+    }
+
+    a {
+      color: var(--color-primary);
+    }
+  }
 
   button {
-    padding-inline: var(--spacer-xx-small);
-    font-size: theme.$font-size-small;
-    line-height: theme.$font-size-small;
+    padding: var(--spacer-xx-small);
+    height: $mobile-menu-height;
+    aspect-ratio: 1/1;
+    display: grid;
+    place-content: center;
 
     &.show-menu {
       background-color: var(--color-primary);
-      color: white;
-      width: 100%;
-      margin-right: 0;
       border: theme.$border-width-regular solid transparent;
       &:focus {
         border: theme.$border-width-regular solid var(--body-background);
@@ -45,8 +71,10 @@ $mobile-menu-height: 3rem;
         background-color: var(--chapter-menu-active-on-dark);
         color: var(--color-primary);
         border: theme.$border-width-regular solid var(--chapter-menu-active-on-dark);
+        padding-inline: 0;
+
         &:focus {
-          border: theme.$border-width-regular solid var(--body-background);
+          border: theme.$border-width-regular solid var(--color-primary);
         }
       }
     }
@@ -63,6 +91,12 @@ $mobile-menu-height: 3rem;
   }
 }
 .layout-with-sidebar {
+  &-menu-and-aside-wrapper{
+    position: sticky;
+    top: 0;
+    z-index: var(--z-index-dropdown);
+  }
+
   .disclosure {
     .disclosure-header,
     .disclosure-panel {
@@ -86,8 +120,6 @@ $mobile-menu-height: 3rem;
 // mobile layout
 .has-js.layout-with-sidebar {
   .mt-aside {
-    top: $mobile-menu-height;
-    position: sticky;
     width: 5.8125rem;
     height: 0;
     overflow: hidden;
@@ -97,7 +129,6 @@ $mobile-menu-height: 3rem;
       width: 100%;
       height: 100vh;
       overflow-y: auto;
-      z-index: var(--z-index-dropdown);
     }
 
     .aside-header {
@@ -189,12 +220,12 @@ $mobile-menu-height: 3rem;
         position: static;
         overflow: visible;
         top: 0;
-        height: auto;
+        height: 100%;
       }
 
       .mt-aside.expanded {
         width: $width-sidebar-expanded;
-        height: auto;
+        height: 100%;
       }
 
       .mt-aside:not(.expanded) {

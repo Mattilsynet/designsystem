@@ -209,6 +209,19 @@ Only use if it does NOT affect accessibility
 /*
 Only use if it does NOT affect accessibility
 */
+.responsive-show-flex-column-xx-large {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  @media only screen and (min-width: $breakpoint-xx-large) {
+    display: none;
+  }
+}
+
+/*
+Only use if it does NOT affect accessibility
+*/
 .responsive-show {
   display: block;
 
