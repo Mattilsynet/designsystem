@@ -27,10 +27,11 @@
     </section>
     <section>
       <h2 class="mt-h2">Ikoner til alert icons</h2>
-      <p class="icon--alert-filled-error-before">Avvist</p>
-      <p class="icon--alert-filled-error-before">Ikke medhold</p>
-      <p class="icon--alert-filled-success-before">Medhold</p>
-      <p class="icon--alert-filled-warning-before">Delvis medhold</p>
+      <p class="icon--alert-filled-info-before">Info</p>
+      <p class="icon--alert-filled-success-before">Success</p>
+      <p class="icon--alert-filled-warning-before">Warning</p>
+      <p class="icon--alert-filled-partial-before">Partial</p>
+      <p class="icon--alert-filled-danger-before">Danger</p>
     </section>
     <section>
       <h2 class="mt-h2">Bjelleikon</h2>

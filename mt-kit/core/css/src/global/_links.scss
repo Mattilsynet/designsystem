@@ -506,4 +506,47 @@ $transportlink-colors: 'error' !default;
       }
     }
   }
+
+  &.link--button {
+    display: grid;
+    grid-template-columns: minmax(0, max-content) minmax(0, max-content);
+    column-gap: var(--spacer-xx-small);
+    text-decoration: none;
+    color: var(--color-text);
+    border-radius: $border-radius;
+    padding: var(--spacer-xxx-small) var(--spacer-xx-small);
+    &:hover {
+      text-decoration: underline;
+    }
+    &-icon-title-description {
+      grid-template-areas: 'icon title' 'icon description';
+      grid-template-columns: min-content max-content;
+      flex-direction: column;
+      row-gap: 0;
+      &:before {
+        grid-area: icon;
+      }
+      .title {
+        grid-area: title;
+      }
+      .description {
+        grid-area: description;
+      }
+    }
+    &.surface-success {
+      background-color: var(--color-mt-bg-furu);
+    }
+    &.surface-warning {
+      background-color: var(--color-mt-bg-sommerdag);
+    }
+    &.surface-danger {
+      background-color: var(--color-mt-bg-rognebaer);
+    }
+    &.surface-info {
+      background-color: var(--color-mt-white);
+    }
+    &.surface-neutral {
+      background-color: var(--color-mt-mellombeige);
+    }
+  }
 }

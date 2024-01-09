@@ -1,6 +1,7 @@
 <script lang="ts">
   import { Meta, Story } from '@storybook/addon-svelte-csf'
   import Link from '../lib/svelte/components/Link.svelte'
+  import Disclosure from '../lib/svelte/components/Disclosure.svelte'
   import { action } from '@storybook/addon-actions'
   import ChapterNavigation from '../lib/svelte/components/ChapterNavigation.svelte'
   import { wrapInShadowDom } from './storybook-utils/utils'
@@ -20,6 +21,13 @@
     }
     return index % 2 === 0 ? 'col-1-span-5' : 'col-7-span-5'
   }
+  const links = [
+    { href: '', type: 'info', title: 'Hvaler - Utgårdskilen', additionalInfo: 'Kan spises' },
+    { href: '', type: 'neutral', title: 'Hvaler - Utgårdskilen', additionalInfo: 'Kan spises' },
+    { href: '', type: 'success', title: 'Hvaler - Utgårdskilen', additionalInfo: 'Kan spises' },
+    { href: '', type: 'warning', title: 'Hvaler - Utgårdskilen', additionalInfo: 'Kan spises' },
+    { href: '', type: 'danger', title: 'Hvaler - Utgårdskilen', additionalInfo: 'Kan spises' }
+  ]
 </script>
 
 <Meta
@@ -145,6 +153,19 @@
         previousText="Forrige"
         class="chapter-navigation--bottom" />
     </article>
+  </div>
+</Story>
+
+<Story name="Lenkeknapper">
+  <div class="link--button-wrapper">
+    {#each links as link}
+      <a
+        href={link.href}
+        class="mt-link link--button link--button-icon-title-description icon--alert-filled-{link.type}-before surface-{link.type}">
+        <span class="title">{link.title}</span>
+        <span class="text-small description">{link.additionalInfo}</span>
+      </a>
+    {/each}
   </div>
 </Story>
 
@@ -349,5 +370,11 @@
   }
   article {
     margin: 1rem 0 3rem;
+  }
+  .link--button-wrapper {
+    width: 30rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 </style>
