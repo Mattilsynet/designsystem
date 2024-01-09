@@ -18,6 +18,8 @@ export { countCharacters, errorOnTooManyCharacters } from './count-characters'
 export { createToggleMachine } from './toggle-machine'
 export {
   displayDataTime,
+  addDays,
+  longMonthDate,
   toKebabCase,
   compareDates,
   createInputAriaDescribedby,
