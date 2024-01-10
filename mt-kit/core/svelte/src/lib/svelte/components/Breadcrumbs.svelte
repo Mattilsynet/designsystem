@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte'
-  import type { Breadcrumbs } from '../../ts/types'
+  import type { Breadcrumbs, Link } from '../../ts/types'
   import { useMachine } from '@xstate/svelte'
   import { createMachine } from 'xstate'
 
@@ -12,7 +12,7 @@
   const LIMIT_BEFORE_PARTIAL = 3
 
   interface BreadcrumbsContext {
-    breadcrumbsItems: Array<{ url: string; text: string } | symbol>
+    breadcrumbsItems: Array<Link | symbol>
   }
 
   type BreadcrumbsEvent = { type: 'MOUNTED' } | { type: 'TOGGLE' } | { type: 'RESET' }
