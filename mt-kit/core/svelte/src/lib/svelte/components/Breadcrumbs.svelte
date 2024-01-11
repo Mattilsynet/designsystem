@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte'
-  import type { Breadcrumbs } from '../../ts/types'
+  import type { Breadcrumbs, Link } from '../../ts/types'
   import { useMachine } from '@xstate/svelte'
   import { createMachine } from 'xstate'
 
@@ -12,7 +12,7 @@
   const LIMIT_BEFORE_PARTIAL = 3
 
   interface BreadcrumbsContext {
-    breadcrumbsItems: Array<{ url: string; title: string } | symbol>
+    breadcrumbsItems: Array<Link | symbol>
   }
 
   type BreadcrumbsEvent = { type: 'MOUNTED' } | { type: 'TOGGLE' } | { type: 'RESET' }
@@ -123,10 +123,10 @@
             ...
           </button>
         {:else if index + 1 < $state.context.breadcrumbsItems.length}
-          <a class="forward-arrow" href={item.url} rel="external">{@html item.title}</a>
+          <a class="forward-arrow" href={item.url} rel="external">{@html item.text}</a>
         {:else}
           <span class="last-breadcrumb">
-            {@html item.title}
+            {@html item.text}
           </span>
         {/if}
       </li>

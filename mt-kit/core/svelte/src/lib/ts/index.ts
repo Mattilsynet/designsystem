@@ -1,6 +1,7 @@
 export {
   type ErrorDetail,
   type Breadcrumbs as BreadcrumbsType,
+  type Link,
   type Chapter,
   type AutocompleteType,
   type ChapterChangeDetails,

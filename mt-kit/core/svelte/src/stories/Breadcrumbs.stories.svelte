@@ -5,35 +5,30 @@
 
   const breadcrumbsItems = [
     {
-      title: 'Mattilsynet',
       text: 'Mattilsynet',
       active: false,
       url: '/site/default/draft/mattilsynet',
       type: 'portal:site'
     },
     {
-      title: 'Varsle',
       text: 'Varsle',
       active: false,
       url: '/site/default/draft/mattilsynet/varsle',
       type: 'base:folder'
     },
     {
-      title: 'Dyr',
       text: 'Dyr',
       active: false,
       url: '/site/default/draft/mattilsynet/mat-og-vann/dyr/',
       type: 'no.mattilsynet.app:article'
     },
     {
-      title: 'Mishandling eller vannstell',
       text: 'Mishandling eller vannstell',
       active: false,
       url: '/site/default/draft/mattilsynet/mat-og-vann/dyr/mishandling-eller-vanstell',
       type: 'no.mattilsynet.app:article'
     },
     {
-      title: 'Varsel om mishandling eller vannstell',
       text: 'Varsel om mishandling eller vannstell',
       active: false,
       url: '/site/default/draft/mattilsynet/mat-og-vann/dyr/mishandling-eller-vanstell/varsel-om-mishandling-eller-vannstell',
@@ -58,8 +53,7 @@
       items: breadcrumbsItems.slice(0, 3)
     },
     disableCss: false
-  }}
-/>
+  }} />
 
 <Story name="Normal" let:breadcrumbsLong let:breadcrumbsShort let:loadJs let:disableCss>
   <div use:wrapInShadowDom={disableCss}>

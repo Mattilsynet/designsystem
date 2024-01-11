@@ -21,8 +21,10 @@ export type Action<Node extends HTMLElement> = (
   destroy?: () => void
 } | void
 
+export type Link = { url: string; text: string }
+
 export interface Breadcrumbs {
-  items: Array<{ url: string; title: string }>
+  items: Array<Link>
   ariaLabel?: string
   showAllAriaLabel?: string
   homeLabel?: string
@@ -112,5 +114,5 @@ export interface CountCharsParams {
 }
 
 export interface CloseDialogEvent {
-    shouldReappear: boolean
+  shouldReappear: boolean
 }
