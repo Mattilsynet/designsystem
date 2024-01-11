@@ -1,6 +1,7 @@
 @use '../theme';
 @use '../global/icon' as *;
 @use '../color-tokens' as *;
+@use '../utilities/mixins' as *;
 
 $grid-1-col-width: calc((#{theme.$main-width}) / 12);
 $sidebar-width-expanded: calc((#{$grid-1-col-width}) * 5);
@@ -13,6 +14,10 @@ $mobile-menu-height: 3rem;
 .mt-aside {
   background-color: var(--color-primary);
   color: white;
+
+  .aside-header {
+    display: none;
+  }
 }
 
 .mobile-menu {
@@ -25,31 +30,30 @@ $mobile-menu-height: 3rem;
   transition: height 0.3s ease;
   border-top: theme.$border-width-large solid var(--color-primary);
   border-bottom: theme.$border-width-large solid var(--color-primary);
-
-  padding: var(--spacer-xx-small) var(--spacer-x-small);
+  padding: var(--spacer-xxx-small) var(--spacer-x-small);
   background-color: var(--color-primary);
 
+  &.no-js {
+    padding: 0;
+    .chapter-title-link {
+      padding: var(--spacer-xx-small) var(--spacer-xx-small);
+      margin-right: 0;
+    }
+  }
+
   .chapter-title-link {
+    @include focus-outline();
+    @include disabled;
     color: var(--color-mt-white);
-    height: 100%;
-    a {
-      padding-right: var(--spacer-x-small);
-    }
-    p {
-      font-size: theme.$font-size-small;
-      line-height: theme.$font-size-small; color: var(--color-mt-white);
-    }
+    width: 100%;
+    margin-right: var(--spacer-xxx-small);
   }
 
   &[aria-expanded='true'] {
     background-color: var(--chapter-menu-active-on-dark);
     color: var(--color-primary);
 
-    p {
-      color: var(--color-primary);
-    }
-
-    a {
+    .mt-link {
       color: var(--color-primary);
     }
   }
@@ -71,7 +75,6 @@ $mobile-menu-height: 3rem;
         background-color: var(--chapter-menu-active-on-dark);
         color: var(--color-primary);
         border: theme.$border-width-regular solid var(--chapter-menu-active-on-dark);
-        padding-inline: 0;
 
         &:focus {
           border: theme.$border-width-regular solid var(--color-primary);
@@ -81,6 +84,9 @@ $mobile-menu-height: 3rem;
   }
 }
 .no-js.layout-with-sidebar {
+  .layout-with-sidebar-menu-and-aside-wrapper {
+    position: relative;
+  }
   .mt-aside {
     margin-top: -0.6rem;
     .aside-header {
@@ -144,12 +150,20 @@ $mobile-menu-height: 3rem;
   .layout-with-sidebar {
     overflow: hidden;
 
+    .aside-header {
+      display: none;
+    }
+
     .article-page {
       > * {
         grid-column: 3 / span 8;
       }
     }
     &.no-js {
+      .mobile-menu {
+        height: auto;
+        width: auto;
+      }
       .mt-aside {
         margin-top: -1.25rem;
       }
@@ -197,12 +211,24 @@ $mobile-menu-height: 3rem;
           }
         }
         .aside-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: var(--spacer-xx-small) var(--spacer-xx-small);
           position: relative;
+
+          .chapter-title-link {
+            @include focus-outline();
+            @include disabled;
+            color: var(--color-mt-white);
+            width: 100%;
+            margin-right: var(--spacer-xxx-small);
+          }
           button {
-            display: block;
-            position: absolute;
-            top: var(--spacer-xx-small);
-            right: var(--spacer-xx-small);
+            height: $mobile-menu-height;
+            aspect-ratio: 1/1;
+            display: grid;
+            place-content: center;
           }
         }
       }

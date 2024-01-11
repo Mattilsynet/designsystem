@@ -22,10 +22,10 @@
     & + li.chapter-menu--chapter-wrapper {
       margin-top: 0;
     }
-  }
 
-  li:has(.chapter-menu--subchapter){
-    border-bottom: none;
+    ul li {
+      border-bottom: none;
+    }
   }
 
   &--chapter-wrapper {
@@ -58,7 +58,7 @@
     color: var(--link-color);
     text-decoration: none;
     width: 100%;
-    padding: var(--spacer-xx-small) 0;
+    padding: var(--spacer-xxx-small) 0;
 
     &:hover {
       text-decoration: underline;
@@ -71,14 +71,7 @@
     }
     &.chapter-menu--subchapter {
       padding-left: var(--spacer-xx-small);
-      border-bottom: none;
     }
-  }
-}
-
-@media screen and (min-width: $breakpoint-xx-large) {
-  .chapter-menu{
-     padding-top: var(--spacer-xx-small);
   }
 }
 
