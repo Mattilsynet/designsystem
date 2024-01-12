@@ -9,7 +9,6 @@
   export let startIndex: 0 | 1 = 0
   export let menuTitle: string
   export let showChapterNumbers = false
-  export let showSubchapters = true
   export let subChapterToggleAriaLabel = 'toggle'
   export let loadJs = true
 
@@ -32,15 +31,13 @@
           {/if}
           {chapter.heading}
         </a>
-        {#if showSubchapters}
-          <ChapterMenuSubChapter
-            id={`${toKebabCase(chapter.heading)}-${index}`}
-            {showChapterNumbers}
-            {loadJs}
-            ariaLabel={subChapterToggleAriaLabel}
-            parentIndex={index + startIndex}
-            subChapters={chapter.subChapters} />
-        {/if}
+        <ChapterMenuSubChapter
+          id={`${toKebabCase(chapter.heading)}-${index}`}
+          {showChapterNumbers}
+          {loadJs}
+          ariaLabel={subChapterToggleAriaLabel}
+          parentIndex={index + startIndex}
+          subChapters={chapter.subChapters} />
       </li>
     {/each}
   </ol>
