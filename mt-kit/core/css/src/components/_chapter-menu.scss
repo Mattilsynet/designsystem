@@ -13,22 +13,9 @@
   color: var(--color-mt-white);
   margin: var(--spacer-xx-small);
 
-  li {
+  &--chapter-wrapper {
     border-bottom: $border-width-small solid var(--color-mt-background);
     margin-top: 0;
-    &:last-child {
-      border-bottom: none;
-    }
-    & + li.chapter-menu--chapter-wrapper {
-      margin-top: 0;
-    }
-
-    ul li {
-      border-bottom: none;
-    }
-  }
-
-  &--chapter-wrapper {
     display: grid;
     grid-template-columns: auto min-content;
     grid-template-areas: 'link btn' 'sub sub';
@@ -38,8 +25,18 @@
     button.icon--caret-down-after-on-primary {
       grid-area: btn;
     }
-    ul {
+    .mt-ul {
       grid-area: sub;
+
+      .layout-flex {
+        border-bottom: none;
+      }
+    }
+    &:last-child {
+      border-bottom: none;
+    }
+    & + li.chapter-menu--chapter-wrapper {
+      margin-top: 0;
     }
   }
 
