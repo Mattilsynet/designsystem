@@ -51,7 +51,7 @@ module.exports = [
   {
     name: 'mt-white',
     color: 'hsl(0,0%,100%)',
-    onColor: 'hsla(0,1%,25%, 1)',
+    onColor: '#032C30',
   },
   {
     name: 'mt-green',
