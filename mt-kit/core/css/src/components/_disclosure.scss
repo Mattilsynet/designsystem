@@ -153,8 +153,11 @@
           margin-top: var(--spacer-xx-small);
         }
       }
+      &--full-width {
+        margin: 0;
+        border-top: none;
+      }
     }
-
     &--align-left {
       .disclosure-header {
         padding-left: 0;
