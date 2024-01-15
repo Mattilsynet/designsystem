@@ -31,11 +31,12 @@ $icon-github: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.or
 }
 
 @mixin icon-background {
-  padding-right: var(--icon-size-normal);
+  --icon-size: var(--icon-size-normal);
+  padding-right: var(--icon-size);
   content: '';
-  width: var(--icon-size-normal);
-  height: var(--icon-size-normal);
-  background-size: var(--icon-size-normal) var(--icon-size-normal);
+  width: var(--icon-size);
+  height: var(--icon-size);
+  background-size: var(--icon-size) var(--icon-size);
   background-repeat: no-repeat;
 }
 
@@ -178,6 +179,20 @@ $icon-github: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.or
       background-image: var(--icon-alert-filled-danger);
       @include icon-background;
     }
+    &-alert-size {
+      &:before {
+        background-image: var(--icon-alert-filled-danger);
+        @include icon-background;
+        --icon-size: #{$icon-alert-size};
+      }
+    }
+    &-large {
+      &:before {
+        background-image: var(--icon-alert-filled-danger);
+        @include icon-background;
+        --icon-size: #{$icon-size-large};
+      }
+    }
   }
 
   &--alert-filled-info-before {
@@ -187,6 +202,20 @@ $icon-github: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.or
       background-image: var(--icon-alert-filled-info);
       @include icon-background;
     }
+    &-alert-size {
+      &:before {
+        background-image: var(--icon-alert-filled-info);
+        @include icon-background;
+        --icon-size: #{$icon-alert-size};
+      }
+    }
+    &-large {
+      &:before {
+        background-image: var(--icon-alert-filled-info);
+        @include icon-background;
+        --icon-size: #{$icon-size-large};
+      }
+    }
   }
   &--alert-filled-neutral-before {
     @extend .icon-align;
@@ -194,6 +223,20 @@ $icon-github: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.or
     &:before {
       background-image: var(--icon-alert-filled-neutral);
       @include icon-background;
+    }
+    &-alert-size {
+      &:before {
+        background-image: var(--icon-alert-filled-neutral);
+        @include icon-background;
+        --icon-size: #{$icon-alert-size};
+      }
+    }
+    &-large {
+      &:before {
+        background-image: var(--icon-alert-filled-neutral);
+        @include icon-background;
+        --icon-size: #{$icon-size-large};
+      }
     }
   }
   &--alert-filled-success-before {
@@ -203,6 +246,20 @@ $icon-github: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.or
       background-image: var(--icon-alert-filled-success);
       @include icon-background;
     }
+    &-alert-size {
+      &:before {
+        background-image: var(--icon-alert-filled-success);
+        @include icon-background;
+        --icon-size: #{$icon-alert-size};
+      }
+    }
+    &-large {
+      &:before {
+        background-image: var(--icon-alert-filled-success);
+        @include icon-background;
+        --icon-size: #{$icon-size-large};
+      }
+    }
   }
 
   &--alert-filled-warning-before {
@@ -211,6 +268,20 @@ $icon-github: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.or
     &:before {
       background-image: var(--icon-alert-filled-warning);
       @include icon-background;
+    }
+    &-alert-size {
+      &:before {
+        background-image: var(--icon-alert-filled-warning);
+        @include icon-background;
+        --icon-size: #{$icon-alert-size};
+      }
+    }
+    &-large {
+      &:before {
+        background-image: var(--icon-alert-filled-warning);
+        @include icon-background;
+        --icon-size: #{$icon-size-large};
+      }
     }
   }
   &--alert-filled-partial-before {
