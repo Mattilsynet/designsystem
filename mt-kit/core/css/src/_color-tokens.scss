@@ -61,12 +61,16 @@ $color-mt-lys-furu: #8AC2AE !default;
 $color-on-mt-lys-furu: #2D4E42 !default;
 $color-mt-bg-furu: #E2F1DF !default;
 $color-on-mt-bg-furu: #032C30 !default;
+$color-mt-bg-success: #E2F1DF !default;
+$color-on-mt-bg-success: #032C30 !default;
 $color-mt-fjord: #153F7B !default;
 $color-on-mt-fjord: #92ADD2 !default;
 $color-mt-lys-fjord: #9ECCED !default;
 $color-on-mt-lys-fjord: #36566D !default;
 $color-mt-bg-fjord: #D8EAF3 !default;
 $color-on-mt-bg-fjord: #032C30 !default;
+$color-mt-bg-neutral: #D8EAF3 !default;
+$color-on-mt-bg-neutral: #032C30 !default;
 $color-mt-rognebaer-contrast: #92301C !default;
 $color-on-mt-rognebaer-contrast: #E8B9AF !default;
 $color-mt-rognebaer: #DA573B !default;
@@ -75,6 +79,8 @@ $color-mt-lys-rognebaer: #F9C4AA !default;
 $color-on-mt-lys-rognebaer: #7B4E38 !default;
 $color-mt-bg-rognebaer: #FFE4D6 !default;
 $color-on-mt-bg-rognebaer: #032C30 !default;
+$color-mt-bg-danger: #FFE4D6 !default;
+$color-on-mt-bg-danger: #032C30 !default;
 $color-mt-sommerdag-contrast: #F1BE3C !default;
 $color-on-mt-sommerdag-contrast: #6C4D00 !default;
 $color-mt-sommerdag: #F9CC76 !default;
@@ -83,12 +89,16 @@ $color-mt-lys-sommerdag: #F8DE9C !default;
 $color-on-mt-lys-sommerdag: #746131 !default;
 $color-mt-bg-sommerdag: #FBECC6 !default;
 $color-on-mt-bg-sommerdag: #032C30 !default;
+$color-mt-bg-warning: #FBECC6 !default;
+$color-on-mt-bg-warning: #032C30 !default;
 $color-mt-mellombeige: #F4ECE6 !default;
 $color-on-mt-mellombeige: #032C30 !default;
+$color-mt-bg-info: #F4ECE6 !default;
+$color-on-mt-bg-info: #032C30 !default;
 $color-mt-bg-beige: #FAF6F3 !default;
 $color-on-mt-bg-beige: #032C30 !default;
 
-$base-color-tokens: ("mt-blue", "mt-red", "mt-red-uu", "mt-beige", "mt-beige-50", "mt-light-beige", "mt-background", "mt-light-blue", "mt-lighter-light-blue", "mt-rationale-blue", "mt-brown", "mt-grey", "mt-white", "mt-green", "mt-light-green", "primary", "mt-blue-medium", "secondary", "mt-text-dark", "error", "error-50", "mt-yellowgreen", "mt-yellowgreen-lighter", "mt-new-white", "mt-granskog", "mt-granskog-dark", "mt-furu", "mt-lys-furu", "mt-bg-furu", "mt-fjord", "mt-lys-fjord", "mt-bg-fjord", "mt-rognebaer-contrast", "mt-rognebaer", "mt-lys-rognebaer", "mt-bg-rognebaer", "mt-sommerdag-contrast", "mt-sommerdag", "mt-lys-sommerdag", "mt-bg-sommerdag", "mt-mellombeige", "mt-bg-beige");
+$base-color-tokens: ("mt-blue", "mt-red", "mt-red-uu", "mt-beige", "mt-beige-50", "mt-light-beige", "mt-background", "mt-light-blue", "mt-lighter-light-blue", "mt-rationale-blue", "mt-brown", "mt-grey", "mt-white", "mt-green", "mt-light-green", "primary", "mt-blue-medium", "secondary", "mt-text-dark", "error", "error-50", "mt-yellowgreen", "mt-yellowgreen-lighter", "mt-new-white", "mt-granskog", "mt-granskog-dark", "mt-furu", "mt-lys-furu", "mt-bg-furu", "mt-bg-success", "mt-fjord", "mt-lys-fjord", "mt-bg-fjord", "mt-bg-neutral", "mt-rognebaer-contrast", "mt-rognebaer", "mt-lys-rognebaer", "mt-bg-rognebaer", "mt-bg-danger", "mt-sommerdag-contrast", "mt-sommerdag", "mt-lys-sommerdag", "mt-bg-sommerdag", "mt-bg-warning", "mt-mellombeige", "mt-bg-info", "mt-bg-beige");
 
 $color-tokens: (
   "color-mt-blue": $color-mt-blue,
@@ -149,12 +159,16 @@ $color-tokens: (
   "color-on-mt-lys-furu": $color-on-mt-lys-furu,
   "color-mt-bg-furu": $color-mt-bg-furu,
   "color-on-mt-bg-furu": $color-on-mt-bg-furu,
+  "color-mt-bg-success": $color-mt-bg-success,
+  "color-on-mt-bg-success": $color-on-mt-bg-success,
   "color-mt-fjord": $color-mt-fjord,
   "color-on-mt-fjord": $color-on-mt-fjord,
   "color-mt-lys-fjord": $color-mt-lys-fjord,
   "color-on-mt-lys-fjord": $color-on-mt-lys-fjord,
   "color-mt-bg-fjord": $color-mt-bg-fjord,
   "color-on-mt-bg-fjord": $color-on-mt-bg-fjord,
+  "color-mt-bg-neutral": $color-mt-bg-neutral,
+  "color-on-mt-bg-neutral": $color-on-mt-bg-neutral,
   "color-mt-rognebaer-contrast": $color-mt-rognebaer-contrast,
   "color-on-mt-rognebaer-contrast": $color-on-mt-rognebaer-contrast,
   "color-mt-rognebaer": $color-mt-rognebaer,
@@ -163,6 +177,8 @@ $color-tokens: (
   "color-on-mt-lys-rognebaer": $color-on-mt-lys-rognebaer,
   "color-mt-bg-rognebaer": $color-mt-bg-rognebaer,
   "color-on-mt-bg-rognebaer": $color-on-mt-bg-rognebaer,
+  "color-mt-bg-danger": $color-mt-bg-danger,
+  "color-on-mt-bg-danger": $color-on-mt-bg-danger,
   "color-mt-sommerdag-contrast": $color-mt-sommerdag-contrast,
   "color-on-mt-sommerdag-contrast": $color-on-mt-sommerdag-contrast,
   "color-mt-sommerdag": $color-mt-sommerdag,
@@ -171,8 +187,12 @@ $color-tokens: (
   "color-on-mt-lys-sommerdag": $color-on-mt-lys-sommerdag,
   "color-mt-bg-sommerdag": $color-mt-bg-sommerdag,
   "color-on-mt-bg-sommerdag": $color-on-mt-bg-sommerdag,
+  "color-mt-bg-warning": $color-mt-bg-warning,
+  "color-on-mt-bg-warning": $color-on-mt-bg-warning,
   "color-mt-mellombeige": $color-mt-mellombeige,
   "color-on-mt-mellombeige": $color-on-mt-mellombeige,
+  "color-mt-bg-info": $color-mt-bg-info,
+  "color-on-mt-bg-info": $color-on-mt-bg-info,
   "color-mt-bg-beige": $color-mt-bg-beige,
   "color-on-mt-bg-beige": $color-on-mt-bg-beige
 ) !default;
@@ -236,12 +256,16 @@ $color-tokens: (
   --color-on-mt-lys-furu: #{$color-on-mt-lys-furu};
   --color-mt-bg-furu: #{$color-mt-bg-furu};
   --color-on-mt-bg-furu: #{$color-on-mt-bg-furu};
+  --color-mt-bg-success: #{$color-mt-bg-success};
+  --color-on-mt-bg-success: #{$color-on-mt-bg-success};
   --color-mt-fjord: #{$color-mt-fjord};
   --color-on-mt-fjord: #{$color-on-mt-fjord};
   --color-mt-lys-fjord: #{$color-mt-lys-fjord};
   --color-on-mt-lys-fjord: #{$color-on-mt-lys-fjord};
   --color-mt-bg-fjord: #{$color-mt-bg-fjord};
   --color-on-mt-bg-fjord: #{$color-on-mt-bg-fjord};
+  --color-mt-bg-neutral: #{$color-mt-bg-neutral};
+  --color-on-mt-bg-neutral: #{$color-on-mt-bg-neutral};
   --color-mt-rognebaer-contrast: #{$color-mt-rognebaer-contrast};
   --color-on-mt-rognebaer-contrast: #{$color-on-mt-rognebaer-contrast};
   --color-mt-rognebaer: #{$color-mt-rognebaer};
@@ -250,6 +274,8 @@ $color-tokens: (
   --color-on-mt-lys-rognebaer: #{$color-on-mt-lys-rognebaer};
   --color-mt-bg-rognebaer: #{$color-mt-bg-rognebaer};
   --color-on-mt-bg-rognebaer: #{$color-on-mt-bg-rognebaer};
+  --color-mt-bg-danger: #{$color-mt-bg-danger};
+  --color-on-mt-bg-danger: #{$color-on-mt-bg-danger};
   --color-mt-sommerdag-contrast: #{$color-mt-sommerdag-contrast};
   --color-on-mt-sommerdag-contrast: #{$color-on-mt-sommerdag-contrast};
   --color-mt-sommerdag: #{$color-mt-sommerdag};
@@ -258,8 +284,12 @@ $color-tokens: (
   --color-on-mt-lys-sommerdag: #{$color-on-mt-lys-sommerdag};
   --color-mt-bg-sommerdag: #{$color-mt-bg-sommerdag};
   --color-on-mt-bg-sommerdag: #{$color-on-mt-bg-sommerdag};
+  --color-mt-bg-warning: #{$color-mt-bg-warning};
+  --color-on-mt-bg-warning: #{$color-on-mt-bg-warning};
   --color-mt-mellombeige: #{$color-mt-mellombeige};
   --color-on-mt-mellombeige: #{$color-on-mt-mellombeige};
+  --color-mt-bg-info: #{$color-mt-bg-info};
+  --color-on-mt-bg-info: #{$color-on-mt-bg-info};
   --color-mt-bg-beige: #{$color-mt-bg-beige};
   --color-on-mt-bg-beige: #{$color-on-mt-bg-beige};
 }

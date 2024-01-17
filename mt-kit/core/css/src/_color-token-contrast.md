@@ -19,13 +19,18 @@ title: Color Token Contrast
   - `color-on-mt-granskog`
   - `color-on-mt-furu`
   - `color-mt-bg-furu`
+  - `color-mt-bg-success`
   - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
   - `color-mt-lys-rognebaer`
   - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
   - `color-mt-sommerdag`
   - `color-mt-lys-sommerdag`
   - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
   - `color-mt-mellombeige`
+  - `color-mt-bg-info`
   - `color-mt-bg-beige`
 
 ## color-on-mt-blue
@@ -52,15 +57,20 @@ title: Color Token Contrast
   - `color-mt-granskog-dark`
   - `color-on-mt-lys-furu`
   - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
   - `color-mt-fjord`
   - `color-on-mt-lys-fjord`
   - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
   - `color-mt-rognebaer-contrast`
   - `color-on-mt-rognebaer`
   - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
   - `color-on-mt-sommerdag-contrast`
   - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
   - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
 
 ## color-mt-red
@@ -95,18 +105,23 @@ title: Color Token Contrast
   - `color-on-mt-furu`
   - `color-mt-lys-furu`
   - `color-mt-bg-furu`
+  - `color-mt-bg-success`
   - `color-on-mt-fjord`
   - `color-mt-lys-fjord`
   - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
   - `color-on-mt-rognebaer-contrast`
   - `color-mt-rognebaer`
   - `color-mt-lys-rognebaer`
   - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
   - `color-mt-sommerdag-contrast`
   - `color-mt-sommerdag`
   - `color-mt-lys-sommerdag`
   - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
   - `color-mt-mellombeige`
+  - `color-mt-bg-info`
   - `color-mt-bg-beige`
 
 ## color-mt-red-uu
@@ -126,14 +141,19 @@ title: Color Token Contrast
   - `color-on-mt-granskog`
   - `color-on-mt-furu`
   - `color-mt-bg-furu`
+  - `color-mt-bg-success`
   - `color-mt-lys-fjord`
   - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
   - `color-mt-lys-rognebaer`
   - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
   - `color-mt-sommerdag`
   - `color-mt-lys-sommerdag`
   - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
   - `color-mt-mellombeige`
+  - `color-mt-bg-info`
   - `color-mt-bg-beige`
 
 ## color-on-mt-red-uu
@@ -158,15 +178,20 @@ title: Color Token Contrast
   - `color-mt-granskog-dark`
   - `color-on-mt-lys-furu`
   - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
   - `color-mt-fjord`
   - `color-on-mt-lys-fjord`
   - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
   - `color-mt-rognebaer-contrast`
   - `color-on-mt-rognebaer`
   - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
   - `color-on-mt-sommerdag-contrast`
   - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
   - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
 
 ## color-mt-beige
@@ -181,11 +206,16 @@ title: Color Token Contrast
   - `color-mt-granskog`
   - `color-mt-granskog-dark`
   - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
   - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
   - `color-on-mt-rognebaer`
   - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
   - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
   - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
 
 ## color-on-mt-beige
@@ -211,17 +241,22 @@ title: Color Token Contrast
   - `color-on-mt-furu`
   - `color-mt-lys-furu`
   - `color-mt-bg-furu`
+  - `color-mt-bg-success`
   - `color-on-mt-fjord`
   - `color-mt-lys-fjord`
   - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
   - `color-on-mt-rognebaer-contrast`
   - `color-mt-lys-rognebaer`
   - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
   - `color-mt-sommerdag-contrast`
   - `color-mt-sommerdag`
   - `color-mt-lys-sommerdag`
   - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
   - `color-mt-mellombeige`
+  - `color-mt-bg-info`
   - `color-mt-bg-beige`
 
 ## color-mt-beige-50
@@ -234,11 +269,16 @@ title: Color Token Contrast
   - `color-mt-granskog`
   - `color-mt-granskog-dark`
   - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
   - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
   - `color-on-mt-rognebaer`
   - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
   - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
   - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
 
 ## color-on-mt-beige-50
@@ -266,17 +306,22 @@ title: Color Token Contrast
   - `color-on-mt-furu`
   - `color-mt-lys-furu`
   - `color-mt-bg-furu`
+  - `color-mt-bg-success`
   - `color-on-mt-fjord`
   - `color-mt-lys-fjord`
   - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
   - `color-on-mt-rognebaer-contrast`
   - `color-mt-lys-rognebaer`
   - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
   - `color-mt-sommerdag-contrast`
   - `color-mt-sommerdag`
   - `color-mt-lys-sommerdag`
   - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
   - `color-mt-mellombeige`
+  - `color-mt-bg-info`
   - `color-mt-bg-beige`
 
 ## color-mt-light-beige
@@ -308,18 +353,23 @@ title: Color Token Contrast
   - `color-mt-furu`
   - `color-on-mt-lys-furu`
   - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
   - `color-mt-fjord`
   - `color-on-mt-lys-fjord`
   - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
   - `color-mt-rognebaer-contrast`
   - `color-on-mt-rognebaer`
   - `color-on-mt-lys-rognebaer`
   - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
   - `color-on-mt-sommerdag-contrast`
   - `color-on-mt-sommerdag`
   - `color-on-mt-lys-sommerdag`
   - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
   - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
 
 ## color-on-mt-light-beige
@@ -331,8 +381,11 @@ title: Color Token Contrast
   - `color-mt-new-white`
   - `color-on-mt-granskog`
   - `color-mt-bg-furu`
+  - `color-mt-bg-success`
   - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
   - `color-mt-mellombeige`
+  - `color-mt-bg-info`
   - `color-mt-bg-beige`
 
 ## color-mt-background
@@ -365,18 +418,23 @@ title: Color Token Contrast
   - `color-mt-furu`
   - `color-on-mt-lys-furu`
   - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
   - `color-mt-fjord`
   - `color-on-mt-lys-fjord`
   - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
   - `color-mt-rognebaer-contrast`
   - `color-on-mt-rognebaer`
   - `color-on-mt-lys-rognebaer`
   - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
   - `color-on-mt-sommerdag-contrast`
   - `color-on-mt-sommerdag`
   - `color-on-mt-lys-sommerdag`
   - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
   - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
 
 ## color-on-mt-background
@@ -418,18 +476,23 @@ title: Color Token Contrast
   - `color-on-mt-furu`
   - `color-mt-lys-furu`
   - `color-mt-bg-furu`
+  - `color-mt-bg-success`
   - `color-on-mt-fjord`
   - `color-mt-lys-fjord`
   - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
   - `color-on-mt-rognebaer-contrast`
   - `color-mt-rognebaer`
   - `color-mt-lys-rognebaer`
   - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
   - `color-mt-sommerdag-contrast`
   - `color-mt-sommerdag`
   - `color-mt-lys-sommerdag`
   - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
   - `color-mt-mellombeige`
+  - `color-mt-bg-info`
   - `color-mt-bg-beige`
 
 ## color-mt-lighter-light-blue
@@ -458,18 +521,23 @@ title: Color Token Contrast
   - `color-mt-granskog-dark`
   - `color-on-mt-lys-furu`
   - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
   - `color-mt-fjord`
   - `color-on-mt-lys-fjord`
   - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
   - `color-mt-rognebaer-contrast`
   - `color-on-mt-rognebaer`
   - `color-on-mt-lys-rognebaer`
   - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
   - `color-on-mt-sommerdag-contrast`
   - `color-on-mt-sommerdag`
   - `color-on-mt-lys-sommerdag`
   - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
   - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
 
 ## color-on-mt-lighter-light-blue
@@ -486,10 +554,15 @@ title: Color Token Contrast
   - `color-on-mt-granskog`
   - `color-on-mt-furu`
   - `color-mt-bg-furu`
+  - `color-mt-bg-success`
   - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
   - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
   - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
   - `color-mt-mellombeige`
+  - `color-mt-bg-info`
   - `color-mt-bg-beige`
 
 ## color-mt-rationale-blue
@@ -518,18 +591,23 @@ title: Color Token Contrast
   - `color-mt-granskog-dark`
   - `color-on-mt-lys-furu`
   - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
   - `color-mt-fjord`
   - `color-on-mt-lys-fjord`
   - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
   - `color-mt-rognebaer-contrast`
   - `color-on-mt-rognebaer`
   - `color-on-mt-lys-rognebaer`
   - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
   - `color-on-mt-sommerdag-contrast`
   - `color-on-mt-sommerdag`
   - `color-on-mt-lys-sommerdag`
   - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
   - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
 
 ## color-on-mt-rationale-blue
@@ -554,17 +632,22 @@ title: Color Token Contrast
   - `color-on-mt-furu`
   - `color-mt-lys-furu`
   - `color-mt-bg-furu`
+  - `color-mt-bg-success`
   - `color-on-mt-fjord`
   - `color-mt-lys-fjord`
   - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
   - `color-on-mt-rognebaer-contrast`
   - `color-mt-lys-rognebaer`
   - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
   - `color-mt-sommerdag-contrast`
   - `color-mt-sommerdag`
   - `color-mt-lys-sommerdag`
   - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
   - `color-mt-mellombeige`
+  - `color-mt-bg-info`
   - `color-mt-bg-beige`
 
 ## color-mt-brown
@@ -589,17 +672,22 @@ title: Color Token Contrast
   - `color-on-mt-furu`
   - `color-mt-lys-furu`
   - `color-mt-bg-furu`
+  - `color-mt-bg-success`
   - `color-on-mt-fjord`
   - `color-mt-lys-fjord`
   - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
   - `color-on-mt-rognebaer-contrast`
   - `color-mt-lys-rognebaer`
   - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
   - `color-mt-sommerdag-contrast`
   - `color-mt-sommerdag`
   - `color-mt-lys-sommerdag`
   - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
   - `color-mt-mellombeige`
+  - `color-mt-bg-info`
   - `color-mt-bg-beige`
 
 ## color-on-mt-brown
@@ -618,11 +706,16 @@ title: Color Token Contrast
   - `color-mt-granskog`
   - `color-mt-granskog-dark`
   - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
   - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
   - `color-on-mt-rognebaer`
   - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
   - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
   - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
 
 ## color-mt-grey
@@ -633,11 +726,16 @@ title: Color Token Contrast
   - `color-mt-granskog`
   - `color-mt-granskog-dark`
   - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
   - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
   - `color-on-mt-rognebaer`
   - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
   - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
   - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
 
 ## color-on-mt-grey
@@ -665,17 +763,22 @@ title: Color Token Contrast
   - `color-on-mt-furu`
   - `color-mt-lys-furu`
   - `color-mt-bg-furu`
+  - `color-mt-bg-success`
   - `color-on-mt-fjord`
   - `color-mt-lys-fjord`
   - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
   - `color-on-mt-rognebaer-contrast`
   - `color-mt-lys-rognebaer`
   - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
   - `color-mt-sommerdag-contrast`
   - `color-mt-sommerdag`
   - `color-mt-lys-sommerdag`
   - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
   - `color-mt-mellombeige`
+  - `color-mt-bg-info`
   - `color-mt-bg-beige`
 
 ## color-mt-white
@@ -708,18 +811,23 @@ title: Color Token Contrast
   - `color-mt-furu`
   - `color-on-mt-lys-furu`
   - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
   - `color-mt-fjord`
   - `color-on-mt-lys-fjord`
   - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
   - `color-mt-rognebaer-contrast`
   - `color-on-mt-rognebaer`
   - `color-on-mt-lys-rognebaer`
   - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
   - `color-on-mt-sommerdag-contrast`
   - `color-on-mt-sommerdag`
   - `color-on-mt-lys-sommerdag`
   - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
   - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
 
 ## color-on-mt-white
@@ -744,17 +852,22 @@ title: Color Token Contrast
   - `color-on-mt-furu`
   - `color-mt-lys-furu`
   - `color-mt-bg-furu`
+  - `color-mt-bg-success`
   - `color-on-mt-fjord`
   - `color-mt-lys-fjord`
   - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
   - `color-on-mt-rognebaer-contrast`
   - `color-mt-lys-rognebaer`
   - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
   - `color-mt-sommerdag-contrast`
   - `color-mt-sommerdag`
   - `color-mt-lys-sommerdag`
   - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
   - `color-mt-mellombeige`
+  - `color-mt-bg-info`
   - `color-mt-bg-beige`
 
 ## color-mt-green
@@ -775,12 +888,17 @@ title: Color Token Contrast
   - `color-mt-granskog-dark`
   - `color-on-mt-lys-furu`
   - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
   - `color-mt-fjord`
   - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
   - `color-on-mt-rognebaer`
   - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
   - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
   - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
 
 ## color-on-mt-green
@@ -800,16 +918,21 @@ title: Color Token Contrast
   - `color-on-mt-granskog`
   - `color-on-mt-furu`
   - `color-mt-bg-furu`
+  - `color-mt-bg-success`
   - `color-mt-lys-fjord`
   - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
   - `color-on-mt-rognebaer-contrast`
   - `color-mt-lys-rognebaer`
   - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
   - `color-mt-sommerdag-contrast`
   - `color-mt-sommerdag`
   - `color-mt-lys-sommerdag`
   - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
   - `color-mt-mellombeige`
+  - `color-mt-bg-info`
   - `color-mt-bg-beige`
 
 ## color-mt-light-green
@@ -838,18 +961,23 @@ title: Color Token Contrast
   - `color-mt-granskog-dark`
   - `color-on-mt-lys-furu`
   - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
   - `color-mt-fjord`
   - `color-on-mt-lys-fjord`
   - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
   - `color-mt-rognebaer-contrast`
   - `color-on-mt-rognebaer`
   - `color-on-mt-lys-rognebaer`
   - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
   - `color-on-mt-sommerdag-contrast`
   - `color-on-mt-sommerdag`
   - `color-on-mt-lys-sommerdag`
   - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
   - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
 
 ## color-on-mt-light-green
@@ -866,10 +994,15 @@ title: Color Token Contrast
   - `color-on-mt-granskog`
   - `color-on-mt-furu`
   - `color-mt-bg-furu`
+  - `color-mt-bg-success`
   - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
   - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
   - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
   - `color-mt-mellombeige`
+  - `color-mt-bg-info`
   - `color-mt-bg-beige`
 
 ## color-primary
@@ -887,13 +1020,18 @@ title: Color Token Contrast
   - `color-on-mt-granskog`
   - `color-on-mt-furu`
   - `color-mt-bg-furu`
+  - `color-mt-bg-success`
   - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
   - `color-mt-lys-rognebaer`
   - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
   - `color-mt-sommerdag`
   - `color-mt-lys-sommerdag`
   - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
   - `color-mt-mellombeige`
+  - `color-mt-bg-info`
   - `color-mt-bg-beige`
 
 ## color-on-primary
@@ -926,18 +1064,23 @@ title: Color Token Contrast
   - `color-mt-furu`
   - `color-on-mt-lys-furu`
   - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
   - `color-mt-fjord`
   - `color-on-mt-lys-fjord`
   - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
   - `color-mt-rognebaer-contrast`
   - `color-on-mt-rognebaer`
   - `color-on-mt-lys-rognebaer`
   - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
   - `color-on-mt-sommerdag-contrast`
   - `color-on-mt-sommerdag`
   - `color-on-mt-lys-sommerdag`
   - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
   - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
 
 ## color-mt-blue-medium
@@ -970,18 +1113,23 @@ title: Color Token Contrast
   - `color-on-mt-furu`
   - `color-mt-lys-furu`
   - `color-mt-bg-furu`
+  - `color-mt-bg-success`
   - `color-on-mt-fjord`
   - `color-mt-lys-fjord`
   - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
   - `color-on-mt-rognebaer-contrast`
   - `color-mt-rognebaer`
   - `color-mt-lys-rognebaer`
   - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
   - `color-mt-sommerdag-contrast`
   - `color-mt-sommerdag`
   - `color-mt-lys-sommerdag`
   - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
   - `color-mt-mellombeige`
+  - `color-mt-bg-info`
   - `color-mt-bg-beige`
 
 ## color-secondary
@@ -994,11 +1142,16 @@ title: Color Token Contrast
   - `color-mt-granskog`
   - `color-mt-granskog-dark`
   - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
   - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
   - `color-on-mt-rognebaer`
   - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
   - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
   - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
 
 ## color-on-secondary
@@ -1024,17 +1177,22 @@ title: Color Token Contrast
   - `color-on-mt-furu`
   - `color-mt-lys-furu`
   - `color-mt-bg-furu`
+  - `color-mt-bg-success`
   - `color-on-mt-fjord`
   - `color-mt-lys-fjord`
   - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
   - `color-on-mt-rognebaer-contrast`
   - `color-mt-lys-rognebaer`
   - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
   - `color-mt-sommerdag-contrast`
   - `color-mt-sommerdag`
   - `color-mt-lys-sommerdag`
   - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
   - `color-mt-mellombeige`
+  - `color-mt-bg-info`
   - `color-mt-bg-beige`
 
 ## color-mt-text-dark
@@ -1059,17 +1217,22 @@ title: Color Token Contrast
   - `color-on-mt-furu`
   - `color-mt-lys-furu`
   - `color-mt-bg-furu`
+  - `color-mt-bg-success`
   - `color-on-mt-fjord`
   - `color-mt-lys-fjord`
   - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
   - `color-on-mt-rognebaer-contrast`
   - `color-mt-lys-rognebaer`
   - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
   - `color-mt-sommerdag-contrast`
   - `color-mt-sommerdag`
   - `color-mt-lys-sommerdag`
   - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
   - `color-mt-mellombeige`
+  - `color-mt-bg-info`
   - `color-mt-bg-beige`
 
 ## color-on-mt-text-dark
@@ -1088,11 +1251,16 @@ title: Color Token Contrast
   - `color-mt-granskog`
   - `color-mt-granskog-dark`
   - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
   - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
   - `color-on-mt-rognebaer`
   - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
   - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
   - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
 
 ## color-error
@@ -1112,14 +1280,19 @@ title: Color Token Contrast
   - `color-on-mt-granskog`
   - `color-on-mt-furu`
   - `color-mt-bg-furu`
+  - `color-mt-bg-success`
   - `color-mt-lys-fjord`
   - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
   - `color-mt-lys-rognebaer`
   - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
   - `color-mt-sommerdag`
   - `color-mt-lys-sommerdag`
   - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
   - `color-mt-mellombeige`
+  - `color-mt-bg-info`
   - `color-mt-bg-beige`
 
 ## color-on-error
@@ -1152,18 +1325,23 @@ title: Color Token Contrast
   - `color-mt-furu`
   - `color-on-mt-lys-furu`
   - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
   - `color-mt-fjord`
   - `color-on-mt-lys-fjord`
   - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
   - `color-mt-rognebaer-contrast`
   - `color-on-mt-rognebaer`
   - `color-on-mt-lys-rognebaer`
   - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
   - `color-on-mt-sommerdag-contrast`
   - `color-on-mt-sommerdag`
   - `color-on-mt-lys-sommerdag`
   - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
   - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
 
 ## color-error-50
@@ -1183,14 +1361,19 @@ title: Color Token Contrast
   - `color-on-mt-granskog`
   - `color-on-mt-furu`
   - `color-mt-bg-furu`
+  - `color-mt-bg-success`
   - `color-mt-lys-fjord`
   - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
   - `color-mt-lys-rognebaer`
   - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
   - `color-mt-sommerdag`
   - `color-mt-lys-sommerdag`
   - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
   - `color-mt-mellombeige`
+  - `color-mt-bg-info`
   - `color-mt-bg-beige`
 
 ## color-on-error-50
@@ -1215,15 +1398,20 @@ title: Color Token Contrast
   - `color-mt-granskog-dark`
   - `color-on-mt-lys-furu`
   - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
   - `color-mt-fjord`
   - `color-on-mt-lys-fjord`
   - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
   - `color-mt-rognebaer-contrast`
   - `color-on-mt-rognebaer`
   - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
   - `color-on-mt-sommerdag-contrast`
   - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
   - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
 
 ## color-mt-yellowgreen
@@ -1243,12 +1431,17 @@ title: Color Token Contrast
   - `color-mt-granskog`
   - `color-mt-granskog-dark`
   - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
   - `color-mt-fjord`
   - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
   - `color-on-mt-rognebaer`
   - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
   - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
   - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
 
 ## color-on-mt-yellowgreen
@@ -1271,16 +1464,21 @@ title: Color Token Contrast
   - `color-on-mt-furu`
   - `color-mt-lys-furu`
   - `color-mt-bg-furu`
+  - `color-mt-bg-success`
   - `color-mt-lys-fjord`
   - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
   - `color-on-mt-rognebaer-contrast`
   - `color-mt-lys-rognebaer`
   - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
   - `color-mt-sommerdag-contrast`
   - `color-mt-sommerdag`
   - `color-mt-lys-sommerdag`
   - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
   - `color-mt-mellombeige`
+  - `color-mt-bg-info`
   - `color-mt-bg-beige`
 
 ## color-mt-yellowgreen-lighter
@@ -1310,18 +1508,23 @@ title: Color Token Contrast
   - `color-mt-granskog-dark`
   - `color-on-mt-lys-furu`
   - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
   - `color-mt-fjord`
   - `color-on-mt-lys-fjord`
   - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
   - `color-mt-rognebaer-contrast`
   - `color-on-mt-rognebaer`
   - `color-on-mt-lys-rognebaer`
   - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
   - `color-on-mt-sommerdag-contrast`
   - `color-on-mt-sommerdag`
   - `color-on-mt-lys-sommerdag`
   - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
   - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
 
 ## color-on-mt-yellowgreen-lighter
@@ -1335,10 +1538,15 @@ title: Color Token Contrast
   - `color-on-mt-granskog`
   - `color-on-mt-furu`
   - `color-mt-bg-furu`
+  - `color-mt-bg-success`
   - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
   - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
   - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
   - `color-mt-mellombeige`
+  - `color-mt-bg-info`
   - `color-mt-bg-beige`
 
 ## color-mt-new-white
@@ -1371,18 +1579,23 @@ title: Color Token Contrast
   - `color-mt-furu`
   - `color-on-mt-lys-furu`
   - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
   - `color-mt-fjord`
   - `color-on-mt-lys-fjord`
   - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
   - `color-mt-rognebaer-contrast`
   - `color-on-mt-rognebaer`
   - `color-on-mt-lys-rognebaer`
   - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
   - `color-on-mt-sommerdag-contrast`
   - `color-on-mt-sommerdag`
   - `color-on-mt-lys-sommerdag`
   - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
   - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
 
 ## color-on-mt-new-white
@@ -1412,17 +1625,22 @@ title: Color Token Contrast
   - `color-on-mt-furu`
   - `color-mt-lys-furu`
   - `color-mt-bg-furu`
+  - `color-mt-bg-success`
   - `color-on-mt-fjord`
   - `color-mt-lys-fjord`
   - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
   - `color-on-mt-rognebaer-contrast`
   - `color-mt-lys-rognebaer`
   - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
   - `color-mt-sommerdag-contrast`
   - `color-mt-sommerdag`
   - `color-mt-lys-sommerdag`
   - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
   - `color-mt-mellombeige`
+  - `color-mt-bg-info`
   - `color-mt-bg-beige`
 
 ## color-mt-granskog
@@ -1451,17 +1669,22 @@ title: Color Token Contrast
   - `color-on-mt-furu`
   - `color-mt-lys-furu`
   - `color-mt-bg-furu`
+  - `color-mt-bg-success`
   - `color-on-mt-fjord`
   - `color-mt-lys-fjord`
   - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
   - `color-on-mt-rognebaer-contrast`
   - `color-mt-lys-rognebaer`
   - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
   - `color-mt-sommerdag-contrast`
   - `color-mt-sommerdag`
   - `color-mt-lys-sommerdag`
   - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
   - `color-mt-mellombeige`
+  - `color-mt-bg-info`
   - `color-mt-bg-beige`
 
 ## color-on-mt-granskog
@@ -1494,18 +1717,23 @@ title: Color Token Contrast
   - `color-mt-furu`
   - `color-on-mt-lys-furu`
   - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
   - `color-mt-fjord`
   - `color-on-mt-lys-fjord`
   - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
   - `color-mt-rognebaer-contrast`
   - `color-on-mt-rognebaer`
   - `color-on-mt-lys-rognebaer`
   - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
   - `color-on-mt-sommerdag-contrast`
   - `color-on-mt-sommerdag`
   - `color-on-mt-lys-sommerdag`
   - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
   - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
 
 ## color-mt-granskog-dark
@@ -1535,17 +1763,22 @@ title: Color Token Contrast
   - `color-on-mt-furu`
   - `color-mt-lys-furu`
   - `color-mt-bg-furu`
+  - `color-mt-bg-success`
   - `color-on-mt-fjord`
   - `color-mt-lys-fjord`
   - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
   - `color-on-mt-rognebaer-contrast`
   - `color-mt-lys-rognebaer`
   - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
   - `color-mt-sommerdag-contrast`
   - `color-mt-sommerdag`
   - `color-mt-lys-sommerdag`
   - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
   - `color-mt-mellombeige`
+  - `color-mt-bg-info`
   - `color-mt-bg-beige`
 
 ## color-on-mt-granskog-dark
@@ -1555,11 +1788,16 @@ title: Color Token Contrast
   - `color-on-mt-new-white`
   - `color-mt-granskog-dark`
   - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
   - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
   - `color-on-mt-rognebaer`
   - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
   - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
   - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
 
 ## color-mt-furu
@@ -1572,10 +1810,15 @@ title: Color Token Contrast
   - `color-on-mt-granskog`
   - `color-on-mt-furu`
   - `color-mt-bg-furu`
+  - `color-mt-bg-success`
   - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
   - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
   - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
   - `color-mt-mellombeige`
+  - `color-mt-bg-info`
   - `color-mt-bg-beige`
 
 ## color-on-mt-furu
@@ -1606,18 +1849,23 @@ title: Color Token Contrast
   - `color-mt-furu`
   - `color-on-mt-lys-furu`
   - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
   - `color-mt-fjord`
   - `color-on-mt-lys-fjord`
   - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
   - `color-mt-rognebaer-contrast`
   - `color-on-mt-rognebaer`
   - `color-on-mt-lys-rognebaer`
   - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
   - `color-on-mt-sommerdag-contrast`
   - `color-on-mt-sommerdag`
   - `color-on-mt-lys-sommerdag`
   - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
   - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
 
 ## color-mt-lys-furu
@@ -1638,12 +1886,17 @@ title: Color Token Contrast
   - `color-mt-granskog-dark`
   - `color-on-mt-lys-furu`
   - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
   - `color-mt-fjord`
   - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
   - `color-on-mt-rognebaer`
   - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
   - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
   - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
 
 ## color-on-mt-lys-furu
@@ -1665,16 +1918,21 @@ title: Color Token Contrast
   - `color-on-mt-furu`
   - `color-mt-lys-furu`
   - `color-mt-bg-furu`
+  - `color-mt-bg-success`
   - `color-mt-lys-fjord`
   - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
   - `color-on-mt-rognebaer-contrast`
   - `color-mt-lys-rognebaer`
   - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
   - `color-mt-sommerdag-contrast`
   - `color-mt-sommerdag`
   - `color-mt-lys-sommerdag`
   - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
   - `color-mt-mellombeige`
+  - `color-mt-bg-info`
   - `color-mt-bg-beige`
 
 ## color-mt-bg-furu
@@ -1706,18 +1964,23 @@ title: Color Token Contrast
   - `color-mt-furu`
   - `color-on-mt-lys-furu`
   - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
   - `color-mt-fjord`
   - `color-on-mt-lys-fjord`
   - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
   - `color-mt-rognebaer-contrast`
   - `color-on-mt-rognebaer`
   - `color-on-mt-lys-rognebaer`
   - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
   - `color-on-mt-sommerdag-contrast`
   - `color-on-mt-sommerdag`
   - `color-on-mt-lys-sommerdag`
   - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
   - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
 
 ## color-on-mt-bg-furu
@@ -1747,17 +2010,115 @@ title: Color Token Contrast
   - `color-on-mt-furu`
   - `color-mt-lys-furu`
   - `color-mt-bg-furu`
+  - `color-mt-bg-success`
   - `color-on-mt-fjord`
   - `color-mt-lys-fjord`
   - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
   - `color-on-mt-rognebaer-contrast`
   - `color-mt-lys-rognebaer`
   - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
   - `color-mt-sommerdag-contrast`
   - `color-mt-sommerdag`
   - `color-mt-lys-sommerdag`
   - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
   - `color-mt-mellombeige`
+  - `color-mt-bg-info`
+  - `color-mt-bg-beige`
+
+## color-mt-bg-success
+  - `color-mt-blue`
+  - `color-on-mt-red`
+  - `color-mt-red-uu`
+  - `color-on-mt-beige`
+  - `color-on-mt-beige-50`
+  - `color-on-mt-light-beige`
+  - `color-on-mt-light-blue`
+  - `color-on-mt-lighter-light-blue`
+  - `color-on-mt-rationale-blue`
+  - `color-mt-brown`
+  - `color-on-mt-grey`
+  - `color-on-mt-white`
+  - `color-on-mt-green`
+  - `color-on-mt-light-green`
+  - `color-primary`
+  - `color-on-mt-blue-medium`
+  - `color-on-secondary`
+  - `color-mt-text-dark`
+  - `color-error`
+  - `color-error-50`
+  - `color-on-mt-yellowgreen`
+  - `color-on-mt-yellowgreen-lighter`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-mt-furu`
+  - `color-on-mt-lys-furu`
+  - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
+  - `color-mt-fjord`
+  - `color-on-mt-lys-fjord`
+  - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
+  - `color-mt-rognebaer-contrast`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-lys-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
+  - `color-on-mt-sommerdag-contrast`
+  - `color-on-mt-sommerdag`
+  - `color-on-mt-lys-sommerdag`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
+  - `color-on-mt-bg-beige`
+
+## color-on-mt-bg-success
+  - `color-on-mt-blue`
+  - `color-on-mt-red-uu`
+  - `color-mt-beige`
+  - `color-mt-beige-50`
+  - `color-mt-light-beige`
+  - `color-mt-background`
+  - `color-mt-lighter-light-blue`
+  - `color-mt-rationale-blue`
+  - `color-on-mt-brown`
+  - `color-mt-grey`
+  - `color-mt-white`
+  - `color-mt-green`
+  - `color-mt-light-green`
+  - `color-on-primary`
+  - `color-secondary`
+  - `color-on-mt-text-dark`
+  - `color-on-error`
+  - `color-on-error-50`
+  - `color-mt-yellowgreen`
+  - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-on-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-mt-lys-furu`
+  - `color-mt-bg-furu`
+  - `color-mt-bg-success`
+  - `color-on-mt-fjord`
+  - `color-mt-lys-fjord`
+  - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
+  - `color-on-mt-rognebaer-contrast`
+  - `color-mt-lys-rognebaer`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
+  - `color-mt-sommerdag-contrast`
+  - `color-mt-sommerdag`
+  - `color-mt-lys-sommerdag`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-info`
   - `color-mt-bg-beige`
 
 ## color-mt-fjord
@@ -1780,17 +2141,22 @@ title: Color Token Contrast
   - `color-on-mt-furu`
   - `color-mt-lys-furu`
   - `color-mt-bg-furu`
+  - `color-mt-bg-success`
   - `color-on-mt-fjord`
   - `color-mt-lys-fjord`
   - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
   - `color-on-mt-rognebaer-contrast`
   - `color-mt-lys-rognebaer`
   - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
   - `color-mt-sommerdag-contrast`
   - `color-mt-sommerdag`
   - `color-mt-lys-sommerdag`
   - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
   - `color-mt-mellombeige`
+  - `color-mt-bg-info`
   - `color-mt-bg-beige`
 
 ## color-on-mt-fjord
@@ -1809,12 +2175,17 @@ title: Color Token Contrast
   - `color-mt-granskog`
   - `color-mt-granskog-dark`
   - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
   - `color-mt-fjord`
   - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
   - `color-on-mt-rognebaer`
   - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
   - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
   - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
 
 ## color-mt-lys-fjord
@@ -1839,15 +2210,20 @@ title: Color Token Contrast
   - `color-mt-granskog-dark`
   - `color-on-mt-lys-furu`
   - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
   - `color-mt-fjord`
   - `color-on-mt-lys-fjord`
   - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
   - `color-mt-rognebaer-contrast`
   - `color-on-mt-rognebaer`
   - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
   - `color-on-mt-sommerdag-contrast`
   - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
   - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
 
 ## color-on-mt-lys-fjord
@@ -1867,14 +2243,19 @@ title: Color Token Contrast
   - `color-on-mt-granskog`
   - `color-on-mt-furu`
   - `color-mt-bg-furu`
+  - `color-mt-bg-success`
   - `color-mt-lys-fjord`
   - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
   - `color-mt-lys-rognebaer`
   - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
   - `color-mt-sommerdag`
   - `color-mt-lys-sommerdag`
   - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
   - `color-mt-mellombeige`
+  - `color-mt-bg-info`
   - `color-mt-bg-beige`
 
 ## color-mt-bg-fjord
@@ -1905,18 +2286,23 @@ title: Color Token Contrast
   - `color-mt-furu`
   - `color-on-mt-lys-furu`
   - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
   - `color-mt-fjord`
   - `color-on-mt-lys-fjord`
   - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
   - `color-mt-rognebaer-contrast`
   - `color-on-mt-rognebaer`
   - `color-on-mt-lys-rognebaer`
   - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
   - `color-on-mt-sommerdag-contrast`
   - `color-on-mt-sommerdag`
   - `color-on-mt-lys-sommerdag`
   - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
   - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
 
 ## color-on-mt-bg-fjord
@@ -1946,17 +2332,114 @@ title: Color Token Contrast
   - `color-on-mt-furu`
   - `color-mt-lys-furu`
   - `color-mt-bg-furu`
+  - `color-mt-bg-success`
   - `color-on-mt-fjord`
   - `color-mt-lys-fjord`
   - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
   - `color-on-mt-rognebaer-contrast`
   - `color-mt-lys-rognebaer`
   - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
   - `color-mt-sommerdag-contrast`
   - `color-mt-sommerdag`
   - `color-mt-lys-sommerdag`
   - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
   - `color-mt-mellombeige`
+  - `color-mt-bg-info`
+  - `color-mt-bg-beige`
+
+## color-mt-bg-neutral
+  - `color-mt-blue`
+  - `color-on-mt-red`
+  - `color-mt-red-uu`
+  - `color-on-mt-beige`
+  - `color-on-mt-beige-50`
+  - `color-on-mt-light-blue`
+  - `color-on-mt-lighter-light-blue`
+  - `color-on-mt-rationale-blue`
+  - `color-mt-brown`
+  - `color-on-mt-grey`
+  - `color-on-mt-white`
+  - `color-on-mt-green`
+  - `color-on-mt-light-green`
+  - `color-primary`
+  - `color-on-mt-blue-medium`
+  - `color-on-secondary`
+  - `color-mt-text-dark`
+  - `color-error`
+  - `color-error-50`
+  - `color-on-mt-yellowgreen`
+  - `color-on-mt-yellowgreen-lighter`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-mt-furu`
+  - `color-on-mt-lys-furu`
+  - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
+  - `color-mt-fjord`
+  - `color-on-mt-lys-fjord`
+  - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
+  - `color-mt-rognebaer-contrast`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-lys-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
+  - `color-on-mt-sommerdag-contrast`
+  - `color-on-mt-sommerdag`
+  - `color-on-mt-lys-sommerdag`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
+  - `color-on-mt-bg-beige`
+
+## color-on-mt-bg-neutral
+  - `color-on-mt-blue`
+  - `color-on-mt-red-uu`
+  - `color-mt-beige`
+  - `color-mt-beige-50`
+  - `color-mt-light-beige`
+  - `color-mt-background`
+  - `color-mt-lighter-light-blue`
+  - `color-mt-rationale-blue`
+  - `color-on-mt-brown`
+  - `color-mt-grey`
+  - `color-mt-white`
+  - `color-mt-green`
+  - `color-mt-light-green`
+  - `color-on-primary`
+  - `color-secondary`
+  - `color-on-mt-text-dark`
+  - `color-on-error`
+  - `color-on-error-50`
+  - `color-mt-yellowgreen`
+  - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-on-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-mt-lys-furu`
+  - `color-mt-bg-furu`
+  - `color-mt-bg-success`
+  - `color-on-mt-fjord`
+  - `color-mt-lys-fjord`
+  - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
+  - `color-on-mt-rognebaer-contrast`
+  - `color-mt-lys-rognebaer`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
+  - `color-mt-sommerdag-contrast`
+  - `color-mt-sommerdag`
+  - `color-mt-lys-sommerdag`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-info`
   - `color-mt-bg-beige`
 
 ## color-mt-rognebaer-contrast
@@ -1976,16 +2459,21 @@ title: Color Token Contrast
   - `color-on-mt-granskog`
   - `color-on-mt-furu`
   - `color-mt-bg-furu`
+  - `color-mt-bg-success`
   - `color-mt-lys-fjord`
   - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
   - `color-on-mt-rognebaer-contrast`
   - `color-mt-lys-rognebaer`
   - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
   - `color-mt-sommerdag-contrast`
   - `color-mt-sommerdag`
   - `color-mt-lys-sommerdag`
   - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
   - `color-mt-mellombeige`
+  - `color-mt-bg-info`
   - `color-mt-bg-beige`
 
 ## color-on-mt-rognebaer-contrast
@@ -2007,13 +2495,18 @@ title: Color Token Contrast
   - `color-mt-granskog-dark`
   - `color-on-mt-lys-furu`
   - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
   - `color-mt-fjord`
   - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
   - `color-mt-rognebaer-contrast`
   - `color-on-mt-rognebaer`
   - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
   - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
   - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
 
 ## color-mt-rognebaer
@@ -2049,18 +2542,23 @@ title: Color Token Contrast
   - `color-on-mt-furu`
   - `color-mt-lys-furu`
   - `color-mt-bg-furu`
+  - `color-mt-bg-success`
   - `color-on-mt-fjord`
   - `color-mt-lys-fjord`
   - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
   - `color-on-mt-rognebaer-contrast`
   - `color-mt-rognebaer`
   - `color-mt-lys-rognebaer`
   - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
   - `color-mt-sommerdag-contrast`
   - `color-mt-sommerdag`
   - `color-mt-lys-sommerdag`
   - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
   - `color-mt-mellombeige`
+  - `color-mt-bg-info`
   - `color-mt-bg-beige`
 
 ## color-mt-lys-rognebaer
@@ -2087,16 +2585,21 @@ title: Color Token Contrast
   - `color-mt-granskog-dark`
   - `color-on-mt-lys-furu`
   - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
   - `color-mt-fjord`
   - `color-on-mt-lys-fjord`
   - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
   - `color-mt-rognebaer-contrast`
   - `color-on-mt-rognebaer`
   - `color-on-mt-lys-rognebaer`
   - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
   - `color-on-mt-sommerdag-contrast`
   - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
   - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
 
 ## color-on-mt-lys-rognebaer
@@ -2113,13 +2616,18 @@ title: Color Token Contrast
   - `color-on-mt-granskog`
   - `color-on-mt-furu`
   - `color-mt-bg-furu`
+  - `color-mt-bg-success`
   - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
   - `color-mt-lys-rognebaer`
   - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
   - `color-mt-sommerdag`
   - `color-mt-lys-sommerdag`
   - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
   - `color-mt-mellombeige`
+  - `color-mt-bg-info`
   - `color-mt-bg-beige`
 
 ## color-mt-bg-rognebaer
@@ -2150,18 +2658,23 @@ title: Color Token Contrast
   - `color-mt-furu`
   - `color-on-mt-lys-furu`
   - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
   - `color-mt-fjord`
   - `color-on-mt-lys-fjord`
   - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
   - `color-mt-rognebaer-contrast`
   - `color-on-mt-rognebaer`
   - `color-on-mt-lys-rognebaer`
   - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
   - `color-on-mt-sommerdag-contrast`
   - `color-on-mt-sommerdag`
   - `color-on-mt-lys-sommerdag`
   - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
   - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
 
 ## color-on-mt-bg-rognebaer
@@ -2191,17 +2704,114 @@ title: Color Token Contrast
   - `color-on-mt-furu`
   - `color-mt-lys-furu`
   - `color-mt-bg-furu`
+  - `color-mt-bg-success`
   - `color-on-mt-fjord`
   - `color-mt-lys-fjord`
   - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
   - `color-on-mt-rognebaer-contrast`
   - `color-mt-lys-rognebaer`
   - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
   - `color-mt-sommerdag-contrast`
   - `color-mt-sommerdag`
   - `color-mt-lys-sommerdag`
   - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
   - `color-mt-mellombeige`
+  - `color-mt-bg-info`
+  - `color-mt-bg-beige`
+
+## color-mt-bg-danger
+  - `color-mt-blue`
+  - `color-on-mt-red`
+  - `color-mt-red-uu`
+  - `color-on-mt-beige`
+  - `color-on-mt-beige-50`
+  - `color-on-mt-light-blue`
+  - `color-on-mt-lighter-light-blue`
+  - `color-on-mt-rationale-blue`
+  - `color-mt-brown`
+  - `color-on-mt-grey`
+  - `color-on-mt-white`
+  - `color-on-mt-green`
+  - `color-on-mt-light-green`
+  - `color-primary`
+  - `color-on-mt-blue-medium`
+  - `color-on-secondary`
+  - `color-mt-text-dark`
+  - `color-error`
+  - `color-error-50`
+  - `color-on-mt-yellowgreen`
+  - `color-on-mt-yellowgreen-lighter`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-mt-furu`
+  - `color-on-mt-lys-furu`
+  - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
+  - `color-mt-fjord`
+  - `color-on-mt-lys-fjord`
+  - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
+  - `color-mt-rognebaer-contrast`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-lys-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
+  - `color-on-mt-sommerdag-contrast`
+  - `color-on-mt-sommerdag`
+  - `color-on-mt-lys-sommerdag`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
+  - `color-on-mt-bg-beige`
+
+## color-on-mt-bg-danger
+  - `color-on-mt-blue`
+  - `color-on-mt-red-uu`
+  - `color-mt-beige`
+  - `color-mt-beige-50`
+  - `color-mt-light-beige`
+  - `color-mt-background`
+  - `color-mt-lighter-light-blue`
+  - `color-mt-rationale-blue`
+  - `color-on-mt-brown`
+  - `color-mt-grey`
+  - `color-mt-white`
+  - `color-mt-green`
+  - `color-mt-light-green`
+  - `color-on-primary`
+  - `color-secondary`
+  - `color-on-mt-text-dark`
+  - `color-on-error`
+  - `color-on-error-50`
+  - `color-mt-yellowgreen`
+  - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-on-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-mt-lys-furu`
+  - `color-mt-bg-furu`
+  - `color-mt-bg-success`
+  - `color-on-mt-fjord`
+  - `color-mt-lys-fjord`
+  - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
+  - `color-on-mt-rognebaer-contrast`
+  - `color-mt-lys-rognebaer`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
+  - `color-mt-sommerdag-contrast`
+  - `color-mt-sommerdag`
+  - `color-mt-lys-sommerdag`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-info`
   - `color-mt-bg-beige`
 
 ## color-mt-sommerdag-contrast
@@ -2223,14 +2833,19 @@ title: Color Token Contrast
   - `color-mt-granskog-dark`
   - `color-on-mt-lys-furu`
   - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
   - `color-mt-fjord`
   - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
   - `color-mt-rognebaer-contrast`
   - `color-on-mt-rognebaer`
   - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
   - `color-on-mt-sommerdag-contrast`
   - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
   - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
 
 ## color-on-mt-sommerdag-contrast
@@ -2250,15 +2865,20 @@ title: Color Token Contrast
   - `color-on-mt-granskog`
   - `color-on-mt-furu`
   - `color-mt-bg-furu`
+  - `color-mt-bg-success`
   - `color-mt-lys-fjord`
   - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
   - `color-mt-lys-rognebaer`
   - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
   - `color-mt-sommerdag-contrast`
   - `color-mt-sommerdag`
   - `color-mt-lys-sommerdag`
   - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
   - `color-mt-mellombeige`
+  - `color-mt-bg-info`
   - `color-mt-bg-beige`
 
 ## color-mt-sommerdag
@@ -2285,17 +2905,22 @@ title: Color Token Contrast
   - `color-mt-granskog-dark`
   - `color-on-mt-lys-furu`
   - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
   - `color-mt-fjord`
   - `color-on-mt-lys-fjord`
   - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
   - `color-mt-rognebaer-contrast`
   - `color-on-mt-rognebaer`
   - `color-on-mt-lys-rognebaer`
   - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
   - `color-on-mt-sommerdag-contrast`
   - `color-on-mt-sommerdag`
   - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
   - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
 
 ## color-on-mt-sommerdag
@@ -2312,12 +2937,17 @@ title: Color Token Contrast
   - `color-on-mt-granskog`
   - `color-on-mt-furu`
   - `color-mt-bg-furu`
+  - `color-mt-bg-success`
   - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
   - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
   - `color-mt-sommerdag`
   - `color-mt-lys-sommerdag`
   - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
   - `color-mt-mellombeige`
+  - `color-mt-bg-info`
   - `color-mt-bg-beige`
 
 ## color-mt-lys-sommerdag
@@ -2344,18 +2974,23 @@ title: Color Token Contrast
   - `color-mt-granskog-dark`
   - `color-on-mt-lys-furu`
   - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
   - `color-mt-fjord`
   - `color-on-mt-lys-fjord`
   - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
   - `color-mt-rognebaer-contrast`
   - `color-on-mt-rognebaer`
   - `color-on-mt-lys-rognebaer`
   - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
   - `color-on-mt-sommerdag-contrast`
   - `color-on-mt-sommerdag`
   - `color-on-mt-lys-sommerdag`
   - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
   - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
 
 ## color-on-mt-lys-sommerdag
@@ -2372,11 +3007,16 @@ title: Color Token Contrast
   - `color-on-mt-granskog`
   - `color-on-mt-furu`
   - `color-mt-bg-furu`
+  - `color-mt-bg-success`
   - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
   - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
   - `color-mt-lys-sommerdag`
   - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
   - `color-mt-mellombeige`
+  - `color-mt-bg-info`
   - `color-mt-bg-beige`
 
 ## color-mt-bg-sommerdag
@@ -2408,18 +3048,23 @@ title: Color Token Contrast
   - `color-mt-furu`
   - `color-on-mt-lys-furu`
   - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
   - `color-mt-fjord`
   - `color-on-mt-lys-fjord`
   - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
   - `color-mt-rognebaer-contrast`
   - `color-on-mt-rognebaer`
   - `color-on-mt-lys-rognebaer`
   - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
   - `color-on-mt-sommerdag-contrast`
   - `color-on-mt-sommerdag`
   - `color-on-mt-lys-sommerdag`
   - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
   - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
 
 ## color-on-mt-bg-sommerdag
@@ -2449,17 +3094,115 @@ title: Color Token Contrast
   - `color-on-mt-furu`
   - `color-mt-lys-furu`
   - `color-mt-bg-furu`
+  - `color-mt-bg-success`
   - `color-on-mt-fjord`
   - `color-mt-lys-fjord`
   - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
   - `color-on-mt-rognebaer-contrast`
   - `color-mt-lys-rognebaer`
   - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
   - `color-mt-sommerdag-contrast`
   - `color-mt-sommerdag`
   - `color-mt-lys-sommerdag`
   - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
   - `color-mt-mellombeige`
+  - `color-mt-bg-info`
+  - `color-mt-bg-beige`
+
+## color-mt-bg-warning
+  - `color-mt-blue`
+  - `color-on-mt-red`
+  - `color-mt-red-uu`
+  - `color-on-mt-beige`
+  - `color-on-mt-beige-50`
+  - `color-on-mt-light-beige`
+  - `color-on-mt-light-blue`
+  - `color-on-mt-lighter-light-blue`
+  - `color-on-mt-rationale-blue`
+  - `color-mt-brown`
+  - `color-on-mt-grey`
+  - `color-on-mt-white`
+  - `color-on-mt-green`
+  - `color-on-mt-light-green`
+  - `color-primary`
+  - `color-on-mt-blue-medium`
+  - `color-on-secondary`
+  - `color-mt-text-dark`
+  - `color-error`
+  - `color-error-50`
+  - `color-on-mt-yellowgreen`
+  - `color-on-mt-yellowgreen-lighter`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-mt-furu`
+  - `color-on-mt-lys-furu`
+  - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
+  - `color-mt-fjord`
+  - `color-on-mt-lys-fjord`
+  - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
+  - `color-mt-rognebaer-contrast`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-lys-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
+  - `color-on-mt-sommerdag-contrast`
+  - `color-on-mt-sommerdag`
+  - `color-on-mt-lys-sommerdag`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
+  - `color-on-mt-bg-beige`
+
+## color-on-mt-bg-warning
+  - `color-on-mt-blue`
+  - `color-on-mt-red-uu`
+  - `color-mt-beige`
+  - `color-mt-beige-50`
+  - `color-mt-light-beige`
+  - `color-mt-background`
+  - `color-mt-lighter-light-blue`
+  - `color-mt-rationale-blue`
+  - `color-on-mt-brown`
+  - `color-mt-grey`
+  - `color-mt-white`
+  - `color-mt-green`
+  - `color-mt-light-green`
+  - `color-on-primary`
+  - `color-secondary`
+  - `color-on-mt-text-dark`
+  - `color-on-error`
+  - `color-on-error-50`
+  - `color-mt-yellowgreen`
+  - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-on-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-mt-lys-furu`
+  - `color-mt-bg-furu`
+  - `color-mt-bg-success`
+  - `color-on-mt-fjord`
+  - `color-mt-lys-fjord`
+  - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
+  - `color-on-mt-rognebaer-contrast`
+  - `color-mt-lys-rognebaer`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
+  - `color-mt-sommerdag-contrast`
+  - `color-mt-sommerdag`
+  - `color-mt-lys-sommerdag`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-info`
   - `color-mt-bg-beige`
 
 ## color-mt-mellombeige
@@ -2491,18 +3234,23 @@ title: Color Token Contrast
   - `color-mt-furu`
   - `color-on-mt-lys-furu`
   - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
   - `color-mt-fjord`
   - `color-on-mt-lys-fjord`
   - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
   - `color-mt-rognebaer-contrast`
   - `color-on-mt-rognebaer`
   - `color-on-mt-lys-rognebaer`
   - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
   - `color-on-mt-sommerdag-contrast`
   - `color-on-mt-sommerdag`
   - `color-on-mt-lys-sommerdag`
   - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
   - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
 
 ## color-on-mt-mellombeige
@@ -2532,17 +3280,115 @@ title: Color Token Contrast
   - `color-on-mt-furu`
   - `color-mt-lys-furu`
   - `color-mt-bg-furu`
+  - `color-mt-bg-success`
   - `color-on-mt-fjord`
   - `color-mt-lys-fjord`
   - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
   - `color-on-mt-rognebaer-contrast`
   - `color-mt-lys-rognebaer`
   - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
   - `color-mt-sommerdag-contrast`
   - `color-mt-sommerdag`
   - `color-mt-lys-sommerdag`
   - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
   - `color-mt-mellombeige`
+  - `color-mt-bg-info`
+  - `color-mt-bg-beige`
+
+## color-mt-bg-info
+  - `color-mt-blue`
+  - `color-on-mt-red`
+  - `color-mt-red-uu`
+  - `color-on-mt-beige`
+  - `color-on-mt-beige-50`
+  - `color-on-mt-light-beige`
+  - `color-on-mt-light-blue`
+  - `color-on-mt-lighter-light-blue`
+  - `color-on-mt-rationale-blue`
+  - `color-mt-brown`
+  - `color-on-mt-grey`
+  - `color-on-mt-white`
+  - `color-on-mt-green`
+  - `color-on-mt-light-green`
+  - `color-primary`
+  - `color-on-mt-blue-medium`
+  - `color-on-secondary`
+  - `color-mt-text-dark`
+  - `color-error`
+  - `color-error-50`
+  - `color-on-mt-yellowgreen`
+  - `color-on-mt-yellowgreen-lighter`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-mt-furu`
+  - `color-on-mt-lys-furu`
+  - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
+  - `color-mt-fjord`
+  - `color-on-mt-lys-fjord`
+  - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
+  - `color-mt-rognebaer-contrast`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-lys-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
+  - `color-on-mt-sommerdag-contrast`
+  - `color-on-mt-sommerdag`
+  - `color-on-mt-lys-sommerdag`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
+  - `color-on-mt-bg-beige`
+
+## color-on-mt-bg-info
+  - `color-on-mt-blue`
+  - `color-on-mt-red-uu`
+  - `color-mt-beige`
+  - `color-mt-beige-50`
+  - `color-mt-light-beige`
+  - `color-mt-background`
+  - `color-mt-lighter-light-blue`
+  - `color-mt-rationale-blue`
+  - `color-on-mt-brown`
+  - `color-mt-grey`
+  - `color-mt-white`
+  - `color-mt-green`
+  - `color-mt-light-green`
+  - `color-on-primary`
+  - `color-secondary`
+  - `color-on-mt-text-dark`
+  - `color-on-error`
+  - `color-on-error-50`
+  - `color-mt-yellowgreen`
+  - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-on-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-mt-lys-furu`
+  - `color-mt-bg-furu`
+  - `color-mt-bg-success`
+  - `color-on-mt-fjord`
+  - `color-mt-lys-fjord`
+  - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
+  - `color-on-mt-rognebaer-contrast`
+  - `color-mt-lys-rognebaer`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
+  - `color-mt-sommerdag-contrast`
+  - `color-mt-sommerdag`
+  - `color-mt-lys-sommerdag`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-info`
   - `color-mt-bg-beige`
 
 ## color-mt-bg-beige
@@ -2575,18 +3421,23 @@ title: Color Token Contrast
   - `color-mt-furu`
   - `color-on-mt-lys-furu`
   - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
   - `color-mt-fjord`
   - `color-on-mt-lys-fjord`
   - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
   - `color-mt-rognebaer-contrast`
   - `color-on-mt-rognebaer`
   - `color-on-mt-lys-rognebaer`
   - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
   - `color-on-mt-sommerdag-contrast`
   - `color-on-mt-sommerdag`
   - `color-on-mt-lys-sommerdag`
   - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
   - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
 
 ## color-on-mt-bg-beige
@@ -2616,15 +3467,20 @@ title: Color Token Contrast
   - `color-on-mt-furu`
   - `color-mt-lys-furu`
   - `color-mt-bg-furu`
+  - `color-mt-bg-success`
   - `color-on-mt-fjord`
   - `color-mt-lys-fjord`
   - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
   - `color-on-mt-rognebaer-contrast`
   - `color-mt-lys-rognebaer`
   - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
   - `color-mt-sommerdag-contrast`
   - `color-mt-sommerdag`
   - `color-mt-lys-sommerdag`
   - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
   - `color-mt-mellombeige`
+  - `color-mt-bg-info`
   - `color-mt-bg-beige`
