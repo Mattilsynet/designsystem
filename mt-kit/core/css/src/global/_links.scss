@@ -508,45 +508,57 @@ $transportlink-colors: 'error' !default;
   }
 
   &.link--button {
-    display: grid;
-    grid-template-columns: minmax(0, max-content) minmax(0, max-content);
-    column-gap: var(--spacer-xx-small);
-    text-decoration: none;
     color: var(--color-text);
     border-radius: $border-radius;
     padding: var(--spacer-xxx-small) var(--spacer-xx-small);
-    &:hover {
-      text-decoration: underline;
+
+    &.info,
+    &.success,
+    &.warning,
+    &.danger,
+    &.neutral {
+      &:hover {
+        background-color: var(--bg-hover);
+      }
+    }
+    &.info {
+      background-color: var(--bg-info);
+    }
+    &.success {
+      background-color: var(--bg-success);
+    }
+    &.warning {
+      background-color: var(--bg-warning);
+    }
+    &.danger {
+      background-color: var(--bg-danger);
+    }
+    &.neutral {
+      background-color: var(--bg-neutral);
     }
     &-icon-title-description {
-      grid-template-areas: 'icon title' 'icon description';
+      display: grid;
       grid-template-columns: min-content max-content;
-      flex-direction: column;
+      grid-template-areas: 'icon title' 'icon description';
+      column-gap: var(--spacer-xx-small);
       row-gap: 0;
+      text-decoration: none;
+
+      &:hover {
+        .title {
+          text-decoration: none;
+        }
+      }
       &:before {
         grid-area: icon;
       }
       .title {
         grid-area: title;
+        text-decoration: underline;
       }
       .description {
         grid-area: description;
       }
-    }
-    &.surface-success {
-      background-color: var(--color-mt-bg-furu);
-    }
-    &.surface-warning {
-      background-color: var(--color-mt-bg-sommerdag);
-    }
-    &.surface-danger {
-      background-color: var(--color-mt-bg-rognebaer);
-    }
-    &.surface-info {
-      background-color: var(--color-mt-mellombeige);
-    }
-    &.surface-neutral {
-      background-color: var(--color-mt-bg-fjord);
     }
   }
 }
