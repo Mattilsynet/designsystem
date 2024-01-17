@@ -518,23 +518,23 @@ $transportlink-colors: 'error' !default;
     &.danger,
     &.neutral {
       &:hover {
-        background-color: var(--bg-hover);
+        background-color: var(--status-bg-hover);
       }
     }
     &.info {
-      background-color: var(--bg-info);
+      background-color: var(--color-mt-bg-info);
     }
     &.success {
-      background-color: var(--bg-success);
+      background-color: var(--color-mt-bg-success);
     }
     &.warning {
-      background-color: var(--bg-warning);
+      background-color: var(--color-mt-bg-warning);
     }
     &.danger {
-      background-color: var(--bg-danger);
+      background-color: var(--color-mt-bg-danger);
     }
     &.neutral {
-      background-color: var(--bg-neutral);
+      background-color: var(--color-mt-bg-neutral);
     }
     &-icon-title-description {
       display: grid;
