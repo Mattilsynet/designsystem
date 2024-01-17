@@ -127,6 +127,12 @@ module.exports = [
     onColor: '#032C30',
   },
   {
+    name: 'mt-bg-success',
+    alias: 'mt-bg-furu',
+    color: '#E2F1DF',
+    onColor: '#032C30',
+  },
+  {
     name: 'mt-fjord',
     color: '#153F7B',
   },
@@ -136,6 +142,12 @@ module.exports = [
   },
   {
     name: 'mt-bg-fjord',
+    color: '#D8EAF3',
+    onColor: '#032C30',
+  },
+  {
+    name: 'mt-bg-neutral',
+    alias: 'mt-bg-fjord',
     color: '#D8EAF3',
     onColor: '#032C30',
   },
@@ -157,6 +169,12 @@ module.exports = [
     onColor: '#032C30',
   },
   {
+    name: 'mt-bg-danger',
+    alias: 'mt-bg-rognebaer',
+    color: '#FFE4D6',
+    onColor: '#032C30',
+  },
+  {
     name: 'mt-sommerdag-contrast',
     color: '#F1BE3C',
   },
@@ -174,7 +192,19 @@ module.exports = [
     onColor: '#032C30',
   },
   {
+    name: 'mt-bg-warning',
+    alias: 'mt-bg-sommerdag',
+    color: '#FBECC6',
+    onColor: '#032C30',
+  },
+  {
     name: 'mt-mellombeige',
+    color: '#F4ECE6',
+    onColor: '#032C30',
+  },
+  {
+    name: 'mt-bg-info',
+    alias: 'mt-mellombeige',
     color: '#F4ECE6',
     onColor: '#032C30',
   },
