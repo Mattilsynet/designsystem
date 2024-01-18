@@ -5,44 +5,44 @@
 
 $color-mt-blue: hsl(196, 89%, 25%) !default;
 $color-on-mt-blue: hsl(195.5, 46%, 75.3%) !default;
-$color-mt-red: hsl(3, 76%, 52%) !default;
+$color-mt-red: hsl(3,76%,52%) !default;
 $color-on-mt-red: hsl(0, 100%, 5.1%) !default;
 $color-mt-red-uu: hsl(3, 76%, 36%) !default;
 $color-on-mt-red-uu: hsl(3, 68.2%, 82.7%) !default;
-$color-mt-beige: hsl(55, 19%, 61%) !default;
+$color-mt-beige: hsl(55,19%,61%) !default;
 $color-on-mt-beige: hsl(57.10000000000002, 19.3%, 21.4%) !default;
-$color-mt-beige-50: hsla(55, 18%, 61%, 0.5) !default;
+$color-mt-beige-50: hsla(55,18%,61%,0.5) !default;
 $color-on-mt-beige-50: hsl(54, 18.2%, 21.6%) !default;
 $color-mt-light-beige: hsl(37, 39%, 91%) !default;
 $color-on-mt-light-beige: hsl(35.5, 10.7%, 40.4%) !default;
-$color-mt-background: hsl(38, 40%, 96%) !default;
+$color-mt-background: hsl(38,40%,96%) !default;
 $color-on-mt-background: hsl(40, 5.4%, 43.5%) !default;
 $color-mt-light-blue: hsl(193, 52%, 42%) !default;
 $color-on-mt-light-blue: hsl(132, 100%, 5.9%) !default;
-$color-mt-lighter-light-blue: hsl(193, 39%, 88%) !default;
+$color-mt-lighter-light-blue: hsl(193,39%,88%) !default;
 $color-on-mt-lighter-light-blue: hsl(193.79999999999995, 13.3%, 38.4%) !default;
 $color-mt-rationale-blue: hsl(193, 39%, 88%) !default;
-$color-on-mt-rationale-blue: hsla(0, 1%, 25%, 1) !default;
+$color-on-mt-rationale-blue: hsla(0,1%,25%, 1) !default;
 $color-mt-brown: hsla(0, 1%, 25%, 1) !default;
 $color-on-mt-brown: rgb(170, 170, 170) !default;
-$color-mt-grey: hsl(216, 3%, 66%) !default;
+$color-mt-grey: hsl(216,3%,66%) !default;
 $color-on-mt-grey: hsl(200, 2.4%, 24.1%) !default;
-$color-mt-white: hsl(0, 0%, 100%) !default;
-$color-on-mt-white: hsla(0, 1%, 25%, 1) !default;
+$color-mt-white: hsl(0,0%,100%) !default;
+$color-on-mt-white: #032C30 !default;
 $color-mt-green: hsla(79, 41%, 64%, 1) !default;
 $color-on-mt-green: hsl(78.69999999999999, 36.6%, 24.1%) !default;
 $color-mt-light-green: hsla(80, 41%, 85%, 1) !default;
 $color-on-mt-light-green: hsl(79.30000000000001, 15.4%, 35.7%) !default;
 $color-primary: hsl(196, 89%, 25%) !default;
-$color-on-primary: hsl(0, 0%, 100%) !default;
-$color-mt-blue-medium: hsl(193, 52%, 42%) !default;
+$color-on-primary: hsl(0,0%,100%) !default;
+$color-mt-blue-medium: hsl(193,52%,42%) !default;
 $color-on-mt-blue-medium: hsl(132, 100%, 5.9%) !default;
-$color-secondary: hsl(54, 19%, 61%) !default;
+$color-secondary: hsl(54,19%,61%) !default;
 $color-on-secondary: hsl(57.10000000000002, 19.3%, 21.4%) !default;
-$color-mt-text-dark: hsla(0, 1%, 25%, 1) !default;
+$color-mt-text-dark: hsla(0,1%,25%, 1) !default;
 $color-on-mt-text-dark: rgb(170, 170, 170) !default;
 $color-error: hsl(3, 76%, 36%) !default;
-$color-on-error: hsl(0, 0%, 100%) !default;
+$color-on-error: hsl(0,0%,100%) !default;
 $color-error-50: hsl(3, 76%, 36%, 0.5) !default;
 $color-on-error-50: hsl(3, 68.2%, 82.7%) !default;
 $color-mt-yellowgreen: hsla(63, 75%, 41%, 1) !default;
@@ -50,199 +50,151 @@ $color-on-mt-yellowgreen: hsl(64.19999999999999, 100%, 13.9%) !default;
 $color-mt-yellowgreen-lighter: hsla(63, 52%, 82%, 1) !default;
 $color-on-mt-yellowgreen-lighter: hsl(61.5, 22.8%, 33.5%) !default;
 $color-mt-new-white: #ffffff !default;
-$color-on-mt-new-white: #032c30 !default;
+$color-on-mt-new-white: #032C30 !default;
 $color-mt-granskog: #054449 !default;
-$color-on-mt-granskog: #faf6f3 !default;
-$color-mt-granskog-dark: #032c30 !default;
-$color-on-mt-granskog-dark: #5b979c !default;
-$color-mt-furu: #3c725e !default;
-$color-on-mt-furu: #dceae5 !default;
-$color-mt-lys-furu: #8ac2ae !default;
-$color-on-mt-lys-furu: #2d4e42 !default;
-$color-mt-bg-furu: #e2f1df !default;
-$color-on-mt-bg-furu: #032c30 !default;
-$color-mt-bg-success: #e2f1df !default;
-$color-on-mt-bg-success: #032c30 !default;
-$color-mt-fjord: #153f7b !default;
-$color-on-mt-fjord: #92add2 !default;
-$color-mt-lys-fjord: #9ecced !default;
-$color-on-mt-lys-fjord: #36566d !default;
-$color-mt-bg-fjord: #d8eaf3 !default;
-$color-on-mt-bg-fjord: #032c30 !default;
-$color-mt-bg-neutral: #d8eaf3 !default;
-$color-on-mt-bg-neutral: #032c30 !default;
-$color-mt-rognebaer-contrast: #92301c !default;
-$color-on-mt-rognebaer-contrast: #e8b9af !default;
-$color-mt-rognebaer: #da573b !default;
+$color-on-mt-granskog: #FAF6F3 !default;
+$color-mt-granskog-dark: #032C30 !default;
+$color-on-mt-granskog-dark: #5B979C !default;
+$color-mt-furu: #3C725E !default;
+$color-on-mt-furu: #DCEAE5 !default;
+$color-mt-lys-furu: #8AC2AE !default;
+$color-on-mt-lys-furu: #2D4E42 !default;
+$color-mt-bg-furu: #E2F1DF !default;
+$color-on-mt-bg-furu: #032C30 !default;
+$color-mt-bg-success: #E2F1DF !default;
+$color-on-mt-bg-success: #032C30 !default;
+$color-mt-fjord: #153F7B !default;
+$color-on-mt-fjord: #92ADD2 !default;
+$color-mt-lys-fjord: #9ECCED !default;
+$color-on-mt-lys-fjord: #36566D !default;
+$color-mt-bg-fjord: #D8EAF3 !default;
+$color-on-mt-bg-fjord: #032C30 !default;
+$color-mt-bg-neutral: #D8EAF3 !default;
+$color-on-mt-bg-neutral: #032C30 !default;
+$color-mt-rognebaer-contrast: #92301C !default;
+$color-on-mt-rognebaer-contrast: #E8B9AF !default;
+$color-mt-rognebaer: #DA573B !default;
 $color-on-mt-rognebaer: #370900 !default;
-$color-mt-lys-rognebaer: #f9c4aa !default;
-$color-on-mt-lys-rognebaer: #7b4e38 !default;
-$color-mt-bg-rognebaer: #ffe4d6 !default;
-$color-on-mt-bg-rognebaer: #032c30 !default;
-$color-mt-bg-danger: #ffe4d6 !default;
-$color-on-mt-bg-danger: #032c30 !default;
-$color-mt-sommerdag-contrast: #f1be3c !default;
-$color-on-mt-sommerdag-contrast: #6c4d00 !default;
-$color-mt-sommerdag: #f9cc76 !default;
+$color-mt-lys-rognebaer: #F9C4AA !default;
+$color-on-mt-lys-rognebaer: #7B4E38 !default;
+$color-mt-bg-rognebaer: #FFE4D6 !default;
+$color-on-mt-bg-rognebaer: #032C30 !default;
+$color-mt-bg-danger: #FFE4D6 !default;
+$color-on-mt-bg-danger: #032C30 !default;
+$color-mt-sommerdag-contrast: #F1BE3C !default;
+$color-on-mt-sommerdag-contrast: #6C4D00 !default;
+$color-mt-sommerdag: #F9CC76 !default;
 $color-on-mt-sommerdag: #715623 !default;
-$color-mt-lys-sommerdag: #f8de9c !default;
+$color-mt-lys-sommerdag: #F8DE9C !default;
 $color-on-mt-lys-sommerdag: #746131 !default;
-$color-mt-bg-sommerdag: #fbecc6 !default;
-$color-on-mt-bg-sommerdag: #032c30 !default;
-$color-mt-bg-warning: #fbecc6 !default;
-$color-on-mt-bg-warning: #032c30 !default;
-$color-mt-mellombeige: #f4ece6 !default;
-$color-on-mt-mellombeige: #032c30 !default;
-$color-mt-bg-info: #f4ece6 !default;
-$color-on-mt-bg-info: #032c30 !default;
-$color-mt-bg-beige: #faf6f3 !default;
-$color-on-mt-bg-beige: #032c30 !default;
+$color-mt-bg-sommerdag: #FBECC6 !default;
+$color-on-mt-bg-sommerdag: #032C30 !default;
+$color-mt-bg-warning: #FBECC6 !default;
+$color-on-mt-bg-warning: #032C30 !default;
+$color-mt-mellombeige: #F4ECE6 !default;
+$color-on-mt-mellombeige: #032C30 !default;
+$color-mt-bg-info: #F4ECE6 !default;
+$color-on-mt-bg-info: #032C30 !default;
+$color-mt-bg-beige: #FAF6F3 !default;
+$color-on-mt-bg-beige: #032C30 !default;
 
-$base-color-tokens: (
-  'mt-blue',
-  'mt-red',
-  'mt-red-uu',
-  'mt-beige',
-  'mt-beige-50',
-  'mt-light-beige',
-  'mt-background',
-  'mt-light-blue',
-  'mt-lighter-light-blue',
-  'mt-rationale-blue',
-  'mt-brown',
-  'mt-grey',
-  'mt-white',
-  'mt-green',
-  'mt-light-green',
-  'primary',
-  'mt-blue-medium',
-  'secondary',
-  'mt-text-dark',
-  'error',
-  'error-50',
-  'mt-yellowgreen',
-  'mt-yellowgreen-lighter',
-  'mt-new-white',
-  'mt-granskog',
-  'mt-granskog-dark',
-  'mt-furu',
-  'mt-lys-furu',
-  'mt-bg-furu',
-  'mt-bg-success',
-  'mt-fjord',
-  'mt-lys-fjord',
-  'mt-bg-fjord',
-  'mt-bg-neutral',
-  'mt-rognebaer-contrast',
-  'mt-rognebaer',
-  'mt-lys-rognebaer',
-  'mt-bg-rognebaer',
-  'mt-bg-danger',
-  'mt-sommerdag-contrast',
-  'mt-sommerdag',
-  'mt-lys-sommerdag',
-  'mt-bg-sommerdag',
-  'mt-bg-warning',
-  'mt-mellombeige',
-  'mt-bg-info',
-  'mt-bg-beige'
-);
+$base-color-tokens: ("mt-blue", "mt-red", "mt-red-uu", "mt-beige", "mt-beige-50", "mt-light-beige", "mt-background", "mt-light-blue", "mt-lighter-light-blue", "mt-rationale-blue", "mt-brown", "mt-grey", "mt-white", "mt-green", "mt-light-green", "primary", "mt-blue-medium", "secondary", "mt-text-dark", "error", "error-50", "mt-yellowgreen", "mt-yellowgreen-lighter", "mt-new-white", "mt-granskog", "mt-granskog-dark", "mt-furu", "mt-lys-furu", "mt-bg-furu", "mt-bg-success", "mt-fjord", "mt-lys-fjord", "mt-bg-fjord", "mt-bg-neutral", "mt-rognebaer-contrast", "mt-rognebaer", "mt-lys-rognebaer", "mt-bg-rognebaer", "mt-bg-danger", "mt-sommerdag-contrast", "mt-sommerdag", "mt-lys-sommerdag", "mt-bg-sommerdag", "mt-bg-warning", "mt-mellombeige", "mt-bg-info", "mt-bg-beige");
 
 $color-tokens: (
-  'color-mt-blue': $color-mt-blue,
-  'color-on-mt-blue': $color-on-mt-blue,
-  'color-mt-red': $color-mt-red,
-  'color-on-mt-red': $color-on-mt-red,
-  'color-mt-red-uu': $color-mt-red-uu,
-  'color-on-mt-red-uu': $color-on-mt-red-uu,
-  'color-mt-beige': $color-mt-beige,
-  'color-on-mt-beige': $color-on-mt-beige,
-  'color-mt-beige-50': $color-mt-beige-50,
-  'color-on-mt-beige-50': $color-on-mt-beige-50,
-  'color-mt-light-beige': $color-mt-light-beige,
-  'color-on-mt-light-beige': $color-on-mt-light-beige,
-  'color-mt-background': $color-mt-background,
-  'color-on-mt-background': $color-on-mt-background,
-  'color-mt-light-blue': $color-mt-light-blue,
-  'color-on-mt-light-blue': $color-on-mt-light-blue,
-  'color-mt-lighter-light-blue': $color-mt-lighter-light-blue,
-  'color-on-mt-lighter-light-blue': $color-on-mt-lighter-light-blue,
-  'color-mt-rationale-blue': $color-mt-rationale-blue,
-  'color-on-mt-rationale-blue': $color-on-mt-rationale-blue,
-  'color-mt-brown': $color-mt-brown,
-  'color-on-mt-brown': $color-on-mt-brown,
-  'color-mt-grey': $color-mt-grey,
-  'color-on-mt-grey': $color-on-mt-grey,
-  'color-mt-white': $color-mt-white,
-  'color-on-mt-white': $color-on-mt-white,
-  'color-mt-green': $color-mt-green,
-  'color-on-mt-green': $color-on-mt-green,
-  'color-mt-light-green': $color-mt-light-green,
-  'color-on-mt-light-green': $color-on-mt-light-green,
-  'color-primary': $color-primary,
-  'color-on-primary': $color-on-primary,
-  'color-mt-blue-medium': $color-mt-blue-medium,
-  'color-on-mt-blue-medium': $color-on-mt-blue-medium,
-  'color-secondary': $color-secondary,
-  'color-on-secondary': $color-on-secondary,
-  'color-mt-text-dark': $color-mt-text-dark,
-  'color-on-mt-text-dark': $color-on-mt-text-dark,
-  'color-error': $color-error,
-  'color-on-error': $color-on-error,
-  'color-error-50': $color-error-50,
-  'color-on-error-50': $color-on-error-50,
-  'color-mt-yellowgreen': $color-mt-yellowgreen,
-  'color-on-mt-yellowgreen': $color-on-mt-yellowgreen,
-  'color-mt-yellowgreen-lighter': $color-mt-yellowgreen-lighter,
-  'color-on-mt-yellowgreen-lighter': $color-on-mt-yellowgreen-lighter,
-  'color-mt-new-white': $color-mt-new-white,
-  'color-on-mt-new-white': $color-on-mt-new-white,
-  'color-mt-granskog': $color-mt-granskog,
-  'color-on-mt-granskog': $color-on-mt-granskog,
-  'color-mt-granskog-dark': $color-mt-granskog-dark,
-  'color-on-mt-granskog-dark': $color-on-mt-granskog-dark,
-  'color-mt-furu': $color-mt-furu,
-  'color-on-mt-furu': $color-on-mt-furu,
-  'color-mt-lys-furu': $color-mt-lys-furu,
-  'color-on-mt-lys-furu': $color-on-mt-lys-furu,
-  'color-mt-bg-furu': $color-mt-bg-furu,
-  'color-on-mt-bg-furu': $color-on-mt-bg-furu,
-  'color-mt-bg-success': $color-mt-bg-success,
-  'color-on-mt-bg-success': $color-on-mt-bg-success,
-  'color-mt-fjord': $color-mt-fjord,
-  'color-on-mt-fjord': $color-on-mt-fjord,
-  'color-mt-lys-fjord': $color-mt-lys-fjord,
-  'color-on-mt-lys-fjord': $color-on-mt-lys-fjord,
-  'color-mt-bg-fjord': $color-mt-bg-fjord,
-  'color-on-mt-bg-fjord': $color-on-mt-bg-fjord,
-  'color-mt-bg-neutral': $color-mt-bg-neutral,
-  'color-on-mt-bg-neutral': $color-on-mt-bg-neutral,
-  'color-mt-rognebaer-contrast': $color-mt-rognebaer-contrast,
-  'color-on-mt-rognebaer-contrast': $color-on-mt-rognebaer-contrast,
-  'color-mt-rognebaer': $color-mt-rognebaer,
-  'color-on-mt-rognebaer': $color-on-mt-rognebaer,
-  'color-mt-lys-rognebaer': $color-mt-lys-rognebaer,
-  'color-on-mt-lys-rognebaer': $color-on-mt-lys-rognebaer,
-  'color-mt-bg-rognebaer': $color-mt-bg-rognebaer,
-  'color-on-mt-bg-rognebaer': $color-on-mt-bg-rognebaer,
-  'color-mt-bg-danger': $color-mt-bg-danger,
-  'color-on-mt-bg-danger': $color-on-mt-bg-danger,
-  'color-mt-sommerdag-contrast': $color-mt-sommerdag-contrast,
-  'color-on-mt-sommerdag-contrast': $color-on-mt-sommerdag-contrast,
-  'color-mt-sommerdag': $color-mt-sommerdag,
-  'color-on-mt-sommerdag': $color-on-mt-sommerdag,
-  'color-mt-lys-sommerdag': $color-mt-lys-sommerdag,
-  'color-on-mt-lys-sommerdag': $color-on-mt-lys-sommerdag,
-  'color-mt-bg-sommerdag': $color-mt-bg-sommerdag,
-  'color-on-mt-bg-sommerdag': $color-on-mt-bg-sommerdag,
-  'color-mt-bg-warning': $color-mt-bg-warning,
-  'color-on-mt-bg-warning': $color-on-mt-bg-warning,
-  'color-mt-mellombeige': $color-mt-mellombeige,
-  'color-on-mt-mellombeige': $color-on-mt-mellombeige,
-  'color-mt-bg-info': $color-mt-bg-info,
-  'color-on-mt-bg-info': $color-on-mt-bg-info,
-  'color-mt-bg-beige': $color-mt-bg-beige,
-  'color-on-mt-bg-beige': $color-on-mt-bg-beige,
+  "color-mt-blue": $color-mt-blue,
+  "color-on-mt-blue": $color-on-mt-blue,
+  "color-mt-red": $color-mt-red,
+  "color-on-mt-red": $color-on-mt-red,
+  "color-mt-red-uu": $color-mt-red-uu,
+  "color-on-mt-red-uu": $color-on-mt-red-uu,
+  "color-mt-beige": $color-mt-beige,
+  "color-on-mt-beige": $color-on-mt-beige,
+  "color-mt-beige-50": $color-mt-beige-50,
+  "color-on-mt-beige-50": $color-on-mt-beige-50,
+  "color-mt-light-beige": $color-mt-light-beige,
+  "color-on-mt-light-beige": $color-on-mt-light-beige,
+  "color-mt-background": $color-mt-background,
+  "color-on-mt-background": $color-on-mt-background,
+  "color-mt-light-blue": $color-mt-light-blue,
+  "color-on-mt-light-blue": $color-on-mt-light-blue,
+  "color-mt-lighter-light-blue": $color-mt-lighter-light-blue,
+  "color-on-mt-lighter-light-blue": $color-on-mt-lighter-light-blue,
+  "color-mt-rationale-blue": $color-mt-rationale-blue,
+  "color-on-mt-rationale-blue": $color-on-mt-rationale-blue,
+  "color-mt-brown": $color-mt-brown,
+  "color-on-mt-brown": $color-on-mt-brown,
+  "color-mt-grey": $color-mt-grey,
+  "color-on-mt-grey": $color-on-mt-grey,
+  "color-mt-white": $color-mt-white,
+  "color-on-mt-white": $color-on-mt-white,
+  "color-mt-green": $color-mt-green,
+  "color-on-mt-green": $color-on-mt-green,
+  "color-mt-light-green": $color-mt-light-green,
+  "color-on-mt-light-green": $color-on-mt-light-green,
+  "color-primary": $color-primary,
+  "color-on-primary": $color-on-primary,
+  "color-mt-blue-medium": $color-mt-blue-medium,
+  "color-on-mt-blue-medium": $color-on-mt-blue-medium,
+  "color-secondary": $color-secondary,
+  "color-on-secondary": $color-on-secondary,
+  "color-mt-text-dark": $color-mt-text-dark,
+  "color-on-mt-text-dark": $color-on-mt-text-dark,
+  "color-error": $color-error,
+  "color-on-error": $color-on-error,
+  "color-error-50": $color-error-50,
+  "color-on-error-50": $color-on-error-50,
+  "color-mt-yellowgreen": $color-mt-yellowgreen,
+  "color-on-mt-yellowgreen": $color-on-mt-yellowgreen,
+  "color-mt-yellowgreen-lighter": $color-mt-yellowgreen-lighter,
+  "color-on-mt-yellowgreen-lighter": $color-on-mt-yellowgreen-lighter,
+  "color-mt-new-white": $color-mt-new-white,
+  "color-on-mt-new-white": $color-on-mt-new-white,
+  "color-mt-granskog": $color-mt-granskog,
+  "color-on-mt-granskog": $color-on-mt-granskog,
+  "color-mt-granskog-dark": $color-mt-granskog-dark,
+  "color-on-mt-granskog-dark": $color-on-mt-granskog-dark,
+  "color-mt-furu": $color-mt-furu,
+  "color-on-mt-furu": $color-on-mt-furu,
+  "color-mt-lys-furu": $color-mt-lys-furu,
+  "color-on-mt-lys-furu": $color-on-mt-lys-furu,
+  "color-mt-bg-furu": $color-mt-bg-furu,
+  "color-on-mt-bg-furu": $color-on-mt-bg-furu,
+  "color-mt-bg-success": $color-mt-bg-success,
+  "color-on-mt-bg-success": $color-on-mt-bg-success,
+  "color-mt-fjord": $color-mt-fjord,
+  "color-on-mt-fjord": $color-on-mt-fjord,
+  "color-mt-lys-fjord": $color-mt-lys-fjord,
+  "color-on-mt-lys-fjord": $color-on-mt-lys-fjord,
+  "color-mt-bg-fjord": $color-mt-bg-fjord,
+  "color-on-mt-bg-fjord": $color-on-mt-bg-fjord,
+  "color-mt-bg-neutral": $color-mt-bg-neutral,
+  "color-on-mt-bg-neutral": $color-on-mt-bg-neutral,
+  "color-mt-rognebaer-contrast": $color-mt-rognebaer-contrast,
+  "color-on-mt-rognebaer-contrast": $color-on-mt-rognebaer-contrast,
+  "color-mt-rognebaer": $color-mt-rognebaer,
+  "color-on-mt-rognebaer": $color-on-mt-rognebaer,
+  "color-mt-lys-rognebaer": $color-mt-lys-rognebaer,
+  "color-on-mt-lys-rognebaer": $color-on-mt-lys-rognebaer,
+  "color-mt-bg-rognebaer": $color-mt-bg-rognebaer,
+  "color-on-mt-bg-rognebaer": $color-on-mt-bg-rognebaer,
+  "color-mt-bg-danger": $color-mt-bg-danger,
+  "color-on-mt-bg-danger": $color-on-mt-bg-danger,
+  "color-mt-sommerdag-contrast": $color-mt-sommerdag-contrast,
+  "color-on-mt-sommerdag-contrast": $color-on-mt-sommerdag-contrast,
+  "color-mt-sommerdag": $color-mt-sommerdag,
+  "color-on-mt-sommerdag": $color-on-mt-sommerdag,
+  "color-mt-lys-sommerdag": $color-mt-lys-sommerdag,
+  "color-on-mt-lys-sommerdag": $color-on-mt-lys-sommerdag,
+  "color-mt-bg-sommerdag": $color-mt-bg-sommerdag,
+  "color-on-mt-bg-sommerdag": $color-on-mt-bg-sommerdag,
+  "color-mt-bg-warning": $color-mt-bg-warning,
+  "color-on-mt-bg-warning": $color-on-mt-bg-warning,
+  "color-mt-mellombeige": $color-mt-mellombeige,
+  "color-on-mt-mellombeige": $color-on-mt-mellombeige,
+  "color-mt-bg-info": $color-mt-bg-info,
+  "color-on-mt-bg-info": $color-on-mt-bg-info,
+  "color-mt-bg-beige": $color-mt-bg-beige,
+  "color-on-mt-bg-beige": $color-on-mt-bg-beige
 ) !default;
 
 @mixin color-tokens() {
