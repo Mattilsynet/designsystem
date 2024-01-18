@@ -26,16 +26,16 @@ $mobile-menu-height: 3rem;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  min-height: $mobile-menu-height;
+  height: calc($mobile-menu-height + 1rem);
   overflow: hidden;
   border-top: theme.$border-width-large solid var(--color-primary);
   border-bottom: theme.$border-width-large solid var(--color-primary);
-  padding: var(--spacer-xxx-small) var(--spacer-x-small);
+  padding: var(--spacer-xx-small) var(--spacer-xx-small);
   background-color: var(--color-primary);
   width: 100%;
 
   &.no-js {
-    padding: var(--spacer-xx-small) var(--spacer-xx-small);
+    padding: var(--spacer-xxx-small) var(--spacer-xx-small);
 
     .mt-link {
       margin-right: 0;
@@ -90,11 +90,12 @@ $mobile-menu-height: 3rem;
   .mt-aside {
     position: relative;
     height: auto;
-    margin-top: -0.6rem;
 
-    .aside-header {
-      h2 {
-        padding-top: var(--spacer-xx-small);
+    .mobile-menu {
+      padding: var(--spacer-xxx-small) var(--spacer-xx-small);
+      .mt-link {
+        width: 100%;
+        margin-right: 0;
       }
     }
   }
@@ -133,7 +134,7 @@ $mobile-menu-height: 3rem;
     z-index: var(--z-index-dropdown);
     width: 100%;
     height: $mobile-menu-height;
-    transition: width 0.001s ease, height 0.001s ease, top 0.001s ease;
+    transition: width 0.001s ease, height 0.001s ease;
 
     &.expanded {
       width: 100%;
@@ -196,7 +197,7 @@ $mobile-menu-height: 3rem;
         width: $width-sidebar-closed;
         overflow: visible;
         height: 100%;
-        transition: width 0.3s ease, height 0.3s ease, top 0.3s ease;
+        transition: width 0.3s ease, height 0.3s ease;
 
         .mobile-menu {
           display: none;
@@ -220,12 +221,6 @@ $mobile-menu-height: 3rem;
             box-shadow: none;
           }
         }
-      }
-    }
-
-    &.no-js {
-      aside {
-        margin-top: 0;
       }
     }
 
@@ -301,10 +296,6 @@ $mobile-menu-height: 3rem;
       a {
         color: var(--color-mt-text-dark);
       }
-    }
-
-    .mobile-menu {
-      display: none;
     }
   }
 }
