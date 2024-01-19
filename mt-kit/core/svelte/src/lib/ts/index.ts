@@ -33,3 +33,4 @@ export {
   mapRelExternal
 } from './utils'
 export { markers } from '../ts/markers'
+export { DEFAULT_MARKER_OPACITY, DEFAULT_MARKER_SCALE, ZOOM_NORWAY } from '../ts/mapUtils'

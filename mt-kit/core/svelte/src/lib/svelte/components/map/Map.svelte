@@ -1,12 +1,11 @@
 <script lang="ts">
-  import Map from 'ol/Map'
-  import View from 'ol/View'
+  import { Map, View } from 'ol'
+  import { fromLonLat } from 'ol/proj'
   import 'ol/ol.css'
   import { getMarker, addListeners, createTileLayer, toOLCoordinates } from './utils'
   import type { MapClickEvent, MarkerCoordinate } from '$lib/ts'
   import { createEventDispatcher } from 'svelte'
   import { EUROPA_FORENKLET, NORGES_GRUNNKART, PROJECTION, ZOOM_NORWAY } from '../../../ts/mapUtils'
-  import { fromLonLat } from 'ol/proj'
 
   let className = ''
   export { className as class }
@@ -20,7 +19,7 @@
   let map: Map | null = null
   const dispatch = createEventDispatcher<CustomEvent<MapClickEvent>>()
 
-  function createMap(mapId: string, markers: Array<MarkerCoordinate>) {
+  function createMap(mapId: string, markers: Array<MarkerCoordinate>): Map {
     const view = new View({
       center: fromLonLat(toOLCoordinates(startCoordinates)),
       zoom: startZoom,
