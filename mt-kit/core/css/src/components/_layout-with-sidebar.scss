@@ -28,9 +28,7 @@ $mobile-menu-height: 3rem;
   justify-content: space-between;
   height: calc($mobile-menu-height + 1rem);
   overflow: hidden;
-  //border-top: theme.$border-width-large solid var(--color-primary);
-  //border-bottom: theme.$border-width-large solid var(--color-primary);
-  padding: var(--spacer-xx-small) var(--spacer-xx-small);
+  padding: var(--spacer-xxx-small) var(--spacer-xx-small);
   background-color: var(--color-primary);
   width: 100%;
 
@@ -199,9 +197,9 @@ $mobile-menu-height: 3rem;
         height: 100%;
         transition: width 0.3s ease, height 0.3s ease;
 
-        .mobile-menu {
-          display: none;
-        }
+        //.mobile-menu {
+        //  display: none;
+        //}
 
         &.expanded {
           width: $width-sidebar-expanded;
