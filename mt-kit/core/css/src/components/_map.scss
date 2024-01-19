@@ -1,0 +1,38 @@
+@use '../utilities/mixins' as *;
+.map {
+  @include focus-outline();
+  width: 100%;
+  height: 100%;
+}
+a.skiplink {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+a.skiplink:focus {
+  @include focus-outline();
+  clip: auto;
+  height: auto;
+  width: auto;
+  background-color: #fff;
+  padding: 0.3em;
+}
+.map-wrapper {
+  height: 30rem;
+  width: 100%;
+}
+.ol-zoom-in {
+  @include focus-outline();
+}
+.ol-zoom-out {
+  @include focus-outline();
+}
+.ol-attribution {
+  button[type='button'] {
+    @include focus-outline();
+  }
+}
