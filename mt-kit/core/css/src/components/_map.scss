@@ -1,16 +1,75 @@
 @use '../utilities/mixins' as *;
+@use '../theme' as *;
 // custom Openlayer style
-.ol-zoom-in {
-  @include focus-outline();
-}
-.ol-zoom-out {
-  @include focus-outline();
-}
-.ol-attribution {
-  button[type='button'] {
-    @include focus-outline();
+.ol-viewport {
+  --button-border-color: var(--color-mt-granskog-dark);
+  --ol-subtle-foreground-color: var(--color-mt-granskog-dark);
+  --distance-from-edge: var(--spacer-xxx-small);
+  .ol-control {
+    button[type='button'] {
+      color: var(--button-border-color);
+      outline: none;
+      border: $border-width-small solid var(--ol-subtle-foreground-color);
+      border-radius: 0;
+      margin: 0;
+      width: $button-min-width;
+      height: $button-min-height;
+      position: relative;
+      &:hover {
+        background-color: var(--mt-button-primary-bg-hover);
+        outline: none;
+      }
+      &:focus,
+      &:focus-visible {
+        border: $border-width-large solid var(--ol-subtle-foreground-color);
+      }
+      &.ol-zoom-in {
+        position: relative;
+        border-bottom: none;
+        &:focus {
+          border: $border-width-large solid var(--ol-subtle-foreground-color);
+          & + button {
+            &:before {
+              height: 0;
+            }
+          }
+        }
+      }
+      &.ol-zoom-out {
+        --space-border: var(--spacer-xxx-small);
+        border-top: none;
+
+        &:before {
+          content: '';
+          width: calc(#{$button-min-width} - var(--space-border) - var(--space-border));
+          height: $border-width-small;
+          background: var(--color-mt-granskog-dark);
+          position: absolute;
+          top: 0;
+          left: var(--space-border);
+        }
+        &:focus {
+          border: $border-width-large solid var(--ol-subtle-foreground-color);
+          &:before {
+            width: $button-min-width;
+            height: 0;
+          }
+        }
+      }
+    }
+  }
+  .ol-control.ol-zoom {
+    top: unset;
+    left: unset;
+    bottom: calc(var(--distance-from-edge) + #{$button-min-height} + var(--spacer-xxx-small));
+    right: var(--distance-from-edge);
+  }
+  .ol-control.ol-attribution {
+    right: var(--distance-from-edge);
+    bottom: var(--distance-from-edge);
   }
 }
+
 // END custom Openlayer style
 
 .map-wrapper {
