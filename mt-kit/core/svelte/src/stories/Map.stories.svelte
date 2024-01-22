@@ -7,6 +7,7 @@
 
 
   let scale = 0.5
+  let map
   let markers = [
     {
       "municipality": "Asker",
@@ -273,6 +274,12 @@
   function handleMapClicked(e) {
     console.log('clicked marker', e.detail.marker)
   }
+
+  function handleReset() {
+    if(map) {
+      map.resetZoom();
+    }
+  }
 </script>
 
 <Meta
@@ -286,5 +293,7 @@
 
 <Story name="Normal" let:disableCss>
   <h1>Map</h1>
-  <Map on:mapClick={handleMapClicked} class="map-wrapper" markers={markers} clusterOptions={options}/>
+  <Map on:mapClick={handleMapClicked} bind:this={map} {markers} class="map-wrapper" clusterOptions={options}/>
+  <button type="button" class="mt-button m-t-xxs" on:click={handleReset}>Reset zoom</button>
+  <Map on:mapClick={handleMapClicked} class="map-wrapper" markers={markers}/>
 </Story>

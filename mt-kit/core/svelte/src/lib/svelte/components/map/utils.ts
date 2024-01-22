@@ -5,11 +5,11 @@ import WMTS from 'ol/source/WMTS'
 import WMTSTileGrid from 'ol/tilegrid/WMTS'
 import { boundingExtent, getTopLeft, getWidth } from 'ol/extent'
 import Feature from 'ol/Feature'
-import type { MapClickEvent, MTCoordinates } from '$lib/ts/types'
+import type { MapClickEvent, MTCoordinates, MTAnimationOptions } from '$lib/ts/types'
 import { type MapBrowserEvent } from 'ol'
 import { type Coordinate } from 'ol/coordinate'
 import type { EventDispatcher } from 'svelte'
-import { PROJECTION, ZOOM_MUNICIPALITY } from '../../../ts/mapUtils'
+import { PROJECTION, ZOOM_MUNICIPALITY, DEFAULT_START_COORDINATES, ZOOM_NORWAY, DEFAULT_ANIMATION_SPEED } from '../../../ts/mapUtils'
 import { type Layer } from 'ol/layer'
 import { LAYER_ID, VECTOR_LAYER_ID } from './layer-utils'
 
@@ -33,6 +33,19 @@ export function addListeners(map: Map, dispatch: EventDispatcher): void {
     if (feature && feature.getGeometry()?.getType() === 'Point') {
       // console.log('pointermove', feature)
     }
+  })
+}
+
+export function animate(map: Map, options: MTAnimationOptions): void {
+  const { zoom, lat, long, duration, ...rest } = options
+  map?.getView().animate({
+    center:
+      lat && long
+        ? fromLonLat(toOLCoordinates({ lat, long }))
+        : fromLonLat(toOLCoordinates(DEFAULT_START_COORDINATES)),
+    zoom: zoom ?? ZOOM_NORWAY,
+    duration: duration ?? DEFAULT_ANIMATION_SPEED,
+    ...rest
   })
 }
 
