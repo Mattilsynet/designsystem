@@ -41,6 +41,6 @@
 </script>
 
 <div class={className}>
-  <a class="skiplink" href="#{mapId}">{goToMapSkipLinkText}</a>
+  <a class="mt-link map-skiplink" href="#{mapId}">{goToMapSkipLinkText}</a>
   <div id={mapId} class="map" tabindex="0" use:createMap={(mapId, markers)} />
 </div>
