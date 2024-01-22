@@ -10,7 +10,9 @@ $main-width-expanded: calc((#{$grid-1-col-width}) * 7);
 
 $width-sidebar-closed: 3.5rem; //56px;
 $width-sidebar-expanded: min(#{$sidebar-width-expanded}, 30rem);
-$mobile-menu-height: 3rem;
+$mobile-menu-height: 4rem;
+$chapter-title-link-width: 75%;
+$chapter-button-menu-width: 25%;
 
 .layout-with-sidebar {
   position: relative;
@@ -26,7 +28,7 @@ $mobile-menu-height: 3rem;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  height: calc($mobile-menu-height + 1rem);
+  height: $mobile-menu-height;
   overflow: hidden;
   padding: var(--spacer-xxx-small) var(--spacer-xx-small);
   background-color: var(--color-primary);
@@ -44,7 +46,7 @@ $mobile-menu-height: 3rem;
     @include focus-outline();
     @include disabled;
     color: var(--color-mt-white);
-    width: 75%;
+    width: $chapter-title-link-width;
     margin-right: var(--spacer-xxx-small);
   }
 
@@ -59,7 +61,7 @@ $mobile-menu-height: 3rem;
 
   .mt-button--unstyled {
     height: theme.$button-min-height;
-    width: 25%;
+    width: $chapter-button-menu-width;
     align-items: center;
     justify-content: flex-end;
 
@@ -197,19 +199,10 @@ $mobile-menu-height: 3rem;
         height: 100%;
         transition: width 0.3s ease, height 0.3s ease;
 
-        //.mobile-menu {
-        //  display: none;
-        //}
-
         &.expanded {
           width: $width-sidebar-expanded;
           height: auto;
-
-          .mobile-menu {
-            display: flex;
-          }
         }
-
 
         .mt-button--unstyled {
           border: theme.$border-width-large solid transparent;
