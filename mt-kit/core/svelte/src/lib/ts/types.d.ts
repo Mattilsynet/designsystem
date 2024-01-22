@@ -1,3 +1,5 @@
+import { type Options } from 'ol/style/Icon'
+
 /**
  * This object contains more information about the error. This can either be messages from the Java-backend,
  * or in cases in the 400 error range, it can be keys that doesn't validate, and a message.
@@ -115,4 +117,17 @@ export interface CountCharsParams {
 
 export interface CloseDialogEvent {
   shouldReappear: boolean
+}
+export interface MapClickEvent {
+  marker: MarkerCoordinate
+}
+
+export type Status = 'info' | 'neutral' | 'success' | 'warning' | 'danger'
+
+export interface MTCoordinates {
+  lat: number
+  long: number
+}
+export interface MarkerCoordinate extends MTCoordinates, Options {
+  data: Record<string, string>
 }

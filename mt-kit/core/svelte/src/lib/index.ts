@@ -36,6 +36,7 @@ export { default as SummaryDetail } from './svelte/components/SummaryDetail.svel
 export { default as Tags } from './svelte/components/Tags.svelte'
 export { default as Table } from './svelte/components/Table.svelte'
 export { default as TableCol } from './svelte/components/TableCol.svelte'
+export { default as Map } from './svelte/components/map/Map.svelte'
 
 export { default as FactsQuestionsAnswers } from './svelte/content/FactsQuestionsAnswers.svelte'
 export { default as CurrentIssues } from './svelte/content/CurrentIssues.svelte'
