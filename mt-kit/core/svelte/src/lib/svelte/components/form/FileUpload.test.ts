@@ -37,7 +37,7 @@ describe('File upload', () => {
     expect(labelForInput.getAttribute('multiple')).toBeDefined()
   })
 
-  test('Add one file, remove', () => {
+  test('Add one file, remove', async () => {
     const file = new File(['hello'], 'hello.png', { type: 'image/png' })
     render(FileUpload, {
       value,
@@ -55,7 +55,7 @@ describe('File upload', () => {
     })
 
     const input = screen.getByLabelText(/Har du bilder eller annen dokumentasjon?/i)
-    userEvent.upload(input, file)
+    await userEvent.upload(input, file)
 
     expect(input.files[0]).toStrictEqual(file)
     expect(input.files.item(0)).toStrictEqual(file)
@@ -75,7 +75,7 @@ describe('File upload', () => {
     expect(attachment.files).toHaveLength(0)
   })
 
-  test('upload multiple files, remove one', () => {
+  test('upload multiple files, remove one', async () => {
     const files = [
       new File(['hello'], 'hello.png', { type: 'image/png' }),
       new File(['there'], 'there.png', { type: 'image/png' }),
