@@ -31,7 +31,8 @@ export {
   createInputAriaDescribedby,
   getFileExtension,
   interpolate,
-  mapRelExternal
+  mapRelExternal,
+  prefersReducedMotion
 } from './utils'
 export { markers } from '../ts/markers'
 export {

@@ -12,6 +12,7 @@ import type { EventDispatcher } from 'svelte'
 import { PROJECTION, ZOOM_MUNICIPALITY, DEFAULT_START_COORDINATES, ZOOM_NORWAY, DEFAULT_ANIMATION_SPEED } from '../../../ts/mapUtils'
 import { type Layer } from 'ol/layer'
 import { LAYER_ID, VECTOR_LAYER_ID } from './layer-utils'
+import { prefersReducedMotion } from '../../../ts/utils'
 
 interface CustomTileGrid {
   resolutions: Array<number>
@@ -38,15 +39,23 @@ export function addListeners(map: Map, dispatch: EventDispatcher): void {
 
 export function animate(map: Map, options: MTAnimationOptions): void {
   const { zoom, lat, long, duration, ...rest } = options
-  map?.getView().animate({
-    center:
-      lat && long
-        ? fromLonLat(toOLCoordinates({ lat, long }))
-        : fromLonLat(toOLCoordinates(DEFAULT_START_COORDINATES)),
-    zoom: zoom ?? ZOOM_NORWAY,
-    duration: duration ?? DEFAULT_ANIMATION_SPEED,
-    ...rest
-  })
+  const isReduced = prefersReducedMotion()
+  const newCenter =
+    lat && long
+      ? fromLonLat(toOLCoordinates({ lat, long }))
+      : fromLonLat(toOLCoordinates(DEFAULT_START_COORDINATES))
+  const newZoom = zoom ?? ZOOM_NORWAY
+  if (isReduced) {
+    map?.getView().setCenter(newCenter)
+    map?.getView().setZoom(newZoom)
+  } else {
+    map?.getView().animate({
+      center: newCenter,
+      zoom: newZoom,
+      duration: duration ?? DEFAULT_ANIMATION_SPEED,
+      ...rest
+    })
+  }
 }
 
 export function createTileLayer(layer: string): TileLayer<WMTS> {
