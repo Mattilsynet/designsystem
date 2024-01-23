@@ -10,7 +10,7 @@ $main-width-expanded: calc((#{$grid-1-col-width}) * 7);
 
 $width-sidebar-closed: 3.5rem; //56px;
 $width-sidebar-expanded: min(#{$sidebar-width-expanded}, 30rem);
-$mobile-menu-height: 4rem;
+$mobile-menu-height: 3rem;
 $chapter-title-link-width: 75%;
 $chapter-button-menu-width: 25%;
 
@@ -28,7 +28,7 @@ $chapter-button-menu-width: 25%;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  height: $mobile-menu-height;
+  height: auto;
   overflow: hidden;
   padding: var(--spacer-xxx-small) var(--spacer-xx-small);
   background-color: var(--color-primary);
@@ -48,6 +48,7 @@ $chapter-button-menu-width: 25%;
     color: var(--color-mt-white);
     width: $chapter-title-link-width;
     margin-right: var(--spacer-xxx-small);
+    font-size: theme.$font-size-small;
   }
 
   &[aria-expanded='true'] {
@@ -204,13 +205,12 @@ $chapter-button-menu-width: 25%;
           height: auto;
         }
 
-        .mt-button--unstyled {
+        .btn-open {
           border: theme.$border-width-large solid transparent;
-
-          &:focus {
-            border: theme.$border-width-large solid var(--mt-button-no-primary-border-focus-shadow);
-            box-shadow: none;
-          }
+            &:focus {
+              border: theme.$border-width-large solid var(--mt-button-no-primary-border-focus-shadow);
+              box-shadow: none;
+            }
         }
       }
     }
