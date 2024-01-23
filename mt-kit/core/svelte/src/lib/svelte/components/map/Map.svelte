@@ -1,9 +1,15 @@
 <script lang="ts">
-  import { Map, View } from 'ol'
+  import { Map, View } from "ol";
   import { fromLonLat } from 'ol/proj'
   import 'ol/ol.css'
-  import { getMarker, addListeners, createTileLayer, toOLCoordinates } from './utils'
-  import type { MapClickEvent, MarkerCoordinate } from '$lib/ts'
+  import {
+    getMarker,
+    addListeners,
+    createTileLayer,
+    toOLCoordinates,
+    createClusterLayer
+  } from "./utils";
+  import type { MapClickEvent, MarkerCoordinate, ClusterOptions } from '$lib/ts'
   import { createEventDispatcher } from 'svelte'
   import { EUROPA_FORENKLET, NORGES_GRUNNKART, PROJECTION, ZOOM_NORWAY } from '../../../ts/mapUtils'
 
@@ -15,11 +21,12 @@
   export let startCoordinates = { lat: 65, long: 10 }
   export let startZoom = ZOOM_NORWAY
   export let goToMapSkipLinkText = 'Gå til kart'
+  export let clusterOptions: ClusterOptions | undefined
 
   let map: Map | null = null
   const dispatch = createEventDispatcher<CustomEvent<MapClickEvent>>()
 
-  function createMap(mapId: string, markers: Array<MarkerCoordinate>): Map {
+  function createMap(): Map {
     const view = new View({
       center: fromLonLat(toOLCoordinates(startCoordinates)),
       zoom: startZoom,
@@ -33,7 +40,12 @@
       layers,
       view: view
     })
-    map.addLayer(getMarker(markers))
+    if(clusterOptions) {
+      map.addLayer(createClusterLayer(markers, clusterOptions))
+    } else {
+      map.addLayer(getMarker(markers))
+    }
+
     addListeners(map, dispatch)
 
     return map
@@ -42,5 +54,5 @@
 
 <div class={className}>
   <a class="mt-link map-skiplink" href="#{mapId}">{goToMapSkipLinkText}</a>
-  <div id={mapId} class="map" tabindex="0" use:createMap={(mapId, markers)} />
+  <div id={mapId} class="map" tabindex="0" use:createMap />
 </div>
