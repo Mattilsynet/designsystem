@@ -18,8 +18,6 @@ interface CustomTileGrid {
   matrixIds: Array<string>
 }
 
-export const POPUP_OVERLAY = 'PopupOverlay'
-
 export function toOLCoordinates(coordinate: MTCoordinates): Coordinate {
   return [coordinate.long, coordinate.lat]
 }
