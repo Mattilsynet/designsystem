@@ -10,7 +10,8 @@ $main-width-expanded: calc((#{$grid-1-col-width}) * 7);
 
 $width-sidebar-closed: 3.5rem; //56px;
 $width-sidebar-expanded: min(#{$sidebar-width-expanded}, 30rem);
-$mobile-menu-height: 3rem;
+$mobile-menu-height: 4rem;
+$mobile-menu-extra-height: calc($mobile-menu-height + 2rem);
 $chapter-title-link-width: 75%;
 $chapter-button-menu-width: 25%;
 
@@ -28,7 +29,7 @@ $chapter-button-menu-width: 25%;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  height: auto;
+  height: $mobile-menu-height;
   overflow: hidden;
   padding: var(--spacer-xxx-small) var(--spacer-xx-small);
   background-color: var(--color-primary);
@@ -49,6 +50,7 @@ $chapter-button-menu-width: 25%;
     width: $chapter-title-link-width;
     margin-right: var(--spacer-xxx-small);
     font-size: theme.$font-size-small;
+    line-height: 140%;
   }
 
   &[aria-expanded='true'] {
@@ -134,9 +136,19 @@ $chapter-button-menu-width: 25%;
     top: 0;
     z-index: var(--z-index-dropdown);
     width: 100%;
-    height: $mobile-menu-height;
+    height: 3rem;
     transition: width 0.001s ease, height 0.001s ease;
 
+    &.extraHeight {
+      height: $mobile-menu-extra-height;
+
+      .mobile-menu {
+        height: $mobile-menu-extra-height;
+      }
+    }
+    &.beFixed {
+      position: fixed;
+    }
     &.expanded {
       width: 100%;
       height: 100vh;
@@ -199,6 +211,10 @@ $chapter-button-menu-width: 25%;
         overflow: visible;
         height: 100%;
         transition: width 0.3s ease, height 0.3s ease;
+
+        &.extraHeight {
+          height: auto;
+        }
 
         &.expanded {
           width: $width-sidebar-expanded;
