@@ -5,13 +5,20 @@ import WMTS from 'ol/source/WMTS'
 import WMTSTileGrid from 'ol/tilegrid/WMTS'
 import { boundingExtent, getTopLeft, getWidth } from 'ol/extent'
 import Feature from 'ol/Feature'
-import type { MapClickEvent, MTCoordinates } from '$lib/ts/types'
+import type { MapClickEvent, MTCoordinates, MTAnimationOptions } from '$lib/ts/types'
 import { type MapBrowserEvent } from 'ol'
 import { type Coordinate } from 'ol/coordinate'
 import type { EventDispatcher } from 'svelte'
-import { PROJECTION, ZOOM_MUNICIPALITY } from '../../../ts/mapUtils'
+import {
+  PROJECTION,
+  ZOOM_MUNICIPALITY,
+  DEFAULT_START_COORDINATES,
+  ZOOM_NORWAY,
+  DEFAULT_ANIMATION_SPEED
+} from '../../../ts/mapUtils'
 import { type Layer } from 'ol/layer'
 import { LAYER_ID, VECTOR_LAYER_ID } from './layer-utils'
+import { prefersReducedMotion } from '../../../ts/utils'
 
 interface CustomTileGrid {
   resolutions: Array<number>
@@ -34,6 +41,27 @@ export function addListeners(map: Map, dispatch: EventDispatcher): void {
       // console.log('pointermove', feature)
     }
   })
+}
+
+export function animate(map: Map, options: MTAnimationOptions): void {
+  const { zoom, lat, long, duration, ...rest } = options
+  const isReduced = prefersReducedMotion()
+  const newCenter =
+    lat && long
+      ? fromLonLat(toOLCoordinates({ lat, long }))
+      : fromLonLat(toOLCoordinates(DEFAULT_START_COORDINATES))
+  const newZoom = zoom ?? ZOOM_NORWAY
+  if (isReduced) {
+    map?.getView().setCenter(newCenter)
+    map?.getView().setZoom(newZoom)
+  } else {
+    map?.getView().animate({
+      center: newCenter,
+      zoom: newZoom,
+      duration: duration ?? DEFAULT_ANIMATION_SPEED,
+      ...rest
+    })
+  }
 }
 
 export function createTileLayer(layer: string): TileLayer<WMTS> {
@@ -95,8 +123,7 @@ function handleSingleMarkerClick(event: MapBrowserEvent<UIEvent>, dispatch: Even
       dispatch<CustomEvent<MapClickEvent>>('mapClick', {
         marker
       })
-      event.map.getView().setCenter(fromLonLat([marker.long, marker.lat]))
-      event.map.getView().setZoom(ZOOM_MUNICIPALITY)
+      animate(event.map, { long: marker.long, lat: marker.lat, zoom: ZOOM_MUNICIPALITY })
     }
   }
 }

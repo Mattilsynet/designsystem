@@ -132,3 +132,11 @@ export function interpolate(string: string, replacers: string[]): string {
     return acc.replace(`{${index}}`, curr)
   }, string)
 }
+
+export function prefersReducedMotion(): boolean {
+  return (
+    window &&
+    (window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||
+      window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true)
+  )
+}

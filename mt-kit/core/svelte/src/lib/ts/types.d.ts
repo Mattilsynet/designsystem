@@ -1,4 +1,5 @@
 import { type Options } from 'ol/style/Icon'
+import type { AnimationOptions } from 'ol/View'
 
 /**
  * This object contains more information about the error. This can either be messages from the Java-backend,
@@ -131,6 +132,7 @@ export interface MTCoordinates {
 export interface MarkerCoordinate extends MTCoordinates, Options {
   data: Record<string, string>
 }
+export type MTAnimationOptions = Omit<AnimationOptions, 'center'> & MTCoordinates
 
 export interface ClusterOptions {
   distance: number
