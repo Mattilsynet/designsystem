@@ -1,12 +1,12 @@
 <script lang="ts">
-  import { Map, View } from "ol";
+  import { Map, View } from 'ol';
   import { fromLonLat } from 'ol/proj'
   import 'ol/ol.css'
   import {
     addListeners,
     createTileLayer,
     toOLCoordinates,
-  } from "./utils";
+  } from './utils';
   import {
     createMarkerLayer,
     createClusterLayer
