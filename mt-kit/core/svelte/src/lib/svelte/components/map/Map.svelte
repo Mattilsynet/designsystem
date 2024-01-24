@@ -1,16 +1,9 @@
 <script lang="ts">
-  import { Map, View } from 'ol';
+  import { Map, View } from 'ol'
   import { fromLonLat } from 'ol/proj'
   import 'ol/ol.css'
-  import {
-    addListeners,
-    createTileLayer,
-    toOLCoordinates,
-  } from './utils';
-  import {
-    createMarkerLayer,
-    createClusterLayer
-  } from './layer-utils'
+  import { addListeners, createTileLayer, toOLCoordinates } from './utils'
+  import { createMarkerLayer, createClusterLayer } from './layer-utils'
   import type { MapClickEvent, MarkerCoordinate, ClusterOptions } from '$lib/ts'
   import { createEventDispatcher } from 'svelte'
   import { EUROPA_FORENKLET, NORGES_GRUNNKART, PROJECTION, ZOOM_NORWAY } from '../../../ts/mapUtils'
@@ -42,7 +35,7 @@
       layers,
       view: view
     })
-    if(clusterOptions) {
+    if (clusterOptions) {
       map.addLayer(createClusterLayer(markers, clusterOptions))
     } else {
       map.addLayer(createMarkerLayer(markers))
