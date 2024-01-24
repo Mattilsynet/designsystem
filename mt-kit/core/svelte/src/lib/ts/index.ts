@@ -10,6 +10,7 @@ export {
   type MapClickEvent,
   type MTCoordinates,
   type MarkerCoordinate,
+  type ClusterOptions,
   type CountCharsParams,
   type CloseDialogEvent,
   type InputModeType,

@@ -131,3 +131,8 @@ export interface MTCoordinates {
 export interface MarkerCoordinate extends MTCoordinates, Options {
   data: Record<string, string>
 }
+
+export interface ClusterOptions {
+  distance: number
+  minDistance: number
+}
