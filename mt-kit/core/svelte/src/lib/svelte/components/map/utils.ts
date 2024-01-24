@@ -101,10 +101,6 @@ function handleSingleMarkerClick(event: MapBrowserEvent<UIEvent>, dispatch: Even
       event.map.getView().setZoom(ZOOM_MUNICIPALITY)
     }
   }
-
-  const coordinate = event.coordinate
-  const hdms = toStringHDMS(toLonLat(coordinate))
-  event.map.getOverlayById(POPUP_OVERLAY).setPosition(coordinate)
 }
 function getFeature(map: Map, event: MapBrowserEvent<any>) {
   return map.forEachFeatureAtPixel(event.pixel, featureLike => {
