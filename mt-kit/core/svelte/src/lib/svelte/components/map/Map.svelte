@@ -2,11 +2,17 @@
   import { Map, View } from 'ol'
   import { fromLonLat } from 'ol/proj'
   import 'ol/ol.css'
-  import { addListeners, createTileLayer, toOLCoordinates, animate } from "./utils'
-  import { createMarkerLayer, createClusterLayer } from './layer-utils";
+  import { addListeners, createTileLayer, toOLCoordinates, animate } from './utils'
+  import { createMarkerLayer, createClusterLayer } from './layer-utils'
   import type { MapClickEvent, MarkerCoordinate, ClusterOptions } from '$lib/ts'
   import { createEventDispatcher } from 'svelte'
-  import { DEFAULT_START_COORDINATES, EUROPA_FORENKLET, NORGES_GRUNNKART, PROJECTION, ZOOM_NORWAY } from '../../../ts/mapUtils'
+  import {
+    DEFAULT_START_COORDINATES,
+    EUROPA_FORENKLET,
+    NORGES_GRUNNKART,
+    PROJECTION,
+    ZOOM_NORWAY
+  } from '../../../ts/mapUtils'
 
   let className = ''
   export { className as class }
@@ -26,7 +32,7 @@
   }
 
   export function zoom(options?: MTAnimationOptions): void {
-    if(map) {
+    if (map) {
       animate(map, options)
     }
   }
@@ -40,7 +46,7 @@
     const layers = kartverketLayerNames.map(name => {
       return createTileLayer(name)
     })
-     map = new Map({
+    map = new Map({
       target: mapId,
       layers,
       view: view
