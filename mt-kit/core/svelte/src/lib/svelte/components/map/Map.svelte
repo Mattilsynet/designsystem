@@ -3,12 +3,14 @@
   import { fromLonLat } from 'ol/proj'
   import 'ol/ol.css'
   import {
-    getMarker,
     addListeners,
     createTileLayer,
     toOLCoordinates,
-    createClusterLayer
   } from "./utils";
+  import {
+    createMarkerLayer,
+    createClusterLayer
+  } from './layer-utils'
   import type { MapClickEvent, MarkerCoordinate, ClusterOptions } from '$lib/ts'
   import { createEventDispatcher } from 'svelte'
   import { EUROPA_FORENKLET, NORGES_GRUNNKART, PROJECTION, ZOOM_NORWAY } from '../../../ts/mapUtils'
@@ -43,7 +45,7 @@
     if(clusterOptions) {
       map.addLayer(createClusterLayer(markers, clusterOptions))
     } else {
-      map.addLayer(getMarker(markers))
+      map.addLayer(createMarkerLayer(markers))
     }
 
     addListeners(map, dispatch)
