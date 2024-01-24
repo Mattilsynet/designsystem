@@ -2,11 +2,11 @@
   import { Meta, Story } from '@storybook/addon-svelte-csf'
   import Map from '../lib/svelte/components/map/Map.svelte'
   import { markers as svg } from '../lib/ts/markers'
-  import { DEFAULT_CLUSTER_DISTANCE, DEFAULT_CLUSTER_MIN_DISTANCE } from "$lib/ts/mapUtils";
+  import { DEFAULT_CLUSTER_DISTANCE, DEFAULT_CLUSTER_MIN_DISTANCE } from "../lib//ts/mapUtils";
+
+
+
   let scale = 0.5
-
-
-
   let markers = [
     {
       "municipality": "Asker",
