@@ -1,15 +1,9 @@
-import {
-  type ClusterOptions,
-  DEFAULT_MARKER_OPACITY,
-  DEFAULT_MARKER_SCALE,
-  type MarkerCoordinate,
-  markers as svg
-} from '../../../ts/index'
 import VectorLayer from 'ol/layer/Vector'
 import VectorSource from 'ol/source/Vector'
 import { type FeatureLike } from 'ol/Feature'
 import { Circle, Fill, Style, Text } from 'ol/style'
 import { Cluster } from 'ol/source'
+import type { Options } from 'ol/style/Icon'
 import {
   DEFAULT_CLUSTER_DISPLACEMENT,
   DEFAULT_CLUSTER_OFFSET_X,
@@ -18,14 +12,20 @@ import {
   DEFAULT_CLUSTER_SIZE_SCALE
 } from '../../../ts/mapUtils'
 import { addMarkersToSource, createMarkerStyle } from './marker'
-import type { Options } from 'ol/style/Icon'
+import {
+  type MTClusterOptions,
+  type MTMarker,
+  DEFAULT_MARKER_OPACITY,
+  DEFAULT_MARKER_SCALE,
+  markers as svg
+} from '../../../ts/index'
 
 export const LAYER_ID = 'layerId'
 export const VECTOR_LAYER_ID = 'clusterLayer'
 
 export function createClusterLayer(
-  markers: Array<MarkerCoordinate>,
-  options: ClusterOptions,
+  markers: Array<MTMarker>,
+  options: MTClusterOptions,
   markerOptions?: Options
 ): VectorLayer<VectorSource> {
   const source = addMarkersToSource(new VectorSource(), markers, markerOptions)
@@ -43,7 +43,7 @@ export function createClusterLayer(
 }
 
 export function createMarkerLayer(
-  markers: Array<MarkerCoordinate>,
+  markers: Array<MTMarker>,
   markerOptions?: Options
 ): VectorLayer<VectorSource> {
   const source = addMarkersToSource(new VectorSource(), markers, markerOptions)
