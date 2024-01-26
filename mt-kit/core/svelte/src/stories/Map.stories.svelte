@@ -3,23 +3,21 @@
   import Map from '../lib/svelte/components/map/Map.svelte'
   import { markers as svg } from '../lib/ts/markers'
   import {
-    CLICK_POPUP_ID,
-    CLICK_POPUP_OVERLAY,
     DEFAULT_CLUSTER_DISTANCE,
     DEFAULT_CLUSTER_MIN_DISTANCE,
-    DEFAULT_MARKER_SCALE,
-    HOVER_POPUP_ID,
-    HOVER_POPUP_OVERLAY
+    DEFAULT_MARKER_SCALE
   } from '../lib/ts/mapUtils'
   import { createHoverMarkerContent } from '../lib/svelte/components/map/overlay'
   import { createClickMarkerContent } from '../lib/svelte/components/map/overlay.js'
-  import { type PopupOptions } from '../lib/svelte/components/map/utils'
+  import { type MTPopupOptions } from '../lib/svelte/components/map/utils'
+  import type { MusselMarker } from '$lib/ts/types'
 
   let map
-  let markers = [
+  let markers: Array<MusselMarker> = [
     {
       municipality: 'Asker',
       location: 'Vollen - Selvikbukta',
+      href: '',
       status: 'success',
       src: `data:image/svg+xml;utf8,${encodeURIComponent(svg['success'])}`,
       lat: 59.806328,
@@ -28,6 +26,7 @@
     {
       municipality: 'Fredrikstad',
       location: 'Engelsviken',
+      href: '',
       status: 'success',
       src: `data:image/svg+xml;utf8,${encodeURIComponent(svg['success'])}`,
       lat: 59.24973,
@@ -36,6 +35,7 @@
     {
       municipality: 'Hvaler',
       location: 'Utgårdskilen',
+      href: '',
       status: 'success',
       src: `data:image/svg+xml;utf8,${encodeURIComponent(svg['success'])}`,
       lat: 59.07705,
@@ -44,6 +44,7 @@
     {
       municipality: 'Kragerø',
       location: 'Saltneven',
+      href: '',
       status: 'danger',
       src: `data:image/svg+xml;utf8,${encodeURIComponent(svg['danger'])}`,
       lat: 58.857348,
@@ -52,6 +53,7 @@
     {
       municipality: 'Larvik',
       location: 'Ødegårdsbukta, Viksfjord',
+      href: '',
       status: 'success',
       src: `data:image/svg+xml;utf8,${encodeURIComponent(svg['success'])}`,
       lat: 59.0232,
@@ -60,6 +62,7 @@
     {
       municipality: 'Tønsberg',
       location: 'Vallø',
+      href: '',
       status: 'danger',
       src: `data:image/svg+xml;utf8,${encodeURIComponent(svg['danger'])}`,
       lat: 59.256572,
@@ -68,6 +71,7 @@
     {
       municipality: 'Arendal',
       location: 'Flødevigen',
+      href: '',
       status: 'success',
       src: `data:image/svg+xml;utf8,${encodeURIComponent(svg['success'])}`,
       lat: 58.424515,
@@ -76,6 +80,7 @@
     {
       municipality: 'Kristiansand',
       location: 'Flekkerøy',
+      href: '',
       status: 'success',
       src: `data:image/svg+xml;utf8,${encodeURIComponent(svg['success'])}`,
       lat: 58.080294,
@@ -84,6 +89,7 @@
     {
       municipality: 'Risør',
       location: 'Finnøysundet',
+      href: '',
       status: 'success',
       src: `data:image/svg+xml;utf8,${encodeURIComponent(svg['success'])}`,
       lat: 58.730467,
@@ -92,6 +98,7 @@
     {
       municipality: 'Bømlo',
       location: 'Rogøysund',
+      href: '',
       status: 'success',
       src: `data:image/svg+xml;utf8,${encodeURIComponent(svg['success'])}`,
       lat: 59.808094,
@@ -100,6 +107,7 @@
     {
       municipality: 'Egersund',
       location: 'Nordre Sundet',
+      href: '',
       status: 'success',
       src: `data:image/svg+xml;utf8,${encodeURIComponent(svg['success'])}`,
       lat: 58.460742,
@@ -108,6 +116,7 @@
     {
       municipality: 'Fjaler',
       location: 'Bortheim',
+      href: '',
       status: 'success',
       src: `data:image/svg+xml;utf8,${encodeURIComponent(svg['success'])}`,
       lat: 61.351497,
@@ -116,6 +125,7 @@
     {
       municipality: 'Fjaler',
       location: 'Gjelet',
+      href: '',
       status: 'success',
       src: `data:image/svg+xml;utf8,${encodeURIComponent(svg['success'])}`,
       lat: 61.374888,
@@ -124,6 +134,7 @@
     {
       municipality: 'Kvitsøy',
       location: 'Buøyflæet',
+      href: '',
       status: 'success',
       src: `data:image/svg+xml;utf8,${encodeURIComponent(svg['success'])}`,
       lat: 59.044917,
@@ -132,6 +143,7 @@
     {
       municipality: 'Molde',
       location: 'Cap Clara',
+      href: '',
       status: 'warning',
       src: `data:image/svg+xml;utf8,${encodeURIComponent(svg['warning'])}`,
       lat: 62.73349,
@@ -140,6 +152,7 @@
     {
       municipality: 'Stavanger',
       location: 'Talgje',
+      href: '',
       status: 'success',
       src: `data:image/svg+xml;utf8,${encodeURIComponent(svg['success'])}`,
       lat: 59.104499,
@@ -148,6 +161,7 @@
     {
       municipality: 'Øygarden',
       location: 'Ulvsundet',
+      href: '',
       status: 'success',
       src: `data:image/svg+xml;utf8,${encodeURIComponent(svg['success'])}`,
       lat: 60.517717,
@@ -156,6 +170,7 @@
     {
       municipality: 'Ålesund',
       location: 'Mørkesetsundet',
+      href: '',
       status: 'warning',
       src: `data:image/svg+xml;utf8,${encodeURIComponent(svg['warning'])}`,
       lat: 62.50362,
@@ -164,6 +179,7 @@
     {
       municipality: 'Inderøy',
       location: 'Rundhaugen',
+      href: '',
       status: 'success',
       src: `data:image/svg+xml;utf8,${encodeURIComponent(svg['success'])}`,
       lat: 63.891067,
@@ -172,6 +188,7 @@
     {
       municipality: 'Namsos',
       location: 'Breivika',
+      href: '',
       status: 'success',
       src: `data:image/svg+xml;utf8,${encodeURIComponent(svg['success'])}`,
       lat: 64.475,
@@ -180,6 +197,7 @@
     {
       municipality: 'Hitra',
       location: 'Fillan (Vikan)',
+      href: '',
       status: 'success',
       src: `data:image/svg+xml;utf8,${encodeURIComponent(svg['success'])}`,
       lat: 63.6012,
@@ -188,6 +206,7 @@
     {
       municipality: 'Ørland',
       location: 'Valsholmen',
+      href: '',
       status: 'success',
       src: `data:image/svg+xml;utf8,${encodeURIComponent(svg['success'])}`,
       lat: 63.8092,
@@ -196,6 +215,7 @@
     {
       municipality: 'Åfjord',
       location: 'Askerholmen (NS)',
+      href: '',
       status: 'success',
       src: `data:image/svg+xml;utf8,${encodeURIComponent(svg['success'])}`,
       lat: 63.942353,
@@ -204,6 +224,7 @@
     {
       municipality: 'Bindal',
       location: 'Aarsand',
+      href: '',
       status: 'danger',
       src: `data:image/svg+xml;utf8,${encodeURIComponent(svg['danger'])}`,
       lat: 65.04674,
@@ -212,6 +233,7 @@
     {
       municipality: 'Bindal',
       location: 'Isnaustet',
+      href: '',
       status: 'warning',
       src: `data:image/svg+xml;utf8,${encodeURIComponent(svg['warning'])}`,
       lat: 65.03405,
@@ -220,6 +242,7 @@
     {
       municipality: 'Bindal',
       location: 'Hagasandvika',
+      href: '',
       status: 'success',
       src: `data:image/svg+xml;utf8,${encodeURIComponent(svg['success'])}`,
       lat: 65.04724,
@@ -228,6 +251,7 @@
     {
       municipality: 'Bodø',
       location: 'Kobbvika i Festvåg',
+      href: '',
       status: 'success',
       src: `data:image/svg+xml;utf8,${encodeURIComponent(svg['success'])}`,
       lat: 67.4382,
@@ -236,6 +260,7 @@
     {
       municipality: 'Leirfjord',
       location: 'Skogvika',
+      href: '',
       status: 'danger',
       src: `data:image/svg+xml;utf8,${encodeURIComponent(svg['danger'])}`,
       lat: 66.05055,
@@ -244,6 +269,7 @@
     {
       municipality: 'Nordreisa',
       location: 'Kjempebakken',
+      href: '',
       status: 'success',
       src: `data:image/svg+xml;utf8,${encodeURIComponent(svg['success'])}`,
       lat: 69.791747,
@@ -252,6 +278,7 @@
     {
       municipality: 'Tromsø',
       location: 'Larseng',
+      href: '',
       status: 'warning',
       src: `data:image/svg+xml;utf8,${encodeURIComponent(svg['warning'])}`,
       lat: 69.569195,
@@ -260,6 +287,7 @@
     {
       municipality: 'Vestvågøy',
       location: 'Buksnesfjord/Gravdal',
+      href: '',
       status: 'success',
       src: `data:image/svg+xml;utf8,${encodeURIComponent(svg['success'])}`,
       lat: 68.1283,
@@ -268,6 +296,7 @@
     {
       municipality: 'Vestvågøy',
       location: 'Nappstraumen',
+      href: '',
       status: 'danger',
       src: `data:image/svg+xml;utf8,${encodeURIComponent(svg['danger'])}`,
       lat: 68.1436167,
@@ -282,23 +311,21 @@
     distance: DEFAULT_CLUSTER_DISTANCE,
     minDistance: DEFAULT_CLUSTER_MIN_DISTANCE
   }
-  let popupOptions: Array<PopupOptions> = [
+
+  let popUpOptions: Array<MTPopupOptions> = [
     {
-      id: CLICK_POPUP_OVERLAY,
-      elementId: CLICK_POPUP_ID,
+      id: 'ClickPopupOverlay',
+      elementId: 'click-popup',
       positioning: 'center-left',
-      markerContent: createClickMarkerContent
+      markerContent: createClickMarkerContent('Lukk')
     },
     {
-      id: HOVER_POPUP_OVERLAY,
-      elementId: HOVER_POPUP_ID,
+      id: 'HoverPopupOverlay',
+      elementId: 'hover-popup',
       positioning: 'center-left',
       markerContent: createHoverMarkerContent
     }
   ]
-  function handleMapClicked(e) {
-    console.log('clicked marker', e.detail.marker)
-  }
 
   function handleReset() {
     if (map) {
@@ -319,29 +346,14 @@
 <Story name="Normal" let:disableCss>
   <h1>Map</h1>
   <Map
-    on:mapClick={handleMapClicked}
+    class="mt-map-wrapper"
     bind:this={map}
     {markers}
-    class="mt-map-wrapper"
     {markerOptions}
-    popUpOptions={popupOptions}
+    {popUpOptions}
     {clusterOptions}>
   </Map>
-  <!--  <div-->
-  <!--    class="layout-flex layout-flex&#45;&#45;center-vertical p-xxxs background-mt-bg-danger layout-flex&#45;&#45;inline"-->
-  <!--    style="&#45;&#45;gap: var(&#45;&#45;spacer-xx-small)">-->
-  <!--    <a href="" class="mt-link">Hønefoss</a>-->
-  <!--    <button-->
-  <!--      id="popup-closer"-->
-  <!--      class="mt-button mt-button&#45;&#45;search-clear icon&#45;&#45;x-before"-->
-  <!--      aria-label="Close me">-->
-  <!--    </button>-->
-  <!--  </div>-->
-  <!--  <button type="button" class="mt-button m-t-xxs" on:click={handleReset}>Reset zoom</button>-->
-  <ul class="mt-ul list-unstyled no-space-between">
-    <li class="mt-li text-small p-xxxs border-radius background-mt-bg-success">Oslo</li>
-    <li class="mt-li text-small p-xxxs border-radius background-mt-bg-danger">Hønefoss</li>
-  </ul>
+  <button type="button" class="mt-button m-t-xxs" on:click={handleReset}>Reset zoom</button>
 </Story>
 
 <style lang="scss">
