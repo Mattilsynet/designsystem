@@ -1,0 +1,52 @@
+import type VectorSource from 'ol/source/Vector'
+import Feature from 'ol/Feature'
+import { Point } from 'ol/geom'
+import { fromLonLat } from 'ol/proj'
+import type { Options } from 'ol/style/Icon'
+import { Icon, Style } from 'ol/style'
+import {
+  DEFAULT_MARKER_OPACITY,
+  DEFAULT_MARKER_SCALE,
+  type MarkerCoordinate,
+  markers as svg
+} from '../../../ts/index'
+import { toOLCoordinates } from './utils'
+
+export const MARKER = 'marker'
+
+export function addMarkersToSource(
+  source: VectorSource,
+  markers: Array<MarkerCoordinate>
+): VectorSource {
+  markers.forEach(marker => {
+    const feature = new Feature({
+      geometry: new Point(fromLonLat(toOLCoordinates(marker))),
+      [MARKER]: marker
+    })
+    if (marker.src) {
+      feature.setStyle(createMarkerStyle(marker))
+    } else {
+      feature.setStyle(
+        createMarkerStyle({
+          src: `data:image/svg+xml;utf8,${encodeURIComponent(svg.default)}`,
+          opacity: DEFAULT_MARKER_OPACITY,
+          scale: DEFAULT_MARKER_SCALE
+        })
+      )
+    }
+    source.addFeature(feature)
+  })
+
+  return source
+}
+
+export function createMarkerStyle(
+  options: Options = {
+    opacity: DEFAULT_MARKER_OPACITY,
+    scale: DEFAULT_MARKER_SCALE
+  }
+): Style {
+  return new Style({
+    image: new Icon(options)
+  })
+}
