@@ -96,6 +96,10 @@
   padding-bottom: var(--spacer-xx-small);
 }
 
+.p-r-0 {
+  padding-right: 0;
+}
+
 .p-r-xxs {
   padding-right: var(--spacer-xx-small);
 }
@@ -134,6 +138,9 @@
 
 .p-l-xs {
   padding-left: var(--spacer-x-small);
+}
+.p-l-xxxs {
+  padding-left: var(--spacer-xxx-small);
 }
 
 .p-lr-xs {
