@@ -1,18 +1,21 @@
 <script lang="ts">
-  import { Map, View } from 'ol'
+  import { Map, Overlay, View } from 'ol'
   import { fromLonLat } from 'ol/proj'
   import 'ol/ol.css'
-  import { addListeners, createTileLayer, toOLCoordinates, animate } from './utils'
   import { createMarkerLayer, createClusterLayer } from './layer-utils'
-  import type { MapClickEvent, MarkerCoordinate, ClusterOptions } from '$lib/ts'
-  import { createEventDispatcher } from 'svelte'
+  import type { MarkerCoordinate, ClusterOptions, MTAnimationOptions } from '$lib/ts'
+  import { addListeners, createTileLayer, toOLCoordinates, animate } from './utils'
+  import { setOverlayPosition } from './overlay'
   import {
+    CLICK_POPUP_OVERLAY,
+    DEFAULT_OVERLAY_OFFSET,
     DEFAULT_START_COORDINATES,
     EUROPA_FORENKLET,
     NORGES_GRUNNKART,
     PROJECTION,
     ZOOM_NORWAY
   } from '../../../ts/mapUtils'
+  import type { Options } from 'ol/style/Icon'
 
   let className = ''
   export { className as class }
@@ -23,9 +26,10 @@
   export let startZoom = ZOOM_NORWAY
   export let goToMapSkipLinkText = 'Gå til kart'
   export let clusterOptions: ClusterOptions | undefined
+  export let markerOptions: Options | undefined
+  export let popUpOptions = []
 
   let map: Map | null = null
-  const dispatch = createEventDispatcher<CustomEvent<MapClickEvent>>()
 
   export function resetZoom(): void {
     zoom({})
@@ -52,18 +56,40 @@
       view: view
     })
     if (clusterOptions) {
-      map.addLayer(createClusterLayer(markers, clusterOptions))
+      map.addLayer(createClusterLayer(markers, clusterOptions, markerOptions))
     } else {
-      map.addLayer(createMarkerLayer(markers))
+      map.addLayer(createMarkerLayer(markers, markerOptions))
     }
 
-    addListeners(map, dispatch)
+    popUpOptions.forEach(opt => {
+      map.addOverlay(
+        new Overlay({
+          offset: DEFAULT_OVERLAY_OFFSET,
+          positioning: opt.positioning,
+          element: document.getElementById(opt.elementId),
+          id: opt.id
+        })
+      )
+    })
+    addListeners(map, popUpOptions)
 
     return map
+  }
+
+  function handleClosePopup() {
+    console.log('close click')
+    if (map) {
+      setOverlayPosition(map, CLICK_POPUP_OVERLAY, undefined)
+    }
   }
 </script>
 
 <div class={className}>
   <a class="mt-link map-skiplink" href="#{mapId}">{goToMapSkipLinkText}</a>
-  <div id={mapId} class="map" tabindex="0" use:createMap />
+  <div id={mapId} class="mt-map" tabindex="0" use:createMap />
+  {#each popUpOptions as option}
+    <div id={option.elementId} class="ol-popup mt-map--popup">
+      <div id="popup-content-{option.elementId}"></div>
+    </div>
+  {/each}
 </div>
