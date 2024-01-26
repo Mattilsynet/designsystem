@@ -5,42 +5,56 @@ import WMTS from 'ol/source/WMTS'
 import WMTSTileGrid from 'ol/tilegrid/WMTS'
 import { boundingExtent, getTopLeft, getWidth } from 'ol/extent'
 import Feature from 'ol/Feature'
-import type { MapClickEvent, MTCoordinates, MTAnimationOptions } from '$lib/ts/types'
+import type { MTAnimationOptions, MTCoordinates } from '$lib/ts/types'
 import { type MapBrowserEvent } from 'ol'
 import { type Coordinate } from 'ol/coordinate'
-import type { EventDispatcher } from 'svelte'
 import {
+  CLICK_POPUP_OVERLAY,
+  DEFAULT_ANIMATION_SPEED,
+  DEFAULT_START_COORDINATES,
+  HOVER_POPUP_OVERLAY,
   PROJECTION,
   ZOOM_MUNICIPALITY,
-  DEFAULT_START_COORDINATES,
-  ZOOM_NORWAY,
-  DEFAULT_ANIMATION_SPEED
+  ZOOM_NORWAY
 } from '../../../ts/mapUtils'
 import { type Layer } from 'ol/layer'
 import { LAYER_ID, VECTOR_LAYER_ID } from './layer-utils'
 import { prefersReducedMotion } from '../../../ts/utils'
+import { setOverlayContent, setOverlayPosition } from './overlay'
+import type { Positioning } from 'ol/Overlay'
+import { MARKER } from './marker'
 
 interface CustomTileGrid {
   resolutions: Array<number>
   matrixIds: Array<string>
 }
 
+export interface PopupOptions {
+  id: 'ClickPopupOverlay' | 'HoverPopupOverlay'
+  elementId: string
+  positioning: Positioning
+  markerContent: (feature: Feature) => string
+}
+
 export function toOLCoordinates(coordinate: MTCoordinates): Coordinate {
   return [coordinate.long, coordinate.lat]
 }
 
-export function addListeners(map: Map, dispatch: EventDispatcher): void {
+export function addListeners(map: Map, popupOptions: Array<PopupOptions>): void {
   map.on('click', e => {
-    handleSingleMarkerClick(e, dispatch)
+    const clickPopupOptions = popupOptions.find(pop => {
+      return pop.id === CLICK_POPUP_OVERLAY
+    })
+    if (clickPopupOptions) {
+      handleSingleMarkerClick(e, clickPopupOptions)
+    }
     handleMarkerClusterClick(e)
   })
 
-  map.on('pointermove', e => {
-    const feature = getFeature(map, e)
-    if (feature && feature.getGeometry()?.getType() === 'Point') {
-      // console.log('pointermove', feature)
-    }
+  map.on('pointermove', event => {
+    handleMarkerHover(event, popupOptions)
   })
+  //kan man lytte på knappe trykk i overlay
 }
 
 export function animate(map: Map, options: MTAnimationOptions): void {
@@ -99,34 +113,70 @@ function getLayerByLayerId(map: Map, layerId: string): Layer | undefined {
   return layers
 }
 
+function handleMarkerHover(
+  event: MapBrowserEvent<UIEvent>,
+  popupOptions: Array<PopupOptions>
+): void {
+  const hoverPopupOptions = popupOptions.find(pop => {
+    return pop.id === HOVER_POPUP_OVERLAY
+  })
+  if (hoverPopupOptions) {
+    const feature = getFeature(event.map, event)
+    if (feature && feature.getGeometry()?.getType() === 'Point') {
+      if (event.map.getOverlayById(CLICK_POPUP_OVERLAY).getPosition() === undefined) {
+        setOverlayPosition(event.map, hoverPopupOptions.id, event.coordinate)
+        setOverlayContent(event.map, hoverPopupOptions.id, hoverPopupOptions.markerContent(feature))
+      }
+    } else {
+      setOverlayPosition(event.map, hoverPopupOptions.id, undefined)
+    }
+  }
+}
+
 function handleMarkerClusterClick(event: MapBrowserEvent<UIEvent>): void {
   const clusters = getLayerByLayerId(event.map, VECTOR_LAYER_ID)
   if (clusters) {
     clusters.getFeatures(event.pixel).then(clickedFeatures => {
       if (clickedFeatures.length) {
-        // Get clustered Coordinates
         const features = clickedFeatures[0].get('features')
         if (features.length > 1) {
           const extent = boundingExtent(features.map(r => r.getGeometry().getCoordinates()))
-          event.map.getView().fit(extent, { duration: 1000, padding: [50, 50, 50, 50] })
+          const fitPadding = 200
+          event.map.getView().fit(extent, {
+            duration: DEFAULT_ANIMATION_SPEED,
+            padding: [fitPadding, fitPadding, fitPadding, fitPadding]
+          })
         }
       }
     })
   }
 }
-function handleSingleMarkerClick(event: MapBrowserEvent<UIEvent>, dispatch: EventDispatcher) {
+
+function handleSingleMarkerClick(
+  event: MapBrowserEvent<UIEvent>,
+  clickPopupOptions: PopupOptions
+): void {
   const feature = getFeature(event.map, event)
   if (feature && feature.getGeometry()?.getType() === 'Point') {
     const selectedFeatures = feature.get('features')
     if (selectedFeatures.length === 1) {
-      const marker = selectedFeatures[0].get('marker')
-      dispatch<CustomEvent<MapClickEvent>>('mapClick', {
-        marker
-      })
-      animate(event.map, { long: marker.long, lat: marker.lat, zoom: ZOOM_MUNICIPALITY })
+      const marker = selectedFeatures[0].get(MARKER)
+      if (event.map.getView().getZoom() < ZOOM_MUNICIPALITY) {
+        animate(event.map, { long: marker.long, lat: marker.lat, zoom: ZOOM_MUNICIPALITY })
+      }
+
+      setOverlayPosition(event.map, clickPopupOptions.id, fromLonLat(toOLCoordinates(marker)))
+      setOverlayContent(
+        event.map,
+        clickPopupOptions.id,
+        clickPopupOptions.markerContent(selectedFeatures[0])
+      )
     }
+  } else {
+    setOverlayPosition(event.map, clickPopupOptions.id, undefined)
   }
 }
+
 function getFeature(map: Map, event: MapBrowserEvent<any>) {
   return map.forEachFeatureAtPixel(event.pixel, featureLike => {
     if (featureLike instanceof Feature) {
