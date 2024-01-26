@@ -5,12 +5,13 @@ import WMTS from 'ol/source/WMTS'
 import WMTSTileGrid from 'ol/tilegrid/WMTS'
 import { boundingExtent, getTopLeft, getWidth } from 'ol/extent'
 import Feature from 'ol/Feature'
-import type { MTAnimationOptions, MTCoordinates } from '$lib/ts/types'
+import type { MTAnimationOptions, MTCoordinates, MTPopupOptions } from '$lib/ts/types'
 import { type MapBrowserEvent } from 'ol'
 import { type Coordinate } from 'ol/coordinate'
 import {
   CLICK_POPUP_OVERLAY,
   DEFAULT_ANIMATION_SPEED,
+  DEFAULT_CLUSTER_FIT_PADDING,
   DEFAULT_START_COORDINATES,
   HOVER_POPUP_OVERLAY,
   PROJECTION,
@@ -20,8 +21,7 @@ import {
 import { type Layer } from 'ol/layer'
 import { LAYER_ID, VECTOR_LAYER_ID } from './layer-utils'
 import { prefersReducedMotion } from '../../../ts/utils'
-import { setOverlayContent, setOverlayPosition } from './overlay'
-import type { Positioning } from 'ol/Overlay'
+import { CLICK_POPUP_CLOSE_ID, setOverlayContent, setOverlayPosition } from './overlay'
 import { MARKER } from './marker'
 
 interface CustomTileGrid {
@@ -29,18 +29,11 @@ interface CustomTileGrid {
   matrixIds: Array<string>
 }
 
-export interface PopupOptions {
-  id: 'ClickPopupOverlay' | 'HoverPopupOverlay'
-  elementId: string
-  positioning: Positioning
-  markerContent: (feature: Feature) => string
-}
-
 export function toOLCoordinates(coordinate: MTCoordinates): Coordinate {
   return [coordinate.long, coordinate.lat]
 }
 
-export function addListeners(map: Map, popupOptions: Array<PopupOptions>): void {
+export function addListeners(map: Map, popupOptions: Array<MTPopupOptions>): void {
   map.on('click', e => {
     const clickPopupOptions = popupOptions.find(pop => {
       return pop.id === CLICK_POPUP_OVERLAY
@@ -54,10 +47,16 @@ export function addListeners(map: Map, popupOptions: Array<PopupOptions>): void 
   map.on('pointermove', event => {
     handleMarkerHover(event, popupOptions)
   })
-  //kan man lytte på knappe trykk i overlay
 }
 
-export function animate(map: Map, options: MTAnimationOptions): void {
+export function zoomAndClosePopup(
+  map: Map,
+  options: MTAnimationOptions,
+  popUpOptions: Array<MTPopupOptions> = []
+): void {
+  popUpOptions.forEach(option => {
+    setOverlayPosition(map, option.id, undefined)
+  })
   const { zoom, lat, long, duration, ...rest } = options
   const isReduced = prefersReducedMotion()
   const newCenter =
@@ -115,7 +114,7 @@ function getLayerByLayerId(map: Map, layerId: string): Layer | undefined {
 
 function handleMarkerHover(
   event: MapBrowserEvent<UIEvent>,
-  popupOptions: Array<PopupOptions>
+  popupOptions: Array<MTPopupOptions>
 ): void {
   const hoverPopupOptions = popupOptions.find(pop => {
     return pop.id === HOVER_POPUP_OVERLAY
@@ -141,7 +140,7 @@ function handleMarkerClusterClick(event: MapBrowserEvent<UIEvent>): void {
         const features = clickedFeatures[0].get('features')
         if (features.length > 1) {
           const extent = boundingExtent(features.map(r => r.getGeometry().getCoordinates()))
-          const fitPadding = 200
+          const fitPadding = DEFAULT_CLUSTER_FIT_PADDING
           event.map.getView().fit(extent, {
             duration: DEFAULT_ANIMATION_SPEED,
             padding: [fitPadding, fitPadding, fitPadding, fitPadding]
@@ -154,7 +153,7 @@ function handleMarkerClusterClick(event: MapBrowserEvent<UIEvent>): void {
 
 function handleSingleMarkerClick(
   event: MapBrowserEvent<UIEvent>,
-  clickPopupOptions: PopupOptions
+  clickPopupOptions: MTPopupOptions
 ): void {
   const feature = getFeature(event.map, event)
   if (feature && feature.getGeometry()?.getType() === 'Point') {
@@ -162,7 +161,11 @@ function handleSingleMarkerClick(
     if (selectedFeatures.length === 1) {
       const marker = selectedFeatures[0].get(MARKER)
       if (event.map.getView().getZoom() < ZOOM_MUNICIPALITY) {
-        animate(event.map, { long: marker.long, lat: marker.lat, zoom: ZOOM_MUNICIPALITY })
+        zoomAndClosePopup(event.map, {
+          long: marker.long,
+          lat: marker.lat,
+          zoom: ZOOM_MUNICIPALITY
+        })
       }
 
       setOverlayPosition(event.map, clickPopupOptions.id, fromLonLat(toOLCoordinates(marker)))
@@ -171,9 +174,25 @@ function handleSingleMarkerClick(
         clickPopupOptions.id,
         clickPopupOptions.markerContent(selectedFeatures[0])
       )
+      addCloseButtonListener(event, clickPopupOptions)
     }
   } else {
     setOverlayPosition(event.map, clickPopupOptions.id, undefined)
+  }
+}
+
+function addCloseButtonListener(
+  event: MapBrowserEvent<UIEvent>,
+  clickPopupOptions: MTPopupOptions
+): void {
+  const closeButton = event.map
+    .getOverlayById(CLICK_POPUP_OVERLAY)
+    .getElement()
+    ?.querySelector(`#${CLICK_POPUP_CLOSE_ID}`)
+  if (closeButton) {
+    closeButton.addEventListener('click', () => {
+      setOverlayPosition(event.map, clickPopupOptions.id, undefined)
+    })
   }
 }
 
