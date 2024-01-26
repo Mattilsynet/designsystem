@@ -9,5 +9,7 @@ export const markers = {
   danger:
     '<svg xmlns="http://www.w3.org/2000/svg" width="44" height="55" fill="none"><path fill="#fff" stroke="#054" d="M6.803 7.03c8.395-8.707 22-8.707 30.394 0 8.404 8.717 8.404 22.857 0 31.574L22 54.282 6.803 38.604C-1.6 29.888-1.6 15.747 6.803 7.03Z"/><circle cx="22" cy="22" r="18" fill="#92301C"/><g clip-path="url(#a)"><path fill="#fff" d="M29.2 16.6 23.8 22l5.4 5.4-1.8 1.8-5.4-5.4-5.4 5.4-1.8-1.8 5.4-5.4-5.4-5.4 1.8-1.8 5.4 5.4 5.4-5.4 1.8 1.8Z"/></g><defs><clipPath id="a"><path fill="#fff" d="M14.8 14.8h14.4v14.4H14.8z"/></clipPath></defs></svg>',
   default:
-    '<svg xmlns="http://www.w3.org/2000/svg" width="44" height="55" fill="none"><path fill="#054449" d="M37.557 6.683c-8.591-8.91-22.523-8.91-31.114 0-8.59 8.91-8.59 23.358 0 32.268L22 55l15.557-16.049c8.59-8.91 8.59-23.358 0-32.268Z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" width="44" height="55" fill="none"><path fill="#054449" d="M37.557 6.683c-8.591-8.91-22.523-8.91-31.114 0-8.59 8.91-8.59 23.358 0 32.268L22 55l15.557-16.049c8.59-8.91 8.59-23.358 0-32.268Z"/></svg>',
+  cluster:
+    '<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" fill="none"><circle cx="22" cy="22" r="21.5" fill="#fff" stroke="#054449"/><circle cx="22" cy="22" r="18" fill="#4F3521"/><path fill="#fff" d="M23.8 17.77V31h-3.6V17.77h3.6Zm0-4.77v3.192h-3.6V13h3.6Z"/></svg>'
 }
