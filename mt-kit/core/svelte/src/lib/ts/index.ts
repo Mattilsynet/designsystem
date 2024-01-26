@@ -7,6 +7,7 @@ export {
   type ChapterChangeDetails,
   type Action,
   type Status,
+  type MusselMarker,
   type MTCoordinates,
   type MTMarker,
   type MTAnimationOptions,
