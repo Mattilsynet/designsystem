@@ -18,15 +18,17 @@ import {
   DEFAULT_CLUSTER_SIZE_SCALE
 } from '../../../ts/mapUtils'
 import { addMarkersToSource, createMarkerStyle } from './marker'
+import type { Options } from 'ol/style/Icon'
 
 export const LAYER_ID = 'layerId'
 export const VECTOR_LAYER_ID = 'clusterLayer'
 
 export function createClusterLayer(
   markers: Array<MarkerCoordinate>,
-  options: ClusterOptions
+  options: ClusterOptions,
+  markerOptions?: Options
 ): VectorLayer<VectorSource> {
-  const source = addMarkersToSource(new VectorSource(), markers)
+  const source = addMarkersToSource(new VectorSource(), markers, markerOptions)
 
   const cluster = createCluster(options.distance, options.minDistance, source)
 
@@ -40,8 +42,11 @@ export function createClusterLayer(
   return vectorLayer
 }
 
-export function createMarkerLayer(markers: Array<MarkerCoordinate>): VectorLayer<VectorSource> {
-  const source = addMarkersToSource(new VectorSource(), markers)
+export function createMarkerLayer(
+  markers: Array<MarkerCoordinate>,
+  markerOptions?: Options
+): VectorLayer<VectorSource> {
+  const source = addMarkersToSource(new VectorSource(), markers, markerOptions)
 
   return new VectorLayer({
     source,

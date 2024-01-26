@@ -16,7 +16,8 @@ export const MARKER = 'marker'
 
 export function addMarkersToSource(
   source: VectorSource,
-  markers: Array<MarkerCoordinate>
+  markers: Array<MarkerCoordinate>,
+  markerOptions?: Options
 ): VectorSource {
   markers.forEach(marker => {
     const feature = new Feature({
@@ -24,7 +25,7 @@ export function addMarkersToSource(
       [MARKER]: marker
     })
     if (marker.src) {
-      feature.setStyle(createMarkerStyle(marker))
+      feature.setStyle(createMarkerStyle({ ...marker, ...markerOptions }))
     } else {
       feature.setStyle(
         createMarkerStyle({
@@ -40,13 +41,12 @@ export function addMarkersToSource(
   return source
 }
 
-export function createMarkerStyle(
-  options: Options = {
-    opacity: DEFAULT_MARKER_OPACITY,
-    scale: DEFAULT_MARKER_SCALE
-  }
-): Style {
+export function createMarkerStyle(options: Options): Style {
   return new Style({
-    image: new Icon(options)
+    image: new Icon({
+      ...options,
+      scale: options.scale ?? DEFAULT_MARKER_SCALE,
+      opacity: options.opacity ?? DEFAULT_MARKER_OPACITY
+    })
   })
 }
