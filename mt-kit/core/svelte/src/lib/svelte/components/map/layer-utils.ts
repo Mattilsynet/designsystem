@@ -54,30 +54,37 @@ export function createMarkerLayer(
   })
 }
 
-function createClusterStyle(feature: FeatureLike): Style {
-  const styleCache = {}
+function createClusterStyle(feature: FeatureLike): Style | Array<Style> | void {
   const features = feature.get('features')
-
   const size = features.length
-  let style = styleCache[size]
-  if (size === 1) {
-    style = features[0].style_
-  } else if (size > 1) {
-    if (!style) {
-      style = [
-        createMarkerStyle({
-          src: `data:image/svg+xml;utf8,${encodeURIComponent(svg.cluster)}`,
-          opacity: DEFAULT_MARKER_OPACITY,
-          scale: DEFAULT_MARKER_SCALE
-        }),
-        createClusterSizeStyle(size)
-      ]
 
-      styleCache[size] = style
-    }
+  if (size <= 1) {
+    return features?.[0]?.style_
+  } else if (hasSameStyle(features)) {
+    return [features[0].style_, createClusterSizeStyle(size)]
+  } else {
+    return [
+      createMarkerStyle({
+        src: `data:image/svg+xml;utf8,${encodeURIComponent(svg.default)}`,
+        opacity: DEFAULT_MARKER_OPACITY,
+        scale: DEFAULT_MARKER_SCALE
+      }),
+      createClusterSizeStyle(size)
+    ]
   }
+}
 
-  return style
+function hasSameStyle(features: Array<Feature>): boolean {
+  let prevIcon: string | undefined
+  for (const feature of features) {
+    // @ts-ignore
+    const currIcon = feature.style_?.image_?.iconImage_?.src_
+    if (prevIcon && prevIcon !== currIcon) {
+      return false
+    }
+    prevIcon = currIcon
+  }
+  return true
 }
 
 function createClusterSizeStyle(size: number): Style {
