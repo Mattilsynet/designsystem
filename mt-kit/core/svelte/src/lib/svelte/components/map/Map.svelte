@@ -15,6 +15,7 @@
     PROJECTION,
     ZOOM_NORWAY
   } from '../../../ts/mapUtils'
+  import { defaults } from 'ol/interaction'
 
   let className = ''
   export { className as class }
@@ -53,7 +54,8 @@
     map = new Map({
       target: mapId,
       layers,
-      view: view
+      view: view,
+      interactions: defaults({ onFocusOnly: true })
     })
     if (clusterOptions) {
       map.addLayer(createClusterLayer(markers, clusterOptions, markerOptions))
