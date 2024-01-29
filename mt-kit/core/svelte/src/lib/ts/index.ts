@@ -7,10 +7,12 @@ export {
   type ChapterChangeDetails,
   type Action,
   type Status,
-  type MapClickEvent,
+  type MusselMarker,
   type MTCoordinates,
-  type MarkerCoordinate,
-  type ClusterOptions,
+  type MTMarker,
+  type MTAnimationOptions,
+  type MTPopupOptions,
+  type MTClusterOptions,
   type CountCharsParams,
   type CloseDialogEvent,
   type InputModeType,
@@ -39,5 +41,12 @@ export {
   DEFAULT_MARKER_OPACITY,
   DEFAULT_MARKER_SCALE,
   ZOOM_NORWAY,
-  DEFAULT_START_COORDINATES
+  ZOOM_MUNICIPALITY,
+  DEFAULT_START_COORDINATES,
+  DEFAULT_CLUSTER_DISTANCE,
+  DEFAULT_CLUSTER_MIN_DISTANCE
 } from '../ts/mapUtils'
+export {
+  createClickMarkerContent,
+  createHoverMarkerContent
+} from '../svelte/components/map/overlay'

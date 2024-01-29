@@ -72,14 +72,19 @@
 
 // END custom Openlayer style
 
-.map-wrapper {
+.mt-map-wrapper {
   height: 30rem;
   width: 100%;
 }
-.map {
+.mt-map {
   @include focus-outline();
   width: 100%;
   height: 100%;
+  .ol-popup {
+    background-color: var(--color-mt-white);
+    color: var(--color-text);
+    padding: var(--spacer-xxx-small);
+  }
 }
 
 .mt-link.map-skiplink {

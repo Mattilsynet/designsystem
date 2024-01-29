@@ -1,5 +1,7 @@
 import { type Options } from 'ol/style/Icon'
 import type { AnimationOptions } from 'ol/View'
+import type { Positioning } from 'ol/Overlay'
+import type Feature from 'ol/Feature'
 
 /**
  * This object contains more information about the error. This can either be messages from the Java-backend,
@@ -119,9 +121,6 @@ export interface CountCharsParams {
 export interface CloseDialogEvent {
   shouldReappear: boolean
 }
-export interface MapClickEvent {
-  marker: MarkerCoordinate
-}
 
 export type Status = 'info' | 'neutral' | 'success' | 'warning' | 'danger'
 
@@ -129,12 +128,28 @@ export interface MTCoordinates {
   lat: number
   long: number
 }
-export interface MarkerCoordinate extends MTCoordinates, Options {
-  data: Record<string, string>
+
+export type MTMarker = MTCoordinates & Options
+
+export interface MusselMarker extends MTMarker {
+  status: Status
+  location: string
+  municipality: string
+  href: string
 }
+
 export type MTAnimationOptions = Omit<AnimationOptions, 'center'> & MTCoordinates
 
-export interface ClusterOptions {
+export interface MTClusterOptions {
   distance: number
   minDistance: number
+}
+
+export type MapOverLayIds = 'ClickPopupOverlay' | 'HoverPopupOverlay'
+
+export interface MTPopupOptions {
+  id: MapOverLayIds
+  elementId: string
+  positioning: Positioning
+  markerContent: (feature: Feature) => string
 }
