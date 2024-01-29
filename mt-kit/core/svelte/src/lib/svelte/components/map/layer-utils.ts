@@ -1,5 +1,6 @@
 import VectorLayer from 'ol/layer/Vector'
 import VectorSource from 'ol/source/Vector'
+import type Feature from 'ol/Feature'
 import { type FeatureLike } from 'ol/Feature'
 import { Circle, Fill, Style, Text } from 'ol/style'
 import { Cluster } from 'ol/source'
@@ -13,11 +14,11 @@ import {
 } from '../../../ts/mapUtils'
 import { addMarkersToSource, createMarkerStyle } from './marker'
 import {
-  type MTClusterOptions,
-  type MTMarker,
   DEFAULT_MARKER_OPACITY,
   DEFAULT_MARKER_SCALE,
-  markers as svg
+  markers as svg,
+  type MTClusterOptions,
+  type MTMarker
 } from '../../../ts/index'
 
 export const LAYER_ID = 'layerId'
@@ -65,7 +66,7 @@ function createClusterStyle(feature: FeatureLike): Style | Array<Style> | void {
   } else {
     return [
       createMarkerStyle({
-        src: `data:image/svg+xml;utf8,${encodeURIComponent(svg.default)}`,
+        src: `data:image/svg+xml;utf8,${encodeURIComponent(svg.cluster)}`,
         opacity: DEFAULT_MARKER_OPACITY,
         scale: DEFAULT_MARKER_SCALE
       }),
@@ -108,11 +109,10 @@ function createClusterSizeStyle(size: number): Style {
   })
 }
 
-function createCluster(distance: number, minDistance: number, source: VectorSource) {
-  const clusterSource = new Cluster({
+function createCluster(distance: number, minDistance: number, source: VectorSource): Cluster {
+  return new Cluster({
     distance,
     minDistance,
     source: source
   })
-  return clusterSource
 }
