@@ -35,13 +35,12 @@ export function toOLCoordinates(coordinate: MTCoordinates): Coordinate {
 
 export function addListeners(map: Map, popupOptions: Array<MTPopupOptions>): void {
   map.on('click', e => {
-    const clickPopupOptions = popupOptions.find(pop => {
-      return pop.id === CLICK_POPUP_OVERLAY
-    })
+    const clickPopupOptions = popupOptions.find(pop => pop.id === CLICK_POPUP_OVERLAY)
     if (clickPopupOptions) {
       handleSingleMarkerClick(e, clickPopupOptions)
     }
     handleMarkerClusterClick(e)
+    closeHoverOverlay(e, popupOptions)
   })
 
   map.on('pointermove', event => {
@@ -103,7 +102,12 @@ export function createTileLayer(layer: string): TileLayer<WMTS> {
     })
   })
 }
-
+function closeHoverOverlay(e: MapBrowserEvent<UIEvent>, popupOptions: Array<MTPopupOptions>): void {
+  const hoverPopupOptions = popupOptions.find(pop => pop.id === HOVER_POPUP_OVERLAY)
+  if (hoverPopupOptions) {
+    setOverlayPosition(e.map, hoverPopupOptions.id, undefined)
+  }
+}
 function getLayerByLayerId(map: Map, layerId: string): Layer | undefined {
   const layers = map.getAllLayers().find(layer => {
     const value = layer.values_[LAYER_ID]
