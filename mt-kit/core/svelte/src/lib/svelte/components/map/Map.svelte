@@ -9,6 +9,7 @@
   import {
     DEFAULT_START_COORDINATES,
     EUROPA_FORENKLET,
+    MIN_ZOOM_DEFAULT,
     NORGES_GRUNNKART,
     PROJECTION,
     ZOOM_NORWAY
@@ -41,6 +42,7 @@
     const view = new View({
       center: fromLonLat(toOLCoordinates(startCoordinates)),
       zoom: startZoom,
+      minZoom: MIN_ZOOM_DEFAULT,
       projection: PROJECTION
     })
     const layers = kartverketLayerNames.map(name => {
