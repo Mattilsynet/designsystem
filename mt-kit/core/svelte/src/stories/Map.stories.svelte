@@ -7,8 +7,7 @@
     DEFAULT_CLUSTER_MIN_DISTANCE,
     DEFAULT_MARKER_SCALE
   } from '../lib/ts/mapUtils'
-  import { createHoverMarkerContent } from '../lib/svelte/components/map/overlay'
-  import { createClickMarkerContent } from '../lib/svelte/components/map/overlay.js'
+  import { createClickMarkerContent } from '../lib/svelte/components/map/overlay'
   import { type MTPopupOptions } from '../lib/svelte/components/map/utils'
   import type { MusselMarker } from '$lib/ts/types'
 
@@ -318,12 +317,6 @@
       elementId: 'click-popup',
       positioning: 'center-left',
       markerContent: createClickMarkerContent('Lukk')
-    },
-    {
-      id: 'HoverPopupOverlay',
-      elementId: 'hover-popup',
-      positioning: 'center-left',
-      markerContent: createHoverMarkerContent
     }
   ]
 

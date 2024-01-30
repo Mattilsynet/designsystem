@@ -6,18 +6,6 @@ import type { MusselMarker } from '$lib/ts/types'
 
 export const CLICK_POPUP_CLOSE_ID = 'popup-closer'
 
-export function createHoverMarkerContent(feature: Feature): string {
-  const features = feature.get('features')
-  const items = features.reduce((acc, curr, index) => {
-    const marker = curr.get(MARKER)
-    return `${acc}<li class="mt-li text-small p-xxxs border-radius ${index > 0 ? 'm-t-xxxs' : ''} background-mt-bg-${marker.status}">
-${marker.municipality}: ${marker.location}
-</li>`
-  }, '')
-
-  return `<ul class="mt-ul list-unstyled ">${items}</ul>`
-}
-
 export function createClickMarkerContent(closeBtnLabel: string): (feature: Feature) => string {
   return (feature: Feature) => {
     const marker: MusselMarker = feature.get(MARKER)
@@ -33,6 +21,8 @@ export function createClickMarkerContent(closeBtnLabel: string): (feature: Featu
 }
 
 export function setOverlayPosition(map: Map, overlayId: string, coordinate?: Coordinate): void {
+  // this.popup.nativeElement.innerHTML = '';
+  // this.popup.nativeElement.hidden = true;
   map.getOverlayById(overlayId).setPosition(coordinate)
 }
 

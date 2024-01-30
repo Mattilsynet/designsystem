@@ -46,7 +46,4 @@ export {
   DEFAULT_CLUSTER_DISTANCE,
   DEFAULT_CLUSTER_MIN_DISTANCE
 } from '../ts/mapUtils'
-export {
-  createClickMarkerContent,
-  createHoverMarkerContent
-} from '../svelte/components/map/overlay'
+export { createClickMarkerContent } from '../svelte/components/map/overlay'
