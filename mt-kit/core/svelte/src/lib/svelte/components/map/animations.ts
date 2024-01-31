@@ -2,6 +2,7 @@ import type Map from 'ol/Map'
 import {
   DEFAULT_ANIMATION_SPEED,
   DEFAULT_START_COORDINATES,
+  MAX_FLY_TO_ANIMATION_SPEED,
   ZOOM_HALF_NORWAY,
   ZOOM_NORWAY
 } from '../../../ts/mapUtils'
@@ -16,7 +17,7 @@ export function flyToAnimation(map: Map, options: MTFlightAnimationOptions): voi
     center = fromLonLat(toOLCoordinates(DEFAULT_START_COORDINATES)),
     zoom = ZOOM_NORWAY,
     maxFlightZoom = ZOOM_HALF_NORWAY,
-    maxDuration = 2500
+    maxDuration = MAX_FLY_TO_ANIMATION_SPEED
   } = options
   const oldCenter = map.getView().getCenter() ?? center
 
@@ -31,15 +32,15 @@ export function flyToAnimation(map: Map, options: MTFlightAnimationOptions): voi
     return
   }
 
-  let parts = 2
-  let called = false
+  let animationParts = 2
+  let done = false
   function callback(): void {
-    --parts
-    if (called) {
+    --animationParts
+    if (done) {
       return
     }
-    if (parts === 0) {
-      called = true
+    if (animationParts === 0) {
+      done = true
     }
   }
   map?.getView().animate(

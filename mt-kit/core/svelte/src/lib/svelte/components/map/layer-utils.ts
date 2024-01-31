@@ -12,7 +12,7 @@ import {
   DEFAULT_CLUSTER_RADIUS,
   DEFAULT_CLUSTER_SIZE_SCALE
 } from '../../../ts/mapUtils'
-import { addMarkersToSource, createMarkerStyle } from './marker'
+import { addMarkersToSource, createMarkerStyle, MARKER } from './marker'
 import { markers as svg, type MTClusterOptions, type MTMarker } from '../../../ts/index'
 
 export const LAYER_ID = 'layerId'
@@ -68,7 +68,7 @@ function createClusterStyle(feature: FeatureLike): Style | Array<Style> | void {
 }
 
 export function getClusterStyleFromMarkerStatus(feature: FeatureLike): Style {
-  const status = feature.get('marker').status
+  const status = feature.get(MARKER).status
   return createMarkerStyle({
     src: `data:image/svg+xml;utf8,${encodeURIComponent(svg.cluster[status] ?? svg.cluster.default)}`
   })
@@ -78,7 +78,7 @@ function hasSameMarkerStatus(features: Array<Feature>): boolean {
   let prevStatus: string | undefined
   for (const feature of features) {
     // @ts-ignore
-    const currStatus = feature.get('marker').status
+    const currStatus = feature.get(MARKER).status
     if (prevStatus && prevStatus !== currStatus) {
       return false
     }
