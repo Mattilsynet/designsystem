@@ -13,13 +13,7 @@ import {
   DEFAULT_CLUSTER_SIZE_SCALE
 } from '../../../ts/mapUtils'
 import { addMarkersToSource, createMarkerStyle } from './marker'
-import {
-  DEFAULT_MARKER_OPACITY,
-  DEFAULT_MARKER_SCALE,
-  markers as svg,
-  type MTClusterOptions,
-  type MTMarker
-} from '../../../ts/index'
+import { markers as svg, type MTClusterOptions, type MTMarker } from '../../../ts/index'
 
 export const LAYER_ID = 'layerId'
 export const VECTOR_LAYER_ID = 'clusterLayer'
@@ -61,29 +55,34 @@ function createClusterStyle(feature: FeatureLike): Style | Array<Style> | void {
 
   if (size <= 1) {
     return features?.[0]?.style_
-  } else if (hasSameStyle(features)) {
-    return [features[0].style_, createClusterSizeStyle(size)]
+  } else if (hasSameMarkerStatus(features)) {
+    return [getClusterStyleFromMarkerStatus(features[0]), createClusterSizeStyle(size)]
   } else {
     return [
       createMarkerStyle({
-        src: `data:image/svg+xml;utf8,${encodeURIComponent(svg.cluster)}`,
-        opacity: DEFAULT_MARKER_OPACITY,
-        scale: DEFAULT_MARKER_SCALE
+        src: `data:image/svg+xml;utf8,${encodeURIComponent(svg.cluster.default)}`
       }),
       createClusterSizeStyle(size)
     ]
   }
 }
 
-function hasSameStyle(features: Array<Feature>): boolean {
-  let prevIcon: string | undefined
+export function getClusterStyleFromMarkerStatus(feature: FeatureLike): Style {
+  const status = feature.get('marker').status
+  return createMarkerStyle({
+    src: `data:image/svg+xml;utf8,${encodeURIComponent(svg.cluster[status] ?? svg.cluster.default)}`
+  })
+}
+
+function hasSameMarkerStatus(features: Array<Feature>): boolean {
+  let prevStatus: string | undefined
   for (const feature of features) {
     // @ts-ignore
-    const currIcon = feature.style_?.image_?.iconImage_?.src_
-    if (prevIcon && prevIcon !== currIcon) {
+    const currStatus = feature.get('marker').status
+    if (prevStatus && prevStatus !== currStatus) {
       return false
     }
-    prevIcon = currIcon
+    prevStatus = currStatus
   }
   return true
 }
