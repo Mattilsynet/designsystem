@@ -3,8 +3,8 @@
   import { Map, Overlay, View } from 'ol'
   import { fromLonLat } from 'ol/proj'
   import type { Options } from 'ol/style/Icon'
-  import { createMarkerLayer, createClusterLayer } from './layer-utils'
-  import type { MTClusterOptions, MTAnimationOptions, MTMarker } from '$lib/ts'
+  import { createClusterLayer, createMarkerLayer } from './layer-utils'
+  import type { MTAnimationOptions, MTClusterOptions, MTMarker, MTPopupOptions } from '$lib/ts'
   import { addListeners, createTileLayer, toOLCoordinates, zoomAndClosePopup } from './utils'
   import {
     DEFAULT_OVERLAY_OFFSET,
@@ -27,9 +27,9 @@
   export let goToMapSkipLinkText = 'Gå til kart'
   export let clusterOptions: MTClusterOptions | undefined
   export let markerOptions: Options | undefined
-  export let popUpOptions = []
+  export let popUpOptions: Array<MTPopupOptions> = []
 
-  let map: Map | null = null
+  let map: Map | undefined
 
   export function resetZoom(): void {
     zoom({})
@@ -64,11 +64,11 @@
     }
 
     popUpOptions.forEach(opt => {
-      map.addOverlay(
+      map!.addOverlay(
         new Overlay({
           offset: DEFAULT_OVERLAY_OFFSET,
           positioning: opt.positioning,
-          element: document.getElementById(opt.elementId),
+          element: document.getElementById(opt.elementId) ?? undefined,
           id: opt.id
         })
       )

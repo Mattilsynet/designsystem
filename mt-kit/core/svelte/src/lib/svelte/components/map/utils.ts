@@ -23,6 +23,7 @@ import { LAYER_ID, VECTOR_LAYER_ID } from './layer-utils'
 import { prefersReducedMotion } from '../../../ts/utils'
 import { CLICK_POPUP_CLOSE_ID, setOverlayContent, setOverlayPosition } from './overlay'
 import { MARKER } from './marker'
+import { flyToAnimation } from '../../components/map/animations'
 
 interface CustomTileGrid {
   resolutions: Array<number>
@@ -53,24 +54,40 @@ export function zoomAndClosePopup(
   options: MTAnimationOptions,
   popUpOptions: Array<MTPopupOptions> = []
 ): void {
+  const {
+    zoom = ZOOM_NORWAY,
+    lat,
+    long,
+    duration = DEFAULT_ANIMATION_SPEED,
+    instantZoom,
+    flightAnimation = false,
+    ...rest
+  } = options
   popUpOptions.forEach(option => {
     setOverlayPosition(map, option.id, undefined)
   })
-  const { zoom, lat, long, duration, ...rest } = options
-  const isReduced = prefersReducedMotion()
+  const isReduced = instantZoom ?? prefersReducedMotion()
   const newCenter =
     lat && long
       ? fromLonLat(toOLCoordinates({ lat, long }))
       : fromLonLat(toOLCoordinates(DEFAULT_START_COORDINATES))
-  const newZoom = zoom ?? ZOOM_NORWAY
+
+  map.getView().cancelAnimations()
   if (isReduced) {
-    map?.getView().setCenter(newCenter)
-    map?.getView().setZoom(newZoom)
-  } else {
-    map?.getView().animate({
+    map.getView().setCenter(newCenter)
+    map.getView().setZoom(zoom)
+  } else if (flightAnimation) {
+    flyToAnimation(map, {
       center: newCenter,
-      zoom: newZoom,
-      duration: duration ?? DEFAULT_ANIMATION_SPEED,
+      zoom,
+      duration,
+      ...rest
+    })
+  } else {
+    map.getView().animate({
+      center: newCenter,
+      zoom,
+      duration,
       ...rest
     })
   }

@@ -138,7 +138,13 @@ export interface MusselMarker extends MTMarker {
   href: string
 }
 
-export type MTAnimationOptions = Omit<AnimationOptions, 'center'> & MTCoordinates
+export type MTAnimationOptions = Omit<AnimationOptions, 'center'> &
+  MTCoordinates & { instantZoom?: boolean; flightAnimation?: boolean } & MTFlightAnimationOptions
+
+export type MTFlightAnimationOptions = AnimationOptions & {
+  maxFlightZoom?: number
+  maxDuration?: number
+}
 
 export interface MTClusterOptions {
   distance: number

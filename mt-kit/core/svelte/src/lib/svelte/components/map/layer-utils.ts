@@ -1,5 +1,6 @@
 import VectorLayer from 'ol/layer/Vector'
 import VectorSource from 'ol/source/Vector'
+import type Feature from 'ol/Feature'
 import { type FeatureLike } from 'ol/Feature'
 import { Circle, Fill, Style, Text } from 'ol/style'
 import { Cluster } from 'ol/source'
@@ -11,14 +12,8 @@ import {
   DEFAULT_CLUSTER_RADIUS,
   DEFAULT_CLUSTER_SIZE_SCALE
 } from '../../../ts/mapUtils'
-import { addMarkersToSource, createMarkerStyle } from './marker'
-import {
-  type MTClusterOptions,
-  type MTMarker,
-  DEFAULT_MARKER_OPACITY,
-  DEFAULT_MARKER_SCALE,
-  markers as svg
-} from '../../../ts/index'
+import { addMarkersToSource, createMarkerStyle, MARKER } from './marker'
+import { markers as svg, type MTClusterOptions, type MTMarker } from '../../../ts/index'
 
 export const LAYER_ID = 'layerId'
 export const VECTOR_LAYER_ID = 'clusterLayer'
@@ -54,30 +49,42 @@ export function createMarkerLayer(
   })
 }
 
-function createClusterStyle(feature: FeatureLike): Style {
-  const styleCache = {}
+function createClusterStyle(feature: FeatureLike): Style | Array<Style> | void {
   const features = feature.get('features')
-
   const size = features.length
-  let style = styleCache[size]
-  if (size === 1) {
-    style = features[0].style_
-  } else if (size > 1) {
-    if (!style) {
-      style = [
-        createMarkerStyle({
-          src: `data:image/svg+xml;utf8,${encodeURIComponent(svg.cluster)}`,
-          opacity: DEFAULT_MARKER_OPACITY,
-          scale: DEFAULT_MARKER_SCALE
-        }),
-        createClusterSizeStyle(size)
-      ]
 
-      styleCache[size] = style
-    }
+  if (size <= 1) {
+    return features?.[0]?.style_
+  } else if (hasSameMarkerStatus(features)) {
+    return [getClusterStyleFromMarkerStatus(features[0]), createClusterSizeStyle(size)]
+  } else {
+    return [
+      createMarkerStyle({
+        src: `data:image/svg+xml;utf8,${encodeURIComponent(svg.cluster.default)}`
+      }),
+      createClusterSizeStyle(size)
+    ]
   }
+}
 
-  return style
+export function getClusterStyleFromMarkerStatus(feature: FeatureLike): Style {
+  const status = feature.get(MARKER).status
+  return createMarkerStyle({
+    src: `data:image/svg+xml;utf8,${encodeURIComponent(svg.cluster[status] ?? svg.cluster.default)}`
+  })
+}
+
+function hasSameMarkerStatus(features: Array<Feature>): boolean {
+  let prevStatus: string | undefined
+  for (const feature of features) {
+    // @ts-ignore
+    const currStatus = feature.get(MARKER).status
+    if (prevStatus && prevStatus !== currStatus) {
+      return false
+    }
+    prevStatus = currStatus
+  }
+  return true
 }
 
 function createClusterSizeStyle(size: number): Style {
@@ -101,11 +108,10 @@ function createClusterSizeStyle(size: number): Style {
   })
 }
 
-function createCluster(distance: number, minDistance: number, source: VectorSource) {
-  const clusterSource = new Cluster({
+function createCluster(distance: number, minDistance: number, source: VectorSource): Cluster {
+  return new Cluster({
     distance,
     minDistance,
     source: source
   })
-  return clusterSource
 }
