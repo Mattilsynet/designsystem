@@ -21,8 +21,6 @@ export function createClickMarkerContent(closeBtnLabel: string): (feature: Featu
 }
 
 export function setOverlayPosition(map: Map, overlayId: string, coordinate?: Coordinate): void {
-  // this.popup.nativeElement.innerHTML = '';
-  // this.popup.nativeElement.hidden = true;
   map.getOverlayById(overlayId).setPosition(coordinate)
 }
 
