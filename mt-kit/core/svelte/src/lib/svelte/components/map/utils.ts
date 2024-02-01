@@ -40,6 +40,10 @@ export function addListeners(map: Map, popupOptions: Array<MTPopupOptions>): voi
     }
     handleMarkerClusterClick(e)
   })
+
+  map.on('pointermove', event => {
+    handleMarkerHover(event, popupOptions)
+  })
 }
 
 export function zoomAndClosePopup(
@@ -119,6 +123,17 @@ function getLayerByLayerId(map: Map, layerId: string): Layer | undefined {
     return value === layerId
   })
   return layers
+}
+
+function handleMarkerHover(event: MapBrowserEvent<UIEvent>): void {
+  const feature = getFeature(event.map, event)
+  if (feature && feature.getGeometry()?.getType() === 'Point') {
+    event.map.getTargetElement().classList.add('cursor-pointer')
+  } else {
+    if (event.map.getTargetElement().classList.contains('cursor-pointer')) {
+      event.map.getTargetElement().classList.remove('cursor-pointer')
+    }
+  }
 }
 
 function handleMarkerClusterClick(event: MapBrowserEvent<UIEvent>): void {
