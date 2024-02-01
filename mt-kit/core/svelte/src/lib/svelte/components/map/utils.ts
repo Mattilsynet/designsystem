@@ -13,9 +13,7 @@ import {
   DEFAULT_ANIMATION_SPEED,
   DEFAULT_CLUSTER_FIT_PADDING,
   DEFAULT_START_COORDINATES,
-  HOVER_POPUP_OVERLAY,
   PROJECTION,
-  ZOOM_MUNICIPALITY,
   ZOOM_NORWAY
 } from '../../../ts/mapUtils'
 import { type Layer } from 'ol/layer'
@@ -41,11 +39,6 @@ export function addListeners(map: Map, popupOptions: Array<MTPopupOptions>): voi
       handleSingleMarkerClick(e, clickPopupOptions)
     }
     handleMarkerClusterClick(e)
-    closeHoverOverlay(e, popupOptions)
-  })
-
-  map.on('pointermove', event => {
-    handleMarkerHover(event, popupOptions)
   })
 }
 
@@ -119,38 +112,13 @@ export function createTileLayer(layer: string): TileLayer<WMTS> {
     })
   })
 }
-function closeHoverOverlay(e: MapBrowserEvent<UIEvent>, popupOptions: Array<MTPopupOptions>): void {
-  const hoverPopupOptions = popupOptions.find(pop => pop.id === HOVER_POPUP_OVERLAY)
-  if (hoverPopupOptions) {
-    setOverlayPosition(e.map, hoverPopupOptions.id, undefined)
-  }
-}
+
 function getLayerByLayerId(map: Map, layerId: string): Layer | undefined {
   const layers = map.getAllLayers().find(layer => {
     const value = layer.values_[LAYER_ID]
     return value === layerId
   })
   return layers
-}
-
-function handleMarkerHover(
-  event: MapBrowserEvent<UIEvent>,
-  popupOptions: Array<MTPopupOptions>
-): void {
-  const hoverPopupOptions = popupOptions.find(pop => {
-    return pop.id === HOVER_POPUP_OVERLAY
-  })
-  if (hoverPopupOptions) {
-    const feature = getFeature(event.map, event)
-    if (feature && feature.getGeometry()?.getType() === 'Point') {
-      if (event.map.getOverlayById(CLICK_POPUP_OVERLAY).getPosition() === undefined) {
-        setOverlayPosition(event.map, hoverPopupOptions.id, event.coordinate)
-        setOverlayContent(event.map, hoverPopupOptions.id, hoverPopupOptions.markerContent(feature))
-      }
-    } else {
-      setOverlayPosition(event.map, hoverPopupOptions.id, undefined)
-    }
-  }
 }
 
 function handleMarkerClusterClick(event: MapBrowserEvent<UIEvent>): void {
@@ -181,13 +149,6 @@ function handleSingleMarkerClick(
     const selectedFeatures = feature.get('features')
     if (selectedFeatures.length === 1) {
       const marker = selectedFeatures[0].get(MARKER)
-      if (event.map.getView().getZoom() < ZOOM_MUNICIPALITY) {
-        zoomAndClosePopup(event.map, {
-          long: marker.long,
-          lat: marker.lat,
-          zoom: ZOOM_MUNICIPALITY
-        })
-      }
 
       setOverlayPosition(event.map, clickPopupOptions.id, fromLonLat(toOLCoordinates(marker)))
       setOverlayContent(
