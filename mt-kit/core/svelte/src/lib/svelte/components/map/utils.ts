@@ -84,7 +84,7 @@ export function zoomPopup(map: Map, options: MTAnimationOptions): void {
   }
 }
 
-export function createTileLayer(layer: string): TileLayer<WMTS> {
+export function createTileLayer(layer: string, attributions: Array<string> = []): TileLayer<WMTS> {
   const projection = getProjection(PROJECTION)
 
   if (!projection) throw new Error('Projection not found')
@@ -95,7 +95,7 @@ export function createTileLayer(layer: string): TileLayer<WMTS> {
   return new TileLayer({
     opacity: 1,
     source: new WMTS({
-      attributions: '© Kartverket',
+      attributions: [...attributions, '© Kartverket'],
       url: `https://cache.kartverket.no/${layer}/v1/wmts/1.0.0/`,
       layer,
       matrixSet: 'googlemaps',

@@ -96,6 +96,12 @@
   .ol-control.ol-attribution {
     right: var(--distance-from-edge);
     bottom: var(--distance-from-bottom);
+    ul {
+      li {
+        display: list-item;
+        text-align: left;
+      }
+    }
   }
   .ol-control.geolocation-button {
     right: var(--distance-from-edge);
