@@ -32,7 +32,7 @@ $icon-button-border-radius: 0.25em;
   gap: var(--gap);
 
   // Visual
-  border-radius: 0.25em;
+  border-radius: $border-radius;
   background-color: var(--button-background);
   color: var(--button-color);
 
