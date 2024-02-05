@@ -9,8 +9,8 @@
     button[type='button'] {
       color: var(--button-border-color);
       outline: none;
-      border: $border-width-small solid var(--ol-subtle-foreground-color);
-      border-radius: 0;
+      border: $border-width-regular solid var(--ol-subtle-foreground-color);
+      border-radius: $border-radius;
       margin: 0;
       width: $button-min-width;
       height: $button-min-height;
@@ -26,6 +26,8 @@
       &.ol-zoom-in {
         position: relative;
         border-bottom: none;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
         &:focus {
           border: $border-width-large solid var(--ol-subtle-foreground-color);
           & + button {
@@ -38,10 +40,16 @@
       &.ol-zoom-out {
         --space-border: var(--spacer-xxx-small);
         border-top: none;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
 
         &:before {
           content: '';
-          width: calc(#{$button-min-width} - var(--space-border) - var(--space-border));
+          width: calc(
+            #{$button-min-width} - var(--border-width-regular) - var(--border-width-regular) - var(
+                --space-border
+              ) - var(--space-border)
+          );
           height: $border-width-small;
           background: var(--color-mt-granskog-dark);
           position: absolute;
