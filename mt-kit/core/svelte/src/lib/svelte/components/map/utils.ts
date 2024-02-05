@@ -46,11 +46,7 @@ export function addListeners(map: Map, popupOptions: Array<MTPopupOptions>): voi
   })
 }
 
-export function zoomAndClosePopup(
-  map: Map,
-  options: MTAnimationOptions,
-  popUpOptions: Array<MTPopupOptions> = []
-): void {
+export function zoomPopup(map: Map, options: MTAnimationOptions): void {
   const {
     zoom = ZOOM_NORWAY,
     lat,
@@ -60,9 +56,6 @@ export function zoomAndClosePopup(
     flightAnimation = false,
     ...rest
   } = options
-  popUpOptions.forEach(option => {
-    setOverlayPosition(map, option.id, undefined)
-  })
   const isReduced = instantZoom ?? prefersReducedMotion()
   const newCenter =
     lat && long

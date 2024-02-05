@@ -5,7 +5,7 @@
   import type { Options } from 'ol/style/Icon'
   import { createClusterLayer, createMarkerLayer } from './layer-utils'
   import type { MTAnimationOptions, MTClusterOptions, MTMarker, MTPopupOptions } from '$lib/ts'
-  import { addListeners, createTileLayer, toOLCoordinates, zoomAndClosePopup } from './utils'
+  import { addListeners, createTileLayer, toOLCoordinates, zoomPopup } from './utils'
   import {
     DEFAULT_OVERLAY_OFFSET,
     DEFAULT_START_COORDINATES,
@@ -37,7 +37,7 @@
 
   export function zoom(options: MTAnimationOptions): void {
     if (map) {
-      zoomAndClosePopup(map, options, popUpOptions)
+      zoomPopup(map, options)
     }
   }
 
