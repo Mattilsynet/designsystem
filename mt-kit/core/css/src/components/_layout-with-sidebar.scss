@@ -139,14 +139,14 @@ $chapter-button-menu-width: 25%;
     height: 3rem;
     transition: width 0.001s ease, height 0.001s ease;
 
-    &.extraHeight {
+    &.extra-height {
       height: $mobile-menu-extra-height;
 
       .mobile-menu {
         height: $mobile-menu-extra-height;
       }
     }
-    &.beFixed {
+    &.fixed {
       position: fixed;
     }
     &.expanded {
