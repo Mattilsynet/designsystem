@@ -52,10 +52,7 @@ export function addGeolocationListeners(geolocation: Geolocation, positionFeatur
     positionFeature.setGeometry(coordinates ? new Point(coordinates) : undefined)
   })
   geolocation.on('error', function (error) {
-    console.log('on error', error)
-    //     const info = document.getElementById('info')
-    //     info.innerHTML = error.message
-    //     info.style.display = ''
+    console.warn('Geolocation error', error)
   })
 }
 
