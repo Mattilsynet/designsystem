@@ -319,6 +319,7 @@
       markerContent: createClickMarkerContent('Lukk')
     }
   ]
+  const geolocationOptions = { label: 'Vis min lokasjon' }
 
   function handleReset() {
     if (map) {
@@ -341,6 +342,7 @@
   <Map
     class="mt-map-wrapper"
     bind:this={map}
+    {geolocationOptions}
     {markers}
     {markerOptions}
     {popUpOptions}

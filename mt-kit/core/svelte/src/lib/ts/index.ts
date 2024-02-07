@@ -13,6 +13,7 @@ export {
   type MTAnimationOptions,
   type MTPopupOptions,
   type MTClusterOptions,
+  type MTGeolocationOptions,
   type CountCharsParams,
   type CloseDialogEvent,
   type InputModeType,

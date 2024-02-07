@@ -16,6 +16,9 @@
     ZOOM_NORWAY
   } from '../../../ts/mapUtils'
   import { defaults } from 'ol/interaction'
+  import { createGeolocationControl } from './geolocation-control'
+  import { defaults as controlDefaults } from 'ol/control'
+  import type { MTGeolocationOptions } from '$lib/ts/types'
 
   let className = ''
   export { className as class }
@@ -28,6 +31,7 @@
   export let clusterOptions: MTClusterOptions | undefined
   export let markerOptions: Options | undefined
   export let popUpOptions: Array<MTPopupOptions> = []
+  export let geolocationOptions: MTGeolocationOptions | undefined = undefined
 
   let map: Map | undefined
 
@@ -52,11 +56,20 @@
       return createTileLayer(name)
     })
     map = new Map({
+      controls: [],
       target: mapId,
       layers,
       view: view,
       interactions: defaults({ onFocusOnly: true })
     })
+    if (geolocationOptions) {
+      map.addControl(createGeolocationControl(map, geolocationOptions))
+    }
+    // to have the correct DOM order for the controls
+    controlDefaults().forEach(control => {
+      map?.addControl(control)
+    })
+
     if (clusterOptions) {
       map.addLayer(createClusterLayer(markers, clusterOptions, markerOptions))
     } else {

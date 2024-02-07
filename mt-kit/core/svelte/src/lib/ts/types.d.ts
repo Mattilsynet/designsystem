@@ -150,6 +150,9 @@ export interface MTClusterOptions {
   distance: number
   minDistance: number
 }
+export interface MTGeolocationOptions {
+  label: string
+}
 
 export type MapOverLayIds = 'ClickPopupOverlay' | 'HoverPopupOverlay'
 

@@ -1,27 +1,41 @@
 @use '../utilities/mixins' as *;
 @use '../theme' as *;
+
+@mixin button-hover {
+  &:hover {
+    background-color: var(--mt-button-primary-bg-hover);
+    outline: none;
+  }
+}
+@mixin map-button {
+  width: $button-min-width;
+  height: $button-min-height;
+  border-radius: $border-radius;
+  background-color: var(--color-mt-white);
+  border: $border-width-regular solid var(--ol-subtle-foreground-color);
+}
+@mixin map-button-focus {
+  border: $border-width-large solid var(--ol-subtle-foreground-color);
+}
 // custom Openlayer style
 .ol-viewport {
   --button-border-color: var(--color-mt-granskog-dark);
   --ol-subtle-foreground-color: var(--color-mt-granskog-dark);
   --distance-from-edge: var(--spacer-xxx-small);
+
   .ol-control {
     button[type='button'] {
+      @include button-hover;
+      @include map-button;
       color: var(--button-border-color);
       outline: none;
-      border: $border-width-regular solid var(--ol-subtle-foreground-color);
-      border-radius: $border-radius;
+
       margin: 0;
-      width: $button-min-width;
-      height: $button-min-height;
       position: relative;
-      &:hover {
-        background-color: var(--mt-button-primary-bg-hover);
-        outline: none;
-      }
+
       &:focus,
       &:focus-visible {
-        border: $border-width-large solid var(--ol-subtle-foreground-color);
+        @include map-button-focus;
       }
       &.ol-zoom-in {
         position: relative;
@@ -29,7 +43,7 @@
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
         &:focus {
-          border: $border-width-large solid var(--ol-subtle-foreground-color);
+          @include map-button-focus;
           & + button {
             &:before {
               height: 0;
@@ -57,7 +71,7 @@
           left: var(--space-border);
         }
         &:focus {
-          border: $border-width-large solid var(--ol-subtle-foreground-color);
+          @include map-button-focus;
           &:before {
             width: $button-min-width;
             height: 0;
@@ -76,6 +90,13 @@
     right: var(--distance-from-edge);
     bottom: var(--distance-from-edge);
   }
+  .ol-control.geolocation-button {
+    right: var(--distance-from-edge);
+    bottom: calc(
+      var(--distance-from-edge) + (#{$button-min-height} * 3) + var(--spacer-xxx-small) +
+        var(--spacer-xxx-small)
+    );
+  }
 }
 
 // END custom Openlayer style
@@ -93,6 +114,45 @@
     color: var(--color-text);
     padding: var(--spacer-xxx-small);
     border-radius: $border-radius;
+  }
+  .mt-label.map-toggle-label {
+    @include button-hover;
+    @include map-button;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    svg {
+      width: 50%;
+      height: 50%;
+      #tracker-inner-circle {
+        fill: var(--color-mt-granskog-dark);
+      }
+      #tracker-outer-circle {
+        stroke: var(--color-mt-granskog-dark);
+      }
+    }
+  }
+  .mt-input.map-toggle-input {
+    position: absolute;
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0;
+    border: 0;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    &:checked + .mt-label.map-toggle-label {
+      svg {
+        #tracker-inner-circle {
+          fill: #3399cc; //geolocation marker color
+        }
+        #tracker-outer-circle {
+          stroke: #3399cc;
+        }
+      }
+    }
+    &:focus + .mt-label.map-toggle-label {
+      @include map-button-focus;
+    }
   }
 }
 

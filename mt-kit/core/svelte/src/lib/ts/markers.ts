@@ -22,5 +22,9 @@ export const markers = {
       '<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" fill="none"><circle cx="22" cy="22" r="21.5" fill="#fff" stroke="#054449"/><circle cx="22" cy="22" r="18" fill="#F1BE3C"/><path fill="#054449" d="M20.2 27.4h3.6V31h-3.6v-3.6Zm0-14.4h3.6v10.8h-3.6V13Z"/></svg>',
     danger:
       '<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" fill="none"><circle cx="22" cy="22" r="21.5" fill="#fff" stroke="#054449"/><circle cx="22" cy="22" r="18" fill="#92301C"/><g clip-path="url(#a)"><path fill="#fff" d="M29.2 16.6 23.8 22l5.4 5.4-1.8 1.8-5.4-5.4-5.4 5.4-1.8-1.8 5.4-5.4-5.4-5.4 1.8-1.8 5.4 5.4 5.4-5.4 1.8 1.8Z"/></g><defs><clipPath id="a"><path fill="#fff" d="M14.8 14.8h14.4v14.4H14.8z"/></clipPath></defs></svg>'
+  },
+  icon: {
+    geolocation:
+      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" fill="none"><circle id="tracker-outer-circle" cx="22" cy="22" r="19" fill="#fff" stroke-width="4" stroke="#054449"/><circle id="tracker-inner-circle" cx="22" cy="22" r="14" fill="#054449"/></svg>'
   }
 }
