@@ -1,9 +1,17 @@
 @use '../theme' as *;
-
+@mixin meta-common {
+  font-size: $font-size-small;
+  dt {
+    font-weight: $font-weight-normal;
+    &::after {
+      content: ':';
+    }
+  }
+}
 .mt-dl.meta {
+  @include meta-common;
   display: grid;
   grid-template-columns: auto 1fr;
-  font-size: $font-size-small;
   gap: var(--spacer-xxx-small);
 
   @media only screen and (min-width: $breakpoint-large) {
@@ -16,13 +24,9 @@
   }
 
   dt {
-    font-weight: $font-weight-normal;
     gap: 0;
     &::before {
       margin-right: $icon-gap;
-    }
-    &::after {
-      content: ':';
     }
   }
   dd {
@@ -32,5 +36,14 @@
     @media only screen and (min-width: $breakpoint-large) {
       margin-right: 0;
     }
+  }
+}
+.mt-dl.meta-rows {
+  @include meta-common;
+  display: block;
+  .mt-dt {
+    float: left;
+    clear: left;
+    margin-right: var(--spacer-xxx-small);
   }
 }
