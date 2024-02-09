@@ -136,7 +136,7 @@ $chapter-button-menu-width: 25%;
     top: 0;
     z-index: var(--z-index-dropdown);
     width: 100%;
-    height: 3rem;
+    height: $mobile-menu-height;
     transition: width 0.001s ease, height 0.001s ease;
 
     &.extra-height {
