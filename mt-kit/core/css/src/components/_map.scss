@@ -139,14 +139,29 @@
     overflow: hidden;
 
     &:focus + .mt-label.map-toggle-label {
-      @include map-button-focus;
+      --focus-width: #{$border-width-regular};
+      --focus-width-minus: calc(-1 * #{$border-width-regular});
+      --focus-color: var(--color-mt-granskog);
+      box-shadow:
+        inset var(--focus-width) var(--focus-width) var(--focus-color),
+        inset var(--focus-width) var(--focus-width-minus) var(--focus-color),
+        inset var(--focus-width-minus) var(--focus-width-minus) var(--focus-color),
+        inset var(--focus-width-minus) var(--focus-width) var(--focus-color);
     }
     &:checked {
       & + .mt-label.map-toggle-label {
+        @include map-button-hover;
         background-color: var(--map-button-color);
         svg {
           #tracker-icon {
             fill: var(--color-mt-white);
+          }
+        }
+        &:hover {
+          svg {
+            #tracker-icon {
+              fill: var(--color-mt-granskog);
+            }
           }
         }
       }
