@@ -37,6 +37,13 @@
         {@html intro}
       </div>
       <Published {publishFrom} {professionallyUpdated} />
+      <dl class="mt-dl meta-rows">
+        <dt class="mt-dt">Publisert</dt>
+        <dd class="mt-dd">01.02.2024</dd>
+        <dt class="mt-dt">Gjelder til og med</dt>
+        <dd class="mt-dd">01.02.2024</dd>
+      </dl>
+
       <hr />
       <h2 class="mt-h2">Faglig oppdatert er etter publisert</h2>
       <div class="intro">
