@@ -1,7 +1,7 @@
 @use '../utilities/mixins' as *;
 @use '../theme' as *;
 
-@mixin button-hover {
+@mixin map-button-hover {
   &:hover {
     background-color: var(--mt-button-primary-bg-hover);
     outline: none;
@@ -19,15 +19,15 @@
 }
 // custom Openlayer style
 .ol-viewport {
-  --button-border-color: var(--color-mt-granskog-dark);
-  --ol-subtle-foreground-color: var(--color-mt-granskog-dark);
+  --map-button-color: var(--color-mt-granskog);
+  --ol-subtle-foreground-color: var(--color-mt-granskog);
   --distance-from-edge: var(--spacer-xxx-small);
 
   .ol-control {
     button[type='button'] {
-      @include button-hover;
+      @include map-button-hover;
       @include map-button;
-      color: var(--button-border-color);
+      color: var(--map-button-color);
       outline: none;
 
       margin: 0;
@@ -65,7 +65,7 @@
               ) - var(--space-border)
           );
           height: $border-width-small;
-          background: var(--color-mt-granskog-dark);
+          background: var(--map-button-color);
           position: absolute;
           top: 0;
           left: var(--space-border);
@@ -116,7 +116,7 @@
     border-radius: $border-radius;
   }
   .mt-label.map-toggle-label {
-    @include button-hover;
+    @include map-button-hover;
     @include map-button;
     display: grid;
     align-items: center;
@@ -124,11 +124,8 @@
     svg {
       width: 50%;
       height: 50%;
-      #tracker-inner-circle {
-        fill: var(--color-mt-granskog-dark);
-      }
-      #tracker-outer-circle {
-        stroke: var(--color-mt-granskog-dark);
+      #tracker-icon {
+        fill: var(--map-button-color);
       }
     }
   }
@@ -140,18 +137,32 @@
     height: 1px;
     width: 1px;
     overflow: hidden;
-    &:checked + .mt-label.map-toggle-label {
-      svg {
-        #tracker-inner-circle {
-          fill: #3399cc; //geolocation marker color
-        }
-        #tracker-outer-circle {
-          stroke: #3399cc;
-        }
-      }
-    }
+
     &:focus + .mt-label.map-toggle-label {
       @include map-button-focus;
+    }
+    &:checked {
+      & + .mt-label.map-toggle-label {
+        background-color: var(--map-button-color);
+        svg {
+          #tracker-icon {
+            fill: var(--color-mt-white);
+          }
+        }
+      }
+      &:focus {
+        & + .mt-label.map-toggle-label {
+          --focus-width: calc(#{$border-width-large} - #{$border-width-small});
+          --focus-width-minus: calc(-1 * (#{$border-width-large} - #{$border-width-small}));
+          --focus-color: var(--color-mt-white);
+          box-shadow:
+            inset var(--focus-width) var(--focus-width) var(--focus-color),
+            inset var(--focus-width) var(--focus-width-minus) var(--focus-color),
+            inset var(--focus-width-minus) var(--focus-width-minus) var(--focus-color),
+            inset var(--focus-width-minus) var(--focus-width) var(--focus-color);
+          border-width: $border-width-small;
+        }
+      }
     }
   }
 }

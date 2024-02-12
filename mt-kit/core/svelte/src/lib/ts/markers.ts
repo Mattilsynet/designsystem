@@ -25,6 +25,6 @@ export const markers = {
   },
   icon: {
     geolocation:
-      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" fill="none"><circle id="tracker-outer-circle" cx="22" cy="22" r="19" fill="#fff" stroke-width="4" stroke="#054449"/><circle id="tracker-inner-circle" cx="22" cy="22" r="14" fill="#054449"/></svg>'
+      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22" fill="none"><path id="tracker-icon" fill="#054449" d="M14.946 11.027A3.942 3.942 0 0 1 11 14.966a3.95 3.95 0 0 1-3.946-3.94A3.95 3.95 0 0 1 11 7.087a3.95 3.95 0 0 1 3.946 3.94Zm7.043 1.059h-2.704c-.478 3.76-3.47 6.736-7.235 7.224V22H9.93v-2.69c-3.766-.477-6.747-3.464-7.235-7.224H0V9.967h2.705c.477-3.76 3.469-6.736 7.234-7.224V0h2.122v2.743c3.765.477 6.746 3.464 7.234 7.224H22v2.119h-.01Zm-4.752-1.06c0-3.442-2.8-6.238-6.248-6.238-3.447 0-6.247 2.796-6.247 6.239 0 3.442 2.8 6.238 6.247 6.238 3.448 0 6.248-2.796 6.248-6.239Z"/></svg>'
   }
 }
