@@ -67,12 +67,20 @@ export function addGeolocationListeners(
 
 export function addMyLocationFeature(): Feature {
   const positionFeature = new Feature()
-  positionFeature.setStyle(
+  positionFeature.setStyle([
     new Style({
       image: new CircleStyle({
-        radius: 8,
+        radius: 16,
         fill: new Fill({
-          color: '#3399CC'
+          color: 'rgba(71,159,222,0.3)'
+        })
+      })
+    }),
+    new Style({
+      image: new CircleStyle({
+        radius: 7,
+        fill: new Fill({
+          color: '#469DDD'
         }),
         stroke: new Stroke({
           color: '#fff',
@@ -80,6 +88,6 @@ export function addMyLocationFeature(): Feature {
         })
       })
     })
-  )
+  ])
   return positionFeature
 }
