@@ -6,6 +6,8 @@ import { type Geometry, Point } from 'ol/geom'
 import VectorLayer from 'ol/layer/Vector'
 import VectorSource from 'ol/source/Vector'
 import { LAYER_ID } from './layer-utils'
+import { zoomPopup } from './utils'
+import { ZOOM_NORWAY } from '../../../ts/index'
 
 export const GEOLOCATION_LAYER_ID = 'geolocationLayer'
 
@@ -19,7 +21,7 @@ export function setUpGeolocation(map: Map): {
   const feature = addMyLocationFeature()
   const coordinates = geolocation.getPosition()
   feature.setGeometry(coordinates ? new Point(coordinates) : undefined)
-  addGeolocationListeners(geolocation, feature)
+  addGeolocationListeners(geolocation, feature, map)
 
   const layer = new VectorLayer({
     source: new VectorSource({
@@ -42,7 +44,11 @@ export function getGeoLocation(view: View): Geolocation {
   })
 }
 
-export function addGeolocationListeners(geolocation: Geolocation, positionFeature: Feature): void {
+export function addGeolocationListeners(
+  geolocation: Geolocation,
+  positionFeature: Feature,
+  map: Map
+): void {
   geolocation.on('change', function () {
     const coordinates = geolocation.getPosition()
     positionFeature.setGeometry(coordinates ? new Point(coordinates) : undefined)
@@ -50,6 +56,9 @@ export function addGeolocationListeners(geolocation: Geolocation, positionFeatur
   geolocation.on('change:position', function () {
     const coordinates = geolocation.getPosition()
     positionFeature.setGeometry(coordinates ? new Point(coordinates) : undefined)
+    if (geolocation.getTracking()) {
+      zoomPopup(map, { zoom: map.getView().getZoom(), center: coordinates })
+    }
   })
   geolocation.on('error', function (error) {
     console.warn('Geolocation error', error)
