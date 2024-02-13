@@ -2,7 +2,6 @@
 @use '../global/icon' as *;
 @use '../color-tokens' as *;
 @use '../utilities/mixins' as *;
-@use '../utilities/layout' as *;
 
 $grid-1-col-width: calc((#{theme.$main-width}) / 12);
 $sidebar-width-expanded: calc((#{$grid-1-col-width}) * 5);
@@ -209,7 +208,7 @@ $chapter-button-menu-width: 25%;
         position: static;
         width: $width-sidebar-closed;
         overflow: visible;
-        height: 100%;
+        height: auto;
         transition: width 0.3s ease, height 0.3s ease;
 
         &.extraHeight {
