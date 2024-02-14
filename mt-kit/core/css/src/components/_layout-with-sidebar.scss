@@ -19,7 +19,9 @@ $chapter-button-menu-width: 25%;
 
   .mt-aside {
     background-color: var(--color-primary);
-    height: $mobile-menu-height;
+    //height: $mobile-menu-height;
+    //min-height: $mobile-menu-height;
+    max-height: 5rem;
   }
 }
 
@@ -28,7 +30,8 @@ $chapter-button-menu-width: 25%;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  height: $mobile-menu-height;
+  //height: $mobile-menu-height;
+  //height: auto;
   overflow: hidden;
   padding: var(--spacer-xxx-small) var(--spacer-xx-small);
   background-color: var(--color-primary);
@@ -135,22 +138,24 @@ $chapter-button-menu-width: 25%;
     top: 0;
     z-index: var(--z-index-dropdown);
     width: 100%;
-    height: $mobile-menu-height;
-    transition: width 0.001s ease, height 0.001s ease;
+    //height: $mobile-menu-height;
+    height: 5rem;
+    transition: width 0.001s ease, max-height 0.3s ease;
 
-    &.extra-height {
-      height: $mobile-menu-extra-height;
-
-      .mobile-menu {
-        height: $mobile-menu-extra-height;
-      }
-    }
+    //&.extra-height {
+    //  height: $mobile-menu-extra-height;
+    //
+    //  .mobile-menu {
+    //    height: $mobile-menu-extra-height;
+    //  }
+    //}
     &.fixed {
       position: fixed;
     }
     &.expanded {
       width: 100%;
       height: 100vh;
+      max-height: 100vh;
       overflow-y: auto;
     }
   }
@@ -208,16 +213,17 @@ $chapter-button-menu-width: 25%;
         position: static;
         width: $width-sidebar-closed;
         overflow: visible;
-        height: auto;
+        height: 100vh;
+        max-height: 100vh;
         transition: width 0.3s ease, height 0.3s ease;
 
-        &.extraHeight {
-          height: auto;
-        }
+        //&.extraHeight {
+        //  height: auto;
+        //}
 
         &.expanded {
           width: $width-sidebar-expanded;
-          height: auto;
+          height: 100vh;
         }
 
         .btn-open {
