@@ -10,7 +10,6 @@ $main-width-expanded: calc((#{$grid-1-col-width}) * 7);
 $width-sidebar-closed: 3.5rem; //56px;
 $width-sidebar-expanded: min(#{$sidebar-width-expanded}, 30rem);
 $mobile-menu-height: 4rem;
-$mobile-menu-extra-height: calc($mobile-menu-height + 2rem);
 $chapter-title-link-width: 75%;
 $chapter-button-menu-width: 25%;
 
@@ -142,13 +141,6 @@ $chapter-button-menu-width: 25%;
     height: 5rem;
     transition: width 0.001s ease, max-height 0.3s ease;
 
-    //&.extra-height {
-    //  height: $mobile-menu-extra-height;
-    //
-    //  .mobile-menu {
-    //    height: $mobile-menu-extra-height;
-    //  }
-    //}
     &.fixed {
       position: fixed;
     }
@@ -217,13 +209,9 @@ $chapter-button-menu-width: 25%;
         max-height: 100vh;
         transition: width 0.3s ease, height 0.3s ease;
 
-        //&.extraHeight {
-        //  height: auto;
-        //}
-
         &.expanded {
           width: $width-sidebar-expanded;
-          height: 100vh;
+          height: auto;
         }
 
         .btn-open {
