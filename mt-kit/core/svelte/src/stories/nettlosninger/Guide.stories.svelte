@@ -7,7 +7,7 @@
   import Disclosure from '../../lib/svelte/components/Disclosure.svelte'
 
   let chapters = [
-    { index: 0, url: '?kapittel=0-innledning', heading: 'Inneldning' },
+    { index: 0, url: '?kapittel=0-innledning', heading: 'Innledning' },
     { index: 1, url: '?kapittel=1-virkeomrde', heading: 'Virkeområde' },
     { index: 2, url: '?kapittel=2-definisjoner', heading: 'Definisjoner' },
     { index: 3, url: '?kapittel=3-forurrensning', heading: 'Forurensning' }
@@ -51,7 +51,7 @@
         body,
         subchapters: [
           {
-            heading: 'Påstanden skal ikke brukes slik at den villeder forbrukern (artikkle 3)',
+            heading: 'Påstanden skal ikke brukes slik at den villeder forbrukern (artikkel 3)',
             body,
             subchapters: [
               { heading: 'Under under kapitel', body },
@@ -181,7 +181,8 @@
     <aside class={`mt-aside ${isExpanded ? 'expanded' : ''}`}>
       {#if (!isMobile && isExpanded) || isMobile}
         <div class="mobile-menu">
-          <a on:click={handleClickClose} class="mt-link" href="#">Tittel på Veileder</a>
+          <a on:click={() => (isExpanded = false)} class="mt-link" href="#"
+            >{chapters[0].heading}</a>
           {#if isMobile || (!isMobile && isExpanded)}
             <button
               class="mt-button--unstyled show-menu icon--hamburger-menu-on-dark-before"
@@ -214,8 +215,7 @@
             {chapters}
             {showChapterNumbers}
             {currentChapterNumber}
-            menuTitle={'Innhold'}
-            basePath="/#" />
+            menuTitle={'Innhold'} />
         </div>
       {/if}
     </aside>
