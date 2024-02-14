@@ -1,7 +1,8 @@
+const successMarkerColor = '#539D82'
+
 export const markers = {
   info: '<svg xmlns="http://www.w3.org/2000/svg" width="44" height="55" fill="none"><path fill="#fff" stroke="#054" d="M6.803 7.03c8.395-8.707 22-8.707 30.394 0 8.404 8.717 8.404 22.857 0 31.574L22 54.282 6.803 38.604C-1.6 29.888-1.6 15.747 6.803 7.03Z"/><circle cx="22" cy="22" r="18" fill="#4F3521"/><path fill="#fff" d="M20.2 27.4h3.6V31h-3.6v-3.6Zm0-14.4h3.6v10.8h-3.6V13Z"/></svg>',
-  success:
-    '<svg xmlns="http://www.w3.org/2000/svg" width="44" height="55" fill="none"><path fill="#fff" stroke="#054" d="M6.803 7.03c8.395-8.707 22-8.707 30.394 0 8.404 8.717 8.404 22.857 0 31.574L22 54.282 6.803 38.604C-1.6 29.888-1.6 15.747 6.803 7.03Z"/><circle cx="22" cy="22" r="18" fill="#054449"/><path fill="#fff" d="M14.978 20.404 12.5 23.283l8.212 6.314L31.5 18.378l-2.608-2.292-8.162 9.003-5.752-4.685Z"/></svg>',
+  success: `<svg xmlns="http://www.w3.org/2000/svg" width="44" height="55" fill="none"><path fill="#fff" stroke="#054" d="M6.803 7.03c8.395-8.707 22-8.707 30.394 0 8.404 8.717 8.404 22.857 0 31.574L22 54.282 6.803 38.604C-1.6 29.888-1.6 15.747 6.803 7.03Z"/><circle cx="22" cy="22" r="18" fill="${successMarkerColor}"/><path fill="#fff" d="M14.978 20.404 12.5 23.283l8.212 6.314L31.5 18.378l-2.608-2.292-8.162 9.003-5.752-4.685Z"/></svg>`,
   neutral:
     '<svg xmlns="http://www.w3.org/2000/svg" width="44" height="55" fill="none"><path fill="#fff" stroke="#054" d="M6.803 7.03c8.395-8.707 22-8.707 30.394 0 8.404 8.717 8.404 22.857 0 31.574L22 54.282 6.803 38.604C-1.6 29.888-1.6 15.747 6.803 7.03Z"/><circle cx="22" cy="22" r="18" fill="#9ECCED"/><path fill="#054449" d="M23.8 17.77V31h-3.6V17.77h3.6Zm0-4.77v3.192h-3.6V13h3.6Z"/></svg>',
   warning:
@@ -14,8 +15,7 @@ export const markers = {
     default:
       '<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" fill="none"><circle cx="22" cy="22" r="21.5" fill="#fff" stroke="#054449"/><circle cx="22" cy="22" r="18" fill="#4F3521"/><path fill="#fff" d="M23.8 17.77V31h-3.6V17.77h3.6Zm0-4.77v3.192h-3.6V13h3.6Z"/></svg>',
     info: '<svg xmlns="http://www.w3.org/2000/svg" width="44" height="55" fill="none"><circle cx="22" cy="22" r="21.5" fill="#fff" stroke="#054449"/><circle cx="22" cy="22" r="18" fill="#4F3521"/><path fill="#fff" d="M20.2 27.4h3.6V31h-3.6v-3.6Zm0-14.4h3.6v10.8h-3.6V13Z"/></svg>',
-    success:
-      '<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" fill="none"><circle cx="22" cy="22" r="21.5" fill="#fff" stroke="#054449"/><circle cx="22" cy="22" r="18" fill="#054449"/><path fill="#fff" d="M14.978 20.404 12.5 23.283l8.212 6.314L31.5 18.378l-2.608-2.292-8.162 9.003-5.752-4.685Z"/></svg>',
+    success: `<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" fill="none"><circle cx="22" cy="22" r="21.5" fill="#fff" stroke="#054449"/><circle cx="22" cy="22" r="18" fill="${successMarkerColor}"/><path fill="#fff" d="M14.978 20.404 12.5 23.283l8.212 6.314L31.5 18.378l-2.608-2.292-8.162 9.003-5.752-4.685Z"/></svg>`,
     neutral:
       '<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" fill="none"><circle cx="22" cy="22" r="21.5" fill="#fff" stroke="#054449"/><circle cx="22" cy="22" r="18" fill="#9ECCED"/><path fill="#054449" d="M23.8 17.77V31h-3.6V17.77h3.6Zm0-4.77v3.192h-3.6V13h3.6Z"/></svg>',
     warning:
