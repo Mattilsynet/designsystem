@@ -53,7 +53,7 @@
   }
 </script>
 
-<fieldset class={`mt-fieldset layout-flex checkbox layout-flex-col ${className}`} style="--gap: 0">
+<fieldset class={`mt-fieldset checkbox layout-flex-col ${className}`} style="--gap: 0">
   <legend
     id="legend"
     class="mt-legend form-legend"
@@ -64,7 +64,7 @@
   {#if helpText}
     <p class="hint">{helpText}</p>
   {/if}
-  {#if hasJS && hasCheckAll || forceCheckAll}
+  {#if (hasJS && hasCheckAll) || forceCheckAll}
     <div class="form-control checkbox-subsets">
       <input
         id={options.key}
