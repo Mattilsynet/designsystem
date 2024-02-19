@@ -29,7 +29,7 @@
           {#if showChapterNumbers && chapterIndex > 0}
             {index + startIndex}.
           {/if}
-          {chapter.heading}
+          {@html chapter.heading}
         </a>
         <ChapterMenuSubChapter
           id={`${toKebabCase(chapter.heading)}-${index}`}
