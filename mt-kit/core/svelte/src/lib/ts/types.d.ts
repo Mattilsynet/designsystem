@@ -137,7 +137,13 @@ export interface MusselMarker extends MTMarker {
   municipality: string
   href: string
 }
-
+export interface MTActivateMapOptions {
+  label: string
+  labelActive: string
+  className?: string
+  labelId?: string
+  fullscreenClassName?: string
+}
 export type MTAnimationOptions = Omit<AnimationOptions, 'center'> &
   MTCoordinates & { instantZoom?: boolean; flightAnimation?: boolean } & MTFlightAnimationOptions
 

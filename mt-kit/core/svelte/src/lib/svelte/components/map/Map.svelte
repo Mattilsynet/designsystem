@@ -3,8 +3,17 @@
   import { Map, Overlay, View } from 'ol'
   import { fromLonLat } from 'ol/proj'
   import type { Options } from 'ol/style/Icon'
+  import { defaults as controlDefaults } from 'ol/control'
   import { createClusterLayer, createMarkerLayer } from './layer-utils'
-  import type { MTAnimationOptions, MTClusterOptions, MTMarker, MTPopupOptions } from '$lib/ts'
+  import { isMobileOrTablet } from '../../../ts/utils'
+  import type {
+    MTAnimationOptions,
+    MTClusterOptions,
+    MTMarker,
+    MTPopupOptions,
+    MTGeolocationOptions,
+    MTActivateMapOptions
+  } from '$lib/ts'
   import { addListeners, createTileLayer, toOLCoordinates, zoomPopup } from './utils'
   import {
     DEFAULT_OVERLAY_OFFSET,
@@ -15,10 +24,8 @@
     PROJECTION,
     ZOOM_NORWAY
   } from '../../../ts/mapUtils'
-  import { defaults } from 'ol/interaction'
   import { createGeolocationControl } from './geolocation-control'
-  import { defaults as controlDefaults } from 'ol/control'
-  import type { MTGeolocationOptions } from '$lib/ts/types'
+  import { createActivateMapControl } from './activate-map-control'
 
   let className = ''
   export { className as class }
@@ -32,6 +39,13 @@
   export let markerOptions: Options | undefined
   export let popUpOptions: Array<MTPopupOptions> = []
   export let geolocationOptions: MTGeolocationOptions | undefined = undefined
+  export let activateMapOptions: MTActivateMapOptions = {
+    label: 'Aktiver kart',
+    labelActive: 'Lukk kart',
+    labelId: 'activate-map-label',
+    className: 'activate-map',
+    fullscreenClassName: 'fullscreen'
+  }
 
   let map: Map | undefined
 
@@ -59,9 +73,12 @@
       controls: [],
       target: mapId,
       layers,
-      view: view,
-      interactions: defaults({ onFocusOnly: true })
+      view: view
     })
+    const is = isMobileOrTablet()
+    if (is) {
+      map.addControl(createActivateMapControl(map, activateMapOptions))
+    }
     if (geolocationOptions) {
       map.addControl(createGeolocationControl(map, geolocationOptions))
     }
