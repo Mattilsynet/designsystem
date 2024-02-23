@@ -1,0 +1,7 @@
+export const MARKERS_CONTEXT = 'Markers'
+export const MAP_CONTEXT = 'Map'
+export const LAYERS_CONTEXT = 'Layers'
+export const ACTIVATE_MAP_CONTEXT = 'ActivateMap'
+export const POPUP_CONTEXT = 'Popup'
+export const GEOLOCATION_CONTEXT = 'Geolocation'
+export const DEFAULT_CONTROLS = 'DefaultControls'
