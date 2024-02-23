@@ -5,7 +5,7 @@
   import Markers from '$lib/svelte/components/map/Markers.svelte'
   import DefaultControls from '../lib/svelte/components/map/DefaultControls.svelte'
   import ActivateMap from '../lib/svelte/components/map/ActivateMap.svelte'
-  import Geolocation from '../lib/svelte/components/map/Geolocation.svelte'
+  import GeolocationMap from '$lib/svelte/components/map/GeolocationMap.svelte'
   import PopupMap from '$lib/svelte/components/map/PopupsMap.svelte'
   import { markers as svg } from '../lib/ts/markers'
   import {
@@ -352,7 +352,7 @@
     ></KartverketLayers>
     <Markers {markers} {markerOptions} {clusterOptions}></Markers>
     <ActivateMap></ActivateMap>
-    <Geolocation {geolocationOptions}></Geolocation>
+    <GeolocationMap {geolocationOptions}></GeolocationMap>
     <DefaultControls></DefaultControls>
     <PopupMap slot="extra" {popUpOptions}></PopupMap>
   </Map>
