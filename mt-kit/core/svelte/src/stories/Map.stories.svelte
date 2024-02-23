@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Meta, Story } from '@storybook/addon-svelte-csf'
   import Map from '../lib/svelte/components/map/Map.svelte'
-  import Layers from '../lib/svelte/components/map/Layers.svelte'
+  import Layers from '$lib/svelte/components/map/KartverketLayers.svelte'
   import Markers from '../lib/svelte/components/map/Marker.svelte'
   import DefaultControls from '../lib/svelte/components/map/DefaultControls.svelte'
   import ActivateMap from '../lib/svelte/components/map/ActivateMap.svelte'
