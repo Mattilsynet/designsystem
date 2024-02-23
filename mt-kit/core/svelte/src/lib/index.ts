@@ -36,7 +36,12 @@ export { default as SummaryDetail } from './svelte/components/SummaryDetail.svel
 export { default as Tags } from './svelte/components/Tags.svelte'
 export { default as Table } from './svelte/components/Table.svelte'
 export { default as TableCol } from './svelte/components/TableCol.svelte'
+export { default as DefaultControls } from './svelte/components/map/DefaultControls.svelte'
+export { default as Geolocation } from './svelte/components/map/Geolocation.svelte'
+export { default as Layers } from './svelte/components/map/Layers.svelte'
 export { default as Map } from './svelte/components/map/Map.svelte'
+export { default as Marker } from './svelte/components/map/Marker.svelte'
+export { default as Popup } from './svelte/components/map/Popup.svelte'
 
 export { default as FactsQuestionsAnswers } from './svelte/content/FactsQuestionsAnswers.svelte'
 export { default as CurrentIssues } from './svelte/content/CurrentIssues.svelte'
