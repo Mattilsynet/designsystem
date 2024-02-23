@@ -1,11 +1,19 @@
 <script lang="ts">
   import { Meta, Story } from '@storybook/addon-svelte-csf'
   import Map from '../lib/svelte/components/map/Map.svelte'
+  import Layers from '../lib/svelte/components/map/Layers.svelte'
+  import Markers from '../lib/svelte/components/map/Marker.svelte'
+  import DefaultControls from '../lib/svelte/components/map/DefaultControls.svelte'
+  import ActivateMap from '../lib/svelte/components/map/ActivateMap.svelte'
+  import Geolocation from '../lib/svelte/components/map/Geolocation.svelte'
+  import Popup from '../lib/svelte/components/map/Popup.svelte'
   import { markers as svg } from '../lib/ts/markers'
   import {
     DEFAULT_CLUSTER_DISTANCE,
     DEFAULT_CLUSTER_MIN_DISTANCE,
-    DEFAULT_MARKER_SCALE
+    DEFAULT_MARKER_SCALE,
+    EUROPA_FORENKLET,
+    NORGES_GRUNNKART
   } from '../lib/ts/mapUtils'
   import { createClickMarkerContent } from '../lib/svelte/components/map/overlay'
   import { type MTPopupOptions } from '../lib/svelte/components/map/utils'
@@ -339,14 +347,13 @@
 
 <Story name="Normal" let:disableCss>
   <h1>Map</h1>
-  <Map
-    class="mt-map-wrapper"
-    bind:this={map}
-    {geolocationOptions}
-    {markers}
-    {markerOptions}
-    {popUpOptions}
-    {clusterOptions}>
+  <Map class="mt-map-wrapper" bind:this={map}>
+    <Layers kartverketLayerNames={[EUROPA_FORENKLET, NORGES_GRUNNKART]}></Layers>
+    <Markers {markers} {markerOptions} {clusterOptions}></Markers>
+    <ActivateMap></ActivateMap>
+    <Geolocation {geolocationOptions}></Geolocation>
+    <DefaultControls></DefaultControls>
+    <Popup slot="extra" {popUpOptions}></Popup>
   </Map>
   <button type="button" class="mt-button m-t-xxs" on:click={handleReset}>Reset zoom</button>
 </Story>
