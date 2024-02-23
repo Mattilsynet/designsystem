@@ -1,12 +1,12 @@
 <script lang="ts">
   import { Meta, Story } from '@storybook/addon-svelte-csf'
   import Map from '../lib/svelte/components/map/Map.svelte'
-  import KartverketLayers from '$lib/svelte/components/map/KartverketLayers.svelte'
-  import Markers from '$lib/svelte/components/map/Markers.svelte'
-  import DefaultControls from '$lib/svelte/components/map/DefaultControlsMap.svelte'
-  import ActivateMapControl from '$lib/svelte/components/map/ActivateMapControl.svelte'
-  import Geolocation from '$lib/svelte/components/map/Geolocation.svelte'
-  import Popup from '$lib/svelte/components/map/Popups.svelte'
+  import KartverketLayers from '../lib/svelte/components/map/KartverketLayers.svelte'
+  import Markers from '../lib/svelte/components/map/Markers.svelte'
+  import DefaultControls from '../lib/svelte/components/map/DefaultControls.svelte'
+  import ActivateMapControl from '../lib/svelte/components/map/ActivateMapControl.svelte'
+  import Geolocation from '../lib/svelte/components/map/Geolocation.svelte'
+  import Popup from '../lib/svelte/components/map/Popups.svelte'
   import { markers as svg } from '../lib/ts/markers'
   import {
     DEFAULT_CLUSTER_DISTANCE,
@@ -17,7 +17,7 @@
   } from '../lib/ts/mapUtils'
   import { createClickMarkerContent } from '../lib/svelte/components/map/overlay'
   import { type MTPopupOptions } from '../lib/svelte/components/map/utils'
-  import type { MusselMarker } from '$lib/ts/types'
+  import type { MTActivateMapOptions, MusselMarker } from '$lib/ts/types'
 
   let map
   let markers: Array<MusselMarker> = [
@@ -328,6 +328,13 @@
     }
   ]
   const geolocationOptions = { label: 'Vis min lokasjon' }
+  const activateMapOptions = {
+    label: 'Aktiver kart',
+    labelActive: 'Lukk kart',
+    labelId: 'activate-map-label',
+    className: 'activate-map',
+    fullscreenClassName: 'fullscreen'
+  }
 
   function handleReset() {
     if (map) {
@@ -351,7 +358,7 @@
     <KartverketLayers kartverketLayerNames={[EUROPA_FORENKLET, NORGES_GRUNNKART]}
     ></KartverketLayers>
     <Markers {markers} {markerOptions} {clusterOptions}></Markers>
-    <ActivateMapControl></ActivateMapControl>
+    <ActivateMapControl {activateMapOptions}></ActivateMapControl>
     <Geolocation {geolocationOptions}></Geolocation>
     <DefaultControls></DefaultControls>
     <Popup slot="extra" {popUpOptions}></Popup>

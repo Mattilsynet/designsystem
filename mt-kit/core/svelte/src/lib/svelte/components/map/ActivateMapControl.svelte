@@ -2,6 +2,8 @@
   import { getContext, onMount, setContext } from 'svelte'
   import { ACTIVATE_MAP_CONTEXT, MAP_CONTEXT } from './contexts'
   import { createActivateMapControl, type MTActivateMapOptions } from './activate-map-control'
+  import { isMobileOrTablet } from '../../../ts/utils'
+
   export let activateMapOptions: MTActivateMapOptions = {
     label: 'Aktiver kart',
     labelActive: 'Lukk kart',
@@ -16,10 +18,10 @@
   onMount(() => {
     console.log('layers', map)
     if (map) {
-      // const is = isMobileOrTablet()
-      // if (is) {
-      map.addControl(createActivateMapControl(map, activateMapOptions))
-      // }
+      const is = isMobileOrTablet()
+      if (is) {
+        map.addControl(createActivateMapControl(map, activateMapOptions))
+      }
     }
   })
 
