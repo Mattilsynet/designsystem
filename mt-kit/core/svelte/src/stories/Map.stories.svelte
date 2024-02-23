@@ -1,12 +1,12 @@
 <script lang="ts">
   import { Meta, Story } from '@storybook/addon-svelte-csf'
   import Map from '../lib/svelte/components/map/Map.svelte'
-  import Layers from '$lib/svelte/components/map/KartverketLayers.svelte'
+  import KartverketLayers from '$lib/svelte/components/map/KartverketLayers.svelte'
   import Markers from '$lib/svelte/components/map/Markers.svelte'
   import DefaultControls from '../lib/svelte/components/map/DefaultControls.svelte'
   import ActivateMap from '../lib/svelte/components/map/ActivateMap.svelte'
   import Geolocation from '../lib/svelte/components/map/Geolocation.svelte'
-  import Popup from '../lib/svelte/components/map/Popup.svelte'
+  import PopupMap from '$lib/svelte/components/map/PopupsMap.svelte'
   import { markers as svg } from '../lib/ts/markers'
   import {
     DEFAULT_CLUSTER_DISTANCE,
@@ -348,12 +348,13 @@
 <Story name="Normal" let:disableCss>
   <h1>Map</h1>
   <Map class="mt-map-wrapper" bind:this={map}>
-    <Layers kartverketLayerNames={[EUROPA_FORENKLET, NORGES_GRUNNKART]}></Layers>
+    <KartverketLayers kartverketLayerNames={[EUROPA_FORENKLET, NORGES_GRUNNKART]}
+    ></KartverketLayers>
     <Markers {markers} {markerOptions} {clusterOptions}></Markers>
     <ActivateMap></ActivateMap>
     <Geolocation {geolocationOptions}></Geolocation>
     <DefaultControls></DefaultControls>
-    <Popup slot="extra" {popUpOptions}></Popup>
+    <PopupMap slot="extra" {popUpOptions}></PopupMap>
   </Map>
   <button type="button" class="mt-button m-t-xxs" on:click={handleReset}>Reset zoom</button>
 </Story>
