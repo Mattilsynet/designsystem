@@ -40,7 +40,7 @@ export { default as DefaultControls } from './svelte/components/map/DefaultContr
 export { default as Geolocation } from './svelte/components/map/Geolocation.svelte'
 export { default as KartverketLayers } from './svelte/components/map/KartverketLayers.svelte'
 export { default as Map } from './svelte/components/map/Map.svelte'
-export { default as Marker } from './svelte/components/map/Marker.svelte'
+export { default as Markers } from './svelte/components/map/Markers.svelte'
 export { default as Popup } from './svelte/components/map/Popup.svelte'
 
 export { default as FactsQuestionsAnswers } from './svelte/content/FactsQuestionsAnswers.svelte'
