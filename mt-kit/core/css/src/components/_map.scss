@@ -17,11 +17,16 @@
 @mixin map-button-focus {
   border: $border-width-large solid var(--ol-subtle-foreground-color);
 }
+@mixin map-spacer-variables {
+  --distance-from-edge: var(--spacer-xxx-small);
+  --distance-from-bottom: var(--spacer-x-small);
+  --space-between-buttons: var(--spacer-xxx-small);
+}
 // custom Openlayer style
 .ol-viewport {
   --map-button-color: var(--color-mt-granskog);
   --ol-subtle-foreground-color: var(--color-mt-granskog);
-  --distance-from-edge: var(--spacer-xxx-small);
+  @include map-spacer-variables;
 
   .ol-control {
     button[type='button'] {
@@ -83,18 +88,20 @@
   .ol-control.ol-zoom {
     top: unset;
     left: unset;
-    bottom: calc(var(--distance-from-edge) + #{$button-min-height} + var(--spacer-xxx-small));
+    bottom: calc(
+      var(--distance-from-bottom) + #{$button-min-height} + var(--space-between-buttons)
+    );
     right: var(--distance-from-edge);
   }
   .ol-control.ol-attribution {
     right: var(--distance-from-edge);
-    bottom: var(--distance-from-edge);
+    bottom: var(--distance-from-bottom);
   }
   .ol-control.geolocation-button {
     right: var(--distance-from-edge);
     bottom: calc(
-      var(--distance-from-edge) + (#{$button-min-height} * 3) + var(--spacer-xxx-small) +
-        var(--spacer-xxx-small)
+      var(--distance-from-bottom) + (#{$button-min-height} * 3) + var(--space-between-buttons) +
+        var(--space-between-buttons)
     );
   }
 }
@@ -107,8 +114,20 @@
 }
 .mt-map {
   @include focus-outline();
+  @include map-spacer-variables;
   width: 100%;
   height: 100%;
+
+  &.fullscreen {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+  }
+
   .ol-popup {
     background-color: var(--color-mt-white);
     color: var(--color-text);
@@ -176,6 +195,27 @@
             inset var(--focus-width-minus) var(--focus-width-minus) var(--focus-color),
             inset var(--focus-width-minus) var(--focus-width) var(--focus-color);
           border-width: $border-width-small;
+        }
+      }
+    }
+  }
+  .map-activate-wrapper {
+    top: unset;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: var(--distance-from-bottom);
+
+    .mt-label.map-toggle-label {
+      width: fit-content;
+      padding: var(--spacer-xxx-small) var(--spacer-xx-small);
+      grid-template-columns: min-content auto;
+      line-height: inherit;
+    }
+
+    .mt-input.map-toggle-input {
+      &:checked {
+        & + .mt-label.map-toggle-label {
+          color: var(--color-mt-white);
         }
       }
     }

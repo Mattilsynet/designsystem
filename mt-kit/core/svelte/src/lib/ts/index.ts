@@ -11,6 +11,7 @@ export {
   type MTCoordinates,
   type MTMarker,
   type MTAnimationOptions,
+  type MTActivateMapOptions,
   type MTPopupOptions,
   type MTClusterOptions,
   type MTGeolocationOptions,
@@ -35,7 +36,8 @@ export {
   getFileExtension,
   interpolate,
   mapRelExternal,
-  prefersReducedMotion
+  prefersReducedMotion,
+  isMobileOrTablet
 } from './utils'
 export { markers } from '../ts/markers'
 export {

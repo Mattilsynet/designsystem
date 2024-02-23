@@ -22,6 +22,7 @@ import { prefersReducedMotion } from '../../../ts/utils'
 import { CLICK_POPUP_CLOSE_ID, setOverlayContent, setOverlayPosition } from './overlay'
 import { MARKER } from './marker'
 import { flyToAnimation } from '../../components/map/animations'
+import { toggleFullscreen } from './activate-map-control'
 
 interface CustomTileGrid {
   resolutions: Array<number>
@@ -175,13 +176,18 @@ function addCloseButtonListener(
   event: MapBrowserEvent<UIEvent>,
   clickPopupOptions: MTPopupOptions
 ): void {
-  const closeButton = event.map
-    .getOverlayById(CLICK_POPUP_OVERLAY)
-    .getElement()
-    ?.querySelector(`#${CLICK_POPUP_CLOSE_ID}`)
+  const element = event.map.getOverlayById(CLICK_POPUP_OVERLAY).getElement()
+
+  const closeButton = element?.querySelector(`#${CLICK_POPUP_CLOSE_ID}`)
+  const link = element?.querySelector(`.mt-link`)
   if (closeButton) {
     closeButton.addEventListener('click', () => {
       setOverlayPosition(event.map, clickPopupOptions.id, undefined)
+    })
+  }
+  if (link) {
+    link.addEventListener('click', () => {
+      toggleFullscreen(event.map, false)
     })
   }
 }
