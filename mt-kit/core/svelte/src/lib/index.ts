@@ -36,7 +36,13 @@ export { default as SummaryDetail } from './svelte/components/SummaryDetail.svel
 export { default as Tags } from './svelte/components/Tags.svelte'
 export { default as Table } from './svelte/components/Table.svelte'
 export { default as TableCol } from './svelte/components/TableCol.svelte'
+export { default as ActivateMapControl } from './svelte/components/map/ActivateMapControl.svelte'
+export { default as DefaultControlsMap } from './svelte/components/map/DefaultControls.svelte'
+export { default as GeolocationMap } from './svelte/components/map/Geolocation.svelte'
+export { default as KartverketLayersMap } from './svelte/components/map/KartverketLayers.svelte'
 export { default as Map } from './svelte/components/map/Map.svelte'
+export { default as MarkersMap } from './svelte/components/map/Markers.svelte'
+export { default as PopupMap } from './svelte/components/map/Popups.svelte'
 
 export { default as FactsQuestionsAnswers } from './svelte/content/FactsQuestionsAnswers.svelte'
 export { default as CurrentIssues } from './svelte/content/CurrentIssues.svelte'

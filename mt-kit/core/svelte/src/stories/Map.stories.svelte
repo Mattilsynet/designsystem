@@ -1,15 +1,23 @@
 <script lang="ts">
   import { Meta, Story } from '@storybook/addon-svelte-csf'
   import Map from '../lib/svelte/components/map/Map.svelte'
+  import KartverketLayers from '../lib/svelte/components/map/KartverketLayers.svelte'
+  import Markers from '../lib/svelte/components/map/Markers.svelte'
+  import DefaultControls from '../lib/svelte/components/map/DefaultControls.svelte'
+  import ActivateMapControl from '../lib/svelte/components/map/ActivateMapControl.svelte'
+  import Geolocation from '../lib/svelte/components/map/Geolocation.svelte'
+  import Popup from '../lib/svelte/components/map/Popups.svelte'
   import { markers as svg } from '../lib/ts/markers'
   import {
     DEFAULT_CLUSTER_DISTANCE,
     DEFAULT_CLUSTER_MIN_DISTANCE,
-    DEFAULT_MARKER_SCALE
+    DEFAULT_MARKER_SCALE,
+    EUROPA_FORENKLET,
+    NORGES_GRUNNKART
   } from '../lib/ts/mapUtils'
   import { createClickMarkerContent } from '../lib/svelte/components/map/overlay'
   import { type MTPopupOptions } from '../lib/svelte/components/map/utils'
-  import type { MusselMarker } from '$lib/ts/types'
+  import type { MTActivateMapOptions, MusselMarker } from '$lib/ts/types'
 
   let map
   let markers: Array<MusselMarker> = [
@@ -320,6 +328,13 @@
     }
   ]
   const geolocationOptions = { label: 'Vis min lokasjon' }
+  const activateMapOptions = {
+    label: 'Aktiver kart',
+    labelActive: 'Lukk kart',
+    labelId: 'activate-map-label',
+    className: 'activate-map',
+    fullscreenClassName: 'fullscreen'
+  }
 
   function handleReset() {
     if (map) {
@@ -339,14 +354,13 @@
 
 <Story name="Normal" let:disableCss>
   <h1>Map</h1>
-  <Map
-    class="mt-map-wrapper"
-    bind:this={map}
-    {geolocationOptions}
-    {markers}
-    {markerOptions}
-    {popUpOptions}
-    {clusterOptions}>
+  <Map class="mt-map-wrapper" bind:this={map}>
+    <KartverketLayers kartverketLayerNames={[EUROPA_FORENKLET, NORGES_GRUNNKART]} />
+    <Markers {markers} {markerOptions} {clusterOptions} />
+    <ActivateMapControl {activateMapOptions} />
+    <Geolocation {geolocationOptions} />
+    <DefaultControls />
+    <Popup slot="extra" {popUpOptions}></Popup>
   </Map>
   <button type="button" class="mt-button m-t-xxs" on:click={handleReset}>Reset zoom</button>
 </Story>

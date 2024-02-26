@@ -47,6 +47,8 @@ export {
   ZOOM_MUNICIPALITY,
   DEFAULT_START_COORDINATES,
   DEFAULT_CLUSTER_DISTANCE,
-  DEFAULT_CLUSTER_MIN_DISTANCE
+  DEFAULT_CLUSTER_MIN_DISTANCE,
+  EUROPA_FORENKLET,
+  NORGES_GRUNNKART
 } from '../ts/mapUtils'
 export { createClickMarkerContent } from '../svelte/components/map/overlay'
