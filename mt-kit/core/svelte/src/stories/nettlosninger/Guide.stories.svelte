@@ -180,7 +180,7 @@
   <div class="layout-with-sidebar has-js">
     <aside class={`mt-aside ${isExpanded ? 'expanded' : ''}`}>
       {#if (!isMobile && isExpanded) || isMobile}
-        <div class="mobile-menu">
+        <div class="mobile-menu" aria-expanded={isExpanded}>
           <a on:click={() => (isExpanded = false)} class="mt-link" href="#"
             >{chapters[0].heading}</a>
           {#if isMobile || (!isMobile && isExpanded)}
