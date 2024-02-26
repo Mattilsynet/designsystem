@@ -1,17 +1,16 @@
 <script lang="ts">
-  import { getContext, onDestroy, onMount, setContext } from 'svelte'
+  import { onDestroy, onMount, setContext } from 'svelte'
   import { defaults as controlDefaults } from 'ol/control'
-  import { DEFAULT_CONTROLS, MAP_CONTEXT } from './contexts'
+  import { DEFAULT_CONTROLS, getMap } from './contexts'
 
-  let { getMap } = getContext(MAP_CONTEXT)
   let map = getMap()
   let controls
 
   onMount(() => {
-    if (map) {
+    if ($map) {
       const defaults = controlDefaults()
       defaults.forEach(control => {
-        map?.addControl(control)
+        $map?.addControl(control)
       })
       controls = defaults
     }

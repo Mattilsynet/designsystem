@@ -2,7 +2,7 @@
   import 'ol/ol.css'
   import { Map, View } from 'ol'
   import { fromLonLat } from 'ol/proj'
-  import { onDestroy, onMount, setContext } from 'svelte'
+  import { onDestroy, onMount } from 'svelte'
   import type { MTAnimationOptions } from '$lib/ts'
   import { toOLCoordinates, zoomPopup } from './utils'
   import {
@@ -11,7 +11,7 @@
     PROJECTION,
     ZOOM_NORWAY
   } from '../../../ts/mapUtils'
-  import { MAP_CONTEXT } from './contexts'
+  import { setMap } from './contexts'
 
   let className = ''
   export { className as class }
@@ -46,14 +46,16 @@
       view: view
     })
   })
+
+  $: if (map) {
+    setMap(map)
+  }
+
   onDestroy(() => {
     if (map) {
       map = undefined
+      setMap(undefined)
     }
-  })
-
-  setContext(MAP_CONTEXT, {
-    getMap: () => map
   })
 </script>
 
