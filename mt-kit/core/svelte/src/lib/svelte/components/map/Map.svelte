@@ -19,7 +19,7 @@
   export let startCoordinates = DEFAULT_START_COORDINATES
   export let startZoom = ZOOM_NORWAY
   export let goToMapSkipLinkText = 'Gå til kart'
-  export let rotation = false
+  export let enableRotation = false
 
   let map: Map | undefined
   let mapElement
@@ -40,7 +40,7 @@
       zoom: startZoom,
       minZoom: MIN_ZOOM_DEFAULT,
       projection: PROJECTION,
-      enableRotation: rotation
+      enableRotation
     })
     map = new Map({
       controls: [],
