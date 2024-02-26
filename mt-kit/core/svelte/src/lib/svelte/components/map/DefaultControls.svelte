@@ -1,10 +1,11 @@
 <script lang="ts">
   import { onDestroy, onMount } from 'svelte'
-  import { defaults as controlDefaults } from 'ol/control'
-  import { getMap } from './contexts'
+  import { type Control, defaults as controlDefaults } from 'ol/control'
+  import { type Collection } from 'ol'
+  import { getMap, type MapContext } from './contexts'
 
-  let map = getMap()
-  let controls
+  let map: MapContext = getMap()
+  let controls: Collection<Control> | undefined = undefined
 
   onMount(() => {
     if ($map) {

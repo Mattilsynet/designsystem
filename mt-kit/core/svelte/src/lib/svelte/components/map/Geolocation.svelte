@@ -1,13 +1,14 @@
 <script lang="ts">
   import { onDestroy, onMount } from 'svelte'
-  import { getMap } from './contexts'
+  import type { Control } from 'ol/control'
+  import { getMap, type MapContext } from './contexts'
   import { createGeolocationControl } from './geolocation-control'
   import type { MTGeolocationOptions } from '$lib/ts'
 
   export let geolocationOptions: MTGeolocationOptions | undefined = undefined
 
-  let map = getMap()
-  let geolocationControl
+  let map: MapContext = getMap()
+  let geolocationControl: Control | undefined = undefined
 
   onMount(() => {
     if ($map && geolocationOptions) {

@@ -4,7 +4,7 @@ import { type Map } from 'ol'
 
 export const MAP_CONTEXT = 'Map'
 
-type MapContext = Writable<Map | undefined>
+export type MapContext = Writable<Map | undefined>
 
 export function setMap(map?: Map): void {
   const mapWritable = writable<Map>(map)

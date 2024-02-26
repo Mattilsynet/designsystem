@@ -3,13 +3,13 @@
   import type { MTPopupOptions } from '$lib/ts'
   import { Overlay } from 'ol'
   import { DEFAULT_OVERLAY_OFFSET } from '../../../ts/mapUtils'
-  import { getMap } from './contexts'
+  import { getMap, type MapContext } from './contexts'
   import { addListeners } from './utils'
 
   export let popUpOptions: Array<MTPopupOptions> = []
 
-  let map = getMap()
-  let overlays
+  let map: MapContext = getMap()
+  let overlays: Array<Overlay> | undefined = undefined
 
   onMount(() => {
     if ($map) {

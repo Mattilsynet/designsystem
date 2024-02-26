@@ -1,6 +1,7 @@
 <script lang="ts">
-  import { onMount } from 'svelte'
-  import { getMap } from './contexts'
+  import { onDestroy, onMount } from 'svelte'
+  import type { Control } from 'ol/control'
+  import { getMap, type MapContext } from './contexts'
   import { createActivateMapControl, type MTActivateMapOptions } from './activate-map-control'
   import { isMobileOrTablet } from '../../../ts/utils'
 
@@ -12,14 +13,23 @@
     fullscreenClassName: 'fullscreen'
   }
 
-  let map = getMap()
+  let map: MapContext = getMap()
+  let activateControl: Control | undefined = undefined
 
   onMount(() => {
     if ($map) {
       const is = isMobileOrTablet()
       if (is) {
-        $map.addControl(createActivateMapControl($map, activateMapOptions))
+        const control = createActivateMapControl($map, activateMapOptions)
+        activateControl = control
+        $map.addControl(control)
       }
+    }
+  })
+
+  onDestroy(() => {
+    if (activateControl) {
+      activateControl = undefined
     }
   })
 </script>
