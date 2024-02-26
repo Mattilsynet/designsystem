@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { onDestroy, onMount, setContext } from 'svelte'
+  import { onDestroy, onMount } from 'svelte'
   import type { Options } from 'ol/style/Icon'
   import type { MTClusterOptions, MTMarker } from '$lib/ts'
   import { createClusterLayer, createMarkerLayer } from './layer-utils'
-  import { getMap, MARKERS_CONTEXT } from './contexts'
+  import { getMap } from './contexts'
 
   export let markers: Array<MTMarker> = []
   export let markerOptions: Options | undefined
@@ -31,9 +31,5 @@
     if (marker) {
       marker = undefined
     }
-  })
-
-  setContext(MARKERS_CONTEXT, {
-    getMarkers: () => marker
   })
 </script>

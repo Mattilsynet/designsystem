@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { onDestroy, onMount, setContext } from 'svelte'
+  import { onDestroy, onMount } from 'svelte'
   import { defaults as controlDefaults } from 'ol/control'
-  import { DEFAULT_CONTROLS, getMap } from './contexts'
+  import { getMap } from './contexts'
 
   let map = getMap()
   let controls
@@ -19,9 +19,5 @@
     if (controls) {
       controls = undefined
     }
-  })
-
-  setContext(DEFAULT_CONTROLS, {
-    getControls: () => controls
   })
 </script>

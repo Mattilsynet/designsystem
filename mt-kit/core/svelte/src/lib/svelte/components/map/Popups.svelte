@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { onDestroy, onMount, setContext } from 'svelte'
+  import { onDestroy, onMount } from 'svelte'
   import type { MTPopupOptions } from '$lib/ts'
   import { Overlay } from 'ol'
   import { DEFAULT_OVERLAY_OFFSET } from '../../../ts/mapUtils'
-  import { getMap, POPUP_CONTEXT } from './contexts'
+  import { getMap } from './contexts'
   import { addListeners } from './utils'
 
   export let popUpOptions: Array<MTPopupOptions> = []
@@ -32,10 +32,6 @@
     if (overlays) {
       overlays = undefined
     }
-  })
-
-  setContext(POPUP_CONTEXT, {
-    getPopups: () => overlays
   })
 </script>
 

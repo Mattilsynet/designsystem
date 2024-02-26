@@ -1,9 +1,9 @@
 <script lang="ts">
   import { EUROPA_FORENKLET, NORGES_GRUNNKART } from '../../../ts/mapUtils'
-  import { onMount, setContext } from 'svelte'
+  import { onMount } from 'svelte'
   import { createTileLayer } from './utils'
   import type TileLayer from 'ol/layer/Tile'
-  import { LAYERS_CONTEXT, getMap } from './contexts'
+  import { getMap } from './contexts'
 
   export let kartverketLayerNames = [EUROPA_FORENKLET, NORGES_GRUNNKART]
 
@@ -18,9 +18,5 @@
         return layer
       })
     }
-  })
-
-  setContext(LAYERS_CONTEXT, {
-    getLayers: () => layers
   })
 </script>

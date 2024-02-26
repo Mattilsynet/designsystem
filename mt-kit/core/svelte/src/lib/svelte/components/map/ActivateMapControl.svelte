@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { onMount, setContext } from 'svelte'
-  import { ACTIVATE_MAP_CONTEXT, getMap } from './contexts'
+  import { onMount } from 'svelte'
+  import { getMap } from './contexts'
   import { createActivateMapControl, type MTActivateMapOptions } from './activate-map-control'
   import { isMobileOrTablet } from '../../../ts/utils'
 
@@ -22,6 +22,4 @@
       }
     }
   })
-
-  setContext(ACTIVATE_MAP_CONTEXT, {})
 </script>

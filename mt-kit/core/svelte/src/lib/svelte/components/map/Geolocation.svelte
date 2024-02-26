@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { onDestroy, onMount, setContext } from 'svelte'
-  import { GEOLOCATION_CONTEXT, getMap } from './contexts'
+  import { onDestroy, onMount } from 'svelte'
+  import { getMap } from './contexts'
   import { createGeolocationControl } from './geolocation-control'
   import type { MTGeolocationOptions } from '$lib/ts'
 
@@ -21,9 +21,5 @@
     if (geolocationControl) {
       geolocationControl = undefined
     }
-  })
-
-  setContext(GEOLOCATION_CONTEXT, {
-    getGeolocationControl: () => geolocationControl
   })
 </script>
