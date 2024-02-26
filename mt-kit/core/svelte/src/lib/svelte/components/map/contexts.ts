@@ -7,7 +7,7 @@ export const MAP_CONTEXT = 'Map'
 export type MapContext = Writable<Map | undefined>
 
 export function setMap(map?: Map): void {
-  const mapWritable = writable<Map>(map)
+  const mapWritable = writable<Map | undefined>(map)
   setContext(MAP_CONTEXT, mapWritable)
 }
 
