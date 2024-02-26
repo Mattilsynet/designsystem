@@ -4,6 +4,7 @@ export const ZOOM_HALF_NORWAY = 6
 export const ZOOM_NORWAY = 4
 export const ZOOM_REGION = 8
 export const MIN_ZOOM_DEFAULT = 3.7
+export const NORWAY_EXTENT = [-5000000, 6600000, 8000000, 13000000]
 export const PROJECTION = 'EPSG:3857'
 export const NORGES_GRUNNKART = 'norges_grunnkart'
 export const EUROPA_FORENKLET = 'europa_forenklet'
