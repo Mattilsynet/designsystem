@@ -36,6 +36,7 @@ export { default as SummaryDetail } from './svelte/components/SummaryDetail.svel
 export { default as Tags } from './svelte/components/Tags.svelte'
 export { default as Table } from './svelte/components/Table.svelte'
 export { default as TableCol } from './svelte/components/TableCol.svelte'
+export { default as ActivateMapControl } from './svelte/components/map/ActivateMapControl.svelte'
 export { default as DefaultControlsMap } from './svelte/components/map/DefaultControls.svelte'
 export { default as GeolocationMap } from './svelte/components/map/Geolocation.svelte'
 export { default as KartverketLayersMap } from './svelte/components/map/KartverketLayers.svelte'
