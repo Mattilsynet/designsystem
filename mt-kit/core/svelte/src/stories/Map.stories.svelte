@@ -335,6 +335,9 @@
     className: 'activate-map',
     fullscreenClassName: 'fullscreen'
   }
+  const attributions = [
+    'Klikk på markørene for å få mer informasjon om hvor det er trygt å spise skjell. Plukk skjell så nært som mulig stedene der det er trygt.'
+  ]
 
   function handleReset() {
     if (map) {
@@ -355,7 +358,7 @@
 <Story name="Normal" let:disableCss>
   <h1>Map</h1>
   <Map class="mt-map-wrapper" bind:this={map}>
-    <KartverketLayers kartverketLayerNames={[EUROPA_FORENKLET, NORGES_GRUNNKART]} />
+    <KartverketLayers kartverketLayerNames={[EUROPA_FORENKLET, NORGES_GRUNNKART]} {attributions} />
     <Markers {markers} {markerOptions} {clusterOptions} />
     <ActivateMapControl {activateMapOptions} />
     <Geolocation {geolocationOptions} />
