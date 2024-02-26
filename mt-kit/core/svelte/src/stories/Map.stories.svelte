@@ -355,12 +355,11 @@
 <Story name="Normal" let:disableCss>
   <h1>Map</h1>
   <Map class="mt-map-wrapper" bind:this={map}>
-    <KartverketLayers kartverketLayerNames={[EUROPA_FORENKLET, NORGES_GRUNNKART]}
-    ></KartverketLayers>
-    <Markers {markers} {markerOptions} {clusterOptions}></Markers>
-    <ActivateMapControl {activateMapOptions}></ActivateMapControl>
-    <Geolocation {geolocationOptions}></Geolocation>
-    <DefaultControls></DefaultControls>
+    <KartverketLayers kartverketLayerNames={[EUROPA_FORENKLET, NORGES_GRUNNKART]} />
+    <Markers {markers} {markerOptions} {clusterOptions} />
+    <ActivateMapControl {activateMapOptions} />
+    <Geolocation {geolocationOptions} />
+    <DefaultControls />
     <Popup slot="extra" {popUpOptions}></Popup>
   </Map>
   <button type="button" class="mt-button m-t-xxs" on:click={handleReset}>Reset zoom</button>
