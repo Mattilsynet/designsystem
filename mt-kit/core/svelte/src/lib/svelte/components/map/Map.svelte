@@ -54,14 +54,13 @@
   onDestroy(() => {
     if (map) {
       map = undefined
-      setMap(undefined)
     }
   })
 </script>
 
 <div class={className}>
   <a class="mt-link map-skiplink" href="#{mapId}">{goToMapSkipLinkText}</a>
-  <div id={mapId} class="mt-map" tabindex="0" bind:this={mapElement}>
+  <div id={mapId} class="mt-map" tabindex="0" bind:this={mapElement} data-testid={mapId}>
     {#if map}
       <slot />
     {/if}
