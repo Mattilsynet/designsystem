@@ -8,6 +8,7 @@
   import {
     DEFAULT_START_COORDINATES,
     MIN_ZOOM_DEFAULT,
+    NORWAY_EXTENT,
     PROJECTION,
     ZOOM_NORWAY
   } from '../../../ts/mapUtils'
@@ -20,6 +21,7 @@
   export let startZoom = ZOOM_NORWAY
   export let goToMapSkipLinkText = 'Gå til kart'
   export let enableRotation = false
+  export let extent = NORWAY_EXTENT
 
   let map: Map | undefined
   let mapElement
@@ -40,7 +42,8 @@
       zoom: startZoom,
       minZoom: MIN_ZOOM_DEFAULT,
       projection: PROJECTION,
-      enableRotation
+      enableRotation,
+      extent
     })
     map = new Map({
       controls: [],
