@@ -9,7 +9,12 @@
 
   onMount(() => {
     if ($map) {
-      const defaults = controlDefaults({ rotate: $map.getView()?.getProperties()?.enableRotation })
+      const defaults = controlDefaults({
+        rotate: $map.getView()?.getProperties()?.enableRotation,
+        attributionOptions: {
+          collapsible: false
+        }
+      })
       defaults.forEach(control => {
         $map?.addControl(control)
       })
