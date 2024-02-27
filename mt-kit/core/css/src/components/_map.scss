@@ -88,14 +88,12 @@
   .ol-control.ol-zoom {
     top: unset;
     left: unset;
-    bottom: calc(
-      var(--distance-from-bottom) + #{$button-min-height} + var(--space-between-buttons)
-    );
+    bottom: calc(var(--distance-from-bottom) + var(--space-between-buttons));
     right: var(--distance-from-edge);
   }
   .ol-control.ol-attribution {
-    right: var(--distance-from-edge);
-    bottom: var(--distance-from-bottom);
+    right: 0;
+    bottom: 0;
     ul {
       li {
         display: list-item;
@@ -106,7 +104,7 @@
   .ol-control.geolocation-button {
     right: var(--distance-from-edge);
     bottom: calc(
-      var(--distance-from-bottom) + (#{$button-min-height} * 3) + var(--space-between-buttons) +
+      var(--distance-from-bottom) + (#{$button-min-height} * 2) + var(--space-between-buttons) +
         var(--space-between-buttons)
     );
   }
@@ -182,13 +180,6 @@
             fill: var(--color-mt-white);
           }
         }
-        &:hover {
-          svg {
-            #tracker-icon {
-              fill: var(--color-mt-granskog);
-            }
-          }
-        }
       }
       &:focus {
         & + .mt-label.map-toggle-label {
@@ -201,6 +192,29 @@
             inset var(--focus-width-minus) var(--focus-width-minus) var(--focus-color),
             inset var(--focus-width-minus) var(--focus-width) var(--focus-color);
           border-width: $border-width-small;
+        }
+      }
+    }
+  }
+  .ol-control.geolocation-button {
+    .mt-input.map-toggle-input + .mt-label.map-toggle-label {
+      &:hover {
+        background-color: var(--mt-button-primary-bg-focus);
+        svg {
+          #tracker-icon {
+            fill: var(--color-mt-white);
+          }
+        }
+      }
+
+      @media only screen and (min-width: $breakpoint-large) {
+        &:hover {
+          background-color: var(--mt-button-primary-bg-hover);
+          svg {
+            #tracker-icon {
+              fill: var(--color-mt-granskog);
+            }
+          }
         }
       }
     }
@@ -222,6 +236,10 @@
       &:checked {
         & + .mt-label.map-toggle-label {
           color: var(--color-mt-white);
+          &:hover {
+            background-color: var(--mt-button-primary-bg-focus);
+            color: var(--color-mt-white);
+          }
         }
       }
     }
