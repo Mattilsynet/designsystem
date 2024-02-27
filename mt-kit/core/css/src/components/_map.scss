@@ -236,10 +236,23 @@
       &:checked {
         & + .mt-label.map-toggle-label {
           color: var(--color-mt-white);
-          &:hover {
-            background-color: var(--mt-button-primary-bg-focus);
-            color: var(--color-mt-white);
+          &:before {
+            background-image: var(--icon-collapse-white);
           }
+          &:hover {
+            &:before {
+              background-image: var(--icon-collapse-white);
+            }
+          }
+        }
+      }
+      & + .mt-label.map-toggle-label {
+        &:hover {
+          &:before {
+            background-image: var(--icon-expand-white);
+          }
+          background-color: var(--mt-button-primary-bg-focus);
+          color: var(--color-mt-white);
         }
       }
     }
