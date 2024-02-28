@@ -4,11 +4,15 @@
 
 .status {
   border: $border-width-small solid var(--color-mt-brown);
+  border-radius: $border-radius;
   display: grid;
   padding: var(--spacer-x-small);
   grid-template-columns: minmax(0, min-content) auto;
   grid-template-areas: 'icon heading' 'text text' 'actions actions' 'link link' 'date date';
 
+  &--no-border {
+    border: none;
+  }
   h1,
   h2,
   h3,
