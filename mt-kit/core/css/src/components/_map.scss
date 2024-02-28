@@ -197,12 +197,26 @@
     }
   }
   .ol-control.geolocation-button {
-    .mt-input.map-toggle-input + .mt-label.map-toggle-label {
-      &:hover {
-        background-color: var(--mt-button-primary-bg-focus);
-        svg {
-          #tracker-icon {
-            fill: var(--color-mt-white);
+    .mt-input.map-toggle-input {
+      &:checked {
+        & + .mt-label.map-toggle-label {
+          &:hover {
+            background-color: var(--mt-button-primary-bg-focus);
+            svg {
+              #tracker-icon {
+                fill: var(--color-mt-white);
+              }
+            }
+          }
+        }
+      }
+      & + .mt-label.map-toggle-label {
+        &:hover {
+          background-color: var(--color-mt-white);
+          svg {
+            #tracker-icon {
+              fill: var(--color-mt-granskog);
+            }
           }
         }
       }
