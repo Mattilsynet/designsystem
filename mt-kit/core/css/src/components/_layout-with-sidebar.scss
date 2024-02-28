@@ -1,6 +1,7 @@
 @use '../theme';
 @use '../global/icon' as *;
 @use '../color-tokens' as *;
+@use '../utilities/mixins' as *;
 
 $grid-1-col-width: calc((#{theme.$main-width}) / 12);
 $sidebar-width-expanded: calc((#{$grid-1-col-width}) * 5);
@@ -8,60 +9,89 @@ $main-width-expanded: calc((#{$grid-1-col-width}) * 7);
 
 $width-sidebar-closed: 3.5rem; //56px;
 $width-sidebar-expanded: min(#{$sidebar-width-expanded}, 30rem);
-$mobile-menu-height: 3rem;
+$chapter-title-link-width: 75%;
+$chapter-button-menu-width: 25%;
 
-.mt-aside {
-  background-color: var(--color-primary);
-  color: white;
+.layout-with-sidebar {
+  position: relative;
+
+  .mt-aside {
+    background-color: var(--color-primary);
+    height: auto;
+  }
 }
 
 .mobile-menu {
   display: flex;
   flex-direction: row;
-  height: $mobile-menu-height;
+  align-items: center;
+  gap: var(--spacer-xxx-small);
+  justify-content: space-between;
   overflow: hidden;
-  transition: height 0.3s ease;
-  border-top: theme.$border-width-large solid var(--color-primary);
-  border-bottom: theme.$border-width-large solid var(--color-primary);
-  position: sticky;
-  top: 0;
+  padding: var(--spacer-xxx-small) var(--spacer-xx-small);
+  background-color: var(--color-primary);
+  width: 100%;
 
-  button {
-    padding-inline: var(--spacer-xx-small);
+  &.no-js {
+    padding: var(--spacer-xxx-small) var(--spacer-xx-small);
+  }
+
+  .mt-link {
+    @include focus-outline();
+    @include disabled;
+    color: var(--color-mt-white);
+    width: $chapter-title-link-width;
     font-size: theme.$font-size-small;
-    line-height: theme.$font-size-small;
+    line-height: 140%;
+  }
+
+  &[aria-expanded='true'] {
+    background-color: var(--chapter-menu-active-on-dark);
+    color: var(--color-primary);
+
+    .mt-link {
+      color: var(--color-primary);
+    }
+  }
+
+  .mt-button--unstyled {
+    height: theme.$button-min-height;
+    width: $chapter-button-menu-width;
+    align-items: center;
+    justify-content: flex-end;
 
     &.show-menu {
       background-color: var(--color-primary);
-      color: white;
-      width: 100%;
-      margin-right: 0;
       border: theme.$border-width-regular solid transparent;
+
       &:focus {
         border: theme.$border-width-regular solid var(--body-background);
       }
+
       &[aria-expanded='true'] {
         background-color: var(--chapter-menu-active-on-dark);
         color: var(--color-primary);
-        border: theme.$border-width-regular solid var(--chapter-menu-active-on-dark);
-        &:focus {
-          border: theme.$border-width-regular solid var(--body-background);
-        }
       }
     }
   }
 }
+
 .no-js.layout-with-sidebar {
   .mt-aside {
-    margin-top: -0.6rem;
-    .aside-header {
-      h2 {
-        padding-top: var(--spacer-xx-small);
+    position: relative;
+    height: auto;
+
+    .mobile-menu {
+      padding: var(--spacer-xxx-small) var(--spacer-xx-small);
+      .mt-link {
+        width: 100%;
       }
     }
   }
 }
+
 .layout-with-sidebar {
+
   .disclosure {
     .disclosure-header,
     .disclosure-panel {
@@ -69,11 +99,13 @@ $mobile-menu-height: 3rem;
       display: grid;
       grid-template-columns: repeat(12, 1fr);
     }
+
     .disclosure-header {
       > .title {
         grid-column: 1 / span 11;
       }
     }
+
     .disclosure-panel {
       > *:not(.disclosure) {
         grid-column: 1 / span 12;
@@ -84,25 +116,20 @@ $mobile-menu-height: 3rem;
 
 // mobile layout
 .has-js.layout-with-sidebar {
-  .mt-aside {
-    top: $mobile-menu-height;
-    position: sticky;
-    width: 5.8125rem;
-    height: 0;
-    overflow: hidden;
-    transition: width 0.001s ease, height 0.001s ease, top 0.001s ease;
 
+  .mt-aside {
+    position: sticky;
+    top: 0;
+    z-index: var(--z-index-dropdown);
+    width: 100%;
+
+    &.fixed {
+      position: fixed;
+    }
     &.expanded {
       width: 100%;
       height: 100vh;
-      overflow-y: scroll;
-      z-index: var(--z-index-dropdown);
-    }
-
-    .aside-header {
-      button {
-        display: none;
-      }
+      overflow-y: auto;
     }
   }
 }
@@ -117,27 +144,27 @@ $mobile-menu-height: 3rem;
         grid-column: 3 / span 8;
       }
     }
-    &.no-js {
-      .mt-aside {
-        margin-top: -1.25rem;
-      }
-    }
+
     &.has-js {
       .mt-aside {
-        top: $mobile-menu-height;
+        position: initial;
       }
     }
+
     //level 1
     .in-other-content {
-      > h1 {
+      > .mt-h1 {
         display: grid;
+
         &.heading-with-chapter {
           grid-column: 1 / span 12;
           grid-template-columns: repeat(12, 1fr);
+
           > .chapter-number {
             margin-left: var(--chapter-indent);
             grid-column: 1 / span 2;
           }
+
           > .title {
             grid-column: 3 / span 8;
           }
@@ -149,56 +176,37 @@ $mobile-menu-height: 3rem;
 
 // Desktop
 @media screen and (min-width: theme.$breakpoint-xx-large) {
-  .mobile-menu {
-    height: 0;
-    width: 0;
-  }
   .layout-with-sidebar {
+    position: relative;
+
     &.has-js {
       .mt-aside {
-        transition: width 0.3s ease, height 0.3s ease, top 0.3s ease;
-        .mt-button--unstyled {
+        top: 0;
+        left: 0;
+        position: static;
+        width: $width-sidebar-closed;
+        overflow: visible;
+        height: auto;
+        transition: width 0.3s ease;
+
+        &.expanded {
+          width: $width-sidebar-expanded;
+          height: auto;
+        }
+
+        .btn-open {
           border: theme.$border-width-large solid transparent;
-          &:focus {
-            border: theme.$border-width-large solid var(--mt-button-no-primary-border-focus-shadow);
-            box-shadow: none;
-          }
-        }
-        .aside-header {
-          position: relative;
-          button {
-            display: block;
-            position: absolute;
-            top: var(--spacer-xx-small);
-            right: var(--spacer-xx-small);
-          }
+            &:focus {
+              border: theme.$border-width-large solid var(--mt-button-no-primary-border-focus-shadow);
+              box-shadow: none;
+            }
         }
       }
     }
-    &.no-js {
-      aside {
-        margin-top: 0;
-      }
-    }
+
     &.has-js,
     &.no-js {
       display: flex;
-
-      .mt-aside {
-        position: static;
-        overflow: visible;
-        top: 0;
-        height: auto;
-      }
-
-      .mt-aside.expanded {
-        width: $width-sidebar-expanded;
-        height: auto;
-      }
-
-      .mt-aside:not(.expanded) {
-        width: $width-sidebar-closed;
-      }
     }
   }
   .container {
@@ -214,15 +222,19 @@ $mobile-menu-height: 3rem;
     }
   }
 }
+
 //extra large desktop
 @media screen and (min-width: theme.$breakpoint-xxx-large) {
   .layout-with-sidebar {
     --content-col: 3 / span 8;
+
     .container {
       width: theme.$main-width;
+
       .chapter-navigation.col-3-span-8 {
         grid-column: var(--content-col);
       }
+
       &.menu-is-expanded {
         --chapter-indent: var(--spacer-xx-large);
 
@@ -255,16 +267,15 @@ $mobile-menu-height: 3rem;
   .has-js.layout-with-sidebar {
     display: flex;
     flex-direction: column;
+
     .mt-aside {
       position: initial;
       background-color: transparent;
       color: var(--color-mt-text-dark);
+
       a {
         color: var(--color-mt-text-dark);
       }
-    }
-    .mobile-menu {
-      display: none;
     }
   }
 }

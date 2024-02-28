@@ -7,7 +7,7 @@
   import Disclosure from '../../lib/svelte/components/Disclosure.svelte'
 
   let chapters = [
-    { index: 0, url: '?kapittel=0-innledning', heading: 'Inneldning' },
+    { index: 0, url: '?kapittel=0-innledning', heading: 'Innledning' },
     { index: 1, url: '?kapittel=1-virkeomrde', heading: 'Virkeområde' },
     { index: 2, url: '?kapittel=2-definisjoner', heading: 'Definisjoner' },
     { index: 3, url: '?kapittel=3-forurrensning', heading: 'Forurensning' }
@@ -16,6 +16,9 @@
   let chapterChangeAction = action('chapterChange')
   let currentChapterNumber = 0
   let isExpanded = false
+  let BREAKPOINT_XL = 1200
+  let innerWidth = window?.innerWidth
+  $: isMobile = innerWidth <= BREAKPOINT_XL
 
   function resolveChapterQueryParams(chapter) {
     return `?kapittel=${chapter.index}-${toKebabCase(chapter.heading)}`
@@ -48,7 +51,7 @@
         body,
         subchapters: [
           {
-            heading: 'Påstanden skal ikke brukes slik at den villeder forbrukern (artikkle 3)',
+            heading: 'Påstanden skal ikke brukes slik at den villeder forbrukern (artikkel 3)',
             body,
             subchapters: [
               { heading: 'Under under kapitel', body },
@@ -119,10 +122,12 @@
     disableJs: { control: 'boolean' }
   }} />
 
+<svelte:window bind:innerWidth />
+
 <Story name="Normal" let:showChapterNumbers let:menu let:disableJs let:chapters>
   <header class="mt-header">
     <div class="container mt-header-wrapper mt-header-wrapper--regular">
-      <a class="mt-link" href="https://mattilsynet.no/">
+      <a class="mt-link fit-content" href="https://mattilsynet.no/">
         <svg viewBox="0 0 184 36" fill="none" xmlns="http://www.w3.org/2000/svg">
           <title>Gå til forsiden</title>
           <path
@@ -163,27 +168,31 @@
       <Dropdown
         title="Språk/language"
         loadJs={!disableJs}
-        class="mt-button__small-text responsive-hide"
+        class="dropdown mt-button__small-text responsive-hide"
         let:titleId />
       <Dropdown
         title={menu.title}
-        class="mt-button__small-text full-menu"
+        class="dropdown mt-button__small-text full-menu"
         loadJs={!disableJs}
         let:titleId />
     </div>
   </header>
   <div class="layout-with-sidebar has-js">
-    <div class="mobile-menu">
-      <button
-        class="mt-button--unstyled show-menu icon icon--hamburger-menu-before"
-        aria-haspopup="true"
-        aria-expanded={isExpanded}
-        on:click={handleClickClose}>
-        Innhold på denne siden
-      </button>
-    </div>
     <aside class={`mt-aside ${isExpanded ? 'expanded' : ''}`}>
-      {#if !isExpanded}
+      {#if (!isMobile && isExpanded) || isMobile}
+        <div class="mobile-menu" aria-expanded={isExpanded}>
+          <a on:click={() => (isExpanded = false)} class="mt-link" href="#"
+            >{chapters[0].heading}</a>
+          {#if isMobile || (!isMobile && isExpanded)}
+            <button
+              class="mt-button--unstyled show-menu icon--hamburger-menu-on-dark-before"
+              aria-haspopup="true"
+              aria-expanded={isExpanded}
+              on:click={handleClickClose} />
+          {/if}
+        </div>
+      {/if}
+      {#if !isMobile && !isExpanded}
         <button class="mt-button--unstyled btn-open" on:click={handleClickClose}>
           <svg
             width="20"
@@ -194,28 +203,23 @@
             <path
               d="M9.99996 0.158691L8.26544 1.89321L15.1297 8.7698H0.158691V11.2301H15.1297L8.26544 18.1067L9.99996 19.8412L19.8412 9.99996L9.99996 0.158691Z"
               fill="#F9F6F1" />
+            <title>Open</title>
           </svg>
-          <div class="closed-label">Innhold på denne siden</div>
+          <span class="closed-label">Innhold</span>
         </button>
-      {:else}
-        <div class="aside-header">
-          <button class="mt-button--unstyled float-right m-r-0" on:click={handleClickClose}>
-            <svg width="21.307" height="21.213" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <title>Close</title>
-              <path stroke="#fff" stroke-width="2" d="M20.6.707.801 20.506M20.506 20.506.707.707" />
-            </svg>
-          </button>
-        </div>
+      {/if}
+
+      {#if isExpanded}
         <div class="guide-menu">
           <ChapterMenu
             {chapters}
             {showChapterNumbers}
             {currentChapterNumber}
-            menuTitle={'Innhold'}
-            basePath="/#" />
+            menuTitle={'Innhold'} />
         </div>
       {/if}
     </aside>
+
     <div class="container content {isExpanded ? 'menu-is-expanded' : ''}">
       <main id="main" class="mt-main">
         <div data-portal-region="main">

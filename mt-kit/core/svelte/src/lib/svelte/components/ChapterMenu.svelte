@@ -21,7 +21,7 @@
   <ol class="mt-ol m-t-xxs list-unstyled">
     {#each chapters as chapter, index}
       {@const chapterIndex = index + startIndex}
-      <li class="chapter-menu--chapter-wrapper">
+      <li class="mt-li chapter-menu--chapter-wrapper">
         <a
           on:click|preventDefault={dispatch('chapterChange', { index: chapter.index })}
           href={chapter.url}
