@@ -41,7 +41,7 @@ $chapter-button-menu-width: 25%;
     @include disabled;
     color: var(--color-mt-white);
     width: $chapter-title-link-width;
-    font-size: theme.$font-size-small;
+    font-size: theme.$font-size-h4;
     line-height: 140%;
   }
 
