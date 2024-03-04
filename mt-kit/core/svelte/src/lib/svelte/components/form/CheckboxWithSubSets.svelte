@@ -53,7 +53,9 @@
   }
 </script>
 
-<fieldset class={`mt-fieldset checkbox layout-flex-col ${className}`} style="--gap: 0">
+<fieldset
+  class={`mt-fieldset checkbox layout-flex-col layout-flex-col--no-wrap ${className}`}
+  style="--gap: 0">
   <legend
     id="legend"
     class="mt-legend form-legend"
