@@ -13,6 +13,10 @@
   export let ariaControls: string | undefined = undefined
   export let ariaRemoveTextLabel = 'Tøm'
   export let inputClass = ''
+
+  let className = ''
+  export { className as class }
+
   let isInitialized = false
   let className = ''
   export { className as class }
