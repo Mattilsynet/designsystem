@@ -7,7 +7,7 @@
   import { wrapInShadowDom } from './storybook-utils/utils'
 
   const chapterChangeAction = action('chapterChange')
-  let currentChapterNumber = 0
+  let currentChapterNumber = 1
 
   function chapterChange(e) {
     e.preventDefault()
@@ -50,7 +50,10 @@
       { index: 0, url: '', heading: 'Formål' },
       { index: 1, url: '', heading: 'Virkeområde' },
       { index: 2, url: '', heading: 'Definisjoner av dyr og dyrehold' },
-      { index: 3, url: '', heading: 'Forurensning av vann' }
+      { index: 3, url: '', heading: 'Forurensning av vann' },
+      { index: 4, url: '', heading: 'Kapittel 4' },
+      { index: 5, url: '', heading: 'Kapittel 5' },
+      { index: 6, url: '', heading: 'Kapittel 6' }
     ],
     smallLinks: [
       {

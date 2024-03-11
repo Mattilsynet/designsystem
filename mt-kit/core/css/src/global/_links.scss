@@ -32,13 +32,6 @@ $transportlink-colors: 'error' !default;
     box-shadow: $focus-box-shadow-no-outline;
   }
 
-  &.multi-line {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    line-height: 140%;
-  }
-
   &.no-underline {
     text-decoration: none;
     &.hover-indent {
@@ -170,7 +163,6 @@ $transportlink-colors: 'error' !default;
     &:after {
       content: var(--icon-arrow-right-primary-x-small);
       display: inline-block;
-      margin-left: var(--spacer-xxx-small);
     }
   }
   .previous-link,
@@ -182,7 +174,6 @@ $transportlink-colors: 'error' !default;
     &:before {
       content: var(--icon-arrow-left-primary-x-small);
       display: inline-block;
-      margin-right: var(--spacer-xxx-small);
     }
   }
 
