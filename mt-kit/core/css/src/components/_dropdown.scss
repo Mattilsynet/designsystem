@@ -6,7 +6,6 @@
 @use '../global/links' as *;
 
 .dropdown {
-  --background-color: var(--color-primary);
   $color: $color-mt-background;
   margin: var(--spacer-xx-small);
   text-align: right;
