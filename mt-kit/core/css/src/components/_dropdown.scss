@@ -223,6 +223,11 @@
       min-width: 20rem;
     }
   }
+  &--quick-search {
+    .dropdown-content {
+      background-color: var(--color-mt-white);
+    }
+  }
 }
 
 .alt-language {
