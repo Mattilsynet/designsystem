@@ -1,16 +1,20 @@
 <script lang="ts">
   import type { Chapter, ChapterChangeDetails } from '../../ts/types'
   import { createEventDispatcher } from 'svelte'
-
-  export let showChapterNumber = false
+  import { interpolate } from '../../../../.svelte-kit/__package__/ts/utils'
   export let nextText = ''
   export let previousText = ''
+  export let paginationLabel = 'Pagination'
+  export let labelPage = 'Side'
+  export let toPageTitle = 'Gå til side {0}'
   export let chapters: Array<Chapter> = []
   export let currentChapterIndex: 0 | 1 = 0
   export let startIndex = 0
   let className = ''
   export { className as class }
-
+  $: {
+    console.log(currentChapterIndex)
+  }
   $: nextChapterIndex = currentChapterIndex + 1
   $: nextChapterNumber = nextChapterIndex + startIndex
   $: nextChapter = chapters[nextChapterIndex]
@@ -27,31 +31,51 @@
   }
 
   const dispatch = createEventDispatcher<{ chapterChange: ChapterChangeDetails }>()
+  function handleClick(index: number): void {
+    dispatch('chapterChange', { index: index })
+  }
 </script>
 
 {#if chapters.length > 1}
-  <nav class="chapter-navigation {className}">
-    <a
-      href={nextChapter ? nextChapter.url : undefined}
-      on:click|preventDefault={dispatch('chapterChange', { index: nextChapterIndex })}
-      class="multi-line text-align-right {!hasNextChapter(currentChapterIndex)
-        ? 'inclusively-hidden-initial'
-        : ''}"
-      aria-disabled={!hasNextChapter(currentChapterIndex)}>
-      <span class="next-link">{nextText}</span>
-      {showChapterNumber ? `${nextChapterNumber}.` : ''}
-      {nextChapter ? nextChapter.heading : ''}
-    </a>
-    <a
-      href={previousChapter ? previousChapter.url : undefined}
-      class="multi-line {!hasPreviousChapter(currentChapterIndex)
-        ? 'inclusively-hidden-initial'
-        : ''}"
-      on:click|preventDefault={dispatch('chapterChange', { index: previousChapterIndex })}
-      aria-disabled={!hasPreviousChapter(currentChapterIndex)}>
-      <span class="previous-link">{previousText}</span>
-      {showChapterNumber ? `${previousChapterNumber}.` : ''}
-      {previousChapter ? previousChapter.heading : ''}
-    </a>
+  <nav class="chapter-navigation {className}" aria-label={paginationLabel}>
+    <ul class="mt-ul list-unstyled">
+      <li
+        class="mt-li {!hasPreviousChapter(currentChapterIndex)
+          ? 'inclusively-hidden-initial'
+          : ''}">
+        <a
+          href={previousChapter ? previousChapter.url : undefined}
+          class="mt-link previous-link"
+          title={previousText}
+          aria-label={previousText}
+          on:click|preventDefault={() => handleClick(previousChapterIndex)}
+          aria-disabled={!hasPreviousChapter(currentChapterIndex)}>
+        </a>
+      </li>
+      {#each chapters as chapter, index}
+        <li class="mt-li">
+          <a
+            href={chapter.url}
+            class="mt-link"
+            title={interpolate(toPageTitle, [index + 1])}
+            aria-current={index === currentChapterIndex ? 'page' : undefined}
+            on:click|preventDefault={() => handleClick(index)}>
+            <span class="inclusively-hidden-initial">{labelPage}</span>
+            {index + 1}
+          </a>
+        </li>
+      {/each}
+      <li class="mt-li {!hasNextChapter(currentChapterIndex) ? 'inclusively-hidden-initial' : ''}">
+        <a
+          href={nextChapter ? nextChapter.url : undefined}
+          on:click|preventDefault={() => handleClick(nextChapterIndex)}
+          title={nextText}
+          aria-label={nextText}
+          class="mt-link next-link"
+          aria-disabled={!hasNextChapter(currentChapterIndex)}>
+          <span class="next-link"></span>
+        </a>
+      </li>
+    </ul>
   </nav>
 {/if}
