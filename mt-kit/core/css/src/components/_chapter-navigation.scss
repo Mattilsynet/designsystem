@@ -1,51 +1,36 @@
 @use '../theme' as *;
 @use '../global/links' as *;
-@use '../utilities/mixins' as *;
 
 .chapter-navigation {
-  .mt-ul {
-    display: flex;
-    justify-content: center;
-    gap: var(--spacer-xxx-small);
-    .mt-li {
-      margin-top: var(--spacer-xx-small);
-      .mt-link {
-        @include focus-outline();
-        border-radius: 50%;
-        min-width: $button-min-width;
-        height: $button-min-height;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  gap: var(--spacer-small);
 
-        &.next-link,
-        &.previous-link {
-          background-color: transparent;
-          border-color: var(--mt-buttonpricolor-mt-granskog);
-          color: var(--color-mt-white);
-          &:hover {
-            background-color: var(--mt-button-primary-bg-hover);
-            color: var(--mt-button-primary-color-hover);
-            border-color: var(--mt-button-primary-border-hover);
-          }
-        }
-        &[aria-current='page'] {
-          background-color: var(--mt-button-primary-bg);
-          border-color: var(--mt-buttonpricolor-mt-granskog);
-          color: var(--color-mt-white);
-          &:hover {
-            background-color: var(--mt-button-primary-bg-hover);
-            color: var(--mt-button-primary-color-hover);
-            border-color: var(--mt-button-primary-border-hover);
-          }
-        }
-      }
-    }
-  }
   &--bottom {
     margin-top: var(--spacer-medium);
     margin-bottom: var(--spacer-medium);
     border-top: $border-width-small solid var(--chapter-navigation-border);
+  }
+
+  a {
+    @extend .mt-link;
+    text-decoration: none;
+    font-size: $font-size-small;
+    margin-top: var(--spacer-xxx-small);
+
+    flex: 1 1 min-content;
+    @media only screen and (min-width: $breakpoint-large) {
+      flex: initial;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+    span {
+      font-weight: $font-weight-bold;
+    }
   }
 }
 @media print {
