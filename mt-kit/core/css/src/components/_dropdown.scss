@@ -134,7 +134,6 @@
       &[aria-expanded]::after,
       > .mt-summary::after {
         @include icon-background;
-        background-image: var(--icon-hamburger);
       }
 
       &[open] > .mt-summary::after,

@@ -49,19 +49,4 @@
       z-index: 2;
     }
   }
-
-  &.layout-grid {
-
-    .search-wrap-inner {
-      grid-column: span 10;
-    }
-
-    @media only screen and (min-width: $breakpoint-x-large) {
-
-      .search-wrap-inner {
-        grid-column: 3 / span 6;
-      }
-    }
-
-  }
 }
