@@ -14,9 +14,6 @@
   export let ariaRemoveTextLabel = 'Tøm'
   export let inputClass = ''
 
-  let className = ''
-  export { className as class }
-
   let isInitialized = false
   let className = ''
   export { className as class }
@@ -41,7 +38,7 @@
   </div>
 {/if}
 
-<div class="search-wrap {className}">
+<div class="search-wrap">
   <div class="search-wrap-inner">
     <input
       id={name}
