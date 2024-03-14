@@ -41,6 +41,10 @@ export interface Chapter {
   index: number
   subChapters: Array<Chapter>
 }
+export interface Page {
+  url: string
+  index: number
+}
 
 export interface ChapterChangeDetails {
   index: number
