@@ -32,6 +32,7 @@ export { default as HeadingLevel } from './svelte/components/HeadingLevel.svelte
 export { default as Link } from './svelte/components/Link.svelte'
 export { default as Notice } from './svelte/components/Notice.svelte'
 export { default as Published } from './svelte/components/Published.svelte'
+export { default as Pagination } from './svelte/components/pagination/Pagination.svelte'
 export { default as SummaryDetail } from './svelte/components/SummaryDetail.svelte'
 export { default as Tags } from './svelte/components/Tags.svelte'
 export { default as Table } from './svelte/components/Table.svelte'
