@@ -54,10 +54,10 @@
     width: 0;
     top: 0;
     padding: 4.125rem var(--spacer-xx-small) var(--spacer-xx-small);
-    background-color: var(--dropdown-content-bg);
+    background-color: var(--color-mt-white);
     z-index: var(--z-index-feedback);
     right: 0;
-    border: $border-width-regular solid var(--color-mt-blue);
+    border-top: $border-width-regular solid var(--color-mt-beige-50);
 
     > .mt-button {
       color: transparent;
@@ -221,11 +221,6 @@
   @media only screen and (min-width: $breakpoint-large) {
     .dropdown-content {
       min-width: 20rem;
-    }
-  }
-  &--quick-search {
-    .dropdown-content {
-      background-color: var(--color-mt-white);
     }
   }
 }
