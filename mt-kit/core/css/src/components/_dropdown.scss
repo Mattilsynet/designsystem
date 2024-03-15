@@ -89,7 +89,6 @@
     padding: 0.1875rem;
     position: relative;
     z-index: 0;
-    margin-bottom: $border-width-large;
 
     &[aria-expanded]::after,
     &::after {
