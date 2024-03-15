@@ -54,10 +54,10 @@
     width: 0;
     top: 0;
     padding: 4.125rem var(--spacer-xx-small) var(--spacer-xx-small);
-    background-color: var(--dropdown-content-bg);
+    background-color: var(--color-mt-white);
     z-index: var(--z-index-feedback);
     right: 0;
-    border: $border-width-regular solid var(--color-mt-blue);
+    border-top: $border-width-small solid var(--color-mt-mellombeige);
 
     > .mt-button {
       color: transparent;
@@ -134,7 +134,6 @@
       &[aria-expanded]::after,
       > .mt-summary::after {
         @include icon-background;
-        background-image: var(--icon-hamburger);
       }
 
       &[open] > .mt-summary::after,
