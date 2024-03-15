@@ -2,8 +2,8 @@
   import { Meta, Story } from '@storybook/addon-svelte-csf'
   import Dropdown from '../lib/svelte/components/Dropdown.svelte'
   import MenuItems from '../lib/svelte/content/MenuItems.svelte'
+  import Search from '../lib/svelte/components/form/Search.svelte'
   import { wrapInShadowDom } from './storybook-utils/utils'
-  import Link from '../lib/svelte/components/Link.svelte'
 
   const drinkIcon =
     '<svg width="34" height="28" viewBox="0 0 34 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M26.647 2.238a.661.661 0 0 1 .652.773l-3.803 22.198a.66.66 0 0 1-.651.55H10.722a.662.662 0 0 1-.652-.55L6.225 3.014a.664.664 0 0 1 .652-.775h19.77Zm-10.125 9.125c3.849 1.925 6.675.709 8.03-.156l1.31-7.646h-18.2L8.83 10.3c1.516-.311 4.45-.558 7.692 1.062Zm-7.193.56 2.075 12.452h10.723l2.075-11.068c-2.767 1.037-4.842 1.037-8.301-.692-3.225-1.612-5.175-1.076-6.447-.726l-.125.034Z" fill="#F9F6F1"/></svg>'
@@ -23,6 +23,11 @@
 <rect x="5.52002" y="13.4414" width="4.08" height="1.8" fill="#055B7A"/>
 </svg>
 `
+  let value: string = ''
+  let searchString: string = null
+  function onSubmit(): void {
+    searchString = value ?? ''
+  }
 </script>
 
 <Meta
@@ -176,25 +181,42 @@
       <Dropdown
         title="Språk/language"
         loadJs={!args.disableJs}
-        class="mt-button__small-text responsive-hide"
+        class="mt-button__small-text full-menu responsive-hide"
+        icon="icon--caret-down-after"
         let:titleId>
-        <ol class="mt-ol alt-language m-t-0" aria-labelledby={titleId}>
+        <ol
+          class="mt-ol alt-language m-t-0 layout-grid layout-grid--column-12 container"
+          aria-labelledby={titleId}>
           {#each args.items as item}
-            <li>
+            <li class="col-4-span-6">
               <a href={item.url} class="mt-link forward-arrow-small">{item.title}</a>
             </li>
           {/each}
         </ol>
       </Dropdown>
-      <Link
-        href="#"
-        class="dropdown mt-button mt-button--link mt-button__small-text layout-flex layout-flex--center-vertical no-underline icon--search-after"
-        style="--wrap: none; --gap: var(--spacer-xxx-small)"
-        linkText={args.search.linkText} />
+      <Dropdown
+        title={args.search.linkText}
+        loadJs={!args.disableJs}
+        class="mt-button__small-text full-menu"
+        icon="icon--search-after">
+        <form
+          role="search"
+          method="GET"
+          class="mt-form form-layout layout-grid layout-grid--column-12 container"
+          on:submit|preventDefault={onSubmit}>
+          <Search
+            class="col-4-span-6"
+            bind:value
+            name="search"
+            searchButtonText={args.search.linkText}
+            ariaControls="search-status" />
+        </form>
+      </Dropdown>
       <Dropdown
         title={args.menu.title}
         class="mt-button__small-text full-menu"
         loadJs={!args.disableJs}
+        icon="icon--hamburger-menu-on-light-after"
         let:titleId>
         <nav class="layout-grid layout-grid--column-12 container">
           <MenuItems
