@@ -3,7 +3,7 @@
   import { createInputAriaDescribedby } from '../../../ts/utils'
   import { beforeUpdate } from 'svelte'
 
-  export let value: string
+  export let searchString: string
   export let name: string | undefined
   export let label: string | undefined = undefined
   export let labelClass: string = ''
@@ -18,8 +18,8 @@
   export { className as class }
 
   beforeUpdate(() => {
-    if (!value && !isInitialized && document) {
-      value = document?.querySelector(`input[name="${name}"]`)?.value
+    if (!searchString && !isInitialized && document) {
+      searchString = document?.querySelector(`input[name="${name}"]`)?.value
       isInitialized = true
     }
   })
@@ -45,15 +45,15 @@
       {name}
       class="mt-input form-field {inputClass}"
       class:hasButton={!!searchButtonText}
-      bind:value
+      bind:value={searchString}
       aria-labelledby={!label && searchButtonText ? 'search-button' : undefined}
       aria-describedby={createInputAriaDescribedby(helpText ? name : undefined)}
       {placeholder} />
-    {#if value}
+    {#if searchString}
       <button
         type="reset"
         class="mt-button mt-button--search-clear"
-        on:click={() => (value = '')}
+        on:click={() => (searchString = '')}
         data-testid="search-clear">
         <span class="inclusively-hidden">{ariaRemoveTextLabel}</span>
         <svg
