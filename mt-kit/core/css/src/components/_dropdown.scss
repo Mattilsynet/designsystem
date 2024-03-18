@@ -96,7 +96,7 @@
     &[aria-expanded]::after,
     &::after {
       transition: transform 0.3s ease;
-      content: var(--icon-carret-down);
+      //content: var(--icon-carret-down);
       margin-left: 0;
     }
 
