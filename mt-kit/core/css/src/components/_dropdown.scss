@@ -72,6 +72,24 @@
       outline: $border-width-large solid var(--menu-focus);
       box-shadow: none;
     }
+
+    .mt-input {
+      &:focus {
+        outline: none;
+        border: var(--border-width-small) solid var(--border-color);
+        box-shadow: $focus-box-shadow;
+      }
+    }
+
+    .mt-input:hover {
+      outline: $border-width-small solid var(--border-color);
+    }
+
+    .mt-button--primary:focus {
+      outline: none;
+      box-shadow: $focus-box-shadow;
+    }
+
   }
   .mt-button.mt-button--link,
   &.mt-button,
