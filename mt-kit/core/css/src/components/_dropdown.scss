@@ -105,10 +105,10 @@
 
   // Currently used in the header
   &.mt-button__small-text {
-    font-size: $font-size-small;
+    font-size: $font-size-h4;
     .mt-button,
     a {
-      font-size: $font-size-small;
+      font-size: $font-size-h4;
     }
 
     @media only screen and (min-width: $breakpoint-large) {
