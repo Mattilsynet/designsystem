@@ -173,8 +173,8 @@
       }
       &.visible {
         .dropdown-content {
-          padding-top: var(--spacer-xx-large);
-          padding-bottom: var(--spacer-xx-large);
+          padding-top: var(--spacer-medium);
+          padding-bottom: var(--spacer-medium);
           top: calc(#{$height-header-regular} - var(--spacer-xx-small) + 1.38rem);
         }
       }
@@ -372,7 +372,7 @@
   }
   .disclosure-no-border {
     > .disclosure-header {
-      gap: var(--spacer-xxx-small);
+      gap: var(--spacer-xx-small);
     }
     .disclosure-panel {
       margin: 0 var(--spacer-xxx-small);
