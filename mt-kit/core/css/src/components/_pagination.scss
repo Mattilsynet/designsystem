@@ -128,7 +128,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-    width: 2.75rem;
+    width: $button-min-width;
     text-align: center;
     &:focus-within {
       box-shadow: $focus-box-shadow-no-outline;
