@@ -35,7 +35,10 @@
   }
 </script>
 
-<div class="dropdown {className} {onServer ? 'on-server' : ''}" class:visible={isOpen || onServer}>
+<div
+  class="dropdown {className} {onServer ? 'on-server' : ''}"
+  class:visible={isOpen && !onServer}
+  class:visible-no-js={isOpen && onServer}>
   {#if onServer}
     <details class="mt-details">
       <summary class="mt-summary mt-button mt-button--link {icon}">
