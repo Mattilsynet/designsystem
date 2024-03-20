@@ -38,7 +38,7 @@
   </div>
 {/if}
 
-<div class="search-wrap">
+<div class="search-wrap {className}">
   <div class="search-wrap-inner">
     <input
       id={name}
