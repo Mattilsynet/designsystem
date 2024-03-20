@@ -70,7 +70,7 @@ describe('Pagination', () => {
     defindeWindowMatch(isDesktop)
     const { getByText, queryByText } = render(Pagination, {
       ...componentOptions,
-      currentChapterIndex: 1
+      currentPageIndex: 1
     })
     expect(getByText('1')).toBeInTheDocument()
     expect(getByText('2')).toBeInTheDocument()
@@ -86,7 +86,7 @@ describe('Pagination', () => {
     defindeWindowMatch(!isDesktop)
     const { getByText, queryByText } = render(Pagination, {
       ...componentOptions,
-      currentChapterIndex: 1
+      currentPageIndex: 1
     })
     expect(getByText('1')).toBeInTheDocument()
     expect(getByText('2')).toBeInTheDocument()
@@ -103,7 +103,7 @@ describe('Pagination', () => {
     defindeWindowMatch(!isDesktop)
     const { getByText, queryByText } = render(Pagination, {
       ...componentOptions,
-      currentChapterIndex: 2
+      currentPageIndex: 2
     })
     expect(getByText('1')).toBeInTheDocument()
     expect(queryByText('2')).not.toBeInTheDocument()
@@ -120,7 +120,7 @@ describe('Pagination', () => {
     defindeWindowMatch(isDesktop)
     const { getByText, queryByText } = render(Pagination, {
       ...componentOptions,
-      currentChapterIndex: 5
+      currentPageIndex: 5
     })
     expect(getByText('1')).toBeInTheDocument()
     expect(queryByText('2')).not.toBeInTheDocument()
@@ -137,7 +137,7 @@ describe('Pagination', () => {
     defindeWindowMatch(!isDesktop)
     const { getByText, queryByText } = render(Pagination, {
       ...componentOptions,
-      currentChapterIndex: 5
+      currentPageIndex: 5
     })
     expect(getByText('1')).toBeInTheDocument()
     expect(queryByText('2')).not.toBeInTheDocument()
@@ -154,7 +154,7 @@ describe('Pagination', () => {
     defindeWindowMatch(isDesktop)
     const { getByText, queryByText } = render(Pagination, {
       ...componentOptions,
-      currentChapterIndex: 6
+      currentPageIndex: 6
     })
     expect(getByText('1')).toBeInTheDocument()
     expect(queryByText('2')).not.toBeInTheDocument()
@@ -170,7 +170,7 @@ describe('Pagination', () => {
     defindeWindowMatch(!isDesktop)
     const { getByText, queryByText } = render(Pagination, {
       ...componentOptions,
-      currentChapterIndex: 6
+      currentPageIndex: 6
     })
     expect(getByText('1')).toBeInTheDocument()
     expect(queryByText('2')).not.toBeInTheDocument()
