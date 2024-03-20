@@ -36,7 +36,6 @@
         color: var(--mt-button-neutral-color);
         &::after {
           transform: rotate(-180deg);
-          content: var(--icon-carret-down);
           margin-left: 0;
         }
       }
@@ -113,13 +112,11 @@
     &[aria-expanded]::after,
     &::after {
       transition: transform 0.3s ease;
-      //content: var(--icon-carret-down);
       margin-left: 0;
     }
 
     &[aria-expanded='true']::after {
       transform: rotate(-180deg);
-      content: var(--icon-carret-up);
     }
   }
 
