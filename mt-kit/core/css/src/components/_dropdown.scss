@@ -18,17 +18,6 @@
     border-radius: 0;
   }
 
-  .focus,
-  &.focus,
-  :focus,
-  &:focus,
-  :focus-visible,
-  &:focus-visible {
-    border-color: transparent;
-    outline: $border-width-large solid set-focus-color($color);
-    box-shadow: none;
-  }
-
   .mt-details {
     margin-top: 0;
     &[open] {
@@ -68,23 +57,6 @@
     &:focus,
     :focus-visible,
     &:focus-visible {
-      outline: $border-width-large solid var(--menu-focus);
-      box-shadow: none;
-    }
-
-    .mt-input {
-      &:focus {
-        outline: none;
-        border: var(--border-width-small) solid var(--border-color);
-        box-shadow: $focus-box-shadow;
-      }
-      &:hover {
-        outline: $border-width-small solid var(--border-color);
-      }
-    }
-
-    .mt-button--primary:focus {
-      outline: none;
       box-shadow: $focus-box-shadow;
     }
 

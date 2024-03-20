@@ -10,7 +10,7 @@
     position: inherit;
   }
 
-  button.icon--search-before-primary {
+  button.icon--search-after-primary {
     flex: content;
     word-break: normal;
     min-width: auto;
@@ -57,7 +57,7 @@
 
       &:hover {
         border: $border-width-large solid var(--color-primary);
-        background: var(--color-mt-lys-furu);
+        background: var(--mt-button-primary-bg-hover);
       }
     }
   }

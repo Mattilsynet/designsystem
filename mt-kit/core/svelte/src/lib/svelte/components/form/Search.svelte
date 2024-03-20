@@ -69,7 +69,7 @@
     <button
       id="search-button"
       type="submit"
-      class="mt-button mt-button--primary icon--search-before-primary"
+      class="mt-button mt-button--primary icon--search-after-primary"
       aria-controls={ariaControls}>
       {searchButtonText}
     </button>
