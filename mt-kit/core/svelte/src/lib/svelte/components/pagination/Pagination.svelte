@@ -1,10 +1,10 @@
 <script lang="ts">
   import type { Page, ChapterChangeDetails } from '../../../ts/types'
-  import { createEventDispatcher, onMount } from 'svelte'
+  import { onMount, createEventDispatcher } from 'svelte'
   import { interpolate } from '../../../ts/utils'
 
   const PAGINATION_BREAKPOINT = '1024px' // $breakpoint-x-large
-  const PAGE_CHANGE_EVENT = 'pageChange'
+  const PAGE_CHANGE_EVENT = 'page-change'
   export let nextText = ''
   export let previousText = ''
   export let paginationLabel = 'Pagination'
@@ -59,7 +59,7 @@
     current: number,
     media?: MediaQueryList
   ): boolean {
-    if (!media?.matches) {
+    if (media?.matches === false) {
       return index === current
     } else {
       if (!showPage1Shortcut(current, media)) {
@@ -104,16 +104,18 @@
 
 {#if pages.length > 1}
   <nav class="mt-pagination {className}" aria-label={paginationLabel}>
-    <a
-      href={previousPage ? previousPage.url : undefined}
-      class="mt-link previous-link {!hasPreviousPage(currentPageIndex)
-        ? 'inclusively-hidden--fit-content'
-        : ''}"
-      title={previousText}
-      on:click|preventDefault={() => handleClick(previousPageIndex)}
-      aria-disabled={!hasPreviousPage(currentPageIndex)}>
-      {previousText}
-    </a>
+    {#if !media?.matches}
+      <a
+        href={previousPage ? previousPage.url : undefined}
+        class="mt-link previous-link {!hasPreviousPage(currentPageIndex)
+          ? 'inclusively-hidden--fit-content'
+          : ''}"
+        title={previousText}
+        on:click|preventDefault={() => handleClick(previousPageIndex)}
+        aria-disabled={!hasPreviousPage(currentPageIndex)}>
+        {previousText}
+      </a>
+    {/if}
     <ul class="mt-ul list-unstyled">
       {#if showPage1Shortcut(currentPageIndex, media)}
         <li class="mt-li">
@@ -153,14 +155,26 @@
             href={pages[pages.length - 1].url}
             class="mt-link"
             title={interpolate(toPageTitle, [pages.length])}
-            aria-current={pages.length === currentPageIndex ? 'page' : undefined}
-            on:click|preventDefault={() => handleClick(pages.length)}>
+            aria-current={pages.length - 1 === currentPageIndex ? 'page' : undefined}
+            on:click|preventDefault={() => handleClick(pages.length - 1)}>
             <span class="inclusively-hidden-initial">{labelPage}</span>
             {pages.length}
           </a>
         </li>
       {/if}
     </ul>
+    {#if media?.matches === true}
+      <a
+        href={previousPage ? previousPage.url : undefined}
+        class="mt-link previous-link {!hasPreviousPage(currentPageIndex)
+          ? 'inclusively-hidden--fit-content'
+          : ''}"
+        title={previousText}
+        on:click|preventDefault={() => handleClick(previousPageIndex)}
+        aria-disabled={!hasPreviousPage(currentPageIndex)}>
+        {previousText}
+      </a>
+    {/if}
     <a
       href={nextPage ? nextPage.url : undefined}
       on:click|preventDefault={() => handleClick(nextPageIndex)}

@@ -37,15 +37,15 @@
   <div use:wrapInShadowDom={disableCss}>
     <article>
       <h2 class="mt-h2">Pagination</h2>
-      <a href="">hei</a>
       <Pagination
         pages={args.pages}
         currentPageIndex={currentPageNumber}
-        on:pageChange={handlePageChange}
+        on:page-change={handlePageChange}
         nextText="Neste"
         previousText="Forrige"
+        labelPage="Side"
+        toPageTitle="Gå til side {0}"
         class="" />
-      <a href="">etter</a>
     </article>
   </div>
 </Story>

@@ -4,35 +4,61 @@
 
 .mt-pagination {
   justify-self: center;
-  &:has(> .mt-ul > :last-child:nth-child(3)) {
-    display: grid;
-    grid-template-areas: '. prev prev prev .' '. . list list list' '. next next next .';
-    grid-template-columns: 1fr max-content 0 max-content 1fr;
-    .previous-link {
-      grid-area: prev;
-    }
-    .next-link {
-      grid-area: next;
-    }
+
+  display: grid;
+  grid-template-areas: ' list list list list list' '. prev . next .';
+  grid-template-columns: 1fr 1fr 0 1fr 1fr;
+  gap: var(--spacer-xxx-small);
+
+  .previous-link {
+    grid-area: prev;
+    justify-self: center;
+  }
+  .next-link {
+    grid-area: next;
+    justify-self: center;
+  }
+
+  .mt-ul {
+    grid-area: list;
+    justify-content: center;
+  }
+
+  &:has(> [aria-disabled='true'].previous-link) {
+    grid-template-areas: '. . list list list' '. prev . next .';
+
     .mt-ul {
       $half: calc($button-min-width/2);
-      grid-area: list;
-      justify-content: start;
       margin-left: calc(0px - $half);
+      justify-content: start;
+    }
+  }
+  &:has(> [aria-disabled='true'].next-link) {
+    grid-template-areas: 'list list list . .' '. prev . next .';
+
+    .mt-ul {
+      justify-content: end;
+      $half: calc($button-min-width/2);
+      margin-right: calc(0px - $half);
     }
   }
 
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  flex-wrap: wrap;
-  gap: var(--spacer-xxx-small);
   @media only screen and (min-width: $breakpoint-x-large) {
-    flex-direction: row;
+    grid-template-areas: 'prev list next';
+    grid-template-columns: max-content max-content max-content;
+
+    &:has(> [aria-disabled='true'].previous-link),
+    &:has(> [aria-disabled='true'].next-link) {
+      grid-template-areas: 'prev list next';
+      grid-template-columns: max-content max-content max-content;
+      .mt-ul {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
   }
   .mt-ul {
     display: flex;
-    justify-content: center;
     gap: var(--spacer-xxx-small);
     .mt-li {
       margin-top: 0;
