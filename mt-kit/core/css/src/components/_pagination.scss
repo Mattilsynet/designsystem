@@ -6,8 +6,8 @@
   justify-self: center;
 
   display: grid;
-  grid-template-areas: ' list list list list list' '. prev . next .';
-  grid-template-columns: 1fr 1fr 0 1fr 1fr;
+  grid-template-areas: 'list list list' 'prev . next';
+  grid-template-columns: 1fr 0 1fr;
   gap: var(--spacer-xxx-small);
 
   .previous-link {
@@ -25,7 +25,7 @@
   }
 
   &:has(> [aria-disabled='true'].previous-link) {
-    grid-template-areas: '. . list list list' '. prev . next .';
+    grid-template-areas: '. list list' 'prev . next';
 
     .mt-ul {
       $half: calc($button-min-width/2);
@@ -34,7 +34,7 @@
     }
   }
   &:has(> [aria-disabled='true'].next-link) {
-    grid-template-areas: 'list list list . .' '. prev . next .';
+    grid-template-areas: 'list list .' 'prev . next';
 
     .mt-ul {
       justify-content: end;
