@@ -79,10 +79,9 @@
         border: var(--border-width-small) solid var(--border-color);
         box-shadow: $focus-box-shadow;
       }
-    }
-
-    .mt-input:hover {
-      outline: $border-width-small solid var(--border-color);
+      &:hover {
+        outline: $border-width-small solid var(--border-color);
+      }
     }
 
     .mt-button--primary:focus {
