@@ -4,21 +4,20 @@ import { vi } from 'vitest'
 
 describe('Pagination', () => {
   const pages = [
-    { url: '1', heading: 'Intro', index: 0 },
-    { url: '2', heading: 'Chapter 1', index: 1 },
-    { url: '3', heading: 'Chapter 2', index: 2 },
-    { url: '4', heading: 'Chapter 3', index: 3 },
-    { url: '5', heading: 'Chapter 4', index: 4 },
-    { url: '6', heading: 'Chapter 5', index: 5 },
-    { url: '7', heading: 'Chapter 6', index: 6 }
+    { url: '1' },
+    { url: '2' },
+    { url: '3' },
+    { url: '4' },
+    { url: '5' },
+    { url: '6' },
+    { url: '7' }
   ]
 
   const componentOptions = {
     nextText: 'Neste',
     previousText: 'Forige',
     pages: pages,
-    currentPageIndex: 0,
-    startIndex: 0
+    currentPageIndex: 0
   }
 
   function defindeWindowMatch(matches: boolean) {

@@ -39,20 +39,36 @@
     dispatch(PAGE_CHANGE_EVENT, { index: index })
   }
 
-  function showPage1Shortcut(current: number, media?: MediaQueryList): boolean {
-    return media?.matches ? current > 1 : current > 0
+  function showPage1Shortcut(currentPageIndex: number, media?: MediaQueryList): boolean {
+    return media?.matches ? currentPageIndex > 1 : currentPageIndex > 0
   }
 
   function showLastPageShortcut(
-    chapters: Array<Page>,
-    current: number,
+    pages: Array<Page>,
+    currentPageIndex: number,
     media?: MediaQueryList
   ): boolean {
-    return media?.matches ? current < chapters.length - 2 : current < chapters.length - 1
+    return media?.matches
+      ? currentPageIndex < pages.length - 2
+      : currentPageIndex < pages.length - 1
+  }
+
+  function showFirst5(index: number, current: number): boolean {
+    if (current === 0) {
+      return index <= current + 4
+    }
+    return index >= current - 1 && index <= current + 3
+  }
+
+  function showLast5(index: number, current: number, pages: Array<Page>): boolean {
+    if (current === pages.length - 1) {
+      return index >= current - 4
+    }
+    return index <= current + 1 && index >= current - 3
   }
 
   function isActivePage(
-    chapters: Array<Page>,
+    pages: Array<Page>,
     index: number,
     current: number,
     media?: MediaQueryList
@@ -61,39 +77,9 @@
       return index === current
     } else {
       if (!showPage1Shortcut(current, media)) {
-        if (current === 0) {
-          return (
-            index === current ||
-            index === current + 1 ||
-            index === current + 2 ||
-            index === current + 3 ||
-            index === current + 4
-          )
-        }
-        return (
-          index === current ||
-          index === current - 1 ||
-          index === current + 1 ||
-          index === current + 2 ||
-          index === current + 3
-        )
-      } else if (!showLastPageShortcut(chapters, current, media)) {
-        if (current === chapters.length - 1) {
-          return (
-            index === current ||
-            index === current - 1 ||
-            index === current - 2 ||
-            index === current - 3 ||
-            index === current - 4
-          )
-        }
-        return (
-          index === current ||
-          index === current - 1 ||
-          index === current + 1 ||
-          index === current - 2 ||
-          index === current - 3
-        )
+        return showFirst5(index, current)
+      } else if (!showLastPageShortcut(pages, current, media)) {
+        return showLast5(index, current, pages)
       }
       return index === current || index === current - 1 || index === current + 1
     }
