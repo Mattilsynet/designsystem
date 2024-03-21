@@ -5,8 +5,8 @@
 
   const PAGINATION_BREAKPOINT = '1024px' // $breakpoint-x-large
   const PAGE_CHANGE_EVENT = 'page-change'
-  const ALLOWED_PAGES_DESKTOP = 7
-  const ALLOWED_PAGES_MOBILE = 5
+  const ALLOWED_PAGES_DESKTOP = 5
+  const ALLOWED_PAGES_MOBILE = 3
   export let nextText = 'Neste'
   export let previousText = 'Forrige'
   export let paginationLabel = 'Paginering'
@@ -14,7 +14,42 @@
   export let toPageTitle = 'Gå til side {0}'
   export let pages: Array<Page> = []
   export let currentPageIndex: 0 | 1 = 0
-  $: console.log('currentPageIndex', currentPageIndex)
+
+  const { floor, min, max } = Math
+  const pagination = (
+    isMobile: boolean,
+    currentPage: number,
+    pages: Array<Page>
+  ): Array<Page & { hidden?: boolean; ellipsis?: boolean }> => {
+    const total = pages.length
+    const count = isMobile ? ALLOWED_PAGES_MOBILE : ALLOWED_PAGES_DESKTOP
+    const start = max(1, min(currentPage - floor((count - 3) / 2), total - count + 2))
+    const end = min(total, max(currentPage + floor((count - 2) / 2), count - 1))
+    return pages.map((page, index) => {
+      if (start > 2 && index === 1) {
+        return { ...page, ellipsis: start !== 3 }
+      } else if (start > 1 && index === 0) {
+        return page
+      }
+
+      if (index >= start - 1 && index < end) {
+        return page
+      }
+      if (end < total - 1 && index === total - 2) {
+        return { ...page, ellipsis: end !== total - 2 }
+      } else if (end < total && index === pages.length - 1) {
+        return page
+      }
+
+      if (currentPage <= count - 1 && index === count - 1) {
+        return page
+      }
+      if (currentPage > total - count && index === total - count) {
+        return page
+      }
+      return { ...page, hidden: true }
+    })
+  }
 
   let className = ''
   export { className as class }
@@ -25,37 +60,7 @@
   $: previousPage = pages[previousPageIndex]
   $: isMobile = undefined
 
-  $: newPages = getPages(pages, currentPageIndex, isMobile)
-
-  function getPages(pages: Array<Page>, currentPageIndex: 0, isMobile = false) {
-    const allowedPages = isMobile ? ALLOWED_PAGES_MOBILE : ALLOWED_PAGES_DESKTOP
-    const length = pages.length - 1
-    const ellipseIndex = []
-    const hiddenIndex = []
-
-    if (length < allowedPages) {
-      return pages
-    }
-    if (currentPageIndex >= allowedPages / 2) {
-      ellipseIndex.push(1)
-      for (let i = 2; i < currentPageIndex - 1 && i < length - 4; i++) {
-        hiddenIndex.push(i)
-      }
-    }
-    if (currentPageIndex <= length - 4) {
-      ellipseIndex.push(length - 1)
-      for (let i = length - 2; i > currentPageIndex + 1 && i > 4; i--) {
-        hiddenIndex.push(i)
-      }
-    }
-    return pages.map((page, index) => {
-      return {
-        ...page,
-        ellipsis: ellipseIndex.includes(index),
-        hidden: hiddenIndex.includes(index)
-      }
-    })
-  }
+  $: mappedPages = pagination(isMobile, currentPageIndex + 1, pages)
 
   const dispatch = createEventDispatcher<{ chapterChange: ChapterChangeDetails }>()
 
@@ -74,113 +79,6 @@
   function hasPreviousPage(currentPageNumber: number): boolean {
     return currentPageNumber > 0
   }
-
-  function isAllowedNumberOfPages(numberOfPages: number, isMobile?: boolean): boolean {
-    return isMobile ? ALLOWED_PAGES_MOBILE >= numberOfPages : ALLOWED_PAGES_DESKTOP >= numberOfPages
-  }
-
-  function isActivePaginationItem(
-    pages: Array<Page>,
-    index: number,
-    current: number,
-    isMobile?: boolean
-  ): boolean {
-    if (isAllowedNumberOfPages(pages.length, isMobile)) {
-      return true
-    } else if (isMobile) {
-      return showMobileItems(index, current)
-    } else {
-      if (
-        showPage1Shortcut(pages, current, isMobile) &&
-        showLastPageShortcut(pages, current, isMobile)
-      ) {
-        return index === current || index === current - 1 || index === current + 1
-      }
-      return showFirst5(index, current) || showLast5(index, current, pages)
-    }
-  }
-
-  function showPage1Shortcut(
-    pages: Array<Page>,
-    currentPageIndex: number,
-    isMobile?: boolean
-  ): boolean {
-    return !isMobile
-      ? !isAllowedNumberOfPages(pages.length, isMobile) && currentPageIndex > 2
-      : !isAllowedNumberOfPages(pages.length, isMobile) && currentPageIndex >= 2
-  }
-
-  function showLastPageShortcut(
-    pages: Array<Page>,
-    currentPageIndex: number,
-    isMobile?: boolean
-  ): boolean {
-    return !isMobile
-      ? !isAllowedNumberOfPages(pages.length, isMobile) && currentPageIndex < pages.length - 3
-      : !isAllowedNumberOfPages(pages.length, isMobile) && currentPageIndex <= pages.length - 3
-  }
-
-  function showMobileItems(index: number, current: number): boolean {
-    if (isFirstPage(current)) {
-      return index <= current + 2
-    } else if (isLastPage(current, pages)) {
-      return index >= current - 2
-    } else if (current === 1 || current === pages.length - 2) {
-      return index <= current + 1 && index >= current - 1
-    }
-    return index <= current && index >= current
-  }
-
-  function isFirstPage(current: number): boolean {
-    return current === 0
-  }
-  function isLastPage(current: number, pages: Array<Page>): boolean {
-    return current === pages.length - 1
-  }
-
-  function showFirst5(index: number, current: number): boolean {
-    if (isFirstPage(current)) {
-      return index <= current + 4
-    } else if (current === 1) {
-      return index <= current + 3 && index >= current - 2
-    }
-    return index >= current - 2 && index <= current + 2
-  }
-
-  function showLast5(index: number, current: number, pages: Array<Page>): boolean {
-    if (isLastPage(current, pages)) {
-      return index >= current - 4
-    } else if (current === pages.length - 2) {
-      return index <= current + 2 && index >= current - 3
-    }
-    return index <= current + 2 && index >= current - 2
-  }
-
-  function isEllipsis(index, currentPageIndex: number, isMobile: number, size: number): boolean {
-    // if (currentPageIndex >= 4 && currentPageIndex - 2 === index) {
-    //   return true
-    // }
-    // if (currentPageIndex <= size - 4 && currentPageIndex + 2 === index) {
-    //   return true
-    // }
-    return false
-  }
-
-  function isVisible(chapter, index, currentPageIndex: number, size: number): boolean {
-    if (index === 0 || index === size) {
-      return true
-    }
-    if (index < 4) {
-      return true
-    }
-    if (currentPageIndex - 2 > index) {
-      return false
-    }
-    if (currentPageIndex + 2 < index) {
-      return false
-    }
-    return true
-  }
 </script>
 
 {#if pages.length > 1}
@@ -198,21 +96,7 @@
       </a>
     {/if}
     <ul class="mt-ul list-unstyled">
-      <!--{#if showPage1Shortcut(pages, currentPageIndex, isMobile)}-->
-      <!--  <li class="mt-li">-->
-      <!--    <a-->
-      <!--      href={pages[0].url}-->
-      <!--      class="mt-link"-->
-      <!--      title={interpolate(toPageTitle, [1])}-->
-      <!--      aria-current={0 === currentPageIndex ? 'page' : undefined}-->
-      <!--      on:click|preventDefault={() => handleClick(0)}>-->
-      <!--      <span class="inclusively-hidden-initial">{labelPage}</span>-->
-      <!--      {1}-->
-      <!--    </a>-->
-      <!--  </li>-->
-      <!--  <li class="mt-li ellipsis" role="presentation">...</li>-->
-      <!--{/if}-->
-      {#each newPages as chapter, index}
+      {#each mappedPages as chapter, index}
         {#if chapter.ellipsis}
           <li class="mt-li ellipsis" role="presentation">...</li>
         {:else if !chapter.hidden}
@@ -231,37 +115,6 @@
           </li>
         {/if}
       {/each}
-      <!--{#each pages as chapter, index}-->
-      <!--  {#if isActivePaginationItem(pages, index, currentPageIndex, isMobile)}-->
-      <!--    <li-->
-      <!--      class="mt-li pagination-item"-->
-      <!--      class:pagination-item&#45;&#45;current={index === currentPageIndex ? 'page' : undefined}>-->
-      <!--      <a-->
-      <!--        href={chapter.url}-->
-      <!--        class="mt-link"-->
-      <!--        title={interpolate(toPageTitle, [index + 1])}-->
-      <!--        aria-current={index === currentPageIndex ? 'page' : undefined}-->
-      <!--        on:click|preventDefault={() => handleClick(index)}>-->
-      <!--        <span class="inclusively-hidden-initial">{labelPage}</span>-->
-      <!--        {index + 1}-->
-      <!--      </a>-->
-      <!--    </li>-->
-      <!--  {/if}-->
-      <!--{/each}-->
-      <!--{#if showLastPageShortcut(pages, currentPageIndex, isMobile)}-->
-      <!--  <li class="mt-li ellipsis">...</li>-->
-      <!--  <li class="mt-li">-->
-      <!--    <a-->
-      <!--      href={pages[pages.length - 1].url}-->
-      <!--      class="mt-link"-->
-      <!--      title={interpolate(toPageTitle, [pages.length])}-->
-      <!--      aria-current={pages.length - 1 === currentPageIndex ? 'page' : undefined}-->
-      <!--      on:click|preventDefault={() => handleClick(pages.length - 1)}>-->
-      <!--      <span class="inclusively-hidden-initial">{labelPage}</span>-->
-      <!--      {pages.length}-->
-      <!--    </a>-->
-      <!--  </li>-->
-      <!--{/if}-->
     </ul>
     {#if isMobile}
       <a
