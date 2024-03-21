@@ -12,15 +12,13 @@
   export let toPageTitle = 'Gå til side {0}'
   export let pages: Array<Page> = []
   export let currentPageIndex: 0 | 1 = 0
-  export let startIndex = 0
+
   let className = ''
   export { className as class }
 
   $: nextPageIndex = currentPageIndex + 1
-  $: nextPageNumber = nextPageIndex + startIndex
   $: nextPage = pages[nextPageIndex]
   $: previousPageIndex = currentPageIndex - 1
-  $: previousPageNumber = previousPageIndex + startIndex
   $: previousPage = pages[previousPageIndex]
   $: media = undefined
 
