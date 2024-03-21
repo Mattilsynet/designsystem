@@ -116,19 +116,19 @@ describe('Pagination', () => {
     expect(getByText('Forige')).toBeInTheDocument()
     expect(getByText('Neste')).toBeInTheDocument()
   })
-  test('Renders page 3 - more than 7 pages - desktop', () => {
+  test('Renders page 4 - more than 7 pages - desktop', () => {
     defindeWindowMatch(!isMobile)
     const { getByText, queryByText } = render(Pagination, {
       ...componentOptions,
       pages: moreThan7Pages,
-      currentPageIndex: 2
+      currentPageIndex: 3
     })
     expect(getByText('1')).toBeInTheDocument()
-    expect(getByText('2')).toBeInTheDocument()
-    const current = getByText('3')
+    expect(queryByText('2')).not.toBeInTheDocument()
+    expect(getByText('3')).toBeInTheDocument()
+    const current = getByText('4')
     expect(current).toBeInTheDocument()
     expect(current.getAttribute('aria-current')).toEqual('page')
-    expect(getByText('4')).toBeInTheDocument()
     expect(getByText('5')).toBeInTheDocument()
     expect(queryByText('6')).not.toBeInTheDocument()
     expect(queryByText('7')).not.toBeInTheDocument()
