@@ -13,6 +13,18 @@ describe('Pagination', () => {
     { url: '7' }
   ]
 
+  const moreThan7Pages = [
+    { url: '1' },
+    { url: '2' },
+    { url: '3' },
+    { url: '4' },
+    { url: '5' },
+    { url: '6' },
+    { url: '7' },
+    { url: '8' },
+    { url: '9' }
+  ]
+
   const componentOptions = {
     nextText: 'Neste',
     previousText: 'Forige',
@@ -39,13 +51,15 @@ describe('Pagination', () => {
 
   test('Renders with defaults - first page - desktop', () => {
     defindeWindowMatch(isDesktop)
-    const { getByText, queryByText } = render(Pagination, componentOptions)
-    expect(getByText('1')).toBeInTheDocument()
+    const { getByText } = render(Pagination, componentOptions)
+    const current = getByText('1')
+    expect(current).toBeInTheDocument()
+    expect(current.getAttribute('aria-current')).toEqual('page')
     expect(getByText('2')).toBeInTheDocument()
     expect(getByText('3')).toBeInTheDocument()
     expect(getByText('4')).toBeInTheDocument()
     expect(getByText('5')).toBeInTheDocument()
-    expect(queryByText('6')).not.toBeInTheDocument()
+    expect(getByText('6')).toBeInTheDocument()
     expect(getByText('7')).toBeInTheDocument()
     expect(getByText('Neste')).toBeInTheDocument()
     expect(getByText('Forige').classList.contains('inclusively-hidden--fit-content')).toEqual(true)
@@ -54,7 +68,9 @@ describe('Pagination', () => {
   test('Renders with defaults - first page - mobile', () => {
     defindeWindowMatch(!isDesktop)
     const { getByText, queryByText } = render(Pagination, componentOptions)
-    expect(getByText('1')).toBeInTheDocument()
+    const current = getByText('1')
+    expect(current).toBeInTheDocument()
+    expect(current.getAttribute('aria-current')).toEqual('page')
     expect(queryByText('2')).not.toBeInTheDocument()
     expect(queryByText('3')).not.toBeInTheDocument()
     expect(queryByText('4')).not.toBeInTheDocument()
@@ -67,16 +83,18 @@ describe('Pagination', () => {
 
   test('Renders page 2 - desktop', () => {
     defindeWindowMatch(isDesktop)
-    const { getByText, queryByText } = render(Pagination, {
+    const { getByText } = render(Pagination, {
       ...componentOptions,
       currentPageIndex: 1
     })
     expect(getByText('1')).toBeInTheDocument()
-    expect(getByText('2')).toBeInTheDocument()
+    const current = getByText('2')
+    expect(current).toBeInTheDocument()
+    expect(current.getAttribute('aria-current')).toEqual('page')
     expect(getByText('3')).toBeInTheDocument()
     expect(getByText('4')).toBeInTheDocument()
     expect(getByText('5')).toBeInTheDocument()
-    expect(queryByText('6')).not.toBeInTheDocument()
+    expect(getByText('6')).toBeInTheDocument()
     expect(getByText('7')).toBeInTheDocument()
     expect(getByText('Forige')).toBeInTheDocument()
     expect(getByText('Neste')).toBeInTheDocument()
@@ -88,7 +106,9 @@ describe('Pagination', () => {
       currentPageIndex: 1
     })
     expect(getByText('1')).toBeInTheDocument()
-    expect(getByText('2')).toBeInTheDocument()
+    const current = getByText('2')
+    expect(current).toBeInTheDocument()
+    expect(current.getAttribute('aria-current')).toEqual('page')
     expect(queryByText('3')).not.toBeInTheDocument()
     expect(queryByText('4')).not.toBeInTheDocument()
     expect(queryByText('5')).not.toBeInTheDocument()
@@ -106,7 +126,9 @@ describe('Pagination', () => {
     })
     expect(getByText('1')).toBeInTheDocument()
     expect(queryByText('2')).not.toBeInTheDocument()
-    expect(getByText('3')).toBeInTheDocument()
+    const current = getByText('3')
+    expect(current).toBeInTheDocument()
+    expect(current.getAttribute('aria-current')).toEqual('page')
     expect(queryByText('4')).not.toBeInTheDocument()
     expect(queryByText('5')).not.toBeInTheDocument()
     expect(queryByText('6')).not.toBeInTheDocument()
@@ -117,16 +139,18 @@ describe('Pagination', () => {
 
   test('Renders from second last page - desktop', () => {
     defindeWindowMatch(isDesktop)
-    const { getByText, queryByText } = render(Pagination, {
+    const { getByText } = render(Pagination, {
       ...componentOptions,
       currentPageIndex: 5
     })
     expect(getByText('1')).toBeInTheDocument()
-    expect(queryByText('2')).not.toBeInTheDocument()
+    expect(getByText('2')).toBeInTheDocument()
     expect(getByText('3')).toBeInTheDocument()
     expect(getByText('4')).toBeInTheDocument()
     expect(getByText('5')).toBeInTheDocument()
-    expect(getByText('6')).toBeInTheDocument()
+    const current = getByText('6')
+    expect(current).toBeInTheDocument()
+    expect(current.getAttribute('aria-current')).toEqual('page')
     expect(getByText('7')).toBeInTheDocument()
     expect(getByText('Forige')).toBeInTheDocument()
     expect(getByText('Neste')).toBeInTheDocument()
@@ -143,7 +167,9 @@ describe('Pagination', () => {
     expect(queryByText('3')).not.toBeInTheDocument()
     expect(queryByText('4')).not.toBeInTheDocument()
     expect(queryByText('5')).not.toBeInTheDocument()
-    expect(getByText('6')).toBeInTheDocument()
+    const current = getByText('6')
+    expect(current).toBeInTheDocument()
+    expect(current.getAttribute('aria-current')).toEqual('page')
     expect(getByText('7')).toBeInTheDocument()
     expect(getByText('Forige')).toBeInTheDocument()
     expect(getByText('Neste')).toBeInTheDocument()
@@ -151,17 +177,19 @@ describe('Pagination', () => {
 
   test('Renders from last page - desktop', () => {
     defindeWindowMatch(isDesktop)
-    const { getByText, queryByText } = render(Pagination, {
+    const { getByText } = render(Pagination, {
       ...componentOptions,
       currentPageIndex: 6
     })
     expect(getByText('1')).toBeInTheDocument()
-    expect(queryByText('2')).not.toBeInTheDocument()
+    expect(getByText('2')).toBeInTheDocument()
     expect(getByText('3')).toBeInTheDocument()
     expect(getByText('4')).toBeInTheDocument()
     expect(getByText('5')).toBeInTheDocument()
     expect(getByText('6')).toBeInTheDocument()
-    expect(getByText('7')).toBeInTheDocument()
+    const current = getByText('7')
+    expect(current).toBeInTheDocument()
+    expect(current.getAttribute('aria-current')).toEqual('page')
     expect(getByText('Forige')).toBeInTheDocument()
     expect(getByText('Neste').classList.contains('inclusively-hidden--fit-content')).toEqual(true)
   })
@@ -177,7 +205,9 @@ describe('Pagination', () => {
     expect(queryByText('4')).not.toBeInTheDocument()
     expect(queryByText('5')).not.toBeInTheDocument()
     expect(queryByText('6')).not.toBeInTheDocument()
-    expect(getByText('7')).toBeInTheDocument()
+    const current = getByText('7')
+    expect(current).toBeInTheDocument()
+    expect(current.getAttribute('aria-current')).toEqual('page')
     expect(getByText('Forige')).toBeInTheDocument()
     expect(getByText('Neste').classList.contains('inclusively-hidden--fit-content')).toEqual(true)
   })
