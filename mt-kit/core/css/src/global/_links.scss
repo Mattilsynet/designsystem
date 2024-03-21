@@ -293,6 +293,40 @@ $transportlink-colors: 'error' !default;
       }
     }
   }
+  &.search-result {
+    color: var(--color-text);
+    gap: var(--spacer-xx-small);
+    padding: var(--spacer-small) var(--spacer-x-small);
+
+    border-radius: 0;
+    border-bottom: var(--border-width-small) solid var(--color-mt-lys-furu);
+    &:first-child {
+      border-top: var(--border-width-small) solid var(--color-mt-lys-furu);
+    }
+
+    text-decoration-line: none;
+    h2 {
+      text-decoration-line: underline;
+    }
+    &:hover {
+      background-color: var(--mt-button-primary-bg-hover);
+      h2 {
+        text-decoration-line: none;
+      }
+    }
+
+    .breadcrumb {
+      font-size: $font-size-small;
+      &:first-child::before {
+        content: none;
+      }
+      &::before {
+        content: var(--icon-carret-right-small);
+        display: inline-block;
+        margin-right: var(--spacer-xxx-small);
+      }
+    }
+  }
   &.highlighted-content {
     --content-margin: 0;
     --content-padding: var(--spacer-xx-small);

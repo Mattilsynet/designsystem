@@ -2,7 +2,7 @@
 @use '../global/links' as *;
 
 .breadcrumbs {
-  font-size: 1rem;
+  font-size: $font-size-small;
   .mt-ol {
     display: flex;
     align-items: center;
