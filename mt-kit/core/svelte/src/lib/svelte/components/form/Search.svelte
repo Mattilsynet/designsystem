@@ -5,6 +5,7 @@
 
   export let searchString: string
   export let name: string | undefined
+  export let shouldFocus: boolean = false
   export let label: string | undefined = undefined
   export let labelClass: string = ''
   export let helpText: string | undefined = undefined
@@ -16,6 +17,10 @@
   let isInitialized = false
   let className = ''
   export { className as class }
+
+  let ref: HTMLInputElement
+
+  $: shouldFocus && ref?.focus()
 
   beforeUpdate(() => {
     if (!searchString && !isInitialized && document) {
@@ -40,6 +45,7 @@
 <div class="search-wrap {className}">
   <div class="search-wrap-inner">
     <input
+      bind:this={ref}
       id={name}
       type="search"
       {name}

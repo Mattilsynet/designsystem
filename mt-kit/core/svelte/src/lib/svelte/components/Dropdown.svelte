@@ -62,7 +62,7 @@
       on:click={handleClick}
       on:clickOutside={() => isOpen && send('TOGGLE')}>
       <div in:slide={{ duration: 300 }}>
-        <slot />
+        <slot {isOpen} />
       </div>
     </div>
   {/if}
