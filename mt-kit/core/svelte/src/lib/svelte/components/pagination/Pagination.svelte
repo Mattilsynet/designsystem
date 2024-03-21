@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { Page, ChapterChangeDetails } from '../../../ts/types'
-  import { onMount, createEventDispatcher } from 'svelte'
+  import type { ChapterChangeDetails, Page } from '../../../ts/types'
+  import { createEventDispatcher, onMount } from 'svelte'
   import { interpolate } from '../../../ts/utils'
 
   const PAGINATION_BREAKPOINT = '1024px' // $breakpoint-x-large
@@ -14,6 +14,7 @@
   export let toPageTitle = 'Gå til side {0}'
   export let pages: Array<Page> = []
   export let currentPageIndex: 0 | 1 = 0
+  $: console.log('currentPageIndex', currentPageIndex)
 
   let className = ''
   export { className as class }
@@ -23,6 +24,38 @@
   $: previousPageIndex = currentPageIndex - 1
   $: previousPage = pages[previousPageIndex]
   $: isMobile = undefined
+
+  $: newPages = getPages(pages, currentPageIndex, isMobile)
+
+  function getPages(pages: Array<Page>, currentPageIndex: 0, isMobile = false) {
+    const allowedPages = isMobile ? ALLOWED_PAGES_MOBILE : ALLOWED_PAGES_DESKTOP
+    const length = pages.length - 1
+    const ellipseIndex = []
+    const hiddenIndex = []
+
+    if (length < allowedPages) {
+      return pages
+    }
+    if (currentPageIndex >= allowedPages / 2) {
+      ellipseIndex.push(1)
+      for (let i = 2; i < currentPageIndex - 1 && i < length - 4; i++) {
+        hiddenIndex.push(i)
+      }
+    }
+    if (currentPageIndex <= length - 4) {
+      ellipseIndex.push(length - 1)
+      for (let i = length - 2; i > currentPageIndex + 1 && i > 4; i--) {
+        hiddenIndex.push(i)
+      }
+    }
+    return pages.map((page, index) => {
+      return {
+        ...page,
+        ellipsis: ellipseIndex.includes(index),
+        hidden: hiddenIndex.includes(index)
+      }
+    })
+  }
 
   const dispatch = createEventDispatcher<{ chapterChange: ChapterChangeDetails }>()
 
@@ -122,6 +155,32 @@
     }
     return index <= current + 2 && index >= current - 2
   }
+
+  function isEllipsis(index, currentPageIndex: number, isMobile: number, size: number): boolean {
+    // if (currentPageIndex >= 4 && currentPageIndex - 2 === index) {
+    //   return true
+    // }
+    // if (currentPageIndex <= size - 4 && currentPageIndex + 2 === index) {
+    //   return true
+    // }
+    return false
+  }
+
+  function isVisible(chapter, index, currentPageIndex: number, size: number): boolean {
+    if (index === 0 || index === size) {
+      return true
+    }
+    if (index < 4) {
+      return true
+    }
+    if (currentPageIndex - 2 > index) {
+      return false
+    }
+    if (currentPageIndex + 2 < index) {
+      return false
+    }
+    return true
+  }
 </script>
 
 {#if pages.length > 1}
@@ -139,22 +198,24 @@
       </a>
     {/if}
     <ul class="mt-ul list-unstyled">
-      {#if showPage1Shortcut(pages, currentPageIndex, isMobile)}
-        <li class="mt-li">
-          <a
-            href={pages[0].url}
-            class="mt-link"
-            title={interpolate(toPageTitle, [1])}
-            aria-current={0 === currentPageIndex ? 'page' : undefined}
-            on:click|preventDefault={() => handleClick(0)}>
-            <span class="inclusively-hidden-initial">{labelPage}</span>
-            {1}
-          </a>
-        </li>
-        <li class="mt-li ellipsis" role="presentation">...</li>
-      {/if}
-      {#each pages as chapter, index}
-        {#if isActivePaginationItem(pages, index, currentPageIndex, isMobile)}
+      <!--{#if showPage1Shortcut(pages, currentPageIndex, isMobile)}-->
+      <!--  <li class="mt-li">-->
+      <!--    <a-->
+      <!--      href={pages[0].url}-->
+      <!--      class="mt-link"-->
+      <!--      title={interpolate(toPageTitle, [1])}-->
+      <!--      aria-current={0 === currentPageIndex ? 'page' : undefined}-->
+      <!--      on:click|preventDefault={() => handleClick(0)}>-->
+      <!--      <span class="inclusively-hidden-initial">{labelPage}</span>-->
+      <!--      {1}-->
+      <!--    </a>-->
+      <!--  </li>-->
+      <!--  <li class="mt-li ellipsis" role="presentation">...</li>-->
+      <!--{/if}-->
+      {#each newPages as chapter, index}
+        {#if chapter.ellipsis}
+          <li class="mt-li ellipsis" role="presentation">...</li>
+        {:else if !chapter.hidden}
           <li
             class="mt-li pagination-item"
             class:pagination-item--current={index === currentPageIndex ? 'page' : undefined}>
@@ -170,20 +231,37 @@
           </li>
         {/if}
       {/each}
-      {#if showLastPageShortcut(pages, currentPageIndex, isMobile)}
-        <li class="mt-li ellipsis">...</li>
-        <li class="mt-li">
-          <a
-            href={pages[pages.length - 1].url}
-            class="mt-link"
-            title={interpolate(toPageTitle, [pages.length])}
-            aria-current={pages.length - 1 === currentPageIndex ? 'page' : undefined}
-            on:click|preventDefault={() => handleClick(pages.length - 1)}>
-            <span class="inclusively-hidden-initial">{labelPage}</span>
-            {pages.length}
-          </a>
-        </li>
-      {/if}
+      <!--{#each pages as chapter, index}-->
+      <!--  {#if isActivePaginationItem(pages, index, currentPageIndex, isMobile)}-->
+      <!--    <li-->
+      <!--      class="mt-li pagination-item"-->
+      <!--      class:pagination-item&#45;&#45;current={index === currentPageIndex ? 'page' : undefined}>-->
+      <!--      <a-->
+      <!--        href={chapter.url}-->
+      <!--        class="mt-link"-->
+      <!--        title={interpolate(toPageTitle, [index + 1])}-->
+      <!--        aria-current={index === currentPageIndex ? 'page' : undefined}-->
+      <!--        on:click|preventDefault={() => handleClick(index)}>-->
+      <!--        <span class="inclusively-hidden-initial">{labelPage}</span>-->
+      <!--        {index + 1}-->
+      <!--      </a>-->
+      <!--    </li>-->
+      <!--  {/if}-->
+      <!--{/each}-->
+      <!--{#if showLastPageShortcut(pages, currentPageIndex, isMobile)}-->
+      <!--  <li class="mt-li ellipsis">...</li>-->
+      <!--  <li class="mt-li">-->
+      <!--    <a-->
+      <!--      href={pages[pages.length - 1].url}-->
+      <!--      class="mt-link"-->
+      <!--      title={interpolate(toPageTitle, [pages.length])}-->
+      <!--      aria-current={pages.length - 1 === currentPageIndex ? 'page' : undefined}-->
+      <!--      on:click|preventDefault={() => handleClick(pages.length - 1)}>-->
+      <!--      <span class="inclusively-hidden-initial">{labelPage}</span>-->
+      <!--      {pages.length}-->
+      <!--    </a>-->
+      <!--  </li>-->
+      <!--{/if}-->
     </ul>
     {#if isMobile}
       <a
