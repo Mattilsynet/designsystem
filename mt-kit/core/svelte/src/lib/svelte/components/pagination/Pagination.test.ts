@@ -65,6 +65,27 @@ describe('Pagination', () => {
     expect(getByText('Forige').classList.contains('inclusively-hidden--fit-content')).toEqual(true)
   })
 
+  test('Renders with defaults - first page - more than 7 pages - desktop', () => {
+    defindeWindowMatch(isDesktop)
+    const { getByText, queryByText } = render(Pagination, {
+      ...componentOptions,
+      pages: moreThan7Pages
+    })
+    const current = getByText('1')
+    expect(current).toBeInTheDocument()
+    expect(current.getAttribute('aria-current')).toEqual('page')
+    expect(getByText('2')).toBeInTheDocument()
+    expect(getByText('3')).toBeInTheDocument()
+    expect(getByText('4')).toBeInTheDocument()
+    expect(getByText('5')).toBeInTheDocument()
+    expect(queryByText('6')).not.toBeInTheDocument()
+    expect(queryByText('7')).not.toBeInTheDocument()
+    expect(queryByText('8')).not.toBeInTheDocument()
+    expect(getByText('9')).toBeInTheDocument()
+    expect(getByText('Neste')).toBeInTheDocument()
+    expect(getByText('Forige').classList.contains('inclusively-hidden--fit-content')).toEqual(true)
+  })
+
   test('Renders with defaults - first page - mobile', () => {
     defindeWindowMatch(!isDesktop)
     const { getByText, queryByText } = render(Pagination, componentOptions)
@@ -188,6 +209,28 @@ describe('Pagination', () => {
     expect(getByText('5')).toBeInTheDocument()
     expect(getByText('6')).toBeInTheDocument()
     const current = getByText('7')
+    expect(current).toBeInTheDocument()
+    expect(current.getAttribute('aria-current')).toEqual('page')
+    expect(getByText('Forige')).toBeInTheDocument()
+    expect(getByText('Neste').classList.contains('inclusively-hidden--fit-content')).toEqual(true)
+  })
+
+  test('Renders from last page - more than 7 - desktop', () => {
+    defindeWindowMatch(isDesktop)
+    const { getByText, queryByText } = render(Pagination, {
+      ...componentOptions,
+      pages: moreThan7Pages,
+      currentPageIndex: 8
+    })
+    expect(getByText('1')).toBeInTheDocument()
+    expect(queryByText('2')).not.toBeInTheDocument()
+    expect(queryByText('3')).not.toBeInTheDocument()
+    expect(queryByText('4')).not.toBeInTheDocument()
+    expect(getByText('5')).toBeInTheDocument()
+    expect(getByText('6')).toBeInTheDocument()
+    expect(getByText('7')).toBeInTheDocument()
+    expect(getByText('8')).toBeInTheDocument()
+    const current = getByText('9')
     expect(current).toBeInTheDocument()
     expect(current.getAttribute('aria-current')).toEqual('page')
     expect(getByText('Forige')).toBeInTheDocument()

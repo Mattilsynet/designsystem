@@ -5,6 +5,7 @@
 
   const PAGINATION_BREAKPOINT = '1024px' // $breakpoint-x-large
   const PAGE_CHANGE_EVENT = 'page-change'
+  const ALLOWED_NUMBER_OF_ELEMENTS = 7
   export let nextText = 'Neste'
   export let previousText = 'Forrige'
   export let paginationLabel = 'Paginering'
@@ -20,19 +21,19 @@
   $: nextPage = pages[nextPageIndex]
   $: previousPageIndex = currentPageIndex - 1
   $: previousPage = pages[previousPageIndex]
-  $: media = undefined
+  $: isDesktop = undefined
 
   const dispatch = createEventDispatcher<{ chapterChange: ChapterChangeDetails }>()
 
   onMount(() => {
-    media = window?.matchMedia(`(min-width: ${PAGINATION_BREAKPOINT})`)
+    isDesktop = window?.matchMedia(`(min-width: ${PAGINATION_BREAKPOINT})`)
   })
 
   function handleClick(index: number): void {
     dispatch(PAGE_CHANGE_EVENT, { index: index })
   }
 
-  function hasNextPage(currentPageNumber: number): boolean {
+  function hasNextPage(currentPageNumber: number, pages: Array<Page>): boolean {
     return currentPageNumber < pages.length - 1
   }
 
@@ -40,56 +41,73 @@
     return currentPageNumber > 0
   }
 
+  function isMoreThanAllowedPages(numberOfPages: number): boolean {
+    return ALLOWED_NUMBER_OF_ELEMENTS >= numberOfPages
+  }
+
   function isActivePaginationItem(
     pages: Array<Page>,
     index: number,
     current: number,
-    media?: MediaQueryList
+    isDesktop?: MediaQueryList
   ): boolean {
-    if (media?.matches === false) {
+    if (isDesktop?.matches === false) {
       return index === current
     } else {
-      if (!showPage1Shortcut(current, media)) {
-        return showFirst5(index, current)
-      } else if (!showLastPageShortcut(pages, current, media)) {
-        return showLast5(index, current, pages)
+      if (isMoreThanAllowedPages(pages.length)) {
+        return true
+      } else if (
+        showPage1Shortcut(pages, current, isDesktop) &&
+        showLastPageShortcut(pages, current, isDesktop)
+      ) {
+        return index === current || index === current - 1 || index === current + 1
       }
-      return index === current || index === current - 1 || index === current + 1
+      return showFirst5(index, current) || showLast5(index, current, pages)
     }
   }
 
-  function showPage1Shortcut(currentPageIndex: number, media?: MediaQueryList): boolean {
-    return media?.matches ? currentPageIndex > 1 : currentPageIndex > 0
+  function showPage1Shortcut(
+    pages: Array<Page>,
+    currentPageIndex: number,
+    isDesktop?: MediaQueryList
+  ): boolean {
+    return isDesktop?.matches
+      ? !isMoreThanAllowedPages(pages.length) && currentPageIndex > 2
+      : currentPageIndex > 0
   }
 
   function showLastPageShortcut(
     pages: Array<Page>,
     currentPageIndex: number,
-    media?: MediaQueryList
+    isDesktop?: MediaQueryList
   ): boolean {
-    return media?.matches
-      ? currentPageIndex < pages.length - 2
+    return isDesktop?.matches
+      ? !isMoreThanAllowedPages(pages.length) && currentPageIndex < pages.length - 3
       : currentPageIndex < pages.length - 1
   }
 
   function showFirst5(index: number, current: number): boolean {
     if (current === 0) {
       return index <= current + 4
+    } else if (current === 1) {
+      return index <= current + 3 && index >= current - 2
     }
-    return index >= current - 1 && index <= current + 3
+    return index >= current - 2 && index <= current + 2
   }
 
   function showLast5(index: number, current: number, pages: Array<Page>): boolean {
     if (current === pages.length - 1) {
       return index >= current - 4
+    } else if (current === pages.length - 2) {
+      return index <= current + 2 && index >= current - 3
     }
-    return index <= current + 1 && index >= current - 3
+    return index <= current + 2 && index >= current - 2
   }
 </script>
 
 {#if pages.length > 1}
   <nav class="mt-pagination {className}" aria-label={paginationLabel}>
-    {#if !media?.matches}
+    {#if !isDesktop?.matches}
       <a
         href={previousPage ? previousPage.url : undefined}
         class="mt-link previous-link {!hasPreviousPage(currentPageIndex)
@@ -102,7 +120,7 @@
       </a>
     {/if}
     <ul class="mt-ul list-unstyled">
-      {#if showPage1Shortcut(currentPageIndex, media)}
+      {#if showPage1Shortcut(pages, currentPageIndex, isDesktop)}
         <li class="mt-li">
           <a
             href={pages[0].url}
@@ -117,7 +135,7 @@
         <li class="mt-li ellipsis" role="presentation">...</li>
       {/if}
       {#each pages as chapter, index}
-        {#if isActivePaginationItem(pages, index, currentPageIndex, media)}
+        {#if isActivePaginationItem(pages, index, currentPageIndex, isDesktop)}
           <li
             class="mt-li pagination-item"
             class:pagination-item--current={index === currentPageIndex ? 'page' : undefined}>
@@ -133,7 +151,7 @@
           </li>
         {/if}
       {/each}
-      {#if showLastPageShortcut(pages, currentPageIndex, media)}
+      {#if showLastPageShortcut(pages, currentPageIndex, isDesktop)}
         <li class="mt-li ellipsis">...</li>
         <li class="mt-li">
           <a
@@ -148,7 +166,7 @@
         </li>
       {/if}
     </ul>
-    {#if media?.matches === true}
+    {#if isDesktop?.matches === true}
       <a
         href={previousPage ? previousPage.url : undefined}
         class="mt-link previous-link {!hasPreviousPage(currentPageIndex)
@@ -164,10 +182,10 @@
       href={nextPage ? nextPage.url : undefined}
       on:click|preventDefault={() => handleClick(nextPageIndex)}
       title={nextText}
-      class="mt-link next-link {!hasNextPage(currentPageIndex)
+      class="mt-link next-link {!hasNextPage(currentPageIndex, pages)
         ? 'inclusively-hidden--fit-content'
         : ''}"
-      aria-disabled={!hasNextPage(currentPageIndex)}>
+      aria-disabled={!hasNextPage(currentPageIndex, pages)}>
       {nextText}
     </a>
   </nav>
