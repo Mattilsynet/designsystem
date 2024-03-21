@@ -43,7 +43,6 @@
     }
     .mt-summary {
       color: var(--color-mt-text-dark);
-      display: inline-flex;
     }
   }
 
@@ -83,6 +82,9 @@
     &:hover {
       text-decoration: underline;
     }
+  }
+  .mt-summary.mt-button {
+    display: inline-flex;
   }
   .mt-summary.mt-button,
   .dropdown-title,
