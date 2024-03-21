@@ -35,7 +35,7 @@
   }
 </script>
 
-<div class="dropdown {className} {onServer ? 'on-server' : ''}" class:visible={isOpen}>
+<div class="dropdown {className} {onServer ? 'on-server' : ''}" class:visible={isOpen || onServer}>
   {#if onServer}
     <details class="mt-details">
       <summary class="mt-summary mt-button mt-button--link {icon}">
