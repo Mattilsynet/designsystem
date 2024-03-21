@@ -21,12 +21,12 @@
   $: nextPage = pages[nextPageIndex]
   $: previousPageIndex = currentPageIndex - 1
   $: previousPage = pages[previousPageIndex]
-  $: isDesktop = undefined
+  $: isMobile = undefined
 
   const dispatch = createEventDispatcher<{ chapterChange: ChapterChangeDetails }>()
 
   onMount(() => {
-    isDesktop = window?.matchMedia(`(min-width: ${PAGINATION_BREAKPOINT})`)
+    isMobile = window?.matchMedia(`(max-width: ${PAGINATION_BREAKPOINT})`).matches === true
   })
 
   function handleClick(index: number): void {
@@ -49,16 +49,16 @@
     pages: Array<Page>,
     index: number,
     current: number,
-    isDesktop?: MediaQueryList
+    isMobile?: boolean
   ): boolean {
-    if (isDesktop?.matches === false) {
+    if (isMobile) {
       return index === current
     } else {
       if (isMoreThanAllowedPages(pages.length)) {
         return true
       } else if (
-        showPage1Shortcut(pages, current, isDesktop) &&
-        showLastPageShortcut(pages, current, isDesktop)
+        showPage1Shortcut(pages, current, isMobile) &&
+        showLastPageShortcut(pages, current, isMobile)
       ) {
         return index === current || index === current - 1 || index === current + 1
       }
@@ -69,9 +69,9 @@
   function showPage1Shortcut(
     pages: Array<Page>,
     currentPageIndex: number,
-    isDesktop?: MediaQueryList
+    isMobile?: boolean
   ): boolean {
-    return isDesktop?.matches
+    return !isMobile
       ? !isMoreThanAllowedPages(pages.length) && currentPageIndex > 2
       : currentPageIndex > 0
   }
@@ -79,9 +79,9 @@
   function showLastPageShortcut(
     pages: Array<Page>,
     currentPageIndex: number,
-    isDesktop?: MediaQueryList
+    isMobile?: boolean
   ): boolean {
-    return isDesktop?.matches
+    return !isMobile
       ? !isMoreThanAllowedPages(pages.length) && currentPageIndex < pages.length - 3
       : currentPageIndex < pages.length - 1
   }
@@ -107,7 +107,7 @@
 
 {#if pages.length > 1}
   <nav class="mt-pagination {className}" aria-label={paginationLabel}>
-    {#if !isDesktop?.matches}
+    {#if !isMobile}
       <a
         href={previousPage ? previousPage.url : undefined}
         class="mt-link previous-link {!hasPreviousPage(currentPageIndex)
@@ -120,7 +120,7 @@
       </a>
     {/if}
     <ul class="mt-ul list-unstyled">
-      {#if showPage1Shortcut(pages, currentPageIndex, isDesktop)}
+      {#if showPage1Shortcut(pages, currentPageIndex, isMobile)}
         <li class="mt-li">
           <a
             href={pages[0].url}
@@ -135,7 +135,7 @@
         <li class="mt-li ellipsis" role="presentation">...</li>
       {/if}
       {#each pages as chapter, index}
-        {#if isActivePaginationItem(pages, index, currentPageIndex, isDesktop)}
+        {#if isActivePaginationItem(pages, index, currentPageIndex, isMobile)}
           <li
             class="mt-li pagination-item"
             class:pagination-item--current={index === currentPageIndex ? 'page' : undefined}>
@@ -151,7 +151,7 @@
           </li>
         {/if}
       {/each}
-      {#if showLastPageShortcut(pages, currentPageIndex, isDesktop)}
+      {#if showLastPageShortcut(pages, currentPageIndex, isMobile)}
         <li class="mt-li ellipsis">...</li>
         <li class="mt-li">
           <a
@@ -166,7 +166,7 @@
         </li>
       {/if}
     </ul>
-    {#if isDesktop?.matches === true}
+    {#if isMobile}
       <a
         href={previousPage ? previousPage.url : undefined}
         class="mt-link previous-link {!hasPreviousPage(currentPageIndex)
