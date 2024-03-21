@@ -27,6 +27,11 @@
   onMount(() => {
     media = window?.matchMedia(`(min-width: ${PAGINATION_BREAKPOINT})`)
   })
+
+  function handleClick(index: number): void {
+    dispatch(PAGE_CHANGE_EVENT, { index: index })
+  }
+
   function hasNextPage(currentPageNumber: number): boolean {
     return currentPageNumber < pages.length - 1
   }
@@ -35,8 +40,22 @@
     return currentPageNumber > 0
   }
 
-  function handleClick(index: number): void {
-    dispatch(PAGE_CHANGE_EVENT, { index: index })
+  function isActivePaginationItem(
+    pages: Array<Page>,
+    index: number,
+    current: number,
+    media?: MediaQueryList
+  ): boolean {
+    if (media?.matches === false) {
+      return index === current
+    } else {
+      if (!showPage1Shortcut(current, media)) {
+        return showFirst5(index, current)
+      } else if (!showLastPageShortcut(pages, current, media)) {
+        return showLast5(index, current, pages)
+      }
+      return index === current || index === current - 1 || index === current + 1
+    }
   }
 
   function showPage1Shortcut(currentPageIndex: number, media?: MediaQueryList): boolean {
@@ -65,24 +84,6 @@
       return index >= current - 4
     }
     return index <= current + 1 && index >= current - 3
-  }
-
-  function isActivePaginationItem(
-    pages: Array<Page>,
-    index: number,
-    current: number,
-    media?: MediaQueryList
-  ): boolean {
-    if (media?.matches === false) {
-      return index === current
-    } else {
-      if (!showPage1Shortcut(current, media)) {
-        return showFirst5(index, current)
-      } else if (!showLastPageShortcut(pages, current, media)) {
-        return showLast5(index, current, pages)
-      }
-      return index === current || index === current - 1 || index === current + 1
-    }
   }
 </script>
 
