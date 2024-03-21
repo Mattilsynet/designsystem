@@ -78,7 +78,9 @@
     currentPageIndex: number,
     isMobile?: boolean
   ): boolean {
-    return !isAllowedNumberOfPages(pages.length, isMobile) && currentPageIndex >= 2
+    return !isMobile
+      ? !isAllowedNumberOfPages(pages.length, isMobile) && currentPageIndex > 2
+      : !isAllowedNumberOfPages(pages.length, isMobile) && currentPageIndex >= 2
   }
 
   function showLastPageShortcut(
@@ -86,7 +88,9 @@
     currentPageIndex: number,
     isMobile?: boolean
   ): boolean {
-    return !isAllowedNumberOfPages(pages.length, isMobile) && currentPageIndex <= pages.length - 3
+    return !isMobile
+      ? !isAllowedNumberOfPages(pages.length, isMobile) && currentPageIndex < pages.length - 3
+      : !isAllowedNumberOfPages(pages.length, isMobile) && currentPageIndex <= pages.length - 3
   }
 
   function showFirst3(index: number, current: number): boolean {
