@@ -67,7 +67,7 @@
     return index <= current + 1 && index >= current - 3
   }
 
-  function isActivePage(
+  function isActivePaginationItem(
     pages: Array<Page>,
     index: number,
     current: number,
@@ -116,7 +116,7 @@
         <li class="mt-li ellipsis" role="presentation">...</li>
       {/if}
       {#each pages as chapter, index}
-        {#if isActivePage(pages, index, currentPageIndex, media)}
+        {#if isActivePaginationItem(pages, index, currentPageIndex, media)}
           <li
             class="mt-li pagination-item"
             class:pagination-item--current={index === currentPageIndex ? 'page' : undefined}>
