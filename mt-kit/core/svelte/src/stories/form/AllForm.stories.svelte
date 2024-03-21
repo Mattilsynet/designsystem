@@ -38,7 +38,7 @@
         children: [
           {
             key: 'produksjonsdyr',
-            displayName: 'Produksjonsdyr',
+            displayName: 'Produksjonsdyr asdf asdfklj jlkjsadflkf jlafdj kl lkjasdfaasdf',
             docCount: 38,
             children: []
           },

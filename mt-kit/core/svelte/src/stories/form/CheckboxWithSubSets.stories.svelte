@@ -17,7 +17,7 @@
       children: [
         {
           key: 'dyr',
-          displayName: 'Dyr',
+          displayName: 'Dyr asdflaksjdf alksadfjklfdasjkfds  sdaff ads asd kaldsfjs',
           docCount: 49,
           children: [
             {
@@ -28,7 +28,7 @@
             },
             {
               key: 'dyresykdommer',
-              displayName: 'Dyresykdommer',
+              displayName: 'Dyresykdommer asdfasd asdfjas asd asdf afdasdfasdfdsdasdf',
               docCount: 2,
               children: []
             },

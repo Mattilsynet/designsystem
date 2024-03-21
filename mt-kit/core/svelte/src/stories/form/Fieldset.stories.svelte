@@ -35,11 +35,13 @@
       children: [
         {
           key: 'produksjonsdyr3',
-          displayName: 'Produksjonsdyr',
+          displayName:
+            'Produksjonsdyr asdf kljdfalskj sadk ffkljdsas jdfklasj fdlkasdfj lkajs flk fadslkfaj sklsalaslkdladks asdkljdkdajf',
           children: [
             {
               key: 'produksjonsdyr3/hest',
-              displayName: 'Hest',
+              displayName:
+                'Hest asdf kljdfalskj sadk ffkljdsas jdfklasj fdlkasdfj lkajs flk fadslkfaj sklsalaslkdladks asdkljdkdajf',
               children: []
             },
             {

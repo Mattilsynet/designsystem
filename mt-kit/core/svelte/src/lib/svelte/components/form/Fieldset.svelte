@@ -12,7 +12,7 @@
 </script>
 
 <fieldset
-  class="mt-fieldset layout-flex layout-flex-col layout-flex-col--no-wrap {className} {fieldsetErrorClass} "
+  class="mt-fieldset layout-flex layout-flex-col {className} {fieldsetErrorClass} "
   aria-invalid={!!error}
   aria-describedby={inputErrorId}
   data-testid="fieldset"
