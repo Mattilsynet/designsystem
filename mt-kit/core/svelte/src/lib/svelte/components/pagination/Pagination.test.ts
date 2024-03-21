@@ -3,6 +3,7 @@ import Pagination from './Pagination.svelte'
 import { vi } from 'vitest'
 
 describe('Pagination', () => {
+  const lessThan5 = [{ url: '1' }, { url: '2' }, { url: '3' }, { url: '4' }, { url: '5' }]
   const pages = [
     { url: '1' },
     { url: '2' },
@@ -92,14 +93,25 @@ describe('Pagination', () => {
     const current = getByText('1')
     expect(current).toBeInTheDocument()
     expect(current.getAttribute('aria-current')).toEqual('page')
-    // expect(getByText('2')).toBeInTheDocument()
-    // expect(getByText('3')).toBeInTheDocument()
-    expect(queryByText('2')).not.toBeInTheDocument()
-    expect(queryByText('3')).not.toBeInTheDocument()
+    expect(getByText('2')).toBeInTheDocument()
+    expect(getByText('3')).toBeInTheDocument()
     expect(queryByText('4')).not.toBeInTheDocument()
     expect(queryByText('5')).not.toBeInTheDocument()
     expect(queryByText('6')).not.toBeInTheDocument()
     expect(getByText('7')).toBeInTheDocument()
+    expect(getByText('Neste')).toBeInTheDocument()
+    expect(getByText('Forige').classList.contains('inclusively-hidden--fit-content')).toEqual(true)
+  })
+  test('Renders with defaults - first page - less than 5 - mobile', () => {
+    defindeWindowMatch(isMobile)
+    const { getByText } = render(Pagination, { ...componentOptions, pages: lessThan5 })
+    const current = getByText('1')
+    expect(current).toBeInTheDocument()
+    expect(current.getAttribute('aria-current')).toEqual('page')
+    expect(getByText('2')).toBeInTheDocument()
+    expect(getByText('3')).toBeInTheDocument()
+    expect(getByText('4')).toBeInTheDocument()
+    expect(getByText('5')).toBeInTheDocument()
     expect(getByText('Neste')).toBeInTheDocument()
     expect(getByText('Forige').classList.contains('inclusively-hidden--fit-content')).toEqual(true)
   })
@@ -132,7 +144,7 @@ describe('Pagination', () => {
     const current = getByText('2')
     expect(current).toBeInTheDocument()
     expect(current.getAttribute('aria-current')).toEqual('page')
-    expect(queryByText('3')).not.toBeInTheDocument()
+    expect(getByText('3')).toBeInTheDocument()
     expect(queryByText('4')).not.toBeInTheDocument()
     expect(queryByText('5')).not.toBeInTheDocument()
     expect(queryByText('6')).not.toBeInTheDocument()
@@ -189,7 +201,7 @@ describe('Pagination', () => {
     expect(queryByText('2')).not.toBeInTheDocument()
     expect(queryByText('3')).not.toBeInTheDocument()
     expect(queryByText('4')).not.toBeInTheDocument()
-    expect(queryByText('5')).not.toBeInTheDocument()
+    expect(getByText('5')).toBeInTheDocument()
     const current = getByText('6')
     expect(current).toBeInTheDocument()
     expect(current.getAttribute('aria-current')).toEqual('page')
@@ -248,9 +260,26 @@ describe('Pagination', () => {
     expect(queryByText('2')).not.toBeInTheDocument()
     expect(queryByText('3')).not.toBeInTheDocument()
     expect(queryByText('4')).not.toBeInTheDocument()
-    expect(queryByText('5')).not.toBeInTheDocument()
-    expect(queryByText('6')).not.toBeInTheDocument()
+    expect(getByText('5')).toBeInTheDocument()
+    expect(getByText('6')).toBeInTheDocument()
     const current = getByText('7')
+    expect(current).toBeInTheDocument()
+    expect(current.getAttribute('aria-current')).toEqual('page')
+    expect(getByText('Forige')).toBeInTheDocument()
+    expect(getByText('Neste').classList.contains('inclusively-hidden--fit-content')).toEqual(true)
+  })
+  test('Renders from last page - less than 5 - mobile', () => {
+    defindeWindowMatch(isMobile)
+    const { getByText } = render(Pagination, {
+      ...componentOptions,
+      pages: lessThan5,
+      currentPageIndex: 4
+    })
+    expect(getByText('1')).toBeInTheDocument()
+    expect(getByText('2')).toBeInTheDocument()
+    expect(getByText('3')).toBeInTheDocument()
+    expect(getByText('4')).toBeInTheDocument()
+    const current = getByText('5')
     expect(current).toBeInTheDocument()
     expect(current.getAttribute('aria-current')).toEqual('page')
     expect(getByText('Forige')).toBeInTheDocument()

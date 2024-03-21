@@ -5,7 +5,8 @@
 
   const PAGINATION_BREAKPOINT = '1024px' // $breakpoint-x-large
   const PAGE_CHANGE_EVENT = 'page-change'
-  const ALLOWED_NUMBER_OF_ELEMENTS = 7
+  const ALLOWED_PAGES_DESKTOP = 7
+  const ALLOWED_PAGES_MOBILE = 5
   export let nextText = 'Neste'
   export let previousText = 'Forrige'
   export let paginationLabel = 'Paginering'
@@ -41,8 +42,8 @@
     return currentPageNumber > 0
   }
 
-  function isMoreThanAllowedPages(numberOfPages: number): boolean {
-    return ALLOWED_NUMBER_OF_ELEMENTS >= numberOfPages
+  function isAllowedNumberOfPages(numberOfPages: number, isMobile?: boolean): boolean {
+    return isMobile ? ALLOWED_PAGES_MOBILE >= numberOfPages : ALLOWED_PAGES_DESKTOP >= numberOfPages
   }
 
   function isActivePaginationItem(
@@ -51,12 +52,18 @@
     current: number,
     isMobile?: boolean
   ): boolean {
-    if (isMobile) {
-      return index === current
+    if (isAllowedNumberOfPages(pages.length, isMobile)) {
+      return true
+    } else if (isMobile) {
+      if (
+        showPage1Shortcut(pages, current, isMobile) &&
+        showLastPageShortcut(pages, current, isMobile)
+      ) {
+        return index === current
+      }
+      return showFirst3(index, current) || showLast3(index, current, pages)
     } else {
-      if (isMoreThanAllowedPages(pages.length)) {
-        return true
-      } else if (
+      if (
         showPage1Shortcut(pages, current, isMobile) &&
         showLastPageShortcut(pages, current, isMobile)
       ) {
@@ -71,9 +78,7 @@
     currentPageIndex: number,
     isMobile?: boolean
   ): boolean {
-    return !isMobile
-      ? !isMoreThanAllowedPages(pages.length) && currentPageIndex > 2
-      : currentPageIndex > 0
+    return !isAllowedNumberOfPages(pages.length, isMobile) && currentPageIndex >= 2
   }
 
   function showLastPageShortcut(
@@ -81,11 +86,26 @@
     currentPageIndex: number,
     isMobile?: boolean
   ): boolean {
-    return !isMobile
-      ? !isMoreThanAllowedPages(pages.length) && currentPageIndex < pages.length - 3
-      : currentPageIndex < pages.length - 1
+    return !isAllowedNumberOfPages(pages.length, isMobile) && currentPageIndex <= pages.length - 3
   }
 
+  function showFirst3(index: number, current: number): boolean {
+    if (current === 0) {
+      return index <= current + 2
+    } else if (current === 1) {
+      return index <= current + 1 && index >= current - 1
+    }
+    return index <= current && index >= current
+  }
+
+  function showLast3(index: number, current: number, pages: Array<Page>): boolean {
+    if (current === pages.length - 1) {
+      return index >= current - 2
+    } else if (current === pages.length - 2) {
+      return index <= current + 1 && index >= current - 1
+    }
+    return index <= current && index >= current
+  }
   function showFirst5(index: number, current: number): boolean {
     if (current === 0) {
       return index <= current + 4
