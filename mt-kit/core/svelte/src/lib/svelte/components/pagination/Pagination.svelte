@@ -5,9 +5,9 @@
 
   const PAGINATION_BREAKPOINT = '1024px' // $breakpoint-x-large
   const PAGE_CHANGE_EVENT = 'page-change'
-  export let nextText = ''
-  export let previousText = ''
-  export let paginationLabel = 'Pagination'
+  export let nextText = 'Neste'
+  export let previousText = 'Forrige'
+  export let paginationLabel = 'Paginering'
   export let labelPage = 'Side'
   export let toPageTitle = 'Gå til side {0}'
   export let pages: Array<Page> = []
