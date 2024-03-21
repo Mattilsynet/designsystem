@@ -55,13 +55,7 @@
     if (isAllowedNumberOfPages(pages.length, isMobile)) {
       return true
     } else if (isMobile) {
-      if (
-        showPage1Shortcut(pages, current, isMobile) &&
-        showLastPageShortcut(pages, current, isMobile)
-      ) {
-        return index === current
-      }
-      return showFirst3(index, current) || showLast3(index, current, pages)
+      return showMobileItems(index, current)
     } else {
       if (
         showPage1Shortcut(pages, current, isMobile) &&
@@ -93,23 +87,40 @@
       : !isAllowedNumberOfPages(pages.length, isMobile) && currentPageIndex <= pages.length - 3
   }
 
-  function showFirst3(index: number, current: number): boolean {
-    if (current === 0) {
+  function showMobileItems(index: number, current: number): boolean {
+    if (isFirstPage(current)) {
       return index <= current + 2
-    } else if (current === 1) {
+    } else if (isLastPage(current, pages)) {
+      return index >= current - 2
+    } else if (current === 1 || current === pages.length - 2) {
       return index <= current + 1 && index >= current - 1
     }
     return index <= current && index >= current
   }
 
-  function showLast3(index: number, current: number, pages: Array<Page>): boolean {
-    if (current === pages.length - 1) {
-      return index >= current - 2
-    } else if (current === pages.length - 2) {
-      return index <= current + 1 && index >= current - 1
-    }
-    return index <= current && index >= current
+  function isFirstPage(current: number): boolean {
+    return current === 0
   }
+  function isLastPage(current, pages) {
+    return current === pages.length - 1
+  }
+  // function showFirst3(index: number, current: number): boolean {
+  //   if (current === 0) {
+  //     return index <= current + 2
+  //   } else if (current === 1) {
+  //     return index <= current + 1 && index >= current - 1
+  //   }
+  //   return index <= current && index >= current
+  // }
+  //
+  // function showLast3(index: number, current: number, pages: Array<Page>): boolean {
+  //   if (current === pages.length - 1) {
+  //     return index >= current - 2
+  //   } else if (current === pages.length - 2) {
+  //     return index <= current + 1 && index >= current - 1
+  //   }
+  //   return index <= current && index >= current
+  // }
   function showFirst5(index: number, current: number): boolean {
     if (current === 0) {
       return index <= current + 4
