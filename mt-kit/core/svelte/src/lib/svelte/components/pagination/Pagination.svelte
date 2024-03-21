@@ -101,28 +101,12 @@
   function isFirstPage(current: number): boolean {
     return current === 0
   }
-  function isLastPage(current, pages) {
+  function isLastPage(current: number, pages: Array<Page>): boolean {
     return current === pages.length - 1
   }
-  // function showFirst3(index: number, current: number): boolean {
-  //   if (current === 0) {
-  //     return index <= current + 2
-  //   } else if (current === 1) {
-  //     return index <= current + 1 && index >= current - 1
-  //   }
-  //   return index <= current && index >= current
-  // }
-  //
-  // function showLast3(index: number, current: number, pages: Array<Page>): boolean {
-  //   if (current === pages.length - 1) {
-  //     return index >= current - 2
-  //   } else if (current === pages.length - 2) {
-  //     return index <= current + 1 && index >= current - 1
-  //   }
-  //   return index <= current && index >= current
-  // }
+
   function showFirst5(index: number, current: number): boolean {
-    if (current === 0) {
+    if (isFirstPage(current)) {
       return index <= current + 4
     } else if (current === 1) {
       return index <= current + 3 && index >= current - 2
@@ -131,7 +115,7 @@
   }
 
   function showLast5(index: number, current: number, pages: Array<Page>): boolean {
-    if (current === pages.length - 1) {
+    if (isLastPage(current, pages)) {
       return index >= current - 4
     } else if (current === pages.length - 2) {
       return index <= current + 2 && index >= current - 3
