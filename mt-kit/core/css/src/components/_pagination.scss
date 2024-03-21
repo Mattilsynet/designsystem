@@ -30,52 +30,13 @@
       margin-top: 0;
     }
     .pagination-item {
-      display: none;
-      @media only screen and (min-width: $breakpoint-x-large) {
-        display: block;
-      }
-    }
-
-    .pagination-item--current,
-    .pagination-item--ellipses,
-    .pagination-item:first-child,
-    .pagination-item:last-child {
       display: block;
-    }
-  }
-
-  &:has(> [aria-disabled='true'].previous-link) {
-    grid-template-areas: '. list list' 'prev . next';
-
-    .mt-ul {
-      $half: calc($button-min-width/2);
-      margin-left: calc(0px - $half);
-      justify-content: start;
-    }
-  }
-  &:has(> [aria-disabled='true'].next-link) {
-    grid-template-areas: 'list list .' 'prev . next';
-
-    .mt-ul {
-      justify-content: end;
-      $half: calc($button-min-width/2);
-      margin-right: calc(0px - $half);
     }
   }
 
   @media only screen and (min-width: $breakpoint-x-large) {
     grid-template-areas: 'prev list next';
     grid-template-columns: max-content max-content max-content;
-
-    &:has(> [aria-disabled='true'].previous-link),
-    &:has(> [aria-disabled='true'].next-link) {
-      grid-template-areas: 'prev list next';
-      grid-template-columns: max-content max-content max-content;
-      .mt-ul {
-        margin-left: 0;
-        margin-right: 0;
-      }
-    }
   }
 
   .mt-link {
