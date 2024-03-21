@@ -43,6 +43,7 @@
     }
     .mt-summary {
       color: var(--color-mt-text-dark);
+      display: inline-flex;
     }
   }
 
@@ -90,7 +91,6 @@
     position: relative;
     z-index: 0;
     margin-bottom: $border-width-large;
-    display: inline-flex;
 
     &[aria-expanded]::after,
     &::after {
@@ -167,7 +167,6 @@
       }
     }
     &.visible,
-    &.visible-no-js,
     & .mt-details > .mt-summary.mt-button {
       color: var(--color-mt-text-dark);
       .dropdown-content {
@@ -188,7 +187,7 @@
       .disclosure-header {
         font-size: $font-size-h3;
       }
-      &.visible, &.visible-no-js {
+      &.visible {
         .dropdown-content {
           padding-top: var(--spacer-xx-large);
           padding-bottom: var(--spacer-xx-large);
@@ -198,7 +197,7 @@
     }
   }
 
-  &.visible, &.visible-no-js {
+  &.visible {
     color: var(--dropdown-visible-color);
     .disclosure-header {
       font-weight: var(--font-weight-light);
@@ -426,7 +425,7 @@
     }
   }
 }
-.mt-header:has(.visible) + .container-full-width,
+.mt-header:has(button[aria-expanded="true"]) + .container-full-width,
 .mt-header:has(details[open]) + .container-full-width {
     position: relative;
     &::before {
