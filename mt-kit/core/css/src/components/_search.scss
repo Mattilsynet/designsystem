@@ -41,7 +41,7 @@
     width: 100%;
 
     .mt-button--search-clear {
-      height: 100%;
+      height: calc(100% - ($border-width-small * 2));
       aspect-ratio: 1 / 1;
       position: absolute;
       right: 0;
@@ -56,7 +56,7 @@
       }
 
       &:hover {
-        border: $border-width-large solid var(--color-primary);
+        border: none;
         background: var(--mt-button-primary-bg-hover);
       }
     }
