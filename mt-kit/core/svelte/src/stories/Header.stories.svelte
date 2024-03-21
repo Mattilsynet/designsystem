@@ -239,4 +239,8 @@
       </Dropdown>
     </div>
   </header>
+  <div class="container-full-width content">
+    <h1>Lorem tittel</h1>
+    <p>Lorem ipsum dolor sit amet</p>
+  </div>
 </Story>
