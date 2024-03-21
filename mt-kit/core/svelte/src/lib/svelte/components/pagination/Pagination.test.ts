@@ -4,27 +4,9 @@ import { vi } from 'vitest'
 
 describe('Pagination', () => {
   const lessThan5 = [{ url: '1' }, { url: '2' }, { url: '3' }, { url: '4' }, { url: '5' }]
-  const pages = [
-    { url: '1' },
-    { url: '2' },
-    { url: '3' },
-    { url: '4' },
-    { url: '5' },
-    { url: '6' },
-    { url: '7' }
-  ]
+  const pages = [...lessThan5, { url: '6' }, { url: '7' }]
 
-  const moreThan7Pages = [
-    { url: '1' },
-    { url: '2' },
-    { url: '3' },
-    { url: '4' },
-    { url: '5' },
-    { url: '6' },
-    { url: '7' },
-    { url: '8' },
-    { url: '9' }
-  ]
+  const moreThan7Pages = [...pages, { url: '8' }, { url: '9' }]
 
   const componentOptions = {
     nextText: 'Neste',
