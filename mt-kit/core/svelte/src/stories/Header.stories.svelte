@@ -195,6 +195,7 @@
         </ol>
       </Dropdown>
       <Dropdown
+        let:isOpen
         title={args.search.linkText}
         loadJs={!args.disableJs}
         class="mt-button__small-text full-menu"
@@ -205,6 +206,7 @@
           class="mt-form form-layout layout-grid layout-grid--column-12 container"
           on:submit|preventDefault={onSubmit}>
           <Search
+            shouldFocus={isOpen}
             class="col-4-span-6"
             bind:value
             name="search"
