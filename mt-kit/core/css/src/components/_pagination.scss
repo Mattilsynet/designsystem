@@ -22,6 +22,26 @@
   .mt-ul {
     grid-area: list;
     justify-content: center;
+
+    display: flex;
+    gap: var(--spacer-xxx-small);
+
+    .mt-li {
+      margin-top: 0;
+    }
+    .pagination-item {
+      display: none;
+      @media only screen and (min-width: $breakpoint-x-large) {
+        display: block;
+      }
+    }
+
+    .pagination-item--current,
+    .pagination-item--ellipses,
+    .pagination-item:first-child,
+    .pagination-item:last-child {
+      display: block;
+    }
   }
 
   &:has(> [aria-disabled='true'].previous-link) {
@@ -55,26 +75,6 @@
         margin-left: 0;
         margin-right: 0;
       }
-    }
-  }
-  .mt-ul {
-    display: flex;
-    gap: var(--spacer-xxx-small);
-    .mt-li {
-      margin-top: 0;
-    }
-    .pagination-item {
-      display: none;
-      @media only screen and (min-width: $breakpoint-x-large) {
-        display: block;
-      }
-    }
-
-    .pagination-item--current,
-    .pagination-item--ellipses,
-    .pagination-item:first-child,
-    .pagination-item:last-child {
-      display: block;
     }
   }
 
