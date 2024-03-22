@@ -1,0 +1,109 @@
+@use '../theme' as *;
+@use '../global/links' as *;
+@use '../utilities/mixins' as *;
+
+.mt-pagination {
+  justify-self: center;
+
+  display: grid;
+  grid-template-areas: 'list list list' 'prev . next';
+  grid-template-columns: 1fr 0 1fr;
+  gap: var(--spacer-xxx-small);
+
+  .previous-link {
+    grid-area: prev;
+    justify-self: center;
+  }
+  .next-link {
+    grid-area: next;
+    justify-self: center;
+  }
+
+  .mt-ul {
+    grid-area: list;
+    justify-content: center;
+
+    display: flex;
+    gap: var(--spacer-xxx-small);
+
+    .mt-li {
+      margin-top: 0;
+    }
+    .pagination-item {
+      display: block;
+    }
+  }
+
+  @media only screen and (min-width: $breakpoint-x-large) {
+    grid-template-areas: 'prev list next';
+    grid-template-columns: max-content max-content max-content;
+  }
+
+  .mt-link {
+    @include focus-outline();
+    border-radius: 50%;
+    min-width: $button-min-width;
+    height: $button-min-height;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &.next-link,
+    &.previous-link {
+      border-radius: 0;
+      background-color: transparent;
+      border-color: var(--mt-button-primary-border);
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+        background-color: var(--mt-button-primary-bg-hover);
+        color: var(--mt-button-primary-color-hover);
+        border-color: var(--mt-button-primary-border-hover);
+      }
+    }
+    &.next-link {
+      &:after {
+        content: var(--icon-carret-right-pagination);
+        display: inline-block;
+        margin-left: var(--spacer-xxx-small);
+      }
+    }
+    &.previous-link {
+      &:before {
+        content: var(--icon-carret-left);
+        display: inline-block;
+        margin-right: var(--spacer-xxx-small);
+      }
+    }
+    &[aria-current='page'] {
+      background-color: var(--mt-button-primary-bg);
+      border-color: var(--mt-buttonpricolor-mt-granskog);
+      color: var(--color-mt-white);
+      &:hover {
+        background-color: var(--mt-button-primary-bg-hover);
+        color: var(--mt-button-primary-color-hover);
+        border-color: var(--mt-button-primary-border-hover);
+      }
+    }
+  }
+  .ellipsis {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: $button-min-width;
+    text-align: center;
+    &:focus-within {
+      box-shadow: $focus-box-shadow-no-outline;
+    }
+    a {
+      &:focus {
+        line-height: 1;
+        box-shadow: none;
+      }
+    }
+  }
+}
+@media print {
+  .mt-pagination {
+    display: none;
+  }
+}

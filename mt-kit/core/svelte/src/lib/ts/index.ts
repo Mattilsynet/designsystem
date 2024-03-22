@@ -5,6 +5,7 @@ export {
   type Chapter,
   type AutocompleteType,
   type ChapterChangeDetails,
+  type Page,
   type Action,
   type Status,
   type MusselMarker,
