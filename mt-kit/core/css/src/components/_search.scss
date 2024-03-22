@@ -10,7 +10,7 @@
     position: inherit;
   }
 
-  button.icon--search-before-primary {
+  button.icon--search-after-primary {
     flex: content;
     word-break: normal;
     min-width: auto;
@@ -41,12 +41,24 @@
     width: 100%;
 
     .mt-button--search-clear {
+      height: calc(100% - ($border-width-small * 2));
+      aspect-ratio: 1 / 1;
       position: absolute;
-      right: var(--spacer-xxx-small);
+      right: 0;
       top: 50%;
       transform: translateY(-50%);
       margin: 0;
       z-index: 2;
+      border-radius: 0;
+
+      &::after {
+        content: var(--icon-x);
+      }
+
+      &:hover {
+        border: none;
+        background: var(--mt-button-primary-bg-hover);
+      }
     }
   }
 }
