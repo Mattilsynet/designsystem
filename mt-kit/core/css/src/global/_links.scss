@@ -293,6 +293,45 @@ $transportlink-colors: 'error' !default;
       }
     }
   }
+  &.search-result {
+    color: var(--color-text);
+    gap: var(--spacer-xx-small);
+    padding: var(--spacer-small) var(--spacer-x-small);
+
+    border-radius: 0;
+    border-bottom: var(--border-width-small) solid var(--color-mt-lys-furu);
+
+    text-decoration-line: none;
+    &:hover {
+      background-color: var(--mt-button-primary-bg-hover);
+      h2,
+      h3 {
+        text-decoration-line: none;
+      }
+    }
+    h2,
+    h3 {
+      text-decoration-line: underline;
+    }
+
+    &:first-child {
+      border-top: var(--border-width-small) solid var(--color-mt-lys-furu);
+    }
+
+    .breadcrumb {
+      font-size: $font-size-small;
+      padding-right: var(--spacer-xxx-small);
+
+      &:first-child::before {
+        content: none;
+      }
+      &::before {
+        content: var(--icon-carret-right-small);
+        display: inline-block;
+        margin-right: var(--spacer-xxx-small);
+      }
+    }
+  }
   &.highlighted-content {
     --content-margin: 0;
     --content-padding: var(--spacer-xx-small);
