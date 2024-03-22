@@ -320,7 +320,7 @@ $transportlink-colors: 'error' !default;
 
     .breadcrumb {
       font-size: $font-size-small;
-      padding-right: var(--spacer-xx-small);
+      padding-right: var(--spacer-xxx-small);
 
       &:first-child::before {
         content: none;
@@ -328,7 +328,7 @@ $transportlink-colors: 'error' !default;
       &::before {
         content: var(--icon-carret-right-small);
         display: inline-block;
-        margin-right: var(--spacer-xx-small);
+        margin-right: var(--spacer-xxx-small);
       }
     }
   }
