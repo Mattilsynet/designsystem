@@ -92,7 +92,6 @@
     padding: 0.1875rem;
     position: relative;
     z-index: 0;
-    margin-bottom: $border-width-large;
 
     &[aria-expanded]::after,
     &::after {
@@ -109,17 +108,14 @@
 
   // Currently used in the header
   &.mt-button__small-text {
-    font-size: $font-size-small;
+    font-size: $font-size-body;
     .mt-button,
     a {
-      font-size: $font-size-small;
+      font-size: $font-size-body;
     }
 
     @media only screen and (min-width: $breakpoint-large) {
       font-size: $font-size-label;
-      a {
-        font-size: $font-size-body;
-      }
       .mt-button {
         font-size: $font-size-label;
       }
@@ -238,6 +234,7 @@
   li {
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
   li + li {
     margin-top: var(--spacer-xx-small);

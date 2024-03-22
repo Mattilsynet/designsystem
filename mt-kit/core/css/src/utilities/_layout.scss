@@ -262,6 +262,10 @@ Only use if it does NOT affect accessibility
   grid-template-columns: 1fr max-content max-content max-content;
   align-items: center;
 
+  >.mt-link {
+    margin-right: $spacer-x-small;
+  }
+
   &--regular {
     height: $height-header-mobile;
   }
@@ -269,6 +273,10 @@ Only use if it does NOT affect accessibility
   @media only screen and (min-width: $breakpoint-large) {
     &--regular {
       height: $height-header-regular;
+    }
+
+    >.mt-link {
+      margin-right: 0;
     }
   }
 }
