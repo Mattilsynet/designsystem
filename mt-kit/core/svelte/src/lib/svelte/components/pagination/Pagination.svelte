@@ -50,34 +50,45 @@
   ): Array<Page & { hidden?: boolean; ellipsis?: boolean }> {
     const { floor, min, max } = Math
 
-    const total = pages.length
+    const [page1, page2, page3, page4, secondLastPage, lastPage, totalPages] = [
+      0,
+      1,
+      2,
+      3,
+      pages.length - 2,
+      pages.length - 1,
+      pages.length
+    ]
     const count = isMobile ? ALLOWED_PAGES_MOBILE : ALLOWED_PAGES_DESKTOP
-    if (total <= count + 2) {
+    const allowedPagesIndex = count - 1
+    const maxAllowed = count + 2
+
+    if (totalPages <= maxAllowed) {
       return pages
     }
-    const start = max(1, min(currentPage - floor((count - 3) / 2), total - count + 2))
-    const end = min(total, max(currentPage + floor((count - 2) / 2), count - 1))
+    const start = max(1, min(currentPage - floor((count - 3) / 2), totalPages - count + 2))
+    const end = min(totalPages, max(currentPage + floor((count - 2) / 2), allowedPagesIndex))
 
     return pages.map((page, index) => {
-      if (start > 2 && index === 1) {
-        return { ...page, ellipsis: start !== 3 }
-      } else if (start > 1 && index === 0) {
+      if (start > page3 && index === page2) {
+        return { ...page, ellipsis: start !== page4 }
+      } else if (start > page2 && index === page1) {
         return page
       }
 
       if (index >= start - 1 && index < end) {
         return page
       }
-      if (end < total - 1 && index === total - 2) {
-        return { ...page, ellipsis: end !== total - 2 }
-      } else if (end < total && index === pages.length - 1) {
+      if (end < lastPage && index === secondLastPage) {
+        return { ...page, ellipsis: end !== secondLastPage }
+      } else if (end < totalPages && index === lastPage) {
         return page
       }
 
-      if (currentPage <= count - 1 && index === count - 1) {
+      if (currentPage <= allowedPagesIndex && index === allowedPagesIndex) {
         return page
       }
-      if (currentPage > total - count && index === total - count) {
+      if (currentPage > totalPages - count && index === totalPages - count) {
         return page
       }
       return { ...page, hidden: true }
