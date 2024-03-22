@@ -46,7 +46,7 @@
         nextText="Neste"
         previousText="Forrige"
         labelPage="Side"
-        toPageTitle="Gå til side {0}"
+        toPageTitle={`Gå til side {0}`}
         class="" />
     </article>
   </div>

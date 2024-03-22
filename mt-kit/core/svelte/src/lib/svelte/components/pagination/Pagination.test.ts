@@ -5,7 +5,6 @@ import { vi } from 'vitest'
 describe('Pagination', () => {
   const lessThan5 = [{ url: '1' }, { url: '2' }, { url: '3' }, { url: '4' }, { url: '5' }]
   const pages = [...lessThan5, { url: '6' }, { url: '7' }]
-
   const moreThan7Pages = [...pages, { url: '8' }, { url: '9' }]
 
   const componentOptions = {
@@ -15,7 +14,7 @@ describe('Pagination', () => {
     currentPageIndex: 0
   }
 
-  function defindeWindowMatch(matches: boolean) {
+  function defineWindowMatch(matches: boolean) {
     Object.defineProperty(window, 'matchMedia', {
       writable: true,
       value: vi.fn().mockImplementation(query => ({
@@ -33,7 +32,7 @@ describe('Pagination', () => {
   const isMobile = true
 
   test('Renders with defaults - first page - desktop', () => {
-    defindeWindowMatch(!isMobile)
+    defineWindowMatch(!isMobile)
     const { getByText } = render(Pagination, componentOptions)
     const current = getByText('1')
     expect(current).toBeInTheDocument()
@@ -49,7 +48,7 @@ describe('Pagination', () => {
   })
 
   test('Renders with defaults - first page - more than 7 pages - desktop', () => {
-    defindeWindowMatch(!isMobile)
+    defineWindowMatch(!isMobile)
     const { getByText, queryByText } = render(Pagination, {
       ...componentOptions,
       pages: moreThan7Pages
@@ -70,7 +69,7 @@ describe('Pagination', () => {
   })
 
   test('Renders with defaults - first page - mobile', () => {
-    defindeWindowMatch(isMobile)
+    defineWindowMatch(isMobile)
     const { getByText, queryByText } = render(Pagination, componentOptions)
     const current = getByText('1')
     expect(current).toBeInTheDocument()
@@ -85,7 +84,7 @@ describe('Pagination', () => {
     expect(getByText('Forige').classList.contains('inclusively-hidden--fit-content')).toEqual(true)
   })
   test('Renders with defaults - first page - less than 5 - mobile', () => {
-    defindeWindowMatch(isMobile)
+    defineWindowMatch(isMobile)
     const { getByText } = render(Pagination, { ...componentOptions, pages: lessThan5 })
     const current = getByText('1')
     expect(current).toBeInTheDocument()
@@ -99,7 +98,7 @@ describe('Pagination', () => {
   })
 
   test('Renders page 2 - desktop', () => {
-    defindeWindowMatch(!isMobile)
+    defineWindowMatch(!isMobile)
     const { getByText } = render(Pagination, {
       ...componentOptions,
       currentPageIndex: 1
@@ -117,14 +116,14 @@ describe('Pagination', () => {
     expect(getByText('Neste')).toBeInTheDocument()
   })
   test('Renders page 4 - more than 7 pages - desktop', () => {
-    defindeWindowMatch(!isMobile)
+    defineWindowMatch(!isMobile)
     const { getByText, queryByText } = render(Pagination, {
       ...componentOptions,
       pages: moreThan7Pages,
       currentPageIndex: 3
     })
     expect(getByText('1')).toBeInTheDocument()
-    expect(queryByText('2')).not.toBeInTheDocument()
+    expect(getByText('2')).toBeInTheDocument()
     expect(getByText('3')).toBeInTheDocument()
     const current = getByText('4')
     expect(current).toBeInTheDocument()
@@ -138,7 +137,7 @@ describe('Pagination', () => {
     expect(getByText('Neste')).toBeInTheDocument()
   })
   test('Renders page 2 - mobile', () => {
-    defindeWindowMatch(isMobile)
+    defineWindowMatch(isMobile)
     const { getByText, queryByText } = render(Pagination, {
       ...componentOptions,
       currentPageIndex: 1
@@ -157,13 +156,13 @@ describe('Pagination', () => {
   })
 
   test('Renders page 3 - mobile', () => {
-    defindeWindowMatch(isMobile)
+    defineWindowMatch(isMobile)
     const { getByText, queryByText } = render(Pagination, {
       ...componentOptions,
       currentPageIndex: 2
     })
     expect(getByText('1')).toBeInTheDocument()
-    expect(queryByText('2')).not.toBeInTheDocument()
+    expect(getByText('2')).toBeInTheDocument()
     const current = getByText('3')
     expect(current).toBeInTheDocument()
     expect(current.getAttribute('aria-current')).toEqual('page')
@@ -176,7 +175,7 @@ describe('Pagination', () => {
   })
 
   test('Renders from second last page - desktop', () => {
-    defindeWindowMatch(!isMobile)
+    defineWindowMatch(!isMobile)
     const { getByText } = render(Pagination, {
       ...componentOptions,
       currentPageIndex: 5
@@ -195,7 +194,7 @@ describe('Pagination', () => {
   })
 
   test('Renders from second last page - mobile', () => {
-    defindeWindowMatch(isMobile)
+    defineWindowMatch(isMobile)
     const { getByText, queryByText } = render(Pagination, {
       ...componentOptions,
       currentPageIndex: 5
@@ -214,7 +213,7 @@ describe('Pagination', () => {
   })
 
   test('Renders from last page - desktop', () => {
-    defindeWindowMatch(!isMobile)
+    defineWindowMatch(!isMobile)
     const { getByText } = render(Pagination, {
       ...componentOptions,
       currentPageIndex: 6
@@ -233,7 +232,7 @@ describe('Pagination', () => {
   })
 
   test('Renders from last page - more than 7 - desktop', () => {
-    defindeWindowMatch(!isMobile)
+    defineWindowMatch(!isMobile)
     const { getByText, queryByText } = render(Pagination, {
       ...componentOptions,
       pages: moreThan7Pages,
@@ -254,7 +253,7 @@ describe('Pagination', () => {
     expect(getByText('Neste').classList.contains('inclusively-hidden--fit-content')).toEqual(true)
   })
   test('Renders from last page - mobile', () => {
-    defindeWindowMatch(isMobile)
+    defineWindowMatch(isMobile)
     const { getByText, queryByText } = render(Pagination, {
       ...componentOptions,
       currentPageIndex: 6
@@ -272,7 +271,7 @@ describe('Pagination', () => {
     expect(getByText('Neste').classList.contains('inclusively-hidden--fit-content')).toEqual(true)
   })
   test('Renders from last page - less than 5 - mobile', () => {
-    defindeWindowMatch(isMobile)
+    defineWindowMatch(isMobile)
     const { getByText } = render(Pagination, {
       ...componentOptions,
       pages: lessThan5,
