@@ -17,6 +17,7 @@ export { default as TextInput } from './svelte/components/form/TextInput.svelte'
 export { default as TextInputHorizontal } from './svelte/components/form/TextInputHorizontal.svelte'
 export { default as XIcon } from './svelte/components/icons/XIcon.svelte'
 
+export { default as SearchResult } from './svelte/components/SearchResult.svelte'
 export { default as Breadcrumbs } from './svelte/components/Breadcrumbs.svelte'
 export { default as ButtonSpinner } from './svelte/components/ButtonSpinner.svelte'
 export { default as CardArticle } from './svelte/components/CardArticle.svelte'
