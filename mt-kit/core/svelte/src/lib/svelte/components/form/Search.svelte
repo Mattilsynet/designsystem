@@ -18,9 +18,9 @@
   let className = ''
   export { className as class }
 
-  let ref: HTMLInputElement
+  let searchInput: HTMLInputElement
 
-  $: shouldFocus && ref?.focus()
+  $: shouldFocus && searchInput?.focus()
 
   beforeUpdate(() => {
     if (!searchString && !isInitialized && document) {
@@ -45,7 +45,7 @@
 <div class="search-wrap {className}">
   <div class="search-wrap-inner">
     <input
-      bind:this={ref}
+      bind:this={searchInput}
       id={name}
       type="search"
       {name}
