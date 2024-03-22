@@ -11,7 +11,7 @@
   export let previousText = 'Forrige'
   export let paginationLabel = 'Paginering'
   export let labelPage = 'Side'
-  export let toPageTitle = 'Gå til side {0}'
+  export let toPageTitle = 'Gå til side {0} av {1}'
   export let pages: Array<Page> = []
   export let currentPageIndex: 0 | 1 = 0
 
@@ -121,7 +121,7 @@
             <a
               href={chapter.url}
               class="mt-link"
-              title={interpolate(toPageTitle, [index + 1])}
+              title={interpolate(toPageTitle, [index + 1, pages.length - 1])}
               aria-current={index === currentPageIndex ? 'page' : undefined}
               on:click|preventDefault={() => handleClick(index)}>
               <span class="inclusively-hidden-initial">{labelPage}</span>
