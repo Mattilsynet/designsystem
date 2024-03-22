@@ -2,14 +2,7 @@
 @use '../global/utils';
 
 .mt-fieldset .checkbox-subsets {
-  --gap: var(--spacer-xx-small);
-  gap: var(--gap);
-  display: inline-flex;
-
   .form-control {
-    display: inherit;
-    gap: var(--gap);
-
     &.m-t-0 {
       margin-top: 0;
     }

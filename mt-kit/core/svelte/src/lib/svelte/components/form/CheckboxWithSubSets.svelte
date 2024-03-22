@@ -53,7 +53,7 @@
   }
 </script>
 
-<fieldset class={`mt-fieldset layout-flex checkbox layout-flex-col ${className}`} style="--gap: 0">
+<fieldset class={`mt-fieldset checkbox layout-flex-col ${className}`} style="--gap: 0">
   <legend
     id="legend"
     class="mt-legend form-legend"
@@ -64,7 +64,7 @@
   {#if helpText}
     <p class="hint">{helpText}</p>
   {/if}
-  {#if hasJS && hasCheckAll || forceCheckAll}
+  {#if (hasJS && hasCheckAll) || forceCheckAll}
     <div class="form-control checkbox-subsets">
       <input
         id={options.key}
@@ -80,7 +80,7 @@
     </div>
   {/if}
   {#each options.children || [] as listItem, mainIndex}
-    <div class="form-control narrow checkbox-subsets" class:m-t-xxs={mainIndex > 0}>
+    <div class="form-control checkbox-subsets" class:m-t-xxs={mainIndex > 0}>
       <input
         id={listItem.key}
         type="checkbox"
@@ -104,7 +104,9 @@
           </legend>
         {/if}
         {#each listItem.children as subListItem, subListIndex}
-          <div class="form-control narrow" class:m-t-0={!level2Legend && subListIndex === 0}>
+          <div
+            class="form-control checkbox-subsets"
+            class:m-t-0={!level2Legend && subListIndex === 0}>
             <input
               id={subListItem.key}
               type="checkbox"
@@ -128,7 +130,7 @@
               {/if}
               {#each subListItem.children as subSubListItem, subSubListIndex}
                 <div
-                  class="form-control narrow"
+                  class="form-control checkbox-subsets"
                   class:m-t-0={!level3Legend && subSubListIndex === 0}>
                   <input
                     id={subSubListItem.key}
