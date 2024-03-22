@@ -12,6 +12,7 @@
   export let searchResult: Array<SearchResult> = []
   export let headingClass = 'mt-h3'
   export let headerTag: 'h2' | 'h3' = 'h2'
+  export let breadCrumbAriaLabel = 'Brødsmulesti'
 </script>
 
 {#each searchResult as result, index}
@@ -28,7 +29,7 @@
       </div>
     {/if}
     {#if result.breadcrumbs?.length > 0}
-      <div>
+      <div aria-label={breadCrumbAriaLabel}>
         {#each result.breadcrumbs as breadcrumb}
           <span class="breadcrumb">
             {@html breadcrumb}

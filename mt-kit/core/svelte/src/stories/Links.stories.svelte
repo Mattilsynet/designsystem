@@ -1,10 +1,10 @@
 <script lang="ts">
   import { Meta, Story } from '@storybook/addon-svelte-csf'
   import Link from '../lib/svelte/components/Link.svelte'
-  import Disclosure from '../lib/svelte/components/Disclosure.svelte'
   import { action } from '@storybook/addon-actions'
   import ChapterNavigation from '../lib/svelte/components/ChapterNavigation.svelte'
   import { wrapInShadowDom } from './storybook-utils/utils'
+  import SearchResult from '../lib/svelte/components/SearchResult.svelte'
 
   const chapterChangeAction = action('chapterChange')
   let currentChapterNumber = 0
@@ -78,6 +78,38 @@
         text: 'Kritikkverdige forhold på arbeids&shy;plassen'
       }
     ],
+    searchResult: [
+      {
+        url: 'https://www.mattilsynet.no',
+        title: 'Dyr',
+        text: 'Temaside dyr.',
+        breadcrumbs: []
+      },
+      {
+        url: 'https://www.mattilsynet.no',
+        title: 'En side uten ingress',
+        text: undefined,
+        breadcrumbs: []
+      },
+      {
+        url: 'https://www.mattilsynet.no',
+        title: 'Import av dyr',
+        text: 'Reglene som gjelder når du skal importere eller innføre dyr til Norge.',
+        breadcrumbs: ['Import']
+      },
+      {
+        url: 'https://www.mattilsynet.no',
+        title: 'Transport av dyr til beite',
+        text: 'Transport av dyr i næringsmessig dyrehold til og fra beite, er å betrakte som næringsmessig transport. Reglene i forskrift om næringsmessig transport må de ...',
+        breadcrumbs: ['Dyr', 'Dyretransport']
+      },
+      {
+        url: 'https://www.mattilsynet.no',
+        title: 'Krav til transportør og personell',
+        text: 'Når dyreholder selv transporterer dyr til beite, gjelder ikke kravet om at transportøren skal være godkjent av Mattilsynet.',
+        breadcrumbs: ['Dyr', 'Dyretransport', 'Transport av dyr til beite']
+      }
+    ],
     showChapterNumber: true,
     secondary: 'Avbryt',
     inText: 'mattilsynet',
@@ -91,6 +123,7 @@
     cards: { control: 'array' },
     chapters: { control: 'array' },
     smallLinks: { control: 'array' },
+    searchResult: { control: 'array' },
     showChapterNumber: { control: 'boolean' },
     secondary: { control: 'string' },
     disabled: { control: 'boolean' },
@@ -359,6 +392,12 @@
       </section>
       <hr />
     {/each}
+  </div>
+</Story>
+
+<Story name="Søkeresultat" let:searchResult let:disableCss>
+  <div use:wrapInShadowDom={disableCss} class="container layout-grid layout-grid--column-12">
+    <SearchResult {searchResult} />
   </div>
 </Story>
 

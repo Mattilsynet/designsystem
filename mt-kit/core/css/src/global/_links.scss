@@ -300,30 +300,35 @@ $transportlink-colors: 'error' !default;
 
     border-radius: 0;
     border-bottom: var(--border-width-small) solid var(--color-mt-lys-furu);
+
+    text-decoration-line: none;
+    &:hover {
+      background-color: var(--mt-button-primary-bg-hover);
+      h2,
+      h3 {
+        text-decoration-line: none;
+      }
+    }
+    h2,
+    h3 {
+      text-decoration-line: underline;
+    }
+
     &:first-child {
       border-top: var(--border-width-small) solid var(--color-mt-lys-furu);
     }
 
-    text-decoration-line: none;
-    h2 {
-      text-decoration-line: underline;
-    }
-    &:hover {
-      background-color: var(--mt-button-primary-bg-hover);
-      h2 {
-        text-decoration-line: none;
-      }
-    }
-
     .breadcrumb {
       font-size: $font-size-small;
+      padding-right: var(--spacer-xx-small);
+
       &:first-child::before {
         content: none;
       }
       &::before {
         content: var(--icon-carret-right-small);
         display: inline-block;
-        margin-right: var(--spacer-xxx-small);
+        margin-right: var(--spacer-xx-small);
       }
     }
   }
