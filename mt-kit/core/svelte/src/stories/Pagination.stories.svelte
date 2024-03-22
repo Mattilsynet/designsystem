@@ -19,7 +19,6 @@
   args={{
     disableCss: false,
     pages: [
-      { url: '0' },
       { url: '1' },
       { url: '2' },
       { url: '3' },
@@ -27,7 +26,8 @@
       { url: '5' },
       { url: '6' },
       { url: '7' },
-      { url: '8' }
+      { url: '8' },
+      { url: '9' }
     ]
   }}
   argTypes={{
