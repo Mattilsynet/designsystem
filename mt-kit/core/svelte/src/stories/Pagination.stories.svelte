@@ -19,15 +19,15 @@
   args={{
     disableCss: false,
     pages: [
-      { url: '1', index: 0 },
-      { url: '2', index: 1 },
-      { url: '3', index: 2 },
-      { url: '4', index: 3 },
-      { url: '5', index: 4 },
-      { url: '6', index: 5 },
-      { url: '7', index: 6 },
-      { url: '8', index: 7 },
-      { url: '9', index: 8 }
+      { url: '1' },
+      { url: '2' },
+      { url: '3' },
+      { url: '4' },
+      { url: '5' },
+      { url: '6' },
+      { url: '7' },
+      { url: '8' },
+      { url: '9' }
     ]
   }}
   argTypes={{
