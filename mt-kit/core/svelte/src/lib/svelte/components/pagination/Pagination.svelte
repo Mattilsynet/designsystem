@@ -121,7 +121,7 @@
             <a
               href={chapter.url}
               class="mt-link"
-              title={interpolate(toPageTitle, [index + 1, pages.length - 1])}
+              title={interpolate(toPageTitle, [index + 1, pages.length])}
               aria-current={index === currentPageIndex ? 'page' : undefined}
               on:click|preventDefault={() => handleClick(index)}>
               <span class="inclusively-hidden-initial">{labelPage}</span>
