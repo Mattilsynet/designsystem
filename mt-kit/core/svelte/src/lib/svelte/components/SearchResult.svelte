@@ -1,13 +1,7 @@
 <script lang="ts">
   import { mapRelExternal } from '../../ts/utils'
   import HeadingLevel from '../components/HeadingLevel.svelte'
-
-  type SearchResult = {
-    title?: string
-    url?: string
-    text?: string
-    breadcrumbs?: string[]
-  }
+  import type { SearchResult } from '$lib/ts'
 
   export let searchResult: Array<SearchResult> = []
   export let headingClass = 'mt-h3'
@@ -15,7 +9,7 @@
   export let breadCrumbAriaLabel = 'Brødsmulesti'
 </script>
 
-{#each searchResult as result, index}
+{#each searchResult as result}
   <a
     href={result.url}
     rel={mapRelExternal(result.url)}

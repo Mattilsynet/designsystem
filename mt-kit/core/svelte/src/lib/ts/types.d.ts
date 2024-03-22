@@ -168,3 +168,10 @@ export interface MTPopupOptions {
   positioning: Positioning
   markerContent: (feature: Feature) => string
 }
+
+export type SearchResult = {
+  title?: string
+  url?: string
+  text?: string
+  breadcrumbs?: Array<string>
+}

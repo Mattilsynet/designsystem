@@ -20,7 +20,8 @@ export {
   type InputModeType,
   type InputProps,
   type MultiSelectOption,
-  type CheckboxWithSubSectionsOptions
+  type CheckboxWithSubSectionsOptions,
+  type SearchResult
 } from './types.d.ts'
 
 export { clickOutside } from './click-outside'
