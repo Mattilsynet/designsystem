@@ -126,7 +126,7 @@
           <a class="forward-arrow" href={item.url} rel="external">{@html item.text}</a>
         {:else}
           <span class="last-breadcrumb">
-            {@html item.text}
+            {item.text}
           </span>
         {/if}
       </li>
