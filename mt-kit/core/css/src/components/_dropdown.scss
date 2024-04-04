@@ -38,15 +38,20 @@
   .dropdown-content {
     $color: $color-primary;
 
-    display: none;
     position: absolute;
-    width: 0;
-    top: 0;
-    padding: 4.125rem var(--spacer-xx-small) var(--spacer-xx-small);
+    width: 100%;
+    top: calc(#{$height-header-mobile} - var(--spacer-xx-small) + 0.75rem);
     background-color: var(--color-mt-white);
     z-index: var(--z-index-feedback);
     right: 0;
     border-top: $border-width-small solid var(--color-mt-mellombeige);
+    transition: max-height 2s ease;
+    overflow-y: hidden;
+
+    > * {
+      display: none;
+      padding: 4.125rem var(--spacer-xx-small) var(--spacer-xx-small);
+    }
 
     > .mt-button {
       color: transparent;
@@ -154,9 +159,10 @@
     & .mt-details > .mt-summary.mt-button {
       color: var(--color-mt-text-dark);
       .dropdown-content {
-        padding: var(--spacer-small) 0;
-        top: calc(#{$height-header-mobile} - var(--spacer-xx-small) + 0.75rem);
-        min-width: 100vw;
+        > * {
+          display: grid;
+          padding: var(--spacer-small) 0;
+        }
       }
     }
 
@@ -171,11 +177,17 @@
       .disclosure-header {
         font-size: $font-size-h3;
       }
+      .dropdown-content {
+        top: calc(#{$height-header-regular} - var(--spacer-xx-small) + 1.38rem);
+      }
       &.visible {
         .dropdown-content {
-          padding-top: var(--spacer-medium);
-          padding-bottom: var(--spacer-medium);
           top: calc(#{$height-header-regular} - var(--spacer-xx-small) + 1.38rem);
+
+          > * {
+            padding-top: var(--spacer-medium);
+            padding-bottom: var(--spacer-medium);
+          }
         }
       }
     }
@@ -188,8 +200,9 @@
     }
 
     .dropdown-content {
-      display: inline-block;
-      min-width: min(100vw, 20rem);
+      > * {
+        display: block;
+      }
     }
 
     .dropdown-title,
@@ -201,12 +214,6 @@
     a,
     .mt-button--unstyled {
       color: var(--dropdown-visible-color);
-    }
-  }
-
-  @media only screen and (min-width: $breakpoint-large) {
-    .dropdown-content {
-      min-width: 20rem;
     }
   }
 }
@@ -425,6 +432,7 @@
     background: rgba(0,0,0,0);
     transition-delay: 0.25s;
     transition: background 0.7s cubic-bezier(.38,.02,.26,1.01);
+    pointer-events: none;
   }
 }
 
