@@ -430,8 +430,7 @@
     bottom: 0;
     z-index: var(--z-index-dropdown);
     background: rgba(0,0,0,0);
-    transition-delay: 0.25s;
-    transition: background 0.7s cubic-bezier(.38,.02,.26,1.01);
+    transition: background 0.7s cubic-bezier(.38,.02,.26,1.01) 0.25s;
     pointer-events: none;
   }
 }
