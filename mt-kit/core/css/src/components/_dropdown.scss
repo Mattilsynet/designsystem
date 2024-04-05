@@ -23,6 +23,7 @@
     &[open] {
       .mt-summary {
         color: var(--mt-button-neutral-color);
+        margin-bottom: 0;
         &::after {
           transform: rotate(-180deg);
           margin-left: 0;
