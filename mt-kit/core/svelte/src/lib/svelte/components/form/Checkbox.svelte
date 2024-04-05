@@ -18,6 +18,7 @@
   export let theme: 'checkbox' | 'button' = 'checkbox'
   let className = ''
   export { className as class }
+  export let legendClass = ''
   let isInitialized = false
 
   beforeUpdate(() => {
@@ -37,7 +38,7 @@
   class="mt-fieldset form-fieldset {theme === 'checkbox' ? 'checkbox' : ''} {theme === 'button'
     ? 'mt-button-checkbox'
     : ''} {className}">
-  <legend class="mt-legend form-legend">
+  <legend class="mt-legend form-legend {legendClass}">
     {label}
     {#if !isRequired}
       <span class="text-small">{textOptional}</span>

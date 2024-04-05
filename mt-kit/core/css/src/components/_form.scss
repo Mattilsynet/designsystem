@@ -63,6 +63,9 @@ $form-outline-color: 'var(--form-outline-color)' !default;
   &.small {
     font-size: $font-size-body;
   }
+  &.bold {
+    font-weight: var(--font-weight-bold);
+  }
 }
 
 .form-field {
