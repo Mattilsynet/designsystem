@@ -45,11 +45,9 @@
     z-index: var(--z-index-feedback);
     right: 0;
     border-top: $border-width-small solid var(--color-mt-mellombeige);
-    transition: max-height 2s ease;
-    overflow-y: hidden;
+    display: none;
 
     > * {
-      display: none;
       padding: 4.125rem var(--spacer-xx-small) var(--spacer-xx-small);
     }
 
@@ -159,8 +157,8 @@
     & .mt-details > .mt-summary.mt-button {
       color: var(--color-mt-text-dark);
       .dropdown-content {
+        display: inline-block;
         > * {
-          display: grid;
           padding: var(--spacer-small) 0;
         }
       }
