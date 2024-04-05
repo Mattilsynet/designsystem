@@ -185,7 +185,7 @@
             >{chapters[0].heading}</a>
           {#if isMobile || (!isMobile && isExpanded)}
             <button
-              class="mt-button--unstyled show-menu icon--hamburger-menu-on-dark-before"
+              class="mt-button--unstyled show-menu icon--arrow-down-menu-on-dark-before"
               aria-haspopup="true"
               aria-expanded={isExpanded}
               on:click={handleClickClose} />
