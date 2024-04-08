@@ -437,8 +437,8 @@
 }
 
 
-.mt-header:has(button[aria-expanded="true"]) + .container-full-width,
-.mt-header:has(details[open]) + .container-full-width {
+.mt-header:has(.dropdown > button[aria-expanded="true"]) + .container-full-width,
+.mt-header:has(.dropdown > details[open]) + .container-full-width {
     &::before {
       background: rgba(0,0,0,0.2);
 
