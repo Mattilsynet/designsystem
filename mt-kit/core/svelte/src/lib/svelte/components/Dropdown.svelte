@@ -33,6 +33,20 @@
   if (loadJs) {
     onMount(() => send('MOUNTED'))
   }
+  function handleTabOut(node: HTMLElement, callBack: () => void): { destroy(): void } {
+    function handleTabIn(): void {
+      if (isOpen && !node.contains(document.activeElement)) {
+        callBack()
+      }
+    }
+    document.addEventListener('focusin', handleTabIn)
+
+    return {
+      destroy: (): void => {
+        document.removeEventListener('focusin', handleTabIn)
+      }
+    }
+  }
 </script>
 
 <div class="dropdown {className} {onServer ? 'on-server' : ''}" class:visible={isOpen || onServer}>
@@ -56,6 +70,7 @@
       {@html title}
     </button>
     <div
+      use:handleTabOut={() => (isOpen = false)}
       class="dropdown-content"
       id={bodyId}
       use:clickOutside={titleId}
