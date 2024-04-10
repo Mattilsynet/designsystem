@@ -416,7 +416,7 @@
   }
 }
 
-.container-full-width {
+.shadow-overlay {
   position: relative;
   &::before {
     display: block;
@@ -437,8 +437,8 @@
 }
 
 
-.mt-header:has(.dropdown > button[aria-expanded="true"]) + .container-full-width,
-.mt-header:has(.dropdown > details[open]) + .container-full-width {
+.mt-header:has(.dropdown > button[aria-expanded="true"]) + .shadow-overlay,
+.mt-header:has(.dropdown > details[open]) + .shadow-overlay {
     &::before {
       background: rgba(0,0,0,0.2);
 
