@@ -7,6 +7,7 @@
   import { onMount } from 'svelte'
   import { slide } from 'svelte/transition'
   import { clickOutside } from '../../ts/click-outside'
+  import { focusOutside } from '../../ts/focus-outside'
   import { createToggleMachine } from '../../ts/toggle-machine'
 
   export let title = ''
@@ -33,20 +34,6 @@
   if (loadJs) {
     onMount(() => send('MOUNTED'))
   }
-  function handleTabOut(node: HTMLElement, callBack: () => void): { destroy(): void } {
-    function handleTabIn(): void {
-      if (isOpen && !node.contains(document.activeElement)) {
-        callBack()
-      }
-    }
-    document.addEventListener('focusin', handleTabIn)
-
-    return {
-      destroy: (): void => {
-        document.removeEventListener('focusin', handleTabIn)
-      }
-    }
-  }
 </script>
 
 <div class="dropdown {className} {onServer ? 'on-server' : ''}" class:visible={isOpen || onServer}>
@@ -70,7 +57,7 @@
       {@html title}
     </button>
     <div
-      use:handleTabOut={() => (isOpen = false)}
+      use:focusOutside={() => (isOpen = false)}
       class="dropdown-content"
       id={bodyId}
       use:clickOutside={titleId}
