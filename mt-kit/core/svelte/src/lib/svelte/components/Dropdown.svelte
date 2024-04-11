@@ -7,6 +7,7 @@
   import { onMount } from 'svelte'
   import { slide } from 'svelte/transition'
   import { clickOutside } from '../../ts/click-outside'
+  import { focusOutside } from '../../ts/focus-outside'
   import { createToggleMachine } from '../../ts/toggle-machine'
 
   export let title = ''
@@ -56,6 +57,7 @@
       {@html title}
     </button>
     <div
+      use:focusOutside={() => (isOpen = false)}
       class="dropdown-content"
       id={bodyId}
       use:clickOutside={titleId}

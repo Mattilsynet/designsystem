@@ -26,6 +26,7 @@ export {
 } from './types.d.ts'
 
 export { clickOutside } from './click-outside'
+export { focusOutside } from './focus-outside'
 export { countCharacters, errorOnTooManyCharacters } from './count-characters'
 export { createToggleMachine } from './toggle-machine'
 export {
