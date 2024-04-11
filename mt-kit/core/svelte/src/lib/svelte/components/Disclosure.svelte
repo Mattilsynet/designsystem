@@ -93,17 +93,19 @@
       </span>
     </button>
   {/if}
-
-  <div
-    id={bodyId}
-    class="disclosure-panel {panelClass} {onServer ? 'on-server' : ''}"
-    class:display-none-important={!isOpen}
-    transition:slide|local={{ duration: $state.context.isFirstRenderFinished ? 300 : 0 }}>
-    {#if !onServer}
+  {#if isOpen && !onServer}
+    <div
+      id={bodyId}
+      class="disclosure-panel {panelClass}"
+      transition:slide|local={{ duration: $state.context.isFirstRenderFinished ? 500 : 0 }}>
       <HeadingLevel class="inclusively-hidden" headingLevel={+headerTag.charAt(1)}>
         {@html title}
       </HeadingLevel>
-    {/if}
-    <slot />
-  </div>
+      <slot />
+    </div>
+  {:else if onServer && !loadJs}
+    <div id={bodyId} class="disclosure-panel {panelClass} on-server">
+      <slot />
+    </div>
+  {/if}
 </div>
