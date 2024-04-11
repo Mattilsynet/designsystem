@@ -58,6 +58,7 @@
     </button>
     {#if isOpen}
       <div
+        use:focusOutside={() => (isOpen = false)}
         class="dropdown-content"
         id={bodyId}
         use:clickOutside={titleId}
