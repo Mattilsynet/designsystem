@@ -273,7 +273,7 @@
   display: grid;
   grid-template-columns: 1fr;
   column-gap: var(--spacer-xxx-small);
-  margin-bottom: var(--spacer-medium);
+  padding-bottom: var(--spacer-medium);
   li {
     margin-top: var(--spacer-xx-small);
     &:nth-child(2) {
