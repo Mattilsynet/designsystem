@@ -56,16 +56,17 @@
       on:click={() => send('TOGGLE')}>
       {@html title}
     </button>
-    <div
-      use:focusOutside={() => (isOpen = false)}
-      class="dropdown-content"
-      id={bodyId}
-      use:clickOutside={titleId}
-      on:click={handleClick}
-      on:clickOutside={() => isOpen && send('TOGGLE')}>
-      <div in:slide={{ duration: 300 }}>
-        <slot {isOpen} {send} />
+    {#if isOpen}
+      <div
+        class="dropdown-content"
+        id={bodyId}
+        use:clickOutside={titleId}
+        on:click={handleClick}
+        on:clickOutside={() => isOpen && send('TOGGLE')}>
+        <div in:slide={{ duration: 900 }} out:slide={{ duration: 450 }}>
+          <slot {isOpen} />
+        </div>
       </div>
-    </div>
+    {/if}
   {/if}
 </div>
