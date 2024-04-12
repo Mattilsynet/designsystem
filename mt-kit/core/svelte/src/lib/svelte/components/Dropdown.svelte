@@ -43,7 +43,7 @@
         {@html title}
       </summary>
       <div id={bodyId} class="dropdown-content">
-        <slot />
+        <slot loadJs={false} />
       </div>
     </details>
   {:else}
