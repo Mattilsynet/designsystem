@@ -63,10 +63,10 @@
         id={bodyId}
         use:clickOutside={titleId}
         on:click={handleClick}
-        on:clickOutside={() => isOpen && send('TOGGLE')}>
-        <div in:slide={{ duration: 900 }} out:slide={{ duration: 450 }}>
-          <slot {isOpen} />
-        </div>
+        on:clickOutside={() => isOpen && send('TOGGLE')}
+        in:slide={{ duration: 900 }}
+        out:slide={{ duration: 700 }}>
+        <slot {isOpen} />
       </div>
     {/if}
   {/if}

@@ -45,10 +45,7 @@
     z-index: var(--z-index-feedback);
     right: 0;
     border-top: $border-width-small solid var(--color-mt-mellombeige);
-
-    > * {
-      padding: var(--spacer-small) 0;
-    }
+    padding: var(--spacer-small) 0;
 
     > .mt-button {
       color: transparent;
@@ -172,9 +169,7 @@
       }
       .dropdown-content {
         top: $height-header-regular;
-        > * {
-          padding: var(--spacer-medium) 0;
-        }
+        padding: var(--spacer-medium) 0;
       }
     }
   }
