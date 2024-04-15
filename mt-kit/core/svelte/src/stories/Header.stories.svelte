@@ -170,6 +170,7 @@
       </Dropdown>
       <Dropdown
         let:isOpen
+        let:send
         title={args.search.linkText}
         loadJs={!args.disableJs}
         class="mt-button__small-text full-menu"
@@ -178,7 +179,10 @@
           role="search"
           method="GET"
           class="mt-form form-layout layout-grid layout-grid--column-12 container"
-          on:submit|preventDefault={onSubmit}>
+          on:submit|preventDefault={() => {
+            onSubmit()
+            send('TOGGLE')
+          }}>
           <Search
             shouldFocus={isOpen}
             class="col-4-span-6"
