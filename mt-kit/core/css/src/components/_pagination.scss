@@ -47,15 +47,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    &:hover {
+      background-color: var(--mt-button-flat-bg-hover);
+      color: var(--mt-button-primary-color-hover);
+    }
+
     &.next-link,
     &.previous-link {
-      border-radius: 0;
+      padding: 0 var(--spacer-xxx-small);
+      border-radius: var(--border-radius);
       background-color: transparent;
       border-color: var(--mt-button-primary-border);
       text-decoration: none;
       &:hover {
         text-decoration: underline;
-        background-color: var(--mt-button-primary-bg-hover);
+        background-color: var(--mt-button-flat-bg-hover);
         color: var(--mt-button-primary-color-hover);
         border-color: var(--mt-button-primary-border-hover);
       }
@@ -79,7 +85,7 @@
       border-color: var(--mt-buttonpricolor-mt-granskog);
       color: var(--color-mt-white);
       &:hover {
-        background-color: var(--mt-button-primary-bg-hover);
+        background-color: var(--mt-button-flat-bg-hover);
         color: var(--mt-button-primary-color-hover);
         border-color: var(--mt-button-primary-border-hover);
       }
