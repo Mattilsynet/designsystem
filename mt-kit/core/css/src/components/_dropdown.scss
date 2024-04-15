@@ -152,8 +152,6 @@
     &.visible,
     & .mt-details > .mt-summary.mt-button {
       color: var(--color-mt-text-dark);
-      .dropdown-content {
-      }
     }
 
     @media only screen and (min-width: $breakpoint-large) {
@@ -178,12 +176,6 @@
     color: var(--dropdown-visible-color);
     .disclosure-header {
       font-weight: var(--font-weight-light);
-    }
-
-    .dropdown-content {
-      > * {
-        display: grid;
-      }
     }
 
     .dropdown-title,
