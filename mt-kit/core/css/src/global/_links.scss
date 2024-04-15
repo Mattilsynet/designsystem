@@ -303,7 +303,7 @@ $transportlink-colors: 'error' !default;
 
     text-decoration-line: none;
     &:hover {
-      background-color: var(--colored-card-bg);
+      background-color: var(--mt-button-flat-bg-hover);
       h2,
       h3 {
         text-decoration-line: none;
