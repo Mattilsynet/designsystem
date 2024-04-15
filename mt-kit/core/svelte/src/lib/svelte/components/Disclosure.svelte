@@ -103,7 +103,7 @@
       </HeadingLevel>
       <slot />
     </div>
-  {:else if onServer && !loadJs}
+  {:else if isOpen && onServer && !loadJs}
     <div id={bodyId} class="disclosure-panel {panelClass} on-server">
       <slot />
     </div>

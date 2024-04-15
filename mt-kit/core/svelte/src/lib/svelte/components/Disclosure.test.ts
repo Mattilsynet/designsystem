@@ -9,9 +9,8 @@ describe('Disclosure', () => {
   test('Renders', () => {
     const { getAllByText } = render(Disclosure, { props: componentOptions })
     const byText = getAllByText('Varsle om piggtrådgjerder')
-    expect(byText.length).toEqual(2)
+    expect(byText.length).toEqual(1)
     expect(byText[0].parentElement.getAttribute('aria-expanded')).toEqual('false')
-    expect(byText[1].parentElement.classList.contains('display-none-important')).toEqual(true)
     const disclosure = document.querySelector('.disclosure-bordered')
     expect(disclosure).toBeInTheDocument()
   })
