@@ -47,9 +47,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    &:hover {
+      background-color: var(--mt-button-primary-bg-hover);
+      color: var(--mt-button-primary-color-hover);
+    }
+
     &.next-link,
     &.previous-link {
-      border-radius: 0;
+      padding: 0 var(--spacer-xxx-small);
+      border-radius: var(--border-radius);
       background-color: transparent;
       border-color: var(--mt-button-primary-border);
       text-decoration: none;
@@ -58,6 +64,7 @@
         background-color: var(--mt-button-primary-bg-hover);
         color: var(--mt-button-primary-color-hover);
         border-color: var(--mt-button-primary-border-hover);
+        border-radius: var(--border-radius);
       }
     }
     &.next-link {
