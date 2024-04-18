@@ -43,7 +43,7 @@
         {@html title}
       </summary>
       <div id={bodyId} class="dropdown-content">
-        <slot />
+        <slot loadJs={false} />
       </div>
     </details>
   {:else}
@@ -56,16 +56,18 @@
       on:click={() => send('TOGGLE')}>
       {@html title}
     </button>
-    <div
-      use:focusOutside={() => (isOpen = false)}
-      class="dropdown-content"
-      id={bodyId}
-      use:clickOutside={titleId}
-      on:click={handleClick}
-      on:clickOutside={() => isOpen && send('TOGGLE')}>
-      <div in:slide={{ duration: 300 }}>
-        <slot {isOpen} {send} />
+    {#if isOpen}
+      <div
+        use:focusOutside={() => (isOpen = false)}
+        class="dropdown-content"
+        id={bodyId}
+        use:clickOutside={titleId}
+        on:click={handleClick}
+        on:clickOutside={() => isOpen && send('TOGGLE')}
+        in:slide={{ duration: 900 }}
+        out:slide={{ duration: 700 }}>
+        <slot {isOpen} />
       </div>
-    </div>
+    {/if}
   {/if}
 </div>

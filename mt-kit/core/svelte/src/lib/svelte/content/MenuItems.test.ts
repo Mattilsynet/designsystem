@@ -1,4 +1,4 @@
-import { render } from '@testing-library/svelte'
+import { render, fireEvent } from '@testing-library/svelte'
 import MenuItems from './MenuItems.svelte'
 
 describe('Related links list', () => {
@@ -81,38 +81,47 @@ describe('Related links list', () => {
     ]
   }
 
-  test('Renders', () => {
-    const { getAllByText, getByText } = render(MenuItems, componentOptions)
-    const allByText = getAllByText('Menu item 1')
-    expect(allByText.length).toEqual(3)
-    expect(allByText[0].parentElement.tagName).toEqual('BUTTON')
-    expect(allByText[1].parentElement.classList.contains('display-none-important')).toEqual(true)
-    expect(allByText[2].tagName).toEqual('A')
+  test('Renders', async () => {
+    const { getByText, queryByText } = render(MenuItems, componentOptions)
+    const menuItem1 = getByText('Menu item 1')
+    expect(menuItem1).toBeInTheDocument()
+    expect(menuItem1.parentElement.getAttribute('aria-expanded')).toEqual('false')
+    expect(menuItem1.parentElement.tagName).toEqual('BUTTON')
+    componentOptions.itemsLeft[0].children.forEach(child => {
+      expect(queryByText(child.title)).not.toBeInTheDocument()
+    })
+    await fireEvent.click(menuItem1)
     componentOptions.itemsLeft[0].children.forEach(child => {
       expect(getByText(child.title)).toBeInTheDocument()
     })
 
-    const allByText1 = getAllByText('Menu item 2')
-    expect(allByText1[0].parentElement.tagName).toEqual('BUTTON')
-    expect(allByText1[1].parentElement.classList.contains('display-none-important')).toEqual(true)
-    expect(allByText1[2].tagName).toEqual('A')
-    expect(allByText1.length).toEqual(3)
+    const menuItem2 = getByText('Menu item 2')
+    expect(menuItem2.parentElement.getAttribute('aria-expanded')).toEqual('false')
+    expect(menuItem2.parentElement.tagName).toEqual('BUTTON')
+    componentOptions.itemsLeft[1].children.forEach(child => {
+      expect(queryByText(child.title)).not.toBeInTheDocument()
+    })
+    await fireEvent.click(menuItem2)
     componentOptions.itemsLeft[1].children.forEach(child => {
       expect(getByText(child.title)).toBeInTheDocument()
     })
 
-    const menu3 = getAllByText('Menu item 3')
-    expect(menu3[0].parentElement.tagName).toEqual('BUTTON')
-    expect(menu3[1].parentElement.classList.contains('display-none-important')).toEqual(true)
-    expect(menu3[2].tagName).toEqual('A')
-    expect(menu3.length).toEqual(3)
+    const menuItem3 = getByText('Menu item 3')
+    expect(menuItem3.parentElement.getAttribute('aria-expanded')).toEqual('false')
+    expect(menuItem3.parentElement.tagName).toEqual('BUTTON')
+    componentOptions.itemsLeft[2].children.forEach(child => {
+      expect(queryByText(child.title)).not.toBeInTheDocument()
+    })
+    await fireEvent.click(menuItem3)
     componentOptions.itemsLeft[2].children.forEach(child => {
       expect(getByText(child.title)).toBeInTheDocument()
     })
   })
 
-  test('Link is active', () => {
+  test('Link is active', async () => {
     const { rerender, getByText, getAllByText } = render(MenuItems, componentOptions)
+    const menuButtonOne = getByText('Menu item 1')
+    await fireEvent.click(menuButtonOne)
     const notActiveItem = getByText('Child item 1.1')
     expect(notActiveItem).toBeInTheDocument()
     expect(notActiveItem.getAttribute('aria-current')).toEqual('false')
@@ -126,6 +135,8 @@ describe('Related links list', () => {
 
     rerender(componentOptions)
 
+    const menuItem1 = getByText('Menu item 1')
+    await fireEvent.click(menuItem1)
     const notActiveAnymore = getByText('Child item 1.2')
     expect(notActiveAnymore).toBeInTheDocument()
     expect(notActiveAnymore.getAttribute('aria-current')).toEqual('false')
@@ -138,8 +149,11 @@ describe('Related links list', () => {
 
     rerender(componentOptions)
 
-    const notActiveMenu1 = getAllByText('Menu item 1')
-    expect(notActiveMenu1[2].getAttribute('aria-current')).toEqual('false')
+    const notActiveMenu1 = getByText('Menu item 1')
+    expect(notActiveMenu1).toBeInTheDocument()
+    await fireEvent.click(notActiveMenu1)
+    const menuOneLinks = getAllByText('Menu item 1')
+    expect(menuOneLinks[2].getAttribute('aria-current')).toEqual('false')
 
     const activeMenuRight2 = getByText('Right Menu item 2')
     expect(activeMenuRight2.getAttribute('aria-current')).toEqual('page')
@@ -152,17 +166,21 @@ describe('Related links list', () => {
     const notActiveMenuRight2 = getByText('Right Menu item 2')
     expect(notActiveMenuRight2.getAttribute('aria-current')).toEqual('false')
 
-    const activeMenuBotom1 = getByText('Bottom Menu item 1')
-    expect(activeMenuBotom1.getAttribute('aria-current')).toEqual('page')
+    const activeMenuBottom1 = getByText('Bottom Menu item 1')
+    expect(activeMenuBottom1.getAttribute('aria-current')).toEqual('page')
   })
 
-  test('Adds rel="external" if url is external', () => {
+  test('Adds rel="external" if url is external', async () => {
     const { getAllByText, getByText } = render(MenuItems, componentOptions)
-    const menu3 = getAllByText('Menu item 3')
-    expect(menu3[2].getAttribute('rel')).toEqual('external')
+    const menu3 = getByText('Menu item 3')
+    await fireEvent.click(menu3)
+    const menu3Links = getAllByText('Menu item 3')
+    expect(menu3Links[2].getAttribute('rel')).toEqual('external')
 
-    const menu2 = getAllByText('Menu item 2')
-    expect(menu2[2].getAttribute('rel')).toEqual(null)
+    const menu2 = getByText('Menu item 2')
+    await fireEvent.click(menu2)
+    const menu2Links = getAllByText('Menu item 2')
+    expect(menu2Links[2].getAttribute('rel')).toEqual(null)
 
     const menu3_1 = getByText('Child item 3.1')
     expect(menu3_1.getAttribute('rel')).toEqual(null)

@@ -1,4 +1,4 @@
-import { render } from '@testing-library/svelte'
+import { render, fireEvent } from '@testing-library/svelte'
 import FactsQuestionsAnswers from './FactsQuestionsAnswers.svelte'
 
 describe('Facts Questions Answers', () => {
@@ -24,18 +24,23 @@ describe('Facts Questions Answers', () => {
     ]
   }
 
-  test('Renders', () => {
+  test('Renders', async () => {
     const { getByText, getAllByText } = render(FactsQuestionsAnswers, componentOptions)
-    expect(getAllByText('Symptomer').length).toEqual(2)
-    expect(
-      getAllByText('Symptomer')?.[1]?.parentElement?.classList?.contains('display-none-important')
-    ).toEqual(true)
+    expect(getAllByText('Symptomer').length).toEqual(1)
     expect(getByText('This is some text about the disease')).toBeInTheDocument()
-    expect(getAllByText('Hvordan smitter sykdommen?').length).toEqual(2)
-    expect(getAllByText('Kan sykdommen smitte til mennesker?').length).toEqual(2)
+    const symptomsButton = getByText('Symptomer')
+    await fireEvent.click(symptomsButton)
     expect(getByText('Describing the symptoms')).toBeInTheDocument()
+
+    const infectionButton = getByText('Hvordan smitter sykdommen?')
+    await fireEvent.click(infectionButton)
+    expect(getAllByText('Hvordan smitter sykdommen?').length).toEqual(2)
     expect(getByText('Describing the routes of the infaction')).toBeInTheDocument()
+
+    const contagiousButton = getByText('Kan sykdommen smitte til mennesker?')
+    await fireEvent.click(contagiousButton)
     expect(getByText('Mattilsynet')).toBeInTheDocument()
+    expect(getAllByText('Kan sykdommen smitte til mennesker?').length).toEqual(2)
   })
 
   test('Does not render accordion when body not defined', () => {
@@ -44,7 +49,7 @@ describe('Facts Questions Answers', () => {
       facts: undefined,
       questionsAnswers: [{ ...componentOptions.questionsAnswers[0] }]
     })
-    expect(getAllByText('Symptomer').length).toEqual(2)
+    expect(getAllByText('Symptomer').length).toEqual(1)
     expect(queryByText('This is some text about the disease')).not.toBeInTheDocument()
     expect(queryByText('Hvordan smitter sykdommen?')).not.toBeInTheDocument()
     expect(queryByText('Kan sykdommen smitte til mennesker?')).not.toBeInTheDocument()
