@@ -52,3 +52,4 @@ export { default as HighlightedContentLink } from './svelte/content/HighlightedC
 export { default as MenuItems } from './svelte/content/MenuItems.svelte'
 export { default as MenuPointsIcons } from './svelte/content/MenuPointsIcons.svelte'
 export { default as Status } from './svelte/content/Status.svelte'
+export { default as DropdownBox } from './svelte/components/DropdownBox.svelte'
