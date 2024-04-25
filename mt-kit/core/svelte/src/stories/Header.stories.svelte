@@ -155,7 +155,7 @@
       <Dropdown
         title="Språk/language"
         loadJs={!args.disableJs}
-        class="mt-button__small-text full-menu responsive-hide"
+        class="xxs-m mt-button__small-text full-menu responsive-hide"
         icon="icon--caret-down-after"
         let:titleId>
         <ol
@@ -173,7 +173,7 @@
         let:send
         title={args.search.linkText}
         loadJs={!args.disableJs}
-        class="mt-button__small-text full-menu"
+        class="xxs-m mt-button__small-text full-menu"
         icon="icon--search-after">
         <form
           role="search"
@@ -194,7 +194,7 @@
       </Dropdown>
       <Dropdown
         title={args.menu.title}
-        class="mt-button__small-text full-menu"
+        class="xxs-m mt-button__small-text full-menu"
         loadJs={!args.disableJs}
         icon="icon--hamburger-menu-on-light-after"
         let:titleId>

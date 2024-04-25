@@ -11,6 +11,7 @@
   import { createToggleMachine } from '../../ts/toggle-machine'
 
   export let title = ''
+  export let titleWhenOpen = ''
   const bodyId = `ui-dropdown-${counter++}`
   export let loadJs = false
   export let titleId = `${bodyId}-title`
@@ -24,6 +25,7 @@
   const { state, send } = useMachine(DropdownMachine)
   $: isOpen = $state.context.isOpen
   $: onServer = $state.value === 'serverRendered'
+  $: hasDynamicTitleAndIsOpen = titleWhenOpen && isOpen
 
   function handleClick(e: PointerEvent) {
     if (isOpen && e.target?.tagName === LINK_TAG) {
@@ -54,7 +56,7 @@
       aria-expanded={isOpen}
       aria-controls={bodyId}
       on:click={() => send('TOGGLE')}>
-      {@html title}
+      {@html hasDynamicTitleAndIsOpen ? titleWhenOpen : title}
     </button>
     {#if isOpen}
       <div

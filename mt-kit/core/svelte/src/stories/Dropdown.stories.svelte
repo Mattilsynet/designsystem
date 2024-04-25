@@ -2,7 +2,6 @@
   import { Meta, Story, Template } from '@storybook/addon-svelte-csf'
   import Dropdown from '../lib/svelte/components/Dropdown.svelte'
   import Checkbox from '../lib/svelte/components/form/Checkbox.svelte'
-  import DropdownBox from '../lib/svelte/components/DropdownBox.svelte'
   import CardArticle from '../lib/svelte/components/CardArticle.svelte'
   import { wrapInShadowDom } from './storybook-utils/utils'
 
@@ -55,6 +54,12 @@
   ]
 
   const name = 'checkbox'
+  let filterForm: HTMLFormElement
+
+  async function resetForm(): Promise<void> {
+    filterForm.reset()
+    filterForm.submit()
+  }
 </script>
 
 <Meta
@@ -152,20 +157,24 @@
   let:isRequired
   let:textOptional>
   <div use:wrapInShadowDom={disableCss}>
-    <section class={`preview-wrapper`}>
-      <DropdownBox
+    <section class="m-t-l layout-grid layout-grid--column-12">
+      <Dropdown
         let:isOpen
         title="Vis søkefilter"
-        openTitle="Skjul søkefilter"
+        titleWhenOpen="Skjul søkefilter"
         loadJs={!args.disableJs}
         icon="icon--caret-down-after"
-        class="mt-button__small-text">
+        class="default-dropdown col-3-span-6">
         <form class="mt-form">
           <Checkbox {name} {label} {helpText} {options} {isRequired} {textOptional} />
+          <button class="mt-button mt-button--primary m-t-xxs" type="submit"> Filtrer </button>
+          <button class="mt-button mt-button--secondary m-t-xxxs" type="reset" on:click={resetForm}>
+            Tøm filter
+          </button>
         </form>
-      </DropdownBox>
+      </Dropdown>
 
-      <div class="m-t-l">
+      <div class="m-t-l col-3-span-6">
         <h2>Annet innhold på samme side</h2>
         <p>Dropdown skal lukke seg når man trykker utenfor eller bruker TAB for å skifte fokus.</p>
         <a class="mt-link" href="/">Lenke til annet innhold</a>
@@ -176,7 +185,6 @@
 
 <style>
   .preview-wrapper {
-    /*text-align: right;*/
-    margin: var(--spacer-small) auto;
+    margin: var(--spacer-large) auto;
   }
 </style>

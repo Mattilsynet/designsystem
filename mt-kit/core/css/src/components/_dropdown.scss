@@ -8,8 +8,6 @@
 .dropdown {
   --background-color: var(--color-primary);
   $color: $color-mt-background;
-  margin: var(--spacer-xx-small);
-  text-align: right;
   display: inline-block;
   position: relative;
 
@@ -32,6 +30,10 @@
     }
     .mt-summary {
       color: var(--color-mt-text-dark);
+    }
+    &[aria-expanded]::after,
+    > .mt-summary::after {
+      @include icon-background;
     }
   }
 
@@ -172,8 +174,48 @@
     }
   }
 
+  //currently used in dropdown filter on searchview
+  &.default-dropdown {
+    >.mt-button {
+      background-color: var(--color-mt-white);
+      padding: var(--spacer-xx-small) var(--spacer-x-small);
+      width: 100%;
+      justify-content: space-between;
+      border: var(--border-width-small) solid var(--form-border-color);
+    }
+
+    .mt-details {
+      border-radius: var(--border-radius);
+
+      .mt-summary {
+        padding: var(--spacer-xx-small) var(--spacer-x-small);
+        width: 100%;
+        background-color: var(--color-mt-white);
+        border: var(--border-width-small) solid var(--form-border-color);
+        justify-content: space-between;
+      }
+      .dropdown-content {
+        padding: var(--spacer-xx-small) var(--spacer-x-small);
+        width: 100%;
+      }
+    }
+
+    .dropdown-content {
+      position: relative;
+      top: 0;
+      border-top: none;
+      padding: var(--spacer-xx-small) var(--spacer-x-small);
+      width: 100%;
+      border-radius: 0 0 var(--border-radius) var(--border-radius);
+
+      .mt-form {
+        width: 100%;
+      }
+    }
+  ;
+  }
+
   &.visible {
-    color: var(--dropdown-visible-color);
     .disclosure-header {
       font-weight: var(--font-weight-light);
     }
