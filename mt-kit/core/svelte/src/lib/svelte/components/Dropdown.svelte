@@ -66,8 +66,8 @@
         use:clickOutside={titleId}
         on:click={handleClick}
         on:clickOutside={() => isOpen && send('TOGGLE')}
-        in:slide={{ duration: 900 }}
-        out:slide={{ duration: 700 }}>
+        in:slide={{ duration: 650 }}
+        out:slide={{ duration: 500 }}>
         <slot {isOpen} />
       </div>
     {/if}
