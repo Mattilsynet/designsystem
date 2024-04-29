@@ -113,7 +113,7 @@
         </ol>
       </Dropdown>
     </section>
-    <section class="layout-flex-col layout-flex-col--x-small" aria-labelledby="how-to-heading">
+    <section class="preview-wrapper layout-flex-col--x-small" aria-labelledby="how-to-heading">
       <CardArticle
         headingId={args.cardArticle.headingId}
         title={args.cardArticle.title}
@@ -127,7 +127,7 @@
 
 <Story name="Multiple" args={configs} let:args>
   {#each [configs[0], configs[1]] as args, i}
-    <section class={`preview-wrapper`}>
+    <section class="preview-wrapper inline-block">
       <Dropdown
         title={args.buttonLabel}
         loadJs={!args.disableJs}
@@ -164,7 +164,7 @@
         titleWhenOpen="Skjul søkefilter"
         loadJs={!args.disableJs}
         icon="icon--caret-down-after"
-        class="default-dropdown col-3-span-6">
+        class="default-dropdown span-9-col-3-span-4">
         <form class="mt-form">
           <Checkbox {name} {label} {helpText} {options} {isRequired} {textOptional} />
           <button class="mt-button mt-button--primary m-t-xxs" type="submit"> Filtrer </button>
@@ -185,6 +185,10 @@
 
 <style>
   .preview-wrapper {
-    margin: var(--spacer-large) auto;
+    margin: var(--spacer-xx-small) var(--spacer-xx-small);
+  }
+
+  .inline-block {
+    display: inline-block;
   }
 </style>
