@@ -12,6 +12,10 @@
   background-color: var(--color-mt-lighter-light-blue);
 }
 
+.m-xxs {
+  margin: var(--spacer-xx-small);
+}
+
 .m-t-0 {
   margin-top: 0;
 }
@@ -24,10 +28,6 @@
   @media only screen and (min-width: $breakpoint-large) {
     margin-top: 0;
   }
-}
-
-.xxs-m {
-  margin: var(--spacer-xx-small);
 }
 
 .m-t-xs {
@@ -55,6 +55,10 @@
 
 .m-r-xs {
   margin-right: var(--spacer-x-small);
+}
+
+.m-r-xxs {
+  margin-right: var(--spacer-xx-small);
 }
 
 .m-b-xxs {
