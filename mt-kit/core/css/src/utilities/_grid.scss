@@ -62,6 +62,9 @@
     .col-1-span-7 {
       grid-column: span 7;
     }
+    .span-9-col-3-span-4 {
+      grid-column: span 9;
+    }
 
     @media only screen and (min-width: $breakpoint-large) {
       .col-1-span-3 {
@@ -102,6 +105,9 @@
       }
       .col-2-span-10 {
         grid-column: 2 / span 10;
+      }
+      .span-9-col-3-span-4 {
+        grid-column: 3 / span 4;
       }
       .col-3-span-6 {
         grid-column: 3 / span 6;

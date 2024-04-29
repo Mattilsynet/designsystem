@@ -1,6 +1,7 @@
 <script lang="ts">
   import { Meta, Story, Template } from '@storybook/addon-svelte-csf'
   import Dropdown from '../lib/svelte/components/Dropdown.svelte'
+  import Checkbox from '../lib/svelte/components/form/Checkbox.svelte'
   import CardArticle from '../lib/svelte/components/CardArticle.svelte'
   import { wrapInShadowDom } from './storybook-utils/utils'
 
@@ -20,7 +21,8 @@
       cardArticle: {
         headingId: 'testarticle',
         title: 'Det er mulig å klikke utenfor',
-        intro: 'Du kan klikke utenfor den blå rammen når dropdown er åpen for å lukke den.',
+        intro:
+          'Denne er brukt i header. Innholdet i dropdown skal ta opp hele skjermbredden. Du kan klikke utenfor og eller bruke TAB for å lukke den når den er åpen.',
         text: '<p>Du kan teste det. En liten tekst med en lenke til <a class="mt-link" href="https://mattilsynet.no">Mattilsynet</a>.</p>'
       },
       items: [
@@ -50,6 +52,14 @@
       ]
     }
   ]
+
+  const name = 'checkbox'
+  let filterForm: HTMLFormElement
+
+  async function resetForm(): Promise<void> {
+    filterForm.reset()
+    filterForm.submit()
+  }
 </script>
 
 <Meta
@@ -64,12 +74,36 @@
     buttonLabel: { control: 'text' },
     disableJs: { control: 'boolean' },
     disableCss: { control: 'boolean' }
+  }}
+  args={{
+    label: '',
+    helpText: '',
+    errorMessage: 'Fyll inn dette feltet.',
+    hiddenErrorText: 'Feilmelding',
+    isRequired: false,
+    textOptional: '',
+    options: [
+      {
+        text: 'Temasider',
+        value: 'true'
+      },
+      {
+        text: 'Nyheter',
+        value: 'no'
+      }
+    ],
+    disableCss: false
   }} />
 
 <Template let:args>
   <div use:wrapInShadowDom={args.disableCss}>
     <section class="preview-wrapper">
-      <Dropdown title={args.buttonLabel} loadJs={!args.disableJs} let:titleId>
+      <Dropdown
+        title={args.buttonLabel}
+        loadJs={!args.disableJs}
+        let:titleId
+        icon="icon--caret-down-after"
+        class="mt-button__small-text full-menu">
         <ol class="mt-ol m-t-xxs alt-language" aria-labelledby={titleId}>
           {#each args.items as item}
             <li>
@@ -79,7 +113,7 @@
         </ol>
       </Dropdown>
     </section>
-    <section class="layout-flex-col layout-flex-col--x-small" aria-labelledby="how-to-heading">
+    <section class="preview-wrapper" aria-labelledby="how-to-heading">
       <CardArticle
         headingId={args.cardArticle.headingId}
         title={args.cardArticle.title}
@@ -93,8 +127,13 @@
 
 <Story name="Multiple" args={configs} let:args>
   {#each [configs[0], configs[1]] as args, i}
-    <section class={`preview-wrapper`}>
-      <Dropdown title={args.buttonLabel} loadJs={!args.disableJs} let:titleId>
+    <section class="preview-wrapper inline-block">
+      <Dropdown
+        title={args.buttonLabel}
+        loadJs={!args.disableJs}
+        let:titleId
+        icon="icon--caret-down-after"
+        class="mt-button__small-text  full-menu">
         <ol class="mt-ol m-t-xxs alt-language" aria-labelledby={titleId}>
           {#each args.items as item}
             <li>
@@ -107,15 +146,49 @@
   {/each}
 </Story>
 
+<Story
+  name="Standalone"
+  args={configs}
+  let:args
+  let:label
+  let:helpText
+  let:disableCss
+  let:options
+  let:isRequired
+  let:textOptional>
+  <div use:wrapInShadowDom={disableCss}>
+    <section class="m-t-l layout-grid layout-grid--column-12">
+      <Dropdown
+        let:isOpen
+        title="Vis søkefilter"
+        titleWhenOpen="Skjul søkefilter"
+        loadJs={!args.disableJs}
+        icon="icon--caret-down-after"
+        class="default-dropdown span-9-col-3-span-4">
+        <form class="mt-form">
+          <Checkbox {name} {label} {helpText} {options} {isRequired} {textOptional} />
+          <button class="mt-button mt-button--primary m-t-xxs" type="submit"> Filtrer </button>
+          <button class="mt-button mt-button--secondary m-t-xxxs" type="reset" on:click={resetForm}>
+            Tøm filter
+          </button>
+        </form>
+      </Dropdown>
+
+      <div class="m-t-l col-3-span-6">
+        <h2>Annet innhold på samme side</h2>
+        <p>Dropdown skal lukke seg når man trykker utenfor eller bruker TAB for å skifte fokus.</p>
+        <a class="mt-link" href="/">Lenke til annet innhold</a>
+      </div>
+    </section>
+  </div>
+</Story>
+
 <style>
   .preview-wrapper {
-    text-align: right;
-    margin: var(--spacer-small) 0;
+    margin: var(--spacer-xx-small) var(--spacer-xx-small);
   }
-  .alt-language {
-    text-align: left;
-    list-style: none;
-    padding: 0;
-    color: white;
+
+  .inline-block {
+    display: inline-block;
   }
 </style>

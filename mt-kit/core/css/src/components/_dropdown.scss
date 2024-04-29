@@ -8,8 +8,6 @@
 .dropdown {
   --background-color: var(--color-primary);
   $color: $color-mt-background;
-  margin: var(--spacer-xx-small);
-  text-align: right;
   display: inline-block;
   position: relative;
 
@@ -32,6 +30,10 @@
     }
     .mt-summary {
       color: var(--color-mt-text-dark);
+    }
+    &[aria-expanded]::after,
+    > .mt-summary::after {
+      @include icon-background;
     }
   }
 
@@ -76,7 +78,6 @@
   .mt-summary.mt-button,
   .dropdown-title,
   .mt-button {
-    padding: 0.1875rem;
     position: relative;
     z-index: 0;
 
@@ -96,6 +97,7 @@
     font-size: $font-size-body;
     .mt-button,
     a {
+      padding: var(--spacer-xx-small);
       font-size: $font-size-body;
     }
 
@@ -110,13 +112,10 @@
     --button-height: 2.125rem;
     position: inherit;
     padding: 0;
-    &:last-of-type {
-      margin-right: 0;
-    }
+
     & > .mt-button,
     > .mt-details {
       --icon-size: 1rem;
-
       &[aria-expanded]::after,
       > .mt-summary::after {
         @include icon-background;
@@ -172,8 +171,25 @@
     }
   }
 
+  &.default-dropdown {
+    >.mt-button, .mt-summary {
+      background-color: var(--color-mt-white);
+      padding: var(--spacer-xx-small) var(--spacer-x-small);
+      width: 100%;
+      justify-content: space-between;
+      border: var(--border-width-small) solid var(--form-border-color);
+    }
+
+    .dropdown-content {
+      position: relative;
+      top: 0;
+      border-top: none;
+      padding: var(--spacer-xx-small) var(--spacer-x-small);
+      border-radius: 0 0 var(--border-radius) var(--border-radius);
+    }
+  }
+
   &.visible {
-    color: var(--dropdown-visible-color);
     .disclosure-header {
       font-weight: var(--font-weight-light);
     }
