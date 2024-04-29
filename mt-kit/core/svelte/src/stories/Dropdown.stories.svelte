@@ -113,7 +113,7 @@
         </ol>
       </Dropdown>
     </section>
-    <section class="preview-wrapper layout-flex-col--x-small" aria-labelledby="how-to-heading">
+    <section class="preview-wrapper" aria-labelledby="how-to-heading">
       <CardArticle
         headingId={args.cardArticle.headingId}
         title={args.cardArticle.title}
