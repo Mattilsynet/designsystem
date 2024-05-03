@@ -167,8 +167,8 @@
         class="default-dropdown span-9-col-3-span-4">
         <form class="mt-form">
           <Checkbox {name} {label} {helpText} {options} {isRequired} {textOptional} />
-          <button class="mt-button mt-button--primary m-t-xxs" type="submit"> Filtrer </button>
-          <button class="mt-button mt-button--secondary m-t-xxxs" type="reset" on:click={resetForm}>
+          <button class="mt-button mt-button--primary" type="submit"> Filtrer </button>
+          <button class="mt-button mt-button--secondary" type="reset" on:click={resetForm}>
             Tøm filter
           </button>
         </form>
