@@ -195,6 +195,12 @@
         margin-top: var(--spacer-x-small);
       }
     }
+
+    &.visible, .mt-details[open] {
+      >.mt-button {
+        box-shadow: 0 0 0 0.125rem var(--color-mt-background), 0 0 0 0.35rem var(--mt-button-primary-bg-focus);
+      }
+    }
   }
 
   &.visible {
