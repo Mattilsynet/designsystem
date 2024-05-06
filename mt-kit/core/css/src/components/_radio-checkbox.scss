@@ -68,7 +68,7 @@
   display: flex;
   flex-direction: column;
   .form-control + .form-control {
-    margin-top: var(--form-control-vertical);
+    margin-top: $spacer-xx-small;
   }
 }
 .checkbox,
