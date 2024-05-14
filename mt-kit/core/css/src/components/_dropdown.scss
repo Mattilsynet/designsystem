@@ -195,12 +195,6 @@
         margin-top: var(--spacer-x-small);
       }
     }
-
-    &.visible, .mt-details[open] {
-      >.mt-button {
-        box-shadow: $focus-box-shadow;
-      }
-    }
   }
 
   &.visible {
