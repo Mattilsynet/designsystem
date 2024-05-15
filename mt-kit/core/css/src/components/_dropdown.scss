@@ -184,8 +184,16 @@
       position: relative;
       top: 0;
       border-top: none;
-      padding: var(--spacer-xx-small) var(--spacer-x-small);
+      padding: var(--spacer-x-small);
       border-radius: 0 0 var(--border-radius) var(--border-radius);
+
+      .mt-fieldset, .form-control:first-of-type {
+        margin-top: 0;
+      }
+
+      .mt-button {
+        margin-top: var(--spacer-x-small);
+      }
     }
   }
 
