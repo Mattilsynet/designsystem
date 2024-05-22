@@ -30,7 +30,7 @@
 
 {#each questionsAnswers as { question, answer, imageUrl, imageAltText, caption }}
   {#if question && answer}
-    <Disclosure title={question} {loadJs} headerClass={disclosureHeadClass}>
+    <Disclosure title={question} {loadJs} headerClass={disclosureHeadClass} panelClass="text">
       {@html answer}
       {#if imageUrl}
         <figure class="mt-figure">

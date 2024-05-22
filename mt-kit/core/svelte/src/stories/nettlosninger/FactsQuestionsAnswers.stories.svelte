@@ -20,7 +20,8 @@
       },
       {
         question: 'Hvordan smitter sykdommen?',
-        answer: '<p>Describing the routes of the infaction</p>'
+        answer:
+          '<p>Describing the routes of the infaction. Describing the routes of the infaction. Describing the routes of the infaction</p> <p>loremipum loremipum loremipum loremipum loremipum loremipum loremipum loremipum loremipum loremipum loremipum loremipum loremipum </p> '
       },
       {
         question: 'Kan sykdommen smitte til mennesker?',
