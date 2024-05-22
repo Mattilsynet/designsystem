@@ -3,6 +3,7 @@
     display: grid;
     gap: var(--spacer-xx-small);
     grid-template-columns: max-content;
+    margin-top: var(--spacer-xx-small);
 
     .form-field + .mt-label {
       margin-top: 0;

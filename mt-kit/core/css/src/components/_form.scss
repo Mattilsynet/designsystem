@@ -23,6 +23,7 @@ $form-outline-color: 'var(--form-outline-color)' !default;
 
   .hint {
     font-size: $font-size-small;
+    margin: $spacer-xx-small 0;
     a {
       @extend .mt-link;
     }
@@ -226,6 +227,10 @@ $form-outline-color: 'var(--form-outline-color)' !default;
   column-gap: var(--spacer-xx-small);
 
   grid-template-columns: auto 1fr;
+
+  .mt-label {
+    font-size: inherit;
+  }
 
   .form-error {
     grid-column: span 2;
