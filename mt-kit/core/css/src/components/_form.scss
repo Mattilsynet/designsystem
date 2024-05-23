@@ -23,7 +23,7 @@ $form-outline-color: 'var(--form-outline-color)' !default;
 
   .hint {
     font-size: $font-size-small;
-    margin-top: var(--form-text-space);
+    margin-top: var(--form-hint-spacer);
     a {
       @extend .mt-link;
     }
