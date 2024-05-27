@@ -145,7 +145,7 @@ $transportlink-colors: 'error' !default;
   }
 
   &.skip-link {
-    z-index: var(--z-index-feedback);
+    z-index: var(--z-index-always-focusable-a11y);
   }
 
   &.forward-arrow-end-link {

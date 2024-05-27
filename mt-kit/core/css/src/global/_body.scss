@@ -156,7 +156,8 @@
   --border-width-regular: #{$border-width-regular};
   --z-index-dropdown: #{$zindex-dropdown};
   --z-index-fixed: #{$zindex-fixed};
-  --z-index-feedback: #{$zindex-tooltip};
+  --z-index-tooltip: #{$zindex-tooltip};
+  --z-index-always-focusable-a11y: #{$zindex-always-focusable-a11y};
 
   --form-group-spacer: var(--spacer-small);
   --form-text-space: var(--spacer-xxx-small);

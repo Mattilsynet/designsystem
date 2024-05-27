@@ -101,7 +101,7 @@ $feedback-box-breakpoint-height: 48.75rem; //780px;
       opacity: 1;
       visibility: visible;
       position: absolute;
-      z-index: var(--z-index-feedback);
+      z-index: var(--z-index-tooltip);
     }
   }
 }
