@@ -13,7 +13,9 @@
   &:focus-visible {
     box-shadow: $focus-box-shadow-no-outline;
   }
-
+  &.full-width {
+    width: auto;
+  }
   &.with-border {
     & .mt-summary {
       border-bottom: var(--border);
