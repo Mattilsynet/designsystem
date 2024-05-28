@@ -8,6 +8,8 @@
   import type { ErrorDetail, MultiSelectOption } from '../../../ts/types'
   import Label from './Label.svelte'
   import InputError from './InputErrorMessage.svelte'
+  import SummaryDetail from '../SummaryDetail.svelte'
+  import { createInputAriaDescribedby, toKebabCase } from '../../../ts/utils'
 
   export let name: string
   export let label: string
@@ -22,6 +24,7 @@
   export let textOptional: string | undefined
   export let hiddenErrorText: string | undefined
   export let tagsLabel = ''
+  export let loadJs = true
 
   let input: HTMLInputElement
   let inputValue: string
@@ -198,34 +201,34 @@
 </script>
 
 <Label for={`${name}-input`} {isRequired} {textOptional}>{label}</Label>
-
-<div
-  id="{selectId}-selected-label"
-  class="text-small token-label"
-  class:hidden={!Object.values(selected).length}>
-  {tagsLabel}
-</div>
-<ul
-  id="{selectId}-selected"
-  class="mt-ul token-wrapper list-unstyled"
-  aria-labelledby="{selectId}-selected-label">
-  {#each Object.values(selected) as selectedOption, index}
-    <li>
-      <button
-        id="{selectId}-remove-{index}"
-        type="button"
-        class="mt-button mt-button--flat mt-button--small closable token"
-        data-id={selectedOption.value}
-        aria-label={selectedOption.removeAriaLabel}
-        on:keydown={e => handleRemoveItemKeyDown(e, selectedOption.value)}
-        on:click|preventDefault={e => handleRemoveItem(e, selectedOption.value)}>
-        <span>{selectedOption.text}</span>
-      </button>
-    </li>
-  {/each}
-</ul>
-
-<input type="text" value={values} {name} class="mt-input hidden" />
+{#if loadJs}
+  <div
+    id="{selectId}-selected-label"
+    class="text-small token-label"
+    class:hidden={!Object.values(selected).length}>
+    {tagsLabel}
+  </div>
+  <ul
+    id="{selectId}-selected"
+    class="mt-ul token-wrapper list-unstyled"
+    aria-labelledby="{selectId}-selected-label">
+    {#each Object.values(selected) as selectedOption, index}
+      <li>
+        <button
+          id="{selectId}-remove-{index}"
+          type="button"
+          class="mt-button mt-button--flat mt-button--small closable token"
+          data-id={selectedOption.value}
+          aria-label={selectedOption.removeAriaLabel}
+          on:keydown={e => handleRemoveItemKeyDown(e, selectedOption.value)}
+          on:click|preventDefault={e => handleRemoveItem(e, selectedOption.value)}>
+          <span>{selectedOption.text}</span>
+        </button>
+      </li>
+    {/each}
+  </ul>
+  <input type="text" value={values} {name} class="mt-input hidden" />
+{/if}
 
 {#if helpText}
   <div id={`${name}-hint`} class="hint m-t-xxs">
@@ -237,54 +240,95 @@
   <InputError {...error} {hiddenErrorText} class="m-t-xxs" />
 {/if}
 
-<div class="multiselect m-t-xxs" class:readonly>
-  <div class="actions" on:click|preventDefault={handleTokenClick} on:blur={handleBlur}>
-    {#if !readonly}
-      <input
-        id={`${name}-input`}
-        class="mt-input"
-        autocomplete="off"
-        bind:value={inputValue}
-        bind:this={input}
-        on:keyup={handleKeyup}
-        on:blur={handleBlur}
-        type="text"
-        role="combobox"
-        data-testid="multiselect-input"
-        aria-autocomplete="list"
-        aria-expanded={showOptions}
-        aria-controls="list"
-        aria-activedescendant={activeOption
-          ? `${selectId}-${activeOption.value}-${activeOptionIndex}`
-          : undefined}
-        {placeholder} />
-      <span class="down-arrow" aria-hidden="true" />
-    {/if}
+{#if loadJs}
+  <div class="multiselect m-t-xxs" class:readonly>
+    <div class="actions" on:click|preventDefault={handleTokenClick} on:blur={handleBlur}>
+      {#if !readonly}
+        <input
+          id={`${name}-input`}
+          class="mt-input"
+          autocomplete="off"
+          bind:value={inputValue}
+          bind:this={input}
+          on:keyup={handleKeyup}
+          on:blur={handleBlur}
+          type="text"
+          role="combobox"
+          data-testid="multiselect-input"
+          aria-autocomplete="list"
+          aria-expanded={showOptions}
+          aria-controls="list"
+          aria-activedescendant={activeOption
+            ? `${selectId}-${activeOption.value}-${activeOptionIndex}`
+            : undefined}
+          {placeholder} />
+        <span class="down-arrow" aria-hidden="true" />
+      {/if}
+    </div>
+    <ul
+      id="list"
+      class="mt-ul options options-dropdown"
+      role="listbox"
+      data-testid="multiselect-list"
+      aria-multiselectable="true"
+      bind:this={listBox}
+      class:hidden={!showOptions}
+      transition:fly|local={{ duration: 200, y: 5 }}
+      on:mousedown|preventDefault
+      on:mouseup|preventDefault={handleOptionMouseup}>
+      {#each filtered as option, index}
+        <li
+          id="{selectId}-{option.value}-{index}"
+          role="option"
+          class="option"
+          class:divider={filtered.length === allOptions.length &&
+            index === preferredOptions.length - 1}
+          class:selected={selected[option.value]}
+          class:active={activeOption === option}
+          aria-selected={!!selected[option.value]}
+          data-value={option.value}>
+          {option.text}
+        </li>
+      {/each}
+    </ul>
   </div>
-  <ul
-    id="list"
-    class="mt-ul options"
-    role="listbox"
-    data-testid="multiselect-list"
-    aria-multiselectable="true"
-    bind:this={listBox}
-    class:hidden={!showOptions}
-    transition:fly|local={{ duration: 200, y: 5 }}
-    on:mousedown|preventDefault
-    on:mouseup|preventDefault={handleOptionMouseup}>
-    {#each filtered as option, index}
-      <li
-        id="{selectId}-{option.value}-{index}"
-        role="option"
-        class="option"
-        class:divider={filtered.length === allOptions.length &&
-          index === preferredOptions.length - 1}
-        class:selected={selected[option.value]}
-        class:active={activeOption === option}
-        aria-selected={!!selected[option.value]}
-        data-value={option.value}>
-        {option.text}
-      </li>
+{:else}
+  <SummaryDetail
+    title=""
+    ariaLabelledBy="{`${name}-input`}-label"
+    detailsClass="full-width multiselect--no-js"
+    summaryWrapperClass="options-dropdown">
+    {#each preferredOptions as option, index}
+      <div class="form-control" class:divider={index === preferredOptions.length - 1}>
+        <input
+          type="checkbox"
+          id={toKebabCase(option.value)}
+          {name}
+          class="mt-input input__control"
+          class:error
+          value={option.value}
+          checked={values.includes(option.value)}
+          aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)} />
+        <label class="mt-label" for={toKebabCase(option.value)}>
+          {option.text}
+        </label>
+      </div>
     {/each}
-  </ul>
-</div>
+    {#each options as option}
+      <div class="form-control">
+        <input
+          type="checkbox"
+          id={toKebabCase(option.value)}
+          {name}
+          class="mt-input input__control"
+          class:error
+          value={option.value}
+          checked={values.includes(option.value)}
+          aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)} />
+        <label class="mt-label" for={toKebabCase(option.value)}>
+          {option.text}
+        </label>
+      </div>
+    {/each}
+  </SummaryDetail>
+{/if}
