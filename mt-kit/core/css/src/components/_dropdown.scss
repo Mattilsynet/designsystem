@@ -95,8 +95,7 @@
   // Currently used in the header
   &.mt-button__small-text {
     font-size: $font-size-body;
-    .mt-button,
-    a {
+    .mt-button {
       padding: var(--spacer-xx-small);
       font-size: $font-size-body;
     }
