@@ -3,23 +3,112 @@
 @use '../utilities/functions' as *;
 @use '../utilities/mixins' as *;
 
+$multiselect-line-height: 2;
+$multiselect-checkbox-height: 1.6rem;
+
+@mixin multiselect-header-border {
+  border: $border-width-small solid var(--form-border-color);
+  border-radius: $border-radius;
+  padding: var(--spacer-xxx-small) var(--spacer-xx-small);
+
+  &:hover {
+    @include form-inputs-hover-style;
+  }
+}
+
+@mixin multiselect-options-item {
+  gap: var(--spacer-xx-small);
+  padding: var(--spacer-xxx-small);
+  border-radius: $border-radius;
+  background-color: var(--color-mt-white);
+  cursor: pointer;
+  &.active,
+  &:hover {
+    background-color: var(--multiselect-option-hover-bg);
+  }
+}
+
+@mixin multiselect-options {
+  max-height: 30vh;
+  overflow: auto;
+  padding: var(--spacer-xxx-small);
+  background-color: var(--color-mt-white);
+  border-left: $border-width-small solid var(--form-border-color);
+  border-right: $border-width-small solid var(--form-border-color);
+  border-bottom: $border-width-small solid var(--form-border-color);
+  border-radius: 0 0 $border-radius $border-radius;
+
+  .form-control.divider,
+  .divider {
+    border-radius: $border-radius $border-radius 0 0;
+    border-bottom: $border-width-small solid var(--form-border-color);
+    & + * {
+      border-radius: 0 0 $border-radius $border-radius;
+    }
+  }
+}
+
 .multiselect {
   position: relative;
-
   display: flex;
   flex-direction: column;
   align-items: stretch;
   flex-wrap: wrap;
 
+  &--no-js {
+    background-color: var(--color-mt-white);
+    &.mt-details[open] {
+      .mt-summary {
+        border-radius: $border-radius $border-radius 0 0;
+        margin-bottom: 0;
+      }
+      .summary-wrapper {
+        > * + * {
+          margin-top: 0;
+        }
+      }
+    }
+    .mt-summary {
+      @include multiselect-header-border;
+      display: flex;
+      justify-content: flex-end;
+      line-height: $multiselect-line-height;
+      &:focus {
+        outline: $border-width-large solid var(--multiselect-focus-outline-color);
+        z-index: 1;
+        box-shadow: none;
+      }
+    }
+    .summary-wrapper {
+      @include multiselect-options;
+      display: flex;
+      flex-direction: column;
+
+      .form-control {
+        @include multiselect-options-item;
+        input[type='checkbox'] {
+          width: $multiselect-checkbox-height;
+          height: $multiselect-checkbox-height;
+
+          &:checked {
+            background-color: var(--color-primary);
+            background-image: var(--checkbox-checked-img);
+          }
+          + .mt-label {
+            line-height: 140%;
+          }
+        }
+      }
+    }
+  }
+
   .actions {
+    @include multiselect-header-border;
     align-items: center;
     display: flex;
     flex: 1;
     min-width: 15rem;
-    border: $border-width-small solid var(--form-border-color);
-    border-radius: $border-radius;
     background-color: var(--color-mt-new-white);
-    padding: var(--spacer-xxx-small) var(--spacer-xx-small);
     align-content: center;
 
     &:focus-within {
@@ -27,16 +116,13 @@
       outline: $border-width-large solid var(--multiselect-focus-outline-color);
       z-index: 1;
     }
-    &:hover {
-      @include form-inputs-hover-style;
-    }
   }
 
   .mt-input {
     border: none;
     margin: 0;
     outline: none;
-    line-height: 2;
+    line-height: $multiselect-line-height;
     padding: 0;
     width: 100%;
 
@@ -72,36 +158,24 @@
 }
 
 .options {
+  @include multiselect-options;
   left: 0;
   list-style: none;
   margin-block-end: 0;
   margin-block-start: 0;
-  max-height: 30vh;
-  overflow: auto;
-  padding-inline-start: 0;
   position: absolute;
   top: calc(100% + 0.0625rem);
   width: 100%;
-  padding: var(--spacer-xxx-small);
-  background-color: var(--color-mt-white);
-  border-left: $border-width-small solid var(--form-border-color);
-  border-right: $border-width-small solid var(--form-border-color);
-  border-bottom: $border-width-small solid var(--form-border-color);
-  border-radius: 0 0 $border-radius $border-radius;
 
   .option {
-    background-color: var(--color-mt-white);
-    cursor: pointer;
-    padding: var(--spacer-xxx-small);
+    @include multiselect-options-item;
     position: relative;
     margin-top: 0;
-    border-radius: $border-radius;
     display: flex;
     align-content: center;
-    gap: var(--spacer-xx-small);
     &:before {
       content: var(--multiselect-option-before);
-      height: 1.6rem;
+      height: $multiselect-checkbox-height;
       display: inline-block;
       align-self: center;
     }
@@ -112,10 +186,7 @@
     &:not(.selected):hover {
       background-color: var(--multiselect-option-hover-bg);
     }
-    &.divider {
-      border-radius: $border-radius $border-radius 0 0;
-      border-bottom: $border-width-small solid var(--form-border-color);
-    }
+
     &.selected {
       &:before {
         content: var(--multiselect-option-before-selected);
@@ -123,10 +194,6 @@
     }
     .active {
       background-color: hsl(214, 17%, 88%);
-    }
-    &.active,
-    &:hover {
-      background-color: var(--multiselect-option-hover-bg);
     }
   }
 }

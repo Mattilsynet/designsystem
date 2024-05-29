@@ -51,12 +51,14 @@
       helpText: 'Legg til landene du har vært i før dere kom til Norge.',
       isRequired: true
     },
+    disableJs: false,
     disableCss: false
   }}
   argTypes={{
     label: { control: 'text' },
     helpText: { control: 'text' },
     errorMessage: { control: 'text' },
+    disableJs: { control: 'boolean' },
     disableCss: { control: 'boolean' }
   }} />
 
@@ -99,6 +101,30 @@
             : undefined}
           name="multi-select"
           bind:values={value}
+          loadJs={true}
+          tagsLabel={args.multiselect.tagsLabel}
+          isRequired={args.multiselect.isRequired}
+          helpText={args.multiselect.helpText} />
+        <button type="submit" class="mt-button">Submit</button>
+        <p>
+          Values:
+          {JSON.stringify(value, null, 2)}
+        </p>
+      </form>
+    </section>
+    <section>
+      <h2 class="mt-h2">Normal - without JS</h2>
+      <form class="mt-form" on:submit|preventDefault={handleSubmit}>
+        <MultiSelect
+          options={args.multiselect.options}
+          preferredOptions={args.multiselect.preferredOptions}
+          label={args.multiselect.label}
+          error={args.multiselect.error !== ''
+            ? { key: 'multi-select', message: args.multiselect.error }
+            : undefined}
+          name="multi-select-no-js"
+          bind:values={value}
+          loadJs={false}
           tagsLabel={args.multiselect.tagsLabel}
           isRequired={args.multiselect.isRequired}
           helpText={args.multiselect.helpText} />

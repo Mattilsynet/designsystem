@@ -8,7 +8,7 @@
   export let showOptionalText = true
 </script>
 
-<label class="mt-label {className}" for={htmlFor}>
+<label class="mt-label {className}" id="{htmlFor}-label" for={htmlFor}>
   <slot />
   {#if !isRequired && showOptionalText}
     <span class="text-small">{textOptional}</span>
