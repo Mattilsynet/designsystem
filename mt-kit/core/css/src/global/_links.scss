@@ -144,6 +144,10 @@ $transportlink-colors: 'error' !default;
     }
   }
 
+  &.skip-link {
+    z-index: var(--z-index-always-focusable-a11y);
+  }
+
   &.forward-arrow-end-link {
     display: inline-flex;
     font-size: $font-size-body;

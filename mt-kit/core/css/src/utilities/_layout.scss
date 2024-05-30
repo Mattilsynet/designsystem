@@ -262,7 +262,7 @@ Only use if it does NOT affect accessibility
 .mt-header {
   background-color: var(--mt-header-bg);
   border-bottom: $border-width-regular solid var(--mt-header-footer-border);
-  z-index: var(--z-index-feedback);
+  z-index: var(--z-index-fixed);
   position: relative;
 }
 
