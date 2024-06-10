@@ -63,6 +63,11 @@
       <p class="icon--x-before"></p>
     </section>
     <section>
+      <h2 class="mt-h2">Ned- og opplasting</h2>
+      <p class="icon--download-before"></p>
+      <p class="icon--upload-before"></p>
+    </section>
+    <section>
       <h2 class="mt-h2">Piler</h2>
       <p class="icon--arrow-primary-after p-tb-xxs">icon--arrow-primary-after</p>
       <p class="icon--arrow-primary-hover-after p-tb-xxs">icon--arrow-primary-hover-after</p>
