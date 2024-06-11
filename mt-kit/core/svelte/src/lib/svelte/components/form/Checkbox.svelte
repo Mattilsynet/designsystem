@@ -22,7 +22,7 @@
   let isInitialized = false
 
   beforeUpdate(() => {
-    if (value.length === 0 && !isInitialized && document) {
+    if (value?.length === 0 && !isInitialized && document) {
       value = Array.from(document?.querySelectorAll(`input[name="${name}"]:checked`)).map(item => {
         return item.value
       })
