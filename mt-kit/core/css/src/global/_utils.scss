@@ -1,5 +1,9 @@
 @use '../theme' as *;
 
+.bg-furu {
+  background-color: var(--color-mt-bg-furu);
+}
+
 .bg-light-light-blue {
   background-color: var(--color-mt-lighter-light-blue);
 }

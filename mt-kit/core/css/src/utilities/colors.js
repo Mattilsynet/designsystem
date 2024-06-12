@@ -115,6 +115,10 @@ module.exports = [
   },
   {
     name: 'mt-furu',
+    color: '#68B096',
+  },
+  {
+    name: 'mt-furu-dark',
     color: '#3C725E',
   },
   {
