@@ -40,7 +40,7 @@
 
   &.custom-borders {
     --spacer: var(--spacer-xx-small);
-    --border: var(--border-radius-small) solid var(--mt-button-neutral-border);
+    --border: var(--border-width-small) solid var(--color-mt-furu);
 
     gap: 0;
     display: flex;
