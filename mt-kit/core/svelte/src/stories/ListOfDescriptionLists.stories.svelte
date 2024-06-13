@@ -8,7 +8,10 @@
   title="Components/List Of Description Lists"
   args={{
     title: 'A list of description lists',
-    descriptionValuesToUseAsTitle: ['ORGANIZATIONNAME', 'APPROVALID'],
+    descriptionKeysToUseInTitle: [
+      { descriptionKey: 'ORGANIZATIONNAME' },
+      { descriptionKey: 'APPROVALID', prefix: 'Approval ID: '}
+    ],
     titleSeparator: ' - ',
     listOfDescriptionLists: [
       {
