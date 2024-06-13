@@ -1,4 +1,4 @@
-import { getByText, render } from '@testing-library/svelte'
+import { render } from '@testing-library/svelte'
 import FormSteps from './FormSteps.svelte'
 
 describe('FormSteps', () => {
