@@ -5,6 +5,7 @@ export {
   type Chapter,
   type AutocompleteType,
   type ChapterChangeDetails,
+  type FormStep,
   type Page,
   type Action,
   type Status,
