@@ -28,17 +28,7 @@
   }} />
 
 <Story name="Normal" let:completed let:steps>
-  <FormSteps
-    completedText="Utført"
-    currentText="Gjeldene side"
-    {steps}
-    {completed}
-    ariaValueText={`${steps[completed]}: Steg ${completed + 1} av ${steps.length}`} />
+  <h1 class="h1">Form steps</h1>
   <hr />
-  <FormSteps
-    completedText="Utført"
-    currentText="Gjeldene side"
-    {steps}
-    completed={3}
-    ariaValueText={`${steps[completed]}: Steg ${completed + 1} av ${steps.length}`} />
+  <FormSteps {steps} {completed} progressBarLabel={'Fremdriftslinje for skjema'} />
 </Story>

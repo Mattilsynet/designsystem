@@ -1,21 +1,39 @@
 <script lang="ts">
-  export let steps: Array<{ index: number; show: boolean; label: string }> = []
+  import { interpolate } from '../../ts/index'
+  import type { FormStep } from '$lib/ts/types'
+
+  export let steps: Array<FormStep> = []
   export let completed = 0
-  export let ariaValueText = `${steps[completed]}: Steg ${completed + 1} av ${steps.length}`
-  export let ariaValueMax = steps.length
+  export let ariaValueText = '{0}, Steg: {1} av {2}'
   export let progressBarLabel = 'Fremdriftslinje for skjema'
+
+  let stepsDisplayed = steps.filter(s => s.show)
+  let stepIndex = 0
+  let pageTitle = ''
+
+  function setStepIndex(index: number, stepsDisplayed): number {
+    const displayedIndex = stepsDisplayed.findIndex(s => s.index === index)
+    const displayed = stepsDisplayed.find(s => s.index === index)
+    pageTitle = displayed.label
+    stepIndex = displayedIndex
+    return stepIndex
+  }
 </script>
 
 <div
   role="progressbar"
   aria-label={progressBarLabel}
   aria-valuemin="1"
-  aria-valuemax={ariaValueMax}
-  aria-valuenow={completed + 1}
-  aria-valuetext={ariaValueText}>
+  aria-valuemax={stepsDisplayed.length}
+  aria-valuenow={stepIndex + 1}
+  aria-valuetext={interpolate(ariaValueText, [pageTitle, stepIndex + 1, stepsDisplayed.length])}>
   <ol class="mt-ol m-t-xxs steps" aria-hidden="true">
     {#each steps as step}
       {#if step.show}
+        {@const stepIndex =
+          steps[completed].index === step.index
+            ? setStepIndex(step.index, stepsDisplayed)
+            : step.index}
         <li
           class="mt-li"
           class:steps__complete={step.index < completed && !(steps[completed].index === step.index)}
