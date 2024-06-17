@@ -50,6 +50,12 @@ export interface ChapterChangeDetails {
   index: number
 }
 
+export interface FormStep {
+  index: number
+  show: boolean
+  label: string
+}
+
 export interface InputProps {
   label: string
   name: string
