@@ -54,6 +54,7 @@ export interface FormStep {
   index: number
   show: boolean
   label: string
+  subPageUrl: string
 }
 
 export interface InputProps {
