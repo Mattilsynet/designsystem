@@ -38,7 +38,7 @@
         <li
           class="mt-li"
           class:steps__complete={step.index <= displayedStep.index &&
-            !(displayedStep.subPageUrl === step.subPageUrl)}
+            displayedStep.subPageUrl !== step.subPageUrl}
           class:steps__current={displayedStep.subPageUrl === step.subPageUrl}>
           <span class="responsive-hide">{step.label}</span>
         </li>
