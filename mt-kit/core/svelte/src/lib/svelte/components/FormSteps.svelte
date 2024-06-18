@@ -13,9 +13,11 @@
     stepsDisplayed.findIndex(s => {
       return s.index === currentStep.index
     }) ?? 0
-  let displayedStep = stepsDisplayed.find(s => {
-    return s.index === currentStep.index
-  })
+  let displayedStep = currentStep
+    ? stepsDisplayed.find(s => {
+        return s.index === currentStep.index
+      })
+    : {}
   let pageTitle = currentStep?.label ?? ''
 </script>
 

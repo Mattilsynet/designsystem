@@ -3,7 +3,6 @@ import FormSteps from './FormSteps.svelte'
 
 describe('FormSteps', () => {
   const componentOptions = {
-    completed: 0,
     currentPath: '/om-bekymringen',
     steps: [
       { index: 0, show: true, label: 'Om bekymringen', subPageUrl: '/om-bekymringen' },
@@ -37,9 +36,8 @@ describe('FormSteps', () => {
     expect(bar.getAttribute('aria-valuemin')).toEqual(min)
     expect(bar.getAttribute('aria-valuenow')).toEqual(now)
     const attribute = bar.getAttribute('aria-valuetext')
-    console.log('attr:', attribute)
+
     const searchString = `${pageTitle}, Steg: ${now} av ${max}`
-    console.log('searchString:', searchString)
     expect(attribute.includes(searchString)).toEqual(true)
   }
   test('Renders Om bekymringen', (): void => {
@@ -51,7 +49,6 @@ describe('FormSteps', () => {
   test('Renders Info om deg', () => {
     const { getByText, getByLabelText } = render(FormSteps, {
       ...componentOptions,
-      completed: 1,
       currentPath: '/info-om-deg'
     })
     expectCurrentAndCompleted(getByText('Om bekymringen'), false, true)
@@ -63,7 +60,6 @@ describe('FormSteps', () => {
   test('Renders Om dyrene', () => {
     const { getByText, getByLabelText } = render(FormSteps, {
       ...componentOptions,
-      completed: 2,
       currentPath: '/om-dyrene'
     })
     expectCurrentAndCompleted(getByText('Om bekymringen'), false, true)
@@ -75,21 +71,18 @@ describe('FormSteps', () => {
   test('Renders Storfe', () => {
     const { getByText, getByLabelText } = render(FormSteps, {
       ...componentOptions,
-      // completed: 3,
       currentPath: '/storfe'
     })
     expectCurrentAndCompleted(getByText('Om bekymringen'), false, true)
     expectCurrentAndCompleted(getByText('Info om deg'), false, true)
     expectCurrentAndCompleted(getByText('Om dyrene'), true, false)
 
-    // const t = getByLabelText('Fremdriftslinje for skjema')
-    // expect(t.getAttribute('aria-valuetext')).toEqual('')
     expectAriaValues(getByLabelText('Fremdriftslinje for skjema'), '1', '7', '3', 'Storfe')
   })
   test('Renders Småfe', () => {
     const { getByText, getByLabelText } = render(FormSteps, {
       ...componentOptions,
-      completed: 4,
+
       currentPath: '/smaafe'
     })
     expectCurrentAndCompleted(getByText('Om bekymringen'), false, true)
@@ -101,7 +94,6 @@ describe('FormSteps', () => {
   test('Renders Hund', () => {
     const { getByText, getByLabelText } = render(FormSteps, {
       ...componentOptions,
-      completed: 5,
       currentPath: '/hund'
     })
     expectCurrentAndCompleted(getByText('Om bekymringen'), false, true)
@@ -113,7 +105,6 @@ describe('FormSteps', () => {
   test('Renders Katt', () => {
     const { getByText, getByLabelText } = render(FormSteps, {
       ...componentOptions,
-      completed: 6,
       currentPath: '/katt'
     })
     expectCurrentAndCompleted(getByText('Om bekymringen'), false, true)
@@ -126,7 +117,6 @@ describe('FormSteps', () => {
   test('Renders Test ', () => {
     const { getByText, getByLabelText } = render(FormSteps, {
       ...componentOptions,
-      completed: 7,
       currentPath: '/test'
     })
     expectCurrentAndCompleted(getByText('Om bekymringen'), false, true)
@@ -140,7 +130,6 @@ describe('FormSteps', () => {
   test('Renders Dokumentasjon ', () => {
     const { getByText, getByLabelText } = render(FormSteps, {
       ...componentOptions,
-      completed: 8,
       currentPath: '/dokumentasjon'
     })
     expectCurrentAndCompleted(getByText('Om bekymringen'), false, true)
@@ -154,7 +143,6 @@ describe('FormSteps', () => {
   test('Renders Test 2 ', () => {
     const { getByText, getByLabelText } = render(FormSteps, {
       ...componentOptions,
-      completed: 9,
       currentPath: '/test-2'
     })
     expectCurrentAndCompleted(getByText('Om bekymringen'), false, true)
@@ -169,7 +157,6 @@ describe('FormSteps', () => {
   test('Renders Oppsummering ', () => {
     const { getByText, getByLabelText } = render(FormSteps, {
       ...componentOptions,
-      completed: 10,
       currentPath: '/oppsummering'
     })
     expectCurrentAndCompleted(getByText('Om bekymringen'), false, true)
@@ -185,7 +172,6 @@ describe('FormSteps', () => {
   test('Renders Bekreftelse ', () => {
     const { getByText, getByLabelText } = render(FormSteps, {
       ...componentOptions,
-      completed: 11,
       currentPath: '/bekreftelse'
     })
     expectCurrentAndCompleted(getByText('Om bekymringen'), false, true)
@@ -197,5 +183,10 @@ describe('FormSteps', () => {
     expectCurrentAndCompleted(getByText('Bekreftelse'), true, false)
 
     expectAriaValues(getByLabelText('Fremdriftslinje for skjema'), '1', '7', '7', 'Bekreftelse')
+  })
+
+  test('Does not break without  ', () => {
+    const { getByLabelText } = render(FormSteps, {})
+    expect(getByLabelText('Fremdriftslinje for skjema')).toBeInTheDocument()
   })
 })
