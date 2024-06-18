@@ -9,10 +9,11 @@
 
   let stepsDisplayed = steps.filter(s => s.show)
   let currentStep = steps.find(s => s.subPageUrl === currentPath)
-  let displayedStepIndex =
-    stepsDisplayed.findIndex(s => {
-      return s.index === currentStep.index
-    }) ?? 0
+  let displayedStepIndex = currentStep
+    ? stepsDisplayed.findIndex(s => {
+        return s.index === currentStep.index
+      })
+    : 0
   let displayedStep = currentStep
     ? stepsDisplayed.find(s => {
         return s.index === currentStep.index
