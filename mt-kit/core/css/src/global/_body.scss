@@ -152,6 +152,7 @@
   --spacer-xx-large: #{$spacer-xx-large};
   --border-radius: #{$border-radius};
   --border-radius-small: #{$border-radius-small};
+  --border-radius-large: #{$border-radius-large};
   --border-width-small: #{$border-width-small};
   --border-width-regular: #{$border-width-regular};
   --z-index-dropdown: #{$zindex-dropdown};
@@ -245,7 +246,7 @@
   --dialog-box-close-hover: var(--color-mt-bg-furu);
   --dialog-box-close-border-hover: var(--color-mt-granskog);
   --disclosure-bordered-border: var(--color-mt-granskog);
-  --list-border: var(--color-mt-granskog);
+  --list-border: var(--color-mt-furu);
   --highlighted-bg: var(--col);
   --highlighted-color: var(--col);
 
@@ -253,7 +254,7 @@
   --dropdown-color: var(--color-links);
   --dropdown-visible-color: var(--color-links);
 
-  --menu-border: var(--color-mt-furu-dark);
+  --menu-border: var(--color-mt-furu);
   --menu-focus: var(--focus-on-light);
   --disclosure-on-primary-header-expanded: var(--color-mt-white);
 

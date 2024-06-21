@@ -89,6 +89,10 @@
   padding: 0;
 }
 
+.p-s {
+  padding: var(--spacer-small);
+}
+
 .p-xs {
   padding: var(--spacer-x-small);
 }
@@ -196,6 +200,11 @@
 .border-radius {
   border-radius: $border-radius;
 }
+
+.box-border-radius-br-l {
+  border-bottom-right-radius: $border-radius-large;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }

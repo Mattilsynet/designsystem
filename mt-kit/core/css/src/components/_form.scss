@@ -46,6 +46,7 @@ $form-outline-color: 'var(--form-outline-color)' !default;
   .form-field + .mt-fieldset,
   .form-field + .mt-button,
   .mt-fieldset + .mt-button,
+  .mt-input + .mt-button,
   .count-character + .mt-label,
   .count-character + .mt-fieldset,
   .mt-label + [type='submit'],
