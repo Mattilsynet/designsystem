@@ -36,8 +36,3 @@
     </article>
   </div>
 </Story>
-
-<style lang="scss">
-  .wrapper {
-  }
-</style>
