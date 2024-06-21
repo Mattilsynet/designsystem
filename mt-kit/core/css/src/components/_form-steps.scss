@@ -45,11 +45,13 @@ $step-ring-size: 2.125rem;
     }
 
     &.steps__complete:before {
-      color: var(--steps-color);
-      background-color: var(--steps-bg);
+      background-color: var(--steps-completed-bg);
+      border-color: var(--steps-completed-bg);
     }
     &.steps__current:before {
+      color: var(--steps-color);
       border-style: solid;
+      background-color: var(--steps-bg);
     }
   }
 
