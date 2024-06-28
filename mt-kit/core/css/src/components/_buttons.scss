@@ -11,7 +11,7 @@ $icon-button-border-radius: 0.25em;
 .mt-button {
   @include focus-outline();
   @include disabled;
-
+  --fds-btn-padding: var(--fds-spacing-2) var(--fds-spacing-4);
   --button-background: var(--color-#{$button-default-color});
   --button-color: var(--color-on-#{$button-default-color});
   --outline-color: transparent;
@@ -20,7 +20,7 @@ $icon-button-border-radius: 0.25em;
   text-decoration: none;
 
   // Reset for buttons
-  padding: 0.25em 1.25em;
+  padding: var(--fds-btn-padding);
   border: var(--border-width-regular) solid transparent;
   font-family: inherit;
   cursor: pointer;
