@@ -73,17 +73,6 @@ $transportlink-colors: 'error' !default;
       margin-left: calc(-1 * var(--indent));
     }
   }
-  &.back-arrow {
-    display: flex;
-    width: fit-content;
-    color: var(--color-links);
-    &::before {
-      content: var(--icon-carret-left);
-      display: inline-block;
-      height: 1.375rem;
-      margin-right: var(--spacer-xx-small);
-    }
-  }
 
   &.down-arrow {
     display: inline-flex;
