@@ -29,7 +29,6 @@
   &.with-bold {
     & .mt-summary {
       font-weight: $font-weight-bold;
-      display: inline-flex;
       align-items: center;
       h2,
       h3,
@@ -45,13 +44,12 @@
 
   &.with-icon {
     & .mt-summary {
-      display: inline-flex;
       align-items: center;
-      &::before {
+      &::after {
         // blue sircle with § inside icon
         content: var(--icon-legislation);
         display: inline-block;
-        margin-right: var(--spacer-xxx-small);
+        margin-left: var(--spacer-xxx-small);
         height: 1.55rem;
       }
     }
@@ -59,7 +57,7 @@
 
   .mt-summary {
     @include focus-outline();
-    display: inline;
+    display: inline-flex;
     line-height: 140%;
     color: var(--mt-button-neutral-border);
     list-style: none;
@@ -67,10 +65,12 @@
     > h3 {
       margin-top: 0;
     }
-    &::after {
+    &::before {
       content: var(--icon-carret-down-primary);
       display: inline-block;
-      margin-left: var(--spacer-xxx-small);
+      margin-right: var(--spacer-xxx-small);
+      width: $icon-alert-size;
+      height: $icon-alert-size;
     }
     &::-webkit-details-marker {
       display: none;
@@ -79,12 +79,34 @@
   &[open] {
     .mt-summary {
       margin-bottom: var(--summary-margin-bottom);
-      &::after {
+      &::before {
         transform: rotateX(180deg);
       }
     }
     .summary-wrapper {
-      @include xp-html-area;
+      @include children-spaced(var(--spacer-xxx-small));
+      --space-section: var(--spacer-medium);
+      --space-sub-section: var(--spacer-small);
+      --space-content: var(--spacer-xx-small);
+      > h2 {
+        margin-top: var(--spacer-medium);
+        &.inclusively-hidden {
+          + h3 {
+            margin-top: 0;
+          }
+        }
+      }
+
+      > h3,
+      > h4 {
+        margin-top: var(--spacer-x-small);
+      }
+      ul {
+        padding-left: var(--spacer-xx-small);
+        li {
+          line-height: 140%;
+        }
+      }
     }
   }
 }
