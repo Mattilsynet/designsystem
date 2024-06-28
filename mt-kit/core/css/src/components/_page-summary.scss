@@ -8,31 +8,32 @@
   --space-section: var(--spacer-small);
 
   display: grid;
-  grid-template-areas: 'heading link';
-  grid-template-columns: 1fr min-content;
-  row-gap: var(--gap);
+  grid-template-areas: 'heading link .';
+  grid-template-columns: max-content max-content 1fr;
+  column-gap: var(--gap);
   margin-top: var(--spacer-x-small);
 
   + .page-summary {
     margin-top: 0;
   }
 
-  a {
+  .mt-link {
     @extend .mt-link;
     grid-area: link;
-    border-bottom: var(--pagesummary-border);
-    padding-bottom: var(--heading-padding-bottom);
+    border-radius: $border-radius;
+    color: var(--mt-button-flat-color);
+    padding-left: var(--spacer-x-small);
+    padding-right: var(--spacer-x-small);
     align-self: end;
-    word-break: normal;
   }
 
   h3 {
     grid-area: heading;
-    border-bottom: var(--pagesummary-border);
-    padding-bottom: var(--heading-padding-bottom);
-    align-self: end;
+    align-self: center;
   }
   .summary-list {
+    border-top: var(--pagesummary-border);
+    padding-top: var(--gap);
     dd {
       white-space: pre-wrap;
     }
