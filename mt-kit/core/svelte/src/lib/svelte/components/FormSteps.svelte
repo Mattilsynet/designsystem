@@ -6,6 +6,8 @@
   export let currentPath = ''
   export let ariaValueText = '{0}, Steg: {1} av {2}'
   export let progressBarLabel = 'Fremdriftslinje for skjema'
+  let className = ''
+  export { className as class }
 
   let stepsDisplayed = steps.filter(s => s.show)
   let currentStep = steps.find(s => s.subPageUrl === currentPath)
@@ -24,6 +26,7 @@
 
 <div
   role="progressbar"
+  class={className}
   aria-label={progressBarLabel}
   aria-valuemin="1"
   aria-valuemax={stepsDisplayed.length}
