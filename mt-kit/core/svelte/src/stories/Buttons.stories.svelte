@@ -44,7 +44,8 @@
     <button class="mt-button mt-button--link"> ... </button>
 
     <p class="description">Flat - stor</p>
-    <button class="mt-button mt-button--flat">Uten ikon</button>
+    <button class="mt-button mt-button--flat no-icon">Uten ikon</button>
+    <button class="mt-button mt-button--flat no-icon">Avbryt</button>
 
     <p class="description">Flat med icon - stor</p>
     <button class="mt-button mt-button--flat closable">Med ikon</button>

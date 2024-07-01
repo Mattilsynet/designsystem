@@ -173,6 +173,13 @@ $icon-button-border-radius: 0.25em;
       border-color: var(--mt-button-flat-border-focus);
     }
   }
+  &.no-icon {
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
   &--link {
     border: 0 none;
     background: transparent;
