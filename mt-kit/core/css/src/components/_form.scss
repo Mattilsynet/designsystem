@@ -58,7 +58,8 @@ $form-outline-color: 'var(--form-outline-color)' !default;
 
 .mt-legend.form-legend,
 .mt-label {
-  display: block;
+  display: flex;
+  gap: var(--fds-spacing-3);
   font-size: $font-size-label;
   font-weight: var(--font-weight-normal);
   line-height: 1;
