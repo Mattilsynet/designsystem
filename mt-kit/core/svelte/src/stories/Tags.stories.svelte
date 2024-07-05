@@ -21,7 +21,11 @@
 <Meta
   title="Components/Tags"
   args={{
-    tags: [{ text: 'Hund' }, { text: 'Katt' }, { text: 'Ilder' }],
+    tags: [
+      { text: 'Hund', color: 'no-color' },
+      { text: 'Katt', color: 'no-color' },
+      { text: 'Ilder', color: 'no-color' }
+    ],
     tagsWithColor: [
       { text: 'PDF', color: 'info' },
       { text: 'Altinn', color: 'success' },
