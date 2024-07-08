@@ -11,6 +11,9 @@ title: Color Token Contrast
   - `color-mt-lighter-light-blue`
   - `color-mt-rationale-blue`
   - `color-mt-white`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
+  - `color-mt-green-400`
   - `color-mt-light-green`
   - `color-on-primary`
   - `color-on-error`
@@ -32,6 +35,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-on-mt-havdyp`
 
 ## color-on-mt-blue
   - `color-mt-blue`
@@ -91,6 +95,9 @@ title: Color Token Contrast
   - `color-mt-grey`
   - `color-mt-white`
   - `color-mt-green`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
+  - `color-mt-green-400`
   - `color-mt-light-green`
   - `color-on-primary`
   - `color-mt-blue-medium`
@@ -125,6 +132,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-on-mt-havdyp`
 
 ## color-mt-red-uu
   - `color-on-mt-blue`
@@ -134,6 +142,9 @@ title: Color Token Contrast
   - `color-mt-lighter-light-blue`
   - `color-mt-rationale-blue`
   - `color-mt-white`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
+  - `color-mt-green-400`
   - `color-mt-light-green`
   - `color-on-primary`
   - `color-on-error`
@@ -157,6 +168,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-on-mt-havdyp`
 
 ## color-on-mt-red-uu
   - `color-on-mt-red`
@@ -234,6 +246,9 @@ title: Color Token Contrast
   - `color-on-mt-brown`
   - `color-mt-white`
   - `color-mt-green`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
+  - `color-mt-green-400`
   - `color-mt-light-green`
   - `color-on-primary`
   - `color-on-mt-text-dark`
@@ -263,6 +278,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-on-mt-havdyp`
 
 ## color-mt-beige-50
   - `color-on-mt-red`
@@ -300,6 +316,9 @@ title: Color Token Contrast
   - `color-on-mt-brown`
   - `color-mt-white`
   - `color-mt-green`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
+  - `color-mt-green-400`
   - `color-mt-light-green`
   - `color-on-primary`
   - `color-secondary`
@@ -330,6 +349,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-on-mt-havdyp`
 
 ## color-mt-light-beige
   - `color-mt-blue`
@@ -345,6 +365,8 @@ title: Color Token Contrast
   - `color-on-mt-grey`
   - `color-on-mt-white`
   - `color-on-mt-green`
+  - `color-on-mt-green-300`
+  - `color-on-mt-green-400`
   - `color-on-mt-light-green`
   - `color-primary`
   - `color-on-mt-blue-medium`
@@ -379,11 +401,13 @@ title: Color Token Contrast
   - `color-on-mt-mellombeige`
   - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
+  - `color-mt-havdyp`
 
 ## color-on-mt-light-beige
   - `color-mt-light-beige`
   - `color-mt-background`
   - `color-mt-white`
+  - `color-mt-green-100`
   - `color-on-primary`
   - `color-on-error`
   - `color-mt-new-white`
@@ -411,6 +435,9 @@ title: Color Token Contrast
   - `color-on-mt-grey`
   - `color-on-mt-white`
   - `color-on-mt-green`
+  - `color-on-mt-green-100`
+  - `color-on-mt-green-300`
+  - `color-on-mt-green-400`
   - `color-on-mt-light-green`
   - `color-primary`
   - `color-on-mt-blue-medium`
@@ -445,10 +472,12 @@ title: Color Token Contrast
   - `color-on-mt-mellombeige`
   - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
+  - `color-mt-havdyp`
 
 ## color-on-mt-background
   - `color-mt-background`
   - `color-mt-white`
+  - `color-mt-green-100`
   - `color-on-primary`
   - `color-on-error`
   - `color-mt-new-white`
@@ -471,6 +500,9 @@ title: Color Token Contrast
   - `color-mt-grey`
   - `color-mt-white`
   - `color-mt-green`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
+  - `color-mt-green-400`
   - `color-mt-light-green`
   - `color-on-primary`
   - `color-secondary`
@@ -504,6 +536,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-on-mt-havdyp`
 
 ## color-mt-lighter-light-blue
   - `color-mt-blue`
@@ -518,6 +551,8 @@ title: Color Token Contrast
   - `color-on-mt-grey`
   - `color-on-mt-white`
   - `color-on-mt-green`
+  - `color-on-mt-green-300`
+  - `color-on-mt-green-400`
   - `color-on-mt-light-green`
   - `color-primary`
   - `color-on-mt-blue-medium`
@@ -550,6 +585,7 @@ title: Color Token Contrast
   - `color-on-mt-mellombeige`
   - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
+  - `color-mt-havdyp`
 
 ## color-on-mt-lighter-light-blue
   - `color-mt-light-beige`
@@ -557,6 +593,8 @@ title: Color Token Contrast
   - `color-mt-lighter-light-blue`
   - `color-mt-rationale-blue`
   - `color-mt-white`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
   - `color-mt-light-green`
   - `color-on-primary`
   - `color-on-error`
@@ -589,6 +627,8 @@ title: Color Token Contrast
   - `color-on-mt-grey`
   - `color-on-mt-white`
   - `color-on-mt-green`
+  - `color-on-mt-green-300`
+  - `color-on-mt-green-400`
   - `color-on-mt-light-green`
   - `color-primary`
   - `color-on-mt-blue-medium`
@@ -621,6 +661,7 @@ title: Color Token Contrast
   - `color-on-mt-mellombeige`
   - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
+  - `color-mt-havdyp`
 
 ## color-on-mt-rationale-blue
   - `color-on-mt-blue`
@@ -632,6 +673,9 @@ title: Color Token Contrast
   - `color-on-mt-brown`
   - `color-mt-white`
   - `color-mt-green`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
+  - `color-mt-green-400`
   - `color-mt-light-green`
   - `color-on-primary`
   - `color-on-mt-text-dark`
@@ -661,6 +705,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-on-mt-havdyp`
 
 ## color-mt-brown
   - `color-on-mt-blue`
@@ -672,6 +717,9 @@ title: Color Token Contrast
   - `color-on-mt-brown`
   - `color-mt-white`
   - `color-mt-green`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
+  - `color-mt-green-400`
   - `color-mt-light-green`
   - `color-on-primary`
   - `color-on-mt-text-dark`
@@ -701,6 +749,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-on-mt-havdyp`
 
 ## color-on-mt-brown
   - `color-on-mt-red`
@@ -765,6 +814,9 @@ title: Color Token Contrast
   - `color-on-mt-brown`
   - `color-mt-white`
   - `color-mt-green`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
+  - `color-mt-green-400`
   - `color-mt-light-green`
   - `color-on-primary`
   - `color-secondary`
@@ -795,6 +847,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-on-mt-havdyp`
 
 ## color-mt-white
   - `color-mt-blue`
@@ -811,6 +864,9 @@ title: Color Token Contrast
   - `color-on-mt-grey`
   - `color-on-mt-white`
   - `color-on-mt-green`
+  - `color-on-mt-green-100`
+  - `color-on-mt-green-300`
+  - `color-on-mt-green-400`
   - `color-on-mt-light-green`
   - `color-primary`
   - `color-on-mt-blue-medium`
@@ -845,6 +901,7 @@ title: Color Token Contrast
   - `color-on-mt-mellombeige`
   - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
+  - `color-mt-havdyp`
 
 ## color-on-mt-white
   - `color-on-mt-blue`
@@ -859,6 +916,9 @@ title: Color Token Contrast
   - `color-mt-grey`
   - `color-mt-white`
   - `color-mt-green`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
+  - `color-mt-green-400`
   - `color-mt-light-green`
   - `color-on-primary`
   - `color-secondary`
@@ -891,6 +951,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-on-mt-havdyp`
 
 ## color-mt-green
   - `color-on-mt-red`
@@ -932,6 +993,9 @@ title: Color Token Contrast
   - `color-mt-lighter-light-blue`
   - `color-mt-rationale-blue`
   - `color-mt-white`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
+  - `color-mt-green-400`
   - `color-mt-light-green`
   - `color-on-primary`
   - `color-on-error`
@@ -957,108 +1021,9 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-on-mt-havdyp`
 
-## color-mt-light-green
-  - `color-mt-blue`
-  - `color-on-mt-red`
-  - `color-mt-red-uu`
-  - `color-on-mt-beige`
-  - `color-on-mt-beige-50`
-  - `color-on-mt-light-blue`
-  - `color-on-mt-lighter-light-blue`
-  - `color-on-mt-rationale-blue`
-  - `color-mt-brown`
-  - `color-on-mt-grey`
-  - `color-on-mt-white`
-  - `color-on-mt-green`
-  - `color-on-mt-light-green`
-  - `color-primary`
-  - `color-on-mt-blue-medium`
-  - `color-on-secondary`
-  - `color-mt-text-dark`
-  - `color-error`
-  - `color-error-50`
-  - `color-on-mt-yellowgreen`
-  - `color-on-mt-new-white`
-  - `color-mt-granskog`
-  - `color-mt-granskog-dark`
-  - `color-on-mt-furu`
-  - `color-on-mt-lys-furu`
-  - `color-on-mt-bg-furu`
-  - `color-on-mt-bg-success`
-  - `color-mt-fjord`
-  - `color-on-mt-lys-fjord`
-  - `color-on-mt-bg-fjord`
-  - `color-on-mt-bg-neutral`
-  - `color-mt-rognebaer-contrast`
-  - `color-on-mt-rognebaer`
-  - `color-on-mt-lys-rognebaer`
-  - `color-on-mt-bg-rognebaer`
-  - `color-on-mt-bg-danger`
-  - `color-on-mt-sommerdag-contrast`
-  - `color-on-mt-sommerdag`
-  - `color-on-mt-lys-sommerdag`
-  - `color-on-mt-bg-sommerdag`
-  - `color-on-mt-bg-warning`
-  - `color-on-mt-mellombeige`
-  - `color-on-mt-bg-info`
-  - `color-on-mt-bg-beige`
-
-## color-on-mt-light-green
-  - `color-mt-light-beige`
-  - `color-mt-background`
-  - `color-mt-lighter-light-blue`
-  - `color-mt-rationale-blue`
-  - `color-mt-white`
-  - `color-mt-light-green`
-  - `color-on-primary`
-  - `color-on-error`
-  - `color-mt-yellowgreen-lighter`
-  - `color-mt-new-white`
-  - `color-on-mt-granskog`
-  - `color-on-mt-furu-dark`
-  - `color-mt-bg-furu`
-  - `color-mt-bg-success`
-  - `color-mt-bg-fjord`
-  - `color-mt-bg-neutral`
-  - `color-mt-bg-rognebaer`
-  - `color-mt-bg-danger`
-  - `color-mt-bg-sommerdag`
-  - `color-mt-bg-warning`
-  - `color-mt-mellombeige`
-  - `color-mt-bg-info`
-  - `color-mt-bg-beige`
-
-## color-primary
-  - `color-on-mt-blue`
-  - `color-mt-light-beige`
-  - `color-mt-background`
-  - `color-mt-lighter-light-blue`
-  - `color-mt-rationale-blue`
-  - `color-mt-white`
-  - `color-mt-light-green`
-  - `color-on-primary`
-  - `color-on-error`
-  - `color-mt-yellowgreen-lighter`
-  - `color-mt-new-white`
-  - `color-on-mt-granskog`
-  - `color-on-mt-furu-dark`
-  - `color-mt-bg-furu`
-  - `color-mt-bg-success`
-  - `color-mt-bg-fjord`
-  - `color-mt-bg-neutral`
-  - `color-mt-lys-rognebaer`
-  - `color-mt-bg-rognebaer`
-  - `color-mt-bg-danger`
-  - `color-mt-sommerdag`
-  - `color-mt-lys-sommerdag`
-  - `color-mt-bg-sommerdag`
-  - `color-mt-bg-warning`
-  - `color-mt-mellombeige`
-  - `color-mt-bg-info`
-  - `color-mt-bg-beige`
-
-## color-on-primary
+## color-mt-green-100
   - `color-mt-blue`
   - `color-on-mt-red`
   - `color-mt-red-uu`
@@ -1073,6 +1038,9 @@ title: Color Token Contrast
   - `color-on-mt-grey`
   - `color-on-mt-white`
   - `color-on-mt-green`
+  - `color-on-mt-green-100`
+  - `color-on-mt-green-300`
+  - `color-on-mt-green-400`
   - `color-on-mt-light-green`
   - `color-primary`
   - `color-on-mt-blue-medium`
@@ -1107,6 +1075,330 @@ title: Color Token Contrast
   - `color-on-mt-mellombeige`
   - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
+  - `color-mt-havdyp`
+
+## color-on-mt-green-100
+  - `color-mt-background`
+  - `color-mt-white`
+  - `color-mt-green-100`
+  - `color-on-primary`
+  - `color-on-error`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-mt-bg-beige`
+
+## color-mt-green-300
+  - `color-mt-blue`
+  - `color-on-mt-red`
+  - `color-mt-red-uu`
+  - `color-on-mt-beige`
+  - `color-on-mt-beige-50`
+  - `color-on-mt-light-blue`
+  - `color-on-mt-lighter-light-blue`
+  - `color-on-mt-rationale-blue`
+  - `color-mt-brown`
+  - `color-on-mt-grey`
+  - `color-on-mt-white`
+  - `color-on-mt-green`
+  - `color-on-mt-green-300`
+  - `color-on-mt-green-400`
+  - `color-on-mt-light-green`
+  - `color-primary`
+  - `color-on-mt-blue-medium`
+  - `color-on-secondary`
+  - `color-mt-text-dark`
+  - `color-error`
+  - `color-error-50`
+  - `color-on-mt-yellowgreen`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-on-mt-lys-furu`
+  - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
+  - `color-mt-fjord`
+  - `color-on-mt-lys-fjord`
+  - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
+  - `color-mt-rognebaer-contrast`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-lys-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
+  - `color-on-mt-sommerdag-contrast`
+  - `color-on-mt-sommerdag`
+  - `color-on-mt-lys-sommerdag`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
+  - `color-on-mt-bg-beige`
+  - `color-mt-havdyp`
+
+## color-on-mt-green-300
+  - `color-mt-light-beige`
+  - `color-mt-background`
+  - `color-mt-lighter-light-blue`
+  - `color-mt-rationale-blue`
+  - `color-mt-white`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
+  - `color-mt-light-green`
+  - `color-on-primary`
+  - `color-on-error`
+  - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-on-mt-furu-dark`
+  - `color-mt-bg-furu`
+  - `color-mt-bg-success`
+  - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-info`
+  - `color-mt-bg-beige`
+
+## color-mt-green-400
+  - `color-mt-blue`
+  - `color-on-mt-red`
+  - `color-mt-red-uu`
+  - `color-on-mt-beige`
+  - `color-on-mt-beige-50`
+  - `color-on-mt-light-blue`
+  - `color-on-mt-rationale-blue`
+  - `color-mt-brown`
+  - `color-on-mt-grey`
+  - `color-on-mt-white`
+  - `color-on-mt-green`
+  - `color-on-mt-green-400`
+  - `color-primary`
+  - `color-on-mt-blue-medium`
+  - `color-on-secondary`
+  - `color-mt-text-dark`
+  - `color-error`
+  - `color-error-50`
+  - `color-on-mt-yellowgreen`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-on-mt-lys-furu`
+  - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
+  - `color-mt-fjord`
+  - `color-on-mt-lys-fjord`
+  - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
+  - `color-mt-rognebaer-contrast`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-lys-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
+  - `color-on-mt-sommerdag-contrast`
+  - `color-on-mt-sommerdag`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
+  - `color-on-mt-bg-beige`
+
+## color-on-mt-green-400
+  - `color-mt-light-beige`
+  - `color-mt-background`
+  - `color-mt-lighter-light-blue`
+  - `color-mt-rationale-blue`
+  - `color-mt-white`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
+  - `color-mt-green-400`
+  - `color-mt-light-green`
+  - `color-on-primary`
+  - `color-on-error`
+  - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-on-mt-furu-dark`
+  - `color-mt-bg-furu`
+  - `color-mt-bg-success`
+  - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
+  - `color-mt-lys-sommerdag`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-info`
+  - `color-mt-bg-beige`
+  - `color-on-mt-havdyp`
+
+## color-mt-light-green
+  - `color-mt-blue`
+  - `color-on-mt-red`
+  - `color-mt-red-uu`
+  - `color-on-mt-beige`
+  - `color-on-mt-beige-50`
+  - `color-on-mt-light-blue`
+  - `color-on-mt-lighter-light-blue`
+  - `color-on-mt-rationale-blue`
+  - `color-mt-brown`
+  - `color-on-mt-grey`
+  - `color-on-mt-white`
+  - `color-on-mt-green`
+  - `color-on-mt-green-300`
+  - `color-on-mt-green-400`
+  - `color-on-mt-light-green`
+  - `color-primary`
+  - `color-on-mt-blue-medium`
+  - `color-on-secondary`
+  - `color-mt-text-dark`
+  - `color-error`
+  - `color-error-50`
+  - `color-on-mt-yellowgreen`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-on-mt-lys-furu`
+  - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
+  - `color-mt-fjord`
+  - `color-on-mt-lys-fjord`
+  - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
+  - `color-mt-rognebaer-contrast`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-lys-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
+  - `color-on-mt-sommerdag-contrast`
+  - `color-on-mt-sommerdag`
+  - `color-on-mt-lys-sommerdag`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
+  - `color-on-mt-bg-beige`
+  - `color-mt-havdyp`
+
+## color-on-mt-light-green
+  - `color-mt-light-beige`
+  - `color-mt-background`
+  - `color-mt-lighter-light-blue`
+  - `color-mt-rationale-blue`
+  - `color-mt-white`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
+  - `color-mt-light-green`
+  - `color-on-primary`
+  - `color-on-error`
+  - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-on-mt-furu-dark`
+  - `color-mt-bg-furu`
+  - `color-mt-bg-success`
+  - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-info`
+  - `color-mt-bg-beige`
+
+## color-primary
+  - `color-on-mt-blue`
+  - `color-mt-light-beige`
+  - `color-mt-background`
+  - `color-mt-lighter-light-blue`
+  - `color-mt-rationale-blue`
+  - `color-mt-white`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
+  - `color-mt-green-400`
+  - `color-mt-light-green`
+  - `color-on-primary`
+  - `color-on-error`
+  - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-on-mt-furu-dark`
+  - `color-mt-bg-furu`
+  - `color-mt-bg-success`
+  - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
+  - `color-mt-lys-rognebaer`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
+  - `color-mt-sommerdag`
+  - `color-mt-lys-sommerdag`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-info`
+  - `color-mt-bg-beige`
+  - `color-on-mt-havdyp`
+
+## color-on-primary
+  - `color-mt-blue`
+  - `color-on-mt-red`
+  - `color-mt-red-uu`
+  - `color-on-mt-beige`
+  - `color-on-mt-beige-50`
+  - `color-on-mt-light-beige`
+  - `color-on-mt-background`
+  - `color-on-mt-light-blue`
+  - `color-on-mt-lighter-light-blue`
+  - `color-on-mt-rationale-blue`
+  - `color-mt-brown`
+  - `color-on-mt-grey`
+  - `color-on-mt-white`
+  - `color-on-mt-green`
+  - `color-on-mt-green-100`
+  - `color-on-mt-green-300`
+  - `color-on-mt-green-400`
+  - `color-on-mt-light-green`
+  - `color-primary`
+  - `color-on-mt-blue-medium`
+  - `color-on-secondary`
+  - `color-mt-text-dark`
+  - `color-error`
+  - `color-error-50`
+  - `color-on-mt-yellowgreen`
+  - `color-on-mt-yellowgreen-lighter`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-mt-furu-dark`
+  - `color-on-mt-lys-furu`
+  - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
+  - `color-mt-fjord`
+  - `color-on-mt-lys-fjord`
+  - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
+  - `color-mt-rognebaer-contrast`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-lys-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
+  - `color-on-mt-sommerdag-contrast`
+  - `color-on-mt-sommerdag`
+  - `color-on-mt-lys-sommerdag`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
+  - `color-on-mt-bg-beige`
+  - `color-mt-havdyp`
 
 ## color-mt-blue-medium
   - `color-on-mt-red`
@@ -1124,6 +1416,9 @@ title: Color Token Contrast
   - `color-mt-grey`
   - `color-mt-white`
   - `color-mt-green`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
+  - `color-mt-green-400`
   - `color-mt-light-green`
   - `color-on-primary`
   - `color-secondary`
@@ -1157,6 +1452,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-on-mt-havdyp`
 
 ## color-secondary
   - `color-on-mt-red`
@@ -1193,6 +1489,9 @@ title: Color Token Contrast
   - `color-on-mt-brown`
   - `color-mt-white`
   - `color-mt-green`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
+  - `color-mt-green-400`
   - `color-mt-light-green`
   - `color-on-primary`
   - `color-on-mt-text-dark`
@@ -1222,6 +1521,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-on-mt-havdyp`
 
 ## color-mt-text-dark
   - `color-on-mt-blue`
@@ -1233,6 +1533,9 @@ title: Color Token Contrast
   - `color-on-mt-brown`
   - `color-mt-white`
   - `color-mt-green`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
+  - `color-mt-green-400`
   - `color-mt-light-green`
   - `color-on-primary`
   - `color-on-mt-text-dark`
@@ -1262,6 +1565,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-on-mt-havdyp`
 
 ## color-on-mt-text-dark
   - `color-on-mt-red`
@@ -1300,6 +1604,9 @@ title: Color Token Contrast
   - `color-mt-lighter-light-blue`
   - `color-mt-rationale-blue`
   - `color-mt-white`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
+  - `color-mt-green-400`
   - `color-mt-light-green`
   - `color-on-primary`
   - `color-on-error`
@@ -1323,6 +1630,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-on-mt-havdyp`
 
 ## color-on-error
   - `color-mt-blue`
@@ -1339,6 +1647,9 @@ title: Color Token Contrast
   - `color-on-mt-grey`
   - `color-on-mt-white`
   - `color-on-mt-green`
+  - `color-on-mt-green-100`
+  - `color-on-mt-green-300`
+  - `color-on-mt-green-400`
   - `color-on-mt-light-green`
   - `color-primary`
   - `color-on-mt-blue-medium`
@@ -1373,6 +1684,7 @@ title: Color Token Contrast
   - `color-on-mt-mellombeige`
   - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
+  - `color-mt-havdyp`
 
 ## color-error-50
   - `color-on-mt-blue`
@@ -1382,6 +1694,9 @@ title: Color Token Contrast
   - `color-mt-lighter-light-blue`
   - `color-mt-rationale-blue`
   - `color-mt-white`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
+  - `color-mt-green-400`
   - `color-mt-light-green`
   - `color-on-primary`
   - `color-on-error`
@@ -1405,6 +1720,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-on-mt-havdyp`
 
 ## color-on-error-50
   - `color-on-mt-red`
@@ -1485,6 +1801,9 @@ title: Color Token Contrast
   - `color-mt-rationale-blue`
   - `color-mt-white`
   - `color-mt-green`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
+  - `color-mt-green-400`
   - `color-mt-light-green`
   - `color-on-primary`
   - `color-on-error`
@@ -1512,6 +1831,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-on-mt-havdyp`
 
 ## color-mt-yellowgreen-lighter
   - `color-mt-blue`
@@ -1526,6 +1846,8 @@ title: Color Token Contrast
   - `color-on-mt-grey`
   - `color-on-mt-white`
   - `color-on-mt-green`
+  - `color-on-mt-green-300`
+  - `color-on-mt-green-400`
   - `color-on-mt-light-green`
   - `color-primary`
   - `color-on-mt-blue-medium`
@@ -1559,11 +1881,13 @@ title: Color Token Contrast
   - `color-on-mt-mellombeige`
   - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
+  - `color-mt-havdyp`
 
 ## color-on-mt-yellowgreen-lighter
   - `color-mt-light-beige`
   - `color-mt-background`
   - `color-mt-white`
+  - `color-mt-green-100`
   - `color-on-primary`
   - `color-on-error`
   - `color-mt-yellowgreen-lighter`
@@ -1597,6 +1921,9 @@ title: Color Token Contrast
   - `color-on-mt-grey`
   - `color-on-mt-white`
   - `color-on-mt-green`
+  - `color-on-mt-green-100`
+  - `color-on-mt-green-300`
+  - `color-on-mt-green-400`
   - `color-on-mt-light-green`
   - `color-primary`
   - `color-on-mt-blue-medium`
@@ -1631,6 +1958,7 @@ title: Color Token Contrast
   - `color-on-mt-mellombeige`
   - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
+  - `color-mt-havdyp`
 
 ## color-on-mt-new-white
   - `color-on-mt-blue`
@@ -1645,6 +1973,9 @@ title: Color Token Contrast
   - `color-mt-grey`
   - `color-mt-white`
   - `color-mt-green`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
+  - `color-mt-green-400`
   - `color-mt-light-green`
   - `color-on-primary`
   - `color-secondary`
@@ -1677,6 +2008,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-on-mt-havdyp`
 
 ## color-mt-granskog
   - `color-on-mt-blue`
@@ -1691,6 +2023,9 @@ title: Color Token Contrast
   - `color-mt-grey`
   - `color-mt-white`
   - `color-mt-green`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
+  - `color-mt-green-400`
   - `color-mt-light-green`
   - `color-on-primary`
   - `color-secondary`
@@ -1721,6 +2056,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-on-mt-havdyp`
 
 ## color-on-mt-granskog
   - `color-mt-blue`
@@ -1737,6 +2073,9 @@ title: Color Token Contrast
   - `color-on-mt-grey`
   - `color-on-mt-white`
   - `color-on-mt-green`
+  - `color-on-mt-green-100`
+  - `color-on-mt-green-300`
+  - `color-on-mt-green-400`
   - `color-on-mt-light-green`
   - `color-primary`
   - `color-on-mt-blue-medium`
@@ -1771,6 +2110,7 @@ title: Color Token Contrast
   - `color-on-mt-mellombeige`
   - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
+  - `color-mt-havdyp`
 
 ## color-mt-granskog-dark
   - `color-on-mt-blue`
@@ -1785,6 +2125,9 @@ title: Color Token Contrast
   - `color-mt-grey`
   - `color-mt-white`
   - `color-mt-green`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
+  - `color-mt-green-400`
   - `color-mt-light-green`
   - `color-on-primary`
   - `color-secondary`
@@ -1817,6 +2160,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-on-mt-havdyp`
 
 ## color-on-mt-granskog-dark
   - `color-on-mt-red`
@@ -1872,6 +2216,9 @@ title: Color Token Contrast
   - `color-mt-grey`
   - `color-mt-white`
   - `color-mt-green`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
+  - `color-mt-green-400`
   - `color-mt-light-green`
   - `color-on-primary`
   - `color-secondary`
@@ -1903,11 +2250,13 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-on-mt-havdyp`
 
 ## color-mt-furu-dark
   - `color-mt-light-beige`
   - `color-mt-background`
   - `color-mt-white`
+  - `color-mt-green-100`
   - `color-on-primary`
   - `color-on-error`
   - `color-mt-new-white`
@@ -1938,6 +2287,8 @@ title: Color Token Contrast
   - `color-on-mt-grey`
   - `color-on-mt-white`
   - `color-on-mt-green`
+  - `color-on-mt-green-300`
+  - `color-on-mt-green-400`
   - `color-on-mt-light-green`
   - `color-primary`
   - `color-on-mt-blue-medium`
@@ -1972,6 +2323,7 @@ title: Color Token Contrast
   - `color-on-mt-mellombeige`
   - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
+  - `color-mt-havdyp`
 
 ## color-mt-lys-furu
   - `color-on-mt-red`
@@ -2014,6 +2366,9 @@ title: Color Token Contrast
   - `color-mt-rationale-blue`
   - `color-mt-white`
   - `color-mt-green`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
+  - `color-mt-green-400`
   - `color-mt-light-green`
   - `color-on-primary`
   - `color-on-error`
@@ -2040,6 +2395,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-on-mt-havdyp`
 
 ## color-mt-bg-furu
   - `color-mt-blue`
@@ -2055,6 +2411,8 @@ title: Color Token Contrast
   - `color-on-mt-grey`
   - `color-on-mt-white`
   - `color-on-mt-green`
+  - `color-on-mt-green-300`
+  - `color-on-mt-green-400`
   - `color-on-mt-light-green`
   - `color-primary`
   - `color-on-mt-blue-medium`
@@ -2089,6 +2447,7 @@ title: Color Token Contrast
   - `color-on-mt-mellombeige`
   - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
+  - `color-mt-havdyp`
 
 ## color-on-mt-bg-furu
   - `color-on-mt-blue`
@@ -2103,6 +2462,9 @@ title: Color Token Contrast
   - `color-mt-grey`
   - `color-mt-white`
   - `color-mt-green`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
+  - `color-mt-green-400`
   - `color-mt-light-green`
   - `color-on-primary`
   - `color-secondary`
@@ -2135,6 +2497,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-on-mt-havdyp`
 
 ## color-mt-bg-success
   - `color-mt-blue`
@@ -2150,6 +2513,8 @@ title: Color Token Contrast
   - `color-on-mt-grey`
   - `color-on-mt-white`
   - `color-on-mt-green`
+  - `color-on-mt-green-300`
+  - `color-on-mt-green-400`
   - `color-on-mt-light-green`
   - `color-primary`
   - `color-on-mt-blue-medium`
@@ -2184,6 +2549,7 @@ title: Color Token Contrast
   - `color-on-mt-mellombeige`
   - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
+  - `color-mt-havdyp`
 
 ## color-on-mt-bg-success
   - `color-on-mt-blue`
@@ -2198,6 +2564,9 @@ title: Color Token Contrast
   - `color-mt-grey`
   - `color-mt-white`
   - `color-mt-green`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
+  - `color-mt-green-400`
   - `color-mt-light-green`
   - `color-on-primary`
   - `color-secondary`
@@ -2230,6 +2599,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-on-mt-havdyp`
 
 ## color-mt-fjord
   - `color-on-mt-blue`
@@ -2240,6 +2610,9 @@ title: Color Token Contrast
   - `color-mt-rationale-blue`
   - `color-mt-white`
   - `color-mt-green`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
+  - `color-mt-green-400`
   - `color-mt-light-green`
   - `color-on-primary`
   - `color-on-error`
@@ -2268,6 +2641,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-on-mt-havdyp`
 
 ## color-on-mt-fjord
   - `color-on-mt-red`
@@ -2346,6 +2720,9 @@ title: Color Token Contrast
   - `color-mt-lighter-light-blue`
   - `color-mt-rationale-blue`
   - `color-mt-white`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
+  - `color-mt-green-400`
   - `color-mt-light-green`
   - `color-on-primary`
   - `color-on-error`
@@ -2369,6 +2746,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-on-mt-havdyp`
 
 ## color-mt-bg-fjord
   - `color-mt-blue`
@@ -2383,6 +2761,8 @@ title: Color Token Contrast
   - `color-on-mt-grey`
   - `color-on-mt-white`
   - `color-on-mt-green`
+  - `color-on-mt-green-300`
+  - `color-on-mt-green-400`
   - `color-on-mt-light-green`
   - `color-primary`
   - `color-on-mt-blue-medium`
@@ -2417,6 +2797,7 @@ title: Color Token Contrast
   - `color-on-mt-mellombeige`
   - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
+  - `color-mt-havdyp`
 
 ## color-on-mt-bg-fjord
   - `color-on-mt-blue`
@@ -2431,6 +2812,9 @@ title: Color Token Contrast
   - `color-mt-grey`
   - `color-mt-white`
   - `color-mt-green`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
+  - `color-mt-green-400`
   - `color-mt-light-green`
   - `color-on-primary`
   - `color-secondary`
@@ -2463,6 +2847,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-on-mt-havdyp`
 
 ## color-mt-bg-neutral
   - `color-mt-blue`
@@ -2477,6 +2862,8 @@ title: Color Token Contrast
   - `color-on-mt-grey`
   - `color-on-mt-white`
   - `color-on-mt-green`
+  - `color-on-mt-green-300`
+  - `color-on-mt-green-400`
   - `color-on-mt-light-green`
   - `color-primary`
   - `color-on-mt-blue-medium`
@@ -2511,6 +2898,7 @@ title: Color Token Contrast
   - `color-on-mt-mellombeige`
   - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
+  - `color-mt-havdyp`
 
 ## color-on-mt-bg-neutral
   - `color-on-mt-blue`
@@ -2525,6 +2913,9 @@ title: Color Token Contrast
   - `color-mt-grey`
   - `color-mt-white`
   - `color-mt-green`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
+  - `color-mt-green-400`
   - `color-mt-light-green`
   - `color-on-primary`
   - `color-secondary`
@@ -2557,6 +2948,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-on-mt-havdyp`
 
 ## color-mt-rognebaer-contrast
   - `color-on-mt-blue`
@@ -2566,6 +2958,9 @@ title: Color Token Contrast
   - `color-mt-lighter-light-blue`
   - `color-mt-rationale-blue`
   - `color-mt-white`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
+  - `color-mt-green-400`
   - `color-mt-light-green`
   - `color-on-primary`
   - `color-on-error`
@@ -2591,6 +2986,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-on-mt-havdyp`
 
 ## color-on-mt-rognebaer-contrast
   - `color-on-mt-red`
@@ -2645,6 +3041,9 @@ title: Color Token Contrast
   - `color-mt-grey`
   - `color-mt-white`
   - `color-mt-green`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
+  - `color-mt-green-400`
   - `color-mt-light-green`
   - `color-on-primary`
   - `color-secondary`
@@ -2678,6 +3077,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-on-mt-havdyp`
 
 ## color-mt-lys-rognebaer
   - `color-mt-blue`
@@ -2727,6 +3127,9 @@ title: Color Token Contrast
   - `color-mt-lighter-light-blue`
   - `color-mt-rationale-blue`
   - `color-mt-white`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
+  - `color-mt-green-400`
   - `color-mt-light-green`
   - `color-on-primary`
   - `color-on-error`
@@ -2748,6 +3151,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-on-mt-havdyp`
 
 ## color-mt-bg-rognebaer
   - `color-mt-blue`
@@ -2762,6 +3166,8 @@ title: Color Token Contrast
   - `color-on-mt-grey`
   - `color-on-mt-white`
   - `color-on-mt-green`
+  - `color-on-mt-green-300`
+  - `color-on-mt-green-400`
   - `color-on-mt-light-green`
   - `color-primary`
   - `color-on-mt-blue-medium`
@@ -2796,6 +3202,7 @@ title: Color Token Contrast
   - `color-on-mt-mellombeige`
   - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
+  - `color-mt-havdyp`
 
 ## color-on-mt-bg-rognebaer
   - `color-on-mt-blue`
@@ -2810,6 +3217,9 @@ title: Color Token Contrast
   - `color-mt-grey`
   - `color-mt-white`
   - `color-mt-green`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
+  - `color-mt-green-400`
   - `color-mt-light-green`
   - `color-on-primary`
   - `color-secondary`
@@ -2842,6 +3252,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-on-mt-havdyp`
 
 ## color-mt-bg-danger
   - `color-mt-blue`
@@ -2856,6 +3267,8 @@ title: Color Token Contrast
   - `color-on-mt-grey`
   - `color-on-mt-white`
   - `color-on-mt-green`
+  - `color-on-mt-green-300`
+  - `color-on-mt-green-400`
   - `color-on-mt-light-green`
   - `color-primary`
   - `color-on-mt-blue-medium`
@@ -2890,6 +3303,7 @@ title: Color Token Contrast
   - `color-on-mt-mellombeige`
   - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
+  - `color-mt-havdyp`
 
 ## color-on-mt-bg-danger
   - `color-on-mt-blue`
@@ -2904,6 +3318,9 @@ title: Color Token Contrast
   - `color-mt-grey`
   - `color-mt-white`
   - `color-mt-green`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
+  - `color-mt-green-400`
   - `color-mt-light-green`
   - `color-on-primary`
   - `color-secondary`
@@ -2936,6 +3353,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-on-mt-havdyp`
 
 ## color-mt-sommerdag-contrast
   - `color-on-mt-red`
@@ -2980,6 +3398,9 @@ title: Color Token Contrast
   - `color-mt-lighter-light-blue`
   - `color-mt-rationale-blue`
   - `color-mt-white`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
+  - `color-mt-green-400`
   - `color-mt-light-green`
   - `color-on-primary`
   - `color-on-error`
@@ -3004,6 +3425,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-on-mt-havdyp`
 
 ## color-mt-sommerdag
   - `color-mt-blue`
@@ -3054,6 +3476,9 @@ title: Color Token Contrast
   - `color-mt-lighter-light-blue`
   - `color-mt-rationale-blue`
   - `color-mt-white`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
+  - `color-mt-green-400`
   - `color-mt-light-green`
   - `color-on-primary`
   - `color-on-error`
@@ -3074,6 +3499,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-on-mt-havdyp`
 
 ## color-mt-lys-sommerdag
   - `color-mt-blue`
@@ -3087,6 +3513,7 @@ title: Color Token Contrast
   - `color-on-mt-grey`
   - `color-on-mt-white`
   - `color-on-mt-green`
+  - `color-on-mt-green-400`
   - `color-primary`
   - `color-on-mt-blue-medium`
   - `color-on-secondary`
@@ -3118,6 +3545,7 @@ title: Color Token Contrast
   - `color-on-mt-mellombeige`
   - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
+  - `color-mt-havdyp`
 
 ## color-on-mt-lys-sommerdag
   - `color-mt-light-beige`
@@ -3125,6 +3553,8 @@ title: Color Token Contrast
   - `color-mt-lighter-light-blue`
   - `color-mt-rationale-blue`
   - `color-mt-white`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
   - `color-mt-light-green`
   - `color-on-primary`
   - `color-on-error`
@@ -3159,6 +3589,8 @@ title: Color Token Contrast
   - `color-on-mt-grey`
   - `color-on-mt-white`
   - `color-on-mt-green`
+  - `color-on-mt-green-300`
+  - `color-on-mt-green-400`
   - `color-on-mt-light-green`
   - `color-primary`
   - `color-on-mt-blue-medium`
@@ -3193,6 +3625,7 @@ title: Color Token Contrast
   - `color-on-mt-mellombeige`
   - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
+  - `color-mt-havdyp`
 
 ## color-on-mt-bg-sommerdag
   - `color-on-mt-blue`
@@ -3207,6 +3640,9 @@ title: Color Token Contrast
   - `color-mt-grey`
   - `color-mt-white`
   - `color-mt-green`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
+  - `color-mt-green-400`
   - `color-mt-light-green`
   - `color-on-primary`
   - `color-secondary`
@@ -3239,6 +3675,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-on-mt-havdyp`
 
 ## color-mt-bg-warning
   - `color-mt-blue`
@@ -3254,6 +3691,8 @@ title: Color Token Contrast
   - `color-on-mt-grey`
   - `color-on-mt-white`
   - `color-on-mt-green`
+  - `color-on-mt-green-300`
+  - `color-on-mt-green-400`
   - `color-on-mt-light-green`
   - `color-primary`
   - `color-on-mt-blue-medium`
@@ -3288,6 +3727,7 @@ title: Color Token Contrast
   - `color-on-mt-mellombeige`
   - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
+  - `color-mt-havdyp`
 
 ## color-on-mt-bg-warning
   - `color-on-mt-blue`
@@ -3302,6 +3742,9 @@ title: Color Token Contrast
   - `color-mt-grey`
   - `color-mt-white`
   - `color-mt-green`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
+  - `color-mt-green-400`
   - `color-mt-light-green`
   - `color-on-primary`
   - `color-secondary`
@@ -3334,6 +3777,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-on-mt-havdyp`
 
 ## color-mt-mellombeige
   - `color-mt-blue`
@@ -3349,6 +3793,8 @@ title: Color Token Contrast
   - `color-on-mt-grey`
   - `color-on-mt-white`
   - `color-on-mt-green`
+  - `color-on-mt-green-300`
+  - `color-on-mt-green-400`
   - `color-on-mt-light-green`
   - `color-primary`
   - `color-on-mt-blue-medium`
@@ -3383,6 +3829,7 @@ title: Color Token Contrast
   - `color-on-mt-mellombeige`
   - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
+  - `color-mt-havdyp`
 
 ## color-on-mt-mellombeige
   - `color-on-mt-blue`
@@ -3397,6 +3844,9 @@ title: Color Token Contrast
   - `color-mt-grey`
   - `color-mt-white`
   - `color-mt-green`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
+  - `color-mt-green-400`
   - `color-mt-light-green`
   - `color-on-primary`
   - `color-secondary`
@@ -3429,6 +3879,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-on-mt-havdyp`
 
 ## color-mt-bg-info
   - `color-mt-blue`
@@ -3444,6 +3895,8 @@ title: Color Token Contrast
   - `color-on-mt-grey`
   - `color-on-mt-white`
   - `color-on-mt-green`
+  - `color-on-mt-green-300`
+  - `color-on-mt-green-400`
   - `color-on-mt-light-green`
   - `color-primary`
   - `color-on-mt-blue-medium`
@@ -3478,6 +3931,7 @@ title: Color Token Contrast
   - `color-on-mt-mellombeige`
   - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
+  - `color-mt-havdyp`
 
 ## color-on-mt-bg-info
   - `color-on-mt-blue`
@@ -3492,6 +3946,9 @@ title: Color Token Contrast
   - `color-mt-grey`
   - `color-mt-white`
   - `color-mt-green`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
+  - `color-mt-green-400`
   - `color-mt-light-green`
   - `color-on-primary`
   - `color-secondary`
@@ -3524,6 +3981,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-on-mt-havdyp`
 
 ## color-mt-bg-beige
   - `color-mt-blue`
@@ -3540,6 +3998,9 @@ title: Color Token Contrast
   - `color-on-mt-grey`
   - `color-on-mt-white`
   - `color-on-mt-green`
+  - `color-on-mt-green-100`
+  - `color-on-mt-green-300`
+  - `color-on-mt-green-400`
   - `color-on-mt-light-green`
   - `color-primary`
   - `color-on-mt-blue-medium`
@@ -3574,6 +4035,7 @@ title: Color Token Contrast
   - `color-on-mt-mellombeige`
   - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
+  - `color-mt-havdyp`
 
 ## color-on-mt-bg-beige
   - `color-on-mt-blue`
@@ -3588,6 +4050,9 @@ title: Color Token Contrast
   - `color-mt-grey`
   - `color-mt-white`
   - `color-mt-green`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
+  - `color-mt-green-400`
   - `color-mt-light-green`
   - `color-on-primary`
   - `color-secondary`
@@ -3620,3 +4085,78 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-on-mt-havdyp`
+
+## color-mt-havdyp
+  - `color-mt-light-beige`
+  - `color-mt-background`
+  - `color-mt-lighter-light-blue`
+  - `color-mt-rationale-blue`
+  - `color-mt-white`
+  - `color-mt-green-100`
+  - `color-mt-green-300`
+  - `color-mt-light-green`
+  - `color-on-primary`
+  - `color-on-error`
+  - `color-mt-yellowgreen-lighter`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-on-mt-furu-dark`
+  - `color-mt-bg-furu`
+  - `color-mt-bg-success`
+  - `color-mt-bg-fjord`
+  - `color-mt-bg-neutral`
+  - `color-mt-bg-rognebaer`
+  - `color-mt-bg-danger`
+  - `color-mt-lys-sommerdag`
+  - `color-mt-bg-sommerdag`
+  - `color-mt-bg-warning`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-info`
+  - `color-mt-bg-beige`
+  - `color-on-mt-havdyp`
+
+## color-on-mt-havdyp
+  - `color-mt-blue`
+  - `color-on-mt-red`
+  - `color-mt-red-uu`
+  - `color-on-mt-beige`
+  - `color-on-mt-beige-50`
+  - `color-on-mt-light-blue`
+  - `color-on-mt-rationale-blue`
+  - `color-mt-brown`
+  - `color-on-mt-grey`
+  - `color-on-mt-white`
+  - `color-on-mt-green`
+  - `color-on-mt-green-400`
+  - `color-primary`
+  - `color-on-mt-blue-medium`
+  - `color-on-secondary`
+  - `color-mt-text-dark`
+  - `color-error`
+  - `color-error-50`
+  - `color-on-mt-yellowgreen`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-on-mt-lys-furu`
+  - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
+  - `color-mt-fjord`
+  - `color-on-mt-lys-fjord`
+  - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
+  - `color-mt-rognebaer-contrast`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-lys-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
+  - `color-on-mt-sommerdag-contrast`
+  - `color-on-mt-sommerdag`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
+  - `color-on-mt-bg-beige`
+  - `color-mt-havdyp`

@@ -58,6 +58,18 @@ module.exports = [
     color: 'hsla(79, 41%, 64%, 1)',
   },
   {
+    name: 'mt-green-100',
+    color: '#F3F8F1',
+  },
+  {
+    name: 'mt-green-300',
+    color: '#D3E8E0',
+  },
+  {
+    name: 'mt-green-400',
+    color: '#BCDCD0',
+  },
+  {
     name: 'mt-light-green',
     color: 'hsla(80, 41%, 85%, 1)',
   },
@@ -216,5 +228,9 @@ module.exports = [
     name: 'mt-bg-beige',
     color: '#FAF6F3',
     onColor: '#032C30',
+  },
+  {
+    name: 'mt-havdyp',
+    color: '#116E6B',
   },
 ];
