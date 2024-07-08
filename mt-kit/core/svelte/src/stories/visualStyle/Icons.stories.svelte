@@ -68,6 +68,14 @@
       <p class="icon--upload-before"></p>
     </section>
     <section>
+      <h2 class="mt-h2">Pdf fil</h2>
+      <p class="icon--pdf-before">icon--pdf-before</p>
+    </section>
+    <section>
+      <h2 class="mt-h2">Ekstern lenke</h2>
+      <p class="icon--external-link-before">icon--external-link-before</p>
+    </section>
+    <section>
       <h2 class="mt-h2">Piler</h2>
       <p class="icon--arrow-primary-after p-tb-xxs">icon--arrow-primary-after</p>
       <p class="icon--arrow-primary-hover-after p-tb-xxs">icon--arrow-primary-hover-after</p>

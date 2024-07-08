@@ -31,6 +31,12 @@ $color-mt-white: hsl(0,0%,100%) !default;
 $color-on-mt-white: #032C30 !default;
 $color-mt-green: hsla(79, 41%, 64%, 1) !default;
 $color-on-mt-green: hsl(78.69999999999999, 36.6%, 24.1%) !default;
+$color-mt-green-100: #F3F8F1 !default;
+$color-on-mt-green-100: #6C7368 !default;
+$color-mt-green-300: #D3E8E0 !default;
+$color-on-mt-green-300: #556A62 !default;
+$color-mt-green-400: #BCDCD0 !default;
+$color-on-mt-green-400: #496259 !default;
 $color-mt-light-green: hsla(80, 41%, 85%, 1) !default;
 $color-on-mt-light-green: hsl(79.30000000000001, 15.4%, 35.7%) !default;
 $color-primary: hsl(196, 89%, 25%) !default;
@@ -99,8 +105,10 @@ $color-mt-bg-info: #F4ECE6 !default;
 $color-on-mt-bg-info: #032C30 !default;
 $color-mt-bg-beige: #FAF6F3 !default;
 $color-on-mt-bg-beige: #032C30 !default;
+$color-mt-havdyp: #116E6B !default;
+$color-on-mt-havdyp: #C5E5E4 !default;
 
-$base-color-tokens: ("mt-blue", "mt-red", "mt-red-uu", "mt-beige", "mt-beige-50", "mt-light-beige", "mt-background", "mt-light-blue", "mt-lighter-light-blue", "mt-rationale-blue", "mt-brown", "mt-grey", "mt-white", "mt-green", "mt-light-green", "primary", "mt-blue-medium", "secondary", "mt-text-dark", "error", "error-50", "mt-yellowgreen", "mt-yellowgreen-lighter", "mt-new-white", "mt-granskog", "mt-granskog-dark", "mt-furu", "mt-furu-dark", "mt-lys-furu", "mt-bg-furu", "mt-bg-success", "mt-fjord", "mt-lys-fjord", "mt-bg-fjord", "mt-bg-neutral", "mt-rognebaer-contrast", "mt-rognebaer", "mt-lys-rognebaer", "mt-bg-rognebaer", "mt-bg-danger", "mt-sommerdag-contrast", "mt-sommerdag", "mt-lys-sommerdag", "mt-bg-sommerdag", "mt-bg-warning", "mt-mellombeige", "mt-bg-info", "mt-bg-beige");
+$base-color-tokens: ("mt-blue", "mt-red", "mt-red-uu", "mt-beige", "mt-beige-50", "mt-light-beige", "mt-background", "mt-light-blue", "mt-lighter-light-blue", "mt-rationale-blue", "mt-brown", "mt-grey", "mt-white", "mt-green", "mt-green-100", "mt-green-300", "mt-green-400", "mt-light-green", "primary", "mt-blue-medium", "secondary", "mt-text-dark", "error", "error-50", "mt-yellowgreen", "mt-yellowgreen-lighter", "mt-new-white", "mt-granskog", "mt-granskog-dark", "mt-furu", "mt-furu-dark", "mt-lys-furu", "mt-bg-furu", "mt-bg-success", "mt-fjord", "mt-lys-fjord", "mt-bg-fjord", "mt-bg-neutral", "mt-rognebaer-contrast", "mt-rognebaer", "mt-lys-rognebaer", "mt-bg-rognebaer", "mt-bg-danger", "mt-sommerdag-contrast", "mt-sommerdag", "mt-lys-sommerdag", "mt-bg-sommerdag", "mt-bg-warning", "mt-mellombeige", "mt-bg-info", "mt-bg-beige", "mt-havdyp");
 
 $color-tokens: (
   "color-mt-blue": $color-mt-blue,
@@ -131,6 +139,12 @@ $color-tokens: (
   "color-on-mt-white": $color-on-mt-white,
   "color-mt-green": $color-mt-green,
   "color-on-mt-green": $color-on-mt-green,
+  "color-mt-green-100": $color-mt-green-100,
+  "color-on-mt-green-100": $color-on-mt-green-100,
+  "color-mt-green-300": $color-mt-green-300,
+  "color-on-mt-green-300": $color-on-mt-green-300,
+  "color-mt-green-400": $color-mt-green-400,
+  "color-on-mt-green-400": $color-on-mt-green-400,
   "color-mt-light-green": $color-mt-light-green,
   "color-on-mt-light-green": $color-on-mt-light-green,
   "color-primary": $color-primary,
@@ -198,7 +212,9 @@ $color-tokens: (
   "color-mt-bg-info": $color-mt-bg-info,
   "color-on-mt-bg-info": $color-on-mt-bg-info,
   "color-mt-bg-beige": $color-mt-bg-beige,
-  "color-on-mt-bg-beige": $color-on-mt-bg-beige
+  "color-on-mt-bg-beige": $color-on-mt-bg-beige,
+  "color-mt-havdyp": $color-mt-havdyp,
+  "color-on-mt-havdyp": $color-on-mt-havdyp
 ) !default;
 
 @mixin color-tokens() {
@@ -230,6 +246,12 @@ $color-tokens: (
   --color-on-mt-white: #{$color-on-mt-white};
   --color-mt-green: #{$color-mt-green};
   --color-on-mt-green: #{$color-on-mt-green};
+  --color-mt-green-100: #{$color-mt-green-100};
+  --color-on-mt-green-100: #{$color-on-mt-green-100};
+  --color-mt-green-300: #{$color-mt-green-300};
+  --color-on-mt-green-300: #{$color-on-mt-green-300};
+  --color-mt-green-400: #{$color-mt-green-400};
+  --color-on-mt-green-400: #{$color-on-mt-green-400};
   --color-mt-light-green: #{$color-mt-light-green};
   --color-on-mt-light-green: #{$color-on-mt-light-green};
   --color-primary: #{$color-primary};
@@ -298,4 +320,6 @@ $color-tokens: (
   --color-on-mt-bg-info: #{$color-on-mt-bg-info};
   --color-mt-bg-beige: #{$color-mt-bg-beige};
   --color-on-mt-bg-beige: #{$color-on-mt-bg-beige};
+  --color-mt-havdyp: #{$color-mt-havdyp};
+  --color-on-mt-havdyp: #{$color-on-mt-havdyp};
 }
