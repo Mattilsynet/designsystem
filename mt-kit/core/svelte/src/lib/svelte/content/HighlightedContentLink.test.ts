@@ -22,11 +22,11 @@ describe('Highlighted content', () => {
     expect(headerElement.tagName).toEqual('H2')
   })
 
-  test('Renders blue display type', () => {
+  test('Renders cta display type', () => {
     const componentOptions = {
       title: 'This is the title',
       shortTitle: 'This is the short title',
-      displayType: 'blue',
+      displayType: 'cta',
       isExternal: true,
       image: { src: 'test', alt: 'alt text' }
     }
