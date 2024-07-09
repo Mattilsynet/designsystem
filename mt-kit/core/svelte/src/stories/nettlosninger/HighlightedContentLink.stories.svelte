@@ -58,6 +58,7 @@
         href="https://www.mattilsyent.no"
         image={{ src: imageFile, alt: 'Her er alt tekst til bildet' }}
         headingClass="mt-h3"
+        class="b-r-radius"
         title="Dette er tittelen"
         shortTitle="Dette er kort tittel">
         {@html text}
