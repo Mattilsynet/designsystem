@@ -367,8 +367,8 @@ $transportlink-colors: 'error' !default;
         }
       }
     }
-    &--blue {
-      color: var(--highlighted-blue-color);
+    &--cta {
+      color: var(--color-mt-text-dark);
       padding: var(--spacer-x-small);
 
       h2, h3 {
