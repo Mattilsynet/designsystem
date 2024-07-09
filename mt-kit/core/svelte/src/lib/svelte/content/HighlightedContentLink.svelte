@@ -21,11 +21,9 @@
   <a
     href={url}
     rel={mapRelExternal(url)}
-    class="mt-link col-1-span-12 layout-flex layout-flex-col border-radius highlighted-content highlighted-content--{displayType}"
+    class="mt-link col-1-span-12 layout-flex layout-flex-col border-radius highlighted-content highlighted-content--{displayType} {className}"
     data-testid="highlighted-content-link">
-    <HeadingLevel
-      class="heading {headingClass} icon--forward-arrow-after"
-      headingLevel={+headerTag.charAt(1)}>
+    <HeadingLevel class="heading {headingClass}" headingLevel={+headerTag.charAt(1)}>
       {title}
     </HeadingLevel>
     <slot />
@@ -54,7 +52,7 @@
     class="mt-link highlighted-content {className}"
     data-testid="highlighted-content-link">
     {#if image && image.src}
-      <img src={image.src} alt={image.alt} class="mt-img"/>
+      <img src={image.src} alt={image.alt} class="mt-img" />
     {/if}
     <span class="layout-flex layout-flex-col highlighted-text" style="gap:0">
       {#if shortTitle}
