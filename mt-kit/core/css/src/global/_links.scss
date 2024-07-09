@@ -350,9 +350,7 @@ $transportlink-colors: 'error' !default;
     text-decoration: none;
 
     &--campaign {
-      --campaign-bg: var(--color-mt-bg-fjord);
       display: grid;
-      background-color: var(--campaign-bg);
       color: var(--color-text);
       align-items: center;
       padding: var(--spacer-small) var(--spacer-medium);
@@ -370,33 +368,11 @@ $transportlink-colors: 'error' !default;
       }
     }
     &--blue {
-      background-color: var(--highlighted-blue-bg);
       color: var(--highlighted-blue-color);
       padding: var(--spacer-x-small);
 
       h2, h3 {
         text-decoration: underline;
-      }
-
-      .mt-link {
-        color: var(--highlighted-blue-color);
-      }
-      &:hover {
-        background-color: var(--color-mt-green-300);
-
-        @media (prefers-reduced-motion: no-preference) {
-          transition: background-color $transition-ms-300 $cubic-bezier-easing;
-        }
-      }
-      &:focus {
-        box-shadow: $focus-box-shadow;
-      }
-      &:active {
-        background-color: var(--color-mt-green-400);
-
-        @media (prefers-reduced-motion: no-preference) {
-        transition: background-color $transition-ms-100 ease;
-        }
       }
 
       @media (prefers-reduced-motion: no-preference) {
@@ -412,7 +388,7 @@ $transportlink-colors: 'error' !default;
 
       .heading {
         font-weight: $font-weight-normal;
-        color: var(--color-links);
+        color: var(--color-mt-text-dark);
         display: flex;
         align-items: center;
         gap: var(--spacer-xxx-small);
@@ -426,8 +402,22 @@ $transportlink-colors: 'error' !default;
       }
     }
 
-    &.b-r-radius {
-      border-radius: $border-radius $border-radius $border-radius-large $border-radius;
+    &:hover {
+      background-color: var(--color-mt-green-300);
+
+      @media (prefers-reduced-motion: no-preference) {
+        transition: background-color $transition-ms-300 $cubic-bezier-easing;
+      }
+    }
+    &:focus {
+      box-shadow: $focus-box-shadow;
+    }
+    &:active {
+      background-color: var(--color-mt-green-400);
+
+      @media (prefers-reduced-motion: no-preference) {
+        transition: background-color $transition-ms-100 ease;
+      }
     }
 
     @media only screen and (min-width: $breakpoint-large) {
