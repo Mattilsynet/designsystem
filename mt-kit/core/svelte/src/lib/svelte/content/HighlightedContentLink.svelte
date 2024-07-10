@@ -14,10 +14,10 @@
   export let headingClass = ''
   export let headerTag: 'h2' | 'h3' = 'h2'
 
-  type HighlightedContentDisplayType = 'normal' | 'cta' | 'campaign'
+  type HighlightedContentDisplayType = 'normal' | 'cta' | 'campaign' | 'blue' | 'white'
 </script>
 
-{#if displayType === 'cta'}
+{#if displayType === 'cta' || displayType === 'blue'}
   <a
     href={url}
     rel={mapRelExternal(url)}
