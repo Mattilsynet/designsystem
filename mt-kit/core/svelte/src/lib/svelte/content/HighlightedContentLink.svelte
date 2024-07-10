@@ -17,22 +17,11 @@
   type HighlightedContentDisplayType = 'normal' | 'cta' | 'campaign' | 'blue' | 'white'
 </script>
 
-{#if displayType === 'cta'}
+{#if displayType === 'cta' || displayType === 'blue'}
   <a
     href={url}
     rel={mapRelExternal(url)}
     class="mt-link col-1-span-12 layout-flex layout-flex-col box-border-radius-br-l highlighted-content highlighted-content--{displayType}"
-    data-testid="highlighted-content-link">
-    <HeadingLevel class="heading {headingClass}" headingLevel={+headerTag.charAt(1)}>
-      {title}
-    </HeadingLevel>
-    <slot />
-  </a>
-{:else if displayType === 'blue'}
-  <a
-    href={url}
-    rel={mapRelExternal(url)}
-    class="mt-link col-1-span-12 layout-flex layout-flex-col highlighted-content highlighted-content--{displayType}"
     data-testid="highlighted-content-link">
     <HeadingLevel class="heading {headingClass}" headingLevel={+headerTag.charAt(1)}>
       {title}
