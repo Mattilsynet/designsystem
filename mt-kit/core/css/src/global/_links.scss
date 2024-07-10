@@ -339,6 +339,7 @@ $transportlink-colors: 'error' !default;
   &.highlighted-content {
     --content-margin: 0;
     --content-padding: var(--spacer-xx-small);
+    --content-bg: var(--color-mt-white);
 
     display: flex;
     flex-direction: column;
@@ -346,15 +347,23 @@ $transportlink-colors: 'error' !default;
     margin-left: var(--content-margin);
     padding: var(--content-padding);
     gap: var(--spacer-xx-small);
-    background-color: var(--color-mt-white);
+    background-color: var(--content-bg);
     text-decoration: none;
+    color: var(--color-text);
+
+    .heading {
+      font-weight: $font-weight-normal;
+      display: flex;
+      align-items: center;
+      gap: var(--spacer-xxx-small);
+      text-decoration: underline;
+    }
 
     &--campaign {
+      --content-bg: var(--color-mt-bg-fjord);
+      --content-padding: var(--spacer-small) var(--spacer-medium);
       display: grid;
-      color: var(--color-text);
       align-items: center;
-      padding: var(--spacer-small) var(--spacer-medium);
-      border-radius: $border-radius $border-radius $border-radius-large $border-radius;
 
       h2,
       h3 {
@@ -368,12 +377,7 @@ $transportlink-colors: 'error' !default;
       }
     }
     &--cta {
-      color: var(--color-mt-text-dark);
-      padding: var(--spacer-x-small);
-
-      h2, h3 {
-        text-decoration: underline;
-      }
+      --content-padding: var(--spacer-x-small);
 
       @media (prefers-reduced-motion: no-preference) {
         transition: background-color $transition-ms-100 ease;
@@ -384,16 +388,6 @@ $transportlink-colors: 'error' !default;
       width: 100%;
     }
     .highlighted-text {
-      color: var(--color-mt-text-dark);
-
-      .heading {
-        font-weight: $font-weight-normal;
-        color: var(--color-mt-text-dark);
-        display: flex;
-        align-items: center;
-        gap: var(--spacer-xxx-small);
-        text-decoration: underline;
-      }
       time + .heading {
         margin-top: var(--spacer-xxx-small);
       }
@@ -403,7 +397,7 @@ $transportlink-colors: 'error' !default;
     }
 
     &:hover {
-      background-color: var(--color-mt-green-300);
+      --content-bg: var(--color-mt-green-300);
 
       @media (prefers-reduced-motion: no-preference) {
         transition: background-color $transition-ms-300 $cubic-bezier-easing;
@@ -413,7 +407,7 @@ $transportlink-colors: 'error' !default;
       box-shadow: $focus-box-shadow;
     }
     &:active {
-      background-color: var(--color-mt-green-400);
+      --content-bg: var(--color-mt-green-400);
 
       @media (prefers-reduced-motion: no-preference) {
         transition: background-color $transition-ms-100 ease;
