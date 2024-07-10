@@ -89,4 +89,6 @@ $zindex-always-focusable-a11y: 1200 !default;
 
 $transition-in-overlay-duration: 0.35s;
 $transition-out-overlay-duration: 0.5s;
+$transition-ms-100: 100ms;
+$transition-ms-300: 300ms;
 $cubic-bezier-easing: cubic-bezier(.38,.02,.26,1.01);

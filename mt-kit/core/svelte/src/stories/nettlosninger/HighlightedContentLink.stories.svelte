@@ -49,12 +49,12 @@
   </main>
 </Story>
 
-<Story name="Blå type" let:text let:disableCss let:title let:shortTitle let:date>
+<Story name="CTA type" let:text let:disableCss let:title let:shortTitle let:date>
   <main use:wrapInShadowDom={disableCss} class="mt-main container layout-flex-col">
-    <h1 class="mt-h1">Fremhevet innhold blå type</h1>
+    <h1 class="mt-h1">Fremhevet innhold CTA type</h1>
     <section class="layout-flex-col">
       <HighlightedContentLink
-        displayType="blue"
+        displayType="cta"
         href="https://www.mattilsyent.no"
         image={{ src: imageFile, alt: 'Her er alt tekst til bildet' }}
         headingClass="mt-h3"
