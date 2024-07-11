@@ -51,10 +51,10 @@
 
   &:hover {
     --bg-color: var(--color-mt-green-300);
-    transition: background-color $transition-ms-100 ease;
+    transition: background-color $transition-ms-300 $cubic-bezier-easing;
   }
   &:active {
     --bg-color: var(--color-mt-green-400);
-    transition: background-color $transition-ms-300 ease;
+    transition: background-color $transition-ms-100 ease;
   }
 }
