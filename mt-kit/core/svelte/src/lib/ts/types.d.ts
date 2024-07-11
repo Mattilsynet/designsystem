@@ -186,3 +186,11 @@ export type SearchResult = {
   text?: string
   breadcrumbs?: Array<string>
 }
+
+export interface MenuPoint {
+  iconResource?: string | undefined
+  url: string
+  icon: string
+  text: string
+  keywords: string
+}

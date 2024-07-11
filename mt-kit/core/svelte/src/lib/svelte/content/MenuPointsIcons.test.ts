@@ -20,7 +20,7 @@ describe('Menu points with icons', () => {
     const link = getByTestId('menupoints-link')
     expect(link.getAttribute('rel')).toEqual('external')
     const headerElement = getByText('Dyr')
-    expect(headerElement.tagName).toEqual('A')
+    expect(headerElement.parentElement!.tagName).toEqual('A')
   })
 
   test('Renders with icon', () => {

@@ -1,9 +1,10 @@
 <script lang="ts">
   import { mapRelExternal, toKebabCase } from '../../ts/utils'
+  import type { MenuPoint } from '$lib/ts'
 
   export let ariaLabelledBy: string
   export let headerTag: 'h2' | 'h3' | 'h4' | 'h5' | 'h6' = 'h3'
-  export let menuPoints = []
+  export let menuPoints: Array<MenuPoint> = []
 </script>
 
 <ul
@@ -12,25 +13,32 @@
   style="--gap:var(--spacer-medium);"
   data-testid="menu-points">
   {#each menuPoints as menuPoint, index}
-    <li class="menu-point">
-      {#if menuPoint.iconResource}
-        <div class="svg-wrapper" aria-hidden="true">
-          {@html menuPoint.iconResource}
-        </div>
-      {:else if menuPoint.icon}
-        <img src={menuPoint.icon} alt="" class="mt-img" aria-hidden="true" data-testid="img-icon" />
-      {/if}
+    <li>
       <a
         href={menuPoint.url}
         rel={mapRelExternal(menuPoint.url)}
-        class="animated-header-arrow-after no-underline hover-indent mt-{headerTag}"
+        class="menu-point border-radius p-xs"
         aria-describedby={toKebabCase(menuPoint.keywords)}
         data-testid="menupoints-link">
-        {@html menuPoint.text}
+        {#if menuPoint.iconResource}
+          <div class="svg-wrapper" aria-hidden="true">
+            {@html menuPoint.iconResource}
+          </div>
+        {:else if menuPoint.icon}
+          <img
+            src={menuPoint.icon}
+            alt=""
+            class="mt-img"
+            aria-hidden="true"
+            data-testid="img-icon" />
+        {/if}
+        <p class="mt-{headerTag}">
+          {@html menuPoint.text}
+        </p>
+        <p id={toKebabCase(menuPoint.keywords)}>
+          {@html menuPoint.keywords}
+        </p>
       </a>
-      <p id={toKebabCase(menuPoint.keywords)}>
-        {@html menuPoint.keywords}
-      </p>
     </li>
   {/each}
 </ul>
