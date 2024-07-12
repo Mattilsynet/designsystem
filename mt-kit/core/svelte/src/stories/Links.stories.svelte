@@ -157,6 +157,16 @@
       </p>
     </article>
     <article>
+      <h2 class="mt-h2">Ekstern lenke</h2>
+      <Link href="https://mattilsynet.no/" linkText="ekstern lenke alene" />
+      <p>
+        Dette er en lenke i en paragraf. <Link
+          href="https://mattilsynet.no/"
+          linkText="ekstern lenke i tekst" />
+        Da skal ikonet ligge på høyre siden.
+      </p>
+    </article>
+    <article>
       <h2 class="mt-h2">Pdf lenke</h2>
       <p>
         <Link href="https://mattilsynet.no/some.pdf" class="document" linkText="thisIsAPdf" />

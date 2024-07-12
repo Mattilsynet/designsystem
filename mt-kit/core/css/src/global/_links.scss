@@ -12,11 +12,35 @@ $transportlink-colors: 'error' !default;
   @include disabled;
   $transport-card-list-font-size: $font-size-label;
 
-  color: var(--color-links);
+  color: var(--color-text);
   border-radius: var(--border-radius-small);
   padding: var(--border-width-regular);
   line-height: 1.75rem;
   min-width: $minimum-click-width;
+  text-decoration: var(--color-mt-havdyp) underline $border-width-regular;
+  text-underline-offset: $spacer-xxx-small;
+  border: var(--underline-thickness) solid red;
+
+  &[rel='external'] {
+    display: flex;
+    width: fit-content;
+    &::before {
+      content: var(--icon-external-link);
+      display: inline-block;
+      margin-right: var(--spacer-xxx-small);
+    }
+  }
+
+  &[rel='external'] + p .mt-link {
+    &::before {
+      display: none;
+    }
+    &::after {
+      content: var(--icon-external-link);
+      display: inline-block;
+      margin-left: var(--spacer-xxx-small);
+    }
+  }
 
   &.inline-flex {
     display: inline-flex;
@@ -26,7 +50,7 @@ $transportlink-colors: 'error' !default;
   }
 
   &:hover {
-    text-decoration: none;
+    text-decoration: var(--color-mt-havdyp) underline $border-width-medium;
   }
   &:focus {
     box-shadow: $focus-box-shadow-no-outline;
@@ -63,7 +87,6 @@ $transportlink-colors: 'error' !default;
     --indent: calc(var(--icon-width) + var(--spacer-xxx-small));
     display: inline-block;
     align-items: center;
-    color: var(--color-links);
     margin-left: var(--indent);
     &::before {
       content: var(--icon-document);
@@ -71,6 +94,16 @@ $transportlink-colors: 'error' !default;
       display: inline-block;
       width: var(--icon-width);
       margin-left: calc(-1 * var(--indent));
+    }
+  }
+  &.back-arrow {
+    display: flex;
+    width: fit-content;
+    &::before {
+      content: var(--icon-carret-left);
+      display: inline-block;
+      height: 1.375rem;
+      margin-right: var(--spacer-xx-small);
     }
   }
 
