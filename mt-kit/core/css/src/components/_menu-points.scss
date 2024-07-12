@@ -5,6 +5,8 @@
 .menu-point {
   @include focus-outline();
   @include disabled;
+  @include background-color-on-hover(var(--color-mt-green-300));
+  @include background-color-on-active(var(--color-mt-green-400));
   --svg-color: var(--mt-button-neutral-color);
   --icon-padding: var(--spacer-xxx-small);
   --title-gap: var(--spacer-xx-small);
@@ -47,14 +49,5 @@
   }
   p {
     grid-area: keywords;
-  }
-
-  &:hover {
-    --bg-color: var(--color-mt-green-300);
-    transition: background-color $transition-ms-300 $cubic-bezier-easing;
-  }
-  &:active {
-    --bg-color: var(--color-mt-green-400);
-    transition: background-color $transition-ms-100 ease;
   }
 }
