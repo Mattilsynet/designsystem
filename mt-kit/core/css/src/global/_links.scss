@@ -242,24 +242,26 @@ $transportlink-colors: 'error' !default;
     justify-content: flex-start;
     padding: var(--spacer-x-small);
     gap: var(--spacer-xx-small);
+    background-color: var(--color-mt-white);
+    color: var(--color-text);
     svg {
       path {
-        fill: var(--mt-button-primary-color);
+        fill: var(--mt-button-primary-color-hover);
       }
       circle {
         fill: transparent;
       }
     }
     &:hover {
-      .text {
-        &::after {
-          content: var(--icon-arrow-primary-hover);
-        }
+      background-color: var(--color-mt-green-300);
+      @media (prefers-reduced-motion: no-preference) {
+        transition: background-color $transition-ms-300 ease;
       }
-      svg {
-        path {
-          fill: var(--mt-button-primary-color-hover);
-        }
+    }
+    &:active {
+      background-color: var(--color-mt-green-400);
+      @media (prefers-reduced-motion: no-preference) {
+        transition: background-color $transition-ms-100 ease;
       }
     }
     .text {
@@ -268,12 +270,7 @@ $transportlink-colors: 'error' !default;
       gap: var(--spacer-xxx-small);
       font-size: $transport-card-list-font-size;
       line-height: 140%;
-
-      &::after {
-        content: var(--icon-arrow-primary);
-        display: inline-block;
-        height: 1.75rem;
-      }
+      text-decoration: underline;
     }
   }
   &.search-result {
