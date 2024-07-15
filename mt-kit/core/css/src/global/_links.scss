@@ -246,7 +246,7 @@ $transportlink-colors: 'error' !default;
     color: var(--color-text);
     svg {
       path {
-        fill: var(--mt-button-primary-color-hover);
+        fill: var(--mt-button-primary-bg);
       }
       circle {
         fill: transparent;
