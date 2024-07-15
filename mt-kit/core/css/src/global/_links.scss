@@ -425,94 +425,97 @@ a[href^='www']:not([href*='mattilsynet.no']) {
     }
   }
   &.link--transport {
-    --transportlink-background: var(--color-#{$transportlink-default-color});
-    --transportlink-color: var(--color-on-#{$transportlink-colors});
-    --outline-color: transparent;
+    --transportlink-background: var(--color-mt-green-300);
+    --icon-bg-hover: #9BCAB9;
     --focus-box-shadow: $focus-box-shadow;
     --transportlink-padding: 0.875rem 1.5rem;
 
     font-size: $font-size-body;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     width: fit-content;
+    color: var(--color-text);
+    text-decoration: none;
 
-    &:after {
-      content: '';
-      background-image: var(--icon-arrow-right-primary);
-      margin-left: var(--spacer-xxx-small);
-      padding-right: var(--icon-size-normal);
-      width: var(--icon-size-normal);
-      height: var(--icon-size-normal);
-      background-size: var(--icon-size-normal) var(--icon-size-normal);
-      background-repeat: no-repeat;
+    &::before {
+      content: var(--icon-arrow-right-primary-small);
+      margin-right: $spacer-xx-small;
+      padding: 0 $spacer-xxx-small;
+      border-radius: $border-radius;
     }
 
     &:focus {
       border-color: var(--transportlink-background);
       box-shadow: $focus-box-shadow;
     }
-    &:hover {
-      background-color: transparent;
-    }
 
     &--primary {
-      @extend .no-underline;
       background-color: var(--transportlink-background);
-      color: var(--transportlink-color);
       padding: var(--transportlink-padding);
       border-radius: $border-radius;
 
-      &:after {
-        background-image: var(--icon-arrow-primary);
-      }
-
       &:hover {
-        color: var(--mt-button-primary-color-hover);
-        background: var(--mt-button-primary-bg-hover);
-        &:after {
-          background-image: var(--icon-arrow-primary-hover);
+        background-color: var(--color-mt-green-400);
+        &::before {
+          background-color: var(--icon-bg-hover);
+        }
+        @media (prefers-reduced-motion: no-preference) {
+          transition: background-color $transition-ms-300 ease;
+        }
+      }
+      &:active {
+        background-color: var(--color-mt-lys-furu);
+        @media (prefers-reduced-motion: no-preference) {
+          transition: background-color $transition-ms-300 ease;
         }
       }
 
       &-large {
-        @extend .no-underline;
         background-color: var(--transportlink-background);
-        color: var(--transportlink-color);
         padding: var(--transportlink-padding);
         border-radius: $border-radius;
         width: 100%;
-        transition: padding-left ease-in-out 150ms;
-
-        &:after {
-          background-image: var(--icon-arrow-primary);
-        }
 
         &:hover {
-          padding: var(--transportlink-padding);
-          padding-left: var(--spacer-small);
-          color: var(--mt-button-primary-color-hover);
-          background: var(--mt-button-primary-bg-hover);
-          text-decoration: none;
-          &:after {
-            background-image: var(--icon-arrow-primary-hover);
+          background-color: var(--color-mt-green-400);
+          &::before {
+            background-color: var(--icon-bg-hover);
+          }
+          @media (prefers-reduced-motion: no-preference) {
+            transition: background-color $transition-ms-300 ease;
+          }
+        }
+        &:active {
+          background-color: var(--color-mt-lys-furu);
+          @media (prefers-reduced-motion: no-preference) {
+            transition: background-color $transition-ms-300 ease;
           }
         }
       }
     }
 
     &--secondary {
-      @extend .no-underline;
       background-color: transparent;
       border: var(--border-width-regular) solid var(--list-border);
       font-weight: var(--font-weight-bold);
       padding: var(--transportlink-padding);
       border-radius: $border-radius;
 
+      &:hover {
+        background-color: var(--color-mt-green-300);
+        @media (prefers-reduced-motion: no-preference) {
+          transition: background-color $transition-ms-300 ease;
+        }
+      }
+      &:active {
+        background-color: var(--color-mt-lys-furu);
+        @media (prefers-reduced-motion: no-preference) {
+          transition: background-color $transition-ms-300 ease;
+        }
+      }
+
       &-large {
-        @extend .no-underline;
-        transition: padding-left ease-in-out 150ms;
-        padding: var(--spacer-xx-small) 0;
+        padding: var(--spacer-xx-small) var(--spacer-xxx-small);
         width: 100%;
         background-color: transparent;
 
@@ -521,8 +524,19 @@ a[href^='www']:not([href*='mattilsynet.no']) {
         }
 
         &:hover {
-          padding-left: var(--spacer-xx-small);
-          text-decoration: none;
+          background-color: var(--color-mt-green-300);
+          &::before {
+            background-color: var(--icon-bg-hover);
+          }
+          @media (prefers-reduced-motion: no-preference) {
+            transition: background-color $transition-ms-300 ease;
+          }
+        }
+        &:active {
+          background-color: var(--color-mt-lys-furu);
+          @media (prefers-reduced-motion: no-preference) {
+            transition: background-color $transition-ms-300 ease;
+          }
         }
       }
     }
