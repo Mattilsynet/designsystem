@@ -7,6 +7,19 @@
 $transportlink-default-color: 'primary' !default;
 $transportlink-colors: 'error' !default;
 
+p:has(a[rel="external"]) .mt-link{
+  display: inline-flex;
+  width: fit-content;
+  &::before {
+    display: none;
+  }
+  &::after {
+    content: var(--icon-external-link);
+    display: inline-block;
+    margin-left: var(--spacer-xxx-small);
+  }
+}
+
 .mt-link {
   @include focus-outline();
   @include disabled;
@@ -19,26 +32,14 @@ $transportlink-colors: 'error' !default;
   min-width: $minimum-click-width;
   text-decoration: var(--color-mt-havdyp) underline $border-width-regular;
   text-underline-offset: $spacer-xxx-small;
-  border: var(--underline-thickness) solid red;
 
   &[rel='external'] {
-    display: flex;
+    display: inline-flex;
     width: fit-content;
     &::before {
       content: var(--icon-external-link);
       display: inline-block;
       margin-right: var(--spacer-xxx-small);
-    }
-  }
-
-  &[rel='external'] + p .mt-link {
-    &::before {
-      display: none;
-    }
-    &::after {
-      content: var(--icon-external-link);
-      display: inline-block;
-      margin-left: var(--spacer-xxx-small);
     }
   }
 
@@ -81,6 +82,16 @@ $transportlink-colors: 'error' !default;
   &[aria-current='page'] {
     font-weight: $font-weight-bold;
   }
+
+&.pdf {
+  display: flex;
+  width: fit-content;
+  &::before {
+    content: var(--icon-pdf);
+    margin-right: var(--spacer-xxx-small);
+    display: inline-block;
+  }
+}
 
   &.document {
     --icon-width: 15px;

@@ -117,14 +117,14 @@
   <div use:wrapInShadowDom={disableCss}>
     <h1 class="mt-h1">Normale lenker</h1>
     <article>
-      <h2 class="mt-h2">Bruk alene:</h2>
-      <p>
-        <Link linkText={primary} href="https://mattilsynet.no/" />
-      </p>
+      <h2 class="mt-h2">Relativ lenke:</h2>
+      <Link linkText={primary} href="/mattilsynet/dyr/dyresykdommer" />
     </article>
     <article>
-      <h2 class="mt-h2">Bruk i text:</h2>
-      <p>Les mer om <Link href="https://mattilsynet.no/" linkText={args.inText} /> her.</p>
+      <h2 class="mt-h2">Brukt i paragraf:</h2>
+      <p>
+        Les mer om <Link href="/mattilsynet/mat/drikkevann" class="pdf" linkText={args.inText} /> her.
+      </p>
     </article>
     <article>
       <h2 class="mt-h2">Handlingslenker</h2>
@@ -150,32 +150,32 @@
     <article>
       <h2 class="mt-h2">Ankerlenke</h2>
       <p>
-        <Link
-          href="https://mattilsynet.no/"
-          class="down-arrow"
-          linkText="Til innhold der nede ett sted" />
+        <Link href="#samePageLink" class="down-arrow" linkText="Til innhold der nede ett sted" />
       </p>
     </article>
     <article>
       <h2 class="mt-h2">Ekstern lenke</h2>
-      <Link href="https://mattilsynet.no/" linkText="ekstern lenke alene" />
+      <Link href="https://mattilsynet.no/" linkText="ekstern lenke brukt alene" />
+    </article>
+    <article>
+      <h2 class="mt-h2">Ekstern lenke brukt i tekst:</h2>
       <p>
-        Dette er en lenke i en paragraf. <Link
+        Dette er en eksternlenke i en paragraf. <Link
           href="https://mattilsynet.no/"
+          class="pdf"
           linkText="ekstern lenke i tekst" />
         Da skal ikonet ligge på høyre siden.
       </p>
     </article>
     <article>
       <h2 class="mt-h2">Pdf lenke</h2>
-      <p>
-        <Link href="https://mattilsynet.no/some.pdf" class="document" linkText="thisIsAPdf" />
-        <Link
-          href="https://mattilsynet.no/some.pdf"
-          class="document"
-          linkText="thisIsAPdf"
-          fileName="thisIsAPdf.pdf" />
-      </p>
+
+      <Link href="/mattilsynet.no/some.pdf" class="pdf" linkText="thisIsAPdf" />
+      <Link
+        href="https://mattilsynet.no/some.pdf"
+        class="pdf"
+        linkText="thisIsAPdf"
+        fileName="thisIsAPdf.pdf" />
     </article>
     <article>
       <h2 class="mt-h2">Flere linjer</h2>
