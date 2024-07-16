@@ -121,9 +121,14 @@
       <Link linkText={primary} href="/mattilsynet/dyr/dyresykdommer" />
     </article>
     <article>
-      <h2 class="mt-h2">Brukt i paragraf:</h2>
-      <p>
-        Les mer om <Link href="/mattilsynet/mat/drikkevann" class="pdf" linkText={args.inText} /> her.
+      <h2 class="mt-h2">Lenke i paragraf over flere linjer:</h2>
+      <p class="multi-line-paragraph">
+        Hvis du har spørsmål, ta kontakt med <Link
+          href="/mattilsynet/mat/drikkevann"
+          class=""
+          linkText={args.inText} /> for innreiseregler. Ved andre henvendelser ta kontakt med politiet
+        på
+        <Link href="https" linkText="politiet.no" /> for svar.
       </p>
     </article>
     <article>
@@ -428,5 +433,8 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+  }
+  .multi-line-paragraph {
+    max-width: 680px;
   }
 </style>

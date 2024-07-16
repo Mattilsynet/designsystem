@@ -7,15 +7,16 @@
 $transportlink-default-color: 'primary' !default;
 $transportlink-colors: 'error' !default;
 
-p:has(a[rel="external"]) .mt-link{
-  display: inline-flex;
+p:has(a[rel="external"]) .mt-link[rel="external"]{
+  display: inline-block;
   &::before {
-    display: none;
+    content: '';
   }
   &::after {
     content: var(--icon-external-link);
     display: inline-block;
     margin-left: var(--spacer-xxx-small);
+    vertical-align: middle;
   }
 }
 
@@ -81,6 +82,7 @@ p:has(a[rel="external"]) .mt-link{
     font-weight: $font-weight-bold;
   }
 
+  a[href$='.pdf'],
   &.pdf {
     display: inline-block;
     &::before {
