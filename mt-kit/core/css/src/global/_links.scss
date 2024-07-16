@@ -87,7 +87,7 @@ $transportlink-colors: 'error' !default;
 
   &.forward-arrow {
     &::before {
-      content: var(--icon-carret-right-small);
+      content: var(--icon-arrow-right-primary-small);
       display: inline-block;
       margin-right: var(--spacer-x-small);
     }
@@ -140,17 +140,13 @@ $transportlink-colors: 'error' !default;
   &.forward-arrow-end-link {
     display: inline-flex;
     font-size: $font-size-body;
-    transition: padding-left ease-in-out 150ms;
     &:hover {
-      text-decoration: none;
-      padding-left: var(--spacer-xxx-small);
+      //text-decoration: none;
     }
     &:after {
       content: var(--icon-arrow-right-primary-small);
       display: inline-block;
-      height: 1.3125rem;
       margin-left: var(--spacer-xxx-small);
-      vertical-align: -7%;
     }
   }
 
