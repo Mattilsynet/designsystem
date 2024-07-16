@@ -82,11 +82,12 @@ p:has(a[rel="external"]) .mt-link{
   }
 
   &.pdf {
-    display: inline-flex;
+    display: inline-block;
     &::before {
       content: var(--icon-pdf);
       margin-right: var(--spacer-xxx-small);
       display: inline-block;
+      vertical-align: middle;
     }
   }
 
