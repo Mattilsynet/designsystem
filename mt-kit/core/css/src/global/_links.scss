@@ -140,9 +140,6 @@ $transportlink-colors: 'error' !default;
   &.forward-arrow-end-link {
     display: inline-flex;
     font-size: $font-size-body;
-    &:hover {
-      //text-decoration: none;
-    }
     &:after {
       content: var(--icon-arrow-right-primary-small);
       display: inline-block;
