@@ -208,8 +208,8 @@
       aria-labelledby="small-1">
       {#each smallLinks as link, index}
         {#if link && link.url}
-          <a href={link.url} class="mt-link no-underline">
-            <h3 class="mt-h4 forward-arrow-after">{@html link.text}</h3>
+          <a href={link.url} class="mt-link">
+            <h3 class="mt-h4 forward-arrow">{@html link.text}</h3>
           </a>
         {/if}
       {/each}
@@ -218,8 +218,8 @@
     <section class="layout-grid layout-grid--auto-fill-desktop m-t-xxs" aria-labelledby="small-2">
       {#each smallLinks.slice(0, 2) as link, index}
         {#if link && link.url}
-          <a href={link.url} class="mt-link no-underline">
-            <h4 class="mt-h4 forward-arrow-after">{@html link.text}</h4>
+          <a href={link.url} class="mt-link">
+            <h4 class="mt-h4 forward-arrow">{@html link.text}</h4>
           </a>
         {/if}
       {/each}
@@ -258,16 +258,19 @@
     <h1 class="mt-h1">Dokumentlenker</h1>
     <ul class="mt-ul m-t-xxs layout-grid list-unstyled">
       <li>
-        <Link
-          href={cards[3].href}
-          class="document forward-arrow-end-link"
-          linkText={cards[3].text} />
+        <Link href={cards[3].href} class="pdf forward-arrow-end-link" linkText={cards[3].text} />
       </li>
       <li>
         <Link
           href={cards[6].href}
           class="document forward-arrow-end-link"
           linkText={cards[6].text} />
+      </li>
+      <li>
+        <Link
+          href={cards[2].href}
+          class="pdf forward-arrow-end-link"
+          linkText="Rapport fisk og bifangst 2023 (pdf)" />
       </li>
     </ul>
   </div>

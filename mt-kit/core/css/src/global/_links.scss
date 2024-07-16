@@ -81,28 +81,21 @@ p:has(a[rel="external"]) .mt-link{
     font-weight: $font-weight-bold;
   }
 
-&.pdf {
-  display: flex;
-  width: fit-content;
-  &::before {
-    content: var(--icon-pdf);
-    margin-right: var(--spacer-xxx-small);
-    display: inline-block;
+  &.pdf {
+    display: inline-flex;
+    &::before {
+      content: var(--icon-pdf);
+      margin-right: var(--spacer-xxx-small);
+      display: inline-block;
+    }
   }
-}
 
   &.document {
-    --icon-width: 15px;
-    --indent: calc(var(--icon-width) + var(--spacer-xxx-small));
-    display: inline-block;
-    align-items: center;
-    margin-left: var(--indent);
+    display: inline-flex;
     &::before {
       content: var(--icon-document);
       margin-right: var(--spacer-xxx-small);
       display: inline-block;
-      width: var(--icon-width);
-      margin-left: calc(-1 * var(--indent));
     }
   }
   &.back-arrow {
