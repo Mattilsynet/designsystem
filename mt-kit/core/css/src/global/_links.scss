@@ -184,6 +184,7 @@ p:has(a[rel="external"]) .mt-link[rel="external"]{
 
   &.skip-link {
     z-index: var(--z-index-always-focusable-a11y);
+    justify-content: center;
   }
 
   &.forward-arrow-end-link {
