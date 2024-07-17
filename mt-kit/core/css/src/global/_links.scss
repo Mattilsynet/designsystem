@@ -10,7 +10,7 @@ $transportlink-colors: 'error' !default;
 p:has(a[rel="external"]) .mt-link[rel="external"]{
   display: inline-block;
   &::before {
-    content: '';
+    display: none;
   }
   &::after {
     content: var(--icon-external-link);
