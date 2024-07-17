@@ -302,17 +302,17 @@ Only use if it does NOT affect accessibility
     display: flex;
     flex-direction: column;
     justify-self: center;
-    gap: var(--spacer-x-small);
+    gap: var(--spacer-medium);
     a {
-      color: var(--mt-footer-links-color);
+      color: var(--mt-footer-color);
       &:focus {
-        box-shadow: 0 0 0 0.25rem var(--mt-footer-link-color-focus);
+        box-shadow: 0 0 0 0.25rem var(--mt-footer-color);
       }
     }
   }
 
   svg {
-    align-self: center;
+    align-self: flex-start;
   }
 
   .col {
@@ -331,8 +331,7 @@ Only use if it does NOT affect accessibility
 
   @media only screen and (min-width: $breakpoint-large) {
     svg {
-      margin-top: 0;
-      align-self: flex-start;
+      margin-right: var(--spacer-medium);
     }
 
     .footer-wrapper {
