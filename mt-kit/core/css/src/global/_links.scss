@@ -7,6 +7,40 @@
 $transportlink-default-color: 'primary' !default;
 $transportlink-colors: 'error' !default;
 
+//dette går men den kan også dras ut av .mt-button og .mt-link og ligge alene.
+// da man kan bruke mixin på knapper og lenker
+.mt-button,
+.mt-link {
+  &.test-class {
+    display: block;
+    color: var(--color-links);
+    @include apply-icon-to-link($icon: --icon-carret-left, $position: left, $spacer: 5px) {
+      transition: transform 0.5s ease;
+    }
+    &:hover {
+      &::before {
+        transform: rotate(-180deg);
+        @media (prefers-reduced-motion: no-preference) {
+          transition: transform 0.5s ease;
+        }
+      }
+    }
+  }
+  &.two-icon-class {
+    @include apply-icon-to-link(
+      $icon: --icon-x-on-dark,
+      $position: left,
+      $spacer: var(--spacer-xx-small)
+    );
+    @include apply-icon-to-link(
+      $icon: --icon-arrow-down-on-dark,
+      $position: right,
+      $dir: right,
+      $spacer: var(--spacer-xx-small)
+    );
+  }
+}
+
 .mt-link {
   @include focus-outline();
   @include disabled;
@@ -365,7 +399,8 @@ $transportlink-colors: 'error' !default;
         }
       }
     }
-    &--cta, &--blue {
+    &--cta,
+    &--blue {
       --content-padding: var(--spacer-x-small);
 
       @media (prefers-reduced-motion: no-preference) {
