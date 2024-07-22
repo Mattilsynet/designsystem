@@ -425,8 +425,8 @@ a[href^='www']:not([href*='mattilsynet.no']) {
     }
   }
   &.link--transport {
-    --transportlink-background: var(--color-mt-green-300);
-    --icon-bg-hover: #9BCAB9;
+    --transportlink-background: transparent;
+    --icon-bg-hover: #9bcab9;
     --focus-box-shadow: $focus-box-shadow;
     --transportlink-padding: 0.875rem 1.5rem;
 
@@ -436,6 +436,7 @@ a[href^='www']:not([href*='mattilsynet.no']) {
     width: fit-content;
     color: var(--color-text);
     text-decoration: none;
+    background-color: var(--transportlink-background);
 
     &::before {
       content: var(--icon-arrow-right-primary-small);
@@ -450,12 +451,12 @@ a[href^='www']:not([href*='mattilsynet.no']) {
     }
 
     &--primary {
-      background-color: var(--transportlink-background);
+      --transportlink-background: var(--color-mt-green-300);
       padding: var(--transportlink-padding);
       border-radius: $border-radius;
 
       &:hover {
-        background-color: var(--color-mt-green-400);
+        --transportlink-background: var(--color-mt-green-400);
         &::before {
           background-color: var(--icon-bg-hover);
         }
@@ -464,20 +465,20 @@ a[href^='www']:not([href*='mattilsynet.no']) {
         }
       }
       &:active {
-        background-color: var(--color-mt-lys-furu);
+        --transportlink-background: var(--color-mt-lys-furu);
         @media (prefers-reduced-motion: no-preference) {
           transition: background-color $transition-ms-300 ease;
         }
       }
 
       &-large {
-        background-color: var(--transportlink-background);
+        --transportlink-background: var(--color-mt-green-300);
         padding: var(--transportlink-padding);
         border-radius: $border-radius;
         width: 100%;
 
         &:hover {
-          background-color: var(--color-mt-green-400);
+          --transportlink-background: var(--color-mt-green-400);
           &::before {
             background-color: var(--icon-bg-hover);
           }
@@ -486,7 +487,7 @@ a[href^='www']:not([href*='mattilsynet.no']) {
           }
         }
         &:active {
-          background-color: var(--color-mt-lys-furu);
+          --transportlink-background: var(--color-mt-lys-furu);
           @media (prefers-reduced-motion: no-preference) {
             transition: background-color $transition-ms-300 ease;
           }
@@ -495,14 +496,13 @@ a[href^='www']:not([href*='mattilsynet.no']) {
     }
 
     &--secondary {
-      background-color: transparent;
       border: var(--border-width-regular) solid var(--list-border);
       font-weight: var(--font-weight-bold);
       padding: var(--transportlink-padding);
       border-radius: $border-radius;
 
       &:hover {
-        background-color: var(--color-mt-green-300);
+        --transportlink-background: var(--color-mt-green-300);
         &::before {
           background-color: var(--icon-bg-hover);
         }
@@ -511,7 +511,7 @@ a[href^='www']:not([href*='mattilsynet.no']) {
         }
       }
       &:active {
-        background-color: var(--color-mt-lys-furu);
+        --transportlink-background: var(--color-mt-lys-furu);
         @media (prefers-reduced-motion: no-preference) {
           transition: background-color $transition-ms-300 ease;
         }
@@ -520,14 +520,13 @@ a[href^='www']:not([href*='mattilsynet.no']) {
       &-large {
         padding: var(--spacer-xx-small) var(--spacer-xxx-small);
         width: 100%;
-        background-color: transparent;
 
         &:after {
           margin-right: var(--spacer-xx-small);
         }
 
         &:hover {
-          background-color: var(--color-mt-green-300);
+          --transportlink-background: var(--color-mt-green-300);
           &::before {
             background-color: var(--icon-bg-hover);
           }
@@ -536,7 +535,7 @@ a[href^='www']:not([href*='mattilsynet.no']) {
           }
         }
         &:active {
-          background-color: var(--color-mt-lys-furu);
+          --transportlink-background: var(--color-mt-lys-furu);
           @media (prefers-reduced-motion: no-preference) {
             transition: background-color $transition-ms-300 ease;
           }
