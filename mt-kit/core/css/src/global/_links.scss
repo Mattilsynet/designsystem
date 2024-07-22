@@ -84,7 +84,7 @@ $transportlink-colors: 'error' !default;
       margin-bottom: -1px;
     }
   }
-
+  .forward-arrow,
   &.forward-arrow {
     &::before {
       content: var(--icon-arrow-right-primary-small);
