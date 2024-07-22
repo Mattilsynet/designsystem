@@ -420,11 +420,7 @@ a {
     }
   }
   &.animated-header-arrow-after {
-    transition: padding-left ease-in-out 150ms;
     width: 100%;
-    &:hover {
-      padding-left: var(--spacer-xxx-small);
-    }
     &::after {
       content: var(--icon-arrow-right-primary);
       display: inline-block;
