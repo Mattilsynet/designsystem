@@ -220,8 +220,7 @@ $transportlink-colors: 'error' !default;
     .heading {
       width: 100%;
       text-align: left;
-      padding-right: 2rem;
-      color: var(--text-color);
+      text-decoration: underline;
     }
     .text {
       width: 100%;
@@ -230,7 +229,6 @@ $transportlink-colors: 'error' !default;
       gap: var(--spacer-xxx-small);
       line-height: 140%;
       text-align: left;
-      color: var(--text-color);
     }
   }
   .forward-arrow-after,
