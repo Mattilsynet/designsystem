@@ -122,6 +122,14 @@ export function mapRelExternal(url?: string): 'external' | undefined {
   return url?.startsWith('http') ? 'external' : undefined
 }
 
+export function isExternalLink(href: string): boolean {
+  const HOST = 'mattilsynet.no'
+  if (href.startsWith('http') && new URL(href) instanceof URL) {
+    return !href.split('//')[1].includes(HOST)
+  }
+  return false
+}
+
 /*
  * Params:
  * string: eg. '{0}, {1} of {2}'
