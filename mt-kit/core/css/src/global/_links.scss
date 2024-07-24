@@ -7,7 +7,7 @@
 $transportlink-default-color: 'primary' !default;
 $transportlink-colors: 'error' !default;
 
-p:has(a[rel="external"]) .mt-link[rel="external"]{
+p:has(a.is-external) .mt-link.is-external {
   display: inline-block;
   &::before {
     display: none;
@@ -33,7 +33,7 @@ p:has(a[rel="external"]) .mt-link[rel="external"]{
   text-decoration: var(--color-mt-havdyp) underline $border-width-regular;
   text-underline-offset: $spacer-xxx-small;
 
-  &[rel='external'] {
+  &.is-external {
     display: inline-flex;
     &::before {
       content: var(--icon-external-link);

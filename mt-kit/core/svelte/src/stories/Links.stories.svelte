@@ -128,7 +128,7 @@
           class=""
           linkText={args.inText} /> for innreiseregler. Ved andre henvendelser ta kontakt med politiet
         på
-        <Link href="https" linkText="politiet.no" /> for svar.
+        <Link href="#" linkText="politiet.no" /> for svar.
       </p>
     </article>
     <article>
@@ -160,13 +160,13 @@
     </article>
     <article>
       <h2 class="mt-h2">Ekstern lenke</h2>
-      <Link href="https://mattilsynet.no/" linkText="ekstern lenke brukt alene" />
+      <Link href="https://www.nav.no/" linkText="ekstern lenke brukt alene" />
     </article>
     <article>
       <h2 class="mt-h2">Ekstern lenke brukt i tekst:</h2>
       <p>
         Dette er en eksternlenke i en paragraf. <Link
-          href="https://mattilsynet.no/"
+          href="https://www.nav.no/"
           class="pdf"
           linkText="ekstern lenke i tekst" />
         Da skal ikonet ligge på høyre siden.
