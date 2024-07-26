@@ -12,7 +12,8 @@ $transportlink-colors: 'error' !default;
 .mt-button,
 .mt-link {
   &.test-class {
-    display: block;
+    display: inline-flex;
+    align-items: center;
     color: var(--color-links);
     @include apply-icon-to-link($icon: --icon-carret-left, $position: left, $spacer: 5px) {
       transition: transform 0.5s ease;
@@ -27,6 +28,8 @@ $transportlink-colors: 'error' !default;
     }
   }
   &.two-icon-class {
+    display: inline-flex;
+    align-items: center;
     @include apply-icon-to-link(
       $icon: --icon-x-on-dark,
       $position: left,
