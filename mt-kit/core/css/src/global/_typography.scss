@@ -173,6 +173,19 @@ $content-selectors: '.content' !default;
   @include xp-html-area;
   a {
     @extend .mt-link;
+
+    &.is-external {
+      display: inline-block;
+      &::before {
+        display: none;
+      }
+      &::after {
+        content: var(--icon-external-link);
+        display: inline-block;
+        margin-left: var(--spacer-xxx-small);
+        vertical-align: middle;
+      }
+    }
   }
 
   h1 {
