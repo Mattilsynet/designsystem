@@ -6,12 +6,13 @@
   let className = ''
   export { className as class }
   export let style = ''
+  export let linkStyle: 'mt-link' | 'mt-button' = 'mt-link'
   export let fileName = ''
 
   $: fileType = getFileExtension(fileName) ? `(${getFileExtension(fileName)})` : ''
 </script>
 
-<a class="mt-link {className}" rel={mapRelExternal(href)} {href} {style}>
+<a class="{linkStyle} {className}" rel={mapRelExternal(href)} {href} {style}>
   {@html linkText}
   {fileType}
 </a>

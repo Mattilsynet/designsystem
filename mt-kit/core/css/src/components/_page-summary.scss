@@ -4,35 +4,30 @@
 .page-summary {
   --gap: var(--spacer-xx-small);
   --pagesummary-border: #{$border-width-regular} solid var(--list-border);
-  --heading-padding-bottom: var(--spacer-xxx-small);
-  --space-section: var(--spacer-small);
 
   display: grid;
-  grid-template-areas: 'heading link';
-  grid-template-columns: 1fr min-content;
-  row-gap: var(--gap);
+  grid-template-areas: 'heading change .';
+  grid-template-columns: max-content max-content 1fr;
+  column-gap: var(--gap);
   margin-top: var(--spacer-x-small);
 
   + .page-summary {
     margin-top: 0;
   }
-
-  a {
-    @extend .mt-link;
-    grid-area: link;
-    border-bottom: var(--pagesummary-border);
-    padding-bottom: var(--heading-padding-bottom);
-    align-self: end;
-    word-break: normal;
+  h3,
+  .mt-button {
+    align-self: center;
+    margin-bottom: var(--fds-spacing-2);
   }
-
   h3 {
     grid-area: heading;
-    border-bottom: var(--pagesummary-border);
-    padding-bottom: var(--heading-padding-bottom);
-    align-self: end;
+  }
+  .mt-button {
+    grid-area: change;
   }
   .summary-list {
+    border-top: var(--pagesummary-border);
+    padding-top: var(--gap);
     dd {
       white-space: pre-wrap;
     }

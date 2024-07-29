@@ -127,9 +127,24 @@
       <p>Les mer om <Link href="https://mattilsynet.no/" linkText={args.inText} /> her.</p>
     </article>
     <article>
-      <h2 class="mt-h2">Tilbakelenke</h2>
+      <h2 class="mt-h2">Handlingslenker</h2>
+      <p>Enten flat med ikon eller sekundær uten ikon</p>
       <p>
-        <Link href="https://mattilsynet.no/" class="back-arrow" linkText="Tilbake" />
+        <Link
+          href="https://mattilsynet.no/"
+          class="icon--back-arrow mt-button--flat"
+          linkStyle="mt-button"
+          linkText="Tilbake" />
+        <Link
+          href="https://mattilsynet.no/"
+          class="icon--change-before mt-button--flat"
+          linkStyle="mt-button"
+          linkText="Endre" />
+        <Link
+          href="https://mattilsynet.no/"
+          class="mt-button--secondary"
+          linkStyle="mt-button"
+          linkText="Avbryt" />
       </p>
     </article>
     <article>

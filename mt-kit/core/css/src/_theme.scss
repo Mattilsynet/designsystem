@@ -6,14 +6,21 @@ $border-width-large: 4px;
 $border-radius-small: 0.01em !default;
 $border-radius: 0.25em !default;
 $border-radius-large: 2.5em !default;
-$focus-box-shadow: 0 0 0 0.125rem var(--color-mt-background),
+$focus-box-shadow:
+  0 0 0 0.125rem var(--color-mt-background),
   0 0 0 0.35rem var(--mt-button-primary-bg-focus);
-$focus-box-shadow-on-white: 0 0 0 0.125rem var(--color-mt-white),
+$focus-box-shadow-on-white:
+  0 0 0 0.125rem var(--color-mt-white),
   0 0 0 0.35rem var(--mt-button-primary-bg-focus);
 $focus-box-shadow-no-outline: 0 0 0 0.25rem var(--mt-button-primary-bg-focus);
-$error-box-shadow: 0 0 0 0.5rem var(--color-mt-background), 0 0 0 0.7rem var(--color-error);
-$error-box-shadow-small: 0 0 0 0.05rem var(--color-mt-background), 0 0 0 0.2rem var(--color-error);
-$error-box-shadow-medium: 0 0 0 var(--spacer-xx-small) var(--color-mt-background),
+$error-box-shadow:
+  0 0 0 0.5rem var(--color-mt-background),
+  0 0 0 0.7rem var(--color-error);
+$error-box-shadow-small:
+  0 0 0 0.05rem var(--color-mt-background),
+  0 0 0 0.2rem var(--color-error);
+$error-box-shadow-medium:
+  0 0 0 var(--spacer-xx-small) var(--color-mt-background),
   0 0 0 calc(var(--spacer-xx-small) + $border-width-large) var(--color-error);
 
 $breakpoint-large: 768px;
@@ -71,6 +78,27 @@ $spacer-large: 3.5rem !default; // 56px
 $spacer-x-large: 4.5rem !default; // 72px
 $spacer-xx-large: 5.5rem !default; // 88px
 
+$fds-spacing-0: 0rem;
+$fds-spacing-1: 0.25rem;
+$fds-spacing-2: 0.5rem;
+$fds-spacing-3: 0.75rem;
+$fds-spacing-4: 1rem;
+$fds-spacing-5: 1.25rem;
+$fds-spacing-6: 1.5rem;
+$fds-spacing-7: 1.75rem;
+$fds-spacing-8: 2rem;
+$fds-spacing-9: 2.25rem;
+$fds-spacing-10: 2.5rem;
+$fds-spacing-11: 2.75rem;
+$fds-spacing-12: 3rem;
+$fds-spacing-13: 3.25rem;
+$fds-spacing-14: 3.5rem;
+$fds-spacing-15: 3.75rem;
+$fds-spacing-18: 4.5rem;
+$fds-spacing-22: 5.5rem;
+$fds-spacing-26: 6.5rem;
+$fds-spacing-30: 7.5rem;
+
 $full-width: 100vw;
 $content-width: 95vw;
 $container-width: 90rem; // 1440px - figma grid width;
@@ -91,4 +119,4 @@ $transition-in-overlay-duration: 0.35s;
 $transition-out-overlay-duration: 0.5s;
 $transition-ms-100: 100ms;
 $transition-ms-300: 300ms;
-$cubic-bezier-easing: cubic-bezier(.38,.02,.26,1.01);
+$cubic-bezier-easing: cubic-bezier(0.38, 0.02, 0.26, 1.01);
