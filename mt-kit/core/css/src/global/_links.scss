@@ -7,30 +7,17 @@
 $transportlink-default-color: 'primary' !default;
 $transportlink-colors: 'error' !default;
 
-p:has(a.is-external) .mt-link.is-external {
-  display: inline-block;
-  &::before {
-    display: none;
-  }
-  &::after {
-    content: var(--icon-external-link);
-    display: inline-block;
-    margin-left: var(--spacer-xxx-small);
-    vertical-align: middle;
-  }
-}
-
 .mt-link {
   @include focus-outline();
   @include disabled;
   $transport-card-list-font-size: $font-size-label;
 
-  color: var(--color-text);
+  color: var(--color-links);
   border-radius: var(--border-radius-small);
   padding: var(--border-width-regular);
   line-height: 1.75rem;
   min-width: $minimum-click-width;
-  text-decoration: var(--color-mt-havdyp) underline $border-width-regular;
+  text-decoration: $link-underline-color underline $border-width-regular;
   text-underline-offset: $spacer-xxx-small;
 
   &.is-external {
@@ -50,7 +37,7 @@ p:has(a.is-external) .mt-link.is-external {
   }
 
   &:hover {
-    text-decoration: var(--color-mt-havdyp) underline $border-width-medium;
+    text-decoration: $link-underline-color underline $border-width-medium;
   }
   &:focus {
     box-shadow: $focus-box-shadow-no-outline;
