@@ -122,13 +122,13 @@
     </article>
     <article>
       <h2 class="mt-h2">Lenke i paragraf over flere linjer:</h2>
-      <p class="multi-line-paragraph">
+      <p class="multi-line-paragraph text">
         Hvis du har spørsmål, ta kontakt med <Link
           href="/mattilsynet/mat/drikkevann"
           class=""
           linkText={args.inText} /> for innreiseregler. Ved andre henvendelser ta kontakt med politiet
         på
-        <Link href="#" linkText="politiet.no" /> for svar.
+        <Link href="https://www.politiet.no" linkText="politiet.no" /> for svar.
       </p>
     </article>
     <article>
@@ -164,10 +164,9 @@
     </article>
     <article>
       <h2 class="mt-h2">Ekstern lenke brukt i tekst:</h2>
-      <p>
+      <p class="text">
         Dette er en eksternlenke i en paragraf. <Link
           href="https://www.nav.no/"
-          class="pdf"
           linkText="ekstern lenke i tekst" />
         Da skal ikonet ligge på høyre siden.
       </p>
