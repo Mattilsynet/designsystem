@@ -147,20 +147,6 @@
           linkText="Avbryt" />
       </p>
     </article>
-
-    <article>
-      <h2 class="mt-h2">Test new mixin</h2>
-      <p>
-        <Link href="" linkText="Lenke med ikon" class="test-class" />
-      </p>
-      <p>
-        <Link href="" linkText="Lenke med to ikoner" class="two-icon-class" />
-      </p>
-      <button class="mt-button test-class">Test knapp med ikon</button>
-      <br />
-      <br />
-      <button class="mt-button two-icon-class">Button with two icons</button>
-    </article>
     <article>
       <h2 class="mt-h2">Ankerlenke</h2>
       <p>
