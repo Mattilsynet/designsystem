@@ -198,55 +198,13 @@
   }
 }
 
-// for buttons and links
-@mixin apply-icon-to-link($icon, $position: 'left', $dir: 'down', $spacer: var(--spacer-xx-small)) {
-  $pseudo: 'before';
-  $margin-direction: 'right';
-
-  $icon-directions: (
-    'down': rotate(0deg),
-    'up': rotate(-180deg),
-    'right': rotate(-90deg),
-    'left': rotate(90deg),
-  );
-  @if $position == 'right' {
-    $margin-direction: left;
-    $pseudo: after;
-  }
-
-  @at-root {
-    button#{&},
-    a#{&} {
-      &:#{$pseudo},
-      &::#{$pseudo} {
-        content: '';
-        display: inline-block;
-        background: no-repeat center var(#{$icon});
-        width: $icon-size-x-large;
-        height: $icon-size-x-large;
-        margin-#{$margin-direction}: $spacer;
-        @if map-has-key($icon-directions, $dir) {
-          transform: map-get($icon-directions, #{$dir});
-        }
-        @content;
-      }
-    }
-  }
-}
-
-// for Disclosure
-@mixin apply-icon-to-disclosure(
-  $icon,
-  $position: 'before',
-  $dir: 'down',
-  $spacer: var(--spacer-xx-small)
-) {
+@mixin apply-icon($icon, $position: 'before', $direction: 'down', $spacer: var(--spacer-xx-small)) {
   $valid-directions: down, up, right, left;
   $pseudo: before, after;
-  $margin: if($position == 'before', 'right', 'left');
+  $margin-side: if($position == 'before', 'right', 'left');
 
-  @if not index($valid-directions, $dir) {
-    @error "Unknown direction value '#{$dir}' at $dir. $dir can only be of value 'down' | 'up' | 'right' | 'left'.";
+  @if not index($valid-directions, $direction) {
+    @error "Unknown direction value '#{$direction}' at $dir. $dir can only be of value 'down' | 'up' | 'right' | 'left'.";
   }
 
   @if not index($pseudo, $position) {
@@ -260,27 +218,19 @@
     'left': 90,
   );
 
-  $dir-mapped-to-rotate: map-get($icon-directions, #{$dir});
+  $dir-mapped-to-rotate: map-get($icon-directions, #{$direction});
 
   @at-root {
     &.disclosure-header {
       &:#{$position},
       &::#{$position} {
-        @content;
-        content: '';
-        display: inline-block;
-        background: no-repeat center var(#{$icon});
-        width: $icon-size-x-large;
-        height: $icon-size-x-large;
-        margin-#{$margin}: $spacer;
-        transform: rotate(#{$dir-mapped-to-rotate}deg);
+        grid-area: pseudo;
         @media (prefers-reduced-motion: no-preference) {
           transition: transform $transition-ms-300 ease;
         }
       }
-
       &[aria-expanded='true']::#{$position} {
-        $passed-icon-direction: map-get($icon-directions, #{$dir});
+        $passed-icon-direction: map-get($icon-directions, #{$direction});
         $calc-new-direction: calc($passed-icon-direction - 180);
         transform: rotate(#{$calc-new-direction}deg);
         @media (prefers-reduced-motion: no-preference) {
@@ -288,9 +238,20 @@
         }
       }
     }
+    &.disclosure-header,
+    button#{&},
+    a#{&} {
+      &:#{$position},
+      &::#{$position} {
+        content: '';
+        display: inline-block;
+        background: no-repeat center $icon;
+        width: $icon-size-x-large;
+        height: $icon-size-x-large;
+        margin-#{$margin-side}: $spacer;
+        transform: rotate(#{$dir-mapped-to-rotate}deg);
+        @content;
+      }
+    }
   }
-}
-
-@function getIcon($icon) {
-  @return $icon;
 }
