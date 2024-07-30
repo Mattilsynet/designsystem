@@ -54,15 +54,22 @@
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     .disclosure-header {
+      grid-template: 'pseudo number title';
       grid-column: 1 / span 12;
-      display: flex;
+      display: grid;
       grid-template-columns: repeat(12, 1fr);
+      > .chapter-number {
+        grid-area: number;
+        grid-column: 1 / span 1;
+        place-self: center;
+      }
       > .title {
-        grid-column: 1 / span 11;
+        grid-area: title;
+        grid-column: 2 / span 11;
       }
       @media screen and (min-width: $breakpoint-large) {
         > .chapter-number {
-          grid-column: 1 / span 2;
+          grid-column: 2 / span 1;
         }
         > .title {
           grid-column: 3 / span 9;
@@ -80,85 +87,30 @@
       border-top: none;
     }
 
-    //tester mixin på disclosure
     .disclosure-header {
-      @include apply-icon-to-disclosure(
-        $icon: --icon-carret-down-primary,
-        $position: before,
-        $dir: down
-      ) {
+      @include apply-icon($icon-carret-down-primary, before) {
         margin-left: var(--disclosure-spacing);
       }
-      //margin-left: auto;
-      transition: padding-left ease-in-out 150ms;
-
-      &:hover {
-        padding-left: var(--disclosure-padding-hover);
-      }
     }
-
-    //[aria-expanded].disclosure-header::after {
-    //  transition: transform 0.3s ease;
-    //  margin-right: var(--disclosure-spacing);
-    //  margin-left: auto;
-    //  background-image: var(--icon-arrow-down-on-light);
-    //  content: '';
-    //  width: var(--icon-size-normal);
-    //  height: var(--icon-size-normal);
-    //  background-size: var(--icon-size-normal) var(--icon-size-normal);
-    //  background-repeat: no-repeat;
-    //  display: block;
-    //  padding-right: var(--icon-size-normal);
-    //}
-    //
-    //[aria-expanded='true'].disclosure-header::after {
-    //  transform: rotate(-180deg);
-    //  background-image: var(--icon-arrow-up-on-light);
-    //}
   }
 
   &.disclosure-no-border {
     > .disclosure-header {
       gap: var(--spacer-xx-small);
-      @include apply-icon-to-disclosure(
-        $icon: --icon-carret-down-primary,
-        $position: before,
-        $dir: 'down'
-      ) {
+      @include apply-icon($icon-carret-down-primary, before) {
         margin-left: var(--disclosure-spacing);
       }
     }
 
     .disclosure-header {
       padding: var(--spacer-x-small);
-      transition: padding-left ease-in-out 150ms;
 
-      &:hover {
-        padding-left: var(--spacer-small);
-      }
       svg {
         flex: none;
         align-self: center;
       }
     }
 
-    //[aria-expanded].disclosure-header::after {
-    //  transition: transform 0.3s ease;
-    //  margin-left: auto;
-    //  background-image: var(--icon-arrow-down-on-light);
-    //  content: '';
-    //  width: var(--icon-size-normal);
-    //  height: var(--icon-size-normal);
-    //  background-size: var(--icon-size-normal) var(--icon-size-normal);
-    //  background-repeat: no-repeat;
-    //  display: block;
-    //  padding-right: var(--icon-size-normal);
-    //}
-    //
-    //[aria-expanded='true'].disclosure-header::after {
-    //  transform: rotate(-180deg);
-    //  transform-origin: center center;
-    //}
     .disclosure-panel {
       border-top: $border-width-small solid var(--list-border);
       margin: 0 var(--spacer-x-small);
