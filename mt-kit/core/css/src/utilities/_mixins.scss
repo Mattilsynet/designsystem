@@ -225,7 +225,7 @@
   );
 
   $dir-mapped-to-rotate: map-get($icon-directions, #{$direction});
-  $calc-new-direction: calc($dir-mapped-to-rotate - 180);
+  $calc-open-rotation: calc($dir-mapped-to-rotate - 180);
 
   &:#{$position},
   &::#{$position} {
@@ -246,7 +246,7 @@
     @if $open-state-icon != null {
       background: no-repeat center $open-state-icon;
     }
-    transform: rotateX(#{$calc-new-direction}deg);
+    transform: rotateX(#{$calc-open-rotation}deg);
     @media (prefers-reduced-motion: no-preference) {
       transition: transform $transition-ms-300 ease;
     }
