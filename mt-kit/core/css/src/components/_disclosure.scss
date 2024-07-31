@@ -15,6 +15,9 @@
   }
 
   .disclosure-header {
+    @include apply-icon($icon: $icon-carret-down-primary, $position: before) {
+      margin-left: var(--disclosure-spacing);
+    }
     display: flex;
     align-items: center;
     gap: var(--spacer-xxx-small);
@@ -54,18 +57,21 @@
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     .disclosure-header {
-      grid-template: 'pseudo number title';
       grid-column: 1 / span 12;
       display: grid;
+      grid-template: 'pseudo number title';
       grid-template-columns: repeat(12, 1fr);
+      > ::before {
+        grid-area: pseudo;
+      }
       > .chapter-number {
-        grid-area: number;
         grid-column: 1 / span 1;
+        grid-area: number;
         place-self: center;
       }
       > .title {
-        grid-area: title;
         grid-column: 2 / span 11;
+        grid-area: title;
       }
       @media screen and (min-width: $breakpoint-large) {
         > .chapter-number {
@@ -86,20 +92,11 @@
       margin-top: 0;
       border-top: none;
     }
-
-    .disclosure-header {
-      @include apply-icon($icon-carret-down-primary, before) {
-        margin-left: var(--disclosure-spacing);
-      }
-    }
   }
 
   &.disclosure-no-border {
     > .disclosure-header {
       gap: var(--spacer-xx-small);
-      @include apply-icon($icon-carret-down-primary, before) {
-        margin-left: var(--disclosure-spacing);
-      }
     }
 
     .disclosure-header {
