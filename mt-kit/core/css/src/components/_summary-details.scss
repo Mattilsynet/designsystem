@@ -44,19 +44,23 @@
 
   &.with-icon {
     & .mt-summary {
+      // blue circle with § inside icon
+      @include apply-icon(
+        $icon: $icon-legislation,
+        $position: after,
+        $spacer: var(--spacer-xxx-small)
+      );
       align-items: center;
-      &::after {
-        // blue sircle with § inside icon
-        content: var(--icon-legislation);
-        display: inline-block;
-        margin-left: var(--spacer-xxx-small);
-        height: 1.55rem;
-      }
     }
   }
 
   .mt-summary {
     @include focus-outline();
+    @include apply-icon(
+      $icon: $icon-carret-down-primary,
+      $position: before,
+      $spacer: var(--spacer-xxx-small)
+    );
     display: inline-flex;
     line-height: 140%;
     color: var(--mt-button-neutral-border);
@@ -64,13 +68,6 @@
     cursor: pointer;
     > h3 {
       margin-top: 0;
-    }
-    &::before {
-      content: var(--icon-carret-down-primary);
-      display: inline-block;
-      margin-right: var(--spacer-xxx-small);
-      width: $icon-alert-size;
-      height: $icon-alert-size;
     }
     &::-webkit-details-marker {
       display: none;
