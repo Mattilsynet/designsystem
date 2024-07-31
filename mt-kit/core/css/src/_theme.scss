@@ -30,7 +30,7 @@ $breakpoint-xx-large: 1200px;
 $breakpoint-xxx-large: 1600px;
 
 $color-links: 'var(--color-primary)' !default;
-$link-underline-color: var(--color-mt-havdyp);
+$color-link-underline: var(--color-mt-havdyp);
 $color-grey-hue: $color-primary !default;
 $color-background-body: scale-color($color-grey-hue, $lightness: 98%) !default;
 $color-grey-hue: hue($color-grey-hue);

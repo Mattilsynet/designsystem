@@ -17,7 +17,7 @@ $transportlink-colors: 'error' !default;
   padding: var(--border-width-regular);
   line-height: 1.75rem;
   min-width: $minimum-click-width;
-  text-decoration: $link-underline-color underline $border-width-regular;
+  text-decoration: $color-link-underline underline $border-width-regular;
   text-underline-offset: $spacer-xxx-small;
 
   &.is-external {
@@ -37,7 +37,7 @@ $transportlink-colors: 'error' !default;
   }
 
   &:hover {
-    text-decoration: $link-underline-color underline $border-width-medium;
+    text-decoration: $color-link-underline underline $border-width-medium;
   }
   &:focus {
     box-shadow: $focus-box-shadow-no-outline;
