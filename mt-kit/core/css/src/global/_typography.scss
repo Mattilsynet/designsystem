@@ -175,6 +175,7 @@ $content-selectors: '.content' !default;
     @extend .mt-link;
 
     &.is-external {
+      margin-top: 0;
       display: inline-block;
       &::before {
         display: none;

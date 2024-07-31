@@ -434,6 +434,6 @@
     gap: 1rem;
   }
   .multi-line-paragraph {
-    max-width: 680px;
+    max-width: 32rem;
   }
 </style>
