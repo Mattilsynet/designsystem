@@ -197,30 +197,20 @@ $transportlink-colors: 'error' !default;
     }
   }
   &.top-task {
+    @include background-color-on-hover(var(--color-mt-green-300));
+    @include background-color-on-active(var(--color-mt-green-400));
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     padding: var(--spacer-x-small);
     gap: var(--spacer-xxx-small);
-    &:hover {
-      .heading {
-        &::after {
-          content: var(--icon-arrow-primary-hover);
-        }
-      }
-    }
+    background-color: var(--color-mt-white);
+    color: var(--color-links);
+
     .heading {
       width: 100%;
       text-align: left;
-      padding-right: 2rem;
-
-      &::after {
-        content: var(--icon-arrow-primary);
-        display: inline-block;
-        height: 1.75rem;
-        margin-left: var(--spacer-xxx-small);
-        margin-right: -2rem;
-      }
+      text-decoration: underline;
     }
     .text {
       width: 100%;
