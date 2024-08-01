@@ -365,7 +365,8 @@ $transportlink-colors: 'error' !default;
         }
       }
     }
-    &--cta, &--blue {
+    &--cta,
+    &--blue {
       --content-padding: var(--spacer-x-small);
 
       @media (prefers-reduced-motion: no-preference) {

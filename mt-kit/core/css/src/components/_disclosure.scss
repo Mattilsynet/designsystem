@@ -15,6 +15,9 @@
   }
 
   .disclosure-header {
+    @include apply-icon($icon: $icon-carret-down-primary, $position: before) {
+      margin-left: var(--disclosure-spacing);
+    }
     display: flex;
     align-items: center;
     gap: var(--spacer-xxx-small);
@@ -56,13 +59,23 @@
     .disclosure-header {
       grid-column: 1 / span 12;
       display: grid;
+      grid-template: 'pseudo number title';
       grid-template-columns: repeat(12, 1fr);
+      > ::before {
+        grid-area: pseudo;
+      }
+      > .chapter-number {
+        grid-column: 1 / span 1;
+        grid-area: number;
+        place-self: center;
+      }
       > .title {
-        grid-column: 1 / span 11;
+        grid-column: 2 / span 11;
+        grid-area: title;
       }
       @media screen and (min-width: $breakpoint-large) {
         > .chapter-number {
-          grid-column: 1 / span 2;
+          grid-column: 2 / span 1;
         }
         > .title {
           grid-column: 3 / span 9;
@@ -79,33 +92,6 @@
       margin-top: 0;
       border-top: none;
     }
-
-    .disclosure-header {
-      transition: padding-left ease-in-out 150ms;
-
-      &:hover {
-        padding-left: var(--disclosure-padding-hover);
-      }
-    }
-
-    [aria-expanded].disclosure-header::after {
-      transition: transform 0.3s ease;
-      margin-right: var(--disclosure-spacing);
-      margin-left: auto;
-      background-image: var(--icon-arrow-down-on-light);
-      content: '';
-      width: var(--icon-size-normal);
-      height: var(--icon-size-normal);
-      background-size: var(--icon-size-normal) var(--icon-size-normal);
-      background-repeat: no-repeat;
-      display: block;
-      padding-right: var(--icon-size-normal);
-    }
-
-    [aria-expanded='true'].disclosure-header::after {
-      transform: rotate(-180deg);
-      background-image: var(--icon-arrow-up-on-light);
-    }
   }
 
   &.disclosure-no-border {
@@ -115,34 +101,13 @@
 
     .disclosure-header {
       padding: var(--spacer-x-small);
-      transition: padding-left ease-in-out 150ms;
 
-      &:hover {
-        padding-left: var(--spacer-small);
-      }
       svg {
         flex: none;
         align-self: center;
       }
     }
 
-    [aria-expanded].disclosure-header::after {
-      transition: transform 0.3s ease;
-      margin-left: auto;
-      background-image: var(--icon-arrow-down-on-light);
-      content: '';
-      width: var(--icon-size-normal);
-      height: var(--icon-size-normal);
-      background-size: var(--icon-size-normal) var(--icon-size-normal);
-      background-repeat: no-repeat;
-      display: block;
-      padding-right: var(--icon-size-normal);
-    }
-
-    [aria-expanded='true'].disclosure-header::after {
-      transform: rotate(-180deg);
-      transform-origin: center center;
-    }
     .disclosure-panel {
       border-top: $border-width-small solid var(--list-border);
       margin: 0 var(--spacer-x-small);

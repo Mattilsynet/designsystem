@@ -179,3 +179,76 @@
     }
   }
 }
+
+@mixin background-color-on-hover($color) {
+  &:hover {
+    background-color: $color;
+    @media (prefers-reduced-motion: no-preference) {
+      transition: background-color $transition-ms-300 ease;
+    }
+  }
+}
+
+@mixin background-color-on-active($color) {
+  &:active {
+    background-color: $color;
+    @media (prefers-reduced-motion: no-preference) {
+      transition: background-color $transition-ms-100 ease;
+    }
+  }
+}
+
+@mixin apply-icon(
+  $icon,
+  $position: 'before',
+  $direction: 'down',
+  $spacer: var(--spacer-xx-small),
+  $open-state-icon: null
+) {
+  $valid-directions: down, up, right, left;
+  $pseudo: before, after;
+  $margin-side: if($position == 'before', 'right', 'left');
+
+  @if not index($valid-directions, $direction) {
+    @error "Unknown direction value '#{$direction}' at $dir. $dir can only be of value 'down' | 'up' | 'right' | 'left'.";
+  }
+
+  @if not index($pseudo, $position) {
+    @error "Unknown position value '#{$position}' at $position. $position can only be of value 'before' | 'after'.";
+  }
+
+  $icon-directions: (
+    'down': 0,
+    'up': -180,
+    'right': -90,
+    'left': 90,
+  );
+
+  $dir-mapped-to-rotate: map-get($icon-directions, #{$direction});
+  $calc-open-rotation: calc($dir-mapped-to-rotate - 180);
+
+  &:#{$position},
+  &::#{$position} {
+    content: '';
+    display: inline-block;
+    background: no-repeat center $icon;
+    width: $icon-size-x-large;
+    height: $icon-size-x-large;
+    margin-#{$margin-side}: $spacer;
+    transform: rotate(#{$dir-mapped-to-rotate}deg);
+    @media (prefers-reduced-motion: no-preference) {
+      transition: transform $transition-ms-300 ease;
+    }
+    @content;
+  }
+
+  &[aria-expanded='true']::#{$position} {
+    @if $open-state-icon != null {
+      background: no-repeat center $open-state-icon;
+    }
+    transform: rotateX(#{$calc-open-rotation}deg);
+    @media (prefers-reduced-motion: no-preference) {
+      transition: transform $transition-ms-300 ease;
+    }
+  }
+}
