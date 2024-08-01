@@ -10,25 +10,22 @@
   --svg-color: var(--mt-button-neutral-color);
   --icon-padding: var(--spacer-xxx-small);
   --title-gap: var(--spacer-xx-small);
-  --bg-color: var(--color-mt-white);
 
   display: grid;
   grid-template-columns: max-content 1fr;
-  grid-column-gap: var(--icon-padding);
   grid-template-rows: min-content min-content;
+  align-items: center;
+  grid-column-gap: var(--icon-padding);
   grid-row-gap: var(--title-gap);
   grid-template-areas: 'icon heading' 'empty keywords';
-  align-items: center;
-  color: var(--color-text);
-  background-color: var(--bg-color);
+  color: var(--color-links);
+  background-color: var(--color-mt-white);
   height: 100%;
   text-decoration: none;
 
   .svg-wrapper,
   .mt-img {
     grid-area: icon;
-    align-self: start;
-    justify-self: center;
     height: var(--menu-point-icon-height);
     svg {
       height: inherit;
@@ -42,7 +39,8 @@
     }
   }
 
-  .mt-h2, .mt-h3 {
+  .mt-h2,
+  .mt-h3 {
     grid-area: heading;
     padding-left: 0;
     text-decoration: underline;
