@@ -186,6 +186,7 @@
     @media (prefers-reduced-motion: no-preference) {
       transition: background-color $transition-ms-300 ease;
     }
+    @content;
   }
 }
 
@@ -195,6 +196,7 @@
     @media (prefers-reduced-motion: no-preference) {
       transition: background-color $transition-ms-100 ease;
     }
+    @content;
   }
 }
 
