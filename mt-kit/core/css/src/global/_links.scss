@@ -86,11 +86,12 @@ $transportlink-colors: 'error' !default;
   }
   .forward-arrow,
   &.forward-arrow {
-    &::before {
-      content: var(--icon-arrow-right-primary-small);
-      display: inline-block;
-      margin-right: var(--spacer-x-small);
-    }
+    @include apply-icon(
+      $icon: $icon-arrow-right-primary-small,
+      $position: before,
+      $spacer: var(--spacer-x-small)
+    );
+    display: inline-flex;
   }
   &[aria-current='page'] {
     color: var(--color-mt-text-dark);
@@ -138,13 +139,13 @@ $transportlink-colors: 'error' !default;
   }
 
   &.forward-arrow-end-link {
+    @include apply-icon(
+      $icon: $icon-arrow-right-primary-small,
+      $position: after,
+      $spacer: var(--spacer-xxx-small)
+    );
     display: inline-flex;
     font-size: $font-size-body;
-    &:after {
-      content: var(--icon-arrow-right-primary-small);
-      display: inline-block;
-      margin-left: var(--spacer-xxx-small);
-    }
   }
 
   .next-link,
