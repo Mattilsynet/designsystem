@@ -428,9 +428,10 @@ a[href^='www']:not([href*='mattilsynet.no']) {
     --transportlink-background: transparent;
     --focus-box-shadow: $focus-box-shadow;
     --transportlink-padding: 0.875rem 1.5rem;
+    --border-radius: #{$border-radius};
 
     @include apply-icon($icon-arrow-right-primary-small, before) {
-      border-radius: $border-radius;
+      border-radius: var(--border-radius);
     }
 
     font-size: $font-size-body;
@@ -440,6 +441,7 @@ a[href^='www']:not([href*='mattilsynet.no']) {
     color: var(--color-links);
     text-decoration: none;
     background-color: var(--transportlink-background);
+    border-radius: var(--border-radius);
 
     &:focus {
       border-color: var(--transportlink-background);
@@ -449,7 +451,6 @@ a[href^='www']:not([href*='mattilsynet.no']) {
     &--primary {
       --transportlink-background: var(--color-mt-green-300);
       padding: var(--transportlink-padding);
-      border-radius: $border-radius;
 
       &:hover {
         --transportlink-background: var(--color-mt-green-400);
@@ -470,7 +471,6 @@ a[href^='www']:not([href*='mattilsynet.no']) {
       &-large {
         --transportlink-background: var(--color-mt-green-300);
         padding: var(--transportlink-padding);
-        border-radius: $border-radius;
         width: 100%;
 
         &:hover {
@@ -495,7 +495,6 @@ a[href^='www']:not([href*='mattilsynet.no']) {
       border: var(--border-width-regular) solid var(--list-border);
       font-weight: var(--font-weight-bold);
       padding: var(--transportlink-padding);
-      border-radius: $border-radius;
 
       &:hover {
         --transportlink-background: var(--color-mt-green-300);
@@ -514,6 +513,7 @@ a[href^='www']:not([href*='mattilsynet.no']) {
       }
 
       &-large {
+        --border-radius: 0;
         padding: var(--spacer-xx-small) var(--spacer-xxx-small);
         width: 100%;
 
