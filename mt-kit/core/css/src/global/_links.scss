@@ -429,7 +429,12 @@ a[href^='www']:not([href*='mattilsynet.no']) {
     --focus-box-shadow: $focus-box-shadow;
     --transportlink-padding: 0.875rem 1.5rem;
     --border-radius: #{$border-radius};
-
+    @include background-color-on-hover(var(--color-mt-green-300)) {
+      &::before {
+        background-color: darken($color-mt-green-300, 15%);
+      }
+    }
+    @include background-color-on-active(var(--color-mt-green-400));
     @include apply-icon($icon-arrow-right-primary-small, before) {
       border-radius: var(--border-radius);
     }
@@ -440,6 +445,7 @@ a[href^='www']:not([href*='mattilsynet.no']) {
     width: fit-content;
     color: var(--color-links);
     text-decoration: none;
+    padding: var(--transportlink-padding);
     background-color: var(--transportlink-background);
     border-radius: var(--border-radius);
 
@@ -450,88 +456,33 @@ a[href^='www']:not([href*='mattilsynet.no']) {
 
     &--primary {
       --transportlink-background: var(--color-mt-green-300);
-      padding: var(--transportlink-padding);
-
-      &:hover {
-        --transportlink-background: var(--color-mt-green-400);
+      @include background-color-on-hover(var(--color-mt-green-400)) {
         &::before {
           background-color: darken($color-mt-green-400, 15%);
         }
-        @media (prefers-reduced-motion: no-preference) {
-          transition: background-color $transition-ms-300 ease;
-        }
       }
-      &:active {
-        --transportlink-background: var(--color-mt-lys-furu);
-        @media (prefers-reduced-motion: no-preference) {
-          transition: background-color $transition-ms-300 ease;
-        }
-      }
+      @include background-color-on-active(var(--color-mt-lys-furu));
 
       &-large {
         --transportlink-background: var(--color-mt-green-300);
-        padding: var(--transportlink-padding);
-        width: 100%;
-
-        &:hover {
-          --transportlink-background: var(--color-mt-green-400);
+        @include background-color-on-hover(var(--color-mt-green-400)) {
           &::before {
             background-color: darken($color-mt-green-400, 15%);
           }
-          @media (prefers-reduced-motion: no-preference) {
-            transition: background-color $transition-ms-300 ease;
-          }
         }
-        &:active {
-          --transportlink-background: var(--color-mt-lys-furu);
-          @media (prefers-reduced-motion: no-preference) {
-            transition: background-color $transition-ms-100 ease;
-          }
-        }
+        @include background-color-on-active(var(--color-mt-lys-furu));
+        width: 100%;
       }
     }
 
     &--secondary {
       border: var(--border-width-regular) solid var(--list-border);
       font-weight: var(--font-weight-bold);
-      padding: var(--transportlink-padding);
-
-      &:hover {
-        --transportlink-background: var(--color-mt-green-300);
-        &::before {
-          background-color: darken($color-mt-green-300, 15%);
-        }
-        @media (prefers-reduced-motion: no-preference) {
-          transition: background-color $transition-ms-300 ease;
-        }
-      }
-      &:active {
-        --transportlink-background: var(--color-mt-lys-furu);
-        @media (prefers-reduced-motion: no-preference) {
-          transition: background-color $transition-ms-300 ease;
-        }
-      }
 
       &-large {
-        --border-radius: 0;
-        padding: var(--spacer-xx-small) var(--spacer-xxx-small);
+        --transportlink-padding: var(--spacer-xx-small) var(--spacer-xxx-small);
         width: 100%;
-
-        &:hover {
-          --transportlink-background: var(--color-mt-green-300);
-          &::before {
-            background-color: darken($color-mt-green-400, 15%);
-          }
-          @media (prefers-reduced-motion: no-preference) {
-            transition: background-color $transition-ms-300 ease;
-          }
-        }
-        &:active {
-          --transportlink-background: var(--color-mt-lys-furu);
-          @media (prefers-reduced-motion: no-preference) {
-            transition: background-color $transition-ms-100 ease;
-          }
-        }
+        border-radius: 0;
       }
     }
   }
