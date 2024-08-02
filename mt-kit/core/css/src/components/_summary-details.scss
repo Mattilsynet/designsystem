@@ -55,6 +55,7 @@
   .mt-summary {
     @include focus-outline();
     @include apply-icon($icon: $icon-carret-down-primary, $position: before);
+
     display: inline-flex;
     gap: var(--spacer-xxx-small);
     line-height: 140%;
@@ -66,6 +67,13 @@
     }
     &::-webkit-details-marker {
       display: none;
+    }
+    &.mt-summary-icon {
+      @include apply-icon(
+        $icon: $icon-carret-down-primary,
+        $position: before,
+        $spacer: var(--spacer-xxx-small)
+      );
     }
   }
   &[open] {
