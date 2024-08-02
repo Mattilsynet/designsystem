@@ -90,7 +90,9 @@ $transportlink-colors: 'error' !default;
       $icon: $icon-arrow-right-primary-small,
       $position: before,
       $spacer: var(--spacer-xx-small)
-    );
+    ) {
+      flex-shrink: 0;
+    }
     display: flex;
     align-items: center;
   }
