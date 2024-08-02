@@ -33,7 +33,7 @@
       { href: '#', text: 'Kritikk&shy;verdige forhold på arbeids&shy;plassen' },
       {
         href: '#',
-        text: 'Kritikk&shy;verdige forhold på arbeids&shy;plassen hvor lenken går over flere linjer og samtidig skal ha animasjon'
+        text: 'Kritikk&shy;verdige forhold på arbeids&shy;plassen hvor lenken går over flere linjer'
       }
     ],
 
@@ -223,7 +223,7 @@
     <ul class="mt-ul m-t-xxs layout-grid list-unstyled">
       {#each cards as link}
         <li>
-          <Link href={link.href} class="forward-arrow-end-link" linkText={link.text} />
+          <Link href={link.href} class="forward-arrow" linkText={link.text} />
         </li>
       {/each}
     </ul>
