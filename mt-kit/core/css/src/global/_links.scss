@@ -89,9 +89,10 @@ $transportlink-colors: 'error' !default;
     @include apply-icon(
       $icon: $icon-arrow-right-primary-small,
       $position: before,
-      $spacer: var(--spacer-x-small)
+      $spacer: var(--spacer-xx-small)
     );
-    display: inline-flex;
+    display: flex;
+    align-items: center;
   }
   &[aria-current='page'] {
     color: var(--color-mt-text-dark);

@@ -236,6 +236,7 @@
     height: $icon-size-x-large;
     margin-#{$margin-side}: $spacer;
     transform: rotate(#{$dir-mapped-to-rotate}deg);
+    flex-shrink: 0;
     @media (prefers-reduced-motion: no-preference) {
       transition: transform $transition-ms-300 ease;
     }
