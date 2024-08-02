@@ -32,9 +32,9 @@
             aria-hidden="true"
             data-testid="img-icon" />
         {/if}
-        <p class="mt-{headerTag}">
+        <h3 class="mt-{headerTag} menu-point-heading">
           {@html menuPoint.text}
-        </p>
+        </h3>
         <p id={toKebabCase(menuPoint.keywords)}>
           {@html menuPoint.keywords}
         </p>
