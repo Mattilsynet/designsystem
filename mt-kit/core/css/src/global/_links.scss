@@ -443,6 +443,7 @@ a[href^='www']:not([href*='mattilsynet.no']) {
     font-size: $font-size-body;
     display: flex;
     align-items: center;
+    gap: var(--spacer-xxx-small);
     width: fit-content;
     color: var(--color-links);
     padding: var(--transportlink-padding);
@@ -473,6 +474,7 @@ a[href^='www']:not([href*='mattilsynet.no']) {
         }
         @include background-color-on-active(var(--color-mt-lys-furu));
         width: 100%;
+        text-decoration: none;
       }
     }
 
@@ -485,6 +487,7 @@ a[href^='www']:not([href*='mattilsynet.no']) {
         --transportlink-padding: var(--spacer-xx-small) var(--spacer-xxx-small);
         width: 100%;
         border-radius: 0;
+        text-decoration: none;
       }
     }
   }
