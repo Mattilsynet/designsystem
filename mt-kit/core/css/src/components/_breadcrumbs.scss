@@ -1,5 +1,6 @@
 @use '../theme' as *;
 @use '../global/links' as *;
+@use '../utilities/mixins' as *;
 
 .breadcrumbs {
   font-size: $font-size-small;
@@ -22,10 +23,11 @@
         word-break: normal;
       }
       &:first-child {
-        a::before {
-          content: var(--icon-carret-right-small);
-          display: inline-block;
-          margin-right: var(--spacer-xx-small);
+        a {
+          @include apply-icon($icon: $icon-carret-right-small, $position: before);
+          display: flex;
+          align-items: center;
+          gap: var(--spacer-xx-small);
         }
       }
       &:nth-last-child(2) {
@@ -38,6 +40,8 @@
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;
+        display: inline-flex;
+        align-items: center;
         &:focus-within {
           box-shadow: $focus-box-shadow-no-outline;
         }
@@ -62,18 +66,18 @@
         &:nth-last-child(2) {
           a::before {
             transform: rotateY(0);
-            margin-right: var(--spacer-xxx-small);
           }
         }
-        .last-breadcrumb::before {
-          content: var(--icon-carret-right-small);
-          display: inline-block;
-          margin-right: var(--spacer-xxx-small);
+        .last-breadcrumb {
+          @include apply-icon($icon: $icon-carret-right-small, $position: before);
+          display: flex;
+          align-items: center;
+          gap: var(--spacer-xxx-small);
         }
       }
     }
     &.expanded {
-      display: inline;
+      display: flex;
     }
   }
 }

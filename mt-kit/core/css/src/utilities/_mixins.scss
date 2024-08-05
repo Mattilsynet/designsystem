@@ -227,7 +227,9 @@
     background: no-repeat center $icon;
     width: $icon-size-x-large;
     height: $icon-size-x-large;
-    transform: rotate(#{$dir-mapped-to-rotate}deg);
+    @if ($direction != 'down') {
+      transform: rotate(#{$dir-mapped-to-rotate}deg);
+    }
     @media (prefers-reduced-motion: no-preference) {
       transition: transform $transition-ms-300 ease;
     }

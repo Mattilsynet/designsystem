@@ -98,6 +98,16 @@ $transportlink-colors: 'error' !default;
     text-decoration: none;
   }
 
+  .forward-caret,
+  &.forward-caret {
+    @include apply-icon($icon: $icon-carret-right-small, $position: before) {
+      flex-shrink: 0;
+    }
+    display: flex;
+    align-items: center;
+    gap: var(--spacer-xxx-small);
+  }
+
   &.forward-arrow-end {
     --hover-padding: var(--spacer-small);
 
