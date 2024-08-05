@@ -433,6 +433,7 @@ a[href^='www']:not([href*='mattilsynet.no']) {
       &::before {
         background-color: darken($color-mt-green-300, 15%);
       }
+      text-decoration: none;
     }
     @include background-color-on-active(var(--color-mt-green-400));
     @include apply-icon($icon-arrow-right-primary-small, before) {
@@ -444,7 +445,6 @@ a[href^='www']:not([href*='mattilsynet.no']) {
     align-items: center;
     width: fit-content;
     color: var(--color-links);
-    text-decoration: none;
     padding: var(--transportlink-padding);
     background-color: var(--transportlink-background);
     border-radius: var(--border-radius);
@@ -462,6 +462,7 @@ a[href^='www']:not([href*='mattilsynet.no']) {
         }
       }
       @include background-color-on-active(var(--color-mt-lys-furu));
+      text-decoration: none;
 
       &-large {
         --transportlink-background: var(--color-mt-green-300);
@@ -478,6 +479,7 @@ a[href^='www']:not([href*='mattilsynet.no']) {
     &--secondary {
       border: var(--border-width-regular) solid var(--list-border);
       font-weight: var(--font-weight-bold);
+      text-decoration: none;
 
       &-large {
         --transportlink-padding: var(--spacer-xx-small) var(--spacer-xxx-small);
