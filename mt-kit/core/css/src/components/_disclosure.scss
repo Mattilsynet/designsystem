@@ -16,14 +16,14 @@
 
   .disclosure-header {
     @include apply-icon($icon: $icon-carret-down-primary, $position: before) {
-      margin-left: var(--disclosure-spacing);
+      flex-shrink: 0;
     }
     display: flex;
     align-items: center;
     gap: var(--spacer-xxx-small);
     width: 100%;
     margin: 0;
-    padding: var(--disclosure-spacing) 0;
+    padding: var(--disclosure-spacing) 0 var(--disclosure-spacing) var(--disclosure-spacing);
     overflow-wrap: anywhere;
   }
   [aria-expanded='true'].disclosure-header {
@@ -65,13 +65,13 @@
         grid-area: pseudo;
       }
       > .chapter-number {
-        grid-column: 1 / span 1;
         grid-area: number;
+        grid-column: 1 / span 1;
         place-self: center;
       }
       > .title {
-        grid-column: 2 / span 11;
         grid-area: title;
+        grid-column: 2 / span 11;
       }
       @media screen and (min-width: $breakpoint-large) {
         > .chapter-number {

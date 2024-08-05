@@ -45,23 +45,18 @@
   &.with-icon {
     & .mt-summary {
       // blue circle with § inside icon
-      @include apply-icon(
-        $icon: $icon-legislation,
-        $position: after,
-        $spacer: var(--spacer-xxx-small)
-      );
+      @include apply-icon($icon: $icon-legislation, $position: after);
+      display: flex;
       align-items: center;
+      gap: var(--spacer-xx-small);
     }
   }
 
   .mt-summary {
     @include focus-outline();
-    @include apply-icon(
-      $icon: $icon-carret-down-primary,
-      $position: before,
-      $spacer: var(--spacer-xxx-small)
-    );
+    @include apply-icon($icon: $icon-carret-down-primary, $position: before);
     display: inline-flex;
+    gap: var(--spacer-xxx-small);
     line-height: 140%;
     color: var(--mt-button-neutral-border);
     list-style: none;

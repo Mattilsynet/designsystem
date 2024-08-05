@@ -227,6 +227,19 @@
         </li>
       {/each}
     </ul>
+    <br />
+    <h1 class="mt-h1">Lenkeliste med linjer</h1>
+    <div class="layout-grid layout-grid--column-12 m-b-m">
+      <section class="col-1-span-5">
+        <h3 class="mt-h3 m-t-m p-b-xxxs border-b-secondary">Reise til Norge</h3>
+        {#each cards as link}
+          <Link
+            href={link.href}
+            class="forward-arrow border-b-secondary p-tb-xxs"
+            linkText={link.text} />
+        {/each}
+      </section>
+    </div>
   </div>
 </Story>
 
