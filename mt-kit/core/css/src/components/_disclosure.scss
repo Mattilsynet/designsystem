@@ -65,13 +65,13 @@
         grid-area: pseudo;
       }
       > .chapter-number {
-        grid-column: 1 / span 1;
         grid-area: number;
+        grid-column: 1 / span 1;
         place-self: center;
       }
       > .title {
-        grid-column: 2 / span 11;
         grid-area: title;
+        grid-column: 2 / span 11;
       }
       @media screen and (min-width: $breakpoint-large) {
         > .chapter-number {
