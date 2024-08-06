@@ -431,9 +431,8 @@ a[href^='www']:not([href*='mattilsynet.no']) {
     --border-radius: #{$border-radius};
     @include background-color-on-hover(var(--color-mt-green-300)) {
       &::before {
-        background-color: darken($color-mt-green-300, 15%);
+        background-color: var(--color-mt-lys-furu);
       }
-      text-decoration: none;
     }
     @include background-color-on-active(var(--color-mt-green-400));
     @include apply-icon($icon-arrow-right-primary-small, before) {
@@ -457,21 +456,13 @@ a[href^='www']:not([href*='mattilsynet.no']) {
 
     &--primary {
       --transportlink-background: var(--color-mt-green-300);
-      @include background-color-on-hover(var(--color-mt-green-400)) {
-        &::before {
-          background-color: darken($color-mt-green-400, 15%);
-        }
-      }
+      @include background-color-on-hover(var(--color-mt-green-400));
       @include background-color-on-active(var(--color-mt-lys-furu));
       text-decoration: none;
 
       &-large {
         --transportlink-background: var(--color-mt-green-300);
-        @include background-color-on-hover(var(--color-mt-green-400)) {
-          &::before {
-            background-color: darken($color-mt-green-400, 15%);
-          }
-        }
+        @include background-color-on-hover(var(--color-mt-green-400));
         @include background-color-on-active(var(--color-mt-lys-furu));
         width: 100%;
         text-decoration: none;
