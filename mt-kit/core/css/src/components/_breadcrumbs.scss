@@ -25,7 +25,7 @@
       &:first-child {
         a {
           @include apply-icon($icon: $icon-carret-right-small, $position: before);
-          display: flex;
+          display: inline-flex;
           align-items: center;
           gap: var(--spacer-xx-small);
         }
@@ -40,8 +40,6 @@
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;
-        display: inline-flex;
-        align-items: center;
         &:focus-within {
           box-shadow: $focus-box-shadow-no-outline;
         }
@@ -77,7 +75,7 @@
       }
     }
     &.expanded {
-      display: flex;
+      display: inline-flex;
     }
   }
 }
