@@ -271,7 +271,7 @@ Only use if it does NOT affect accessibility
   grid-template-columns: 1fr max-content max-content max-content;
   align-items: center;
 
-  >.mt-link {
+  > .mt-link {
     margin-right: $spacer-x-small;
   }
 
@@ -284,7 +284,7 @@ Only use if it does NOT affect accessibility
       height: $height-header-regular;
     }
 
-    >.mt-link {
+    > .mt-link {
       margin-right: 0;
     }
   }
@@ -305,7 +305,7 @@ Only use if it does NOT affect accessibility
     gap: var(--spacer-medium);
     a {
       color: var(--mt-footer-color);
-      text-decoration: var(--mt-footer-color) underline $border-width-regular;
+      text-decoration: var(--mt-footer-links-color) underline $border-width-regular;
       text-underline-offset: $spacer-xxx-small;
       &:focus {
         box-shadow: 0 0 0 0.25rem var(--mt-footer-color);
