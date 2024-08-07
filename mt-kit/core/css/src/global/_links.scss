@@ -431,11 +431,13 @@ a[href^='www']:not([href*='mattilsynet.no']) {
     --border-radius: #{$border-radius};
     @include background-color-on-hover(var(--color-mt-green-300));
     @include background-color-on-active(var(--color-mt-green-400));
-    @include apply-icon($icon-arrow-right-primary-small, before);
+    @include apply-icon($icon-arrow-right-primary-small, before) {
+      flex-shrink: 0;
+    }
 
     font-size: $font-size-body;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: var(--spacer-xxx-small);
     width: fit-content;
     color: var(--color-links);
