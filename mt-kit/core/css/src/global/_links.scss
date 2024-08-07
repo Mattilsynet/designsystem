@@ -429,15 +429,9 @@ a[href^='www']:not([href*='mattilsynet.no']) {
     --focus-box-shadow: $focus-box-shadow;
     --transportlink-padding: 0.875rem 1.5rem;
     --border-radius: #{$border-radius};
-    @include background-color-on-hover(var(--color-mt-green-300)) {
-      &::before {
-        background-color: var(--color-mt-lys-furu);
-      }
-    }
+    @include background-color-on-hover(var(--color-mt-green-300));
     @include background-color-on-active(var(--color-mt-green-400));
-    @include apply-icon($icon-arrow-right-primary-small, before) {
-      border-radius: var(--border-radius);
-    }
+    @include apply-icon($icon-arrow-right-primary-small, before);
 
     font-size: $font-size-body;
     display: flex;
