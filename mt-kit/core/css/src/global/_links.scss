@@ -116,8 +116,8 @@ a[href^='www']:not([href*='mattilsynet.no']) {
       flex-shrink: 0;
     }
     display: flex;
-    align-items: center;
-    gap: var(--spacer-xx-small);
+    align-items: flex-start;
+    gap: var(--spacer-xxx-small);
   }
   &[aria-current='page'] {
     color: var(--color-mt-text-dark);
