@@ -7,6 +7,16 @@
 $transportlink-default-color: 'primary' !default;
 $transportlink-colors: 'error' !default;
 
+a[href^='http://']:not([href*='mattilsynet.no']),
+a[href^='https://']:not([href*='mattilsynet.no']),
+a[href^='//']:not([href*='mattilsynet.no']),
+a[href^='www']:not([href*='mattilsynet.no']) {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacer-xxx-small;
+  @include apply-icon($icon: $icon-external-link, $position: before);
+}
+
 .mt-link {
   @include focus-outline();
   @include disabled;
@@ -19,15 +29,6 @@ $transportlink-colors: 'error' !default;
   min-width: $minimum-click-width;
   text-decoration: $color-link-underline underline $border-width-regular;
   text-underline-offset: $spacer-xxx-small;
-
-  &.is-external {
-    display: inline-flex;
-    &::before {
-      content: var(--icon-external-link);
-      display: inline-block;
-      margin-right: var(--spacer-xxx-small);
-    }
-  }
 
   &.inline-flex {
     display: inline-flex;

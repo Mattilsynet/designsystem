@@ -174,18 +174,15 @@ $content-selectors: '.content' !default;
   a {
     @extend .mt-link;
 
-    &.is-external {
-      margin-top: 0;
-      display: inline-block;
+    &[href^='http://']:not([href*='mattilsynet.no']),
+    &[href^='https://']:not([href*='mattilsynet.no']),
+    &[href^='//']:not([href*='mattilsynet.no']),
+    &[href^='www']:not([href*='mattilsynet.no']) {
       &::before {
         display: none;
       }
-      &::after {
-        content: var(--icon-external-link);
-        display: inline-block;
-        margin-left: var(--spacer-xxx-small);
-        vertical-align: middle;
-      }
+      margin-top: 0;
+      @include apply-icon($icon: $icon-external-link, $position: after);
     }
   }
 
