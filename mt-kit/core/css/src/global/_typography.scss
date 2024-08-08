@@ -173,6 +173,17 @@ $content-selectors: '.content' !default;
   @include xp-html-area;
   a {
     @extend .mt-link;
+
+    &[href^='http://']:not([href*='mattilsynet.no']),
+    &[href^='https://']:not([href*='mattilsynet.no']),
+    &[href^='//']:not([href*='mattilsynet.no']),
+    &[href^='www']:not([href*='mattilsynet.no']) {
+      &::before {
+        display: none;
+      }
+      margin-top: 0;
+      @include apply-icon($icon: $icon-external-link, $position: after);
+    }
   }
 
   h1 {

@@ -7,6 +7,16 @@
 $transportlink-default-color: 'primary' !default;
 $transportlink-colors: 'error' !default;
 
+a[href^='http://']:not([href*='mattilsynet.no']),
+a[href^='https://']:not([href*='mattilsynet.no']),
+a[href^='//']:not([href*='mattilsynet.no']),
+a[href^='www']:not([href*='mattilsynet.no']) {
+  @include apply-icon($icon: $icon-external-link, $position: before);
+  display: inline-flex;
+  align-items: flex-start;
+  gap: $spacer-xxx-small;
+}
+
 .mt-link {
   @include focus-outline();
   @include disabled;
@@ -17,6 +27,8 @@ $transportlink-colors: 'error' !default;
   padding: var(--border-width-regular);
   line-height: 1.75rem;
   min-width: $minimum-click-width;
+  text-decoration: $color-link-underline underline $border-width-regular;
+  text-underline-offset: $spacer-xxx-small;
 
   &.inline-flex {
     display: inline-flex;
@@ -26,7 +38,7 @@ $transportlink-colors: 'error' !default;
   }
 
   &:hover {
-    text-decoration: none;
+    text-decoration-thickness: $border-width-medium;
   }
   &:focus {
     box-shadow: $focus-box-shadow-no-outline;
@@ -58,20 +70,26 @@ $transportlink-colors: 'error' !default;
     font-weight: $font-weight-bold;
   }
 
+  a[href$='.pdf'],
+  &.pdf {
+    @include apply-icon($icon: $icon-pdf, $position: before);
+    display: inline-flex;
+    gap: var(--icon-gap);
+    align-items: flex-start;
+  }
+
   &.document {
-    --icon-width: 15px;
-    --indent: calc(var(--icon-width) + var(--spacer-xxx-small));
-    display: inline-block;
-    align-items: center;
-    color: var(--color-links);
-    margin-left: var(--indent);
-    &::before {
-      content: var(--icon-document);
-      margin-right: var(--spacer-xxx-small);
-      display: inline-block;
-      width: var(--icon-width);
-      margin-left: calc(-1 * var(--indent));
-    }
+    @include apply-icon($icon: $icon-document, $position: before);
+    display: inline-flex;
+    gap: var(--icon-gap);
+    align-items: flex-start;
+  }
+  &.back-arrow {
+    @include apply-icon($icon: $icon-carret-left, $position: before);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--icon-gap);
+    width: fit-content;
   }
 
   &.down-arrow {
@@ -90,8 +108,8 @@ $transportlink-colors: 'error' !default;
       flex-shrink: 0;
     }
     display: flex;
-    align-items: center;
-    gap: var(--spacer-xx-small);
+    align-items: flex-start;
+    gap: var(--icon-gap);
   }
   &[aria-current='page'] {
     color: var(--color-mt-text-dark);
@@ -104,8 +122,8 @@ $transportlink-colors: 'error' !default;
       flex-shrink: 0;
     }
     display: flex;
-    align-items: center;
-    gap: var(--spacer-xxx-small);
+    align-items: flex-start;
+    gap: var(--icon-gap);
   }
 
   &.forward-arrow-end {
@@ -146,13 +164,14 @@ $transportlink-colors: 'error' !default;
 
   &.skip-link {
     z-index: var(--z-index-always-focusable-a11y);
+    justify-content: center;
   }
 
   &.forward-arrow-end-link {
     @include apply-icon($icon: $icon-arrow-right-primary-small, $position: after);
     display: inline-flex;
     font-size: $font-size-body;
-    gap: var(--spacer-xxx-small);
+    gap: var(--icon-gap);
   }
 
   .next-link,
@@ -204,7 +223,7 @@ $transportlink-colors: 'error' !default;
     flex-direction: column;
     justify-content: flex-start;
     padding: var(--spacer-x-small);
-    gap: var(--spacer-xxx-small);
+    gap: var(--icon-gap);
     background-color: var(--color-mt-white);
     color: var(--color-links);
 

@@ -117,14 +117,19 @@
   <div use:wrapInShadowDom={disableCss}>
     <h1 class="mt-h1">Normale lenker</h1>
     <article>
-      <h2 class="mt-h2">Bruk alene:</h2>
-      <p>
-        <Link linkText={primary} href="https://mattilsynet.no/" />
-      </p>
+      <h2 class="mt-h2">Relativ lenke:</h2>
+      <Link linkText={primary} href="/mattilsynet/dyr/dyresykdommer" />
     </article>
     <article>
-      <h2 class="mt-h2">Bruk i text:</h2>
-      <p>Les mer om <Link href="https://mattilsynet.no/" linkText={args.inText} /> her.</p>
+      <h2 class="mt-h2">Lenke i paragraf over flere linjer:</h2>
+      <p class="multi-line-paragraph text">
+        Hvis du har spørsmål, ta kontakt med <Link
+          href="/mattilsynet/mat/drikkevann"
+          class=""
+          linkText={args.inText} /> for innreiseregler. Ved andre henvendelser ta kontakt med politiet
+        på
+        <Link href="https://www.politiet.no" linkText="politiet.no" /> for svar.
+      </p>
     </article>
     <article>
       <h2 class="mt-h2">Handlingslenker</h2>
@@ -150,22 +155,31 @@
     <article>
       <h2 class="mt-h2">Ankerlenke</h2>
       <p>
-        <Link
-          href="https://mattilsynet.no/"
-          class="down-arrow"
-          linkText="Til innhold der nede ett sted" />
+        <Link href="#samePageLink" class="down-arrow" linkText="Til innhold der nede ett sted" />
+      </p>
+    </article>
+    <article>
+      <h2 class="mt-h2">Ekstern lenke</h2>
+      <Link href="https://www.nav.no/" linkText="ekstern lenke brukt alene" />
+    </article>
+    <article>
+      <h2 class="mt-h2">Ekstern lenke brukt i tekst:</h2>
+      <p class="text">
+        Dette er en eksternlenke i en paragraf. <Link
+          href="https://www.nav.no/"
+          linkText="ekstern lenke i tekst" />
+        Da skal ikonet ligge på høyre siden.
       </p>
     </article>
     <article>
       <h2 class="mt-h2">Pdf lenke</h2>
-      <p>
-        <Link href="https://mattilsynet.no/some.pdf" class="document" linkText="thisIsAPdf" />
-        <Link
-          href="https://mattilsynet.no/some.pdf"
-          class="document"
-          linkText="thisIsAPdf"
-          fileName="thisIsAPdf.pdf" />
-      </p>
+
+      <Link href="/mattilsynet.no/some.pdf" class="pdf" linkText="thisIsAPdf" />
+      <Link
+        href="https://mattilsynet.no/some.pdf"
+        class="pdf"
+        linkText="thisIsAPdf"
+        fileName="thisIsAPdf.pdf" />
     </article>
     <article>
       <h2 class="mt-h2">Flere linjer</h2>
@@ -198,8 +212,8 @@
       aria-labelledby="small-1">
       {#each smallLinks as link, index}
         {#if link && link.url}
-          <a href={link.url} class="mt-link no-underline">
-            <h3 class="mt-h4 forward-arrow-after">{@html link.text}</h3>
+          <a href={link.url} class="mt-link">
+            <h3 class="mt-h4 forward-arrow">{@html link.text}</h3>
           </a>
         {/if}
       {/each}
@@ -208,8 +222,8 @@
     <section class="layout-grid layout-grid--auto-fill-desktop m-t-xxs" aria-labelledby="small-2">
       {#each smallLinks.slice(0, 2) as link, index}
         {#if link && link.url}
-          <a href={link.url} class="mt-link no-underline">
-            <h4 class="mt-h4 forward-arrow-after">{@html link.text}</h4>
+          <a href={link.url} class="mt-link">
+            <h4 class="mt-h4 forward-arrow">{@html link.text}</h4>
           </a>
         {/if}
       {/each}
@@ -248,16 +262,19 @@
     <h1 class="mt-h1">Dokumentlenker</h1>
     <ul class="mt-ul m-t-xxs layout-grid list-unstyled">
       <li>
-        <Link
-          href={cards[3].href}
-          class="document forward-arrow-end-link"
-          linkText={cards[3].text} />
+        <Link href={cards[3].href} class="pdf forward-arrow-end-link" linkText={cards[3].text} />
       </li>
       <li>
         <Link
           href={cards[6].href}
           class="document forward-arrow-end-link"
           linkText={cards[6].text} />
+      </li>
+      <li>
+        <Link
+          href={cards[2].href}
+          class="pdf forward-arrow-end-link"
+          linkText="Rapport fisk og bifangst 2023 (pdf)" />
       </li>
     </ul>
   </div>
@@ -415,5 +432,8 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+  }
+  .multi-line-paragraph {
+    max-width: 32rem;
   }
 </style>
