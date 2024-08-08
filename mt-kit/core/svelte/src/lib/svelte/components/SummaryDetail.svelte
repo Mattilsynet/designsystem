@@ -22,7 +22,7 @@
   aria-labelledby={ariaLabelledBy}
   data-test-id={testId}
   bind:open={isOpen}>
-  <summary class="mt-summary {summaryClass}">{@html title}</summary>
+  <summary class="mt-summary mt-summary-icon {summaryClass}">{@html title}</summary>
   <div class="summary-wrapper {summaryWrapperClass}">
     <slot />
   </div>
