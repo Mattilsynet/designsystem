@@ -1004,6 +1004,7 @@ title: Color Token Contrast
   - `color-mt-new-white`
   - `color-on-mt-granskog`
   - `color-on-mt-furu-dark`
+  - `color-mt-lys-furu`
   - `color-mt-bg-furu`
   - `color-mt-bg-success`
   - `color-mt-lys-fjord`
@@ -2334,6 +2335,7 @@ title: Color Token Contrast
   - `color-mt-brown`
   - `color-on-mt-grey`
   - `color-on-mt-white`
+  - `color-on-mt-green`
   - `color-on-mt-blue-medium`
   - `color-on-secondary`
   - `color-mt-text-dark`

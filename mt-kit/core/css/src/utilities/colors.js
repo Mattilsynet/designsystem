@@ -135,7 +135,7 @@ module.exports = [
   },
   {
     name: 'mt-lys-furu',
-    color: '#8AC2AE',
+    color: '#9BCAB9',
   },
   {
     name: 'mt-bg-furu',

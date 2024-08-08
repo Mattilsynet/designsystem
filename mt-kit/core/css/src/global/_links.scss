@@ -7,14 +7,8 @@
 $transportlink-default-color: 'primary' !default;
 $transportlink-colors: 'error' !default;
 
-a[href^='http://']:not([href*='mattilsynet.no']),
-a[href^='https://']:not([href*='mattilsynet.no']),
-a[href^='//']:not([href*='mattilsynet.no']),
-a[href^='www']:not([href*='mattilsynet.no']) {
-  @include apply-icon($icon: $icon-external-link, $position: before);
-  display: inline-flex;
-  align-items: flex-start;
-  gap: $spacer-xxx-small;
+a {
+  @include apply-external-link-icon($position: before);
 }
 
 .mt-link {
@@ -425,105 +419,56 @@ a[href^='www']:not([href*='mattilsynet.no']) {
     }
   }
   &.link--transport {
-    --transportlink-background: var(--color-#{$transportlink-default-color});
-    --transportlink-color: var(--color-on-#{$transportlink-colors});
-    --outline-color: transparent;
+    --transportlink-background: transparent;
     --focus-box-shadow: $focus-box-shadow;
     --transportlink-padding: 0.875rem 1.5rem;
+    --border-radius: #{$border-radius};
+    @include background-color-on-hover(var(--mt-link-primary-bg));
+    @include background-color-on-active(var(--mt-link-primary-bg-hover));
+    @include apply-icon($icon-arrow-right-primary-small, before) {
+      flex-shrink: 0;
+    }
 
     font-size: $font-size-body;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
+    gap: var(--spacer-xxx-small);
     width: fit-content;
-
-    &:after {
-      content: '';
-      background-image: var(--icon-arrow-right-primary);
-      margin-left: var(--spacer-xxx-small);
-      padding-right: var(--icon-size-normal);
-      width: var(--icon-size-normal);
-      height: var(--icon-size-normal);
-      background-size: var(--icon-size-normal) var(--icon-size-normal);
-      background-repeat: no-repeat;
-    }
+    color: var(--color-links);
+    padding: var(--transportlink-padding);
+    background-color: var(--transportlink-background);
+    border-radius: var(--border-radius);
 
     &:focus {
       border-color: var(--transportlink-background);
       box-shadow: $focus-box-shadow;
     }
-    &:hover {
-      background-color: transparent;
-    }
 
     &--primary {
-      @extend .no-underline;
-      background-color: var(--transportlink-background);
-      color: var(--transportlink-color);
-      padding: var(--transportlink-padding);
-      border-radius: $border-radius;
-
-      &:after {
-        background-image: var(--icon-arrow-primary);
-      }
-
-      &:hover {
-        color: var(--mt-button-primary-color-hover);
-        background: var(--mt-button-primary-bg-hover);
-        &:after {
-          background-image: var(--icon-arrow-primary-hover);
-        }
-      }
+      --transportlink-background: var(--mt-link-primary-bg);
+      @include background-color-on-hover(var(--mt-link-primary-bg-hover));
+      @include background-color-on-active(var(--mt-link-primary-bg-active));
+      text-decoration: none;
 
       &-large {
-        @extend .no-underline;
-        background-color: var(--transportlink-background);
-        color: var(--transportlink-color);
-        padding: var(--transportlink-padding);
-        border-radius: $border-radius;
+        --transportlink-background: var(--mt-link-primary-bg);
+        @include background-color-on-hover(var(--mt-link-primary-bg-hover));
+        @include background-color-on-active(var(--mt-link-primary-bg-active));
         width: 100%;
-        transition: padding-left ease-in-out 150ms;
-
-        &:after {
-          background-image: var(--icon-arrow-primary);
-        }
-
-        &:hover {
-          padding: var(--transportlink-padding);
-          padding-left: var(--spacer-small);
-          color: var(--mt-button-primary-color-hover);
-          background: var(--mt-button-primary-bg-hover);
-          text-decoration: none;
-          &:after {
-            background-image: var(--icon-arrow-primary-hover);
-          }
-        }
+        text-decoration: none;
       }
     }
 
     &--secondary {
-      @extend .no-underline;
-      background-color: transparent;
       border: var(--border-width-regular) solid var(--list-border);
       font-weight: var(--font-weight-bold);
-      padding: var(--transportlink-padding);
-      border-radius: $border-radius;
+      text-decoration: none;
 
       &-large {
-        @extend .no-underline;
-        transition: padding-left ease-in-out 150ms;
-        padding: var(--spacer-xx-small) 0;
+        --transportlink-padding: var(--spacer-xx-small) var(--spacer-xxx-small);
         width: 100%;
-        background-color: transparent;
-
-        &:after {
-          margin-right: var(--spacer-xx-small);
-        }
-
-        &:hover {
-          padding-left: var(--spacer-xx-small);
-          text-decoration: none;
-        }
+        border-radius: 0;
+        text-decoration: none;
       }
     }
   }
