@@ -41,8 +41,7 @@ export {
   interpolate,
   mapRelExternal,
   prefersReducedMotion,
-  isMobileOrTablet,
-  isExternalLink
+  isMobileOrTablet
 } from './utils'
 export { markers } from '../ts/markers'
 export {
