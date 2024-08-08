@@ -429,8 +429,8 @@ a[href^='www']:not([href*='mattilsynet.no']) {
     --focus-box-shadow: $focus-box-shadow;
     --transportlink-padding: 0.875rem 1.5rem;
     --border-radius: #{$border-radius};
-    @include background-color-on-hover(var(--color-mt-green-300));
-    @include background-color-on-active(var(--color-mt-green-400));
+    @include background-color-on-hover(var(--mt-link-primary-bg));
+    @include background-color-on-active(var(--mt-link-primary-bg-hover));
     @include apply-icon($icon-arrow-right-primary-small, before) {
       flex-shrink: 0;
     }
@@ -451,15 +451,15 @@ a[href^='www']:not([href*='mattilsynet.no']) {
     }
 
     &--primary {
-      --transportlink-background: var(--color-mt-green-300);
-      @include background-color-on-hover(var(--color-mt-green-400));
-      @include background-color-on-active(var(--color-mt-lys-furu));
+      --transportlink-background: var(--mt-link-primary-bg);
+      @include background-color-on-hover(var(--mt-link-primary-bg-hover));
+      @include background-color-on-active(var(--mt-link-primary-bg-active));
       text-decoration: none;
 
       &-large {
-        --transportlink-background: var(--color-mt-green-300);
-        @include background-color-on-hover(var(--color-mt-green-400));
-        @include background-color-on-active(var(--color-mt-lys-furu));
+        --transportlink-background: var(--mt-link-primary-bg);
+        @include background-color-on-hover(var(--mt-link-primary-bg-hover));
+        @include background-color-on-active(var(--mt-link-primary-bg-active));
         width: 100%;
         text-decoration: none;
       }
