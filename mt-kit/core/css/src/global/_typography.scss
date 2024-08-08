@@ -173,7 +173,7 @@ $content-selectors: '.content' !default;
   @include xp-html-area;
   a {
     @extend .mt-link;
-    @include apply-external-link-icon(after);
+    @include apply-external-link-icon($position: after);
   }
 
   h1 {

@@ -249,7 +249,7 @@
   }
 }
 
-@mixin apply-external-link-icon($position) {
+@mixin apply-external-link-icon($icon: $icon-external-link, $position) {
   $pseudo: before, after;
 
   @if not index($pseudo, $position) {
@@ -260,7 +260,7 @@
       &[href^='https://']:not([href*='mattilsynet.no']),
       &[href^='//']:not([href*='mattilsynet.no']),
       &[href^='www']:not([href*='mattilsynet.no']) {
-    @include apply-icon($icon: $icon-external-link, $position: $position);
+    @include apply-icon($icon: $icon, $position: $position);
     @if $position == after {
       &::before {
         display: none;
