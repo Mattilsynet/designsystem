@@ -248,3 +248,31 @@
     }
   }
 }
+
+@mixin apply-external-link-icon($position) {
+  $pseudo: before, after;
+
+  @if not index($pseudo, $position) {
+    @error "Unknown position of value '#{$position}' at $position. $position can only be of value before or after";
+  }
+
+  &[href^='http://']:not([href*='mattilsynet.no']),
+      &[href^='https://']:not([href*='mattilsynet.no']),
+      &[href^='//']:not([href*='mattilsynet.no']),
+      &[href^='www']:not([href*='mattilsynet.no']) {
+    @include apply-icon($icon: $icon-external-link, $position: $position);
+    @if $position == after {
+      &::before {
+        display: none;
+      }
+    }
+    display: inline-flex;
+    align-items: flex-start;
+    gap: $spacer-xxx-small;
+    @content;
+
+    .text & {
+      margin-top: 0;
+    }
+  }
+}

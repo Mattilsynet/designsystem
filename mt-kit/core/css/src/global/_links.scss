@@ -7,14 +7,8 @@
 $transportlink-default-color: 'primary' !default;
 $transportlink-colors: 'error' !default;
 
-a[href^='http://']:not([href*='mattilsynet.no']),
-a[href^='https://']:not([href*='mattilsynet.no']),
-a[href^='//']:not([href*='mattilsynet.no']),
-a[href^='www']:not([href*='mattilsynet.no']) {
-  @include apply-icon($icon: $icon-external-link, $position: before);
-  display: inline-flex;
-  align-items: flex-start;
-  gap: $spacer-xxx-small;
+a {
+  @include apply-external-link-icon($position: before);
 }
 
 .mt-link {
