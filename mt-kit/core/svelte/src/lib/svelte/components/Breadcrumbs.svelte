@@ -123,7 +123,7 @@
             ...
           </button>
         {:else if index + 1 < $state.context.breadcrumbsItems.length}
-          <a class="forward-arrow" href={item.url} rel="external">{@html item.text}</a>
+          <a class="forward-caret" href={item.url} rel="external">{@html item.text}</a>
         {:else}
           <span class="last-breadcrumb">
             {item.text}

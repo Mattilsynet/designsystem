@@ -259,11 +259,10 @@ $icon-button-border-radius: 0.25em;
   }
 
   &.forward-arrow {
-    &::before {
-      content: var(--icon-carret-right-small);
-      display: inline-block;
-      margin-right: var(--spacer-xxx-small);
-    }
+    @include apply-icon($icon: $icon-carret-right-small, $position: before);
+    display: flex;
+    align-items: center;
+    gap: var(--spacer-xxx-small);
   }
   &.closable {
     &:hover {
