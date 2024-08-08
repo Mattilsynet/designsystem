@@ -1,6 +1,7 @@
 <script lang="ts">
   import { mapRelExternal, toKebabCase } from '../../ts/utils'
   import type { MenuPoint } from '$lib/ts'
+  import HeadingLevel from '../components/HeadingLevel.svelte'
 
   export let ariaLabelledBy: string
   export let headerTag: 'h2' | 'h3' | 'h4' | 'h5' | 'h6' = 'h3'
@@ -32,9 +33,9 @@
             aria-hidden="true"
             data-testid="img-icon" />
         {/if}
-        <h3 class="mt-{headerTag} menu-point-heading">
-          {@html menuPoint.text}
-        </h3>
+        <HeadingLevel class="menu-point-heading" headingLevel={+headerTag.charAt(1)}
+          >{@html menuPoint.text}</HeadingLevel>
+
         <p id={toKebabCase(menuPoint.keywords)}>
           {@html menuPoint.keywords}
         </p>
