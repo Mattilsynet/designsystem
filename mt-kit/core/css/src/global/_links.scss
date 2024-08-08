@@ -11,10 +11,10 @@ a[href^='http://']:not([href*='mattilsynet.no']),
 a[href^='https://']:not([href*='mattilsynet.no']),
 a[href^='//']:not([href*='mattilsynet.no']),
 a[href^='www']:not([href*='mattilsynet.no']) {
-  display: inline-flex;
-  align-items: center;
-  gap: $spacer-xxx-small;
   @include apply-icon($icon: $icon-external-link, $position: before);
+  display: inline-flex;
+  align-items: flex-start;
+  gap: $spacer-xxx-small;
 }
 
 .mt-link {
@@ -38,7 +38,7 @@ a[href^='www']:not([href*='mattilsynet.no']) {
   }
 
   &:hover {
-    text-decoration: $color-link-underline underline $border-width-medium;
+    text-decoration-thickness: $border-width-medium;
   }
   &:focus {
     box-shadow: $focus-box-shadow-no-outline;
@@ -72,32 +72,24 @@ a[href^='www']:not([href*='mattilsynet.no']) {
 
   a[href$='.pdf'],
   &.pdf {
-    display: inline-block;
-    &::before {
-      content: var(--icon-pdf);
-      margin-right: var(--spacer-xxx-small);
-      display: inline-block;
-      vertical-align: middle;
-    }
+    @include apply-icon($icon: $icon-pdf, $position: before);
+    display: inline-flex;
+    gap: var(--icon-gap);
+    align-items: flex-start;
   }
 
   &.document {
+    @include apply-icon($icon: $icon-document, $position: before);
     display: inline-flex;
-    &::before {
-      content: var(--icon-document);
-      margin-right: var(--spacer-xxx-small);
-      display: inline-block;
-    }
+    gap: var(--icon-gap);
+    align-items: flex-start;
   }
   &.back-arrow {
+    @include apply-icon($icon: $icon-carret-left, $position: before);
     display: flex;
+    align-items: flex-start;
+    gap: var(--icon-gap);
     width: fit-content;
-    &::before {
-      content: var(--icon-carret-left);
-      display: inline-block;
-      height: 1.375rem;
-      margin-right: var(--spacer-xx-small);
-    }
   }
 
   &.down-arrow {
@@ -117,7 +109,7 @@ a[href^='www']:not([href*='mattilsynet.no']) {
     }
     display: flex;
     align-items: flex-start;
-    gap: var(--spacer-xxx-small);
+    gap: var(--icon-gap);
   }
   &[aria-current='page'] {
     color: var(--color-mt-text-dark);
@@ -130,8 +122,8 @@ a[href^='www']:not([href*='mattilsynet.no']) {
       flex-shrink: 0;
     }
     display: flex;
-    align-items: center;
-    gap: var(--spacer-xxx-small);
+    align-items: flex-start;
+    gap: var(--icon-gap);
   }
 
   &.forward-arrow-end {
@@ -179,7 +171,7 @@ a[href^='www']:not([href*='mattilsynet.no']) {
     @include apply-icon($icon: $icon-arrow-right-primary-small, $position: after);
     display: inline-flex;
     font-size: $font-size-body;
-    gap: var(--spacer-xxx-small);
+    gap: var(--icon-gap);
   }
 
   .next-link,
@@ -231,7 +223,7 @@ a[href^='www']:not([href*='mattilsynet.no']) {
     flex-direction: column;
     justify-content: flex-start;
     padding: var(--spacer-x-small);
-    gap: var(--spacer-xxx-small);
+    gap: var(--icon-gap);
     background-color: var(--color-mt-white);
     color: var(--color-links);
 
