@@ -33,7 +33,7 @@
             aria-hidden="true"
             data-testid="img-icon" />
         {/if}
-        <HeadingLevel class="menu-point-heading" headingLevel={+headerTag.charAt(1)}
+        <HeadingLevel class="mt-h3 menu-point-heading" headingLevel={+headerTag.charAt(1)}
           >{@html menuPoint.text}</HeadingLevel>
 
         <p id={toKebabCase(menuPoint.keywords)}>
