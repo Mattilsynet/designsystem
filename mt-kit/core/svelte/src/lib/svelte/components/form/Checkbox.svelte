@@ -11,7 +11,7 @@
   export let helpText: string | undefined
   export let options: Array<{ value: string; text: string }> = []
   export let isRequired: boolean | undefined = undefined
-  export let textOptional = '(valgfitt felt)'
+  export let textOptional = 'Valgfitt'
   export let hiddenErrorText: string | undefined
   export let onChange = (): void => {}
 
@@ -41,7 +41,7 @@
   <legend class="mt-legend form-legend {legendClass}">
     {label}
     {#if !isRequired}
-      <span class="text-small">{textOptional}</span>
+      <span class="tag info tag-text">{textOptional}</span>
     {/if}
   </legend>
 

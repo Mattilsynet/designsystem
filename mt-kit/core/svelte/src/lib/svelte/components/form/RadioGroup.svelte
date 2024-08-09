@@ -36,7 +36,7 @@
   <legend class="mt-legend form-legend">
     {label}
     {#if !isRequired}
-      <span class="text-small">{textOptional}</span>
+      <span class="tag info tag-text">{textOptional}</span>
     {/if}
   </legend>
 

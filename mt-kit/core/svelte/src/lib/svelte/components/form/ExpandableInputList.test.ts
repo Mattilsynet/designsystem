@@ -1,5 +1,5 @@
 import ExpandableInputList from './ExpandableInputList.svelte'
-import { fireEvent, render, RenderResult } from '@testing-library/svelte'
+import { fireEvent, render, type RenderResult } from '@testing-library/svelte'
 
 describe('ExpandableInputList', () => {
   const inputList = [
@@ -115,7 +115,7 @@ describe('ExpandableInputList', () => {
     })
     const { getByText, rerender, queryByText, getAllByText } = renderResult
     expect(getByText('Det er en feil i skjema')).toBeInTheDocument()
-    expect(getAllByText(/Valgfritt felt/i).length).toEqual(2)
+    expect(getAllByText(/Valgfritt/i).length).toEqual(2)
     rerender(componentOptions)
     expect(queryByText('Det er en feil i skjema')).not.toBeInTheDocument()
     inputList[0].error = { key: 'dogs', message: 'Feil på hund input' }

@@ -44,7 +44,7 @@
         {countCharactersTooManyLabel}
         {tooManyCharactersErrorText}
         maxlength="100"
-        textOptional="(valgfritt felt)"
+        textOptional="Valgfritt"
         inputmode="text"
         rows="3"
         cols="5" />
@@ -56,7 +56,7 @@
         {countCharactersLeftLabel}
         {countCharactersTooManyLabel}
         {tooManyCharactersErrorText}
-        textOptional="(valgfritt felt)"
+        textOptional="Valgfritt"
         inputmode="text"
         maxlength="100"
         isRequired={true}

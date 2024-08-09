@@ -1,6 +1,41 @@
 @use '../theme' as *;
 
+@mixin tag-props {
+  &.no-color,
+  .no-color {
+    border: var(--border-width-small) solid var(--tag-border);
+  }
+  &.info,
+  .info {
+    background-color: var(--tag-info-bg);
+  }
+  &.success,
+  .success {
+    background-color: var(--tag-success-bg);
+  }
+  &.warning,
+  .warning {
+    background-color: var(--tag-warning-bg);
+  }
+  &.error,
+  .error {
+    background-color: var(--tag-error-bg);
+  }
+  &.neutral,
+  .neutral {
+    background-color: var(--tag-neutral-bg);
+  }
+  &.tag-text,
+  .tag-text {
+    --tag-padding: var(--fds-spacing-0) var(--fds-spacing-2);
+    border-radius: $border-radius;
+    padding: var(--tag-padding);
+    font-size: $font-size-small;
+    width: fit-content;
+  }
+}
 .tags {
+  @include tag-props;
   --gap: var(--spacer-xxx-small);
   display: flex;
   flex-wrap: wrap;
@@ -11,31 +46,9 @@
   .tag-list-item {
     margin-top: 0;
   }
-  .tag-text {
-    --tag-padding: 0.1em $button-padding-lr;
-    border: $border-width-regular solid var(--color-mt-text-dark);
-    border-radius: $border-radius;
-    padding: var(--tag-padding);
-    font-size: $font-size-small;
-  }
-  .info {
-    background-color: var(--tag-info-bg);
-    border: var(--border-width-small) solid var(--tag-info-border);
-  }
-  .success {
-    background-color: var(--tag-success-bg);
-    border: var(--border-width-small) solid var(--tag-success-border);
-  }
-  .warning {
-    background-color: var(--tag-warning-bg);
-    border: var(--border-width-small) solid var(--tag-warning-border);
-  }
-  .error {
-    background-color: var(--tag-error-bg);
-    border: var(--border-width-small) solid var(--tag-error-border);
-  }
-  .neutral {
-    background-color: var(--tag-neutral-bg);
-    border: var(--border-width-small) solid var(--tag-neutral-border);
-  }
+}
+.tag {
+  @include tag-props;
+  display: flex;
+  align-items: center;
 }

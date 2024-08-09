@@ -61,7 +61,7 @@ describe('TextArea', () => {
     expect(input.getAttribute('aria-required')).toEqual(null)
     expect(input.getAttribute('cols')).toEqual(null)
     expect(queryByPlaceholderText(props.placeholder)).not.toBeInTheDocument()
-    expect(getByText(/valgfritt felt/)).toBeInTheDocument()
+    expect(getByText(/Valgfritt/)).toBeInTheDocument()
   })
 
   test('Render error message when defined', () => {

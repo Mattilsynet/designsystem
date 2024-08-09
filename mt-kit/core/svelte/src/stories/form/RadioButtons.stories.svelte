@@ -38,7 +38,8 @@
       label: 'Reiser du selv med dyret?',
       helpText: 'Hjelpetekst',
       errorMessage: 'Fyll inn dette feltet.',
-      name: 'travelWithAnimal'
+      name: 'travelWithAnimal',
+      textOptional: 'Valgfritt'
     },
     disableCss: false
   }}
@@ -60,7 +61,7 @@
         {helpText}
         {label}
         error={undefined}
-        textOptional="valgfritt"
+        textOptional="Valgfritt"
         theme="radio" />
     </form>
     <h2 id="theme" class="mt-h2">Theme - button</h2>

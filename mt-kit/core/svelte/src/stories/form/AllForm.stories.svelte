@@ -138,7 +138,7 @@
         {helpText}
         error={undefined}
         isRequired={true}
-        textOptional="(valgfritt felt)"
+        textOptional="Valgfritt"
         inputmode="text"
         placeholder=""
         autocomplete="" />
@@ -151,7 +151,7 @@
         {countCharactersLeftLabel}
         error={undefined}
         isRequired={true}
-        textOptional="(valgfritt felt)"
+        textOptional="Valgfritt"
         inputmode="text"
         maxlength="300"
         rows="3"
@@ -165,10 +165,15 @@
         {helpText}
         label={radioLabel}
         isRequired={true}
-        textOptional="valgfritt" />
+        textOptional="Valgfritt" />
 
       <!-- Checkbox -->
-      <Checkbox name={checkboxName} label={checkboxLabel} {helpText} options={checkBoxOptions} />
+      <Checkbox
+        name={checkboxName}
+        label={checkboxLabel}
+        {helpText}
+        options={checkBoxOptions}
+        textOptional="Valgfritt" />
 
       <!-- Checkboxes with subsets-->
       <CheckboxWithSubSets

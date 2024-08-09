@@ -16,7 +16,7 @@
     errorMessage: 'Fyll inn dette feltet.',
     hiddenErrorText: 'Feilmelding',
     isRequired: false,
-    textOptional: 'valgfitt felt',
+    textOptional: 'Valgfitt',
     options: [
       {
         text: 'Dere kan kontakte meg',

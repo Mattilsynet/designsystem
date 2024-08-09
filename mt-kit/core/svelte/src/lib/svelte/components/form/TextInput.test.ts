@@ -101,7 +101,7 @@ describe('TextInput', () => {
       ...props,
       error: err
     })
-    expect(getByText(/valgfritt felt/)).toBeInTheDocument()
+    expect(getByText(/Valgfritt/)).toBeInTheDocument()
   })
 
   test('A11y for characters left', async () => {
