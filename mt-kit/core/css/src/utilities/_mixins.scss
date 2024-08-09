@@ -272,7 +272,7 @@
         display: none;
       }
     }
-    display: inline-flex;
+    display: flex;
     align-items: flex-start;
     gap: $spacer-xxx-small;
     @content;
