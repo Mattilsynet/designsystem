@@ -240,7 +240,7 @@
         href="www.hoering.mattilsynet.no" />
 
       <h2 class="mt-h2 col-1-span-12">Lenker som går utenfor mattilsynet.no</h2>
-      <Link class="col-1-span-12" linkText="www.nav.no" href="www.nav.no" />
+      <Link class="col-1-span-12 forward-arrow" linkText="www.nav.no" href="www.nav.no" />
       <Link class="col-1-span-12" linkText="nav.no" href="nav.no" />
       <Link class="col-1-span-12" linkText="//nav.no" href="//nav.no" />
       <Link class="col-1-span-12" linkText="https://www.nav.no" href="https://www.nav.no" />
