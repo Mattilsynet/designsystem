@@ -105,6 +105,7 @@ a {
     @include apply-icon($icon: $icon-arrow-right-primary-small, $position: before) {
       flex-shrink: 0;
     }
+    @include apply-external-link-icon($icon: $icon-external-link, $position: before);
     display: flex;
     align-items: flex-start;
     gap: var(--icon-gap);
