@@ -17,6 +17,12 @@
       .mt-button--link {
         border-radius: 0;
         line-height: 1;
+        text-decoration: $color-link-underline underline $border-width-regular;
+        text-underline-offset: $spacer-xxx-small;
+
+        &:hover {
+          text-decoration-thickness: $border-width-medium;
+        }
       }
       a {
         @extend .mt-link;
@@ -67,7 +73,9 @@
           }
         }
         .last-breadcrumb {
-          @include apply-icon($icon: $icon-carret-right-small, $position: before);
+          @include apply-icon($icon: $icon-carret-right-small, $position: before) {
+            flex-shrink: 0;
+          }
           display: flex;
           align-items: center;
           gap: var(--spacer-xxx-small);
