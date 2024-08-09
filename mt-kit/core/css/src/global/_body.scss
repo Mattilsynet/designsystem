@@ -363,6 +363,7 @@
   --icon-document: #{$icon-document};
   --icon-pdf: #{$icon-pdf};
   --icon-external-link: #{$icon-external-link};
+  --icon-external-link-on-dark: #{$icon-external-link-on-dark};
   --icon-expand-granskog: #{$icon-expand-granskog};
   --icon-expand-white: #{$icon-expand-white};
   --icon-collapse-white: #{$icon-collapse-white};
@@ -387,7 +388,7 @@
   --mt-header-footer-border: transparent;
   --mt-footer-background: var(--color-mt-granskog);
   --mt-footer-color: var(--color-mt-bg-furu);
-  --mt-footer-links-color: var(--color-mt-lys-furu);
+  --mt-footer-links-color: var(--color-mt-bg-furu);
   --mt-footer-link-color-focus: var(--color-mt-bg-beige);
 
   --mt-button-primary-bg: var(--color-primary);

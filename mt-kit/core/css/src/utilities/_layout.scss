@@ -1,5 +1,6 @@
 @use '../theme' as *;
 @use '../global/typography' as *;
+@use '../utilities/mixins' as *;
 
 .container {
   width: $main-width;
@@ -271,7 +272,7 @@ Only use if it does NOT affect accessibility
   grid-template-columns: 1fr max-content max-content max-content;
   align-items: center;
 
-  >.mt-link {
+  > .mt-link {
     margin-right: $spacer-x-small;
   }
 
@@ -284,7 +285,7 @@ Only use if it does NOT affect accessibility
       height: $height-header-regular;
     }
 
-    >.mt-link {
+    > .mt-link {
       margin-right: 0;
     }
   }
@@ -302,17 +303,22 @@ Only use if it does NOT affect accessibility
     display: flex;
     flex-direction: column;
     justify-self: center;
-    gap: var(--spacer-x-small);
+    gap: var(--spacer-medium);
     a {
       color: var(--mt-footer-links-color);
+      text-decoration: var(--mt-footer-color) underline $border-width-regular;
       &:focus {
-        box-shadow: 0 0 0 0.25rem var(--mt-footer-link-color-focus);
+        box-shadow: 0 0 0 0.25rem var(--mt-footer-color);
       }
+      &:hover {
+        text-decoration-thickness: $border-width-medium;
+      }
+      @include apply-external-link-icon($icon: $icon-external-link-on-dark, $position: before);
     }
   }
 
   svg {
-    align-self: center;
+    align-self: flex-start;
   }
 
   .col {
@@ -331,8 +337,7 @@ Only use if it does NOT affect accessibility
 
   @media only screen and (min-width: $breakpoint-large) {
     svg {
-      margin-top: 0;
-      align-self: flex-start;
+      margin-right: var(--spacer-medium);
     }
 
     .footer-wrapper {
