@@ -47,14 +47,6 @@ a {
 
   &.no-underline {
     text-decoration: none;
-    &.hover-indent {
-      --hover-padding: var(--spacer-xxx-small);
-      transition: padding-left ease-in-out 150ms;
-      &:hover {
-        padding-left: var(--hover-padding);
-        text-decoration: none;
-      }
-    }
     &:hover {
       text-decoration: underline;
     }
@@ -121,15 +113,10 @@ a {
   }
 
   &.forward-arrow-end {
-    --hover-padding: var(--spacer-small);
-
     display: flex;
     align-items: center;
     justify-content: space-between;
-    transition: padding-left ease-in-out 150ms;
-    &:hover {
-      padding-left: var(--hover-padding);
-    }
+
     &.padded {
       padding: var(--spacer-xx-small) var(--spacer-x-small);
     }
@@ -403,11 +390,7 @@ a {
     }
   }
   &.animated-header-arrow-after {
-    transition: padding-left ease-in-out 150ms;
     width: 100%;
-    &:hover {
-      padding-left: var(--spacer-xxx-small);
-    }
     &::after {
       content: var(--icon-arrow-right-primary);
       display: inline-block;
