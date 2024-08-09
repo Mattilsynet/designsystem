@@ -190,6 +190,75 @@
   </div>
 </Story>
 
+<Story name="Eksternlenke regel" let:disableCss let:args let:disabled>
+  <div use:wrapInShadowDom={disableCss}>
+    <h1 class="mt-h1">Eksterne lenker</h1>
+    <section class="layout-grid layout-grid--column-12 m-t-xs space-y-children--xx-small">
+      <p class="text col-1-span-6">
+        Alle lenker som går ut av mattilsynet skal ha et eksternt lenke ikon. Det gjelder interne
+        lenker, lenker til innhold på samme side, relative også de som lenker til Mattilsynets CMS
+        (XP) i QA og i Prod
+      </p>
+      <Link
+        class="col-1-span-12"
+        linkText="#innhold-paa-samme-side"
+        href="#innhold-paa-samme-side" />
+      <Link class="col-1-span-12" linkText="/relativ/lenke/side" href="/relativ/lenke/side" />
+      <Link class="col-1-span-12" linkText="../lenke/tilbake" href="../lenke/tilbake" />
+      <Link
+        class="col-1-span-12"
+        linkText="mailto:postmottak@mattilsynet.no"
+        href="mailto:postmottak@mattilsynet.no" />
+      <Link class="col-1-span-12" linkText="tel:22400000" href="tel:22400000" />
+      <Link
+        class="col-1-span-12"
+        linkText="https://www.mattilsynet-xp7qa.enonic.cloud/"
+        href="https://www.mattilsynet-xp7qa.enonic.cloud/" />
+      <Link
+        class="col-1-span-12"
+        linkText="https://www.mattilsynet-xp7prod.enonic.cloud/"
+        href="https://www.mattilsynet-xp7prod.enonic.cloud/" />
+      <Link
+        class="col-1-span-12"
+        linkText="https://www.mattilsynet.no/dyr/velferd"
+        href="https://www.mattilsynet.no/dyr/velferd" />
+      <Link
+        class="col-1-span-12"
+        linkText="http://www.mattilsynet.no/dyr/velferd"
+        href="http://www.mattilsynet.no/dyr/velferd" />
+      <Link
+        class="col-1-span-12"
+        linkText="//www.mattilsynet.no/dyr/velferd"
+        href="//www.mattilsynet.no/dyr/velferd" />
+      <Link
+        class="col-1-span-12"
+        linkText="www.mattilsynet.no/dyr/velferd"
+        href="www.mattilsynet.no/dyr/velferd" />
+      <Link
+        class="col-1-span-12"
+        linkText="www.hoering.mattilsynet.no"
+        href="www.hoering.mattilsynet.no" />
+
+      <h2 class="mt-h2 col-1-span-12">Lenker som går utenfor mattilsynet.no</h2>
+      <Link class="col-1-span-12" linkText="www.nav.no" href="www.nav.no" />
+      <Link class="col-1-span-12" linkText="nav.no" href="nav.no" />
+      <Link class="col-1-span-12" linkText="//nav.no" href="//nav.no" />
+      <Link class="col-1-span-12" linkText="https://www.nav.no" href="https://www.nav.no" />
+      <Link class="col-1-span-12" linkText="http://www.nav.no" href="http://www.nav.no" />
+      <Link
+        class="col-1-span-12"
+        linkText="http://www.nav.no/mattilsynet"
+        href="http://www.nav.no/mattilsynet" />
+      <br />
+      <p class="text col-1-span-12 multi-line-paragraph">
+        Ekstern lenke i løpende tekst har ikonet på høyre side
+        <Link linkText="www.nav.no" href="www.nav.no" />. Det er for å beholde den naturlige flyten
+        i teksten, slik at den er lettere å lese.
+      </p>
+    </section>
+  </div>
+</Story>
+
 <Story name="Lenkeknapper">
   <div class="link--button-wrapper">
     {#each links as link}
