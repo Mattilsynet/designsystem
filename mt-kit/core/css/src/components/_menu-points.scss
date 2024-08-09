@@ -1,24 +1,31 @@
 @use '../theme' as *;
 @use '../global/links' as *;
+@use '../utilities/mixins' as *;
 
 .menu-point {
+  @include focus-outline();
+  @include disabled;
+  @include background-color-on-hover(var(--mt-link-primary-bg));
+  @include background-color-on-active(var(--mt-link-primary-bg-hover));
   --svg-color: var(--mt-button-neutral-color);
   --icon-padding: var(--spacer-xxx-small);
   --title-gap: var(--spacer-xx-small);
 
   display: grid;
   grid-template-columns: max-content 1fr;
-  grid-column-gap: var(--icon-padding);
   grid-template-rows: min-content min-content;
+  align-items: center;
+  grid-column-gap: var(--icon-padding);
   grid-row-gap: var(--title-gap);
   grid-template-areas: 'icon heading' 'empty keywords';
-  align-items: center;
+  color: var(--color-links);
+  background-color: var(--color-mt-white);
+  height: 100%;
+  text-decoration: none;
 
   .svg-wrapper,
   .mt-img {
     grid-area: icon;
-    align-self: start;
-    justify-self: center;
     height: var(--menu-point-icon-height);
     svg {
       height: inherit;
@@ -32,10 +39,10 @@
     }
   }
 
-  a {
-    @extend .mt-link;
+  .menu-point-heading {
     grid-area: heading;
     padding-left: 0;
+    text-decoration: underline;
   }
   p {
     grid-area: keywords;
