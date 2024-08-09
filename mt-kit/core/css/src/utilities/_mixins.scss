@@ -256,10 +256,15 @@
     @error "Unknown position of value '#{$position}' at $position. $position can only be of value before or after";
   }
 
-  &[href^='http://']:not([href*='mattilsynet.no']),
-      &[href^='https://']:not([href*='mattilsynet.no']),
-      &[href^='//']:not([href*='mattilsynet.no']),
-      &[href^='www']:not([href*='mattilsynet.no']) {
+  &[href]:not(:where(
+    [href^='#'],
+    [href^='tel:'],
+    [href^='mailto:'],
+    [href^='/']:not([href^='//']),
+    [href*='mattilsynet.no'],
+    [href*='mattilsynet-xp7qa.enonic.cloud'],
+    [href*='mattilsynet-xp7prod.enonic.cloud']
+    )) {
     @include apply-icon($icon: $icon, $position: $position);
     @if $position == after {
       &::before {
