@@ -174,7 +174,6 @@ $content-selectors: '.content' !default;
   a {
     @extend .mt-link;
     @include apply-external-link-icon($position: after) {
-      display: inline-flex;
       flex-shrink: 0;
     }
   }

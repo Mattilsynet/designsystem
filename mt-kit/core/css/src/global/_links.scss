@@ -8,7 +8,9 @@ $transportlink-default-color: 'primary' !default;
 $transportlink-colors: 'error' !default;
 
 a {
-  @include apply-external-link-icon($position: before);
+  @include apply-external-link-icon($position: before) {
+    vertical-align: middle;
+  }
 }
 
 .mt-link {
