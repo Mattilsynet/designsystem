@@ -205,6 +205,7 @@
         href="#innhold-paa-samme-side" />
       <Link class="col-1-span-12" linkText="/relativ/lenke/side" href="/relativ/lenke/side" />
       <Link class="col-1-span-12" linkText="../lenke/tilbake" href="../lenke/tilbake" />
+      <Link class="col-1-span-12" linkText="?animal=katt" href="?animal=katt" />
       <Link
         class="col-1-span-12"
         linkText="mailto:postmottak@mattilsynet.no"

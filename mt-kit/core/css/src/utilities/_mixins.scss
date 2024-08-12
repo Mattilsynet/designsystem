@@ -258,6 +258,7 @@
 
   &[href]:not(:where(
     [href^='#'],
+    [href^='?'],
     [href^='..'],
     [href^='tel:'],
     [href^='mailto:'],
