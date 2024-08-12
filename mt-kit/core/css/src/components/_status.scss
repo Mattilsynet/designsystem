@@ -49,7 +49,7 @@
   .text {
     grid-area: text;
 
-    :first-child:not(h2):not(h3):not(h4) {
+    :first-child:not(h2):not(h3):not(h4):not(a) {
       margin-top: var(--spacer-x-small);
     }
 
