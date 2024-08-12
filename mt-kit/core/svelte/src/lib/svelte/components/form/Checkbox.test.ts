@@ -44,7 +44,7 @@ describe('Checkbox', () => {
       helpText,
       options
     })
-    expect(getByText(/valgfitt felt/)).toBeInTheDocument()
+    expect(getByText(/Valgfitt/)).toBeInTheDocument()
   })
 
   test('Renders error', () => {
