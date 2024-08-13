@@ -267,15 +267,26 @@
     [href*='mattilsynet-xp7qa.enonic.cloud'],
     [href*='mattilsynet-xp7prod.enonic.cloud']
     )) {
-    @include apply-icon($icon: $icon, $position: $position);
+    @include apply-icon($icon: $icon, $position: $position) {
+      flex-shrink: 0;
+
+      @if $position == after {
+        display: inline-flex;
+        align-items: flex-start;
+        vertical-align: middle;
+        gap: $spacer-xxx-small;
+      }
+    }
     @if $position == after {
+      display: inline-block;
       &::before {
         display: none;
       }
+    } @else {
+      display: inline-flex;
+      align-items: flex-start;
+      gap: $spacer-xxx-small;
     }
-    display: inline-flex;
-    align-items: flex-start;
-    gap: $spacer-xxx-small;
     @content;
 
     .text & {

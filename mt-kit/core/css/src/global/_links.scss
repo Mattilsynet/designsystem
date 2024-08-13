@@ -8,8 +8,11 @@ $transportlink-default-color: 'primary' !default;
 $transportlink-colors: 'error' !default;
 
 a {
-  @include apply-external-link-icon($position: before) {
-    vertical-align: middle;
+  @include apply-external-link-icon($position: before);
+
+  li &,
+  p & {
+    @include apply-external-link-icon($position: after);
   }
 }
 

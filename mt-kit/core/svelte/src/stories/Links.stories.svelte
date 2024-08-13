@@ -12,11 +12,11 @@
     return index % 2 === 0 ? 'col-1-span-5' : 'col-7-span-5'
   }
   const links = [
-    { href: '', type: 'info', title: 'Hvaler - Utgårdskilen', additionalInfo: 'Kan spises' },
-    { href: '', type: 'neutral', title: 'Hvaler - Utgårdskilen', additionalInfo: 'Kan spises' },
-    { href: '', type: 'success', title: 'Hvaler - Utgårdskilen', additionalInfo: 'Kan spises' },
-    { href: '', type: 'warning', title: 'Hvaler - Utgårdskilen', additionalInfo: 'Kan spises' },
-    { href: '', type: 'danger', title: 'Hvaler - Utgårdskilen', additionalInfo: 'Kan spises' }
+    { href: '#', type: 'info', title: 'Hvaler - Utgårdskilen', additionalInfo: 'Kan spises' },
+    { href: '#', type: 'neutral', title: 'Hvaler - Utgårdskilen', additionalInfo: 'Kan spises' },
+    { href: '#', type: 'success', title: 'Hvaler - Utgårdskilen', additionalInfo: 'Kan spises' },
+    { href: '#', type: 'warning', title: 'Hvaler - Utgårdskilen', additionalInfo: 'Kan spises' },
+    { href: '#', type: 'danger', title: 'Hvaler - Utgårdskilen', additionalInfo: 'Kan spises' }
   ]
 </script>
 
@@ -256,6 +256,44 @@
         <Link linkText="www.nav.no" href="www.nav.no" />. Det er for å beholde den naturlige flyten
         i teksten, slik at den er lettere å lese.
       </p>
+      <br />
+      <h2 class="mt-h2 col-1-span-12">Med lang lenketekst i tekst</h2>
+      <p class="text col-1-span-12">
+        Hvis du har kjøpt eller fått dyrene i utlandet, og dyrene er verdt mer enn grensen for toll-
+        og avgiftsfri kvote, må du betale merverdiavgift. Da må du gå på rød sone i tollen, selv om
+        du oppfyller alle punktene over. <Link
+          linkText="Les mer om hvilke regler som gjelder ved kjøp av dyr i
+        utlandet (toll.no)"
+          href="https://www.toll.no" />
+      </p>
+      <br />
+      <h2 class="mt-h2 col-1-span-12">Lenke i tekst uten .text class</h2>
+      <p class="col-1-span-12">
+        Hvis du har kjøpt eller fått dyrene i utlandet, og dyrene er verdt mer enn grensen for toll-
+        og avgiftsfri kvote, må du betale merverdiavgift. Da må du gå på rød sone i tollen, selv om
+        du oppfyller alle punktene over. <Link
+          linkText="Les mer om hvilke regler som gjelder ved kjøp av dyr i
+        utlandet (toll.no)"
+          href="https://www.toll.no" />
+      </p>
+
+      <br />
+      <h2 class="mt-h2 col-1-span-12">Lenker brukt i lister</h2>
+      <ul class="mt-ul col-1-span-12">
+        <li>
+          Dette er en intern lenke til <Link linkText="Dyresykdommer" href="/dyr/dyresykdommer" />.
+        </li>
+        <li>
+          Denne går til tolletaten <Link
+            linkText="Regler for fortolling (toll.no)"
+            href="https://www.toll.no" />. Her kan du lese mer om regler ved fortolling av varer.
+        </li>
+        <li>
+          Denne går også ut av mattilsynets domene og skal ha ikon på sin høyre side <Link
+            linkText="Tilgjengelegheitserklæring (uustatus.no)"
+            href="https://www.uustatus.no" />
+        </li>
+      </ul>
     </section>
   </div>
 </Story>
