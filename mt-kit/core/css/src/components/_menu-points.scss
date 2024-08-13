@@ -5,7 +5,18 @@
 .menu-point {
   @include focus-outline();
   @include disabled;
-  @include background-color-on-hover(var(--mt-link-primary-bg));
+  @include background-color-on-hover(var(--mt-link-primary-bg)) {
+    .svg-wrapper {
+      svg {
+        circle {
+          fill: var(--menu-point-svg-circle-on-hover);
+          @media (prefers-reduced-motion: no-preference) {
+            transition: fill $transition-ms-300 ease;
+          }
+        }
+      }
+    }
+  }
   @include background-color-on-active(var(--mt-link-primary-bg-hover));
   --svg-color: var(--mt-button-neutral-color);
   --icon-padding: var(--spacer-xxx-small);
@@ -32,6 +43,9 @@
       width: inherit;
       circle {
         fill: var(--menu-point-svg-circle);
+        @media (prefers-reduced-motion: no-preference) {
+          transition: fill $transition-ms-300 ease;
+        }
       }
       path {
         fill: var(--svg-color);

@@ -107,8 +107,10 @@ $color-mt-bg-beige: #FAF6F3 !default;
 $color-on-mt-bg-beige: #032C30 !default;
 $color-mt-havdyp: #116E6B !default;
 $color-on-mt-havdyp: #C5E5E4 !default;
+$color-mt-brevann: #ABE1CD !default;
+$color-on-mt-brevann: #3F6456 !default;
 
-$base-color-tokens: ("mt-blue", "mt-red", "mt-red-uu", "mt-beige", "mt-beige-50", "mt-light-beige", "mt-background", "mt-light-blue", "mt-lighter-light-blue", "mt-rationale-blue", "mt-brown", "mt-grey", "mt-white", "mt-green", "mt-green-100", "mt-green-300", "mt-green-400", "mt-light-green", "primary", "mt-blue-medium", "secondary", "mt-text-dark", "error", "error-50", "mt-yellowgreen", "mt-yellowgreen-lighter", "mt-new-white", "mt-granskog", "mt-granskog-dark", "mt-furu", "mt-furu-dark", "mt-lys-furu", "mt-bg-furu", "mt-bg-success", "mt-fjord", "mt-lys-fjord", "mt-bg-fjord", "mt-bg-neutral", "mt-rognebaer-contrast", "mt-rognebaer", "mt-lys-rognebaer", "mt-bg-rognebaer", "mt-bg-danger", "mt-sommerdag-contrast", "mt-sommerdag", "mt-lys-sommerdag", "mt-bg-sommerdag", "mt-bg-warning", "mt-mellombeige", "mt-bg-info", "mt-bg-beige", "mt-havdyp");
+$base-color-tokens: ("mt-blue", "mt-red", "mt-red-uu", "mt-beige", "mt-beige-50", "mt-light-beige", "mt-background", "mt-light-blue", "mt-lighter-light-blue", "mt-rationale-blue", "mt-brown", "mt-grey", "mt-white", "mt-green", "mt-green-100", "mt-green-300", "mt-green-400", "mt-light-green", "primary", "mt-blue-medium", "secondary", "mt-text-dark", "error", "error-50", "mt-yellowgreen", "mt-yellowgreen-lighter", "mt-new-white", "mt-granskog", "mt-granskog-dark", "mt-furu", "mt-furu-dark", "mt-lys-furu", "mt-bg-furu", "mt-bg-success", "mt-fjord", "mt-lys-fjord", "mt-bg-fjord", "mt-bg-neutral", "mt-rognebaer-contrast", "mt-rognebaer", "mt-lys-rognebaer", "mt-bg-rognebaer", "mt-bg-danger", "mt-sommerdag-contrast", "mt-sommerdag", "mt-lys-sommerdag", "mt-bg-sommerdag", "mt-bg-warning", "mt-mellombeige", "mt-bg-info", "mt-bg-beige", "mt-havdyp", "mt-brevann");
 
 $color-tokens: (
   "color-mt-blue": $color-mt-blue,
@@ -214,7 +216,9 @@ $color-tokens: (
   "color-mt-bg-beige": $color-mt-bg-beige,
   "color-on-mt-bg-beige": $color-on-mt-bg-beige,
   "color-mt-havdyp": $color-mt-havdyp,
-  "color-on-mt-havdyp": $color-on-mt-havdyp
+  "color-on-mt-havdyp": $color-on-mt-havdyp,
+  "color-mt-brevann": $color-mt-brevann,
+  "color-on-mt-brevann": $color-on-mt-brevann
 ) !default;
 
 @mixin color-tokens() {
@@ -322,4 +326,6 @@ $color-tokens: (
   --color-on-mt-bg-beige: #{$color-on-mt-bg-beige};
   --color-mt-havdyp: #{$color-mt-havdyp};
   --color-on-mt-havdyp: #{$color-on-mt-havdyp};
+  --color-mt-brevann: #{$color-mt-brevann};
+  --color-on-mt-brevann: #{$color-on-mt-brevann};
 }
