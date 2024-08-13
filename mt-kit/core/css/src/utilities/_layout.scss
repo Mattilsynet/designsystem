@@ -305,15 +305,19 @@ Only use if it does NOT affect accessibility
     justify-self: center;
     gap: var(--spacer-medium);
     a {
+      @include apply-external-link-icon($icon: $icon-external-link-on-dark, $position: before);
       color: var(--mt-footer-links-color);
-      text-decoration: var(--mt-footer-color) underline $border-width-regular;
-      &:focus {
-        box-shadow: 0 0 0 0.25rem var(--mt-footer-color);
-      }
+      text-decoration-line: underline;
+      text-decoration-color: var(--mt-footer-color);
+      text-decoration-thickness: $border-width-regular;
+
       &:hover {
         text-decoration-thickness: $border-width-medium;
       }
-      @include apply-external-link-icon($icon: $icon-external-link-on-dark, $position: before);
+
+      &:focus {
+        box-shadow: 0 0 0 0.25rem var(--mt-footer-color);
+      }
     }
   }
 
