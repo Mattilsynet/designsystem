@@ -110,18 +110,6 @@
         {
           title: 'Veiledere',
           url: '#'
-        },
-        {
-          title: 'Varsle oss/bekymringsmelding',
-          url: '#'
-        },
-        {
-          title: 'Rapporter',
-          url: '#'
-        },
-        {
-          title: 'Veiledere',
-          url: '#'
         }
       ]
     },
@@ -163,7 +151,7 @@
           aria-labelledby={titleId}>
           {#each args.items as item}
             <li class="col-4-span-6">
-              <a href={item.url} class="mt-link forward-arrow-small">{item.title}</a>
+              <a href={item.url} class="mt-link forward-arrow">{item.title}</a>
             </li>
           {/each}
         </ol>
@@ -211,7 +199,7 @@
             aria-labelledby={titleId}>
             {#each args.items as item}
               <li>
-                <a href={item.url} class="mt-link forward-arrow-small">{item.title}</a>
+                <a href={item.url} class="mt-link forward-arrow">{item.title}</a>
               </li>
             {/each}
           </ol>

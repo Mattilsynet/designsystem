@@ -36,7 +36,7 @@
               <a
                 href={item.url}
                 rel={item.url === '/dyr' ? 'external' : mapRelExternal(item.url)}
-                class="forward-arrow-small on-primary no-underline hover-indent"
+                class="forward-arrow on-primary no-underline"
                 aria-current={item.isActive ? 'page' : false}>
                 {item.title}
               </a>
@@ -46,7 +46,7 @@
                 <a
                   href={child.url}
                   rel={mapRelExternal(child.url)}
-                  class="forward-arrow-small no-underline hover-indent on-primary small-link"
+                  class="forward-arrow no-underline on-primary small-link"
                   aria-current={child.isActive ? 'page' : false}>
                   {child.title}
                 </a>
@@ -60,7 +60,7 @@
         <a
           href={item.url}
           rel={mapRelExternal(item.url)}
-          class="disclosure-header no-underline hover-indent layout-flex layout-flex--center-vertical layout-full-width on-primary menu-level-1 border-radius-0"
+          class="disclosure-header no-underline layout-flex layout-flex--center-vertical layout-full-width on-primary menu-level-1"
           aria-current={item.isActive ? 'page' : false}>
           {#if item.iconResource}
             {@html item.iconResource}
@@ -78,7 +78,7 @@
         <a
           href={right.url}
           rel={mapRelExternal(right.url)}
-          class="no-underline hover-indent on-primary menu-level-1 p-r-xxs forward-arrow-end border-radius-0 small-link"
+          class="no-underline on-primary menu-level-1 forward-arrow small-link"
           aria-current={right.isActive ? 'page' : false}>
           {right.title}
         </a>
@@ -93,7 +93,7 @@
         <a
           href={bottom.url}
           rel={mapRelExternal(bottom.url)}
-          class="mt-link layout-flex layout-flex--center-vertical on-primary icon--arrow-right-on-primary-after"
+          class="mt-link layout-flex layout-flex--center-vertical on-primary forward-arrow"
           aria-current={bottom.isActive ? 'page' : false}
           style="gap: var(--spacer-xxx-small)">
           {#if bottom.iconResource}
