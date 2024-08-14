@@ -91,7 +91,6 @@ $chapter-button-menu-width: 25%;
 }
 
 .layout-with-sidebar {
-
   .disclosure {
     .disclosure-header,
     .disclosure-panel {
@@ -101,8 +100,15 @@ $chapter-button-menu-width: 25%;
     }
 
     .disclosure-header {
+      grid-template: 'pseudo title';
       > .title {
-        grid-column: 1 / span 11;
+        grid-area: title;
+        grid-column: 2 / span 11;
+      }
+
+      &::before {
+        grid-area: pseudo;
+        grid-column: 1 / span 1;
       }
     }
 
@@ -116,7 +122,6 @@ $chapter-button-menu-width: 25%;
 
 // mobile layout
 .has-js.layout-with-sidebar {
-
   .mt-aside {
     position: sticky;
     top: 0;
@@ -196,10 +201,10 @@ $chapter-button-menu-width: 25%;
 
         .btn-open {
           border: theme.$border-width-large solid transparent;
-            &:focus {
-              border: theme.$border-width-large solid var(--mt-button-no-primary-border-focus-shadow);
-              box-shadow: none;
-            }
+          &:focus {
+            border: theme.$border-width-large solid var(--mt-button-no-primary-border-focus-shadow);
+            box-shadow: none;
+          }
         }
       }
     }
