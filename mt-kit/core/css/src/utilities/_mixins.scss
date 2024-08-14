@@ -271,10 +271,7 @@
       flex-shrink: 0;
 
       @if $position == after {
-        display: inline-flex;
-        align-items: flex-start;
         vertical-align: middle;
-        gap: $spacer-xxx-small;
       }
     }
     @if $position == after {
