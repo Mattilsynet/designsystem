@@ -36,9 +36,11 @@
         <HeadingLevel class="mt-h3 menu-point-heading" headingLevel={+headerTag.charAt(1)}
           >{@html menuPoint.text}</HeadingLevel>
 
-        <p id={toKebabCase(menuPoint.keywords)}>
-          {@html menuPoint.keywords}
-        </p>
+        {#if menuPoint.showKeywords}
+          <p id={toKebabCase(menuPoint.keywords)}>
+            {@html menuPoint.keywords}
+          </p>
+        {/if}
       </a>
     </li>
   {/each}
