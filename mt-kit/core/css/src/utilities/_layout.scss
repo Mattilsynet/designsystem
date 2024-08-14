@@ -265,6 +265,42 @@ Only use if it does NOT affect accessibility
   border-bottom: $border-width-regular solid var(--mt-header-footer-border);
   z-index: var(--z-index-fixed);
   position: relative;
+
+  .dropdown-content {
+    .disclosure-header {
+      @include background-color-on-hover(var(--mt-link-primary-bg));
+      @include background-color-on-active(var(--mt-link-primary-bg-hover));
+      @include apply-icon($icon: $icon-carret-down-primary, $position: after) {
+        margin-left: auto;
+      }
+      &::before {
+        display: none;
+      }
+      &[href] {
+        @include apply-icon($icon: $icon-arrow-right-primary-small, $position: after) {
+          margin-left: auto;
+        }
+        &:hover {
+          text-decoration: none;
+        }
+      }
+      &[aria-expanded='true'] {
+        background-color: var(--disclosure-on-primary-header-expanded);
+        svg {
+          circle {
+            fill: var(--menu-point-svg-circle);
+          }
+        }
+      }
+      &:hover {
+        svg {
+          circle {
+            fill: var(--menu-point-svg-circle);
+          }
+        }
+      }
+    }
+  }
 }
 
 .mt-header-wrapper {

@@ -171,7 +171,8 @@
   }
 
   &.default-dropdown {
-    >.mt-button, .mt-summary {
+    > .mt-button,
+    .mt-summary {
       background-color: var(--color-mt-white);
       padding: var(--spacer-xx-small) var(--spacer-x-small);
       width: 100%;
@@ -186,7 +187,8 @@
       padding: var(--spacer-x-small);
       border-radius: 0 0 var(--border-radius) var(--border-radius);
 
-      .mt-fieldset, .form-control:first-of-type {
+      .mt-fieldset,
+      .form-control:first-of-type {
         margin-top: 0;
       }
 
@@ -241,14 +243,15 @@
   flex-direction: column;
   a {
     @extend .mt-link;
-    text-decoration: none;
     border-bottom: $border-width-regular solid transparent;
     svg {
       height: 1.5rem;
     }
     &:hover,
     &[aria-current='page'] {
-      border-bottom: $border-width-regular solid var(--color-links);
+      text-decoration-line: underline;
+      text-decoration-color: var(--color-links);
+      text-decoration-thickness: $border-width-regular;
     }
   }
   li {
@@ -311,13 +314,14 @@
   --menu-small-link-font-size-mobile: 1.125rem; //18px
   a {
     @extend .mt-link;
-    text-decoration: none;
 
     &.small-link {
       font-size: var(--menu-small-link-font-size-mobile);
     }
     &[aria-current='page'] {
-      border-bottom: $border-width-regular solid var(--color-mt-white);
+      text-decoration-line: underline;
+      text-decoration-color: var(--color-mt-white);
+      text-decoration-thickness: $border-width-regular;
     }
   }
   .sub-menu {
@@ -425,7 +429,7 @@
     right: 0;
     bottom: 0;
     z-index: var(--z-index-dropdown);
-    background: rgba(0,0,0,0);
+    background: rgba(0, 0, 0, 0);
     pointer-events: none;
 
     @media (prefers-reduced-motion: no-preference) {
@@ -434,14 +438,13 @@
   }
 }
 
-
-.mt-header:has(.dropdown > button[aria-expanded="true"]) + .shadow-overlay,
+.mt-header:has(.dropdown > button[aria-expanded='true']) + .shadow-overlay,
 .mt-header:has(.dropdown > details[open]) + .shadow-overlay {
-    &::before {
-      background: rgba(0,0,0,0.2);
+  &::before {
+    background: rgba(0, 0, 0, 0.2);
 
-      @media (prefers-reduced-motion: no-preference) {
-        transition: background $transition-in-overlay-duration $cubic-bezier-easing;
-      }
+    @media (prefers-reduced-motion: no-preference) {
+      transition: background $transition-in-overlay-duration $cubic-bezier-easing;
     }
+  }
 }

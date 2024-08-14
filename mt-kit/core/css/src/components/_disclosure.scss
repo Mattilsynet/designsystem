@@ -139,19 +139,10 @@
         fill: currentColor;
       }
     }
-    [aria-expanded].disclosure-header {
-      &:after {
-        background-image: var(--icon-arrow-down-on-dark);
-      }
-    }
     [aria-expanded='true'].disclosure-header {
       color: var(--color-primary);
-      background-color: var(--disclosure-on-primary-header-expanded);
       font-weight: $font-weight-normal;
 
-      &:after {
-        background-image: var(--icon-arrow-up-on-dark);
-      }
       svg {
         fill: var(--color-primary);
         path {
