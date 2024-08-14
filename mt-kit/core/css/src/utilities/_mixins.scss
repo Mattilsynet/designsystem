@@ -278,7 +278,7 @@
       }
     }
     @if $position == after {
-      display: inline-block;
+      display: inline;
       &::before {
         display: none;
       }
