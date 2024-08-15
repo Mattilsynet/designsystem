@@ -272,6 +272,7 @@
         #{$target-child} {
           @include apply-icon($icon: $icon, $position: $position) {
             vertical-align: middle;
+            margin-left: $spacer-xxx-small;
           }
         }
       }
