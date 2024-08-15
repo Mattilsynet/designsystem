@@ -288,10 +288,6 @@ a {
     }
   }
   &.search-result {
-    ::before,
-    ::after {
-      display: none;
-    }
     @include apply-external-link-icon($position: after, $target-child: 'h2, h3') {
       &::before {
         display: none;
@@ -336,6 +332,11 @@ a {
     }
   }
   &.highlighted-content {
+    @include apply-external-link-icon($position: after, $target-child: 'h2') {
+      &::before {
+        display: none;
+      }
+    }
     --content-margin: 0;
     --content-padding: var(--spacer-xx-small);
     --content-bg: var(--color-mt-white);

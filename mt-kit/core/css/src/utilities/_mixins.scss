@@ -269,7 +269,7 @@
     )) {
     @if $target-child != null {
       @each $target in $target-child {
-        > #{$target-child} {
+        #{$target-child} {
           @include apply-icon($icon: $icon, $position: $position) {
             vertical-align: middle;
           }

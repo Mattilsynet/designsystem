@@ -27,7 +27,8 @@
     <h1 class="mt-h1">Fremhevet innhold med bilde</h1>
     <section class="layout-flex-col">
       <HighlightedContentLink
-        href="https://www.mattilsyent.no"
+        displayType="normal"
+        href="https://www.mattilsynet.no"
         image={{ src: imageFile, alt: 'Her er alt tekst til bildet' }}
         headingClass="mt-h3"
         title="Dette er tittelen"
@@ -39,7 +40,8 @@
     <h2 class="mt-h2">Fremhevet innhold uten bilde</h2>
     <section class="layout-flex-col">
       <HighlightedContentLink
-        href="https://www.mattilsyent.no"
+        displayType="normal"
+        href="https://www.mattilsynet.no"
         headingClass="mt-h3"
         title="Dette er tittelen"
         shortTitle="Dette er kort tittel">
@@ -55,7 +57,24 @@
     <section class="layout-flex-col">
       <HighlightedContentLink
         displayType="cta"
-        href="https://www.mattilsyent.no"
+        href="https://www.mattilsynet.no"
+        image={{ src: imageFile, alt: 'Her er alt tekst til bildet' }}
+        headingClass="mt-h3"
+        title="Dette er tittelen"
+        shortTitle="Dette er kort tittel">
+        {@html text}
+      </HighlightedContentLink>
+    </section>
+  </main>
+</Story>
+<br />
+<Story name="CTA type" let:text let:disableCss let:title let:shortTitle let:date>
+  <main use:wrapInShadowDom={disableCss} class="mt-main container layout-flex-col">
+    <h1 class="mt-h1">Fremhevet innhold CTA type med ekstern lenke</h1>
+    <section class="layout-flex-col">
+      <HighlightedContentLink
+        displayType="cta"
+        href="https://www.nav.no"
         image={{ src: imageFile, alt: 'Her er alt tekst til bildet' }}
         headingClass="mt-h3"
         title="Dette er tittelen"
@@ -73,7 +92,7 @@
     <section class="col-1-span-12 layout-grid layout-grid--column-12 highlighted">
       <HighlightedContentLink
         displayType="campaign"
-        href="https://www.mattilsyent.no"
+        href="https://www.mattilsynet.no"
         class="col-1-span-12 layout-grid layout-grid--column-12"
         image={{ src: imageFile, alt: 'Her er alt tekst til bildet' }}
         headingClass="mt-h3"
