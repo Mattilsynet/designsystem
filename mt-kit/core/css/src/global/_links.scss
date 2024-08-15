@@ -288,6 +288,15 @@ a {
     }
   }
   &.search-result {
+    ::before,
+    ::after {
+      display: none;
+    }
+    @include apply-external-link-icon($position: after, $target-child: 'h2, h3') {
+      &::before {
+        display: none;
+      }
+    }
     color: var(--color-text);
     gap: var(--spacer-xx-small);
     padding: var(--spacer-small) var(--spacer-x-small);

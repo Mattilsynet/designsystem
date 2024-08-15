@@ -249,7 +249,7 @@
   }
 }
 
-@mixin apply-external-link-icon($icon: $icon-external-link, $position) {
+@mixin apply-external-link-icon($icon: $icon-external-link, $position, $target-child: null) {
   $pseudo: before, after;
 
   @if not index($pseudo, $position) {
@@ -267,14 +267,24 @@
     [href*='mattilsynet-xp7qa.enonic.cloud'],
     [href*='mattilsynet-xp7prod.enonic.cloud']
     )) {
-    @include apply-icon($icon: $icon, $position: $position) {
-      flex-shrink: 0;
+    @if $target-child != null {
+      @each $target in $target-child {
+        > #{$target-child} {
+          @include apply-icon($icon: $icon, $position: $position) {
+            vertical-align: middle;
+          }
+        }
+      }
+    } @else {
+      @include apply-icon($icon: $icon, $position: $position) {
+        flex-shrink: 0;
 
-      @if $position == after {
-        vertical-align: middle;
+        @if $position == after {
+          vertical-align: middle;
+        }
       }
     }
-    @if $position == after {
+    @if $position == after and $target-child == null {
       display: inline;
       &::before {
         display: none;
