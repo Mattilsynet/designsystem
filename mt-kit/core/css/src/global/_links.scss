@@ -25,7 +25,7 @@ a {
   text-decoration-color: $color-link-underline;
   text-decoration-thickness: $border-width-regular;
   text-underline-offset: $spacer-xxx-small;
-  text-decoration-skip-ink: auto;
+  text-decoration-skip-ink: none;
 
   &.inline-flex {
     display: inline-flex;
