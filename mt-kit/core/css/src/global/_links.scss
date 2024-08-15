@@ -332,7 +332,7 @@ a {
     }
   }
   &.highlighted-content {
-    @include apply-external-link-icon($position: after, $target-child: 'h2') {
+    @include apply-external-link-icon($position: after, $target-child: 'h2, h3') {
       &::before {
         display: none;
       }
