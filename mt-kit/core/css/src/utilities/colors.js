@@ -233,4 +233,8 @@ module.exports = [
     name: 'mt-havdyp',
     color: '#116E6B',
   },
+  {
+    name: 'mt-brevann',
+    color: '#ABE1CD',
+  },
 ];
