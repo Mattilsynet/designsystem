@@ -21,8 +21,11 @@ a {
   padding: var(--border-width-regular);
   line-height: 1.75rem;
   min-width: $minimum-click-width;
-  text-decoration: $color-link-underline underline $border-width-regular;
+  text-decoration-line: underline;
+  text-decoration-color: $color-link-underline;
+  text-decoration-thickness: $border-width-regular;
   text-underline-offset: $spacer-xxx-small;
+  text-decoration-skip-ink: none;
 
   &.inline-flex {
     display: inline-flex;
@@ -34,6 +37,7 @@ a {
   &:hover {
     text-decoration-thickness: $border-width-medium;
   }
+
   &:focus {
     box-shadow: $focus-box-shadow-no-outline;
   }
