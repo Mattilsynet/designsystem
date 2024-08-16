@@ -373,9 +373,6 @@
       @include apply-icon($icon: $icon-carret-down-primary, $position: after) {
         margin-left: auto;
       }
-      &:hover {
-        //text-decoration: underline;
-      }
       &::before {
         display: none;
       }
