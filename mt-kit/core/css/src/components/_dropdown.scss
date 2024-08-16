@@ -171,7 +171,8 @@
   }
 
   &.default-dropdown {
-    >.mt-button, .mt-summary {
+    > .mt-button,
+    .mt-summary {
       background-color: var(--color-mt-white);
       padding: var(--spacer-xx-small) var(--spacer-x-small);
       width: 100%;
@@ -186,7 +187,8 @@
       padding: var(--spacer-x-small);
       border-radius: 0 0 var(--border-radius) var(--border-radius);
 
-      .mt-fieldset, .form-control:first-of-type {
+      .mt-fieldset,
+      .form-control:first-of-type {
         margin-top: 0;
       }
 
@@ -241,14 +243,14 @@
   flex-direction: column;
   a {
     @extend .mt-link;
-    text-decoration: none;
     border-bottom: $border-width-regular solid transparent;
     svg {
       height: 1.5rem;
     }
-    &:hover,
+
     &[aria-current='page'] {
-      border-bottom: $border-width-regular solid var(--color-links);
+      @include text-decoration-underline;
+      font-weight: var(--font-weight-bold);
     }
   }
   li {
@@ -311,32 +313,15 @@
   --menu-small-link-font-size-mobile: 1.125rem; //18px
   a {
     @extend .mt-link;
-    text-decoration: none;
 
     &.small-link {
       font-size: var(--menu-small-link-font-size-mobile);
     }
     &[aria-current='page'] {
-      border-bottom: $border-width-regular solid var(--color-mt-white);
+      font-weight: var(--font-weight-bold);
     }
   }
-  .sub-menu {
-    .forward-arrow-small {
-      &:after {
-        display: none;
-      }
-    }
-  }
-  > li {
-    > a {
-      padding-left: var(--spacer-xx-small);
-    }
-    > a.hover-indent.menu-level-1 {
-      &:hover {
-        padding-left: var(--spacer-small);
-      }
-    }
-  }
+
   &--right {
     > :first-child {
       border-top: none;
@@ -349,6 +334,14 @@
       margin-top: var(--focus-spacing);
       margin-bottom: var(--focus-spacing);
       padding-top: 0.0625rem; //1px
+      .mt-link {
+        @include text-decoration-hover;
+      }
+      .disclosure-panel {
+        .mt-link {
+          @include text-decoration-underline;
+        }
+      }
     }
     & > li:first-child {
       margin-top: 0;
@@ -375,7 +368,19 @@
   }
   .disclosure-no-border {
     > .disclosure-header {
+      @include text-decoration-hover;
       gap: var(--spacer-xx-small);
+      @include apply-icon($icon: $icon-carret-down-primary, $position: after) {
+        margin-left: auto;
+      }
+      &::before {
+        display: none;
+      }
+      &[href] {
+        @include apply-icon($icon: $icon-arrow-right-primary-small, $position: after) {
+          margin-left: auto;
+        }
+      }
     }
     .disclosure-panel {
       margin: 0 var(--spacer-xxx-small);
@@ -388,18 +393,6 @@
   @media only screen and (min-width: $breakpoint-large) {
     a.small-link {
       font-size: $font-size-body;
-    }
-    .sub-menu {
-      .forward-arrow-small {
-        &:after {
-          display: block;
-        }
-      }
-    }
-    > li {
-      > a {
-        padding-left: 0;
-      }
     }
     .disclosure-no-border {
       .disclosure-panel {
@@ -425,7 +418,7 @@
     right: 0;
     bottom: 0;
     z-index: var(--z-index-dropdown);
-    background: rgba(0,0,0,0);
+    background: rgba(0, 0, 0, 0);
     pointer-events: none;
 
     @media (prefers-reduced-motion: no-preference) {
@@ -434,14 +427,13 @@
   }
 }
 
-
-.mt-header:has(.dropdown > button[aria-expanded="true"]) + .shadow-overlay,
+.mt-header:has(.dropdown > button[aria-expanded='true']) + .shadow-overlay,
 .mt-header:has(.dropdown > details[open]) + .shadow-overlay {
-    &::before {
-      background: rgba(0,0,0,0.2);
+  &::before {
+    background: rgba(0, 0, 0, 0.2);
 
-      @media (prefers-reduced-motion: no-preference) {
-        transition: background $transition-in-overlay-duration $cubic-bezier-easing;
-      }
+    @media (prefers-reduced-motion: no-preference) {
+      transition: background $transition-in-overlay-duration $cubic-bezier-easing;
     }
+  }
 }

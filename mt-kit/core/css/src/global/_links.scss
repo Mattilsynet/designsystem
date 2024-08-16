@@ -16,9 +16,32 @@ a {
   }
 }
 
+@mixin text-decoration-underline() {
+  text-decoration-line: underline;
+  text-decoration-color: $color-link-underline;
+  text-decoration-thickness: $border-width-regular;
+  text-underline-offset: $spacer-xxx-small;
+  text-decoration-skip-ink: none;
+  &:hover {
+    text-decoration-thickness: $border-width-medium;
+  }
+}
+@mixin text-decoration-hover() {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration-line: underline;
+    text-decoration-color: $color-link-underline;
+    text-underline-offset: $spacer-xxx-small;
+    text-decoration-skip-ink: none;
+    text-decoration-thickness: $border-width-medium;
+  }
+}
+
 .mt-link {
   @include focus-outline();
   @include disabled;
+  @include text-decoration-underline;
   $transport-card-list-font-size: $font-size-label;
 
   color: var(--color-links);
@@ -26,21 +49,12 @@ a {
   padding: var(--border-width-regular);
   line-height: 1.75rem;
   min-width: $minimum-click-width;
-  text-decoration-line: underline;
-  text-decoration-color: $color-link-underline;
-  text-decoration-thickness: $border-width-regular;
-  text-underline-offset: $spacer-xxx-small;
-  text-decoration-skip-ink: none;
 
   &.inline-flex {
     display: inline-flex;
   }
   &.fit-content {
     width: fit-content;
-  }
-
-  &:hover {
-    text-decoration-thickness: $border-width-medium;
   }
 
   &:focus {
