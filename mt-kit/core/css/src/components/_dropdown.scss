@@ -394,11 +394,6 @@
     a.small-link {
       font-size: $font-size-body;
     }
-    > li {
-      > a {
-        //padding-left: 0;
-      }
-    }
     .disclosure-no-border {
       .disclosure-panel {
         margin: 0 var(--spacer-medium);
