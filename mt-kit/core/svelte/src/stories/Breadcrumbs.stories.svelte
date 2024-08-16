@@ -11,27 +11,21 @@
       type: 'portal:site'
     },
     {
-      text: 'Varsle',
+      text: 'Planter og dyrking',
       active: false,
-      url: '/site/default/draft/mattilsynet/varsle',
+      url: '/site/default/draft/mattilsynet/planter-og-dyrking/',
       type: 'base:folder'
     },
     {
-      text: 'Dyr',
+      text: 'Plantevernmidler',
       active: false,
-      url: '/site/default/draft/mattilsynet/mat-og-vann/dyr/',
+      url: '/site/default/draft/mattilsynet/planter-og-dyrking/plantevernmidler',
       type: 'no.mattilsynet.app:article'
     },
     {
-      text: 'Mishandling eller vannstell',
+      text: 'Veileder til forskrift om plantevernmidler',
       active: false,
-      url: '/site/default/draft/mattilsynet/mat-og-vann/dyr/mishandling-eller-vanstell',
-      type: 'no.mattilsynet.app:article'
-    },
-    {
-      text: 'Varsel om mishandling eller vannstell',
-      active: false,
-      url: '/site/default/draft/mattilsynet/mat-og-vann/dyr/mishandling-eller-vanstell/varsel-om-mishandling-eller-vannstell',
+      url: '/site/default/draft/mattilsynet/planter-og-dyrking/plantevernmidler/veileder-til-forskrift-om-plantevernmidler',
       type: 'no.mattilsynet.app:article'
     }
   ]
