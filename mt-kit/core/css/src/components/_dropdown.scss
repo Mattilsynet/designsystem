@@ -247,11 +247,10 @@
     svg {
       height: 1.5rem;
     }
-    &:hover,
+
     &[aria-current='page'] {
-      text-decoration-line: underline;
-      text-decoration-color: var(--color-links);
-      text-decoration-thickness: $border-width-regular;
+      @include text-decoration-underline;
+      font-weight: var(--font-weight-bold);
     }
   }
   li {
@@ -319,28 +318,10 @@
       font-size: var(--menu-small-link-font-size-mobile);
     }
     &[aria-current='page'] {
-      text-decoration-line: underline;
-      text-decoration-color: var(--color-mt-white);
-      text-decoration-thickness: $border-width-regular;
+      font-weight: var(--font-weight-bold);
     }
   }
-  .sub-menu {
-    .forward-arrow-small {
-      &:after {
-        display: none;
-      }
-    }
-  }
-  > li {
-    > a {
-      padding-left: var(--spacer-xx-small);
-    }
-    > a.hover-indent.menu-level-1 {
-      &:hover {
-        padding-left: var(--spacer-small);
-      }
-    }
-  }
+
   &--right {
     > :first-child {
       border-top: none;
@@ -353,6 +334,14 @@
       margin-top: var(--focus-spacing);
       margin-bottom: var(--focus-spacing);
       padding-top: 0.0625rem; //1px
+      .mt-link {
+        @include text-decoration-hover;
+      }
+      .disclosure-panel {
+        .mt-link {
+          @include text-decoration-underline;
+        }
+      }
     }
     & > li:first-child {
       margin-top: 0;
@@ -379,7 +368,22 @@
   }
   .disclosure-no-border {
     > .disclosure-header {
+      @include text-decoration-hover;
       gap: var(--spacer-xx-small);
+      @include apply-icon($icon: $icon-carret-down-primary, $position: after) {
+        margin-left: auto;
+      }
+      &:hover {
+        //text-decoration: underline;
+      }
+      &::before {
+        display: none;
+      }
+      &[href] {
+        @include apply-icon($icon: $icon-arrow-right-primary-small, $position: after) {
+          margin-left: auto;
+        }
+      }
     }
     .disclosure-panel {
       margin: 0 var(--spacer-xxx-small);
@@ -393,16 +397,9 @@
     a.small-link {
       font-size: $font-size-body;
     }
-    .sub-menu {
-      .forward-arrow-small {
-        &:after {
-          display: block;
-        }
-      }
-    }
     > li {
       > a {
-        padding-left: 0;
+        //padding-left: 0;
       }
     }
     .disclosure-no-border {

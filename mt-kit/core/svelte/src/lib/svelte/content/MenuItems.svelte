@@ -36,7 +36,7 @@
               <a
                 href={item.url}
                 rel={item.url === '/dyr' ? 'external' : mapRelExternal(item.url)}
-                class="forward-arrow"
+                class="mt-link forward-arrow"
                 aria-current={item.isActive ? 'page' : false}>
                 {item.title}
               </a>
@@ -46,7 +46,7 @@
                 <a
                   href={child.url}
                   rel={mapRelExternal(child.url)}
-                  class="forward-arrow small-link"
+                  class="mt-link forward-arrow small-link"
                   aria-current={child.isActive ? 'page' : false}>
                   {child.title}
                 </a>
@@ -60,7 +60,7 @@
         <a
           href={item.url}
           rel={mapRelExternal(item.url)}
-          class="disclosure-header no-underline layout-flex layout-flex--center-vertical layout-full-width menu-level-1"
+          class="disclosure-header layout-flex layout-flex--center-vertical layout-full-width menu-level-1"
           aria-current={item.isActive ? 'page' : false}>
           {#if item.iconResource}
             {@html item.iconResource}
@@ -78,7 +78,7 @@
         <a
           href={right.url}
           rel={mapRelExternal(right.url)}
-          class="on-primary menu-level-1 link--transport link--transport--secondary-large"
+          class="mt-link on-primary menu-level-1 forward-arrow"
           aria-current={right.isActive ? 'page' : false}>
           {right.title}
         </a>
