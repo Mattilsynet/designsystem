@@ -65,7 +65,7 @@
     ],
     searchResult: [
       {
-        url: 'https://www.adsd.no',
+        url: 'https://www.mattilsynet.no',
         title: 'Dyr',
         text: 'Temaside dyr.',
         breadcrumbs: []
@@ -74,6 +74,12 @@
         url: 'https://www.mattilsynet.no',
         title: 'En side uten ingress',
         text: undefined,
+        breadcrumbs: []
+      },
+      {
+        url: 'https://www.nav.no',
+        title: 'Ekstern lenke til Nav (nav.no)',
+        text: 'Når innholdet lenker til eksterne sider skal den ha ekstern lenke ikon',
         breadcrumbs: []
       },
       {
