@@ -29,7 +29,8 @@ describe('Menu points with icons', () => {
         {
           iconResource: undefined,
           icon: 'icon src',
-          keywords: ''
+          keywords: '',
+          text: ''
         }
       ]
     }
