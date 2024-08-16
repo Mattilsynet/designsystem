@@ -65,7 +65,7 @@
     ],
     searchResult: [
       {
-        url: 'https://www.mattilsynet.no',
+        url: 'https://www.adsd.no',
         title: 'Dyr',
         text: 'Temaside dyr.',
         breadcrumbs: []

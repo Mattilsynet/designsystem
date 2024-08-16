@@ -251,22 +251,13 @@
 
 @mixin apply-external-link-icon($icon: $icon-external-link, $position, $target-child: null) {
   $pseudo: before, after;
+  $margin-side: if($position == after, left, right);
 
   @if not index($pseudo, $position) {
     @error "Unknown position of value '#{$position}' at $position. $position can only be of value before or after";
   }
 
   &[href]:not(:where(
-    [href^='0'],
-    [href^='1'],
-    [href^='2'],
-    [href^='3'],
-    [href^='4'],
-    [href^='5'],
-    [href^='6'],
-    [href^='7'],
-    [href^='8'],
-    [href^='9'],
     [href^='#'],
     [href^='?'],
     [href^='..'],
@@ -282,7 +273,7 @@
         #{$target-child} {
           @include apply-icon($icon: $icon, $position: $position) {
             vertical-align: middle;
-            margin-left: $spacer-xxx-small;
+            margin-#{$margin-side}: $spacer-xxx-small;
           }
         }
       }
