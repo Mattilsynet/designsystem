@@ -18,38 +18,38 @@
     menuPoints: [
       {
         text: 'Dyr',
-        url: '',
+        url: '#',
         keywords: 'Kjæledyr, produksjonsdyr, dyr som lider og dyresykdommer',
         iconResource: animalSvg
       },
       {
         text: 'Fisk og akvakultur',
-        url: '',
+        url: '#',
         keywords: 'Oppdrettsanlegg, arter, fiske og -skjellsykdommer, animaliebiprodukter ',
         icon: imageFile,
         iconResource: undefined
       },
       {
         text: 'Mat',
-        url: '',
+        url: '#',
         keywords: 'Merking, produksjon, smitte, matservering, import og eksport',
         iconResource: foodSvg
       },
       {
         text: 'Planter og dyrking',
-        url: '',
+        url: '#',
         keywords: 'Produksjon og salg, import og eksport, genmodifisering',
         iconResource: plantSvg
       },
       {
         text: 'Produksjon av fisk og sjømat',
-        url: '',
+        url: '#',
         keywords: 'Beredskap, tilsyn, nasjonale mål, registrering og plangodkjenning',
         iconResource: waterSvg
       },
       {
         text: 'Kosmetikk',
-        url: '',
+        url: '#',
         keywords: 'Stoffer i kosmetikk, bivirkninger, dyretesting, tatovering',
         iconResource: cosmeticSvg
       }

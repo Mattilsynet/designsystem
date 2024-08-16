@@ -9,6 +9,11 @@ $transportlink-colors: 'error' !default;
 
 a {
   @include apply-external-link-icon($position: before);
+
+  li &,
+  p & {
+    @include apply-external-link-icon($position: after);
+  }
 }
 
 .mt-link {
@@ -105,6 +110,7 @@ a {
     @include apply-icon($icon: $icon-arrow-right-primary-small, $position: before) {
       flex-shrink: 0;
     }
+    @include apply-external-link-icon($icon: $icon-external-link, $position: before);
     display: flex;
     align-items: flex-start;
     gap: var(--icon-gap);
@@ -217,6 +223,7 @@ a {
   &.top-task {
     @include background-color-on-hover(var(--color-mt-green-300));
     @include background-color-on-active(var(--color-mt-green-400));
+
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -282,6 +289,11 @@ a {
     }
   }
   &.search-result {
+    @include apply-external-link-icon($position: after, $target-child: 'h2, h3') {
+      &::before {
+        display: none;
+      }
+    }
     color: var(--color-text);
     gap: var(--spacer-xx-small);
     padding: var(--spacer-small) var(--spacer-x-small);
