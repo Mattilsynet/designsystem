@@ -27,13 +27,19 @@
       a {
         @extend .mt-link;
         word-break: normal;
+
+        &.forward-caret {
+          display: inline;
+          &::before {
+            vertical-align: middle;
+          }
+        }
       }
       &:first-child {
         a {
           @include apply-icon($icon: $icon-carret-right-small, $position: before);
-          display: inline-flex;
-          align-items: center;
           gap: var(--spacer-xx-small);
+          display: inline;
         }
       }
       &:nth-last-child(2) {
@@ -73,16 +79,14 @@
         }
         .last-breadcrumb {
           @include apply-icon($icon: $icon-carret-right-small, $position: before) {
-            flex-shrink: 0;
+            vertical-align: middle;
           }
-          display: flex;
-          align-items: center;
-          gap: var(--spacer-xxx-small);
+          display: inline;
         }
       }
     }
     &.expanded {
-      display: inline-flex;
+      flex-wrap: wrap;
     }
   }
 }
