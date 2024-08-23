@@ -235,6 +235,11 @@ a {
     }
   }
   &.top-task {
+    @include apply-external-link-icon($position: after, $target-child: 'h2, h3') {
+      &::before {
+        display: none;
+      }
+    }
     @include background-color-on-hover(var(--color-mt-green-300));
     @include background-color-on-active(var(--color-mt-green-400));
 
