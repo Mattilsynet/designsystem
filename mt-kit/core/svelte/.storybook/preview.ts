@@ -11,7 +11,9 @@ const preview: Preview = {
         date: /Date$/
       }
     }
-  }
+  },
+
+  tags: ['autodocs']
 }
 
 export default preview

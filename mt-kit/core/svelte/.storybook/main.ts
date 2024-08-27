@@ -6,14 +6,13 @@ const config: StorybookConfig = {
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
     '@storybook/addon-svelte-csf',
-    '@storybook/addon-a11y'
+    '@storybook/addon-a11y',
+    '@chromatic-com/storybook'
   ],
   framework: {
     name: '@storybook/sveltekit',
     options: {}
   },
-  docs: {
-    autodocs: true,
-  }
+  docs: {}
 }
 export default config
