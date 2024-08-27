@@ -4,6 +4,7 @@ import MenuItems from './MenuItems.svelte'
 describe('Related links list', () => {
   const componentOptions = {
     title: 'Main heading',
+    loadJs: true,
     itemsLeft: [
       {
         title: 'Menu item 1',
@@ -135,8 +136,8 @@ describe('Related links list', () => {
 
     await rerender(componentOptions)
 
-    const menuItem1 = getByText('Menu item 1')
-    await fireEvent.click(menuItem1)
+    const menuItem1 = getAllByText('Menu item 1')
+    await fireEvent.click(menuItem1[0])
     const notActiveAnymore = getByText('Child item 1.2')
     expect(notActiveAnymore).toBeInTheDocument()
     expect(notActiveAnymore.getAttribute('aria-current')).toEqual('false')
@@ -149,9 +150,9 @@ describe('Related links list', () => {
 
     await rerender(componentOptions)
 
-    const notActiveMenu1 = getByText('Menu item 1')
-    expect(notActiveMenu1).toBeInTheDocument()
-    await fireEvent.click(notActiveMenu1)
+    const notActiveMenu1 = getAllByText('Menu item 1')
+    expect(notActiveMenu1[0]).toBeInTheDocument()
+    await fireEvent.click(notActiveMenu1[0])
     const menuOneLinks = getAllByText('Menu item 1')
     expect(menuOneLinks[2].getAttribute('aria-current')).toEqual('false')
 
