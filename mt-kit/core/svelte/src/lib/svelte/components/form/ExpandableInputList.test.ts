@@ -107,6 +107,7 @@ describe('ExpandableInputList', () => {
     })
     expect(getByText('Vis flere dyr')).toBeInTheDocument()
   })
+
   test('Show error, optional text', async () => {
     const renderResult = render(ExpandableInputList, {
       ...componentOptions,
@@ -116,11 +117,11 @@ describe('ExpandableInputList', () => {
     const { getByText, rerender, queryByText, getAllByText } = renderResult
     expect(getByText('Det er en feil i skjema')).toBeInTheDocument()
     expect(getAllByText(/Valgfritt/i).length).toEqual(2)
-    rerender(componentOptions)
+    await rerender(componentOptions)
     expect(queryByText('Det er en feil i skjema')).not.toBeInTheDocument()
     inputList[0].error = { key: 'dogs', message: 'Feil på hund input' }
     inputList[5].error = { key: 'bird', message: 'Feil på fugl input' }
-    rerender({ ...componentOptions, inputList: inputList })
+    await rerender({ ...componentOptions, inputList: inputList })
     await fireEvent.click(getByText('Vis flere dyr'))
     testByText(['Feil på hund input', 'Feil på fugl input'], renderResult, true)
   })
@@ -136,7 +137,7 @@ describe('ExpandableInputList', () => {
     expect(showMoreButton).toBeInTheDocument()
     testByLabelList([/hund/i, /katt/i, /fugl/i, /ilder/i, /gnager/i, /kanin/i], renderResult, true)
     inputList[0].error = { key: 'dogs', message: 'Feil på hund input' }
-    rerender({ ...componentOptions, inputList: inputList })
+    await rerender({ ...componentOptions, inputList: inputList })
     testByText(['Feil på hund input'], renderResult, true)
   })
 })

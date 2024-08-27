@@ -4,6 +4,7 @@ import MenuItems from './MenuItems.svelte'
 describe('Related links list', () => {
   const componentOptions = {
     title: 'Main heading',
+    loadJs: true,
     itemsLeft: [
       {
         title: 'Menu item 1',
@@ -133,10 +134,10 @@ describe('Related links list', () => {
     componentOptions.itemsLeft[0].isActive = true
     componentOptions.itemsLeft[0].children[1].isActive = false
 
-    rerender(componentOptions)
+    await rerender(componentOptions)
 
-    const menuItem1 = getByText('Menu item 1')
-    await fireEvent.click(menuItem1)
+    const menuItem1 = getAllByText('Menu item 1')
+    await fireEvent.click(menuItem1[0])
     const notActiveAnymore = getByText('Child item 1.2')
     expect(notActiveAnymore).toBeInTheDocument()
     expect(notActiveAnymore.getAttribute('aria-current')).toEqual('false')
@@ -147,11 +148,11 @@ describe('Related links list', () => {
     componentOptions.itemsLeft[0].isActive = false
     componentOptions.itemsRight[1].isActive = true
 
-    rerender(componentOptions)
+    await rerender(componentOptions)
 
-    const notActiveMenu1 = getByText('Menu item 1')
-    expect(notActiveMenu1).toBeInTheDocument()
-    await fireEvent.click(notActiveMenu1)
+    const notActiveMenu1 = getAllByText('Menu item 1')
+    expect(notActiveMenu1[0]).toBeInTheDocument()
+    await fireEvent.click(notActiveMenu1[0])
     const menuOneLinks = getAllByText('Menu item 1')
     expect(menuOneLinks[2].getAttribute('aria-current')).toEqual('false')
 
@@ -161,7 +162,7 @@ describe('Related links list', () => {
     componentOptions.itemsRight[1].isActive = false
     componentOptions.itemsBottom[0].isActive = true
 
-    rerender(componentOptions)
+    await rerender(componentOptions)
 
     const notActiveMenuRight2 = getByText('Right Menu item 2')
     expect(notActiveMenuRight2.getAttribute('aria-current')).toEqual('false')
