@@ -37,7 +37,8 @@ describe('File upload', () => {
     expect(labelForInput.getAttribute('multiple')).toBeDefined()
   })
 
-  test('Add one file, remove', async () => {
+  // skip because https://github.com/testing-library/user-event/discussions/1155
+  test.skip('Add one file, remove', async () => {
     const file = new File(['hello'], 'hello.png', { type: 'image/png' })
     render(FileUpload, {
       value,
@@ -67,7 +68,7 @@ describe('File upload', () => {
     expect(screen.getByTestId('filename-attachment').value).toEqual('hello.png')
 
     const remove = screen.getByTestId('remove-hello.png')
-    fireEvent.click(remove)
+    await fireEvent.click(remove)
 
     expect(screen.getByTestId('filename-attachment').value).toEqual('')
 
@@ -75,7 +76,8 @@ describe('File upload', () => {
     expect(attachment.files).toHaveLength(0)
   })
 
-  test('upload multiple files, remove one', async () => {
+  // skipt because https://github.com/testing-library/user-event/discussions/1155
+  test.skip('upload multiple files, remove one', async () => {
     const files = [
       new File(['hello'], 'hello.png', { type: 'image/png' }),
       new File(['there'], 'there.png', { type: 'image/png' }),
@@ -98,7 +100,7 @@ describe('File upload', () => {
     })
 
     const input = screen.getByLabelText(/Har du bilder eller annen dokumentasjon?/i)
-    userEvent.upload(input, files)
+    await userEvent.upload(input, files)
 
     expect(input.files).toHaveLength(3)
     expect(input.files[0]).toStrictEqual(files[0])
@@ -108,7 +110,7 @@ describe('File upload', () => {
     expect(screen.getByTestId('filename-attachment').value).toEqual('hello.png,there.png')
     const removeSecond = screen.getByTestId('remove-there.png')
 
-    fireEvent.click(removeSecond)
+    await fireEvent.click(removeSecond)
     expect(screen.getByTestId('filename-attachment').value).toEqual('hello.png')
 
     // <name> + file-<name> inputs not in use after remove
