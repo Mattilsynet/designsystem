@@ -1,4 +1,4 @@
-import { render } from '@testing-library/svelte'
+import { fireEvent, render } from '@testing-library/svelte'
 import Checkbox from './Checkbox.svelte'
 
 describe('Checkbox', () => {
@@ -16,8 +16,9 @@ describe('Checkbox', () => {
       errorMessage: 'Error'
     }
   }
-  test('Renders', () => {
-    const { getByLabelText, getByText, getByRole } = render(Checkbox, {
+  test('Renders', async () => {
+    const onChangeSpy = vi.fn()
+    const { getByLabelText, getByText, getByRole, component } = render(Checkbox, {
       value,
       error,
       name,
@@ -26,12 +27,17 @@ describe('Checkbox', () => {
       options,
       isRequired: !!properties.validationRequired
     })
+    component.$on('onChange', onChangeSpy)
     expect(getByText(helpText)).toBeInTheDocument()
     expect(getByLabelText(options[0].text)).toBeInTheDocument()
     expect(getByLabelText(options[1].text)).toBeInTheDocument()
     const fieldSet = getByRole('checkbox', { name: 'Ja' })
+    expect(fieldSet).not.toBeChecked()
     expect(fieldSet?.getAttribute('aria-required')).toEqual('true')
     expect(fieldSet?.getAttribute('aria-describedby')).toEqual('name-hint')
+    await fireEvent.click(fieldSet)
+    expect(fieldSet).toBeChecked()
+    expect(onChangeSpy).toHaveBeenCalledTimes(1)
   })
 
   test('Renders optional in label if not required', () => {
@@ -75,7 +81,7 @@ describe('Checkbox', () => {
     expect(fieldSet.getAttribute('aria-describedby')).toBeNull()
   })
 
-  test('Renders preselected', async () => {
+  test('Renders preselected - uncheck', async () => {
     const { getByRole } = render(Checkbox, {
       value: ['yes'],
       error: undefined,
@@ -86,5 +92,7 @@ describe('Checkbox', () => {
     })
     const fieldSet = getByRole('checkbox', { name: 'Ja' })
     expect(fieldSet).toBeChecked()
+    await fireEvent.click(fieldSet)
+    expect(fieldSet).not.toBeChecked()
   })
 })

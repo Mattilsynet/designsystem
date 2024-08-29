@@ -132,6 +132,9 @@ export interface CountCharsParams {
 export interface CloseDialogEvent {
   shouldReappear: boolean
 }
+export interface CustomCheckedEvent {
+  event: Event
+}
 
 export type Status = 'info' | 'neutral' | 'success' | 'warning' | 'danger'
 

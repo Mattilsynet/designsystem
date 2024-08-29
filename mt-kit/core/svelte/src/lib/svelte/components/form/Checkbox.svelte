@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { beforeUpdate } from 'svelte'
+  import { beforeUpdate, createEventDispatcher } from 'svelte'
   import InputError from './InputErrorMessage.svelte'
-  import { createInputAriaDescribedby, toKebabCase } from '../../../ts/utils'
-  import type { ErrorDetail } from '../../../ts/types'
+  import { createInputAriaDescribedby, forceArray, toKebabCase } from '../../../ts/utils'
+  import type { CustomCheckedEvent, ErrorDetail } from '../../../ts/types'
 
-  export let value: Array<{ value: string; text: string }> = []
+  export let value: Array<string> | undefined
   export let name: string
   export let label: string
   export let error: ErrorDetail | undefined
@@ -13,7 +13,6 @@
   export let isRequired: boolean | undefined = undefined
   export let textOptional = 'Valgfitt'
   export let hiddenErrorText: string | undefined
-  export let onChange = (): void => {}
 
   export let theme: 'checkbox' | 'button' = 'checkbox'
   let className = ''
@@ -21,14 +20,27 @@
   export let legendClass = ''
   let isInitialized = false
 
+  const dispatch = createEventDispatcher<CustomEvent<CustomCheckedEvent>>()
+
   beforeUpdate(() => {
-    if (value?.length === 0 && !isInitialized && document) {
+    if (forceArray(value).length === 0 && !isInitialized && document) {
       value = Array.from(document?.querySelectorAll(`input[name="${name}"]:checked`)).map(item => {
         return item.value
       })
       isInitialized = true
     }
   })
+
+  function onChange(e: Event): void {
+    dispatch('onChange', { event: e })
+    const { checked } = e.target
+    const inputValue = e.target.value
+    if (checked) {
+      value = [...forceArray(value), inputValue]
+    } else {
+      value = forceArray(value).filter(item => item !== inputValue)
+    }
+  }
 </script>
 
 <fieldset
@@ -64,9 +76,9 @@
         class="mt-input input__control"
         class:error
         value={checkbox.value}
-        bind:group={value}
-        aria-required={isRequired}
+        checked={forceArray(value).includes(checkbox.value)}
         on:change={onChange}
+        aria-required={isRequired}
         aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)} />
       <label
         class="mt-label {theme === 'button' ? 'mt-button mt-button--secondary' : ''}"
