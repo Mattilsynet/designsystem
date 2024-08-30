@@ -5,6 +5,10 @@
 
   const name = 'checkbox'
   let buttonCheckboxValue = []
+
+  function handleOnChange(event) {
+    console.log(event.detail)
+  }
 </script>
 
 <Meta
@@ -64,7 +68,14 @@
     <h1 class="mt-h1">Checkbox</h1>
     <h2 id="theme" class="mt-h2">Theme - checkbox</h2>
     <form class="mt-form">
-      <Checkbox {name} {label} {helpText} {options} {isRequired} {textOptional} />
+      <Checkbox
+        {name}
+        {label}
+        {helpText}
+        {options}
+        {isRequired}
+        {textOptional}
+        on:onChange={handleOnChange} />
     </form>
     <h2 id="theme" class="mt-h2">Theme - button</h2>
     <form action="" class="mt-form form-layout">
