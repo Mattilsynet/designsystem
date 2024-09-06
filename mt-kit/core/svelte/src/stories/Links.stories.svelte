@@ -27,6 +27,7 @@
     cards: [
       { href: '#', text: 'Dyr og dyrehold' },
       { href: '#', text: 'Mat og vann' },
+      { href: 'https://www.nav.no', text: 'Lenke til nav' },
       { href: '#', text: 'Fisk og akvakultur' },
       { href: '#', text: 'Planter og dyrking' },
       { href: '#', text: 'Kosmetikk' },
