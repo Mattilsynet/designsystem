@@ -539,8 +539,8 @@ a {
 
 .link-group {
   .mt-link {
-    @include apply-external-link-icon($position: after) {
-      &::before {
+    @include apply-external-link-icon($position: before) {
+      &::after {
         display: none;
       }
     }
