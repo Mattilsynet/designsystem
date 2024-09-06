@@ -536,3 +536,13 @@ a {
     }
   }
 }
+
+.link-group {
+  .mt-link {
+    @include apply-external-link-icon($position: after) {
+      &::before {
+        display: none;
+      }
+    }
+  }
+}
