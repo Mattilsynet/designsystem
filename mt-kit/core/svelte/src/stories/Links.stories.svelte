@@ -287,17 +287,31 @@
       <h2 class="mt-h2 col-1-span-12">Lenker brukt i lister</h2>
       <ul class="mt-ul col-1-span-12">
         <li>
-          Dette er en intern lenke til <Link linkText="Dyresykdommer" href="/dyr/dyresykdommer" />.
+          <Link linkText="Kun lenke uten paragraf" href="/dyr/dyresykdommer" />.
         </li>
         <li>
-          Denne går til tolletaten <Link
-            linkText="Regler for fortolling (toll.no)"
-            href="https://www.toll.no" />. Her kan du lese mer om regler ved fortolling av varer.
+          <p>
+            Dette er en intern lenke til <Link
+              linkText="Dyresykdommer"
+              href="/dyr/dyresykdommer" />.
+          </p>
         </li>
         <li>
-          Denne går også ut av mattilsynets domene og skal ha ikon på sin høyre side <Link
-            linkText="Tilgjengelegheitserklæring (uustatus.no)"
-            href="https://www.uustatus.no" />
+          <Link linkText="Ekstern lenke alene" href="https://www.toll.no" />
+        </li>
+        <li>
+          <p>
+            Denne går til tolletaten <Link
+              linkText="Regler for fortolling (toll.no)"
+              href="https://www.toll.no" />. Her kan du lese mer om regler ved fortolling av varer.
+          </p>
+        </li>
+        <li>
+          <p>
+            Denne går også ut av mattilsynets domene og skal ha ikon på sin høyre side <Link
+              linkText="Tilgjengelegheitserklæring (uustatus.no)"
+              href="https://www.uustatus.no" />
+          </p>
         </li>
       </ul>
     </section>
