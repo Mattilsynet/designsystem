@@ -41,6 +41,11 @@
         url: '#',
         title: 'Kritikkverdige forhold på arbeids&shy;plassen',
         intro: 'Dette er innholdsteksten kritikkverdige forhold på arbeidsplassen'
+      },
+      {
+        url: 'https://www.barentswatch.no/fiskehelse',
+        title: 'Restriksjoner for ILA',
+        intro: 'Lenkes til utenfor Mattilsynet'
       }
     ],
     disabled: false,
