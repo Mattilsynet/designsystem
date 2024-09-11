@@ -269,6 +269,9 @@
     [href*='mattilsynet-xp7prod.enonic.cloud']
     )) {
     @if $target-child != null {
+      &::before {
+        display: none;
+      }
       @each $target in $target-child {
         #{$target-child} {
           @include apply-icon($icon: $icon, $position: $position) {
