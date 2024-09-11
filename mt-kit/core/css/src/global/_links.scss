@@ -527,3 +527,12 @@ a {
     }
   }
 }
+
+.lovdata-wrapper {
+  p,
+  article {
+    .mt-link {
+      @include apply-external-link-icon($position: after);
+    }
+  }
+}
