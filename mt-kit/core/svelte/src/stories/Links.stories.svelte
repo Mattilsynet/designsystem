@@ -33,6 +33,10 @@
       {
         href: '#',
         text: 'Kritikk&shy;verdige forhold på arbeids&shy;plassen hvor lenken går over flere linjer'
+      },
+      {
+        href: 'www.barentswatch.no',
+        text: 'Ekstern lenke'
       }
     ],
 
@@ -365,19 +369,16 @@
     <h1 class="mt-h1">Dokumentlenker</h1>
     <ul class="mt-ul m-t-xxs layout-grid list-unstyled">
       <li>
-        <Link href={cards[3].href} class="pdf forward-arrow-end-link" linkText={cards[3].text} />
+        <Link href={cards[3].href} class="pdf" linkText={cards[3].text} />
       </li>
       <li>
-        <Link
-          href={cards[6].href}
-          class="document forward-arrow-end-link"
-          linkText={cards[6].text} />
+        <Link href={cards[6].href} class="document" linkText={cards[6].text} />
       </li>
       <li>
-        <Link
-          href={cards[2].href}
-          class="pdf forward-arrow-end-link"
-          linkText="Rapport fisk og bifangst 2023 (pdf)" />
+        <Link href={cards[2].href} class="pdf" linkText="Rapport fisk og bifangst 2023 (pdf)" />
+      </li>
+      <li>
+        <Link href={cards[7].href} class="pdf" linkText={cards[7].text} />
       </li>
     </ul>
   </div>
