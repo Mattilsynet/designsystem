@@ -37,6 +37,13 @@
 
     padding: 0 0 var(--spacer-x-small) 0;
 
+    .mt-link {
+      @include apply-external-link-icon($position: before) {
+        display: flex;
+        width: fit-content;
+      }
+    }
+
     > h3 {
       margin-top: var(--space-content);
     }
