@@ -1,7 +1,6 @@
 <script lang="ts">
   import { Meta, Story } from '@storybook/addon-svelte-csf'
   import Link from '../lib/svelte/components/Link.svelte'
-  import ChapterNavigation from '../lib/svelte/components/ChapterNavigation.svelte'
   import { wrapInShadowDom } from './storybook-utils/utils'
   import SearchResult from '../lib/svelte/components/SearchResult.svelte'
 
@@ -128,7 +127,7 @@
     </article>
     <article>
       <h2 class="mt-h2">Lenke i paragraf over flere linjer:</h2>
-      <p class="multi-line-paragraph text">
+      <p class="text">
         Hvis du har spørsmål, ta kontakt med <Link
           href="/mattilsynet/mat/drikkevann"
           class=""
@@ -199,72 +198,48 @@
 <Story name="Eksternlenke regel" let:disableCss let:args let:disabled>
   <div use:wrapInShadowDom={disableCss}>
     <h1 class="mt-h1">Eksterne lenker</h1>
-    <section class="layout-grid layout-grid--column-12 m-t-xs space-y-children--xx-small">
-      <p class="text col-1-span-6">
+    <section class="link--button-wrapper m-t-xs space-y-children--xxx-small">
+      <p class="text">
         Alle lenker som går ut av mattilsynet skal ha et eksternt lenke ikon. Det gjelder interne
         lenker, lenker til innhold på samme side, relative også de som lenker til Mattilsynets CMS
         (XP) i QA og i Prod
       </p>
+      <Link linkText="#innhold-paa-samme-side" href="#innhold-paa-samme-side" />
+      <Link linkText="/relativ/lenke/side" href="/relativ/lenke/side" />
+      <Link linkText="../lenke/tilbake" href="../lenke/tilbake" />
+      <Link linkText="?animal=katt" href="?animal=katt" />
+      <Link linkText="mailto:postmottak@mattilsynet.no" href="mailto:postmottak@mattilsynet.no" />
+      <Link linkText="tel:22400000" href="tel:22400000" />
       <Link
-        class="col-1-span-12"
-        linkText="#innhold-paa-samme-side"
-        href="#innhold-paa-samme-side" />
-      <Link class="col-1-span-12" linkText="/relativ/lenke/side" href="/relativ/lenke/side" />
-      <Link class="col-1-span-12" linkText="../lenke/tilbake" href="../lenke/tilbake" />
-      <Link class="col-1-span-12" linkText="?animal=katt" href="?animal=katt" />
-      <Link
-        class="col-1-span-12"
-        linkText="mailto:postmottak@mattilsynet.no"
-        href="mailto:postmottak@mattilsynet.no" />
-      <Link class="col-1-span-12" linkText="tel:22400000" href="tel:22400000" />
-      <Link
-        class="col-1-span-12"
         linkText="https://www.mattilsynet-xp7qa.enonic.cloud/"
         href="https://www.mattilsynet-xp7qa.enonic.cloud/" />
       <Link
-        class="col-1-span-12"
         linkText="https://www.mattilsynet-xp7prod.enonic.cloud/"
         href="https://www.mattilsynet-xp7prod.enonic.cloud/" />
       <Link
-        class="col-1-span-12"
         linkText="https://www.mattilsynet.no/dyr/velferd"
         href="https://www.mattilsynet.no/dyr/velferd" />
       <Link
-        class="col-1-span-12"
         linkText="http://www.mattilsynet.no/dyr/velferd"
         href="http://www.mattilsynet.no/dyr/velferd" />
-      <Link
-        class="col-1-span-12"
-        linkText="//www.mattilsynet.no/dyr/velferd"
-        href="//www.mattilsynet.no/dyr/velferd" />
-      <Link
-        class="col-1-span-12"
-        linkText="www.mattilsynet.no/dyr/velferd"
-        href="www.mattilsynet.no/dyr/velferd" />
-      <Link
-        class="col-1-span-12"
-        linkText="www.hoering.mattilsynet.no"
-        href="www.hoering.mattilsynet.no" />
-
-      <h2 class="mt-h2 col-1-span-12">Lenker som går utenfor mattilsynet.no</h2>
-      <Link class="col-1-span-12 forward-arrow" linkText="www.nav.no" href="www.nav.no" />
-      <Link class="col-1-span-12" linkText="nav.no" href="nav.no" />
-      <Link class="col-1-span-12" linkText="//nav.no" href="//nav.no" />
-      <Link class="col-1-span-12" linkText="https://www.nav.no" href="https://www.nav.no" />
-      <Link class="col-1-span-12" linkText="http://www.nav.no" href="http://www.nav.no" />
-      <Link
-        class="col-1-span-12"
-        linkText="http://www.nav.no/mattilsynet"
-        href="http://www.nav.no/mattilsynet" />
+      <Link linkText="//www.mattilsynet.no/dyr/velferd" href="//www.mattilsynet.no/dyr/velferd" />
+      <Link linkText="www.mattilsynet.no/dyr/velferd" href="www.mattilsynet.no/dyr/velferd" />
+      <Link linkText="www.hoering.mattilsynet.no" href="www.hoering.mattilsynet.no" />
       <br />
-      <p class="text col-1-span-12 multi-line-paragraph">
+      <h2 class="mt-h2">Lenker som går utenfor mattilsynet.no</h2>
+      <Link class="forward-arrow" linkText="www.nav.no" href="www.nav.no" />
+      <Link linkText="nav.no" href="nav.no" />
+      <Link linkText="//nav.no" href="//nav.no" />
+      <Link linkText="https://www.nav.no" href="https://www.nav.no" />
+      <Link linkText="http://www.nav.no" href="http://www.nav.no" />
+      <Link linkText="http://www.nav.no/mattilsynet" href="http://www.nav.no/mattilsynet" />
+      <p class="text">
         Ekstern lenke i løpende tekst har ikonet på høyre side
         <Link linkText="www.nav.no" href="www.nav.no" />. Det er for å beholde den naturlige flyten
         i teksten, slik at den er lettere å lese.
       </p>
-      <br />
-      <h2 class="mt-h2 col-1-span-12">Med lang lenketekst i tekst</h2>
-      <p class="text col-1-span-12">
+      <h2 class="mt-h2">Med lang lenketekst i tekst</h2>
+      <p class="text">
         Hvis du har kjøpt eller fått dyrene i utlandet, og dyrene er verdt mer enn grensen for toll-
         og avgiftsfri kvote, må du betale merverdiavgift. Da må du gå på rød sone i tollen, selv om
         du oppfyller alle punktene over. <Link
@@ -273,8 +248,8 @@
           href="https://www.toll.no" />
       </p>
       <br />
-      <h2 class="mt-h2 col-1-span-12">Lenke i tekst uten .text class</h2>
-      <p class="col-1-span-12">
+      <h2 class="mt-h2">Lenke i tekst uten .text class</h2>
+      <p>
         Hvis du har kjøpt eller fått dyrene i utlandet, og dyrene er verdt mer enn grensen for toll-
         og avgiftsfri kvote, må du betale merverdiavgift. Da må du gå på rød sone i tollen, selv om
         du oppfyller alle punktene over. <Link
@@ -560,8 +535,5 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-  }
-  .multi-line-paragraph {
-    max-width: 32rem;
   }
 </style>
