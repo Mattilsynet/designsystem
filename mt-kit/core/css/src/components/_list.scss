@@ -1,5 +1,4 @@
 @use '../theme' as *;
-@use '../utilities/mixins' as *;
 
 .mt-dl {
   --spacer: 1rem;
@@ -85,23 +84,6 @@
 .mt-ol {
   li {
     line-height: 140%;
-    a,
-    .mt-link {
-      @include apply-external-link-icon($position: before) {
-        display: inline;
-        &::before {
-          vertical-align: middle;
-        }
-      }
-    }
-
-    p {
-      a,
-      .mt-link {
-        @include apply-external-link-icon($position: after);
-      }
-    }
-
     & + li {
       margin-top: var(--spacer-xxx-small);
     }
