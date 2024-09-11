@@ -1,19 +1,9 @@
 <script lang="ts">
+  import '@u-elements/u-datalist'
   import Label from './Label.svelte'
   import TextInput from './TextInput.svelte'
   import InputError from './InputErrorMessage.svelte'
-  import { fly } from 'svelte/transition'
-  import {
-    ENTER,
-    DOWN_ARROW,
-    END,
-    UP_ARROW,
-    ESCAPE,
-    HOME,
-    maintainScrollVisibility,
-    calculateActiveOption
-  } from '../../../ts/combobox-utils'
-  import { createInputAriaDescribedby, type ErrorDetail, type MultiSelectOption } from '../../../ts'
+  import { createInputAriaDescribedby, type ErrorDetail, interpolate } from '../../../ts'
   import { createEventDispatcher } from 'svelte'
 
   export let streetLabel = ''
@@ -36,145 +26,88 @@
   export let hiddenErrorText: string | undefined
 
   export let textOptional: string | undefined = 'Valgfritt'
+  export let noResultsText: string = 'Ingen resultater for {0}'
   export let showOptionalText = true
   export let loadJs = false
   export let hits = `10`
 
   let input: HTMLInputElement
   let inputValue = streetValue && postalCodeValue ? `${streetValue}, ${postalCodeValue}` : ''
-  let options = []
+
   let isExpanded
   let listId
-  let activeOption: undefined | MultiSelectOption
-  let listBox: HTMLUListElement
-  let showOptions = false
   let isLoading = false
+
+  let debounceTimer // Debounce so we do not spam API
   const dispatch = createEventDispatcher()
 
   $: {
     console.log('street', streetValue)
     console.log('postalCodeValue', postalCodeValue)
-    console.log('inputValue', inputValue)
+    // console.log('inputValue', inputValue)
   }
 
   async function handleInput(e) {
-    dispatch('addressChange', { [streetName]: undefined, [postalCodeName]: undefined })
-    console.log('e', e)
-    streetValue = undefined
-    postalCodeValue = undefined
-    setTimeout(async () => {
-      await fetchOptions(e.target.value)
-    }, 300)
+    if (!e.inputType) {
+      // User clicked u-option, lets get option.text
+      const index = Number(input.value.split(`:`)[0])
+      const option = input.list.options[index]
+      console.log('input.list', input.list.options)
+      console.log('option.dataset', option.dataset)
+      streetValue = option['data-street']
+      postalCodeValue = option['data-postalcode']
+      inputValue = `${streetValue}, ${postalCodeValue}`
+    } else if (!input.value) {
+      // input.list.textContent = 'Type to search for countries...'
+    } else {
+      // User is typing
+      const value = encodeURIComponent(e.target.value.trim())
+      // input.list.textContent = 'Loading...'
+      streetValue = undefined
+      postalCodeValue = undefined
+      // xhr.abort()
+      clearTimeout(debounceTimer)
+      debounceTimer = setTimeout(async () => {
+        await fetchOptions(value)
+      }, 300)
+    }
   }
 
   async function fetchOptions(inputValue: string) {
     if (inputValue.length > 2) {
-      optionsVisibility(true)
       isLoading = true
-      const res = await fetch(
-        `https://ws.geonorge.no/adresser/v1/sok?sok=${inputValue}&fuzzy=true&utkoordsys=4258&treffPerSide=${hits}&side=0&asciiKompatibel=true`
-      )
-      const data = await res.json()
-      options = data.adresser.map(a => ({
-        adressetekst: `${a.adressetekst}`,
-        postnummer: `${a.postnummer}`,
-        poststed: `${a.poststed}`
-      }))
-      isLoading = false
-    } else {
-      optionsVisibility(false)
-      console.log('search length', inputValue.length)
-    }
-  }
-  function handleTokenClick(): void {
-    // optionsVisibility(true)
-  }
-  function handleBlur(): void {
-    optionsVisibility(false)
-  }
 
-  function handleKeyup(e: KeyboardEvent): void {
-    e.stopPropagation()
-    // optionsVisibility(true)
-    switch (e.key) {
-      case ENTER: {
-        // e.preventDefault()
-        if (!activeOption) {
-          break
+      try {
+        const res = await fetch(
+          `https://ws.geonorge.no/adresser/v1/sok?sok=${inputValue}&fuzzy=true&utkoordsys=4258&treffPerSide=${hits}&side=0&asciiKompatibel=true`
+        )
+        const data = await res.json()
+        const options = data.adresser.map(({ adressetekst, postnummer, poststed }, index) => {
+          const option = document.createElement('u-option')
+          option.classList = 'option'
+          return Object.assign(option, {
+            text: `${adressetekst}, ${postnummer} ${poststed}`,
+            value: `${index}: ${input.value}`,
+            ['data-street']: `${adressetekst}`,
+            ['data-postalcode']: `${postnummer}`
+          })
+        })
+        console.log(options, 'options')
+        if (options.length === 0) {
+          input.list.textContent = interpolate(noResultsText, [inputValue])
+        } else {
+          input.list.replaceChildren(...options)
         }
-        console.log('click enter', activeOption)
-
-        inputValue = `${activeOption.adressetekst}, ${activeOption.postnummer} ${activeOption.poststed}`
-        streetValue = activeOption.adressetekst
-        postalCodeValue = activeOption.postnummer
-        optionsVisibility(false)
-        break
+      } catch (err) {
+        input.list.textContent = interpolate(noResultsText, [inputValue])
       }
-      case ESCAPE: {
-        console.log('click escape')
-        optionsVisibility(false)
-        inputValue = ''
-        break
-      }
-      case DOWN_ARROW:
-      case UP_ARROW: {
-        // up and down arrows
-        // console.log('click up or down')
-        const increment = e.key === UP_ARROW ? -1 : 1
-        const calcIndex = options.indexOf(activeOption) + increment
-        // console.log('calcIndex', calcIndex)
-
-        activeOption = calculateActiveOption(calcIndex, options)
-        // console.log('activeOption', activeOption)
-
-        const activeIndex = calcActiveIndex(calcIndex, options.length)
-        // console.log('activeIndex', activeIndex)
-        maintainScrollVisibility(listBox.children[activeIndex], listBox)
-        break
-      }
-      case END:
-      case HOME: {
-        const index = e.key === HOME ? 0 : options.length - 1
-        activeOption = options[index]
-        maintainScrollVisibility(listBox.children[index], listBox)
-        break
-      }
+      isLoading = false
     }
-  }
-  function calcActiveIndex(calcIndex: number, numberOfOptions: number): number {
-    if (calcIndex < 0) {
-      return numberOfOptions - 1
-    } else if (calcIndex === numberOfOptions) {
-      return 0
-    }
-    return calcIndex
-  }
-
-  function optionsVisibility(show: boolean | undefined): void {
-    if (typeof show === 'boolean') {
-      showOptions = show
-      show && input.focus()
-    } else {
-      showOptions = !showOptions
-    }
-    if (!showOptions) {
-      activeOption = undefined
-    }
-  }
-
-  function handleOptionMouseup(e: MouseEvent): void {
-    const { street, zip, place } = (e.target as HTMLInputElement).dataset
-    console.log('handleOptionMouseup', street, zip)
-    inputValue = `${street}, ${zip} ${place}`
-    streetValue = street
-    postalCodeValue = zip
-    input.focus()
-    optionsVisibility(false)
   }
 </script>
 
 {#if loadJs}
-  <div class="multiselect m-t-xxs">
+  <div class="datalist-api m-t-xxs">
     <Label
       {textOptional}
       isRequired={streetIsRequired}
@@ -192,12 +125,13 @@
       <InputError {...streetError} {hiddenErrorText} />
     {/if}
 
-    <div class="actions m-t-xxs" on:blur={handleBlur}>
+    <div class="actions m-t-xxs">
       <input
         type="text"
         autocomplete="off"
-        id={`${streetName}-input`}
+        id={`${streetName}-input2`}
         name={`${streetName}-input`}
+        list={`${streetName}-list2`}
         class="mt-input form-field {streetInputClass}"
         bind:value={inputValue}
         bind:this={input}
@@ -209,8 +143,6 @@
           streetHelpText ? streetName : undefined,
           streetError
         )}
-        on:blur={handleBlur}
-        on:keyup={handleKeyup}
         on:input={handleInput} />
       <span
         role="status"
@@ -218,56 +150,11 @@
         class:icon--spinner={isLoading}
         aria-label={isLoading ? formInProgressAriaLabel : ''} />
     </div>
-
-    <ul
-      id={listId}
-      class="mt-ul options options-dropdown"
-      role="listbox"
-      aria-label=""
-      bind:this={listBox}
-      class:hidden={!showOptions}
-      transition:fly|local={{ duration: 200, y: 5 }}
-      on:mousedown|preventDefault
-      on:mouseup|preventDefault={handleOptionMouseup}>
-      {#if options.length > 0}
-        {#each options as option, index}
-          <li
-            id="{option.adressetekst}-{index}"
-            role="option"
-            class="option"
-            aria-selected={false}
-            class:active={activeOption?.adressetekst === option.adressetekst &&
-              activeOption?.postnummer === option.postnummer}
-            data-street={option.adressetekst}
-            data-zip={option.postnummer}
-            data-place={option.poststed}>
-            {option.adressetekst}, {option.postnummer}
-            {option.poststed}
-          </li>
-        {/each}
-      {/if}
-    </ul>
+    <u-datalist id={`${streetName}-list2`} class="mt-datalist"> </u-datalist>
   </div>
-  <!--{#if options?.length === 0 && inputValue?.length > 2}-->
-  <!--  <p>Ingen treff</p>-->
-  <!--{/if}-->
+
   <input type="hidden" class="form-field" name={streetName} bind:value={streetValue} />
   <input type="hidden" class="form-field" name={postalCodeName} bind:value={postalCodeValue} />
-  <!--{#if !zipCodeValue && inputValue?.length > 2}-->
-  <!--    <TextInput-->
-  <!--      label={zipCodeLabel}-->
-  <!--      name={zipCodeName}-->
-  <!--      isRequired={zipCodeIsRequired}-->
-  <!--      bind:value={zipCodeValue}-->
-  <!--      error={zipCodeError} />-->
-
-  <!--    <input-->
-  <!--      type="text"-->
-  <!--      id={zipCodeName}-->
-  <!--      name={zipCodeName}-->
-  <!--      bind:value={zipCodeValue}-->
-  <!--      class="mt-input form-field" />-->
-  <!--{/if}-->
 {:else}
   <TextInput
     label={streetLabel}

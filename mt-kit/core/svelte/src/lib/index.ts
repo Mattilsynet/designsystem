@@ -1,4 +1,5 @@
 export { default as Alert } from './svelte/components/Alert.svelte'
+export { default as Address } from './svelte/components/form/Address.svelte'
 export { default as Checkbox } from './svelte/components/form/Checkbox.svelte'
 export { default as CheckboxWithSubSets } from './svelte/components/form/CheckboxWithSubSets.svelte'
 export { default as ExpandableInputList } from './svelte/components/form/ExpandableInputList.svelte'

@@ -95,6 +95,7 @@
   },
   "dependencies": {
     "@mattilsynet/designsystem-css": "^0.2.63",
+    "@u-elements/u-datalist": "^0.0.6",
     "@xstate/svelte": "^2.0.1",
     "gh-pages": "^5.0.0",
     "ol": "^8.2.0",
