@@ -221,11 +221,7 @@ a {
     }
   }
   &.top-task {
-    @include apply-external-link-icon($position: after, $target-child: 'h2, h3') {
-      &::before {
-        display: none;
-      }
-    }
+    @include apply-external-link-icon($position: after, $target-child: 'h2, h3');
     @include background-color-on-hover(var(--color-mt-green-300));
     @include background-color-on-active(var(--color-mt-green-400));
 
@@ -294,11 +290,7 @@ a {
     }
   }
   &.search-result {
-    @include apply-external-link-icon($position: after, $target-child: 'h2, h3') {
-      &::before {
-        display: none;
-      }
-    }
+    @include apply-external-link-icon($position: after, $target-child: 'h2, h3');
     color: var(--color-text);
     gap: var(--spacer-xx-small);
     padding: var(--spacer-small) var(--spacer-x-small);
