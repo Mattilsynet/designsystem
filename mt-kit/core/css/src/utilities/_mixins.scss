@@ -264,7 +264,7 @@
     [href^='tel:'],
     [href^='mailto:'],
     [href^='/']:not([href^='//']),
-    [href*='mattilsynet.no'],
+    [href*='mattilsynet.no']:not([href*='hoering.mattilsynet']),
     [href*='mattilsynet-xp7qa.enonic.cloud'],
     [href*='mattilsynet-xp7prod.enonic.cloud']
     )) {
