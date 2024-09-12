@@ -55,9 +55,6 @@ a {
   &.fit-content {
     width: fit-content;
   }
-  &.full-width {
-    width: 100%;
-  }
 
   &:focus {
     box-shadow: $focus-box-shadow-no-outline;

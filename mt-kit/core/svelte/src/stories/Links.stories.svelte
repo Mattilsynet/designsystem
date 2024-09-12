@@ -411,7 +411,7 @@
         {#each cards as link}
           <Link
             href={link.href}
-            class="forward-arrow border-b-secondary p-tb-xxs full-width"
+            class="forward-arrow border-b-secondary p-tb-xxs layout-full-width"
             linkText={link.text} />
         {/each}
       </section>
