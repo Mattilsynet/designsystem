@@ -49,15 +49,14 @@ a {
   line-height: 1.75rem;
   min-width: $minimum-click-width;
 
-  &.border-b-secondary {
-    width: 100%;
-  }
-
   &.inline-flex {
     display: inline-flex;
   }
   &.fit-content {
     width: fit-content;
+  }
+  &.full-width {
+    width: 100%;
   }
 
   &:focus {
@@ -528,15 +527,6 @@ a {
       .description {
         grid-area: description;
       }
-    }
-  }
-}
-
-.lovdata-wrapper {
-  p,
-  article {
-    .mt-link {
-      @include apply-external-link-icon($position: after);
     }
   }
 }
