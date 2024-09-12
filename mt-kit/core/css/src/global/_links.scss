@@ -49,6 +49,10 @@ a {
   line-height: 1.75rem;
   min-width: $minimum-click-width;
 
+  &.border-b-secondary {
+    width: 100%;
+  }
+
   &.inline-flex {
     display: inline-flex;
   }
