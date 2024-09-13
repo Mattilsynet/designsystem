@@ -9,16 +9,17 @@
     align-items: center;
     padding: 0;
     margin: 0;
+    height: 100%;
     li {
+      height: 100%;
       display: none;
-      padding-right: var(--spacer-xx-small);
       font-size: $font-size-small;
       margin-top: 0;
       .mt-button--link {
         border-radius: 0;
         line-height: 1;
         text-decoration: $color-link-underline underline $border-width-regular;
-        text-underline-offset: $spacer-xxx-small;
+        text-underline-offset: calc($spacer-xxx-small - 1px);
 
         &:hover {
           text-decoration-thickness: $border-width-medium;
@@ -39,7 +40,7 @@
         a {
           @include apply-icon($icon: $icon-carret-right-small, $position: before);
           gap: var(--spacer-xx-small);
-          display: inline;
+          display: flex;
         }
       }
       &:nth-last-child(2) {
@@ -63,10 +64,12 @@
       }
 
       @media only screen and (min-width: $breakpoint-large) {
-        padding-right: var(--spacer-xxx-small);
         display: inline;
 
         &:first-child {
+          a {
+            display: inline;
+          }
           a::before {
             content: none;
           }
