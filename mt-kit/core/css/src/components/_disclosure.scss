@@ -20,6 +20,19 @@
         flex-shrink: 0;
       }
     }
+    &[href] {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      grid-template-areas: 'svg title pseudo';
+      grid-area: title;
+
+      &::after {
+        grid-area: pseudo;
+      }
+      > svg {
+        grid-area: svg;
+      }
+    }
     display: flex;
     align-items: center;
     gap: var(--spacer-xxx-small);
