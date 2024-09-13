@@ -83,6 +83,7 @@
         grid-area: number;
         grid-column: 1 / span 1;
         place-self: center;
+        white-space: nowrap;
       }
       > .title {
         grid-area: title;
