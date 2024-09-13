@@ -123,9 +123,6 @@
     &--align-left {
       .disclosure-header {
         padding-left: 0;
-        &:hover {
-          padding-left: var(--disclosure-padding-hover);
-        }
       }
       .disclosure-panel {
         margin-left: 0;

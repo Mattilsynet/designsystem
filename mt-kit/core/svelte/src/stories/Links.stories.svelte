@@ -1,7 +1,6 @@
 <script lang="ts">
   import { Meta, Story } from '@storybook/addon-svelte-csf'
   import Link from '../lib/svelte/components/Link.svelte'
-  import ChapterNavigation from '../lib/svelte/components/ChapterNavigation.svelte'
   import { wrapInShadowDom } from './storybook-utils/utils'
   import SearchResult from '../lib/svelte/components/SearchResult.svelte'
 
@@ -34,6 +33,10 @@
       {
         href: '#',
         text: 'Kritikk&shy;verdige forhold på arbeids&shy;plassen hvor lenken går over flere linjer'
+      },
+      {
+        href: 'www.barentswatch.no',
+        text: 'Ekstern lenke'
       }
     ],
 
@@ -101,6 +104,80 @@
         breadcrumbs: ['Dyr', 'Dyretransport', 'Transport av dyr til beite']
       }
     ],
+
+    internalLinks: [
+      {
+        url: 'www.mattilsynet.no/dyr/velferd',
+        text: 'www.mattilsynet.no/dyr/velferd'
+      },
+      {
+        url: '#innhold-paa-samme-side',
+        text: '#innhold-paa-samme-side'
+      },
+      {
+        url: '/relativ/lenke/side',
+        text: '/relativ/lenke/side'
+      },
+      {
+        url: '../lenke/tilbake',
+        text: '../lenke/tilbake'
+      },
+      {
+        url: '?animal=katt',
+        text: '?animal=katt'
+      },
+      {
+        url: 'mailto:postmottak@mattilsynet.no',
+        text: 'mailto:postmottak@mattilsynet.no'
+      },
+      {
+        url: 'tel:22440000',
+        text: 'tel:22440000'
+      },
+      {
+        url: 'https://www.mattilsynet.no/dyr/velferd',
+        text: 'https://www.mattilsynet.no/dyr/velferd'
+      },
+      {
+        url: 'www.mattilsynet.no/dyr/velferd',
+        text: 'www.mattilsynet.no/dyr/velferd'
+      },
+      {
+        url: 'https://www.mattilsynet-xp7qa.enonic.cloud/',
+        text: 'https://www.mattilsynet-xp7qa.enonic.cloud/'
+      },
+      {
+        url: 'https://www.mattilsynet-xp7prod.enonic.cloud/',
+        text: 'https://www.mattilsynet-xp7prod.enonic.cloud/'
+      }
+    ],
+
+    externalLinks: [
+      {
+        url: 'digdir.no',
+        text: 'digdir.no'
+      },
+      {
+        url: 'www.digdir.no',
+        text: 'www.digdir.no'
+      },
+      {
+        url: '//digdir.no',
+        text: '//digdir.no'
+      },
+      {
+        url: 'https://digdir.no',
+        text: 'https://digdir.no'
+      },
+      {
+        url: 'https://www.digdir.no/mattilsynet',
+        text: 'https://www.digdir.no/mattilsynet'
+      },
+      {
+        url: 'https://www.hoering.mattilsynet.no',
+        text: 'https://www.hoering.mattilsynet.no'
+      }
+    ],
     showChapterNumber: true,
     secondary: 'Avbryt',
     inText: 'mattilsynet',
@@ -114,6 +191,8 @@
     cards: { control: 'array' },
     smallLinks: { control: 'array' },
     searchResult: { control: 'array' },
+    internalLinks: { control: 'array' },
+    externalLinks: { control: 'array' },
     secondary: { control: 'string' },
     disabled: { control: 'boolean' },
     disableCss: { control: 'boolean' }
@@ -128,7 +207,7 @@
     </article>
     <article>
       <h2 class="mt-h2">Lenke i paragraf over flere linjer:</h2>
-      <p class="multi-line-paragraph text">
+      <p class="text">
         Hvis du har spørsmål, ta kontakt med <Link
           href="/mattilsynet/mat/drikkevann"
           class=""
@@ -173,7 +252,7 @@
       <p class="text">
         Dette er en eksternlenke i en paragraf. <Link
           href="https://www.nav.no/"
-          linkText="ekstern lenke i tekst" />
+          linkText="Ekstern lenke i tekst" />
         Da skal ikonet ligge på høyre siden.
       </p>
     </article>
@@ -196,85 +275,40 @@
   </div>
 </Story>
 
-<Story name="Eksternlenke regel" let:disableCss let:args let:disabled>
+<Story
+  name="Eksternlenke regel"
+  let:disableCss
+  let:args
+  let:disabled
+  let:internalLinks
+  let:externalLinks>
   <div use:wrapInShadowDom={disableCss}>
     <h1 class="mt-h1">Eksterne lenker</h1>
-    <section class="layout-grid layout-grid--column-12 m-t-xs space-y-children--xx-small">
-      <p class="text col-1-span-6">
+    <section class="link--button-wrapper m-t-xs space-y-children--xxx-small">
+      <p class="text">
         Alle lenker som går ut av mattilsynet skal ha et eksternt lenke ikon. Det gjelder interne
         lenker, lenker til innhold på samme side, relative også de som lenker til Mattilsynets CMS
         (XP) i QA og i Prod
       </p>
-      <Link
-        class="col-1-span-12"
-        linkText="#innhold-paa-samme-side"
-        href="#innhold-paa-samme-side" />
-      <Link class="col-1-span-12" linkText="/relativ/lenke/side" href="/relativ/lenke/side" />
-      <Link class="col-1-span-12" linkText="../lenke/tilbake" href="../lenke/tilbake" />
-      <Link class="col-1-span-12" linkText="?animal=katt" href="?animal=katt" />
-      <Link
-        class="col-1-span-12"
-        linkText="mailto:postmottak@mattilsynet.no"
-        href="mailto:postmottak@mattilsynet.no" />
-      <Link class="col-1-span-12" linkText="tel:22400000" href="tel:22400000" />
-      <Link
-        class="col-1-span-12"
-        linkText="https://www.mattilsynet-xp7qa.enonic.cloud/"
-        href="https://www.mattilsynet-xp7qa.enonic.cloud/" />
-      <Link
-        class="col-1-span-12"
-        linkText="https://www.mattilsynet-xp7prod.enonic.cloud/"
-        href="https://www.mattilsynet-xp7prod.enonic.cloud/" />
-      <Link
-        class="col-1-span-12"
-        linkText="https://www.mattilsynet.no/dyr/velferd"
-        href="https://www.mattilsynet.no/dyr/velferd" />
-      <Link
-        class="col-1-span-12"
-        linkText="http://www.mattilsynet.no/dyr/velferd"
-        href="http://www.mattilsynet.no/dyr/velferd" />
-      <Link
-        class="col-1-span-12"
-        linkText="//www.mattilsynet.no/dyr/velferd"
-        href="//www.mattilsynet.no/dyr/velferd" />
-      <Link
-        class="col-1-span-12"
-        linkText="www.mattilsynet.no/dyr/velferd"
-        href="www.mattilsynet.no/dyr/velferd" />
-      <Link
-        class="col-1-span-12"
-        linkText="www.hoering.mattilsynet.no"
-        href="www.hoering.mattilsynet.no" />
+      {#each internalLinks as link}
+        <Link href={link.url} linkText={link.text} />
+      {/each}
 
-      <h2 class="mt-h2 col-1-span-12">Lenker som går utenfor mattilsynet.no</h2>
-      <Link class="col-1-span-12 forward-arrow" linkText="www.nav.no" href="www.nav.no" />
-      <Link class="col-1-span-12" linkText="nav.no" href="nav.no" />
-      <Link class="col-1-span-12" linkText="//nav.no" href="//nav.no" />
-      <Link class="col-1-span-12" linkText="https://www.nav.no" href="https://www.nav.no" />
-      <Link class="col-1-span-12" linkText="http://www.nav.no" href="http://www.nav.no" />
-      <Link
-        class="col-1-span-12"
-        linkText="http://www.nav.no/mattilsynet"
-        href="http://www.nav.no/mattilsynet" />
       <br />
-      <p class="text col-1-span-12 multi-line-paragraph">
+      <h2 class="mt-h2">Lenker som går utenfor mattilsynet.no</h2>
+      {#each externalLinks as link}
+        <Link href={link.url} linkText={link.text} />
+      {/each}
+      <br />
+      <h2 class="mt-h2">Med lang lenketekst i tekst</h2>
+      <p class="text">
         Ekstern lenke i løpende tekst har ikonet på høyre side
         <Link linkText="www.nav.no" href="www.nav.no" />. Det er for å beholde den naturlige flyten
         i teksten, slik at den er lettere å lese.
       </p>
       <br />
-      <h2 class="mt-h2 col-1-span-12">Med lang lenketekst i tekst</h2>
-      <p class="text col-1-span-12">
-        Hvis du har kjøpt eller fått dyrene i utlandet, og dyrene er verdt mer enn grensen for toll-
-        og avgiftsfri kvote, må du betale merverdiavgift. Da må du gå på rød sone i tollen, selv om
-        du oppfyller alle punktene over. <Link
-          linkText="Les mer om hvilke regler som gjelder ved kjøp av dyr i
-        utlandet (toll.no)"
-          href="https://www.toll.no" />
-      </p>
-      <br />
-      <h2 class="mt-h2 col-1-span-12">Lenke i tekst uten .text class</h2>
-      <p class="col-1-span-12">
+      <h2 class="mt-h2">Lenke i tekst uten .text class</h2>
+      <p>
         Hvis du har kjøpt eller fått dyrene i utlandet, og dyrene er verdt mer enn grensen for toll-
         og avgiftsfri kvote, må du betale merverdiavgift. Da må du gå på rød sone i tollen, selv om
         du oppfyller alle punktene over. <Link
@@ -287,17 +321,31 @@
       <h2 class="mt-h2 col-1-span-12">Lenker brukt i lister</h2>
       <ul class="mt-ul col-1-span-12">
         <li>
-          Dette er en intern lenke til <Link linkText="Dyresykdommer" href="/dyr/dyresykdommer" />.
+          <Link linkText="Kun lenke uten paragraf" href="/dyr/dyresykdommer" />.
         </li>
         <li>
-          Denne går til tolletaten <Link
-            linkText="Regler for fortolling (toll.no)"
-            href="https://www.toll.no" />. Her kan du lese mer om regler ved fortolling av varer.
+          <p>
+            Dette er en intern lenke til <Link
+              linkText="Dyresykdommer"
+              href="/dyr/dyresykdommer" />.
+          </p>
         </li>
         <li>
-          Denne går også ut av mattilsynets domene og skal ha ikon på sin høyre side <Link
-            linkText="Tilgjengelegheitserklæring (uustatus.no)"
-            href="https://www.uustatus.no" />
+          <Link linkText="Ekstern lenke alene" href="https://www.toll.no" />
+        </li>
+        <li>
+          <p>
+            Denne går til tolletaten <Link
+              linkText="Regler for fortolling (toll.no)"
+              href="https://www.toll.no" />. Her kan du lese mer om regler ved fortolling av varer.
+          </p>
+        </li>
+        <li>
+          <p>
+            Denne går også ut av mattilsynets domene og skal ha ikon på sin høyre side <Link
+              linkText="Tilgjengelegheitserklæring (uustatus.no)"
+              href="https://www.uustatus.no" />
+          </p>
         </li>
       </ul>
     </section>
@@ -363,7 +411,7 @@
         {#each cards as link}
           <Link
             href={link.href}
-            class="forward-arrow border-b-secondary p-tb-xxs"
+            class="forward-arrow border-b-secondary p-tb-xxs layout-full-width"
             linkText={link.text} />
         {/each}
       </section>
@@ -376,19 +424,16 @@
     <h1 class="mt-h1">Dokumentlenker</h1>
     <ul class="mt-ul m-t-xxs layout-grid list-unstyled">
       <li>
-        <Link href={cards[3].href} class="pdf forward-arrow-end-link" linkText={cards[3].text} />
+        <Link href={cards[3].href} class="pdf" linkText={cards[3].text} />
       </li>
       <li>
-        <Link
-          href={cards[6].href}
-          class="document forward-arrow-end-link"
-          linkText={cards[6].text} />
+        <Link href={cards[6].href} class="document" linkText={cards[6].text} />
       </li>
       <li>
-        <Link
-          href={cards[2].href}
-          class="pdf forward-arrow-end-link"
-          linkText="Rapport fisk og bifangst 2023 (pdf)" />
+        <Link href={cards[2].href} class="pdf" linkText="Rapport fisk og bifangst 2023 (pdf)" />
+      </li>
+      <li>
+        <Link href={cards[7].href} class="pdf" linkText={cards[7].text} />
       </li>
     </ul>
   </div>
@@ -546,8 +591,5 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-  }
-  .multi-line-paragraph {
-    max-width: 32rem;
   }
 </style>
