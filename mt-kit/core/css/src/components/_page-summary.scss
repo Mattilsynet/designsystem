@@ -7,7 +7,7 @@
 
   display: grid;
   grid-template-areas: 'heading change .';
-  grid-template-columns: max-content max-content 1fr;
+  grid-template-columns: auto max-content 1fr;
   column-gap: var(--gap);
   margin-top: var(--spacer-x-small);
 
