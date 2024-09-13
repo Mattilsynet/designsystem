@@ -15,6 +15,13 @@
   }
 
   .disclosure-header {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacer-xxx-small);
+    width: 100%;
+    margin: 0;
+    padding: var(--disclosure-spacing) 0 var(--disclosure-spacing) var(--disclosure-spacing);
+    overflow-wrap: anywhere;
     &:not([href]) {
       @include apply-icon($icon: $icon-carret-down-primary, $position: before) {
         flex-shrink: 0;
@@ -33,13 +40,9 @@
         grid-area: svg;
       }
     }
-    display: flex;
-    align-items: center;
-    gap: var(--spacer-xxx-small);
-    width: 100%;
-    margin: 0;
-    padding: var(--disclosure-spacing) 0 var(--disclosure-spacing) var(--disclosure-spacing);
-    overflow-wrap: anywhere;
+    .title {
+      line-height: $icon-size-x-large;
+    }
   }
   [aria-expanded='true'].disclosure-header {
     font-weight: var(--font-weight-bold);
@@ -120,7 +123,7 @@
 
       svg {
         flex: none;
-        align-self: center;
+        align-self: flex-start;
       }
     }
 
