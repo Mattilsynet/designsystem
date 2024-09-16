@@ -333,6 +333,7 @@ a {
     --content-margin: 0;
     --content-padding: var(--spacer-xx-small);
     --content-bg: var(--color-mt-white);
+    @include apply-external-link-icon($position: after, $target-child: 'h2, h3');
 
     display: flex;
     flex-direction: column;
@@ -426,6 +427,11 @@ a {
     @include background-color-on-active(var(--mt-link-primary-bg-hover));
     @include apply-icon($icon-arrow-right-primary-small, before) {
       flex-shrink: 0;
+    }
+    @include apply-external-link-icon($position: before) {
+      &::after {
+        display: none;
+      }
     }
 
     font-size: $font-size-body;
