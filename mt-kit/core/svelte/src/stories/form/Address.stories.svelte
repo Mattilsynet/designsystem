@@ -7,7 +7,6 @@
   import Checkbox from '../../lib/svelte/components/form/Checkbox.svelte'
   import CheckboxWithSubSets from '../../lib/svelte/components/form/CheckboxWithSubSets.svelte'
   import Address from '../../lib/svelte/components/form/Address.svelte'
-  import Address2 from '../../lib/svelte/components/form/Address2.svelte'
 
   let values = {}
   $: {
