@@ -21,12 +21,12 @@
     chapters: [
       {
         heading: 'Formål',
-        url: '',
+        url: '?0',
         index: 0
       },
       {
         heading: 'Virkeområde',
-        url: '',
+        url: '?1',
         index: 1,
         subChapters: [
           { heading: 'Subchapter', url: '', index: 0 },
@@ -35,12 +35,12 @@
       },
       {
         heading: 'Grenseverdier',
-        url: '',
+        url: '?2',
         index: 2
       },
       {
         heading: 'Registrering',
-        url: '',
+        url: '?3',
         index: 3,
         subChapters: [
           { heading: 'Subchapter', url: '', index: 0 },
@@ -51,7 +51,7 @@
       },
       {
         heading: 'Distribusjonssystem og internt fordelingsnett',
-        url: '',
+        url: '?4',
         index: 4,
         subChapters: [
           { heading: 'Subchapter', url: '', index: 0 },
@@ -68,8 +68,7 @@
     disableCss: { control: 'boolean' },
     disableJs: { control: 'boolean' },
     chapterChange: { action: 'chapterChange' }
-  }}
-/>
+  }} />
 
 <Story name="Normal" let:showChapterNumbers let:disableCss let:disableJs let:chapters>
   <div use:wrapInShadowDom={disableCss}>
@@ -81,8 +80,7 @@
         loadJs={!disableJs}
         menuTitle="Innhold"
         {currentChapterNumber}
-        on:chapterChange={chapterChange}
-      />
+        on:chapterChange={chapterChange} />
     </div>
   </div>
 </Story>
