@@ -81,20 +81,22 @@
   <div use:wrapInShadowDom={disableCss}>
     <h1 class="mt-h1">Loading</h1>
     <p class="description">Hovedknapp</p>
-    <ButtonSpinner
-      formInProgressAriaLabel="Sender inn skjema, venter på svar."
-      btnClassNames="mt-button--primary"
-      spinnerPlacement="start"
-      {inProgress}>
-      Spinner placement start
-    </ButtonSpinner><br />
-    <ButtonSpinner
-      formInProgressAriaLabel="Sender inn skjema, venter på svar."
-      btnClassNames="mt-button--primary"
-      {inProgress}
-      spinnerPlacement="end">
-      Spinner placement end
-    </ButtonSpinner>
+    <div class="layout-flex">
+      <ButtonSpinner
+        formInProgressAriaLabel="Sender inn skjema, venter på svar."
+        btnClassNames="mt-button--primary"
+        spinnerPlacement="start"
+        {inProgress}>
+        Spinner placement start
+      </ButtonSpinner>
+      <ButtonSpinner
+        formInProgressAriaLabel="Sender inn skjema, venter på svar."
+        btnClassNames="mt-button--primary"
+        {inProgress}
+        spinnerPlacement="end">
+        Spinner placement end
+      </ButtonSpinner>
+    </div>
 
     <p class="description">Sekundær</p>
     <ButtonSpinner

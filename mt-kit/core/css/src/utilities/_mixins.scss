@@ -300,9 +300,5 @@
       gap: $spacer-xxx-small;
     }
     @content;
-
-    .text & {
-      margin-top: 0;
-    }
   }
 }
