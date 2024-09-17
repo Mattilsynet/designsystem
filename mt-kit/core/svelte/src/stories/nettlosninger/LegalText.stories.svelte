@@ -21,7 +21,8 @@
         <li>aktivisering og mosjon</li>
         <li>tilrettelegging for utøvelse av naturlig atferd</li>
       </ul>
-      <p>Utformingen av rutinene skal være tilpasset virksomhetens egenart.</p>`,
+      <p>Utformingen av rutinene skal være tilpasset virksomhetens egenart.</p>
+      <a class='mt-link forward-arrow' href="https://www.lovdata.no">Lenke til lovdata (lovdata.no)</a>`,
     icon,
     disableCss: false
   }}

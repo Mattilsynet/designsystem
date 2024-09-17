@@ -6,6 +6,12 @@
 
   background-color: var(--colored-card-bg);
 
+  .mt-link.forward-arrow {
+    &::after {
+      display: none;
+    }
+  }
+
   > :first-child {
     display: flex;
     margin: 0;
