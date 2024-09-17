@@ -111,11 +111,6 @@
     }
 
     .disclosure-panel {
-      > .mt-link {
-        &::after {
-          display: none;
-        }
-      }
       border-top: $border-width-small solid var(--list-border);
       margin: 0 var(--spacer-x-small);
 
@@ -135,6 +130,17 @@
       }
     }
   }
+
+  &.lovdata-disclosure {
+    .disclosure-panel {
+      > .mt-link {
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+
   &.on-primary {
     svg {
       path {
