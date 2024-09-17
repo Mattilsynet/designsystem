@@ -22,7 +22,7 @@
         <li>tilrettelegging for utøvelse av naturlig atferd</li>
       </ul>
       <p>Utformingen av rutinene skal være tilpasset virksomhetens egenart.</p>`,
-        nextActionUrl: 'http://',
+        nextActionUrl: 'http://www.mattilsynet.no',
         nextActionLinkText: 'Link til neste oppgave',
         headerTag: undefined
       },
@@ -34,7 +34,7 @@
             be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum
             is that it ha
           </p>`,
-        nextActionUrl: 'http://',
+        nextActionUrl: 'http://www.mattilsynet.no',
         nextActionLinkText: 'Link til tredje oppgave',
         headerTag: undefined
       },
@@ -64,7 +64,7 @@
                 <li>Åtte ni og</li>
                 <li>ti</li>
               </ul>`,
-        nextActionUrl: 'http://',
+        nextActionUrl: 'http://lovdata.no',
         nextActionLinkText: 'Link til tredje oppgave',
         headerTag: undefined
       },
@@ -94,7 +94,7 @@
                 <li>Åtte ni og</li>
                 <li>ti</li>
               </ul>`,
-        nextActionUrl: 'http://',
+        nextActionUrl: 'http://www.mattilsynet.no',
         nextActionLinkText: 'Link til tredje oppgave',
         headerTag: undefined
       },
@@ -102,7 +102,7 @@
         title: 'Oppgave 5 med tittel inni en h4-tag',
         intro: ``,
         text: 'Noe tekst i kroppen',
-        nextActionUrl: 'http://',
+        nextActionUrl: 'http://www.mattilsynet.no',
         nextActionLinkText: 'Last ned mal for internkontroll',
         headerTag: 'h4'
       }
