@@ -9,44 +9,45 @@
     align-items: center;
     padding: 0;
     margin: 0;
-    height: 100%;
+    gap: $fds-spacing-1;
     li {
-      height: 100%;
       display: none;
       font-size: $font-size-small;
       margin-top: 0;
-      .mt-button--link {
-        border-radius: 0;
-        line-height: 1;
-        text-decoration: $color-link-underline underline $border-width-regular;
-        text-underline-offset: calc($spacer-xxx-small - 1px);
+      align-items: center;
 
-        &:hover {
-          text-decoration-thickness: $border-width-medium;
-        }
-      }
-      a {
-        @extend .mt-link;
-        word-break: normal;
-
-        &.forward-caret {
-          display: inline;
-          &::before {
-            vertical-align: middle;
-          }
-        }
-      }
-      &:first-child {
-        a {
-          @include apply-icon($icon: $icon-carret-right-small, $position: before);
-          gap: var(--spacer-xx-small);
+      &:not(:last-child) {
+        .last-breadcrumb,
+        .mt-button--link,
+        .mt-link {
+          @include apply-icon($icon: $icon-carret-right-small, $position: after);
           display: flex;
+          gap: calc($fds-spacing-1 + var(--border-width-regular) + var(--border-width-regular));
+          align-items: center;
         }
       }
+      .mt-link,
+      .mt-button--link,
+      .last-breadcrumb {
+        padding: var(--border-width-regular);
+      }
+      .mt-button--link {
+        @include text-decoration-underline;
+        border-radius: 0;
+        &:focus {
+          box-shadow: $focus-box-shadow-no-outline;
+        }
+      }
+
       &:nth-last-child(2) {
-        display: inline;
-        a::before {
-          transform: rotateY(180deg);
+        display: flex;
+        .mt-link {
+          @include apply-icon($icon: $icon-carret-right-small, $position: before) {
+            transform: rotateY(180deg);
+          }
+          &:after {
+            display: none;
+          }
         }
       }
       &.ellipsis {
@@ -56,35 +57,17 @@
         &:focus-within {
           box-shadow: $focus-box-shadow-no-outline;
         }
-        a {
-          &:focus {
-            box-shadow: none;
-          }
-        }
       }
 
       @media only screen and (min-width: $breakpoint-large) {
-        display: inline;
-
-        &:first-child {
-          a {
-            display: inline;
-          }
-          a::before {
-            content: none;
-          }
-        }
-
+        display: flex;
         &:nth-last-child(2) {
-          a::before {
-            transform: rotateY(0);
+          .mt-link {
+            @include apply-icon($icon: $icon-carret-right-small, $position: after);
+            &:before {
+              display: none;
+            }
           }
-        }
-        .last-breadcrumb {
-          @include apply-icon($icon: $icon-carret-right-small, $position: before) {
-            vertical-align: middle;
-          }
-          display: inline;
         }
       }
     }
