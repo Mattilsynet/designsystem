@@ -112,18 +112,18 @@
     {#each $state.context.breadcrumbsItems as item, index}
       <li class:ellipsis={!isFull && index + 1 > 2}>
         {#if index === 0}
-          <a href={item.url} rel="external">{homeLabel}</a>
+          <a class="mt-link" href={item.url} rel="external">{homeLabel}</a>
         {:else if item === BUTTON_ELLIPSIS}
           <button
             type="button"
             aria-expanded="false"
             aria-label={showAllBreadCrumbsLabel}
-            class="mt-button mt-button--link forward-arrow"
+            class="mt-button mt-button--link"
             on:click={() => send('TOGGLE')}>
             ...
           </button>
         {:else if index + 1 < $state.context.breadcrumbsItems.length}
-          <a class="forward-caret" href={item.url} rel="external">{@html item.text}</a>
+          <a class="mt-link" href={item.url} rel="external">{@html item.text}</a>
         {:else}
           <span class="last-breadcrumb">
             {item.text}

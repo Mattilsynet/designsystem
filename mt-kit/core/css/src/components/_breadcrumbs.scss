@@ -9,43 +9,45 @@
     align-items: center;
     padding: 0;
     margin: 0;
+    gap: $fds-spacing-1;
     li {
       display: none;
-      padding-right: var(--spacer-xx-small);
       font-size: $font-size-small;
       margin-top: 0;
+      align-items: center;
+
+      &:not(:last-child) {
+        .last-breadcrumb,
+        .mt-button--link,
+        .mt-link {
+          @include apply-icon($icon: $icon-carret-right-small, $position: after);
+          display: flex;
+          gap: calc($fds-spacing-1 + var(--border-width-regular) + var(--border-width-regular));
+          align-items: center;
+        }
+      }
+      .mt-link,
+      .mt-button--link,
+      .last-breadcrumb {
+        padding: var(--border-width-regular);
+      }
       .mt-button--link {
+        @include text-decoration-underline;
         border-radius: 0;
-        line-height: 1;
-        text-decoration: $color-link-underline underline $border-width-regular;
-        text-underline-offset: $spacer-xxx-small;
+        &:focus {
+          box-shadow: $focus-box-shadow-no-outline;
+        }
+      }
 
-        &:hover {
-          text-decoration-thickness: $border-width-medium;
-        }
-      }
-      a {
-        @extend .mt-link;
-        word-break: normal;
-
-        &.forward-caret {
-          display: inline;
-          &::before {
-            vertical-align: middle;
-          }
-        }
-      }
-      &:first-child {
-        a {
-          @include apply-icon($icon: $icon-carret-right-small, $position: before);
-          gap: var(--spacer-xx-small);
-          display: inline;
-        }
-      }
       &:nth-last-child(2) {
-        display: inline;
-        a::before {
-          transform: rotateY(180deg);
+        display: flex;
+        .mt-link {
+          @include apply-icon($icon: $icon-carret-right-small, $position: before) {
+            transform: rotateY(180deg);
+          }
+          &:after {
+            display: none;
+          }
         }
       }
       &.ellipsis {
@@ -55,33 +57,17 @@
         &:focus-within {
           box-shadow: $focus-box-shadow-no-outline;
         }
-        a {
-          &:focus {
-            box-shadow: none;
-          }
-        }
       }
 
       @media only screen and (min-width: $breakpoint-large) {
-        padding-right: var(--spacer-xxx-small);
-        display: inline;
-
-        &:first-child {
-          a::before {
-            content: none;
-          }
-        }
-
+        display: flex;
         &:nth-last-child(2) {
-          a::before {
-            transform: rotateY(0);
+          .mt-link {
+            @include apply-icon($icon: $icon-carret-right-small, $position: after);
+            &:before {
+              display: none;
+            }
           }
-        }
-        .last-breadcrumb {
-          @include apply-icon($icon: $icon-carret-right-small, $position: before) {
-            vertical-align: middle;
-          }
-          display: inline;
         }
       }
     }
