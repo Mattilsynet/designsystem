@@ -1,4 +1,16 @@
 @use '../theme' as *;
+@use '../utilities/mixins' as *;
+
+ol,
+ul {
+  li {
+    > a {
+      @include apply-external-link-icon($position: before) {
+        display: inline;
+      }
+    }
+  }
+}
 
 .mt-dl {
   --spacer: 1rem;

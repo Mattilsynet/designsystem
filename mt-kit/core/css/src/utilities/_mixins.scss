@@ -283,10 +283,7 @@
     } @else {
       @include apply-icon($icon: $icon, $position: $position) {
         flex-shrink: 0;
-
-        @if $position == after {
-          vertical-align: middle;
-        }
+        vertical-align: middle;
       }
     }
     @if $position == after and $target-child == null {
