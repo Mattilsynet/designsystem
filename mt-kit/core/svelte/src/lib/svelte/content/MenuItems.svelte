@@ -28,7 +28,7 @@
           title={item.contentTitle ? item.contentTitle : item.title}
           theme="no-border"
           class="on-primary"
-          headerClass="menu-level-1"
+          headerClass="menu-level-1 align-items-center"
           {loadJs}
           icon={item.iconResource}>
           <ol class="mt-ol m-t-xxs sub-menu">
@@ -60,7 +60,7 @@
         <a
           href={item.url}
           rel={mapRelExternal(item.url)}
-          class="disclosure-header layout-flex layout-flex--center-vertical layout-full-width menu-level-1"
+          class="disclosure-header layout-flex layout-flex--center-vertical layout-full-width menu-level-1 align-items-center"
           aria-current={item.isActive ? 'page' : false}>
           {#if item.iconResource}
             {@html item.iconResource}

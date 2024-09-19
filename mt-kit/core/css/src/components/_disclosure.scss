@@ -43,6 +43,10 @@
     .title {
       line-height: $text-with-icon-line-height;
     }
+
+    &.align-items-center {
+      align-items: center;
+    }
   }
   [aria-expanded='true'].disclosure-header {
     font-weight: var(--font-weight-bold);
