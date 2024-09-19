@@ -206,13 +206,13 @@
   $direction: 'down',
   $open-state-icon: null,
   $target-child: null,
-  $overwrite-external-icon: null
+  $overwrite-external-icon: false
 ) {
   $valid-directions: down, up, right, left;
   $pseudo: before, after;
   $external-link-icon: if(
-    $overwrite-external-icon != null,
-    $overwrite-external-icon,
+    $overwrite-external-icon == true,
+    $icon-external-link-on-dark,
     $icon-external-link
   );
 
@@ -253,7 +253,7 @@
       @each $target in $target-child {
         #{$target} {
           @include apply-pseudo-styling(
-            $icon: $icon-external-link,
+            $icon: $external-link-icon,
             $position: $position,
             $icon-direction: $direction,
             $mapped-rotation: $dir-mapped-to-rotate
@@ -262,7 +262,7 @@
       }
     } @else {
       @include apply-pseudo-styling(
-        $icon: $icon-external-link,
+        $icon: $external-link-icon,
         $position: $position,
         $icon-direction: $direction,
         $mapped-rotation: $dir-mapped-to-rotate
@@ -278,7 +278,7 @@
       @each $target in $target-child {
         #{$target} {
           @include apply-pseudo-styling(
-            $icon: $icon-external-link,
+            $icon: $external-link-icon,
             $position: $position,
             $icon-direction: $direction,
             $mapped-rotation: $dir-mapped-to-rotate
