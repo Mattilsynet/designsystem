@@ -41,7 +41,7 @@
       }
     }
     .title {
-      line-height: $icon-size-x-large;
+      line-height: $text-with-icon-line-height;
     }
   }
   [aria-expanded='true'].disclosure-header {
