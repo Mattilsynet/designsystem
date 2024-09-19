@@ -313,6 +313,18 @@
   $icon-direction,
   $mapped-rotation
 ) {
+  @if $position == before {
+    &:after,
+    &::after {
+      display: none;
+    }
+  }
+  @if $position == after {
+    &:before,
+    &::before {
+      display: none;
+    }
+  }
   &:#{$position},
   &::#{$position} {
     content: '';

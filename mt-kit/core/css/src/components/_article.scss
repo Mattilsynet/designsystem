@@ -22,7 +22,6 @@
   @include article-spacing;
   a {
     @extend .mt-link;
-    margin-top: var(--space-content);
   }
   figure {
     @extend .mt-figure;

@@ -59,9 +59,11 @@
       {/if}
 
       {#if formLinkUrl && formLinkText}
-        <a href={formLinkUrl} class="mt-link link--transport link--transport--primary">
-          {formLinkText}
-        </a>
+        <p>
+          <a href={formLinkUrl} class="mt-link link--transport link--transport--primary">
+            {formLinkText}
+          </a>
+        </p>
       {/if}
     </article>
   </div>
