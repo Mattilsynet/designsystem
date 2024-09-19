@@ -318,8 +318,7 @@
     &::after {
       display: none;
     }
-  }
-  @if $position == after {
+  } @else {
     &:before,
     &::before {
       display: none;
