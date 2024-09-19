@@ -8,12 +8,13 @@ $transportlink-default-color: 'primary' !default;
 $transportlink-colors: 'error' !default;
 
 a {
-  &:not(p &) {
+  &:not(p &, article &) {
     @include apply-icon($position: before);
   }
 }
 
 .text,
+article,
 p {
   > a {
     @include apply-icon($position: after);
