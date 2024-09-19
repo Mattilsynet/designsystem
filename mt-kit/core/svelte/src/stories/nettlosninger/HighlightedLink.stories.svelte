@@ -11,7 +11,7 @@
       {
         title: 'Tittel med ingen ikon',
         text: `<p>Norge får nytt regelverk.</p>`,
-        nextActionUrl: 'http://',
+        nextActionUrl: 'http://www.mattilsynet.no',
         nextActionLinkText: 'Mer informasjon om nytt regelverk',
         headerTag: 'h3',
         iconClass: '',
@@ -20,14 +20,14 @@
       {
         title: 'Link type knapp',
         text: `<p>Noe tekst</p>`,
-        nextActionUrl: 'http://',
+        nextActionUrl: 'http://www.mattilsynet.no',
         nextActionLinkText: 'En lenke',
         linkTypeButton: true
       },
       {
         title: 'Tittel med info ikon',
         text: `<p>Noe tekst</p>`,
-        nextActionUrl: 'http://',
+        nextActionUrl: 'http://www.nav.no',
         nextActionLinkText: 'En lenke',
         iconClass: 'info-icon',
         linkTypeButton: false
@@ -35,7 +35,7 @@
       {
         title: 'Tittel med advarsel ikon',
         text: `<p>Noe tekst</p>`,
-        nextActionUrl: 'http://',
+        nextActionUrl: 'http://www.mattilsynet.no',
         nextActionLinkText: 'En lenke',
         iconClass: 'warning-icon',
         linkTypeButton: false
@@ -43,7 +43,7 @@
       {
         title: 'Tittel med oppgave ikon',
         text: `<p>Noe tekst</p>`,
-        nextActionUrl: 'http://',
+        nextActionUrl: 'http://www.mattilsynet.no',
         nextActionLinkText: 'En lenke',
         iconClass: 'task-icon',
         linkTypeButton: false
@@ -60,8 +60,7 @@
   argTypes={{
     tasks: { control: 'array' },
     disableCss: { control: 'boolean' }
-  }}
-/>
+  }} />
 
 <Story name="Normal" let:tasks let:disableCss>
   <div use:wrapInShadowDom={disableCss} class="container layout-flex-col layout-flex-col--x-small">
@@ -75,8 +74,7 @@
         id={task.title}
         headerTag={task.headerTag}
         iconClass={task.iconClass}
-        linkTypeButton={task.linkTypeButton}
-      />
+        linkTypeButton={task.linkTypeButton} />
     {/each}
   </div>
 </Story>

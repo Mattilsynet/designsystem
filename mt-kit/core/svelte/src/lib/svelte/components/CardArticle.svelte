@@ -35,10 +35,8 @@
   {/if}
 
   {#if linkUrl && linkText}
-    <p>
-      <a href={linkUrl} rel={mapRelExternal(linkUrl)} class="mt-link link--transport">
-        {@html linkText}
-      </a>
-    </p>
+    <a href={linkUrl} rel={mapRelExternal(linkUrl)} class="mt-link link--transport">
+      {@html linkText}
+    </a>
   {/if}
 </article>

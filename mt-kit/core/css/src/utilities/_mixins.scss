@@ -200,9 +200,21 @@
   }
 }
 
-@mixin apply-icon($icon, $position: 'before', $direction: 'down', $open-state-icon: null) {
+@mixin apply-icon(
+  $icon: null,
+  $position: 'before',
+  $direction: 'down',
+  $open-state-icon: null,
+  $target-child: null,
+  $overwrite-external-icon: null
+) {
   $valid-directions: down, up, right, left;
   $pseudo: before, after;
+  $external-link-icon: if(
+    $overwrite-external-icon != null,
+    $overwrite-external-icon,
+    $icon-external-link
+  );
 
   @if not index($valid-directions, $direction) {
     @error "Unknown direction value '#{$direction}' at $dir. $dir can only be of value 'down' | 'up' | 'right' | 'left'.";
@@ -222,41 +234,6 @@
   $dir-mapped-to-rotate: map-get($icon-directions, #{$direction});
   $calc-open-rotation: calc($dir-mapped-to-rotate - 180);
 
-  &:#{$position},
-  &::#{$position} {
-    content: '';
-    display: inline-block;
-    background: no-repeat center $icon;
-    width: $icon-size-x-large;
-    height: $icon-size-x-large;
-    @if ($direction != 'down') {
-      transform: rotate(#{$dir-mapped-to-rotate}deg);
-    }
-    @media (prefers-reduced-motion: no-preference) {
-      transition: transform $transition-ms-300 ease;
-    }
-    @content;
-  }
-
-  &[aria-expanded='true']::#{$position} {
-    @if $open-state-icon != null {
-      background: no-repeat center $open-state-icon;
-    }
-    transform: rotateX(#{$calc-open-rotation}deg);
-    @media (prefers-reduced-motion: no-preference) {
-      transition: transform $transition-ms-300 ease;
-    }
-  }
-}
-
-@mixin apply-external-link-icon($icon: $icon-external-link, $position, $target-child: null) {
-  $pseudo: before, after;
-  $margin-side: if($position == after, left, right);
-
-  @if not index($pseudo, $position) {
-    @error "Unknown position of value '#{$position}' at $position. $position can only be of value before or after";
-  }
-
   &[href]:not(:where(
     [href^='#'],
     [href^='?'],
@@ -269,36 +246,86 @@
     [href*='mattilsynet-xp7prod.enonic.cloud']
     )) {
     @if $target-child != null {
+      &::after,
       &::before {
         display: none;
       }
       @each $target in $target-child {
-        #{$target-child} {
-          @include apply-icon($icon: $icon, $position: $position) {
-            vertical-align: middle;
-            margin-#{$margin-side}: $spacer-xxx-small;
-          }
+        #{$target} {
+          @include apply-pseudo-styling(
+            $icon: $icon-external-link,
+            $position: $position,
+            $icon-direction: $direction,
+            $mapped-rotation: $dir-mapped-to-rotate
+          );
         }
       }
     } @else {
-      @include apply-icon($icon: $icon, $position: $position) {
-        flex-shrink: 0;
-
-        @if $position == after {
-          vertical-align: middle;
-        }
-      }
+      @include apply-pseudo-styling(
+        $icon: $icon-external-link,
+        $position: $position,
+        $icon-direction: $direction,
+        $mapped-rotation: $dir-mapped-to-rotate
+      );
     }
-    @if $position == after and $target-child == null {
-      display: inline;
+  }
+  @if $icon != null {
+    @if $target-child != null {
+      &::after,
       &::before {
         display: none;
       }
+      @each $target in $target-child {
+        #{$target} {
+          @include apply-pseudo-styling(
+            $icon: $icon-external-link,
+            $position: $position,
+            $icon-direction: $direction,
+            $mapped-rotation: $dir-mapped-to-rotate
+          );
+        }
+      }
     } @else {
-      display: inline-flex;
-      align-items: flex-start;
-      gap: $spacer-xxx-small;
+      @include apply-pseudo-styling(
+        $icon: $icon,
+        $position: $position,
+        $icon-direction: $direction,
+        $mapped-rotation: $dir-mapped-to-rotate
+      );
+      @content;
+      &[aria-expanded='true']::#{$position} {
+        @if $open-state-icon != null {
+          background: no-repeat center $open-state-icon;
+        }
+        transform: rotateX(#{$calc-open-rotation}deg);
+        @media (prefers-reduced-motion: no-preference) {
+          transition: transform $transition-ms-300 ease;
+        }
+      }
     }
-    @content;
+  }
+}
+
+@mixin apply-pseudo-styling(
+  $icon,
+  $position,
+  $icon-size: $icon-size-x-large,
+  $icon-direction,
+  $mapped-rotation
+) {
+  &:#{$position},
+  &::#{$position} {
+    content: '';
+    display: inline-block;
+    background: no-repeat center $icon;
+    width: $icon-size-x-large;
+    height: $icon-size-x-large;
+    vertical-align: middle;
+    @if ($icon-direction != 'down') {
+      transform: rotate(#{$mapped-rotation}deg);
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      transition: transform $transition-ms-300 ease;
+    }
   }
 }

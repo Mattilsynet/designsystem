@@ -23,7 +23,10 @@
         lookingForWhat: 'Dette så vi etter',
         organisationPerformingAssignment: 'Disse utførte oppdraget',
         findings: 'Dette fant vi',
-        file: { text: 'Filrapporten.pdf', url: 'http://localhost/test.pdf' }
+        file: {
+          text: 'Filrapporten.pdf',
+          url: 'http://www.mattilsynet-xp7prod.enonic.cloud/test.pdf'
+        }
       },
       {
         title: 'Overskrift 2',
@@ -32,7 +35,7 @@
         lookingForWhat: 'Dette så vi etter',
         organisationPerformingAssignment: 'Disse utførte oppdraget',
         findings: 'Dette fant vi',
-        file: { text: 'Filrapporten', url: 'http://localhost/test.pdf' }
+        file: { text: 'Filrapporten', url: 'http://www.mattilsynet-xp7prod.enonic.cloud/test.pdf' }
       }
     ],
     disableCss: false
@@ -105,7 +108,7 @@
               <dd class="text">
                 {#if publication.file.url}
                   <Link
-                    class="document forward-arrow-end-link"
+                    class="document"
                     href={publication.file.url}
                     linkText={publication.title}
                     fileName={publication.file.text} />

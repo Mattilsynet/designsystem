@@ -17,7 +17,7 @@
     moreText: `<h2>Du bør varsle</h2>
                <p>At noen setter opp nye piggtrådgjerder</p>
                <p>Eldre piggtrådgjerder som utgjør en risiko for at dyr blir skadet</p>`,
-    formLinkUrl: 'http://',
+    formLinkUrl: 'http://www.mattilsynet.no',
     formLinkText: 'Lenke til skjema',
     disableCss: false
   }}
@@ -59,11 +59,9 @@
       {/if}
 
       {#if formLinkUrl && formLinkText}
-        <p>
-          <a href={formLinkUrl} class="mt-link link--transport link--transport--primary">
-            {formLinkText}
-          </a>
-        </p>
+        <a href={formLinkUrl} class="mt-link link--transport link--transport--primary">
+          {formLinkText}
+        </a>
       {/if}
     </article>
   </div>

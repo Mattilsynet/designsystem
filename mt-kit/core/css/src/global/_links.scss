@@ -8,10 +8,15 @@ $transportlink-default-color: 'primary' !default;
 $transportlink-colors: 'error' !default;
 
 a {
-  @include apply-external-link-icon($position: before);
+  &:not(p &) {
+    @include apply-icon($position: before);
+  }
+}
 
-  p & {
-    @include apply-external-link-icon($position: after);
+.text,
+p {
+  > a {
+    @include apply-icon($position: after);
   }
 }
 
@@ -115,7 +120,6 @@ a {
     @include apply-icon($icon: $icon-arrow-right-primary-small, $position: before) {
       flex-shrink: 0;
     }
-    @include apply-external-link-icon($icon: $icon-external-link, $position: before);
     display: flex;
     align-items: flex-start;
     gap: var(--icon-gap);
@@ -221,7 +225,7 @@ a {
     }
   }
   &.top-task {
-    @include apply-external-link-icon($position: after, $target-child: 'h2, h3');
+    @include apply-icon($position: after, $target-child: 'h2, h3');
     @include background-color-on-hover(var(--color-mt-green-300));
     @include background-color-on-active(var(--color-mt-green-400));
 
@@ -290,7 +294,7 @@ a {
     }
   }
   &.search-result {
-    @include apply-external-link-icon($position: after, $target-child: 'h2, h3');
+    @include apply-icon($position: after, $target-child: 'h2, h3');
     color: var(--color-text);
     gap: var(--spacer-xx-small);
     padding: var(--spacer-small) var(--spacer-x-small);
@@ -333,6 +337,7 @@ a {
     --content-margin: 0;
     --content-padding: var(--spacer-xx-small);
     --content-bg: var(--color-mt-white);
+    @include apply-icon($position: after, $target-child: 'h2, h3');
 
     display: flex;
     flex-direction: column;
