@@ -305,7 +305,10 @@ Only use if it does NOT affect accessibility
     justify-self: center;
     gap: var(--spacer-medium);
     a {
-      @include apply-icon($position: after, $overwrite-external-icon: true);
+      @include apply-icon(
+        $position: after,
+        $overwrite-external-icon: var(--icon-external-link-on-dark)
+      );
       color: var(--mt-footer-links-color);
       text-decoration-color: var(--mt-footer-color);
 

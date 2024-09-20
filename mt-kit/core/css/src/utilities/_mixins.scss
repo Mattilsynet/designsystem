@@ -206,13 +206,13 @@
   $direction: 'down',
   $open-state-icon: null,
   $target-child: null,
-  $overwrite-external-icon: false
+  $overwrite-external-icon: null
 ) {
   $valid-directions: down, up, right, left;
   $pseudo: before, after;
   $external-link-icon: if(
-    $overwrite-external-icon == true,
-    $icon-external-link-on-dark,
+    $overwrite-external-icon != null,
+    $overwrite-external-icon,
     $icon-external-link
   );
 
@@ -257,7 +257,9 @@
             $position: $position,
             $icon-direction: $direction,
             $mapped-rotation: $dir-mapped-to-rotate
-          );
+          ) {
+            @content;
+          }
         }
       }
     } @else {
@@ -266,7 +268,9 @@
         $position: $position,
         $icon-direction: $direction,
         $mapped-rotation: $dir-mapped-to-rotate
-      );
+      ) {
+        @content;
+      }
     }
   }
   @if $icon != null {
@@ -282,7 +286,9 @@
             $position: $position,
             $icon-direction: $direction,
             $mapped-rotation: $dir-mapped-to-rotate
-          );
+          ) {
+            @content;
+          }
         }
       }
     } @else {
@@ -291,8 +297,9 @@
         $position: $position,
         $icon-direction: $direction,
         $mapped-rotation: $dir-mapped-to-rotate
-      );
-      @content;
+      ) {
+        @content;
+      }
       &[aria-expanded='true']::#{$position} {
         @if $open-state-icon != null {
           background: no-repeat center $open-state-icon;
@@ -338,5 +345,6 @@
     @media (prefers-reduced-motion: no-preference) {
       transition: transform $transition-ms-300 ease;
     }
+    @content;
   }
 }
