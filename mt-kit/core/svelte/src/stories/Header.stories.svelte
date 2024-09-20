@@ -81,11 +81,16 @@
         },
         { title: 'Planter og dyrking', url: '#', iconResource: plantIcon, children: [] },
         { title: 'Drikkevannforskrift', url: '#', iconResource: drinkIcon, children: [] },
-        { title: 'Kosmetikk', url: '#', iconResource: cosmeticIcon, children: [] }
+        {
+          title: 'Kosmetikk og kroppspleieprodukter',
+          url: '#',
+          iconResource: cosmeticIcon,
+          children: []
+        }
       ],
       itemsRight: [
         {
-          title: 'Om mattilsynet med lang tekst a brekker',
+          title: 'Om mattilsynet',
           url: '#'
         },
         {

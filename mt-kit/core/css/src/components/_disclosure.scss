@@ -15,6 +15,9 @@
   }
 
   .disclosure-header {
+    @include apply-icon($icon: $icon-carret-down-primary, $position: before) {
+      flex-shrink: 0;
+    }
     display: flex;
     align-items: flex-start;
     gap: var(--spacer-xxx-small);
@@ -22,24 +25,7 @@
     margin: 0;
     padding: var(--disclosure-spacing) 0 var(--disclosure-spacing) var(--disclosure-spacing);
     overflow-wrap: anywhere;
-    &:not([href]) {
-      @include apply-icon($icon: $icon-carret-down-primary, $position: before) {
-        flex-shrink: 0;
-      }
-    }
-    &[href] {
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      grid-template-areas: 'svg title pseudo';
-      grid-area: title;
 
-      &::after {
-        grid-area: pseudo;
-      }
-      > svg {
-        grid-area: svg;
-      }
-    }
     .title {
       line-height: $text-with-icon-line-height;
     }
