@@ -16,6 +16,7 @@
   export let isRequired: boolean | undefined = undefined
   export let options: Array<{ value: string; text: string }> = []
   export let textOptional: string | undefined
+  export let showOptionalText: boolean = true
   export let hiddenErrorText: string | undefined
 
   const selectId = `ui-select-${instanceCounter++}`
@@ -29,7 +30,7 @@
   })
 </script>
 
-<Label for={selectId} {isRequired} {textOptional}>{label}</Label>
+<Label for={selectId} {isRequired} {textOptional} {showOptionalText}>{label}</Label>
 
 {#if helpText}
   <div id={`${name}-hint`} class="hint">
@@ -47,8 +48,7 @@
   bind:value
   class="form-field"
   aria-required={isRequired}
-  aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)}
->
+  aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)}>
   {#each options as option (option.value)}
     <option value={option.value}>
       {option.text}

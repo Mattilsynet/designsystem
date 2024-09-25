@@ -12,6 +12,7 @@
   export let options: Array<{ value: string; text: string }> = []
   export let isRequired: boolean | undefined = undefined
   export let textOptional = '(valgfritt felt)'
+  export let showOptionalText: boolean = true
   export let hiddenErrorText: string | undefined
   export let loadJs = false
   export let theme: 'radio' | 'button' = 'radio'
@@ -35,7 +36,7 @@
     : ''} {className}">
   <legend class="mt-legend form-legend">
     {label}
-    {#if !isRequired}
+    {#if !isRequired && showOptionalText}
       <span class="tag info tag-text">{textOptional}</span>
     {/if}
   </legend>
