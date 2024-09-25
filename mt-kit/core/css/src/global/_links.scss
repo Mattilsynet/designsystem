@@ -317,13 +317,11 @@ p {
     }
 
     .breadcrumb {
-      @include apply-icon($icon: var(--icon-carret-right-small), $position: before) {
-        margin-right: $spacer-xxx-small;
-      }
+      @include apply-icon($icon: var(--icon-carret-right-small), $position: before);
       font-size: $font-size-small;
-      padding-right: $spacer-xxx-small;
       display: inline-flex;
       align-items: center;
+      gap: var(--spacer-xxx-small);
 
       &:first-child::before {
         content: none;
