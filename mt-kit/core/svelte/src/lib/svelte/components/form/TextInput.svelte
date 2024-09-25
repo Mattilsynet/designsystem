@@ -22,7 +22,7 @@
   export let error: ErrorDetail | undefined
   export let helpText: string | undefined
   export let textOptional: string | undefined
-  export let showOptionalText: boolean
+  export let showOptionalText: boolean = true
   export let hiddenErrorText: string | undefined
   export let maxlength: number | undefined
   export let placeholder: string | undefined
@@ -50,7 +50,7 @@
   })
 </script>
 
-<Label for={name} {isRequired} {textOptional}>{label}</Label>
+<Label for={name} {isRequired} {textOptional} {showOptionalText} class={labelClass}>{label}</Label>
 
 {#if helpText}
   <div id={`${name}-hint`} class="hint">
