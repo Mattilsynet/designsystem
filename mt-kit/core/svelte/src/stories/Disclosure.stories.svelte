@@ -233,7 +233,7 @@
           title={disclosure.title}
           loadJs={!args.disableJs}
           headerTag={disclosure.headerTag}
-          chapter={i + 1}
+          chapter={i + 1 + '.' + 10 + '.' + i}
           class="{args.showNr
             ? 'disclosure-with-number'
             : ''} layout-grid layout-grid--column-12 col-3-span-8"

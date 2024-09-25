@@ -28,7 +28,7 @@
           title={item.contentTitle ? item.contentTitle : item.title}
           theme="no-border"
           class="on-primary"
-          headerClass="menu-level-1 align-items-center"
+          headerClass="menu-level-1"
           {loadJs}
           icon={item.iconResource}>
           <ol class="mt-ol m-t-xxs sub-menu">

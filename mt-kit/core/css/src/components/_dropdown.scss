@@ -134,10 +134,29 @@
       }
     }
     .menu-level-1 {
-      gap: var(--spacer-xx-small);
-
+      @include apply-icon($icon: $icon-arrow-right-primary-small, $position: after);
       --menu-mobile-padding-tb: calc(var(--spacer-xx-small) + 2px);
+
       padding: var(--menu-mobile-padding-tb) var(--spacer-xx-small);
+      gap: var(--spacer-xx-small);
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      grid-template-areas: 'svg title pseudo';
+      grid-area: title;
+      align-items: center;
+      font-weight: var(--font-weight-light);
+      font-size: $font-size-body;
+
+      &::after {
+        grid-area: pseudo;
+      }
+      > svg {
+        grid-area: svg;
+      }
+      &[aria-current='page'] {
+        @include text-decoration-underline;
+        font-weight: var(--font-weight-bold);
+      }
     }
     .disclosure-header {
       font-size: $font-size-body;
@@ -155,6 +174,8 @@
     @media only screen and (min-width: $breakpoint-large) {
       .menu-level-1 {
         padding: var(--spacer-xx-small);
+        font-weight: var(--font-weight-light);
+        font-size: $font-size-h3;
       }
       & > .mt-button,
       .mt-summary.mt-button {
@@ -319,29 +340,6 @@
     }
     &[aria-current='page'] {
       font-weight: var(--font-weight-bold);
-    }
-  }
-  .disclosure {
-    > a {
-      @include apply-icon($icon: $icon-arrow-right-primary-small, $position: after);
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      grid-template-areas: 'svg title pseudo';
-      grid-area: title;
-      align-items: center;
-      font-weight: var(--font-weight-light);
-      font-size: $font-size-body;
-
-      &::after {
-        grid-area: pseudo;
-      }
-      > svg {
-        grid-area: svg;
-      }
-      &[aria-current='page'] {
-        @include text-decoration-underline;
-        font-weight: var(--font-weight-bold);
-      }
     }
   }
 

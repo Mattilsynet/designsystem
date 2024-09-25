@@ -17,6 +17,8 @@
   .disclosure-header {
     @include apply-icon($icon: $icon-carret-down-primary, $position: before) {
       flex-shrink: 0;
+      width: 1em;
+      height: 1em;
     }
     display: flex;
     align-items: flex-start;
@@ -25,14 +27,6 @@
     margin: 0;
     padding: var(--disclosure-spacing) 0 var(--disclosure-spacing) var(--disclosure-spacing);
     overflow-wrap: anywhere;
-
-    .title {
-      line-height: $text-with-icon-line-height;
-    }
-
-    &.align-items-center {
-      align-items: center;
-    }
   }
   [aria-expanded='true'].disclosure-header {
     font-weight: var(--font-weight-bold);
@@ -75,7 +69,7 @@
       > .chapter-number {
         grid-area: number;
         grid-column: 1 / span 1;
-        place-self: center;
+        place-self: flex-start;
         white-space: nowrap;
       }
       > .title {
@@ -114,6 +108,8 @@
       svg {
         flex: none;
         align-self: flex-start;
+        position: relative;
+        top: 0.125em;
       }
     }
 
