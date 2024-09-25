@@ -25,7 +25,7 @@
     {#if result.breadcrumbs?.length > 0}
       <div
         aria-label={breadCrumbAriaLabel}
-        style="--gap: var(--spacer-xxx-small)"
+        style="--gap: var(--fds-spacing-2)"
         class="layout-flex layout-flex--center-vertical">
         {#each result.breadcrumbs as breadcrumb}
           <span class="breadcrumb">
