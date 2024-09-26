@@ -15,18 +15,23 @@
   }
 
   .disclosure-header {
-    &:not([href]) {
-      @include apply-icon($icon: $icon-carret-down-primary, $position: before) {
-        flex-shrink: 0;
-      }
+    @include apply-icon($icon: $icon-carret-down-primary, $position: before) {
+      flex-shrink: 0;
     }
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: var(--spacer-xxx-small);
     width: 100%;
     margin: 0;
     padding: var(--disclosure-spacing) 0 var(--disclosure-spacing) var(--disclosure-spacing);
     overflow-wrap: anywhere;
+
+    > span {
+      align-self: center;
+    }
+    svg {
+      flex: none;
+    }
   }
   [aria-expanded='true'].disclosure-header {
     font-weight: var(--font-weight-bold);
@@ -69,7 +74,8 @@
       > .chapter-number {
         grid-area: number;
         grid-column: 1 / span 1;
-        place-self: center;
+        place-self: flex-start;
+        white-space: nowrap;
       }
       > .title {
         grid-area: title;
@@ -103,11 +109,6 @@
 
     .disclosure-header {
       padding: var(--spacer-x-small);
-
-      svg {
-        flex: none;
-        align-self: center;
-      }
     }
 
     .disclosure-panel {
