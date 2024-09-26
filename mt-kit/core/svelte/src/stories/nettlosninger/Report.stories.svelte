@@ -19,7 +19,7 @@
     lookingForWhat: 'Dette så vi etter',
     organisationPerformingAssignment: 'Disse utførte oppdraget',
     findings: 'Dette fant vi',
-    file: { text: 'Filrapporten.pdf', url: 'http://localhost/test.pdf' },
+    file: { text: 'Filrapporten.pdf', url: 'http://www.mattilsynet-xp7prod.enonic.cloud/test.pdf' },
     disableCss: false
   }}
   argTypes={{
@@ -96,11 +96,7 @@
             <dt>File</dt>
             <dd class="text">
               {#if file.url}
-                <Link
-                  class="document forward-arrow-end-link"
-                  href={file.url}
-                  linkText={title}
-                  fileName={file.text} />
+                <Link class="document" href={file.url} linkText={title} fileName={file.text} />
               {/if}
             </dd>
           {/if}
