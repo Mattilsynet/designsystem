@@ -338,7 +338,7 @@
     background: no-repeat center $icon;
     width: $icon-size-x-large;
     height: $icon-size-x-large;
-    vertical-align: middle;
+    vertical-align: top;
     @if ($icon-direction != 'down') {
       transform: rotate(#{$mapped-rotation}deg);
     }
