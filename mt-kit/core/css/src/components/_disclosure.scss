@@ -17,8 +17,6 @@
   .disclosure-header {
     @include apply-icon($icon: $icon-carret-down-primary, $position: before) {
       flex-shrink: 0;
-      width: 1em;
-      height: 1em;
     }
     display: flex;
     align-items: flex-start;
@@ -27,6 +25,13 @@
     margin: 0;
     padding: var(--disclosure-spacing) 0 var(--disclosure-spacing) var(--disclosure-spacing);
     overflow-wrap: anywhere;
+
+    > span {
+      align-self: center;
+    }
+    svg {
+      flex: none;
+    }
   }
   [aria-expanded='true'].disclosure-header {
     font-weight: var(--font-weight-bold);
@@ -104,13 +109,6 @@
 
     .disclosure-header {
       padding: var(--spacer-x-small);
-
-      svg {
-        flex: none;
-        align-self: flex-start;
-        position: relative;
-        top: 0.125em;
-      }
     }
 
     .disclosure-panel {
