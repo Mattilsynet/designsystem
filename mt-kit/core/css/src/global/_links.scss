@@ -317,16 +317,14 @@ p {
     }
 
     .breadcrumb {
+      @include apply-icon($icon: var(--icon-carret-right-small), $position: before);
       font-size: $font-size-small;
-      padding-right: var(--spacer-xxx-small);
+      display: inline-flex;
+      align-items: center;
+      gap: var(--fds-spacing-2);
 
       &:first-child::before {
         content: none;
-      }
-      &::before {
-        content: var(--icon-carret-right-small);
-        display: inline-block;
-        margin-right: var(--spacer-xxx-small);
       }
     }
   }

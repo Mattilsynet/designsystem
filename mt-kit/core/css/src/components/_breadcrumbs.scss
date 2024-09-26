@@ -10,22 +10,31 @@
     padding: 0;
     margin: 0;
     gap: $fds-spacing-1;
+
     li {
       display: none;
       font-size: $font-size-small;
       margin-top: 0;
       align-items: center;
 
-      &:not(:last-child) {
-        .last-breadcrumb,
-        .mt-button--link,
-        .mt-link {
-          @include apply-icon($icon: $icon-carret-right-small, $position: after);
-          display: flex;
-          gap: calc($fds-spacing-1 + var(--border-width-regular) + var(--border-width-regular));
-          align-items: center;
+      &:focus-within {
+        box-shadow: $focus-box-shadow-no-outline;
+      }
+      a:focus {
+        box-shadow: none;
+      }
+      &.ellipsis {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        > .mt-link,
+        > .last-breadcrumb {
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
         }
       }
+
       .mt-link,
       .mt-button--link,
       .last-breadcrumb {
@@ -40,30 +49,40 @@
       }
 
       &:nth-last-child(2) {
+        @include apply-icon($icon: $icon-carret-right-small, $position: before) {
+          transform: rotateY(180deg);
+          flex-shrink: 0;
+        }
         display: flex;
         .mt-link {
-          @include apply-icon($icon: $icon-carret-right-small, $position: before) {
-            transform: rotateY(180deg);
-          }
           &:after {
             display: none;
           }
         }
       }
-      &.ellipsis {
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
-        &:focus-within {
-          box-shadow: $focus-box-shadow-no-outline;
-        }
-      }
 
       @media only screen and (min-width: $breakpoint-large) {
         display: flex;
-        &:nth-last-child(2) {
+
+        &:nth-child(2),
+        &:first-child {
+          &:before {
+            display: none;
+          }
+          .mt-button--link,
           .mt-link {
             @include apply-icon($icon: $icon-carret-right-small, $position: after);
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: calc($fds-spacing-1 + var(--border-width-regular) + var(--border-width-regular));
+          }
+        }
+        &:not(:first-child, :nth-child(2), :last-child) {
+          @include apply-icon($icon: $icon-carret-right-small, $position: after) {
+            flex-shrink: 0;
+          }
+          .mt-link {
             &:before {
               display: none;
             }

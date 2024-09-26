@@ -102,6 +102,17 @@
         title: 'Krav til transportør og personell',
         text: 'Når dyreholder selv transporterer dyr til beite, gjelder ikke kravet om at transportøren skal være godkjent av Mattilsynet.',
         breadcrumbs: ['Dyr', 'Dyretransport', 'Transport av dyr til beite']
+      },
+      {
+        url: 'https://www.mattilsynet.no',
+        title: 'Eksport av fisk og sjømat utenfor EU/EØS',
+        text: 'Krav og sertifikat ved eksport av fisk og fiskevarer til ulike land utenfor EU/EØS.',
+        breadcrumbs: [
+          'Eksport til land utenfor EU/EØS',
+          'Eksport av mat og drikke',
+          'Eksport av fisk og sjømat',
+          'Landoversikt'
+        ]
       }
     ],
 
