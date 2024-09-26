@@ -17,13 +17,37 @@
       type: 'base:folder'
     },
     {
-      text: 'Plantevernmidler',
+      text: 'Planter og dyrking',
+      active: false,
+      url: '/site/default/draft/mattilsynet/planter-og-dyrking/',
+      type: 'base:folder'
+    },
+    {
+      text: 'Planter og dyrking',
+      active: false,
+      url: '/site/default/draft/mattilsynet/planter-og-dyrking/',
+      type: 'base:folder'
+    },
+    {
+      text: 'Planter og dyrking',
+      active: false,
+      url: '/site/default/draft/mattilsynet/planter-og-dyrking/',
+      type: 'base:folder'
+    },
+    {
+      text: 'Planter og dyrking',
+      active: false,
+      url: '/site/default/draft/mattilsynet/planter-og-dyrking/',
+      type: 'base:folder'
+    },
+    {
+      text: 'Varsle om mishandling eller alvorlig vanstell av dyr',
       active: false,
       url: '/site/default/draft/mattilsynet/planter-og-dyrking/plantevernmidler',
       type: 'no.mattilsynet.app:article'
     },
     {
-      text: 'Veileder til forskrift om plantevernmidler',
+      text: 'Varsle om mishandling eller alvorlig vanstell av dyr',
       active: false,
       url: '/site/default/draft/mattilsynet/planter-og-dyrking/plantevernmidler/veileder-til-forskrift-om-plantevernmidler',
       type: 'no.mattilsynet.app:article'
@@ -51,9 +75,28 @@
 
 <Story name="Normal" let:breadcrumbsLong let:breadcrumbsShort let:loadJs let:disableCss>
   <div use:wrapInShadowDom={disableCss}>
-    <p class="description">Brødsmuler med 4 eller fler elementer</p>
-    <Breadcrumbs breadcrumbs={breadcrumbsLong} {loadJs} />
-    <p class="description">Brødsmuler med 3 eller færre elementer</p>
-    <Breadcrumbs breadcrumbs={breadcrumbsShort} {loadJs} />
+    <div class="layout-grid layout-grid--column-12">
+      <div class="col-3-span-6">
+        <p class="description">Brødsmuler med 4 eller fler elementer</p>
+        <Breadcrumbs breadcrumbs={breadcrumbsLong} {loadJs} />
+        <p class="description">Brødsmuler med 3 eller færre elementer</p>
+        <Breadcrumbs breadcrumbs={breadcrumbsShort} {loadJs} />
+      </div>
+      <div class="col-1-span-12 space">
+        <hr />
+      </div>
+      <div class="col-1-span-12">
+        <p class="description">Brødsmuler med 4 eller fler elementer</p>
+        <Breadcrumbs breadcrumbs={breadcrumbsLong} {loadJs} />
+        <p class="description">Brødsmuler med 3 eller færre elementer</p>
+        <Breadcrumbs breadcrumbs={breadcrumbsShort} {loadJs} />
+      </div>
+    </div>
   </div>
 </Story>
+
+<style>
+  .space {
+    padding: 3rem;
+  }
+</style>
