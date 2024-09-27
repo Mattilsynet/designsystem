@@ -1,24 +1,9 @@
 <script lang="ts">
   import { Meta, Story } from '@storybook/addon-svelte-csf'
-  import TextInput from '../../lib/svelte/components/form/TextInput.svelte'
   import { wrapInShadowDom } from '../storybook-utils/utils'
-  import TextArea from '../../lib/svelte/components/form/TextArea.svelte'
-  import RadioGroup from '../../lib/svelte/components/form/RadioGroup.svelte'
-  import Checkbox from '../../lib/svelte/components/form/Checkbox.svelte'
-  import CheckboxWithSubSets from '../../lib/svelte/components/form/CheckboxWithSubSets.svelte'
   import Address from '../../lib/svelte/components/form/Address.svelte'
 
   let values = {}
-  $: {
-    console.log('values', values)
-  }
-  function handleAddress(e) {
-    console.log('handleAddress', e)
-  }
-  function handleSubmit(e) {
-    // e.preventDefault()
-    console.log('handleSubmit', values)
-  }
 </script>
 
 <Meta
