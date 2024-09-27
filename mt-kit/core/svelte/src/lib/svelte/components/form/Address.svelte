@@ -70,8 +70,6 @@
         streetValue = option['data-street']
         postalCodeValue = option['data-postalcode']
         inputValue = streetValue && postalCodeValue ? `${streetValue}, ${postalCodeValue}` : ''
-      } else {
-        //todo
       }
     } else if (!input.value) {
       input.list.textContent = ''
