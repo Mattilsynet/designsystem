@@ -6,6 +6,16 @@
   import { createInputAriaDescribedby, type ErrorDetail, interpolate } from '../../../ts'
   import { createEventDispatcher } from 'svelte'
 
+  interface GeonorgeResponse {
+    adresser: Array<GeonorgeAddress>
+  }
+
+  interface GeonorgeAddress {
+    adressetekst: string
+    postnummer: string
+    poststed: string
+  }
+
   export let streetLabel = ''
   export let streetName = ''
   export let streetValue: string | undefined = undefined
@@ -78,16 +88,17 @@
     }
   }
 
-  async function fetchOptions(inputValue: string) {
+  function getSearchUrl(value: string, hits: string): string {
+    return `https://ws.geonorge.no/adresser/v1/sok?sok=${value}&fuzzy=true&utkoordsys=4258&treffPerSide=${hits}&side=0&asciiKompatibel=true`
+  }
+
+  async function fetchOptions(inputValue: string): Promise<void> {
     if (inputValue.length > 2) {
       isLoading = true
 
       try {
-        const res = await fetch(
-          `https://ws.geonorge.no/adresser/v1/sok?sok=${inputValue}&fuzzy=true&utkoordsys=4258&treffPerSide=${hits}&side=0&asciiKompatibel=true`
-          // `https://ws.geonorge.no/adresser/v1/sok?sok=`
-        )
-        const data = await res.json()
+        const res = await fetch(getSearchUrl(inputValue, hits))
+        const data: GeonorgeResponse = await res.json()
         const options = data.adresser.map(({ adressetekst, postnummer, poststed }, index) => {
           const option = document.createElement('u-option')
           option.classList = 'option'
