@@ -14,6 +14,9 @@
   export let streetHelpText
   export let streetInputClass = ''
 
+  export let streetFallbackLabel = ''
+  export let streetFallbackHelpText = ''
+
   export let postalCodeLabel = ''
   export let postalCodeName = ''
   export let postalCodeValue: string | undefined = undefined
@@ -27,6 +30,7 @@
 
   export let textOptional: string | undefined = 'Valgfritt'
   export let noResultsText: string = 'Ingen resultater for {0}'
+  export let fetchFailedText: string = 'Skriv inn manuelt under'
   export let showOptionalText = true
   export let loadJs = false
   export let hits = `10`
@@ -37,7 +41,8 @@
   let isExpanded
   let listId
   let isLoading = false
-
+  let isFetchFallback = false
+  let apiError: undefined | ErrorDetail = undefined
   let debounceTimer // Debounce so we do not spam API
   const dispatch = createEventDispatcher()
 
@@ -65,7 +70,7 @@
       // input.list.textContent = 'Loading...'
       streetValue = undefined
       postalCodeValue = undefined
-      // xhr.abort()
+      apiError = undefined
       clearTimeout(debounceTimer)
       debounceTimer = setTimeout(async () => {
         await fetchOptions(value)
@@ -99,7 +104,8 @@
           input.list.replaceChildren(...options)
         }
       } catch (err) {
-        input.list.textContent = interpolate(noResultsText, [inputValue])
+        apiError = { key: streetName, message: fetchFailedText }
+        isFetchFallback = true
       }
       isLoading = false
     }
@@ -123,6 +129,9 @@
 
     {#if streetError}
       <InputError {...streetError} {hiddenErrorText} />
+    {/if}
+    {#if isFetchFallback && apiError}
+      <InputError {...apiError} {hiddenErrorText} />
     {/if}
 
     <div class="actions m-t-xxs">
@@ -152,9 +161,43 @@
     </div>
     <u-datalist id={`${streetName}-list2`} class="mt-datalist"> </u-datalist>
   </div>
-
-  <input type="hidden" class="form-field" name={streetName} bind:value={streetValue} />
-  <input type="hidden" class="form-field" name={postalCodeName} bind:value={postalCodeValue} />
+  {#if !isFetchFallback}
+    <input
+      type="hidden"
+      class="form-field"
+      name={streetName}
+      bind:value={streetValue}
+      data-testid="hidden-street" />
+    <input
+      type="hidden"
+      class="form-field"
+      name={postalCodeName}
+      bind:value={postalCodeValue}
+      data-testid="hidden-postal-code" />
+  {:else}
+    <TextInput
+      label={streetFallbackLabel}
+      name={streetName}
+      bind:value={streetValue}
+      labelClass={'col-1-span-12'}
+      inputClass={'col-1-span-12'}
+      isRequired={streetIsRequired}
+      error={streetError}
+      helpText={streetFallbackHelpText}
+      {textOptional}
+      {showOptionalText} />
+    <TextInput
+      label={postalCodeLabel}
+      name={postalCodeName}
+      labelClass="col-1-span-12"
+      inputClass={'col-1-span-4'}
+      isRequired={postalCodeIsRequired}
+      bind:value={postalCodeValue}
+      error={postalCodeError}
+      helpText={postalCodeHelpText}
+      {textOptional}
+      {showOptionalText} />
+  {/if}
 {:else}
   <TextInput
     label={streetLabel}
