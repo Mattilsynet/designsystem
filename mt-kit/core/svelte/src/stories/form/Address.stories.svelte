@@ -31,7 +31,25 @@
     helpText: 'Skriv når hendelsen skjedde og om det har pågått over lengere periode.',
     errorMessage: 'Fyll inn dette feltet.',
     countCharactersLeftLabel: 'karakterer igjen',
-    address: { label: 'Gateadresse', loadJs: true, postalCodeLabel: 'Postnummer' },
+    address: {
+      streetLabel: 'Søk i gateadresse',
+      streetFallbackLabel: 'Gateadresse',
+      streetName: 'ownerStreet',
+      streetError: undefined,
+      postalCodeLabel: 'Postnummer',
+      postalCodeName: 'ownerZip',
+      postalCodeError: undefined,
+      loadJs: true
+    },
+    address2: {
+      streetLabel: 'Gateadresse',
+      streetName: 'reporterStreet',
+      streetError: undefined,
+      postalCodeLabel: 'Postnummer',
+      postalCodeName: 'reporterZip',
+      postalCodeError: undefined,
+      loadJs: false
+    },
     disableCss: false
   }}
   argTypes={{
@@ -41,7 +59,8 @@
     checkboxWithSubsetsLegend: { control: 'text' },
     helpText: { control: 'text' },
     countCharactersLeftLabel: { control: 'text' },
-    disableCss: { control: 'boolean' }
+    disableCss: { control: 'boolean' },
+    disableJs: { control: 'boolean' }
   }} />
 
 <Story
@@ -54,19 +73,26 @@
   let:countCharactersLeftLabel
   let:args>
   <div use:wrapInShadowDom={args.disableCss}>
-    <form method="get" class="mt-form form-layout layout-grid--column-12" on:submit={handleSubmit}>
+    <h1 class="mt-h1">Adresse komponent</h1>
+    <h2 class="mt-h2">Med JS</h2>
+    <form
+      method="get"
+      class="mt-form form-layout layout-grid layout-grid--column-12"
+      style="--gap: 0;"
+      on:submit={handleSubmit}>
       <Address
-        streetLabel={args.address.label}
-        streetName="ownerStreet"
+        streetLabel={args.address.streetLabel}
+        streetFallbackLabel={args.address.streetFallbackLabel}
+        streetName={args.address.streetName}
         postalCodeLabel={args.address.postalCodeLabel}
-        postalCodeName="ownerZip"
-        streetError={{ key: 'ownerStreet', message: 'this is worong' }}
+        postalCodeName={args.address.postalCodeName}
+        streetError={args.address.streetError}
         streetIsRequired={true}
         postalCodeIsRequired={true}
+        loadJs={args.address.loadJs}
         streetHelpText={helpText}
         bind:streetValue={values['ownerStreet']}
-        bind:postalCodeValue={values['ownerZip']}
-        postalCodeInputClass="col-1-span-4">
+        bind:postalCodeValue={values['ownerZip']}>
       </Address>
       <hr />
       <!--      <Address2-->
