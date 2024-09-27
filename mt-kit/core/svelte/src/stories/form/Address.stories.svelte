@@ -75,11 +75,7 @@
   <div use:wrapInShadowDom={args.disableCss}>
     <h1 class="mt-h1">Adresse komponent</h1>
     <h2 class="mt-h2">Med JS</h2>
-    <form
-      method="get"
-      class="mt-form form-layout layout-grid layout-grid--column-12"
-      style="--gap: 0;"
-      on:submit={handleSubmit}>
+    <form method="get" class="mt-form form-layout" style="--gap: 0;" on:submit={handleSubmit}>
       <Address
         streetLabel={args.address.streetLabel}
         streetFallbackLabel={args.address.streetFallbackLabel}
