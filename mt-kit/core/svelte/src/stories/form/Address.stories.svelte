@@ -32,7 +32,7 @@
     errorMessage: 'Fyll inn dette feltet.',
     countCharactersLeftLabel: 'karakterer igjen',
     address: {
-      streetLabel: 'Søk i gateadresse',
+      streetLabel: 'Søk etter gateadresse',
       streetFallbackLabel: 'Gateadresse',
       streetName: 'ownerStreet',
       streetError: undefined,
@@ -42,7 +42,8 @@
       loadJs: true
     },
     address2: {
-      streetLabel: 'Gateadresse',
+      streetLabel: 'Søk etter gateadresse',
+      streetFallbackLabel: 'Gateadresse',
       streetName: 'reporterStreet',
       streetError: undefined,
       postalCodeLabel: 'Postnummer',
@@ -90,22 +91,24 @@
         bind:streetValue={values['ownerStreet']}
         bind:postalCodeValue={values['ownerZip']}>
       </Address>
-      <hr />
-      <!--      <Address2-->
-      <!--        streetLabel={args.address.label}-->
-      <!--        streetName="ownerStreet"-->
-      <!--        postalCodeLabel={args.address.postalCodeLabel}-->
-      <!--        postalCodeName="ownerZip"-->
-      <!--        streetError={{ key: 'ownerStreet', message: 'this is worong' }}-->
-      <!--        streetIsRequired={true}-->
-      <!--        postalCodeIsRequired={true}-->
-      <!--        streetHelpText={helpText}-->
-      <!--        on:addressChange={handleAddress}-->
-      <!--        bind:streetValue={values['ownerStreet']}-->
-      <!--        bind:postalCodeValue={values['ownerZip']}-->
-      <!--        loadJs={true}-->
-      <!--        postalCodeInputClass="col-1-span-4">-->
-      <!--      </Address2>-->
+    </form>
+    <h2 class="mt-h2 m-t-m">Uten JS</h2>
+    <form method="get" class="mt-form form-layout" style="--gap: 0;">
+      <Address
+        streetLabel={args.address2.streetLabel}
+        streetName={args.address2.streetName}
+        streetFallbackLabel={args.address2.streetFallbackLabel}
+        postalCodeLabel={args.address2.postalCodeLabel}
+        postalCodeName={args.address2.postalCodeName}
+        streetError={args.address2.streetError}
+        streetIsRequired={true}
+        postalCodeIsRequired={true}
+        loadJs={args.address2.loadJs}
+        streetHelpText={helpText}
+        postalCodeHelpText="Skriv inn postnummeret. 4 siffer"
+        bind:streetValue={values['reporterStreet']}
+        bind:postalCodeValue={values['reporterZip']}>
+      </Address>
     </form>
   </div>
 </Story>
