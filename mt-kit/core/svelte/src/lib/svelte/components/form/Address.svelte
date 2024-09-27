@@ -54,20 +54,20 @@
 
   async function handleInput(e) {
     if (!e.inputType) {
-      // User clicked u-option, lets get option.text
       const index = Number(input.value.split(`:`)[0])
       const option = input.list.options[index]
-      console.log('input.list', input.list.options)
-      console.log('option.dataset', option.dataset)
-      streetValue = option['data-street']
-      postalCodeValue = option['data-postalcode']
-      inputValue = `${streetValue}, ${postalCodeValue}`
+      if (option) {
+        streetValue = option['data-street']
+        postalCodeValue = option['data-postalcode']
+        inputValue = streetValue && postalCodeValue ? `${streetValue}, ${postalCodeValue}` : ''
+      } else {
+        //todo
+      }
     } else if (!input.value) {
-      // input.list.textContent = 'Type to search for countries...'
+      // do nothing
     } else {
       // User is typing
       const value = encodeURIComponent(e.target.value.trim())
-      // input.list.textContent = 'Loading...'
       streetValue = undefined
       postalCodeValue = undefined
       apiError = undefined
@@ -85,6 +85,7 @@
       try {
         const res = await fetch(
           `https://ws.geonorge.no/adresser/v1/sok?sok=${inputValue}&fuzzy=true&utkoordsys=4258&treffPerSide=${hits}&side=0&asciiKompatibel=true`
+          // `https://ws.geonorge.no/adresser/v1/sok?sok=`
         )
         const data = await res.json()
         const options = data.adresser.map(({ adressetekst, postnummer, poststed }, index) => {
@@ -97,9 +98,8 @@
             ['data-postalcode']: `${postnummer}`
           })
         })
-        console.log(options, 'options')
         if (options.length === 0) {
-          input.list.textContent = interpolate(noResultsText, [inputValue])
+          input.list.textContent = interpolate(noResultsText, [decodeURIComponent(inputValue)])
         } else {
           input.list.replaceChildren(...options)
         }
@@ -113,7 +113,7 @@
 </script>
 
 {#if loadJs}
-  <div class="datalist-api m-t-xxs">
+  <div class="address-wrapper col-1-span-12">
     <Label
       {textOptional}
       isRequired={streetIsRequired}
@@ -138,7 +138,7 @@
       <input
         type="text"
         autocomplete="off"
-        id={`${streetName}-input2`}
+        id={`${streetName}-input`}
         name={`${streetName}-input`}
         list={`${streetName}-list2`}
         class="mt-input form-field {streetInputClass}"
@@ -203,7 +203,8 @@
     label={streetLabel}
     name={streetName}
     bind:value={streetValue}
-    inputClass={streetInputClass}
+    labelClass={'col-1-span-12'}
+    inputClass={'col-1-span-12'}
     isRequired={streetIsRequired}
     error={streetError}
     helpText={streetHelpText}
@@ -212,7 +213,8 @@
   <TextInput
     label={postalCodeLabel}
     name={postalCodeName}
-    inputClass={postalCodeInputClass}
+    labelClass="col-1-span-12"
+    inputClass={'col-1-span-4'}
     isRequired={postalCodeIsRequired}
     bind:value={postalCodeValue}
     error={postalCodeError}
