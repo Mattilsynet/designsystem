@@ -74,9 +74,8 @@
         //todo
       }
     } else if (!input.value) {
-      // do nothing
+      input.list.textContent = ''
     } else {
-      // User is typing
       const value = encodeURIComponent(e.target.value.trim())
       streetValue = undefined
       postalCodeValue = undefined
