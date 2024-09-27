@@ -1,14 +1,6 @@
 @use './multi-select' as *;
 @use '../theme' as *;
 
-.datalist-api {
-  position: relative;
-  width: 100%;
-  .actions {
-    display: flex;
-  }
-}
-
 u-datalist:not([hidden]) {
   @include multiselect-options;
   display: flex;
