@@ -124,7 +124,7 @@
 </script>
 
 {#if loadJs}
-  <div class="address-wrapper col-1-span-12">
+  <div class="address-wrapper">
     <Label
       {textOptional}
       isRequired={streetIsRequired}
