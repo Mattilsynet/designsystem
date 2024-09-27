@@ -95,8 +95,12 @@ $form-outline-color: 'var(--form-outline-color)' !default;
   }
 
   &--small-width {
-    --small-input-width: 3.75rem;
+    --small-input-width: #{$size-input-3};
     width: var(--small-input-width);
+  }
+  &--medium-width {
+    --medium-input-width: #{$size-input-4};
+    width: var(--medium-input-width);
   }
   &--small {
     padding: calc(2 * #{$spacer-xxx-small});
