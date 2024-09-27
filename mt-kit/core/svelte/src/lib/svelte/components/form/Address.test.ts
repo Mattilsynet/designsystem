@@ -105,7 +105,7 @@ describe('Addresss', () => {
       ...props,
       loadJs: false
     })
-    expect(getByLabelText('Søk i gateadresse')).toBeInTheDocument()
+    expect(getByLabelText('Gateadressse')).toBeInTheDocument()
     expect(getByLabelText('Postnummer')).toBeInTheDocument()
   })
 })

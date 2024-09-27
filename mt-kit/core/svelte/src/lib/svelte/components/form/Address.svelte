@@ -200,14 +200,14 @@
   {/if}
 {:else}
   <TextInput
-    label={streetLabel}
+    label={streetFallbackLabel}
     name={streetName}
     bind:value={streetValue}
     labelClass={'col-1-span-12'}
     inputClass={'col-1-span-12'}
     isRequired={streetIsRequired}
     error={streetError}
-    helpText={streetHelpText}
+    helpText={streetFallbackHelpText}
     {textOptional}
     {showOptionalText} />
   <TextInput
