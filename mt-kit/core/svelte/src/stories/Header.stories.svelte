@@ -90,13 +90,20 @@
       ],
       itemsRight: [
         {
+          title: 'Meld fra til Mattilsynet',
+          url: '#'
+        },
+        {
           title: 'Om mattilsynet',
           url: '#'
         },
         {
-          title: 'Skjemaer',
-          url: '#',
-          iconResource: animalIcon
+          title: 'Jobbe i Mattilsynet',
+          url: '#'
+        },
+        {
+          title: 'Jobbe i Mattilsynet',
+          url: '#'
         }
       ],
       itemsBottom: [

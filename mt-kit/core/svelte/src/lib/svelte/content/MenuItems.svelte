@@ -60,7 +60,7 @@
         <a
           href={item.url}
           rel={mapRelExternal(item.url)}
-          class="menu-level-1"
+          class="mt-link menu-level-1"
           aria-current={item.isActive ? 'page' : false}>
           {#if item.iconResource}
             {@html item.iconResource}
@@ -78,7 +78,7 @@
         <a
           href={right.url}
           rel={mapRelExternal(right.url)}
-          class="mt-link on-primary menu-level-1 forward-arrow"
+          class="mt-link menu-level-1 forward-arrow small-link"
           aria-current={right.isActive ? 'page' : false}>
           {right.title}
         </a>
@@ -93,7 +93,7 @@
         <a
           href={bottom.url}
           rel={mapRelExternal(bottom.url)}
-          class="mt-link layout-flex layout-flex--center-vertical on-primary forward-arrow"
+          class="mt-link layout-flex layout-flex--center-vertical on-primary forward-arrow small-link"
           aria-current={bottom.isActive ? 'page' : false}
           style="gap: var(--spacer-xxx-small)">
           {#if bottom.iconResource}

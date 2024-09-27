@@ -133,17 +133,16 @@
         border: $border-width-regular solid var(--color-mt-blue);
       }
     }
-    .menu-level-1 {
-      @include apply-icon($icon: $icon-arrow-right-primary-small, $position: after);
-      --menu-mobile-padding-tb: calc(var(--spacer-xx-small) + 2px);
 
-      padding: var(--menu-mobile-padding-tb) var(--spacer-xx-small);
-      gap: var(--spacer-xx-small);
+    .disclosure-header,
+    .disclosure > .mt-link {
+      @include apply-icon($icon: $icon-arrow-right-primary-small, $position: after);
       display: grid;
       grid-template-columns: auto 1fr auto;
       grid-template-areas: 'svg title pseudo';
       grid-area: title;
       align-items: center;
+      gap: var(--spacer-xx-small);
       font-weight: var(--font-weight-light);
       font-size: $font-size-body;
 
@@ -158,14 +157,12 @@
         font-weight: var(--font-weight-bold);
       }
     }
-    .disclosure-header {
-      font-size: $font-size-body;
+
+    .menu-level-1 {
+      --menu-mobile-padding-tb: calc(var(--spacer-xx-small) + 2px);
+      padding: var(--menu-mobile-padding-tb) var(--spacer-xx-small);
     }
-    .disclosure {
-      a.disclosure-header {
-        margin-bottom: 1px;
-      }
-    }
+
     &.visible,
     & .mt-details > .mt-summary.mt-button {
       color: var(--color-mt-text-dark);
@@ -174,14 +171,14 @@
     @media only screen and (min-width: $breakpoint-large) {
       .menu-level-1 {
         padding: var(--spacer-xx-small);
-        font-weight: var(--font-weight-light);
-        font-size: $font-size-h3;
       }
       & > .mt-button,
       .mt-summary.mt-button {
         --icon-size: 1.4rem;
       }
-      .disclosure-header {
+
+      .disclosure-header,
+      .disclosure > .mt-link {
         font-size: $font-size-h3;
       }
       .dropdown-content {
@@ -330,13 +327,13 @@
     }
   }
 }
-.menu {
-  --menu-small-link-font-size-mobile: 1.125rem; //18px
+.menu,
+.menu-row {
   a {
     @extend .mt-link;
 
     &.small-link {
-      font-size: var(--menu-small-link-font-size-mobile);
+      font-size: $font-size-body;
     }
     &[aria-current='page'] {
       font-weight: var(--font-weight-bold);
@@ -412,14 +409,6 @@
     }
   }
   @media only screen and (min-width: $breakpoint-large) {
-    a.small-link {
-      font-size: $font-size-body;
-    }
-    .disclosure {
-      > a {
-        font-size: $font-size-h3;
-      }
-    }
     .disclosure-no-border {
       .disclosure-panel {
         margin: 0 var(--spacer-medium);
