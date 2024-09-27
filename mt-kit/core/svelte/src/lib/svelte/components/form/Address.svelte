@@ -190,8 +190,6 @@
       label={streetFallbackLabel}
       name={streetName}
       bind:value={streetValue}
-      labelClass={'col-1-span-12'}
-      inputClass={'col-1-span-12'}
       isRequired={streetIsRequired}
       error={streetError}
       helpText={streetFallbackHelpText}
@@ -200,8 +198,7 @@
     <TextInput
       label={postalCodeLabel}
       name={postalCodeName}
-      labelClass="col-1-span-12"
-      inputClass={'col-1-span-4'}
+      inputClass={'form-field--medium-width'}
       isRequired={postalCodeIsRequired}
       bind:value={postalCodeValue}
       error={postalCodeError}
@@ -214,8 +211,6 @@
     label={streetFallbackLabel}
     name={streetName}
     bind:value={streetValue}
-    labelClass={'col-1-span-12'}
-    inputClass={'col-1-span-12'}
     isRequired={streetIsRequired}
     error={streetError}
     helpText={streetFallbackHelpText}
@@ -224,8 +219,7 @@
   <TextInput
     label={postalCodeLabel}
     name={postalCodeName}
-    labelClass="col-1-span-12"
-    inputClass={'col-1-span-4'}
+    inputClass={'form-field--medium-width'}
     isRequired={postalCodeIsRequired}
     bind:value={postalCodeValue}
     error={postalCodeError}
