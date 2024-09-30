@@ -78,7 +78,7 @@
         <a
           href={right.url}
           rel={mapRelExternal(right.url)}
-          class="mt-link menu-level-1 forward-arrow small-link"
+          class="mt-link menu-level-1 forward-arrow"
           aria-current={right.isActive ? 'page' : false}>
           {right.title}
         </a>
@@ -93,7 +93,7 @@
         <a
           href={bottom.url}
           rel={mapRelExternal(bottom.url)}
-          class="mt-link layout-flex layout-flex--center-vertical on-primary forward-arrow small-link"
+          class="mt-link layout-flex layout-flex--center-vertical on-primary forward-arrow"
           aria-current={bottom.isActive ? 'page' : false}
           style="gap: var(--spacer-xxx-small)">
           {#if bottom.iconResource}

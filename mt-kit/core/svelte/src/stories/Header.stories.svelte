@@ -102,7 +102,7 @@
           url: '#'
         },
         {
-          title: 'Jobbe i Mattilsynet',
+          title: 'Kontakt oss',
           url: '#'
         }
       ],
