@@ -108,21 +108,15 @@
       ],
       itemsBottom: [
         {
-          title: 'Skjemaer',
-          url: '#',
-          iconResource: rightIcon
-        },
-        {
-          title: 'Varsle oss/bekymringsmelding',
-          url: '#',
-          iconResource: rightIcon
-        },
-        {
-          title: 'Rapporter',
+          title: 'Skjema',
           url: '#'
         },
         {
-          title: 'Veiledere',
+          title: 'Regelverk',
+          url: '#'
+        },
+        {
+          title: 'Godkjente virksomheter',
           url: '#'
         }
       ]
