@@ -44,6 +44,7 @@
   export let showOptionalText = true
   export let loadJs = false
   export let hits = `10`
+  export let inputError: undefined | ErrorDetail
 
   let input: HTMLInputElement
   let inputValue = streetValue && postalCodeValue ? `${streetValue}, ${postalCodeValue}` : ''
@@ -135,8 +136,8 @@
       </div>
     {/if}
 
-    {#if streetError}
-      <InputError {...streetError} {hiddenErrorText} />
+    {#if inputError}
+      <InputError {...inputError} {hiddenErrorText} />
     {/if}
     {#if isFetchFallback && apiError}
       <InputError {...apiError} {hiddenErrorText} />
