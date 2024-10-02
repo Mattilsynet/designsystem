@@ -4,7 +4,6 @@
   import TextInput from './TextInput.svelte'
   import InputError from './InputErrorMessage.svelte'
   import { createInputAriaDescribedby, type ErrorDetail, interpolate } from '../../../ts'
-  import { createEventDispatcher } from 'svelte'
 
   interface GeonorgeResponse {
     adresser: Array<GeonorgeAddress>
@@ -49,19 +48,11 @@
   let input: HTMLInputElement
   let inputValue = streetValue && postalCodeValue ? `${streetValue}, ${postalCodeValue}` : ''
 
-  let isExpanded
-  let listId
+  let isExpanded = false
   let isLoading = false
   let isFetchFallback = false
   let apiError: undefined | ErrorDetail = undefined
-  let debounceTimer // Debounce so we do not spam API
-  const dispatch = createEventDispatcher()
-
-  $: {
-    console.log('street', streetValue)
-    console.log('postalCodeValue', postalCodeValue)
-    // console.log('inputValue', inputValue)
-  }
+  let debounceTimer
 
   async function handleInput(e: Event): Promise<void> {
     streetValue = undefined
