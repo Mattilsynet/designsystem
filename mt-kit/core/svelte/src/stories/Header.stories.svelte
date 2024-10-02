@@ -90,32 +90,33 @@
       ],
       itemsRight: [
         {
+          title: 'Meld fra til Mattilsynet',
+          url: '#'
+        },
+        {
           title: 'Om mattilsynet',
           url: '#'
         },
         {
-          title: 'Skjemaer',
-          url: '#',
-          iconResource: animalIcon
+          title: 'Jobbe i Mattilsynet',
+          url: '#'
+        },
+        {
+          title: 'Kontakt oss',
+          url: '#'
         }
       ],
       itemsBottom: [
         {
-          title: 'Skjemaer',
-          url: '#',
-          iconResource: rightIcon
-        },
-        {
-          title: 'Varsle oss/bekymringsmelding',
-          url: '#',
-          iconResource: rightIcon
-        },
-        {
-          title: 'Rapporter',
+          title: 'Skjema',
           url: '#'
         },
         {
-          title: 'Veiledere',
+          title: 'Regelverk',
+          url: '#'
+        },
+        {
+          title: 'Godkjente virksomheter',
           url: '#'
         }
       ]

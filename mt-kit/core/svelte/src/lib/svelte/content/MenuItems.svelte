@@ -60,7 +60,7 @@
         <a
           href={item.url}
           rel={mapRelExternal(item.url)}
-          class="menu-level-1"
+          class="mt-link menu-level-1"
           aria-current={item.isActive ? 'page' : false}>
           {#if item.iconResource}
             {@html item.iconResource}
@@ -78,7 +78,7 @@
         <a
           href={right.url}
           rel={mapRelExternal(right.url)}
-          class="mt-link on-primary menu-level-1 forward-arrow"
+          class="mt-link menu-level-1 forward-arrow"
           aria-current={right.isActive ? 'page' : false}>
           {right.title}
         </a>
