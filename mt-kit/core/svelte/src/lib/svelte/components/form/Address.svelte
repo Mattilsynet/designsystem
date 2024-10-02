@@ -195,7 +195,7 @@
     <TextInput
       label={postalCodeLabel}
       name={postalCodeName}
-      inputClass={'form-field--medium-width'}
+      inputClass={`${postalCodeInputClass} form-field--medium-width`}
       isRequired={postalCodeIsRequired}
       bind:value={postalCodeValue}
       error={postalCodeError}
@@ -216,7 +216,7 @@
   <TextInput
     label={postalCodeLabel}
     name={postalCodeName}
-    inputClass={'form-field--medium-width'}
+    inputClass={`${postalCodeInputClass} form-field--medium-width`}
     isRequired={postalCodeIsRequired}
     bind:value={postalCodeValue}
     error={postalCodeError}
