@@ -155,7 +155,7 @@
         role="combobox"
         aria-autocomplete="list"
         aria-expanded={isExpanded}
-        aria-controls={listId}
+        aria-controls={`${streetName}-list2`}
         aria-describedby={createInputAriaDescribedby(
           streetHelpText ? streetName : undefined,
           streetError
