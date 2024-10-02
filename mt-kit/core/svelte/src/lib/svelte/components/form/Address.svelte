@@ -174,13 +174,13 @@
       type="hidden"
       class="form-field"
       name={streetName}
-      bind:value={streetValue}
+      value={streetValue}
       data-testid="hidden-street" />
     <input
       type="hidden"
       class="form-field"
       name={postalCodeName}
-      bind:value={postalCodeValue}
+      value={postalCodeValue}
       data-testid="hidden-postal-code" />
   {:else}
     <TextInput
