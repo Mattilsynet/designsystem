@@ -62,7 +62,9 @@
     // console.log('inputValue', inputValue)
   }
 
-  async function handleInput(e) {
+  async function handleInput(e: Event): Promise<void> {
+    streetValue = undefined
+    postalCodeValue = undefined
     if (!e.inputType) {
       const index = Number(input.value.split(`:`)[0])
       const option = input.list.options[index]
@@ -75,8 +77,6 @@
       input.list.textContent = ''
     } else {
       const value = encodeURIComponent(e.target.value.trim())
-      streetValue = undefined
-      postalCodeValue = undefined
       apiError = undefined
       clearTimeout(debounceTimer)
       debounceTimer = setTimeout(async () => {
