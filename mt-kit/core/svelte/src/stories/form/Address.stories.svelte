@@ -30,10 +30,10 @@
       streetLabel: 'Søk etter gateadresse',
       streetFallbackLabel: 'Gateadresse',
       streetName: 'reporterStreet',
-      streetError: undefined,
+      streetError: { key: 'reporterStreet', message: 'Skriv inn adresse' },
       postalCodeLabel: 'Postnummer',
       postalCodeName: 'reporterZip',
-      postalCodeError: undefined,
+      postalCodeError: { key: 'reporterZip', message: 'Trenger postnummer' },
       loadJs: false
     },
     disableCss: false
@@ -61,7 +61,7 @@
   <div use:wrapInShadowDom={args.disableCss}>
     <h1 class="mt-h1">Adresse komponent</h1>
     <h2 class="mt-h2">Med JS</h2>
-    <form method="get" class="mt-form form-layout" style="--gap: 0;" on:submit={handleSubmit}>
+    <form method="get" class="mt-form form-layout" style="--gap: 0;">
       <Address
         streetLabel={args.address.streetLabel}
         streetFallbackLabel={args.address.streetFallbackLabel}
@@ -85,6 +85,7 @@
         streetFallbackLabel={args.address2.streetFallbackLabel}
         postalCodeLabel={args.address2.postalCodeLabel}
         postalCodeName={args.address2.postalCodeName}
+        postalCodeError={args.address2.postalCodeError}
         streetError={args.address2.streetError}
         streetIsRequired={true}
         postalCodeIsRequired={true}

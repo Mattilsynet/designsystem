@@ -52,6 +52,30 @@ describe('Addresss', () => {
     await fireEvent.click(screen.getByText(/Testveien 123/))
     expect(screen.getByTestId('hidden-street')).toHaveValue('Testveien 123')
     expect(screen.getByTestId('hidden-postal-code')).toHaveValue('0190')
+    //resets when user types again
+    await user.type(street, 'H')
+    expect(screen.getByTestId('hidden-street')).toHaveValue(undefined)
+    expect(screen.getByTestId('hidden-postal-code')).toHaveValue(undefined)
+    //search again
+    await user.type(street, 'Test')
+    await screen.findByText(/Testveien 123/)
+    await fireEvent.click(screen.getByText(/Testveien 123/))
+    expect(screen.getByTestId('hidden-street')).toHaveValue('Testveien 123')
+    expect(screen.getByTestId('hidden-postal-code')).toHaveValue('0190')
+  })
+
+  test('Renders - error', async () => {
+    const { queryByText, getByText } = render(Address, {
+      ...props,
+      inputError: { key: 'owner-street-input', message: 'Adresse er påkrevd. Skriv inn under' },
+      streetError: { key: 'owner-street', message: 'Adresse er påkrevd' },
+      postalCodeError: { key: 'owner-postal-code', message: 'Postnummer er påkrevd' }
+    })
+    const streetError = queryByText('Adresse er påkrevd')
+    expect(streetError).not.toBeInTheDocument()
+    expect(queryByText('Postnummer er påkrevd')).not.toBeInTheDocument()
+    const inputError = getByText('Adresse er påkrevd. Skriv inn under')
+    expect(inputError).toBeInTheDocument()
   })
 
   test('Renders - no results', async () => {
@@ -107,5 +131,17 @@ describe('Addresss', () => {
     })
     expect(getByLabelText('Gateadressse')).toBeInTheDocument()
     expect(getByLabelText('Postnummer')).toBeInTheDocument()
+  })
+  test('Renders without JS - errors', () => {
+    const { getByLabelText, getByText } = render(Address, {
+      ...props,
+      streetError: { key: 'owner-street', message: 'Adresse er påkrevd' },
+      postalCodeError: { key: 'owner-postal-code', message: 'Postnummer er påkrevd' },
+      loadJs: false
+    })
+    expect(getByLabelText('Gateadressse')).toBeInTheDocument()
+    expect(getByLabelText('Postnummer')).toBeInTheDocument()
+    expect(getByText('Adresse er påkrevd')).toBeInTheDocument()
+    expect(getByText('Postnummer er påkrevd')).toBeInTheDocument()
   })
 })

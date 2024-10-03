@@ -1,9 +1,8 @@
 <script lang="ts">
   import '@u-elements/u-datalist'
-  import Label from './Label.svelte'
   import TextInput from './TextInput.svelte'
-  import InputError from './InputErrorMessage.svelte'
-  import { createInputAriaDescribedby, type ErrorDetail, interpolate } from '../../../ts'
+  import { type ErrorDetail, interpolate } from '../../../ts'
+  import Combobox from './Combobox.svelte'
 
   interface GeonorgeResponse {
     adresser: Array<GeonorgeAddress>
@@ -34,8 +33,8 @@
   export let postalCodeHelpText
   export let postalCodeInputClass = ''
 
-  export let formInProgressAriaLabel = ''
-  export let hiddenErrorText: string | undefined
+  export let formInProgressAriaLabel = 'Søker'
+  export let hiddenErrorText: string | undefined = 'Feilmelding'
 
   export let textOptional: string | undefined = 'Valgfritt'
   export let noResultsText: string = 'Ingen resultater for {0}'
@@ -44,13 +43,12 @@
   export let loadJs = false
   export let hits = `10`
   export let inputError: undefined | ErrorDetail
+  export let isFetchFallback = false
 
   let input: HTMLInputElement
   let inputValue = streetValue && postalCodeValue ? `${streetValue}, ${postalCodeValue}` : ''
 
-  let isExpanded = false
   let isLoading = false
-  let isFetchFallback = false
   let apiError: undefined | ErrorDetail = undefined
   let debounceTimer
 
@@ -104,7 +102,7 @@
           input.list.replaceChildren(...options)
         }
       } catch (err) {
-        apiError = { key: streetName, message: fetchFailedText }
+        apiError = { key: `${streetName}-input`, message: fetchFailedText }
         isFetchFallback = true
       }
       isLoading = false
@@ -113,54 +111,20 @@
 </script>
 
 {#if loadJs}
-  <div class="address-wrapper">
-    <Label
-      {textOptional}
-      isRequired={streetIsRequired}
-      {showOptionalText}
-      for={`${streetName}-input`}>
-      {streetLabel}
-    </Label>
-    {#if streetHelpText}
-      <div id={`${streetName}-hint`} class="hint">
-        {@html streetHelpText}
-      </div>
-    {/if}
-
-    {#if inputError}
-      <InputError {...inputError} {hiddenErrorText} />
-    {/if}
-    {#if isFetchFallback && apiError}
-      <InputError {...apiError} {hiddenErrorText} />
-    {/if}
-
-    <div class="actions m-t-xxs">
-      <input
-        type="text"
-        autocomplete="off"
-        id={`${streetName}-input`}
-        name={`${streetName}-input`}
-        list={`${streetName}-list2`}
-        class="mt-input form-field {streetInputClass}"
-        bind:value={inputValue}
-        bind:this={input}
-        role="combobox"
-        aria-autocomplete="list"
-        aria-expanded={isExpanded}
-        aria-controls={`${streetName}-list2`}
-        aria-describedby={createInputAriaDescribedby(
-          streetHelpText ? streetName : undefined,
-          streetError
-        )}
-        on:input={handleInput} />
-      <span
-        role="status"
-        aria-live="assertive"
-        class:icon--spinner={isLoading}
-        aria-label={isLoading ? formInProgressAriaLabel : ''} />
-    </div>
-    <u-datalist id={`${streetName}-list2`} class="mt-datalist"> </u-datalist>
-  </div>
+  <Combobox
+    inputName={`${streetName}-input`}
+    listName={`${streetName}-list`}
+    inputLabel={streetLabel}
+    bind:inputValue
+    inputIsRequired={streetIsRequired}
+    inputHelpText={streetHelpText}
+    {apiError}
+    {inputError}
+    {isFetchFallback}
+    {isLoading}
+    {handleInput}
+    bind:inputRef={input}
+    {formInProgressAriaLabel}></Combobox>
   {#if !isFetchFallback}
     <input
       type="hidden"
@@ -182,6 +146,7 @@
       isRequired={streetIsRequired}
       error={streetError}
       helpText={streetFallbackHelpText}
+      {hiddenErrorText}
       {textOptional}
       {showOptionalText} />
     <TextInput
@@ -192,6 +157,7 @@
       bind:value={postalCodeValue}
       error={postalCodeError}
       helpText={postalCodeHelpText}
+      {hiddenErrorText}
       {textOptional}
       {showOptionalText} />
   {/if}
@@ -203,6 +169,7 @@
     isRequired={streetIsRequired}
     error={streetError}
     helpText={streetFallbackHelpText}
+    {hiddenErrorText}
     {textOptional}
     {showOptionalText} />
   <TextInput
@@ -213,6 +180,7 @@
     bind:value={postalCodeValue}
     error={postalCodeError}
     helpText={postalCodeHelpText}
+    {hiddenErrorText}
     {textOptional}
     {showOptionalText} />
 {/if}
