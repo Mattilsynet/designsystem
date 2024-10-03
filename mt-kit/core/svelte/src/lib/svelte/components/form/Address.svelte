@@ -14,6 +14,9 @@
     poststed: string
   }
 
+  export let inputName = ''
+  export let listName = ''
+
   export let streetLabel = ''
   export let streetName = ''
   export let streetValue: string | undefined = undefined
@@ -112,8 +115,8 @@
 
 {#if loadJs}
   <Combobox
-    inputName={`${streetName}-input`}
-    listName={`${streetName}-list`}
+    {inputName}
+    {listName}
     inputLabel={streetLabel}
     bind:inputValue
     inputIsRequired={streetIsRequired}
