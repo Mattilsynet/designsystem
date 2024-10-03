@@ -25,6 +25,8 @@ describe('Addresss', () => {
   const props = {
     streetLabel: 'Søk i gateadresse',
     streetName: 'owner-street',
+    inputName: 'owner-street-input',
+    listName: 'owner-street-list',
     streetIsRequired: true,
     streetError: undefined,
     streetHelpText: 'Hjelpetekst',
