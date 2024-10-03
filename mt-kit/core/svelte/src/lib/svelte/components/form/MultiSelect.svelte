@@ -205,6 +205,7 @@
   <div
     id="{selectId}-selected-label"
     class="text-small token-label"
+    data-testid="multiselect-selected-list"
     class:hidden={!Object.values(selected).length}>
     {tagsLabel}
   </div>
