@@ -7,6 +7,8 @@
     display: flex;
     width: fit-content;
     line-height: inherit;
+    font-size: $font-size-body;
+    margin-top: $spacer-xx-small;
 
     &:before {
       background-image: var(--icon-file-upload);
