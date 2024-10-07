@@ -3,7 +3,7 @@
 </script>
 
 <script lang="ts">
-  import type { InputProps, ErrorDetail } from '../../../ts/types'
+  import type { InputProps, ErrorDetail, InputModeType } from '../../../ts/types'
   import { createInputAriaDescribedby, interpolate } from '../../../ts/utils'
   import TextInputHorizontal from './TextInputHorizontal.svelte'
 
@@ -22,6 +22,7 @@
   export let collapsableText = ''
   export let showOptionalText = false
   export let loadJs = true
+  export let inputMode: InputModeType | undefined
 
   $: outsides = inputList.slice(0, numberOfInputOutside)
   $: insides = inputList.slice(numberOfInputOutside, inputList.length)
@@ -89,7 +90,7 @@
         bind:value={values[outside.name]}
         label={outside.label}
         helpText={outside.helpText}
-        inputmode={outside.inputmode}
+        inputmode={outside.inputmode ?? inputMode}
         isRequired={outside.isRequired}
         placeholder={outside.placeholder}
         autocomplete={outside.autocomplete}
@@ -123,7 +124,7 @@
               label={inside.label}
               bind:value={values[inside.name]}
               helpText={inside.helpText}
-              inputmode={inside.inputmode}
+              inputmode={inside.inputmode ?? inputMode}
               isRequired={inside.isRequired}
               placeholder={inside.placeholder}
               autocomplete={inside.autocomplete}
