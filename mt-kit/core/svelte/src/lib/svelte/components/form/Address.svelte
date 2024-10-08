@@ -53,14 +53,15 @@
 
   let isLoading = false
   let apiError: undefined | ErrorDetail = undefined
-  let debounceTimer
+  // eslint-disable-next-line no-undef
+  let debounceTimer: NodeJS.Timeout
 
   async function handleInput(e: Event): Promise<void> {
     streetValue = undefined
     postalCodeValue = undefined
     if (!e.inputType) {
       const index = Number(input.value.split(`:`)[0])
-      const option = input.list.options[index]
+      const option = input.list?.options?.[index]
       if (option) {
         streetValue = option['data-street']
         postalCodeValue = option['data-postalcode']
@@ -91,7 +92,7 @@
         const data: GeonorgeResponse = await res.json()
         const options = data.adresser.map(({ adressetekst, postnummer, poststed }, index) => {
           const option = document.createElement('u-option')
-          option.classList = 'option'
+          option.classList.add('option')
           return Object.assign(option, {
             text: `${adressetekst}, ${postnummer} ${poststed}`,
             value: `${index}: ${input.value}`,
@@ -145,6 +146,7 @@
     <TextInput
       label={streetFallbackLabel}
       name={streetName}
+      inputClass={streetInputClass}
       bind:value={streetValue}
       isRequired={streetIsRequired}
       error={streetError}
