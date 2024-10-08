@@ -38,8 +38,7 @@
   class="input-horizontal"
   style="--gap:var(--spacer-xxx-small)"
   in:slide={{ duration: hasTransition ? 300 : 0 }}
-  out:slide={{ duration: hasTransition ? 300 : 0 }}
->
+  out:slide={{ duration: hasTransition ? 300 : 0 }}>
   {#if error}
     <InputError {...error} {hiddenErrorText} />
   {/if}
@@ -67,6 +66,5 @@
     aria-invalid={!!error}
     {inputmode}
     {placeholder}
-    {autocomplete}
-  />
+    {autocomplete} />
 </div>
