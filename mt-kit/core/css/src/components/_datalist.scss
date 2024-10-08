@@ -1,0 +1,37 @@
+@use './multi-select' as *;
+@use '../theme' as *;
+
+u-datalist:not([hidden]) {
+  @include multiselect-options;
+  display: flex;
+  flex-direction: column;
+  margin-block-end: 0;
+  margin-block-start: 0;
+  position: absolute;
+  z-index: $zindex-dropdown;
+  left: 0;
+  right: 0;
+}
+
+u-option:not([hidden]) {
+  @include multiselect-options-item;
+  display: flex;
+  align-items: center;
+  line-height: 140%;
+  margin-top: var(--spacer-xxx-small);
+
+  &:last-child {
+    border-bottom-left-radius: 0.2rem;
+    border-bottom-right-radius: 0.2rem;
+  }
+  &:not(.selected):hover {
+    background-color: var(--multiselect-option-hover-bg);
+  }
+  &:focus {
+    box-shadow: $focus-box-shadow-on-white;
+    outline: none;
+  }
+  &[selected] {
+    font-weight: $font-weight-bold;
+  }
+}

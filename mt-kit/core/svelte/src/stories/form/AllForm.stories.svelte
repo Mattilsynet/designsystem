@@ -6,6 +6,7 @@
   import RadioGroup from '../../lib/svelte/components/form/RadioGroup.svelte'
   import Checkbox from '../../lib/svelte/components/form/Checkbox.svelte'
   import CheckboxWithSubSets from '../../lib/svelte/components/form/CheckboxWithSubSets.svelte'
+  import Address from '../../lib/svelte/components/form/Address.svelte'
   const radioName = 'radiobuttons'
   const checkboxName = 'checkboxes'
   const checkboxWithSubsetsName = 'checkboxesWithSubsets'
@@ -97,6 +98,7 @@
       }
     ]
   }
+  let values = {}
 </script>
 
 <Meta
@@ -109,6 +111,16 @@
     helpText: 'Skriv når hendelsen skjedde og om det har pågått over lengere periode.',
     errorMessage: 'Fyll inn dette feltet.',
     countCharactersLeftLabel: 'karakterer igjen',
+    address: {
+      streetLabel: 'Søk i gateadresse',
+      streetFallbackLabel: 'Gateadresse',
+      streetName: 'ownerStreet',
+      streetError: undefined,
+      postalCodeLabel: 'Postnummer',
+      postalCodeName: 'ownerZip',
+      postalCodeError: undefined,
+      loadJs: true
+    },
     disableCss: false
   }}
   argTypes={{
@@ -130,57 +142,74 @@
   let:checkboxWithSubsetsLegend
   let:countCharactersLeftLabel
   let:args>
-  <div use:wrapInShadowDom={args.disableCss}>
-    <form class="mt-form form-layout">
-      <TextInput
-        name="inputfield"
-        {label}
-        {helpText}
-        error={undefined}
-        isRequired={true}
-        textOptional="Valgfritt"
-        inputmode="text"
-        placeholder=""
-        autocomplete="" />
+  <div use:wrapInShadowDom={args.disableCss} class="layout-grid layout-grid--column-12">
+    <div class="col-3-span-6 multipage-form-view">
+      <form class="mt-form">
+        <TextInput
+          name="inputfield"
+          {label}
+          {helpText}
+          error={undefined}
+          isRequired={true}
+          textOptional="Valgfritt"
+          inputmode="text"
+          placeholder=""
+          autocomplete="" />
+        <!-- TextArea   -->
+        <TextArea
+          name="email"
+          {label}
+          {helpText}
+          {countCharactersLeftLabel}
+          error={undefined}
+          isRequired={true}
+          textOptional="Valgfritt"
+          inputmode="text"
+          maxlength="300"
+          rows="3"
+          cols="5" />
 
-      <!-- TextArea   -->
-      <TextArea
-        name="email"
-        {label}
-        {helpText}
-        {countCharactersLeftLabel}
-        error={undefined}
-        isRequired={true}
-        textOptional="Valgfritt"
-        inputmode="text"
-        maxlength="300"
-        rows="3"
-        cols="5" />
+        <!--  Radio -->
+        <RadioGroup
+          options={radioOptions}
+          name={radioName}
+          error={undefined}
+          {helpText}
+          label={radioLabel}
+          isRequired={true}
+          textOptional="Valgfritt" />
 
-      <!--  Radio -->
-      <RadioGroup
-        options={radioOptions}
-        name={radioName}
-        error={undefined}
-        {helpText}
-        label={radioLabel}
-        isRequired={true}
-        textOptional="Valgfritt" />
+        <!-- Checkbox -->
+        <Checkbox
+          name={checkboxName}
+          label={checkboxLabel}
+          {helpText}
+          options={checkBoxOptions}
+          textOptional="Valgfritt" />
 
-      <!-- Checkbox -->
-      <Checkbox
-        name={checkboxName}
-        label={checkboxLabel}
-        {helpText}
-        options={checkBoxOptions}
-        textOptional="Valgfritt" />
+        <!-- Checkboxes with subsets-->
+        <CheckboxWithSubSets
+          name={checkboxWithSubsetsName}
+          level1Legend={checkboxWithSubsetsLegend}
+          options={checkboxWithSubsetsOptions} />
 
-      <!-- Checkboxes with subsets-->
-      <CheckboxWithSubSets
-        name={checkboxWithSubsetsName}
-        level1Legend={checkboxWithSubsetsLegend}
-        options={checkboxWithSubsetsOptions} />
-    </form>
+        <!-- Address -->
+        <Address
+          streetLabel={args.address.streetLabel}
+          streetFallbackLabel={args.address.streetFallbackLabel}
+          streetName={args.address.streetName}
+          postalCodeLabel={args.address.postalCodeLabel}
+          postalCodeName={args.address.postalCodeName}
+          streetError={args.address.streetError}
+          streetIsRequired={true}
+          postalCodeIsRequired={true}
+          loadJs={args.address.loadJs}
+          streetHelpText={helpText}
+          bind:streetValue={values['ownerStreet']}
+          bind:postalCodeValue={values['ownerZip']}>
+        </Address>
+      </form>
+    </div>
   </div>
 </Story>
 
