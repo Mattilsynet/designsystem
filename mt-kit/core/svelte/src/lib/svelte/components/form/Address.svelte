@@ -15,7 +15,7 @@
   }
 
   export let inputName = ''
-  export let listName = ''
+  export let listName = 'address-list'
 
   export let streetLabel = ''
   export let streetName = ''
