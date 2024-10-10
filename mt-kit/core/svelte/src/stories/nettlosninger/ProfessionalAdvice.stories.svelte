@@ -1,8 +1,8 @@
 <script lang="ts">
   import { Meta, Story } from '@storybook/addon-svelte-csf'
-  import CardArticle from '../../lib/svelte/components/CardArticle.svelte'
-  import Disclosure from '../../lib/svelte/components/Disclosure.svelte'
-  import Published from '../../lib/svelte/components/Published.svelte'
+  import CardArticle from '$lib/svelte/components/CardArticle.svelte'
+  import Disclosure from '$lib/svelte/components/Disclosure.svelte'
+  import Published from '$lib/svelte/components/Published.svelte'
 </script>
 
 <Meta

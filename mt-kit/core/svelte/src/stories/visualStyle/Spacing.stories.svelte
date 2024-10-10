@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Meta, Story } from '@storybook/addon-svelte-csf'
-  import Breadcrumbs from '../../lib/svelte/components/Breadcrumbs.svelte'
-  import Disclosure from '../../lib/svelte/components/Disclosure.svelte'
+  import Breadcrumbs from '$lib/svelte/components/Breadcrumbs.svelte'
+  import Disclosure from '$lib/svelte/components/Disclosure.svelte'
 
   import imageFile from '../assets/testbilde.jpg'
 </script>
@@ -149,7 +149,7 @@
                 <strong>Takk for at du meldte fra til oss!</strong>
               </p>
               <figure class="mt-figure">
-                <img src={imageFile} alt="Alternativ bildetekst" class="mt-img"/>
+                <img src={imageFile} alt="Alternativ bildetekst" class="mt-img" />
                 <figcaption>Bildetekst</figcaption>
               </figure>
               <p>

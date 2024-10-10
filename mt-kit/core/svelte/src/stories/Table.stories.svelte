@@ -1,9 +1,9 @@
 <script lang="ts">
   import { Meta, Story } from '@storybook/addon-svelte-csf'
-  import Published from '../lib/svelte/components/Published.svelte'
+  import Published from '$lib/svelte/components/Published.svelte'
   import { wrapInShadowDom } from './storybook-utils/utils'
-  import Table from '../lib/svelte/components/Table.svelte'
-  import TableCol from '../lib/svelte/components/TableCol.svelte'
+  import Table from '$lib/svelte/components/Table.svelte'
+  import TableCol from '$lib/svelte/components/TableCol.svelte'
 </script>
 
 <Meta

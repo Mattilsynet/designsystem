@@ -1,22 +1,22 @@
 <script lang="ts">
   import { Meta, Story } from '@storybook/addon-svelte-csf'
-  import Map from '../lib/svelte/components/map/Map.svelte'
-  import KartverketLayers from '../lib/svelte/components/map/KartverketLayers.svelte'
-  import Markers from '../lib/svelte/components/map/Markers.svelte'
-  import DefaultControls from '../lib/svelte/components/map/DefaultControls.svelte'
-  import ActivateMapControl from '../lib/svelte/components/map/ActivateMapControl.svelte'
-  import Geolocation from '../lib/svelte/components/map/Geolocation.svelte'
-  import Popup from '../lib/svelte/components/map/Popups.svelte'
-  import { markers as svg } from '../lib/ts/markers'
+  import Map from '$lib/svelte/components/map/Map.svelte'
+  import KartverketLayers from '$lib/svelte/components/map/KartverketLayers.svelte'
+  import Markers from '$lib/svelte/components/map/Markers.svelte'
+  import DefaultControls from '$lib/svelte/components/map/DefaultControls.svelte'
+  import ActivateMapControl from '$lib/svelte/components/map/ActivateMapControl.svelte'
+  import Geolocation from '$lib/svelte/components/map/Geolocation.svelte'
+  import Popup from '$lib/svelte/components/map/Popups.svelte'
+  import { markers as svg } from '$lib/ts/markers'
   import {
     DEFAULT_CLUSTER_DISTANCE,
     DEFAULT_CLUSTER_MIN_DISTANCE,
     DEFAULT_MARKER_SCALE,
     EUROPA_FORENKLET,
     NORGES_GRUNNKART
-  } from '../lib/ts/mapUtils'
-  import { createClickMarkerContent } from '../lib/svelte/components/map/overlay'
-  import { type MTPopupOptions } from '../lib/svelte/components/map/utils'
+  } from '$lib/ts/mapUtils'
+  import { createClickMarkerContent } from '$lib/svelte/components/map/overlay'
+  import { type MTPopupOptions } from '$lib/svelte/components/map/utils'
   import type { MTActivateMapOptions, MusselMarker } from '$lib/ts/types'
 
   let map

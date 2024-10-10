@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Meta, Story } from '@storybook/addon-svelte-csf'
-  import HighlightedContentLink from '../../lib/svelte/content/HighlightedContentLink.svelte'
+  import HighlightedContentLink from '$lib/svelte/content/HighlightedContentLink.svelte'
   import imageFile from '../assets/testbilde.jpg'
   import { wrapInShadowDom } from '../storybook-utils/utils'
 </script>

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Meta, Story } from '@storybook/addon-svelte-csf'
-  import FactsQuestionsAnswers from '../../lib/svelte/content/FactsQuestionsAnswers.svelte'
+  import FactsQuestionsAnswers from '$lib/svelte/content/FactsQuestionsAnswers.svelte'
   import { wrapInShadowDom } from '../storybook-utils/utils'
 </script>
 

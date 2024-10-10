@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Meta, Story } from '@storybook/addon-svelte-csf'
   import { wrapInShadowDom } from './storybook-utils/utils'
-  import Alert from '../lib/svelte/components/Alert.svelte'
+  import Alert from '$lib/svelte/components/Alert.svelte'
 </script>
 
 <Meta

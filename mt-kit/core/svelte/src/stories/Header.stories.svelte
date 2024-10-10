@@ -1,8 +1,8 @@
 <script lang="ts">
   import { Meta, Story } from '@storybook/addon-svelte-csf'
-  import Dropdown from '../lib/svelte/components/Dropdown.svelte'
-  import MenuItems from '../lib/svelte/content/MenuItems.svelte'
-  import Search from '../lib/svelte/components/form/Search.svelte'
+  import Dropdown from '$lib/svelte/components/Dropdown.svelte'
+  import MenuItems from '$lib/svelte/content/MenuItems.svelte'
+  import Search from '$lib/svelte/components/form/Search.svelte'
   import { wrapInShadowDom } from './storybook-utils/utils'
 
   const cosmeticIcon =

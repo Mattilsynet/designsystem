@@ -2,7 +2,7 @@
   import { Meta, Story } from '@storybook/addon-svelte-csf'
   import { wrapInShadowDom } from './storybook-utils/utils'
   import { action } from '@storybook/addon-actions'
-  import Pagination from '../lib/svelte/components/pagination/Pagination.svelte'
+  import Pagination from '$lib/svelte/components/pagination/Pagination.svelte'
 
   const pageChangeAction = action('pageChange')
   let currentPageNumber = 0

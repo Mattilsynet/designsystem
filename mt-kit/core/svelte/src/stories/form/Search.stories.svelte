@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Meta, Story } from '@storybook/addon-svelte-csf'
   import { wrapInShadowDom } from '../storybook-utils/utils'
-  import TextInputSearch from '../../lib/svelte/components/form/Search.svelte'
+  import TextInputSearch from '$lib/svelte/components/form/Search.svelte'
 </script>
 
 <Meta

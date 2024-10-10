@@ -2,7 +2,7 @@
   import { Meta, Story } from '@storybook/addon-svelte-csf'
   import { wrapInShadowDom } from './storybook-utils/utils'
   import { action } from '@storybook/addon-actions'
-  import ChapterNavigation from '../lib/svelte/components/ChapterNavigation.svelte'
+  import ChapterNavigation from '$lib/svelte/components/ChapterNavigation.svelte'
 
   const chapterChangeAction = action('chapterChange')
   let currentChapterNumber = 0

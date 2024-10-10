@@ -1,8 +1,8 @@
 <script lang="ts">
   import { Meta, Story } from '@storybook/addon-svelte-csf'
-  import Link from '../lib/svelte/components/Link.svelte'
+  import Link from '$lib/svelte/components/Link.svelte'
   import { wrapInShadowDom } from './storybook-utils/utils'
-  import SearchResult from '../lib/svelte/components/SearchResult.svelte'
+  import SearchResult from '$lib/svelte/components/SearchResult.svelte'
 
   function getColSpanClass(twoColumns, index) {
     if (!twoColumns) {

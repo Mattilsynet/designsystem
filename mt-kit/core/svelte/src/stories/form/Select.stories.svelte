@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Meta, Story } from '@storybook/addon-svelte-csf'
-  import Select from '../../lib/svelte/components/form/Select.svelte'
-  import MultiSelect from '../../lib/svelte/components/form/MultiSelect.svelte'
+  import Select from '$lib/svelte/components/form/Select.svelte'
+  import MultiSelect from '$lib/svelte/components/form/MultiSelect.svelte'
   import { wrapInShadowDom } from '../storybook-utils/utils'
   import ResourceList from '../storybook-utils/ResourceList.svelte'
 

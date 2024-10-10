@@ -1,8 +1,8 @@
 <script lang="ts">
   import { Meta, Story, Template } from '@storybook/addon-svelte-csf'
-  import Dropdown from '../lib/svelte/components/Dropdown.svelte'
-  import Checkbox from '../lib/svelte/components/form/Checkbox.svelte'
-  import CardArticle from '../lib/svelte/components/CardArticle.svelte'
+  import Dropdown from '$lib/svelte/components/Dropdown.svelte'
+  import Checkbox from '$lib/svelte/components/form/Checkbox.svelte'
+  import CardArticle from '$lib/svelte/components/CardArticle.svelte'
   import { wrapInShadowDom } from './storybook-utils/utils'
 
   const drinkIcon =

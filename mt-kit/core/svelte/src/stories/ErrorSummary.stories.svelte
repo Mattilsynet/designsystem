@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Meta, Story } from '@storybook/addon-svelte-csf'
   import { wrapInShadowDom } from './storybook-utils/utils'
-  import FormErrorSummary from '../lib/svelte/components/form/FormErrorSummary.svelte'
+  import FormErrorSummary from '$lib/svelte/components/form/FormErrorSummary.svelte'
 
   const name = 'radiobuttons'
   const options = [
@@ -89,8 +89,7 @@
   let:heading
   let:disableCss
   let:errorMessage>
-  <div
-    use:wrapInShadowDom={disableCss} >
+  <div use:wrapInShadowDom={disableCss}>
     <FormErrorSummary {errors} {heading} linkToFields={false} />
   </div>
 </Story>

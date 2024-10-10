@@ -5,12 +5,12 @@
 <script lang="ts">
   import { onMount } from 'svelte'
   import { fly } from 'svelte/transition'
-  import type { ErrorDetail, MultiSelectOption } from '../../../ts/types'
+  import type { ErrorDetail, MultiSelectOption } from '$lib/ts'
   import Label from './Label.svelte'
   import InputError from './InputErrorMessage.svelte'
   import SummaryDetail from '../SummaryDetail.svelte'
-  import { createInputAriaDescribedby, toKebabCase } from '../../../ts/utils'
-  import { forceArray } from '$lib/ts/utils.js'
+  import { createInputAriaDescribedby, toKebabCase } from '$lib/ts'
+  import { forceArray } from '$lib/ts/utils'
 
   export let name: string
   export let label: string
