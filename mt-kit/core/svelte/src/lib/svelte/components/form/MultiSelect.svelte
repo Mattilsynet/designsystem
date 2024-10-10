@@ -5,15 +5,16 @@
 <script lang="ts">
   import { onMount } from 'svelte'
   import { fly } from 'svelte/transition'
-  import type { ErrorDetail, MultiSelectOption } from '../../../ts/types'
+  import type { ErrorDetail, MultiSelectOption } from '$lib/ts'
   import Label from './Label.svelte'
   import InputError from './InputErrorMessage.svelte'
   import SummaryDetail from '../SummaryDetail.svelte'
-  import { createInputAriaDescribedby, toKebabCase } from '../../../ts/utils'
+  import { createInputAriaDescribedby, toKebabCase } from '$lib/ts'
+  import { forceArray } from '$lib/ts/utils'
 
   export let name: string
   export let label: string
-  export let values = []
+  export let values: string | Array<string> = []
   export let readonly = false
   export let placeholder = ''
   export let options: Array<MultiSelectOption> = []
@@ -47,7 +48,7 @@
     allOptions = [...preferredOptions, ...options]
     if (values) {
       selected = allOptions.reduce((obj, option) => {
-        if (values.includes(option.value)) {
+        if (forceArray(values).includes(option.value)) {
           return { ...obj, [option.value]: option }
         }
         return obj

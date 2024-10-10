@@ -1,11 +1,11 @@
 <script lang="ts">
   import { Meta, Story } from '@storybook/addon-svelte-csf'
   import { wrapInShadowDom } from '../storybook-utils/utils'
-  import Fieldset from '../../lib/svelte/components/form/Fieldset.svelte'
-  import CheckboxWithSubSets from '../../lib/svelte/components/form/CheckboxWithSubSets.svelte'
-  import Disclosure from '../../lib/svelte/components/Disclosure.svelte'
-  import { interpolate, toKebabCase } from '../../lib/ts/utils'
-  import FormErrorSummary from '../../lib/svelte/components/form/FormErrorSummary.svelte'
+  import Fieldset from '$lib/svelte/components/form/Fieldset.svelte'
+  import CheckboxWithSubSets from '$lib/svelte/components/form/CheckboxWithSubSets.svelte'
+  import Disclosure from '$lib/svelte/components/Disclosure.svelte'
+  import { interpolate, toKebabCase } from '$lib/ts/utils'
+  import FormErrorSummary from '$lib/svelte/components/form/FormErrorSummary.svelte'
 </script>
 
 <Meta

@@ -1,4 +1,6 @@
-import type {StorybookConfig} from '@storybook/svelte-vite'
+import type { StorybookConfig } from '@storybook/svelte-vite'
+import path from 'path'
+
 const config: StorybookConfig = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx|svelte)'],
   addons: [
@@ -12,6 +14,13 @@ const config: StorybookConfig = {
   framework: {
     name: '@storybook/sveltekit',
     options: {}
+  },
+  viteFinal: async config => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      $lib: path.resolve('./src/lib')
+    }
+    return config
   },
   docs: {}
 }

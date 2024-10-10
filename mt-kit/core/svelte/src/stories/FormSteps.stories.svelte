@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Meta, Story } from '@storybook/addon-svelte-csf'
-  import FormSteps from '../lib/svelte/components/FormSteps.svelte'
+  import FormSteps from '$lib/svelte/components/FormSteps.svelte'
 </script>
 
 <Meta

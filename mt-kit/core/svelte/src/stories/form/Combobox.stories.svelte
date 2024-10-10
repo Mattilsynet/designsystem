@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Meta, Story } from '@storybook/addon-svelte-csf'
   import { wrapInShadowDom } from '../storybook-utils/utils'
-  import Combobox from '../../lib/svelte/components/form/Combobox.svelte'
+  import Combobox from '$lib/svelte/components/form/Combobox.svelte'
   import type { ErrorDetail } from '$lib/ts'
 
   let input: HTMLInputElement

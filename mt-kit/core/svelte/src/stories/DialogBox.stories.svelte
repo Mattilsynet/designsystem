@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Meta, Story } from '@storybook/addon-svelte-csf'
-  import DialogBox from '../lib/svelte/components/DialogBox.svelte'
-  import ButtonSpinner from '../lib/svelte/components/ButtonSpinner.svelte'
+  import DialogBox from '$lib/svelte/components/DialogBox.svelte'
+  import ButtonSpinner from '$lib/svelte/components/ButtonSpinner.svelte'
 
   let isOpen = true
   let showDialog = false

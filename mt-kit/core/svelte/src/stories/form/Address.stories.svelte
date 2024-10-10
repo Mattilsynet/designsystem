@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Meta, Story } from '@storybook/addon-svelte-csf'
   import { wrapInShadowDom } from '../storybook-utils/utils'
-  import Address from '../../lib/svelte/components/form/Address.svelte'
+  import Address from '$lib/svelte/components/form/Address.svelte'
 
   let values = {}
 </script>

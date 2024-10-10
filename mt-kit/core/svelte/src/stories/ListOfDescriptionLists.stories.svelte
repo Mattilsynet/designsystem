@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Meta, Story } from '@storybook/addon-svelte-csf'
   import { wrapInShadowDom } from './storybook-utils/utils'
-  import ListOfDescriptionLists from '../lib/svelte/components/ListOfDescriptionLists.svelte'
+  import ListOfDescriptionLists from '$lib/svelte/components/ListOfDescriptionLists.svelte'
 </script>
 
 <Meta
@@ -10,7 +10,7 @@
     title: 'A list of description lists',
     descriptionKeysToUseInTitle: [
       { descriptionKey: 'ORGANIZATIONNAME' },
-      { descriptionKey: 'APPROVALID', prefix: 'Approval ID: '}
+      { descriptionKey: 'APPROVALID', prefix: 'Approval ID: ' }
     ],
     titleSeparator: ' - ',
     listOfDescriptionLists: [
