@@ -19,7 +19,7 @@
         href={menuPoint.url}
         rel={mapRelExternal(menuPoint.url)}
         class="menu-point border-radius p-xs"
-        aria-describedby={toKebabCase(menuPoint.keywords)}
+        aria-describedby={menuPoint.keywords ? toKebabCase(menuPoint.keywords) : ''}
         data-testid="menupoints-link">
         {#if menuPoint.iconResource}
           <div class="svg-wrapper" aria-hidden="true">
@@ -36,9 +36,11 @@
         <HeadingLevel class="mt-h3 menu-point-heading" headingLevel={+headerTag.charAt(1)}
           >{@html menuPoint.text}</HeadingLevel>
 
-        <p id={toKebabCase(menuPoint.keywords)}>
-          {@html menuPoint.keywords}
-        </p>
+        {#if menuPoint.keywords}
+          <p id={toKebabCase(menuPoint.keywords)}>
+            {@html menuPoint.keywords}
+          </p>
+        {/if}
       </a>
     </li>
   {/each}

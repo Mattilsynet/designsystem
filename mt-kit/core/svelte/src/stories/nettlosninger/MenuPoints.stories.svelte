@@ -31,8 +31,8 @@
       },
       {
         text: 'Mat',
-        url: '#',
-        keywords: 'Merking, produksjon, smitte, matservering, import og eksport',
+        url: '',
+        keywords: null,
         iconResource: foodSvg
       },
       {
