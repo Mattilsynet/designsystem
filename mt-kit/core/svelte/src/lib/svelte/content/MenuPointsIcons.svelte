@@ -19,7 +19,7 @@
         href={menuPoint.url}
         rel={mapRelExternal(menuPoint.url)}
         class="menu-point border-radius p-xs"
-        aria-describedby={menuPoint.keywords ? toKebabCase(menuPoint?.keywords) : ''}
+        aria-describedby={menuPoint.keywords ? toKebabCase(menuPoint.keywords) : ''}
         data-testid="menupoints-link">
         {#if menuPoint.iconResource}
           <div class="svg-wrapper" aria-hidden="true">
