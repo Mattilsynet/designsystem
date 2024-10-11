@@ -195,5 +195,5 @@ export interface MenuPoint {
   url: string
   icon: string
   text: string
-  keywords?: string | undefined
+  keywords?: string | null
 }

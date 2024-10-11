@@ -32,7 +32,7 @@
       {
         text: 'Mat',
         url: '',
-        keywords: '',
+        keywords: null,
         iconResource: foodSvg
       },
       {
