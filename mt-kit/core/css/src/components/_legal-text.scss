@@ -3,17 +3,21 @@
 
 .legal-text {
   @include card-article;
+  --legal-text-border-color: var(--color-mt-granskog);
+  --legal-text-bg-color: var(--colored-card-bg);
 
-  background-color: var(--colored-card-bg);
+  background-color: var(--legal-text-bg-color);
 
   > :first-child {
     display: flex;
     margin: 0;
     gap: var(--spacer-xx-small);
+    border-bottom: $border-width-regular solid var(--legal-text-border-color);
+    padding-bottom: var(--fds-spacing-5);
+    align-items: flex-start;
     &::before {
       content: var(--icon-legislation-large);
       display: inline-block;
-      height: 22px;
     }
   }
 }
