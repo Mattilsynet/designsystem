@@ -100,10 +100,6 @@
     overflow-wrap: anywhere;
     word-break: break-word;
   }
-  .intro {
-    font-size: $font-size-body;
-    font-style: italic;
-  }
 
   .text {
     @include xp-html-area;
