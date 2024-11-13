@@ -31,6 +31,8 @@
     | { value: 'empty'; context: Context }
     | { value: 'selected'; context: Context }
 
+  let fileInputElement: HTMLInputElement
+
   const disclosureMachine = createMachine<Context, FileUploadEvent, FileUploadButtonState>({
     predictableActionArguments: true,
     id: 'fileUpload',
@@ -47,8 +49,13 @@
       },
       selected: {
         entry: assign<Context, FileSelectedEvent | FileRemoveEvent>({
-          fileNames: (context, event) =>
-            event.type === 'FILE_SELECTED' ? event.fileNames : context.fileNames
+          fileNames: (context, event) => {
+            if (event.type === 'FILE_SELECTED') {
+              const set = new Set([...context.fileNames, ...event.fileNames])
+              return [...set.values()]
+            }
+            return context.fileNames
+          }
         }),
         exit: assign<Context, FileSelectedEvent | FileRemoveEvent>({
           fileNames: (context, event) => {
@@ -103,7 +110,6 @@
 
   $: onServer = $state.value === 'serverRendered'
 
-  let fileInputElement: HTMLInputElement
   if (loadJs) {
     onMount(() => {
       send('MOUNTED')
