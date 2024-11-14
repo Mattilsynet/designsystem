@@ -24,6 +24,9 @@
       postalCodeLabel: 'Postnummer',
       postalCodeName: 'ownerZip',
       postalCodeError: undefined,
+      postalAreaLabel: 'Poststed',
+      postalAreaName: 'ownerPlace',
+      postalAreaError: undefined,
       loadJs: true
     },
     address2: {
@@ -34,6 +37,9 @@
       postalCodeLabel: 'Postnummer',
       postalCodeName: 'reporterZip',
       postalCodeError: { key: 'reporterZip', message: 'Trenger postnummer' },
+      postalAreaLabel: 'Poststed',
+      postalAreaName: 'reporterPlace',
+      postalAreaError: { key: 'reporterPlace', message: 'Trenger poststed' },
       loadJs: false
     },
     disableCss: false
@@ -69,12 +75,17 @@
         postalCodeLabel={args.address.postalCodeLabel}
         postalCodeName={args.address.postalCodeName}
         streetError={args.address.streetError}
+        postalAreaLabel={args.address.postalAreaLabel}
+        postalAreaName={args.address.postalAreaName}
+        postalAreaError={args.address.postalAreaError}
         streetIsRequired={true}
         postalCodeIsRequired={true}
+        postalAreaIsRequired={true}
         loadJs={args.address.loadJs}
         streetHelpText={helpText}
         bind:streetValue={values['ownerStreet']}
-        bind:postalCodeValue={values['ownerZip']}>
+        bind:postalCodeValue={values['ownerZip']}
+        bind:postalAreaValue={values['ownerArea']}>
       </Address>
     </form>
     <h2 class="mt-h2 m-t-m">Uten JS</h2>
@@ -86,14 +97,19 @@
         postalCodeLabel={args.address2.postalCodeLabel}
         postalCodeName={args.address2.postalCodeName}
         postalCodeError={args.address2.postalCodeError}
+        postalAreaLabel={args.address2.postalAreaLabel}
+        postalAreaName={args.address2.postalAreaName}
+        postalAreaError={args.address2.postalAreaError}
         streetError={args.address2.streetError}
         streetIsRequired={true}
         postalCodeIsRequired={true}
+        postalAreaIsRequired={true}
         loadJs={args.address2.loadJs}
         streetHelpText={helpText}
         postalCodeHelpText="Skriv inn postnummeret. 4 siffer"
         bind:streetValue={values['reporterStreet']}
-        bind:postalCodeValue={values['reporterZip']}>
+        bind:postalCodeValue={values['reporterZip']}
+        bind:postalAreaValue={values['reporterArea']}>
       </Address>
     </form>
   </div>

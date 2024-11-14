@@ -38,6 +38,12 @@ describe('Addresss', () => {
     postalCodeError: undefined,
     postalCodeHelpText: 'Hjelpetekst',
     postalCodeInputClass: '',
+    postalAreaLabel: 'Poststed',
+    postalAreaName: 'owner-postal-place',
+    postalAreaIsRequired: true,
+    postalAreaError: undefined,
+    postalAreaHelpText: 'Hjelpetekst',
+    postalAreaInputClass: '',
     loadJs: true,
     hiddenErrorText: 'Feilmelding: ',
     formInProgressAriaLabel: 'Søker...'
@@ -54,16 +60,19 @@ describe('Addresss', () => {
     await fireEvent.click(screen.getByText(/Testveien 123/))
     expect(screen.getByTestId('hidden-street')).toHaveValue('Testveien 123')
     expect(screen.getByTestId('hidden-postal-code')).toHaveValue('0190')
+    expect(screen.getByTestId('hidden-postal-place')).toHaveValue('Oslo')
     //resets when user types again
     await user.type(street, 'H')
     expect(screen.getByTestId('hidden-street')).toHaveValue(undefined)
     expect(screen.getByTestId('hidden-postal-code')).toHaveValue(undefined)
+    expect(screen.getByTestId('hidden-postal-place')).toHaveValue(undefined)
     //search again
     await user.type(street, 'Test')
     await screen.findByText(/Testveien 123/)
     await fireEvent.click(screen.getByText(/Testveien 123/))
     expect(screen.getByTestId('hidden-street')).toHaveValue('Testveien 123')
     expect(screen.getByTestId('hidden-postal-code')).toHaveValue('0190')
+    expect(screen.getByTestId('hidden-postal-place')).toHaveValue('Oslo')
   })
 
   test('Renders - error', async () => {
@@ -71,11 +80,13 @@ describe('Addresss', () => {
       ...props,
       inputError: { key: 'owner-street-input', message: 'Adresse er påkrevd. Skriv inn under' },
       streetError: { key: 'owner-street', message: 'Adresse er påkrevd' },
-      postalCodeError: { key: 'owner-postal-code', message: 'Postnummer er påkrevd' }
+      postalCodeError: { key: 'owner-postal-code', message: 'Postnummer er påkrevd' },
+      postalAreaError: { key: 'owner-postal-place', message: 'Poststed er påkrevd' }
     })
     const streetError = queryByText('Adresse er påkrevd')
     expect(streetError).not.toBeInTheDocument()
     expect(queryByText('Postnummer er påkrevd')).not.toBeInTheDocument()
+    expect(queryByText('Poststed er påkrevd')).not.toBeInTheDocument()
     const inputError = getByText('Adresse er påkrevd. Skriv inn under')
     expect(inputError).toBeInTheDocument()
   })
@@ -93,6 +104,7 @@ describe('Addresss', () => {
     const street = getByLabelText('Søk i gateadresse')
     expect(street).toBeInTheDocument()
     expect(queryByLabelText('Postnummer')).not.toBeInTheDocument()
+    expect(queryByLabelText('Poststed')).not.toBeInTheDocument()
     await user.type(street, 'Test')
     await screen.findByText(/Ingen resultater/)
   })
@@ -108,6 +120,7 @@ describe('Addresss', () => {
     const street = getByLabelText('Søk i gateadresse')
     expect(street).toBeInTheDocument()
     expect(queryByLabelText('Postnummer')).not.toBeInTheDocument()
+    expect(queryByLabelText('Poststed')).not.toBeInTheDocument()
     await user.type(street, 'Test')
     await screen.findByText(/Skriv inn manuelt under/)
 
@@ -115,6 +128,8 @@ describe('Addresss', () => {
     expect(fallbackStreet).toBeInTheDocument()
     const postalCode = getByLabelText('Postnummer')
     expect(postalCode).toBeInTheDocument()
+    const postalArea = getByLabelText('Poststed')
+    expect(postalArea).toBeInTheDocument()
 
     const searchStreet = getByRole('combobox')
     await fireEvent.focus(searchStreet)
@@ -133,17 +148,21 @@ describe('Addresss', () => {
     })
     expect(getByLabelText('Gateadressse')).toBeInTheDocument()
     expect(getByLabelText('Postnummer')).toBeInTheDocument()
+    expect(getByLabelText('Poststed')).toBeInTheDocument()
   })
   test('Renders without JS - errors', () => {
     const { getByLabelText, getByText } = render(Address, {
       ...props,
       streetError: { key: 'owner-street', message: 'Adresse er påkrevd' },
       postalCodeError: { key: 'owner-postal-code', message: 'Postnummer er påkrevd' },
+      postalAreaError: { key: 'owner-postal-place', message: 'Poststed er påkrevd' },
       loadJs: false
     })
     expect(getByLabelText('Gateadressse')).toBeInTheDocument()
     expect(getByLabelText('Postnummer')).toBeInTheDocument()
+    expect(getByLabelText('Poststed')).toBeInTheDocument()
     expect(getByText('Adresse er påkrevd')).toBeInTheDocument()
     expect(getByText('Postnummer er påkrevd')).toBeInTheDocument()
+    expect(getByText('Poststed er påkrevd')).toBeInTheDocument()
   })
 })
