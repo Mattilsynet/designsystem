@@ -16,19 +16,19 @@
   export let name: string
   export let label: string
   export let labelClass: string
-  export let countCharactersLeftLabel: string | undefined
-  export let countCharactersTooManyLabel: string | undefined
+  export let countCharactersLeftLabel: string | undefined = undefined
+  export let countCharactersTooManyLabel: string | undefined = undefined
   export let tooManyCharactersErrorText = 'Teksten er for lang'
-  export let error: ErrorDetail | undefined
-  export let helpText: string | undefined
-  export let textOptional: string | undefined
+  export let error: ErrorDetail | undefined = undefined
+  export let helpText: string | undefined = undefined
+  export let textOptional: string | undefined = undefined
   export let showOptionalText: boolean = true
-  export let hiddenErrorText: string | undefined
-  export let maxlength: number | undefined
-  export let placeholder: string | undefined
+  export let hiddenErrorText: string | undefined = undefined
+  export let maxlength: number | undefined = undefined
+  export let placeholder: string | undefined = undefined
   export let isRequired: boolean | undefined = undefined
-  export let inputmode: InputModeType | undefined
-  export let autocomplete: AutocompleteType | undefined
+  export let inputmode: InputModeType | undefined = undefined
+  export let autocomplete: AutocompleteType | undefined = undefined
   export let hasTransition = false
 
   export let inputClass = ''

@@ -81,8 +81,9 @@ $form-outline-color: 'var(--form-outline-color)' !default;
 
   --outline-style: var(--form-outline-style);
   --outline-color: var(--form-outline-color);
+  --input-width: 100%;
 
-  width: 100%;
+  width: var(--input-width);
   max-width: var(--form-field-width, 30ch);
   padding: 0.75em $button-padding-lr;
   border: var(--border-width-small) solid var(--border-color);
@@ -96,12 +97,10 @@ $form-outline-color: 'var(--form-outline-color)' !default;
   }
 
   &--small-width {
-    --small-input-width: #{$size-input-3};
-    width: var(--small-input-width);
+    --input-width: #{$size-input-3};
   }
   &--medium-width {
-    --medium-input-width: #{$size-input-4};
-    width: var(--medium-input-width);
+    --input-width: #{$size-input-4};
   }
   &--small {
     padding: calc(2 * #{$spacer-xxx-small});
