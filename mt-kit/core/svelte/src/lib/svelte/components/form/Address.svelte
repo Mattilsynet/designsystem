@@ -89,25 +89,26 @@
     } else if (!input.value) {
       input.list.textContent = ''
     } else {
-      const value = encodeURIComponent(e.target.value.trim())
+      const addressSearchInput = e.target?.value?.trim()?.replace(/,+/g, '')
+      const addressSearchString = encodeURIComponent(addressSearchInput)
       apiError = undefined
       clearTimeout(debounceTimer)
       debounceTimer = setTimeout(async () => {
-        await fetchOptions(value)
+        await fetchOptions(addressSearchString)
       }, 300)
     }
   }
 
   function getSearchUrl(value: string, hits: string): string {
-    return `https://ws.geonorge.no/adresser/v1/sok?sok=${value?.replace(',', '')}&fuzzy=true&utkoordsys=4258&treffPerSide=${hits}&side=0&asciiKompatibel=true`
+    return `https://ws.geonorge.no/adresser/v1/sok?sok=${value}&fuzzy=true&utkoordsys=4258&treffPerSide=${hits}&side=0&asciiKompatibel=true`
   }
 
-  async function fetchOptions(inputValue: string): Promise<void> {
-    if (inputValue.length > 2) {
+  async function fetchOptions(addressSearchString: string): Promise<void> {
+    if (addressSearchString.length > 2) {
       isLoading = true
 
       try {
-        const res = await fetch(getSearchUrl(inputValue, hits))
+        const res = await fetch(getSearchUrl(addressSearchString, hits))
         const data: GeonorgeResponse = await res.json()
         const options = data.adresser.map(({ adressetekst, postnummer, poststed }, index) => {
           const option = document.createElement('u-option')
@@ -121,7 +122,9 @@
           })
         })
         if (options.length === 0) {
-          input.list.textContent = interpolate(noResultsText, [decodeURIComponent(inputValue)])
+          input.list.textContent = interpolate(noResultsText, [
+            decodeURIComponent(addressSearchString)
+          ])
         } else {
           input.list.replaceChildren(...options)
         }
