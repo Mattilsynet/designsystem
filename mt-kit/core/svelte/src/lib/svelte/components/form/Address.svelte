@@ -99,7 +99,7 @@
   }
 
   function getSearchUrl(value: string, hits: string): string {
-    return `https://ws.geonorge.no/adresser/v1/sok?sok=${value}&fuzzy=true&utkoordsys=4258&treffPerSide=${hits}&side=0&asciiKompatibel=true`
+    return `https://ws.geonorge.no/adresser/v1/sok?sok=${value?.replace(',', '')}&fuzzy=true&utkoordsys=4258&treffPerSide=${hits}&side=0&asciiKompatibel=true`
   }
 
   async function fetchOptions(inputValue: string): Promise<void> {
