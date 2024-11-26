@@ -1,9 +1,9 @@
 import type { ErrorDetail } from './types'
 
 export function createInputAriaDescribedby(
-  name: string | undefined,
-  error: ErrorDetail | undefined,
-  maxlength: number | undefined
+  name?: string,
+  error?: ErrorDetail,
+  maxlength?: number
 ): string | undefined {
   let describedBy = ''
   if (name) {
