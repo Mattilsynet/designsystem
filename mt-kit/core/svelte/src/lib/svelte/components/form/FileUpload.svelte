@@ -1,35 +1,46 @@
 <script lang="ts">
-  import FileUploadButton from '../FileUploadButton.svelte'
-  import InputError from './InputErrorMessage.svelte'
-  import type { ErrorDetail } from '../../../ts/types'
-  import Label from './Label.svelte'
+  import { createInputAriaDescribedby, type ErrorDetail } from '$lib/ts'
+  import { createEventDispatcher } from 'svelte'
+  import { InputErrorMessage, Label } from '$lib/index'
+
+  export let loadJs = false
+  export let name: string
+  export let error: ErrorDetail | undefined
+  export let multiple = false
+  export let accept: string | undefined
+  export let buttonText = 'Legg til fil'
+  export let isRequired: boolean | undefined = undefined
 
   export let value: undefined | string | Array<string>
-  export let name: string
   export let label: string
-  export let buttonText: string
   export let fileInputName: string
   export let fileNameInputName: string
   export let helpText: string | undefined
   export let fileName: string | Array<string> | undefined
-  export let error: ErrorDetail | undefined
-  export let isRequired: boolean | undefined = undefined
-  export let accept: string | undefined
-  export let multiple: boolean | undefined
   export let textOptional: string | undefined
   export let hiddenErrorText: string | undefined
+
+  export let isLoading: boolean = false
+  export let uploadInProgressAriaLabel = 'Laster opp filer'
 
   let uuidInput: HTMLInputElement
   let nameInput: HTMLInputElement
 
-  function onRemoveFile(e: CustomEvent): void {
+  const dispatch = createEventDispatcher()
+
+  function removeFile(fileToRemove: string): void {
     const fileNames: Array<string> = nameInput.value.split(',')
     uuidInput.value = ''
-    value = removeValueByFileName(value, fileNames, e.detail.fileName)
+    value = removeValueByFileName(value, fileNames, fileToRemove)
 
     // update filename. This handles multiple files
-    nameInput.value = fileNames.filter(v => v !== e.detail.fileName).join(',')
-    fileName = filterFileName(fileName, e.detail.fileName)
+    nameInput.value = fileNames.filter((v) => v !== fileToRemove).join(',')
+    fileName = filterFileName(fileName, fileToRemove)
+  }
+
+  function handleChange(e): void {
+    const target = e.target as HTMLInputElement
+    dispatch('change', { files: target.files })
   }
 
   function removeValueByFileName(
@@ -54,7 +65,7 @@
     if (typeof fileName === 'string' || fileName === undefined) {
       return undefined
     } else {
-      return fileName.filter(v => v !== removeFileName)
+      return fileName.filter((v) => v !== removeFileName)
     }
   }
 </script>
@@ -68,7 +79,7 @@
 {/if}
 
 {#if error}
-  <InputError message={error.message} key={fileInputName} {hiddenErrorText} />
+  <InputErrorMessage message={error.message} key={fileInputName} {hiddenErrorText} />
 {/if}
 
 <input
@@ -86,13 +97,54 @@
   value={fileName || ''}
   data-testid={fileNameInputName} />
 
-<FileUploadButton
-  {error}
+<input
+  type="file"
   id={name}
   name={fileInputName}
-  {buttonText}
   {multiple}
   {accept}
-  {fileName}
-  {isRequired}
-  on:removeFile={onRemoveFile} />
+  class="mt-input form-field"
+  on:change={(e) => handleChange(e)}
+  class:error
+  class:inclusively-hidden-initial={loadJs}
+  disabled={isLoading}
+  aria-describedby={createInputAriaDescribedby(name, error)}
+  aria-invalid={!!error}
+  data-testid={fileInputName}
+  aria-required={isRequired || undefined} />
+
+{#if loadJs}
+  <label class="mt-label mt-button mt-button--secondary" for={name}>
+    {buttonText}
+    <span
+      role="status"
+      aria-live="polite"
+      class:spinner={isLoading}
+      aria-label={isLoading ? uploadInProgressAriaLabel : ''} />
+  </label>
+
+  <ol class="mt-ol m-t-xxs list-unstyled file-button__file-list" aria-label="Vedlegg">
+    {#each Array.from(fileName ?? []) as file}
+      <li>
+        <span class="file-button__file-name">{file}</span>
+        <button
+          type="button"
+          class="mt-button mt-button--search-clear file-button__file-remove"
+          on:click={() => removeFile(file)}
+          data-testid={`remove-${file}`}>
+          <span class="inclusively-hidden">Slett vedlegget: "{file}"</span>
+          <svg
+            aria-hidden="true"
+            width="20"
+            height="20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M10 0C4.47 0 0 4.47 0 10s4.47 10 10 10 10-4.47 10-10S15.53 0 10 0Zm5 13.59L13.59 15 10 11.41 6.41 15 5 13.59 8.59 10 5 6.41 6.41 5 10 8.59 13.59 5 15 6.41 11.41 10 15 13.59Z"
+              fill="#464545" />
+          </svg>
+        </button>
+      </li>
+    {/each}
+  </ol>
+{/if}
