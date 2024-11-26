@@ -40,6 +40,13 @@
       multiple: false,
       loadJs: true
     },
+    upload4: {
+      name: 'fileUpload4',
+      isRequired: true,
+      multiple: true,
+      loadJs: true
+    },
+    isLoading: false,
     disableCss: false,
     disableJs: false
   }}
@@ -117,6 +124,50 @@
         isLoading={args.isLoading}
         uploadInProgressAriaLabel={args.uploadInProgressAriaLabel}
         loadJs={!args.disableJs && args.upload3.loadJs} />
+    </form>
+    <h2 class="mt-h2 m-t-m">Under opplasting</h2>
+    <form method="get" class="mt-form form-layout" style="--gap: 0;">
+      <FileUpload
+        name={args.upload4.name}
+        label={args.label}
+        helpText={args.helpText}
+        buttonText={args.buttonText}
+        fileInputName="file-{args.upload4.name}"
+        fileNameInputName="filename-{args.upload4.name}"
+        bind:fileName={values['filename-' + args.upload4.name]}
+        textOptional={args.textOptional}
+        hiddenErrorText={args.hiddenErrorText}
+        accept={args.accept}
+        isRequired={args.upload4.isRequired}
+        multiple={args.upload4.multiple}
+        bind:value={values[args.upload4.name]}
+        on:change={e => handleChange(e, args.upload4.name)}
+        error={undefined}
+        isLoading={true}
+        uploadInProgressAriaLabel={args.uploadInProgressAriaLabel}
+        loadJs={!args.disableJs && args.upload4.loadJs} />
+    </form>
+    <h2 class="mt-h2 m-t-m">Under opplasting. Uten JS</h2>
+    <form method="get" class="mt-form form-layout" style="--gap: 0;">
+      <FileUpload
+        name={args.upload4.name}
+        label={args.label}
+        helpText={args.helpText}
+        buttonText={args.buttonText}
+        fileInputName="file-{args.upload4.name}"
+        fileNameInputName="filename-{args.upload4.name}"
+        bind:fileName={values['filename-' + args.upload4.name]}
+        textOptional={args.textOptional}
+        hiddenErrorText={args.hiddenErrorText}
+        accept={args.accept}
+        isRequired={args.upload4.isRequired}
+        multiple={args.upload4.multiple}
+        bind:value={values[args.upload4.name]}
+        on:change={e => handleChange(e, args.upload4.name)}
+        error={undefined}
+        isLoading={true}
+        uploadInProgressAriaLabel={args.uploadInProgressAriaLabel}
+        loadJs={!args.disableJs && !args.upload4.loadJs} />
     </form>
   </div>
 </Story>
