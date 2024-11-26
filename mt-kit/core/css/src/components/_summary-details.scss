@@ -27,9 +27,11 @@
     & .mt-summary {
       // blue circle with § inside icon
       @include apply-icon($icon: $icon-legislation, $position: after);
-      display: flex;
-      align-items: center;
-      gap: var(--spacer-xx-small);
+      & {
+        display: flex;
+        align-items: center;
+        gap: var(--spacer-xx-small);
+      }
     }
   }
   &.color-neutral {
@@ -102,9 +104,11 @@
     }
     .summary-wrapper {
       @include children-spaced(var(--spacer-xxx-small));
-      --space-section: var(--spacer-medium);
-      --space-sub-section: var(--spacer-small);
-      --space-content: var(--spacer-xx-small);
+      & {
+        --space-section: var(--spacer-medium);
+        --space-sub-section: var(--spacer-small);
+        --space-content: var(--spacer-xx-small);
+      }
       > h2 {
         margin-top: var(--spacer-medium);
         &.inclusively-hidden {

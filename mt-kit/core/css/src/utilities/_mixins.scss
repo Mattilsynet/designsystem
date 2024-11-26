@@ -1,4 +1,6 @@
 @use '../theme' as *;
+@use 'sass:map';
+@use 'sass:list';
 
 @mixin focus-outline() {
   &.focus,
@@ -61,10 +63,11 @@
 
 @mixin xp-html-area {
   @include children-spaced(var(--space-content));
-
-  --space-section: var(--spacer-medium);
-  --space-sub-section: var(--spacer-small);
-  --space-content: var(--spacer-xx-small);
+  & {
+    --space-section: var(--spacer-medium);
+    --space-sub-section: var(--spacer-small);
+    --space-content: var(--spacer-xx-small);
+  }
 
   > h2 {
     margin-top: var(--spacer-medium);
@@ -93,7 +96,9 @@
 @mixin card-article {
   @include children-spaced(var(--spacer-x-small));
 
-  padding: var(--spacer-x-small);
+  & {
+    padding: var(--spacer-x-small);
+  }
 
   .title {
     margin-top: 0;
@@ -212,11 +217,11 @@
     $icon-external-link
   );
 
-  @if not index($valid-directions, $direction) {
+  @if not list.index($valid-directions, $direction) {
     @error "Unknown direction value '#{$direction}' at $dir. $dir can only be of value 'down' | 'up' | 'right' | 'left'.";
   }
 
-  @if not index($pseudo, $position) {
+  @if not list.index($pseudo, $position) {
     @error "Unknown position value '#{$position}' at $position. $position can only be of value 'before' | 'after'.";
   }
 
@@ -227,7 +232,7 @@
     'left': 90,
   );
 
-  $dir-mapped-to-rotate: map-get($icon-directions, #{$direction});
+  $dir-mapped-to-rotate: map.get($icon-directions, #{$direction});
   $calc-open-rotation: calc($dir-mapped-to-rotate - 180);
 
   &[href]:not(:where(
