@@ -75,6 +75,17 @@
     &.mt-summary-icon {
       @include apply-icon($icon: $icon-carret-down-primary, $position: before);
     }
+    &.adjusted-heading {
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin-top: 0;
+        font-size: $font-size-body;
+        font-weight: $font-weight-normal;
+      }
+    }
   }
   &[open] {
     .mt-summary {
