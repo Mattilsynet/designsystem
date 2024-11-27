@@ -31,7 +31,30 @@
       gap: var(--spacer-xx-small);
     }
   }
+  &.color-neutral {
+    display: flex;
+    flex-direction: column;
 
+    &:hover {
+      background: var(--color-mt-lys-sand);
+    }
+
+    &[open] {
+      & .mt-summary {
+        background: var(--color-mt-lys-sand);
+      }
+    }
+  }
+
+  &.border-neutral {
+    --mt-divider: color-mix(in hsl, currentcolor, transparent 90%);
+    border-top: $border-width-regular solid var(--mt-divider);
+    border-bottom: $border-width-regular solid var(--mt-divider);
+  }
+
+  & > .summary-wrapper {
+    padding: var(--fds-spacing-7);
+  }
   .mt-summary {
     @include focus-outline();
 
