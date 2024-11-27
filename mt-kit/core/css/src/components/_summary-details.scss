@@ -15,6 +15,7 @@
       border-bottom: var(--border);
     }
     & .summary-wrapper {
+      margin-top: var(--detail-margin);
       margin-left: var(--detail-margin);
       padding-left: var(--detail-padding);
       border-left: var(--border);
