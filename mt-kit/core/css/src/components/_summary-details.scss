@@ -78,7 +78,6 @@
   }
   &[open] {
     .mt-summary {
-      margin-bottom: var(--summary-margin-bottom);
       &::before {
         transform: rotateX(180deg);
       }
