@@ -12,6 +12,7 @@
   }
   &.with-border {
     & .mt-summary {
+      padding: 0;
       border-bottom: var(--border);
     }
     & .summary-wrapper {
@@ -66,6 +67,9 @@
     color: var(--mt-button-neutral-border);
     list-style: none;
     cursor: pointer;
+
+    padding: var(--fds-spacing-3);
+
     > h3 {
       margin-top: 0;
     }
