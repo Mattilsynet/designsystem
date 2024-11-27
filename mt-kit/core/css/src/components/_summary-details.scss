@@ -7,8 +7,6 @@
   --summary-margin-bottom: var(--spacer-xx-small);
   --border: #{$border-width-regular} solid var(--list-border);
 
-  margin-top: var(--spacer-xxx-small);
-
   &:focus,
   &:focus-visible {
     box-shadow: $focus-box-shadow-no-outline;
