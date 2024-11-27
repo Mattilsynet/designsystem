@@ -55,6 +55,9 @@
 
   & > .summary-wrapper {
     padding: var(--fds-spacing-7);
+    .legal-text {
+      padding: 0;
+    }
   }
   .mt-summary {
     @include focus-outline();
