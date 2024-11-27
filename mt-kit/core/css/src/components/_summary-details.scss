@@ -7,10 +7,6 @@
   --summary-margin-bottom: var(--spacer-xx-small);
   --border: #{$border-width-regular} solid var(--list-border);
 
-  &:focus,
-  &:focus-visible {
-    box-shadow: $focus-box-shadow-no-outline;
-  }
   &.full-width {
     width: auto;
   }
@@ -54,6 +50,7 @@
     @include focus-outline();
 
     display: inline-flex;
+    position: relative;
     align-items: center;
     gap: var(--spacer-xxx-small);
     line-height: 140%;
