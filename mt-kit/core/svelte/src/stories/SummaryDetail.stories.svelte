@@ -19,9 +19,22 @@
   }} />
 
 <Story name="Normal" let:args>
-  <p>Oppsummering og detaljer</p>
+  <h1 class="mt-h1">Oppsummering og detaljer</h1>
   <main class="mt-main container layout-flex-col">
+    <h2 class="mt-h2 m-t-s">Default</h2>
     <SummaryDetail title={args.title}>
+      {@html args.content}
+    </SummaryDetail>
+    <h2 class="mt-h2 m-t-s">With color-neutral</h2>
+    <SummaryDetail title={args.title} detailsClass="color-neutral">
+      {@html args.content}
+    </SummaryDetail>
+    <h2 class="mt-h2 m-t-s">With color-neutral border-neutral</h2>
+    <SummaryDetail
+      title={args.title}
+      detailsClass="color-neutral border-neutral"
+      summaryClass=""
+      summaryWrapperClass="background-mt-white">
       {@html args.content}
     </SummaryDetail>
   </main>
@@ -46,23 +59,17 @@
 </Story>
 
 <Story name="Med fet skrift" let:args>
-  <p>Oppsummering og detaljer med fet skrift</p>
+  <p>Oppsummering og detaljer neutral</p>
   <main class="mt-main container layout-flex-col">
-    <SummaryDetail title={args.title} detailsClass="with-bold">
+    <SummaryDetail title={args.title} detailsClass="color-neutral">
       {@html args.content}
     </SummaryDetail>
     <hr />
     <h2 class="mt-h2">Med heading-tag i oppsummeringen</h2>
-    <SummaryDetail title={`<h2 class="mt-h2">${args.title}</h2>`} detailsClass="with-bold">
-      {@html args.content}
-    </SummaryDetail>
-  </main>
-</Story>
-
-<Story name="Med fet skrift og ikon" let:args>
-  <p>Oppsummering og detaljer med fet skrift og ikon!</p>
-  <main class="mt-main container layout-flex-col">
-    <SummaryDetail title={args.title} detailsClass="with-bold with-icon">
+    <SummaryDetail
+      title={`<h2 class="mt-h2">${args.title}</h2>`}
+      detailsClass="color-neutral"
+      summaryClass="adjusted-heading">
       {@html args.content}
     </SummaryDetail>
   </main>

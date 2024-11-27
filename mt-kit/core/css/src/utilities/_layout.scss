@@ -113,6 +113,10 @@
   }
 }
 
+.gap-13 {
+  gap: var(--fds-spacing-13);
+}
+
 .self-start {
   align-self: start;
   justify-self: start;

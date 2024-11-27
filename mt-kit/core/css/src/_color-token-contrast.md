@@ -35,6 +35,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
   - `color-on-mt-havdyp`
   - `color-mt-brevann`
 
@@ -133,6 +134,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
   - `color-on-mt-havdyp`
   - `color-mt-brevann`
 
@@ -170,6 +172,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
   - `color-on-mt-havdyp`
   - `color-mt-brevann`
 
@@ -281,6 +284,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
   - `color-on-mt-havdyp`
   - `color-mt-brevann`
 
@@ -353,6 +357,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
   - `color-on-mt-havdyp`
   - `color-mt-brevann`
 
@@ -425,6 +430,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
 
 ## color-mt-background
   - `color-mt-blue`
@@ -478,6 +484,7 @@ title: Color Token Contrast
   - `color-on-mt-mellombeige`
   - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
+  - `color-on-mt-lys-sand`
   - `color-mt-havdyp`
   - `color-on-mt-brevann`
 
@@ -543,6 +550,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
   - `color-on-mt-havdyp`
   - `color-mt-brevann`
 
@@ -622,6 +630,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
 
 ## color-mt-rationale-blue
   - `color-mt-blue`
@@ -715,6 +724,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
   - `color-on-mt-havdyp`
   - `color-mt-brevann`
 
@@ -760,6 +770,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
   - `color-on-mt-havdyp`
   - `color-mt-brevann`
 
@@ -859,6 +870,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
   - `color-on-mt-havdyp`
   - `color-mt-brevann`
 
@@ -914,6 +926,7 @@ title: Color Token Contrast
   - `color-on-mt-mellombeige`
   - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
+  - `color-on-mt-lys-sand`
   - `color-mt-havdyp`
   - `color-on-mt-brevann`
 
@@ -965,6 +978,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
   - `color-on-mt-havdyp`
   - `color-mt-brevann`
 
@@ -1037,6 +1051,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
   - `color-on-mt-havdyp`
   - `color-mt-brevann`
 
@@ -1092,6 +1107,7 @@ title: Color Token Contrast
   - `color-on-mt-mellombeige`
   - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
+  - `color-on-mt-lys-sand`
   - `color-mt-havdyp`
   - `color-on-mt-brevann`
 
@@ -1181,6 +1197,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
 
 ## color-mt-green-400
   - `color-mt-blue`
@@ -1255,6 +1272,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
   - `color-on-mt-havdyp`
   - `color-mt-brevann`
 
@@ -1334,6 +1352,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
 
 ## color-primary
   - `color-on-mt-blue`
@@ -1366,6 +1385,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
   - `color-on-mt-havdyp`
   - `color-mt-brevann`
 
@@ -1421,6 +1441,7 @@ title: Color Token Contrast
   - `color-on-mt-mellombeige`
   - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
+  - `color-on-mt-lys-sand`
   - `color-mt-havdyp`
   - `color-on-mt-brevann`
 
@@ -1476,6 +1497,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
   - `color-on-mt-havdyp`
   - `color-mt-brevann`
 
@@ -1546,6 +1568,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
   - `color-on-mt-havdyp`
   - `color-mt-brevann`
 
@@ -1591,6 +1614,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
   - `color-on-mt-havdyp`
   - `color-mt-brevann`
 
@@ -1657,6 +1681,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
   - `color-on-mt-havdyp`
   - `color-mt-brevann`
 
@@ -1712,6 +1737,7 @@ title: Color Token Contrast
   - `color-on-mt-mellombeige`
   - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
+  - `color-on-mt-lys-sand`
   - `color-mt-havdyp`
   - `color-on-mt-brevann`
 
@@ -1749,6 +1775,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
   - `color-on-mt-havdyp`
   - `color-mt-brevann`
 
@@ -1861,6 +1888,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
   - `color-on-mt-havdyp`
   - `color-mt-brevann`
 
@@ -1937,6 +1965,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
 
 ## color-mt-new-white
   - `color-mt-blue`
@@ -1990,6 +2019,7 @@ title: Color Token Contrast
   - `color-on-mt-mellombeige`
   - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
+  - `color-on-mt-lys-sand`
   - `color-mt-havdyp`
   - `color-on-mt-brevann`
 
@@ -2041,6 +2071,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
   - `color-on-mt-havdyp`
   - `color-mt-brevann`
 
@@ -2090,6 +2121,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
   - `color-on-mt-havdyp`
   - `color-mt-brevann`
 
@@ -2145,6 +2177,7 @@ title: Color Token Contrast
   - `color-on-mt-mellombeige`
   - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
+  - `color-on-mt-lys-sand`
   - `color-mt-havdyp`
   - `color-on-mt-brevann`
 
@@ -2196,6 +2229,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
   - `color-on-mt-havdyp`
   - `color-mt-brevann`
 
@@ -2287,6 +2321,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
   - `color-on-mt-havdyp`
   - `color-mt-brevann`
 
@@ -2311,6 +2346,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
 
 ## color-on-mt-furu-dark
   - `color-mt-blue`
@@ -2435,6 +2471,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
   - `color-on-mt-havdyp`
   - `color-mt-brevann`
 
@@ -2539,6 +2576,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
   - `color-on-mt-havdyp`
   - `color-mt-brevann`
 
@@ -2643,6 +2681,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
   - `color-on-mt-havdyp`
   - `color-mt-brevann`
 
@@ -2686,6 +2725,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
   - `color-on-mt-havdyp`
   - `color-mt-brevann`
 
@@ -2792,6 +2832,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
   - `color-on-mt-havdyp`
   - `color-mt-brevann`
 
@@ -2895,6 +2936,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
   - `color-on-mt-havdyp`
   - `color-mt-brevann`
 
@@ -2998,6 +3040,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
   - `color-on-mt-havdyp`
   - `color-mt-brevann`
 
@@ -3037,6 +3080,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
   - `color-on-mt-havdyp`
   - `color-mt-brevann`
 
@@ -3129,6 +3173,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
   - `color-on-mt-havdyp`
   - `color-mt-brevann`
 
@@ -3204,6 +3249,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
   - `color-on-mt-havdyp`
   - `color-mt-brevann`
 
@@ -3307,6 +3353,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
   - `color-on-mt-havdyp`
   - `color-mt-brevann`
 
@@ -3410,6 +3457,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
   - `color-on-mt-havdyp`
   - `color-mt-brevann`
 
@@ -3483,6 +3531,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
   - `color-on-mt-havdyp`
   - `color-mt-brevann`
 
@@ -3558,6 +3607,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
   - `color-on-mt-havdyp`
   - `color-mt-brevann`
 
@@ -3635,6 +3685,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
 
 ## color-mt-bg-sommerdag
   - `color-mt-blue`
@@ -3737,6 +3788,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
   - `color-on-mt-havdyp`
   - `color-mt-brevann`
 
@@ -3841,6 +3893,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
   - `color-on-mt-havdyp`
   - `color-mt-brevann`
 
@@ -3894,6 +3947,7 @@ title: Color Token Contrast
   - `color-on-mt-mellombeige`
   - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
+  - `color-on-mt-lys-sand`
   - `color-mt-havdyp`
   - `color-on-mt-brevann`
 
@@ -3945,6 +3999,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
   - `color-on-mt-havdyp`
   - `color-mt-brevann`
 
@@ -3998,6 +4053,7 @@ title: Color Token Contrast
   - `color-on-mt-mellombeige`
   - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
+  - `color-on-mt-lys-sand`
   - `color-mt-havdyp`
   - `color-on-mt-brevann`
 
@@ -4049,6 +4105,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
   - `color-on-mt-havdyp`
   - `color-mt-brevann`
 
@@ -4104,6 +4161,7 @@ title: Color Token Contrast
   - `color-on-mt-mellombeige`
   - `color-on-mt-bg-info`
   - `color-on-mt-bg-beige`
+  - `color-on-mt-lys-sand`
   - `color-mt-havdyp`
   - `color-on-mt-brevann`
 
@@ -4155,8 +4213,76 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
   - `color-on-mt-havdyp`
   - `color-mt-brevann`
+
+## color-mt-lys-sand
+  - `color-mt-blue`
+  - `color-on-mt-red`
+  - `color-mt-red-uu`
+  - `color-on-mt-beige`
+  - `color-on-mt-beige-50`
+  - `color-on-mt-light-beige`
+  - `color-on-mt-light-blue`
+  - `color-on-mt-lighter-light-blue`
+  - `color-on-mt-rationale-blue`
+  - `color-mt-brown`
+  - `color-on-mt-grey`
+  - `color-on-mt-white`
+  - `color-on-mt-green`
+  - `color-on-mt-green-300`
+  - `color-on-mt-green-400`
+  - `color-on-mt-light-green`
+  - `color-primary`
+  - `color-on-mt-blue-medium`
+  - `color-on-secondary`
+  - `color-mt-text-dark`
+  - `color-error`
+  - `color-error-50`
+  - `color-on-mt-yellowgreen`
+  - `color-on-mt-yellowgreen-lighter`
+  - `color-on-mt-new-white`
+  - `color-mt-granskog`
+  - `color-mt-granskog-dark`
+  - `color-on-mt-furu`
+  - `color-mt-furu-dark`
+  - `color-on-mt-lys-furu`
+  - `color-on-mt-bg-furu`
+  - `color-on-mt-bg-success`
+  - `color-mt-fjord`
+  - `color-on-mt-lys-fjord`
+  - `color-on-mt-bg-fjord`
+  - `color-on-mt-bg-neutral`
+  - `color-mt-rognebaer-contrast`
+  - `color-on-mt-rognebaer`
+  - `color-on-mt-lys-rognebaer`
+  - `color-on-mt-bg-rognebaer`
+  - `color-on-mt-bg-danger`
+  - `color-on-mt-sommerdag-contrast`
+  - `color-on-mt-sommerdag`
+  - `color-on-mt-lys-sommerdag`
+  - `color-on-mt-bg-sommerdag`
+  - `color-on-mt-bg-warning`
+  - `color-on-mt-mellombeige`
+  - `color-on-mt-bg-info`
+  - `color-on-mt-bg-beige`
+  - `color-on-mt-lys-sand`
+  - `color-mt-havdyp`
+  - `color-on-mt-brevann`
+
+## color-on-mt-lys-sand
+  - `color-mt-background`
+  - `color-mt-white`
+  - `color-mt-green-100`
+  - `color-on-primary`
+  - `color-on-error`
+  - `color-mt-new-white`
+  - `color-on-mt-granskog`
+  - `color-mt-mellombeige`
+  - `color-mt-bg-info`
+  - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
 
 ## color-mt-havdyp
   - `color-mt-light-beige`
@@ -4185,6 +4311,7 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
   - `color-on-mt-havdyp`
 
 ## color-on-mt-havdyp
@@ -4306,5 +4433,6 @@ title: Color Token Contrast
   - `color-mt-mellombeige`
   - `color-mt-bg-info`
   - `color-mt-bg-beige`
+  - `color-mt-lys-sand`
   - `color-on-mt-havdyp`
   - `color-mt-brevann`

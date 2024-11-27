@@ -31,7 +31,7 @@
 
 <Story name="Normal" let:disableCss let:title let:text let:icon>
   <div use:wrapInShadowDom={disableCss} class="container">
-    <CardArticle type="legal-text" {title} {text} id={title} />
+    <CardArticle type="legal-text" class="background-mt-white" {title} {text} id={title} />
     <hr />
     <Disclosure theme="no-border" class="background-mt-rationale-blue" {title} {icon}>
       {@html text}

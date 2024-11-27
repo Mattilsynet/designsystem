@@ -9,12 +9,14 @@
   export let linkUrl: string | undefined
   export let linkText: string | undefined
   export let type: 'task' | 'form-intro-module' | 'legal-text' | 'highlighted-link' | '' = ''
+  let className = ''
+  export { className as class }
   export let headerTag: 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | undefined = 'h3' // Fallback is h3
   export let iconClass: 'info-icon' | 'warning-icon' | 'task-icon' | '' =
     type === 'task' ? 'task-icon' : ''
 </script>
 
-<article class={type} aria-labelledby={headingId}>
+<article class="{type} {className}" aria-labelledby={headingId}>
   <HeadingLevel
     id={headingId}
     class="title {iconClass} {headerTag === 'h2' ? 'mt-h3' : ''}"

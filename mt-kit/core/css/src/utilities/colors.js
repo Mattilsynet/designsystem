@@ -230,6 +230,10 @@ module.exports = [
     onColor: '#032C30',
   },
   {
+    name: 'mt-lys-sand',
+    color: '#F4ECE6',
+  },
+  {
     name: 'mt-havdyp',
     color: '#116E6B',
   },

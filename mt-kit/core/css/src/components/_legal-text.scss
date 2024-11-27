@@ -4,9 +4,6 @@
 .legal-text {
   @include card-article;
   --legal-text-border-color: var(--color-mt-granskog);
-  --legal-text-bg-color: var(--colored-card-bg);
-
-  background-color: var(--legal-text-bg-color);
 
   > :first-child {
     display: flex;

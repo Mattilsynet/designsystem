@@ -57,6 +57,7 @@
         <p>Litt tekst her</p>
         <CardArticle
           type="task"
+          class="background-mt-white"
           title="Dette er en h2 tittel"
           text="Noe tekst i kroppen"
           linkUrl="http://"
@@ -64,6 +65,7 @@
           headerTag="h2" />
         <CardArticle
           type="task"
+          class="background-mt-white"
           title="Dette er en h3 tittel"
           text="Noe tekst i kroppen"
           linkUrl="http://"

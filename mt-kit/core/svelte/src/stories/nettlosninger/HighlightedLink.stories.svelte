@@ -67,6 +67,7 @@
     {#each tasks as task}
       <CardArticle
         type="highlighted-link"
+        class="background-mt-white"
         linkText={task.nextActionLinkText}
         linkUrl={task.nextActionUrl}
         title={task.title}

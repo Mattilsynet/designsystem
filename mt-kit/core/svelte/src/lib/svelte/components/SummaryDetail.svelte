@@ -5,12 +5,14 @@
   export let summaryWrapperClass = ''
   export let testId = ''
   export let ariaLabelledBy = undefined
+  export let summaryId = ''
+
   let isOpen = false
 
-  function beforePrint() {
+  function beforePrint(): void {
     isOpen = true
   }
-  function afterPrint() {
+  function afterPrint(): void {
     isOpen = false
   }
 </script>
@@ -22,7 +24,9 @@
   aria-labelledby={ariaLabelledBy}
   data-test-id={testId}
   bind:open={isOpen}>
-  <summary class="mt-summary mt-summary-icon {summaryClass}">{@html title}</summary>
+  <summary id={summaryId} class="mt-summary mt-summary-icon {summaryClass}">
+    {@html title}
+  </summary>
   <div class="summary-wrapper {summaryWrapperClass}">
     <slot />
   </div>

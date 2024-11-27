@@ -12,7 +12,6 @@
 .highlighted-link {
   @include card-article;
 
-  background-color: var(--color-mt-white);
   a {
     @extend .mt-link;
   }

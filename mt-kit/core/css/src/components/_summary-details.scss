@@ -7,38 +7,19 @@
   --summary-margin-bottom: var(--spacer-xx-small);
   --border: #{$border-width-regular} solid var(--list-border);
 
-  margin-top: var(--spacer-xxx-small);
-
-  &:focus,
-  &:focus-visible {
-    box-shadow: $focus-box-shadow-no-outline;
-  }
   &.full-width {
     width: auto;
   }
   &.with-border {
     & .mt-summary {
+      padding: 0;
       border-bottom: var(--border);
     }
     & .summary-wrapper {
+      margin-top: var(--detail-margin);
       margin-left: var(--detail-margin);
       padding-left: var(--detail-padding);
       border-left: var(--border);
-    }
-  }
-  &.with-bold {
-    & .mt-summary {
-      font-weight: $font-weight-bold;
-      align-items: center;
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        margin-top: 0;
-        font-size: $font-size-body;
-        font-weight: $font-weight-bold;
-      }
     }
   }
 
@@ -51,17 +32,47 @@
       gap: var(--spacer-xx-small);
     }
   }
+  &.color-neutral {
+    display: flex;
+    flex-direction: column;
 
+    &:hover {
+      background: var(--color-mt-lys-sand);
+    }
+
+    &[open] {
+      & .mt-summary {
+        background: var(--color-mt-lys-sand);
+      }
+    }
+  }
+
+  &.border-neutral {
+    --mt-divider: color-mix(in hsl, currentcolor, transparent 90%);
+    border-top: $border-width-regular solid var(--mt-divider);
+    border-bottom: $border-width-regular solid var(--mt-divider);
+  }
+
+  & > .summary-wrapper {
+    padding: var(--fds-spacing-7);
+    .legal-text {
+      padding: 0;
+    }
+  }
   .mt-summary {
     @include focus-outline();
 
     display: inline-flex;
+    position: relative;
     align-items: center;
     gap: var(--spacer-xxx-small);
     line-height: 140%;
     color: var(--mt-button-neutral-border);
     list-style: none;
     cursor: pointer;
+
+    padding: var(--fds-spacing-3);
+
     > h3 {
       margin-top: 0;
     }
@@ -71,10 +82,20 @@
     &.mt-summary-icon {
       @include apply-icon($icon: $icon-carret-down-primary, $position: before);
     }
+    &.adjusted-heading {
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin-top: 0;
+        font-size: $font-size-body;
+        font-weight: $font-weight-normal;
+      }
+    }
   }
   &[open] {
     .mt-summary {
-      margin-bottom: var(--summary-margin-bottom);
       &::before {
         transform: rotateX(180deg);
       }

@@ -120,6 +120,7 @@
             {@html legal.howToDoIt}
             <CardArticle
               type="task"
+              class="background-mt-white"
               title="Dette er tittelen"
               text="Noe tekst i kroppen"
               linkUrl="http://"
@@ -128,7 +129,10 @@
           </section>
 
           <section class="layout-flex-col layout-flex-col--x-small">
-            <SummaryDetail title="Regelverk" detailsClass="with-icon with-bold">
+            <SummaryDetail
+              title="Regelverk"
+              detailsClass="color-neutral border-neutral"
+              summaryWrapperClass="background-mt-white layout-flex-col gap-13">
               <CardArticle
                 type="legal-text"
                 title="Dette er tittelen"
