@@ -119,7 +119,8 @@
             </h3>
             {@html legal.howToDoIt}
             <CardArticle
-              type="task background-mt-white"
+              type="task"
+              class="background-mt-white"
               title="Dette er tittelen"
               text="Noe tekst i kroppen"
               linkUrl="http://"

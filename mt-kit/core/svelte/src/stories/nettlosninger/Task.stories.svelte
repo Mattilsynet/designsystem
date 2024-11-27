@@ -120,6 +120,7 @@
     {#each tasks as task}
       <CardArticle
         type="task"
+        class="background-mt-white"
         linkText={task.nextActionLinkText}
         linkUrl={task.nextActionUrl}
         intro={task.intro}
