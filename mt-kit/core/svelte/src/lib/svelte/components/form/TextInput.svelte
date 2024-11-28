@@ -9,7 +9,7 @@
   export let value
   export let name: string
   export let label: string
-  export let labelClass: string
+  export let labelClass: string = ''
   export let countCharactersLeftLabel: string | undefined = undefined
   export let countCharactersTooManyLabel: string | undefined = undefined
   export let tooManyCharactersErrorText = 'Teksten er for lang'
@@ -44,6 +44,7 @@
   })
 </script>
 
+<!-- TODO check if we can remove wrapping after svelte5 upgrade. See MTP-2784 -->
 <div class="mt-form">
   <Label for={name} {isRequired} {textOptional} {showOptionalText} class={labelClass}
     >{label}</Label>
