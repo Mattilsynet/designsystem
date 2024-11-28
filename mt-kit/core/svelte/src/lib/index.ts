@@ -29,7 +29,6 @@ export { default as ChapterNavigation } from './svelte/components/ChapterNavigat
 export { default as DialogBox } from './svelte/components/DialogBox.svelte'
 export { default as Disclosure } from './svelte/components/Disclosure.svelte'
 export { default as Dropdown } from './svelte/components/Dropdown.svelte'
-export { default as FileUploadButton } from './svelte/components/FileUploadButton.svelte'
 export { default as FormSteps } from './svelte/components/FormSteps.svelte'
 export { default as HeadingLevel } from './svelte/components/HeadingLevel.svelte'
 export { default as Link } from './svelte/components/Link.svelte'

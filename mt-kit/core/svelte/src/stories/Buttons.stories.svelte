@@ -1,7 +1,5 @@
 <script lang="ts">
   import { Meta, Story } from '@storybook/addon-svelte-csf'
-  import { action } from '@storybook/addon-actions'
-  import FileUploadButton from '$lib/svelte/components/FileUploadButton.svelte'
   import ButtonSpinner from '$lib/svelte/components/ButtonSpinner.svelte'
   import { wrapInShadowDom } from './storybook-utils/utils'
 </script>
@@ -59,23 +57,6 @@
     </div>
   </div>
 </Story>
-
-<Story
-  name="FileUpload"
-  parameters={{ xstate: true }}
-  let:disableJs
-  let:disableCss
-  let:uploadRequired>
-  <div use:wrapInShadowDom={disableCss}>
-    <FileUploadButton
-      name="file"
-      id="file1"
-      buttonText="Legg til fil"
-      loadJs={!disableJs}
-      multiple={true}
-      isRequired={uploadRequired}
-      on:removeFile={action('removeFile')} />
-  </div></Story>
 
 <Story name="Loading" let:disableCss let:inProgress>
   <div use:wrapInShadowDom={disableCss}>

@@ -3,6 +3,7 @@ import FileUpload from './FileUpload.svelte'
 import userEvent from '@testing-library/user-event'
 
 describe('File upload', () => {
+  const loadJs = true
   const value = 'this is the value'
   const error = undefined
   const name = 'attachment'
@@ -14,20 +15,25 @@ describe('File upload', () => {
   const fileInputName = `file-${name}`
   const fileNameInputName = `filename-${name}`
   const accept = 'image/*,.pdf'
+  const fileName = undefined
+  const hiddenErrorText = 'Aria error text'
 
   test('Renders', () => {
     const { getByLabelText, getByText } = render(FileUpload, {
-      value,
-      error,
+      loadJs,
       name,
-      label,
-      helpText,
-      isRequired,
-      accept,
+      error,
       multiple,
-      textOptional,
+      accept,
+      isRequired,
+      value,
+      label,
       fileInputName,
-      fileNameInputName
+      fileNameInputName,
+      helpText,
+      fileName,
+      textOptional,
+      hiddenErrorText
     })
     const labelForInput = getByLabelText(/Har du bilder eller annen dokumentasjon?/)
     expect(getByText(helpText)).toBeInTheDocument()
@@ -37,22 +43,23 @@ describe('File upload', () => {
     expect(labelForInput.getAttribute('multiple')).toBeDefined()
   })
 
-  // skip because https://github.com/testing-library/user-event/discussions/1155
-  test.skip('Add one file, remove', async () => {
+  test('Add one file, remove', async () => {
     const user = userEvent.setup()
     const file = new File(['hello'], 'hello.png', { type: 'image/png' })
     render(FileUpload, {
-      value,
-      error,
+      loadJs,
       name,
-      label,
-      helpText,
-      isRequired,
-      accept,
+      error,
       multiple,
-      textOptional,
+      accept,
+      isRequired,
+      value,
+      label,
       fileInputName,
       fileNameInputName,
+      helpText,
+      textOptional,
+      hiddenErrorText,
       fileName: [file.name]
     })
 
@@ -72,13 +79,9 @@ describe('File upload', () => {
     await fireEvent.click(remove)
 
     expect(screen.getByTestId('filename-attachment').value).toEqual('')
-
-    const attachment = screen.getByLabelText(/Har du bilder eller annen dokumentasjon?/i)
-    expect(attachment.files).toHaveLength(0)
   })
 
-  // skipt because https://github.com/testing-library/user-event/discussions/1155
-  test.skip('upload multiple files, remove one', async () => {
+  test('upload multiple files, remove one', async () => {
     const files = [
       new File(['hello'], 'hello.png', { type: 'image/png' }),
       new File(['there'], 'there.png', { type: 'image/png' }),
@@ -86,18 +89,20 @@ describe('File upload', () => {
     ]
     const user = userEvent.setup()
     render(FileUpload, {
-      value,
-      error,
+      loadJs,
       name,
-      label,
-      helpText,
-      isRequired,
-      accept,
+      error,
       multiple,
-      textOptional,
+      accept,
+      isRequired,
+      value: ['1-1', '2-2', '3-3'],
+      label,
       fileInputName,
       fileNameInputName,
-      fileName: [files[0].name, files[1].name]
+      helpText,
+      textOptional,
+      hiddenErrorText,
+      fileName: [files[0].name, files[1].name, files[2].name]
     })
 
     const input = screen.getByLabelText(/Har du bilder eller annen dokumentasjon?/i)
@@ -111,24 +116,21 @@ describe('File upload', () => {
     expect(screen.getByText('there.png')).toBeInTheDocument()
     expect(screen.getByText('here.png')).toBeInTheDocument()
 
-    expect(screen.getByTestId('filename-attachment').value).toEqual('hello.png,there.png')
+    expect(screen.getByTestId('filename-attachment').value).toEqual('hello.png,there.png,here.png')
 
     const removeSecond = screen.getByTestId('remove-there.png')
     await fireEvent.click(removeSecond)
-    expect(screen.getByTestId('filename-attachment').value).toEqual('hello.png')
+    expect(screen.getByTestId('filename-attachment').value).toEqual('hello.png,here.png')
 
     expect(screen.getByText('hello.png')).toBeInTheDocument()
     expect(screen.queryByText('there.png')).not.toBeInTheDocument()
     expect(screen.getByText('here.png')).toBeInTheDocument()
 
-    const input2 = screen.getByLabelText(/Har du bilder eller annen dokumentasjon?/i)
-    expect(input2.files.length).toEqual(0)
-
-    const fileInput: HTMLInputElement = screen.getByTestId('file-attachment')
-    expect(fileInput.files.length).toEqual(0)
+    const uuidInputBefore = screen.getByTestId('attachment')
+    expect(uuidInputBefore.value).toEqual('1-1,3-3')
   })
-  // skipt because https://github.com/testing-library/user-event/discussions/1155
-  test.skip('2 from before, remove 1', async () => {
+
+  test('2 from before, remove 1', async () => {
     const files = [
       new File(['hello'], 'hello.png', { type: 'image/png' }),
       new File(['there'], 'there.png', { type: 'image/png' }),
@@ -136,16 +138,18 @@ describe('File upload', () => {
     ]
     const { getByTestId, queryByTestId } = render(FileUpload, {
       value: ['1-1', '2-2'],
-      error,
+      loadJs,
       name,
-      label,
-      helpText,
-      isRequired,
-      accept,
+      error,
       multiple,
-      textOptional,
+      accept,
+      isRequired,
+      label,
       fileInputName,
       fileNameInputName,
+      helpText,
+      textOptional,
+      hiddenErrorText,
       fileName: [files[0].name, files[1].name]
     })
 
