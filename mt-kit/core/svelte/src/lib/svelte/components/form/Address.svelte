@@ -1,7 +1,7 @@
 <script lang="ts">
   import '@u-elements/u-datalist'
   import TextInput from './TextInput.svelte'
-  import { type ErrorDetail, type InputModeType, interpolate } from '../../../ts'
+  import { type ErrorDetail, type InputModeType, interpolate } from '$lib/ts'
   import Combobox from './Combobox.svelte'
 
   interface GeonorgeResponse {
