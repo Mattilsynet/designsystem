@@ -72,7 +72,7 @@
     <div class="form-control">
       <input
         type="checkbox"
-        id={toKebabCase(checkbox.value)}
+        id={`${name}-${toKebabCase(checkbox.value)}`}
         {name}
         class="mt-input input__control"
         class:error
@@ -83,7 +83,7 @@
         aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)} />
       <label
         class="mt-label {theme === 'button' ? 'mt-button mt-button--secondary' : ''}"
-        for={toKebabCase(checkbox.value)}>
+        for={`${name}-${toKebabCase(checkbox.value)}`}>
         {checkbox.text}
       </label>
     </div>
