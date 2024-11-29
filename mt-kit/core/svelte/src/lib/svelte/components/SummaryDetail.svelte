@@ -8,6 +8,10 @@
   export let summaryId = ''
 
   let isOpen = false
+  $: {
+    summaryId
+    isOpen = false
+  }
 
   function beforePrint(): void {
     isOpen = true
@@ -17,7 +21,7 @@
   }
 </script>
 
-<svelte:window on:beforeprint={beforePrint} on:afterPrint={afterPrint} />
+<svelte:window on:beforeprint={beforePrint} on:afterprint={afterPrint} />
 
 <details
   class="mt-details {detailsClass}"
