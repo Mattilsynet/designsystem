@@ -55,7 +55,7 @@
     <div class="form-control">
       <input
         type="radio"
-        id={toKebabCase(radio.value)}
+        id={`${name}-${toKebabCase(radio.value)}`}
         {name}
         class="mt-input input__control"
         class:error
@@ -66,7 +66,7 @@
         checked={value === radio.value} />
       <label
         class="mt-label {theme === 'button' ? 'mt-button mt-button--secondary' : ''}"
-        for={toKebabCase(radio.value)}>
+        for={`${name}-${toKebabCase(radio.value)}`}>
         {radio.text}
       </label>
     </div>

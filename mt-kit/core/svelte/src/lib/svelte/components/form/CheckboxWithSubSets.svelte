@@ -67,14 +67,14 @@
   {#if (hasJS && hasCheckAll) || forceCheckAll}
     <div class="form-control checkbox-subsets">
       <input
-        id={options.key}
+        id={`${optionsName}-${options.key}`}
         type="checkbox"
         class="mt-input input__control"
         name={optionsName}
         value={options.key}
         bind:checked={options.checked}
         on:change={toggleCheckedAll} />
-      <label class="mt-label" for={options.key}>
+      <label class="mt-label" for={`${optionsName}-${options.key}`}>
         {checkAllLabel}
       </label>
     </div>
@@ -82,7 +82,7 @@
   {#each options.children || [] as listItem, mainIndex}
     <div class="form-control checkbox-subsets" class:m-t-xxs={mainIndex > 0}>
       <input
-        id={listItem.key}
+        id={`${optionsName}-${listItem.key}`}
         type="checkbox"
         class="mt-input input__control"
         name={optionsName}
@@ -90,7 +90,7 @@
         bind:checked={listItem.checked}
         aria-checked={listItem.checked}
         on:change={() => mainCategory(mainIndex)} />
-      <label class="mt-label" for={listItem.key}>
+      <label class="mt-label" for={`${optionsName}-${listItem.key}`}>
         {formatLabel(listItem.displayName, listItem.docCount)}
       </label>
     </div>
@@ -108,14 +108,14 @@
             class="form-control checkbox-subsets"
             class:m-t-0={!level2Legend && subListIndex === 0}>
             <input
-              id={subListItem.key}
+              id={`${optionsName}-${subListItem.key}`}
               type="checkbox"
               name={optionsName}
               class="mt-input input__control"
               value={subListItem.key}
               bind:checked={subListItem.checked}
               aria-checked={subListItem.checked} />
-            <label class="mt-label" for={subListItem.key}>
+            <label class="mt-label" for={`${optionsName}-${subListItem.key}`}>
               {formatLabel(subListItem.displayName, subListItem.docCount)}
             </label>
           </div>
@@ -133,14 +133,14 @@
                   class="form-control checkbox-subsets"
                   class:m-t-0={!level3Legend && subSubListIndex === 0}>
                   <input
-                    id={subSubListItem.key}
+                    id={`${optionsName}-${subSubListItem.key}`}
                     type="checkbox"
                     name={optionsName}
                     class="mt-input input__control"
                     value={subSubListItem.key}
                     bind:checked={subSubListItem.checked}
                     aria-checked={subSubListItem.checked} />
-                  <label class="mt-label" for={subSubListItem.key}>
+                  <label class="mt-label" for={`${optionsName}-${subSubListItem.key}`}>
                     {formatLabel(subSubListItem.displayName, subSubListItem.docCount)}
                   </label>
                 </div>

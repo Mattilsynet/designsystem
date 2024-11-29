@@ -76,6 +76,7 @@ describe('Checkbox with subsets', () => {
       children: []
     }
   ]
+  const optionsName = 'themes'
 
   test('Renders list of checkboxes with selected', async () => {
     const { getByText, getByLabelText } = render(CheckboxWithSubSets, {
@@ -129,15 +130,21 @@ describe('Checkbox with subsets', () => {
   test('Check checked checkboxes', async () => {
     const { getByLabelText } = render(CheckboxWithSubSets, {
       options: { children: addChecked(['dyr', 'dyr/produksjonsdyr'], options) },
-      level1Legend
+      level1Legend,
+      optionsName
     })
     const mainCategory = getByLabelText(`${options[0].displayName} (${options[0].docCount})`)
     expect(mainCategory).toBeChecked()
+    expect(mainCategory.getAttribute('id')).toContain(options[0].key)
+    expect(mainCategory.getAttribute('id')).toContain(optionsName)
 
     const subCategory = getByLabelText(
       `${options[0].children[0].displayName} (${options[0].children[0].docCount})`
     )
     expect(subCategory).toBeChecked()
+    expect(subCategory.getAttribute('id')).toContain(options[0].children[0].key)
+    expect(subCategory.getAttribute('id')).toContain(optionsName)
+    expect(subCategory.getAttribute('id')).not.toEqual(mainCategory.getAttribute('id'))
   })
 
   test('Test that subcategories are unchecked when main category is unchecked', async () => {
