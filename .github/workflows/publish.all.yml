@@ -41,10 +41,15 @@ jobs:
       css: ${{ steps.changed-files.outputs.css_any_changed }}
       svelte: ${{ steps.changed-files.outputs.svelte_any_changed }}
       react: ${{ steps.changed-files.outputs.react_any_changed }}
+      latest_commit_message: ${{ steps.latest_commit_message.outputs.latest_commit_message }}
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 2
+
+      - name: 'Get latest commit message'
+        id: latest_commit_message
+        run: echo "latest_commit_message=$(git log -1 --pretty=%B)" >> $GITHUB_OUTPUT
 
       - name: 'Get all css, svelte and react files that have changed'
         id: changed-files
@@ -102,3 +107,5 @@ jobs:
     needs: [ publish-css, publish-svelte, publish-react ]
     secrets: inherit
     uses: Mattilsynet/designsystem/.github/workflows/bump.mattilsynet-web.yml@main
+    with:
+      latest_commit_message: ${{ needs.changes.outputs.latest_commit_message }}

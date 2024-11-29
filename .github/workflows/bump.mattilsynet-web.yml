@@ -3,6 +3,11 @@ name: Bump designsystem versions in mattilsynet-web
 on:
   workflow_dispatch:
   workflow_call:
+    inputs:
+      latest_commit_message:
+        type: string
+        required: false
+        default: ''
 
 jobs:
   open-pr:
@@ -36,4 +41,4 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.MATTILSYNET_WEB_PAT }}
         run: |
-          gh pr create --title "chore: bump designsystem packages" --body "automatic ds bump" --head "bump-designsystem-${{ github.run_id }}" --base main --label dependencies
+          gh pr create --title "chore: bump DS - ${{ inputs.latest_commit_message }}" --body "automatic ds bump" --head "bump-designsystem-${{ github.run_id }}" --base main --label dependencies
