@@ -17,7 +17,7 @@ export default [
       }
     }
   }),
-  ...importPlugin.flatConfigs.recommended,
+  importPlugin.flatConfigs.recommended,
   ...tseslint.configs.recommended,
   ...eslintPluginSvelte.configs["flat/recommended"],
   ...eslintPluginStorybook.configs["flat/recommended"],
