@@ -92,7 +92,7 @@
     "svelte-preprocess": "^5.1.4",
     "typescript": "^5.7.2",
     "vite": "^6.0.2",
-    "vitest": "^2.0.5"
+    "vitest": "^2.1.6"
   },
   "dependencies": {
     "@mattilsynet/designsystem-css": "^0.2.63",
