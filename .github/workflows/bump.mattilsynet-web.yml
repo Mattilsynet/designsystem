@@ -9,6 +9,14 @@ jobs:
     runs-on: ubuntu-latest
     name: 'Bump DS version and open PR'
     steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: 'Get latest commit message'
+        id: git_log
+        run: echo "latest_commit_message=$(git log -1 --pretty=%B)" >> $GITHUB_OUTPUT
+
       - name: 'Set git user'
         run: |
           git config --global user.name "Designsystem"
@@ -36,4 +44,4 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.MATTILSYNET_WEB_PAT }}
         run: |
-          gh pr create --title "chore: bump designsystem packages" --body "automatic ds bump" --head "bump-designsystem-${{ github.run_id }}" --base main --label dependencies
+          gh pr create --title "chore: bump DS - ${{ steps.git_log.outputs.latest_commit_message }}" --body "automatic ds bump" --head "bump-designsystem-${{ github.run_id }}" --base main --label dependencies
