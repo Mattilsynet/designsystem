@@ -1,5 +1,5 @@
 <script>
-  import Disclosure from './disclosure.svelte'
+  import Disclosure from './Disclosure.svelte'
 </script>
 
 <Disclosure {...$$props}>
