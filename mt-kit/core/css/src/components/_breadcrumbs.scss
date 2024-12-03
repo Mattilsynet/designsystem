@@ -42,7 +42,9 @@
       }
       .mt-button--link {
         @include text-decoration-underline;
-        border-radius: 0;
+        & {
+          border-radius: 0;
+        }
         &:focus {
           box-shadow: $focus-box-shadow-no-outline;
         }
@@ -50,10 +52,14 @@
 
       &:nth-last-child(2) {
         @include apply-icon($icon: $icon-carret-right-small, $position: before) {
-          transform: rotateY(180deg);
-          flex-shrink: 0;
+          & {
+            transform: rotateY(180deg);
+            flex-shrink: 0;
+          }
         }
-        display: flex;
+        & {
+          display: flex;
+        }
         .mt-link {
           &:after {
             display: none;

@@ -9,8 +9,9 @@
 
 .form-intro-module {
   @include card-article;
-
-  background-color: var(--color-mt-white);
+  & {
+    background-color: var(--color-mt-white);
+  }
 
   > :first-child {
     display: flex;

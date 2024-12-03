@@ -18,21 +18,23 @@
     }
   }
   @include background-color-on-active(var(--mt-link-primary-bg-hover));
-  --svg-color: var(--mt-button-neutral-color);
-  --icon-padding: var(--spacer-xxx-small);
-  --title-gap: var(--spacer-xx-small);
+  & {
+    --svg-color: var(--mt-button-neutral-color);
+    --icon-padding: var(--spacer-xxx-small);
+    --title-gap: var(--spacer-xx-small);
 
-  display: grid;
-  grid-template-columns: max-content 1fr;
-  grid-template-rows: min-content min-content;
-  align-items: center;
-  grid-column-gap: var(--icon-padding);
-  grid-row-gap: var(--title-gap);
-  grid-template-areas: 'icon heading' 'empty keywords';
-  color: var(--color-links);
-  background-color: var(--color-mt-white);
-  height: 100%;
-  text-decoration: none;
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    grid-template-rows: min-content min-content;
+    align-items: center;
+    grid-column-gap: var(--icon-padding);
+    grid-row-gap: var(--title-gap);
+    grid-template-areas: 'icon heading' 'empty keywords';
+    color: var(--color-links);
+    background-color: var(--color-mt-white);
+    height: 100%;
+    text-decoration: none;
+  }
 
   .svg-wrapper,
   .mt-img {

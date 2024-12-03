@@ -18,13 +18,15 @@ p {
 }
 
 @mixin text-decoration-underline() {
-  text-decoration-line: underline;
-  text-decoration-color: $color-link-underline;
-  text-decoration-thickness: $border-width-regular;
-  text-underline-offset: $spacer-xxx-small;
-  text-decoration-skip-ink: none;
-  &:hover {
-    text-decoration-thickness: $border-width-medium;
+  & {
+    text-decoration-line: underline;
+    text-decoration-color: $color-link-underline;
+    text-decoration-thickness: $border-width-regular;
+    text-underline-offset: $spacer-xxx-small;
+    text-decoration-skip-ink: none;
+    &:hover {
+      text-decoration-thickness: $border-width-medium;
+    }
   }
 }
 @mixin text-decoration-hover() {
@@ -44,12 +46,13 @@ p {
   @include disabled;
   @include text-decoration-underline;
   $transport-card-list-font-size: $font-size-label;
-
-  color: var(--color-links);
-  border-radius: var(--border-radius-small);
-  padding: var(--border-width-regular);
-  line-height: 1.75rem;
-  min-width: $minimum-click-width;
+  & {
+    color: var(--color-links);
+    border-radius: var(--border-radius-small);
+    padding: var(--border-width-regular);
+    line-height: 1.75rem;
+    min-width: $minimum-click-width;
+  }
 
   &.inline-flex {
     display: inline-flex;
@@ -83,23 +86,29 @@ p {
   a[href$='.pdf'],
   &.pdf {
     @include apply-icon($icon: $icon-pdf, $position: before);
-    display: inline-flex;
-    gap: var(--icon-gap);
-    align-items: flex-start;
+    & {
+      display: inline-flex;
+      gap: var(--icon-gap);
+      align-items: flex-start;
+    }
   }
 
   &.document {
     @include apply-icon($icon: $icon-document, $position: before);
-    display: inline-flex;
-    gap: var(--icon-gap);
-    align-items: flex-start;
+    & {
+      display: inline-flex;
+      gap: var(--icon-gap);
+      align-items: flex-start;
+    }
   }
   &.back-arrow {
     @include apply-icon($icon: $icon-carret-left, $position: before);
-    display: flex;
-    align-items: flex-start;
-    gap: var(--icon-gap);
-    width: fit-content;
+    & {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--icon-gap);
+      width: fit-content;
+    }
   }
 
   &.down-arrow {
@@ -115,11 +124,15 @@ p {
   .forward-arrow,
   &.forward-arrow {
     @include apply-icon($icon: $icon-arrow-right-primary-small, $position: before) {
-      flex-shrink: 0;
+      & {
+        flex-shrink: 0;
+      }
     }
-    display: flex;
-    align-items: flex-start;
-    gap: var(--icon-gap);
+    & {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--icon-gap);
+    }
   }
   &[aria-current='page'] {
     color: var(--color-mt-text-dark);
@@ -129,11 +142,15 @@ p {
   .forward-caret,
   &.forward-caret {
     @include apply-icon($icon: $icon-carret-right-small, $position: before) {
-      flex-shrink: 0;
+      & {
+        flex-shrink: 0;
+      }
     }
-    display: flex;
-    align-items: flex-start;
-    gap: var(--icon-gap);
+    & {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--icon-gap);
+    }
   }
 
   &.forward-arrow-end {
@@ -174,9 +191,11 @@ p {
 
   &.forward-arrow-end-link {
     @include apply-icon($icon: $icon-arrow-right-primary-small, $position: after);
-    display: inline-flex;
-    font-size: $font-size-body;
-    gap: var(--icon-gap);
+    & {
+      display: inline-flex;
+      font-size: $font-size-body;
+      gap: var(--icon-gap);
+    }
   }
 
   .next-link,
@@ -226,13 +245,15 @@ p {
     @include background-color-on-hover(var(--color-mt-green-300));
     @include background-color-on-active(var(--color-mt-green-400));
 
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: var(--spacer-x-small);
-    gap: var(--icon-gap);
-    background-color: var(--color-mt-white);
-    color: var(--color-links);
+    & {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: var(--spacer-x-small);
+      gap: var(--icon-gap);
+      background-color: var(--color-mt-white);
+      color: var(--color-links);
+    }
 
     .heading {
       width: 100%;
@@ -266,13 +287,15 @@ p {
   &.transport-card {
     @include background-color-on-hover(var(--color-mt-green-300));
     @include background-color-on-active(var(--color-mt-green-400));
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: var(--spacer-x-small);
-    gap: var(--spacer-xx-small);
-    background-color: var(--color-mt-white);
-    color: var(--color-links);
+    & {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: var(--spacer-x-small);
+      gap: var(--spacer-xx-small);
+      background-color: var(--color-mt-white);
+      color: var(--color-links);
+    }
     svg {
       path {
         fill: var(--mt-button-primary-bg);
@@ -292,14 +315,14 @@ p {
   }
   &.search-result {
     @include apply-icon($position: after, $target-child: 'h2, h3');
-    color: var(--color-text);
-    gap: var(--spacer-xx-small);
-    padding: var(--spacer-small) var(--spacer-x-small);
-
-    border-radius: 0;
-    border-bottom: var(--border-width-small) solid var(--color-mt-lys-furu);
-
-    text-decoration-line: none;
+    & {
+      color: var(--color-text);
+      gap: var(--spacer-xx-small);
+      padding: var(--spacer-small) var(--spacer-x-small);
+      border-radius: 0;
+      border-bottom: var(--border-width-small) solid var(--color-mt-lys-furu);
+      text-decoration-line: none;
+    }
     &:hover {
       background-color: var(--mt-button-flat-bg-hover);
       h2,
@@ -318,10 +341,12 @@ p {
 
     .breadcrumb {
       @include apply-icon($icon: var(--icon-carret-right-small), $position: before);
-      font-size: $font-size-small;
-      display: inline-flex;
-      align-items: center;
-      gap: var(--fds-spacing-2);
+      & {
+        font-size: $font-size-small;
+        display: inline-flex;
+        align-items: center;
+        gap: var(--fds-spacing-2);
+      }
 
       &:first-child::before {
         content: none;
@@ -333,16 +358,17 @@ p {
     --content-padding: var(--spacer-xx-small);
     --content-bg: var(--color-mt-white);
     @include apply-icon($position: after, $target-child: 'h2, h3');
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-left: var(--content-margin);
-    padding: var(--content-padding);
-    gap: var(--spacer-xx-small);
-    background-color: var(--content-bg);
-    text-decoration: none;
-    color: var(--color-text);
+    & {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-left: var(--content-margin);
+      padding: var(--content-padding);
+      gap: var(--spacer-xx-small);
+      background-color: var(--content-bg);
+      text-decoration: none;
+      color: var(--color-text);
+    }
 
     .heading {
       font-weight: $font-weight-normal;
@@ -420,23 +446,28 @@ p {
     --focus-box-shadow: $focus-box-shadow;
     --transportlink-padding: 0.875rem 1.5rem;
     --border-radius: #{$border-radius};
-    @include background-color-on-hover(var(--mt-link-primary-bg)) {
-      text-decoration: none;
-    }
     @include background-color-on-active(var(--mt-link-primary-bg-hover));
-    @include apply-icon($icon-arrow-right-primary-small, before) {
-      flex-shrink: 0;
+    @include background-color-on-hover(var(--mt-link-primary-bg)) {
+      & {
+        text-decoration: none;
+      }
     }
-
-    font-size: $font-size-body;
-    display: flex;
-    align-items: flex-start;
-    gap: var(--spacer-xxx-small);
-    width: fit-content;
-    color: var(--color-links);
-    padding: var(--transportlink-padding);
-    background-color: var(--transportlink-background);
-    border-radius: var(--border-radius);
+    @include apply-icon($icon-arrow-right-primary-small, before) {
+      & {
+        flex-shrink: 0;
+      }
+    }
+    & {
+      font-size: $font-size-body;
+      display: flex;
+      align-items: flex-start;
+      gap: var(--spacer-xxx-small);
+      width: fit-content;
+      color: var(--color-links);
+      padding: var(--transportlink-padding);
+      background-color: var(--transportlink-background);
+      border-radius: var(--border-radius);
+    }
 
     &:focus {
       border-color: var(--transportlink-background);
@@ -447,14 +478,18 @@ p {
       --transportlink-background: var(--mt-link-primary-bg);
       @include background-color-on-hover(var(--mt-link-primary-bg-hover));
       @include background-color-on-active(var(--mt-link-primary-bg-active));
-      text-decoration: none;
+      & {
+        text-decoration: none;
+      }
 
       &-large {
         --transportlink-background: var(--mt-link-primary-bg);
         @include background-color-on-hover(var(--mt-link-primary-bg-hover));
         @include background-color-on-active(var(--mt-link-primary-bg-active));
-        width: 100%;
-        text-decoration: none;
+        & {
+          width: 100%;
+          text-decoration: none;
+        }
       }
     }
 

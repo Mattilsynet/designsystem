@@ -11,8 +11,9 @@
   @media only screen and (min-width: $breakpoint-large) {
     font-size: inherit;
   }
-
-  @include xp-html-area;
+  & {
+    @include xp-html-area;
+  }
 
   :first-child + h2 {
     margin-top: 0;

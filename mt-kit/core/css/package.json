@@ -34,10 +34,10 @@
   "devDependencies": {
     "a11y-color-tokens": "^0.7.0",
     "npm-run-all": "^4.1.5",
-    "sass": "^1.70.0",
-    "stylelint": "^16.2.1",
-    "stylelint-config-standard": "^36.0.0",
+    "sass": "^1.81.1",
+    "stylelint": "^16.11.0",
+    "stylelint-config-standard": "^36.0.1",
     "stylelint-order": "^6.0.4",
-    "stylelint-scss": "^6.1.0"
+    "stylelint-scss": "^6.10.0"
   }
 }

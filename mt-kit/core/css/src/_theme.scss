@@ -1,4 +1,5 @@
 @use './color-tokens' as *;
+@use 'sass:color';
 
 $border-width-small: 1px;
 $border-width-regular: 2px;
@@ -32,8 +33,8 @@ $breakpoint-xxx-large: 1600px;
 $color-links: 'var(--color-primary)' !default;
 $color-link-underline: var(--color-mt-havdyp);
 $color-grey-hue: $color-primary !default;
-$color-background-body: scale-color($color-grey-hue, $lightness: 98%) !default;
-$color-grey-hue: hue($color-grey-hue);
+$color-background-body: color.scale($color-grey-hue, $lightness: 98%) !default;
+$color-grey-hue: color.channel($color-grey-hue, 'hue', $space: hsl);
 
 $font-family: Helvetica, Arial, sans-serif !default;
 $font-weight-light: 300 !default;
