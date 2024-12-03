@@ -20,7 +20,7 @@
 
       try {
         const res = await fetch(
-          `https://ws.geonorge.no/adresser/v1/sok?sok=${inputValue?.replace(',', '')}&fuzzy=true&utkoordsys=4258&treffPerSide=10&side=0&asciiKompatibel=true`
+          `https://ws.geonorge.no/adresser/v1/sok?sok=${inputValue}&fuzzy=true&utkoordsys=4258&treffPerSide=10&side=0&asciiKompatibel=true`
         )
         const data = await res.json()
         const options = data.adresser.map(({ adressetekst, postnummer, poststed }, index) => {
