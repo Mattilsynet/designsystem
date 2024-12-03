@@ -15,7 +15,7 @@ jobs:
 
       - name: 'Get latest commit message'
         id: git_log
-        run: echo "latest_commit_message=$(git log -1 --pretty=%B)" >> $GITHUB_OUTPUT
+        run: echo "latest_commit_message=$(git rev-parse --abbrev-ref HEAD)" >> $GITHUB_OUTPUT
 
       - name: 'Set git user'
         run: |
