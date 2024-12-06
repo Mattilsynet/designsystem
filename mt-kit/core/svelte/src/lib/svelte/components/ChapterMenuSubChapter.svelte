@@ -1,9 +1,8 @@
 <script lang="ts">
   import type { Chapter } from '../../ts/types'
-  import { useMachine } from '@xstate/svelte'
   import { onMount } from 'svelte'
   import { slide } from 'svelte/transition'
-  import { createToggleMachine } from '../../ts/toggle-machine'
+
   export let showChapterNumbers = false
   export let parentIndex = 0
   export let subChapters: Array<Chapter> = []
@@ -14,14 +13,14 @@
 
   const SLIDE_DURATION: Readonly<number> = 500
 
-  const subChapterMachine = createToggleMachine(`ChapterMenuSubSChapterMachine-${parentIndex}`)
-  const { state, send } = useMachine(subChapterMachine)
-
-  $: isOpen = $state.context.isOpen
-  $: onServer = $state.value === 'serverRendered'
+  $: isOpen = true;
+  $: onServer = true;
 
   if (loadJs) {
-    onMount(() => send('MOUNTED'))
+    onMount(() => {
+      onServer = false;
+      isOpen = false;
+    });
   }
 </script>
 
@@ -34,7 +33,7 @@
       aria-controls={componentId}
       aria-expanded={isOpen}
       on:click={() => {
-        send('TOGGLE')
+        isOpen = !isOpen;
       }} />
   {/if}
   {#if isOpen || onServer}
