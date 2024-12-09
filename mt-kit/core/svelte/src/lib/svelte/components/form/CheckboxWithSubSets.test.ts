@@ -1,14 +1,24 @@
-import { fireEvent, render } from '@testing-library/svelte'
+import {fireEvent, render, waitFor} from '@testing-library/svelte'
 import CheckboxWithSubSets from './CheckboxWithSubSets.svelte'
 import type { CheckboxWithSubSectionsOptions } from '../../../ts/types'
 import { vi } from 'vitest'
-vi.mock('svelte/transition', () => ({
-  slide: () => ({
-    delay: 0,
-    duration: 0
-  })
-}))
+
 describe('Checkbox with subsets', () => {
+  /**
+   * Fix so svelte-transitions don´t get stuck in transition,
+   * i.e. never completely hide element, when running tests
+   * Ref: https://github.com/testing-library/svelte-testing-library/issues/206#issuecomment-1470158576
+   */
+  beforeEach(() => {
+    vi.stubGlobal('requestAnimationFrame', (fn) => {
+      return window.setTimeout(() => fn(Date.now()), 16);
+    });
+  });
+
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
   const level1Legend = 'Checkbox with subsets'
   const options = [
     {
@@ -79,7 +89,7 @@ describe('Checkbox with subsets', () => {
   const optionsName = 'themes'
 
   test('Renders list of checkboxes with selected', async () => {
-    const { getByText, getByLabelText } = render(CheckboxWithSubSets, {
+    const { getByText, getByLabelText, queryByText } = render(CheckboxWithSubSets, {
       options: { children: addChecked(['dyr'], options) },
       level1Legend,
       transitionSlide: { y: 200, duration: 0 }
@@ -100,17 +110,17 @@ describe('Checkbox with subsets', () => {
     expect(produksjonsdyr).toBeVisible()
     await fireEvent.click(animal)
     expect(animal.checked).toEqual(false)
-    // todo cant make this work because of svelte/transistion
-    // await waitFor(async () => {
-    //   const actual = queryByText(
-    //     `${options[0].children[0].displayName} (${options[0].children[0].docCount})`
-    //   )
-    //   expect(actual).toBeNull()
-    // })
+
+    await waitFor(async () => {
+      const actual = queryByText(
+        `${options[0].children[0].displayName} (${options[0].children[0].docCount})`
+      )
+      expect(actual).toBeNull()
+    })
   })
 
   test('Renders subsets of checkboxes', async () => {
-    const { getByText, getByLabelText } = render(CheckboxWithSubSets, {
+    const { getByText, getByLabelText, queryByText } = render(CheckboxWithSubSets, {
       options: { children: addChecked(['dyr'], options) },
       level1Legend
     })
@@ -119,12 +129,12 @@ describe('Checkbox with subsets', () => {
     expect(animal.checked).toEqual(true)
     await fireEvent.click(animal)
     expect(animal.checked).toEqual(false)
-    // todo cant make this work because of svelte/transistion
-    // await waitFor(() => {
-    //   expect(
-    //     queryByText(`${options[0].children[0].displayName} (${options[0].children[0].docCount})`)
-    //   ).not.toBeInTheDocument()
-    // })
+
+    await waitFor(() => {
+      expect(
+        queryByText(`${options[0].children[0].displayName} (${options[0].children[0].docCount})`)
+      ).not.toBeInTheDocument()
+    })
   })
 
   test('Check checked checkboxes', async () => {
@@ -148,7 +158,7 @@ describe('Checkbox with subsets', () => {
   })
 
   test('Test that subcategories are unchecked when main category is unchecked', async () => {
-    const { getByLabelText } = render(CheckboxWithSubSets, {
+    const { getByLabelText, queryByLabelText } = render(CheckboxWithSubSets, {
       options: { children: addChecked(['dyr', 'dyr/produksjonsdyr'], options) },
       level1Legend
     })
@@ -168,13 +178,13 @@ describe('Checkbox with subsets', () => {
     await fireEvent.click(mainCategoryCheckbox)
 
     expect(mainCategoryCheckbox).not.toBeChecked()
-    // todo cant make this work because of svelte/transistion
-    // await waitFor(() => {
-    //   let actual = queryByLabelText(
-    //     `${options[0].children[0].displayName} (${options[0].children[0].docCount})`
-    //   )
-    //   expect(actual).not.toBeInTheDocument()
-    // })
+
+    await waitFor(() => {
+      let actual = queryByLabelText(
+        `${options[0].children[0].displayName} (${options[0].children[0].docCount})`
+      )
+      expect(actual).not.toBeInTheDocument()
+    })
 
     const main = getByLabelText(`${options[0].displayName} (${options[0].docCount})`)
     // open main category

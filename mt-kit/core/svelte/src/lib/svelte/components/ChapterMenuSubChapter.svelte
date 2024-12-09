@@ -7,7 +7,7 @@
   export let parentIndex = 0
   export let subChapters: Array<Chapter> = []
   export let ariaLabel = 'toggle'
-  export let loadJs = true
+  export let loadJs = false
   let componentId = ''
   export { componentId as id }
 
@@ -20,7 +20,6 @@
     onMount(() => {
       onServer = false;
       isOpen = false;
-      console.log("mounted", onServer, isOpen);
     });
   }
 

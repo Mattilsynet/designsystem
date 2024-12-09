@@ -10,7 +10,7 @@
   export let menuTitle: string
   export let showChapterNumbers = false
   export let subChapterToggleAriaLabel = 'toggle'
-  export let loadJs = true
+  export let loadJs = false
 
   const dispatch = createEventDispatcher<{ chapterChange: ChapterChangeDetails }>()
 </script>
