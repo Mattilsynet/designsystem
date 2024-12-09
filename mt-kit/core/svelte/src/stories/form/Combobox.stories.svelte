@@ -36,7 +36,6 @@
         if (options.length === 0) {
           input.list.textContent = 'Ingen resultater'
         } else {
-          console.log(' options', input.list)
           input.list.replaceChildren(...options)
         }
       } catch (err) {
@@ -48,17 +47,19 @@
   }
 
   async function handleInput(e): Promise<void> {
-    console.log('handleInput', e)
     if (!e.inputType) {
       const index = Number(input.value.split(`:`)[0])
       const option = input.list.options[index]
       if (option) {
+        values['ownerStreet'] = option['data-street']
+        values['ownerZip'] = option['data-postalcode']
         inputValue = `${option['data-street']}, ${option['data-postalcode']}`
       }
     } else if (!input.value) {
       input.list.textContent = ''
     } else {
-      const value = encodeURIComponent(e.target.value.trim())
+      const valueInput = e.target?.value?.trim()?.replace(/,+/g, '')
+      const value = encodeURIComponent(valueInput)
       clearTimeout(debounceTimer)
       debounceTimer = setTimeout(async () => {
         await fetchOptions(value)
@@ -133,7 +134,7 @@
         loadJs={args.address.loadJs}
         inputHelpText={args.address.streetHelpText}
         bind:inputRef={input}
-        bind:inputValue={values['ownerStreet-input']}
+        bind:inputValue={values['ownerStreet']}
         {handleInput}>
       </Combobox>
     </form>
