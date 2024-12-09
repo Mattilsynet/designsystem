@@ -13,14 +13,19 @@
 
   const SLIDE_DURATION: Readonly<number> = 500
 
-  $: isOpen = true;
-  $: onServer = true;
+  let isOpen = true;
+  let onServer = true;
 
   if (loadJs) {
     onMount(() => {
       onServer = false;
       isOpen = false;
+      console.log("mounted", onServer, isOpen);
     });
+  }
+
+  const handleButtonClick = (): void => {
+    isOpen = !isOpen;
   }
 </script>
 
@@ -32,9 +37,7 @@
       aria-haspopup="true"
       aria-controls={componentId}
       aria-expanded={isOpen}
-      on:click={() => {
-        isOpen = !isOpen;
-      }} />
+      on:click={handleButtonClick} />
   {/if}
   {#if isOpen || onServer}
     <ul

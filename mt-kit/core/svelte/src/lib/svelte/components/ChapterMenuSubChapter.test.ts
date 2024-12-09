@@ -17,8 +17,12 @@ describe('Chapter sub menu', () => {
       id: 'id'
     }
     render(ChapterMenuSubChapter, componentOptions);
+
+    // Assert: button visible
     const toggleButton = screen.getByRole('button', { name: 'view sub chapters'});
     expect(toggleButton).toBeInTheDocument();
+
+    // Assert: list of subchapters with links visible
     expect(screen.getByRole('list')).toBeInTheDocument();
     expect(screen.getAllByRole('listitem').length).toBe(2);
     const links = screen.getAllByRole('link');
@@ -40,8 +44,12 @@ describe('Chapter sub menu', () => {
       id: 'id',
     }
     render(ChapterMenuSubChapter, componentOptions);
+
+    // Assert: button visible
     const toggleButton = screen.getByRole('button', { name: 'view sub chapters'});
     expect(toggleButton).toBeInTheDocument();
+
+    // Assert: list of subchapters with links visible
     expect(screen.getByRole('list')).toBeInTheDocument();
     expect(screen.getAllByRole('listitem').length).toBe(2);
     const links = screen.getAllByRole('link');
@@ -64,11 +72,21 @@ describe('Chapter sub menu', () => {
     }
     render(ChapterMenuSubChapter, componentOptions);
 
+    // Assert: default closed state with no subchapters showing
     const toggleButton = screen.getByRole('button', { name: 'view sub chapters'});
-    await fireEvent.click(toggleButton);
     await waitFor(() => {
-      expect(screen.queryByRole('list')).not.toBeInTheDocument();
+      expect(toggleButton).toHaveAttribute("aria-expanded", "false");
     });
+    expect(screen.queryByRole('list')).not.toBeInTheDocument();
+
+    // Act: click to open subchapters
+    await fireEvent.click(toggleButton);
+
+    // Assert: open state with subchapters showing
+    await waitFor(() => {
+      expect(toggleButton).toHaveAttribute("aria-expanded", "true");
+    });
+    expect(screen.getByRole('list')).toBeInTheDocument();
   });
 
 });
