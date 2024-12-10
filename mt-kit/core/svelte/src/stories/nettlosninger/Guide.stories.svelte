@@ -1,5 +1,6 @@
-<script lang="ts">
-  import { Meta, Story } from '@storybook/addon-svelte-csf'
+<!-- @migration-task Error while migrating Svelte code: Cannot read properties of undefined (reading 'end') -->
+<script lang="ts" module>
+  import { defineMeta } from '@storybook/addon-svelte-csf'
   import Dropdown from '$lib/svelte/components/Dropdown.svelte'
   import ChapterMenu from '$lib/svelte/components/ChapterMenu.svelte'
   import { toKebabCase } from '$lib/ts/utils'
@@ -27,100 +28,103 @@
   function handleClickClose() {
     isExpanded = !isExpanded
   }
+
   let body = `<p>Innhold i underkapittel</p>
 <ul>
 <li>liste 1</li>
 <li>liste 2</li>
 </ul>
-<section class="layout-flex-col layout-flex-col--x-small">
+<section class='layout-flex-col layout-flex-col--x-small'>
   <p>Innhold i section</p>
   <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
      industry's standard dummy text ever since the 1500s
   </p>
 </section>`
-</script>
 
-<Meta
-  title="Innhold/Veileder"
-  parameters={{ layout: 'fullscreen' }}
-  args={{
-    menu: { title: 'Meny' },
-    chapters: [
-      {
-        heading: 'Innledning',
-        body,
-        subchapters: [
-          {
-            heading: 'Påstanden skal ikke brukes slik at den villeder forbrukern (artikkel 3)',
-            body,
-            subchapters: [
-              { heading: 'Under under kapitel', body },
-              { heading: 'Under under kapitel', body },
-              { heading: 'Under under kapitel', body },
-              { heading: 'Under under kapitel', body },
-              { heading: 'Under under kapitel', body },
-              { heading: 'Under under kapitel', body },
-              { heading: 'Under under kapitel', body },
-              { heading: 'Under under kapitel', body },
-              { heading: 'Under under kapitel', body },
-              { heading: 'Under under kapitel 2', body }
-            ]
-          },
-          {
-            heading: 'Krav til gunstig virkning og til sammmensetning av produktet (artikkel 5(1))',
-            body: `<p>Innhold i underkapittel</p>
-<section class="layout-flex-col layout-flex-col--x-small">
+  const { Story } = defineMeta({
+    title: 'Innhold/Veileder',
+    parameters: { layout: 'fullscreen' },
+    args: {
+      menu: { title: 'Meny' },
+      chapters: [
+        {
+          heading: 'Innledning',
+          body,
+          subchapters: [
+            {
+              heading: 'Påstanden skal ikke brukes slik at den villeder forbrukern (artikkel 3)',
+              body,
+              subchapters: [
+                { heading: 'Under under kapitel', body },
+                { heading: 'Under under kapitel', body },
+                { heading: 'Under under kapitel', body },
+                { heading: 'Under under kapitel', body },
+                { heading: 'Under under kapitel', body },
+                { heading: 'Under under kapitel', body },
+                { heading: 'Under under kapitel', body },
+                { heading: 'Under under kapitel', body },
+                { heading: 'Under under kapitel', body },
+                { heading: 'Under under kapitel 2', body }
+              ]
+            },
+            {
+              heading:
+                'Krav til gunstig virkning og til sammmensetning av produktet (artikkel 5(1))',
+              body: `<p>Innhold i underkapittel</p>
+<section class='layout-flex-col layout-flex-col--x-small'>
   <p>Innhold i section</p>
 </section>`,
-            subchapters: [
-              { heading: 'Virkningen påstanden viser til må være gunstig', body },
-              {
-                heading: 'Produktet må være sammensat slik at den gunstige virkningen kan oppnås',
-                body
-              }
-            ]
-          },
-          {
-            heading: 'Innledning - underkapittel 3',
-            body: `<p>Innhold i underkapittel</p>
-<section class="layout-flex-col layout-flex-col--x-small">
+              subchapters: [
+                { heading: 'Virkningen påstanden viser til må være gunstig', body },
+                {
+                  heading: 'Produktet må være sammensat slik at den gunstige virkningen kan oppnås',
+                  body
+                }
+              ]
+            },
+            {
+              heading: 'Innledning - underkapittel 3',
+              body: `<p>Innhold i underkapittel</p>
+<section class='layout-flex-col layout-flex-col--x-small'>
   <p>Innhold i section</p>
 </section>`,
-            subchapters: [
-              { heading: 'Innledning - under 3 under kapitel' },
-              { heading: 'Innledning - under 3 under kapitel 2' }
-            ]
-          }
-        ]
-      },
-      {
-        heading: 'Virkeområde',
-        body,
-        subchapters: [
-          { heading: 'Virkeområde - underkapittel' },
-          { heading: 'Virkeområde - underkapittel 2' },
-          { heading: 'Virkeområde - underkapittel 3' }
-        ]
-      },
-      {
-        heading: 'Definisjoner',
-        body,
-        subchapters: [
-          { heading: 'Definisjoner - underkapittel' },
-          { heading: 'Definisjoner - underkapittel 2' },
-          { heading: 'Definisjoner - underkapittel 3' }
-        ]
-      }
-    ],
-    showChapterNumbers: true,
-    disableJs: false
-  }}
-  argTypes={{
-    menu: { control: 'object' },
-    chapters: { control: 'array' },
-    showChapterNumbers: { control: 'boolean' },
-    disableJs: { control: 'boolean' }
-  }} />
+              subchapters: [
+                { heading: 'Innledning - under 3 under kapitel' },
+                { heading: 'Innledning - under 3 under kapitel 2' }
+              ]
+            }
+          ]
+        },
+        {
+          heading: 'Virkeområde',
+          body,
+          subchapters: [
+            { heading: 'Virkeområde - underkapittel' },
+            { heading: 'Virkeområde - underkapittel 2' },
+            { heading: 'Virkeområde - underkapittel 3' }
+          ]
+        },
+        {
+          heading: 'Definisjoner',
+          body,
+          subchapters: [
+            { heading: 'Definisjoner - underkapittel' },
+            { heading: 'Definisjoner - underkapittel 2' },
+            { heading: 'Definisjoner - underkapittel 3' }
+          ]
+        }
+      ],
+      showChapterNumbers: true,
+      disableJs: false
+    },
+    argTypes: {
+      menu: { control: 'object' },
+      chapters: { control: 'array' },
+      showChapterNumbers: { control: 'boolean' },
+      disableJs: { control: 'boolean' }
+    }
+  })
+</script>
 
 <svelte:window bind:innerWidth />
 

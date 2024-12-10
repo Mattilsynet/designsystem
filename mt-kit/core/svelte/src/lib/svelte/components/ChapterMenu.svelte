@@ -1,16 +1,30 @@
 <script lang="ts">
+  import { preventDefault } from 'svelte/legacy'
+
   import { createEventDispatcher } from 'svelte'
   import type { Chapter, ChapterChangeDetails } from '../../ts/types'
   import { toKebabCase } from '../../ts/utils'
   import ChapterMenuSubChapter from './ChapterMenuSubChapter.svelte'
 
-  export let chapters: Array<Chapter>
-  export let currentChapterNumber = 0
-  export let startIndex: 0 | 1 = 0
-  export let menuTitle: string
-  export let showChapterNumbers = false
-  export let subChapterToggleAriaLabel = 'toggle'
-  export let loadJs = true
+  interface Props {
+    chapters: Array<Chapter>
+    currentChapterNumber?: number
+    startIndex?: 0 | 1
+    menuTitle: string
+    showChapterNumbers?: boolean
+    subChapterToggleAriaLabel?: string
+    loadJs?: boolean
+  }
+
+  let {
+    chapters,
+    currentChapterNumber = 0,
+    startIndex = 0,
+    menuTitle,
+    showChapterNumbers = false,
+    subChapterToggleAriaLabel = 'toggle',
+    loadJs = true
+  }: Props = $props()
 
   const dispatch = createEventDispatcher<{ chapterChange: ChapterChangeDetails }>()
 </script>
@@ -23,9 +37,10 @@
       {@const chapterIndex = index + startIndex}
       <li class="mt-li chapter-menu--chapter-wrapper">
         <a
-          on:click|preventDefault={dispatch('chapterChange', { index: chapter.index })}
+          onclick={preventDefault(dispatch('chapterChange', { index: chapter.index }))}
           href={chapter.url}
-          aria-current={chapterIndex === currentChapterNumber ? 'page' : undefined}>
+          aria-current={chapterIndex === currentChapterNumber ? 'page' : undefined}
+        >
           {#if showChapterNumbers && chapterIndex > 0}
             {index + startIndex}.
           {/if}
@@ -37,7 +52,8 @@
           {loadJs}
           ariaLabel={subChapterToggleAriaLabel}
           parentIndex={index + startIndex}
-          subChapters={chapter.subChapters} />
+          subChapters={chapter.subChapters}
+        />
       </li>
     {/each}
   </ol>

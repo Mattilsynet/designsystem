@@ -13,11 +13,21 @@
     iconResource?: string
   }
 
-  export let itemsLeft: Array<MenuItem> = []
-  export let itemsRight: Array<MenuItem> = []
-  export let itemsBottom: Array<MenuItem> = []
-  export let titleId
-  export let loadJs = true
+  interface Props {
+    itemsLeft?: Array<MenuItem>
+    itemsRight?: Array<MenuItem>
+    itemsBottom?: Array<MenuItem>
+    titleId: any
+    loadJs?: boolean
+  }
+
+  let {
+    itemsLeft = [],
+    itemsRight = [],
+    itemsBottom = [],
+    titleId,
+    loadJs = true
+  }: Props = $props()
 </script>
 
 <ol class="mt-ol m-t-xxs menu menu--icon border col-1-span-8" aria-labelledby={titleId}>
@@ -30,14 +40,16 @@
           class="on-primary"
           headerClass="menu-level-1"
           {loadJs}
-          icon={item.iconResource}>
+          icon={item.iconResource}
+        >
           <ol class="mt-ol m-t-xxs sub-menu">
             <li class="menu-level-2">
               <a
                 href={item.url}
                 rel={item.url === '/dyr' ? 'external' : mapRelExternal(item.url)}
                 class="mt-link forward-arrow"
-                aria-current={item.isActive ? 'page' : false}>
+                aria-current={item.isActive ? 'page' : false}
+              >
                 {item.title}
               </a>
             </li>
@@ -47,7 +59,8 @@
                   href={child.url}
                   rel={mapRelExternal(child.url)}
                   class="mt-link forward-arrow small-link"
-                  aria-current={child.isActive ? 'page' : false}>
+                  aria-current={child.isActive ? 'page' : false}
+                >
                   {child.title}
                 </a>
               </li>
@@ -61,7 +74,8 @@
           href={item.url}
           rel={mapRelExternal(item.url)}
           class="mt-link menu-level-1"
-          aria-current={item.isActive ? 'page' : false}>
+          aria-current={item.isActive ? 'page' : false}
+        >
           {#if item.iconResource}
             {@html item.iconResource}
           {/if}
@@ -79,7 +93,8 @@
           href={right.url}
           rel={mapRelExternal(right.url)}
           class="mt-link menu-level-1 forward-arrow"
-          aria-current={right.isActive ? 'page' : false}>
+          aria-current={right.isActive ? 'page' : false}
+        >
           {right.title}
         </a>
       </li>
@@ -95,7 +110,8 @@
           rel={mapRelExternal(bottom.url)}
           class="mt-link layout-flex layout-flex--center-vertical on-primary forward-arrow"
           aria-current={bottom.isActive ? 'page' : false}
-          style="gap: var(--spacer-xxx-small)">
+          style="gap: var(--spacer-xxx-small)"
+        >
           {#if bottom.iconResource}
             {@html bottom.iconResource}
           {/if}

@@ -1,3 +1,4 @@
+<!-- @migration-task Error while migrating Svelte code: Can't migrate code with beforeUpdate. Please migrate by hand. -->
 <!--suppress XmlDuplicatedId -->
 <script lang="ts">
   import InputError from './InputErrorMessage.svelte'
@@ -38,7 +39,8 @@
   class="input-horizontal"
   style="--gap:var(--spacer-xxx-small)"
   in:slide={{ duration: hasTransition ? 300 : 0 }}
-  out:slide={{ duration: hasTransition ? 300 : 0 }}>
+  out:slide={{ duration: hasTransition ? 300 : 0 }}
+>
   {#if error}
     <InputError {...error} {hiddenErrorText} />
   {/if}
@@ -66,5 +68,6 @@
     aria-invalid={!!error}
     {inputmode}
     {placeholder}
-    {autocomplete} />
+    {autocomplete}
+  />
 </div>

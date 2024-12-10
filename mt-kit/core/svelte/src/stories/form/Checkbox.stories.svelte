@@ -1,5 +1,6 @@
-<script lang="ts">
-  import { Meta, Story } from '@storybook/addon-svelte-csf'
+<!-- @migration-task Error while migrating Svelte code: Cannot read properties of undefined (reading 'end') -->
+<script lang="ts" module>
+  import { defineMeta } from '@storybook/addon-svelte-csf'
   import Checkbox from '$lib/svelte/components/form/Checkbox.svelte'
   import { wrapInShadowDom } from '../storybook-utils/utils'
 
@@ -9,51 +10,52 @@
   function handleOnChange(event) {
     console.log(event.detail)
   }
-</script>
 
-<Meta
-  title="Components/Form/Checkbox"
-  args={{
-    label: 'Kan vi kontakte deg?',
-    helpText:
-      'Beskriv kort og konkret hva du har observert og hvor alvorlig hendelsen er. Vær oppmerksom på den ansvarlige ofte får se meldingen.',
-    errorMessage: 'Fyll inn dette feltet.',
-    hiddenErrorText: 'Feilmelding',
-    isRequired: false,
-    textOptional: 'Valgfitt',
-    options: [
-      {
-        text: 'Dere kan kontakte meg',
-        value: 'yes'
-      },
-      {
-        text: 'Jeg ønsker å være anonym',
-        value: 'no'
-      }
-    ],
-    buttonOptions: [
-      {
-        text: 'Ja',
-        value: '1'
-      },
-      {
-        text: 'Nei',
-        value: '2'
-      }
-    ],
-    disableCss: false
-  }}
-  argTypes={{
-    label: { control: 'text' },
-    helpText: { control: 'text' },
-    errorMessage: { control: 'text' },
-    hiddenErrorText: { control: 'text' },
-    isRequired: { control: 'boolean' },
-    textOptional: { control: 'text' },
-    options: { control: 'object' },
-    buttonOptions: { control: 'object' },
-    disableCss: { control: 'boolean' }
-  }} />
+  const { Story } = defineMeta({
+    title: 'Components/Form/Checkbox',
+    args: {
+      label: 'Kan vi kontakte deg?',
+      helpText:
+        'Beskriv kort og konkret hva du har observert og hvor alvorlig hendelsen er. Vær oppmerksom på den ansvarlige ofte får se meldingen.',
+      errorMessage: 'Fyll inn dette feltet.',
+      hiddenErrorText: 'Feilmelding',
+      isRequired: false,
+      textOptional: 'Valgfitt',
+      options: [
+        {
+          text: 'Dere kan kontakte meg',
+          value: 'yes'
+        },
+        {
+          text: 'Jeg ønsker å være anonym',
+          value: 'no'
+        }
+      ],
+      buttonOptions: [
+        {
+          text: 'Ja',
+          value: '1'
+        },
+        {
+          text: 'Nei',
+          value: '2'
+        }
+      ],
+      disableCss: false
+    },
+    argTypes: {
+      label: { control: 'text' },
+      helpText: { control: 'text' },
+      errorMessage: { control: 'text' },
+      hiddenErrorText: { control: 'text' },
+      isRequired: { control: 'boolean' },
+      textOptional: { control: 'text' },
+      options: { control: 'object' },
+      buttonOptions: { control: 'object' },
+      disableCss: { control: 'boolean' }
+    }
+  })
+</script>
 
 <Story
   name="Normal"

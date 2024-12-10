@@ -2,17 +2,31 @@
   import HeadingLevel from '../components/HeadingLevel.svelte'
   import { mapRelExternal } from '../../ts/utils'
 
-  let url = ''
-  let className = ''
-  export { url as href }
-  export { className as class }
-  export let image: { src: string; alt: string | undefined } | undefined = undefined
-  export let lang = 'NO-nb'
-  export let title: string | undefined
-  export let shortTitle: string | undefined
-  export let displayType: HighlightedContentDisplayType | undefined
-  export let headingClass = ''
-  export let headerTag: 'h2' | 'h3' = 'h2'
+  interface Props {
+    href?: string
+    class?: string
+    image?: { src: string; alt: string | undefined } | undefined
+    lang?: string
+    title: string | undefined
+    shortTitle: string | undefined
+    displayType: HighlightedContentDisplayType | undefined
+    headingClass?: string
+    headerTag?: 'h2' | 'h3'
+    children?: import('svelte').Snippet
+  }
+
+  let {
+    href: url = '',
+    class: className = '',
+    image = undefined,
+    lang = 'NO-nb',
+    title,
+    shortTitle,
+    displayType,
+    headingClass = '',
+    headerTag = 'h2',
+    children
+  }: Props = $props()
 
   type HighlightedContentDisplayType = 'normal' | 'cta' | 'campaign' | 'blue' | 'white'
 </script>
@@ -22,24 +36,26 @@
     href={url}
     rel={mapRelExternal(url)}
     class="mt-link col-1-span-12 layout-flex layout-flex-col box-border-radius-br-l highlighted-content highlighted-content--{displayType}"
-    data-testid="highlighted-content-link">
+    data-testid="highlighted-content-link"
+  >
     <HeadingLevel class="heading {headingClass}" headingLevel={+headerTag.charAt(1)}>
       {title}
     </HeadingLevel>
-    <slot />
+    {@render children?.()}
   </a>
 {:else if displayType === 'campaign'}
   <a
     href={url}
     rel={mapRelExternal(url)}
-    class="mt-link box-border-radius-br-l highlighted-content highlighted-content--{displayType} {className}">
+    class="mt-link box-border-radius-br-l highlighted-content highlighted-content--{displayType} {className}"
+  >
     <span class="col-1-span-5 layout-flex layout-flex-col highlighted-text">
       {#if shortTitle}
         <HeadingLevel class="heading {headingClass}" headingLevel={+headerTag.charAt(1)}>
           {shortTitle}
         </HeadingLevel>
       {/if}
-      <slot />
+      {@render children?.()}
     </span>
     {#if image && image.src}
       <img src={image.src} alt={image.alt} class="col-7-span-6" />
@@ -50,7 +66,8 @@
     href={url}
     rel={mapRelExternal(url)}
     class="mt-link highlighted-content border-radius {className}"
-    data-testid="highlighted-content-link">
+    data-testid="highlighted-content-link"
+  >
     {#if image && image.src}
       <img src={image.src} alt={image.alt} class="mt-img" />
     {/if}
@@ -60,7 +77,7 @@
           {shortTitle}
         </HeadingLevel>
       {/if}
-      <slot />
+      {@render children?.()}
     </span>
   </a>
 {/if}

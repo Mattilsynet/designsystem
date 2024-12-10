@@ -2,12 +2,21 @@
   import { interpolate } from '../../ts/index'
   import type { FormStep } from '$lib/ts/types'
 
-  export let steps: Array<FormStep> = []
-  export let currentPath = ''
-  export let ariaValueText = '{0}, Steg: {1} av {2}'
-  export let progressBarLabel = 'Fremdriftslinje for skjema'
-  let className = ''
-  export { className as class }
+  interface Props {
+    steps?: Array<FormStep>
+    currentPath?: string
+    ariaValueText?: string
+    progressBarLabel?: string
+    class?: string
+  }
+
+  let {
+    steps = [],
+    currentPath = '',
+    ariaValueText = '{0}, Steg: {1} av {2}',
+    progressBarLabel = 'Fremdriftslinje for skjema',
+    class: className = ''
+  }: Props = $props()
 
   let stepsDisplayed = steps.filter(s => s.show)
   let currentStep = steps.find(s => s.subPageUrl === currentPath)
@@ -35,7 +44,8 @@
     pageTitle,
     displayedStepIndex + 1,
     stepsDisplayed.length
-  ])}>
+  ])}
+>
   <ol class="mt-ol m-t-xxs steps" aria-hidden="true">
     {#each steps as step}
       {#if step.show}
@@ -43,7 +53,8 @@
           class="mt-li"
           class:steps__complete={step.index <= displayedStep.index &&
             displayedStep.subPageUrl !== step.subPageUrl}
-          class:steps__current={displayedStep.subPageUrl === step.subPageUrl}>
+          class:steps__current={displayedStep.subPageUrl === step.subPageUrl}
+        >
           <span class="responsive-hide">{step.label}</span>
         </li>
       {/if}

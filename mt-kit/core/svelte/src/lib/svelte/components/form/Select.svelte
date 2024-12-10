@@ -1,3 +1,4 @@
+<!-- @migration-task Error while migrating Svelte code: Can't migrate code with beforeUpdate. Please migrate by hand. -->
 <script context="module" lang="ts">
   let instanceCounter = 0
 </script>
@@ -48,7 +49,8 @@
   bind:value
   class="form-field"
   aria-required={isRequired}
-  aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)}>
+  aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)}
+>
   {#each options as option (option.value)}
     <option value={option.value}>
       {option.text}

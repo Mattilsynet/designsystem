@@ -1,3 +1,5 @@
+<!-- @migration-task Error while migrating Svelte code: can't migrate `$: isOpen = $state.context.isOpen` to `$state` because there's a variable named state.
+     Rename the variable and try again or migrate by hand. -->
 <script context="module" lang="ts">
   let counter = 0
 </script>
@@ -55,7 +57,8 @@
       aria-haspopup="true"
       aria-expanded={isOpen}
       aria-controls={bodyId}
-      on:click={() => send('TOGGLE')}>
+      on:click={() => send('TOGGLE')}
+    >
       {@html hasDynamicTitleAndIsOpen ? titleWhenOpen : title}
     </button>
     {#if isOpen}
@@ -67,7 +70,8 @@
         on:click={handleClick}
         on:clickOutside={() => isOpen && send('TOGGLE')}
         in:slide={{ duration: 650 }}
-        out:slide={{ duration: 500 }}>
+        out:slide={{ duration: 500 }}
+      >
         <slot {isOpen} />
       </div>
     {/if}

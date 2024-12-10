@@ -1,4 +1,4 @@
-<script context="module" lang="ts">
+<script module lang="ts">
   let instanceCounter = 0
 </script>
 
@@ -8,11 +8,23 @@
 
   const dispatch = createEventDispatcher<CustomEvent<CloseDialogEvent>>()
 
-  export let isOpen = true
-  export let title = ''
-  export let ariaTitle = ''
-  export let closeBtnAriaLabel = 'Lukk'
-  export let dialogRef = undefined
+  interface Props {
+    isOpen?: boolean
+    title?: string
+    ariaTitle?: string
+    closeBtnAriaLabel?: string
+    dialogRef?: any
+    children?: import('svelte').Snippet
+  }
+
+  let {
+    isOpen = $bindable(true),
+    title = '',
+    ariaTitle = '',
+    closeBtnAriaLabel = 'Lukk',
+    dialogRef = $bindable(undefined),
+    children
+  }: Props = $props()
 
   const dialogBoxHeadingId = `ui-dialog-box-${instanceCounter++}`
   const dialogCloseButtonId = `dialog-close-button-${instanceCounter++}`
@@ -33,7 +45,8 @@
     tabindex="0"
     aria-hidden={!isOpen}
     bind:this={dialogRef}
-    aria-labelledby={dialogBoxHeadingId}>
+    aria-labelledby={dialogBoxHeadingId}
+  >
     <h2 id={dialogBoxHeadingId} class="mt-h4 dialog-box--title {title ? '' : 'inclusively-hidden'}">
       {title ? title : ariaTitle}
     </h2>
@@ -42,11 +55,12 @@
       data-testid="dialog-box-close"
       type="button"
       class="mt-button mt-button--link dialog-box--close-button"
-      on:click={handleClose}
-      aria-label={closeBtnAriaLabel} />
+      onclick={handleClose}
+      aria-label={closeBtnAriaLabel}
+    ></button>
 
     <div class="dialog-box--content">
-      <slot />
+      {@render children?.()}
     </div>
   </div>
 {/if}
