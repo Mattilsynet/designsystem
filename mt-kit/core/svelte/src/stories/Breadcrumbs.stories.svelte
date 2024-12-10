@@ -1,5 +1,5 @@
-<script lang="ts">
-  import { Meta, Story } from '@storybook/addon-svelte-csf'
+<script lang="ts" module>
+  import { defineMeta } from '@storybook/addon-svelte-csf'
   import Breadcrumbs from '$lib/svelte/components/Breadcrumbs.svelte'
   import { wrapInShadowDom } from './storybook-utils/utils'
 
@@ -53,26 +53,26 @@
       type: 'no.mattilsynet.app:article'
     }
   ]
-</script>
 
-<Meta
-  title="Components/Breadcrumbs"
-  parameters={{ xstate: true, inspectUrl: 'https://stately.ai/viz?inspect' }}
-  args={{
-    loadJs: true,
-    breadcrumbsLong: {
-      ariaLabel: 'breadcrumbs',
-      showAllAriaLabel: 'show all',
-      items: breadcrumbsItems
-    },
-    breadcrumbsShort: {
-      ariaLabel: 'breadcrumbs',
-      showAllLabel: 'show all',
-      items: breadcrumbsItems.slice(0, 3)
-    },
-    disableCss: false
-  }}
-/>
+  const { Story } = defineMeta({
+    title: 'Components/Breadcrumbs',
+    parameters: { xstate: true, inspectUrl: 'https://stately.ai/viz?inspect' },
+    args: {
+      loadJs: true,
+      breadcrumbsLong: {
+        ariaLabel: 'breadcrumbs',
+        showAllAriaLabel: 'show all',
+        items: breadcrumbsItems
+      },
+      breadcrumbsShort: {
+        ariaLabel: 'breadcrumbs',
+        showAllLabel: 'show all',
+        items: breadcrumbsItems.slice(0, 3)
+      },
+      disableCss: false
+    }
+  })
+</script>
 
 <Story name="Normal">
   {#snippet children({ breadcrumbsLong, breadcrumbsShort, loadJs, disableCss })}
