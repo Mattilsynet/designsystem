@@ -2,18 +2,17 @@
   import HeadingLevel from './HeadingLevel.svelte'
   import { mapRelExternal } from '../../ts/utils'
 
-  
   interface Props {
-    headingId: string;
-    title: string;
-    intro: string | undefined;
-    text: string | undefined;
-    linkUrl: string | undefined;
-    linkText: string | undefined;
-    type?: 'task' | 'form-intro-module' | 'legal-text' | 'highlighted-link' | '';
-    class?: string;
-    headerTag?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | undefined; // Fallback is h3
-    iconClass?: 'info-icon' | 'warning-icon' | 'task-icon' | '';
+    headingId: string
+    title: string
+    intro: string | undefined
+    text: string | undefined
+    linkUrl: string | undefined
+    linkText: string | undefined
+    type?: 'task' | 'form-intro-module' | 'legal-text' | 'highlighted-link' | ''
+    class?: string
+    headerTag?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | undefined // Fallback is h3
+    iconClass?: 'info-icon' | 'warning-icon' | 'task-icon' | ''
   }
 
   let {
@@ -27,14 +26,15 @@
     class: className = '',
     headerTag = 'h3',
     iconClass = type === 'task' ? 'task-icon' : ''
-  }: Props = $props();
+  }: Props = $props()
 </script>
 
 <article class="{type} {className}" aria-labelledby={headingId}>
   <HeadingLevel
     id={headingId}
     class="title {iconClass} {headerTag === 'h2' ? 'mt-h3' : ''}"
-    headingLevel={+headerTag.charAt(1)}>
+    headingLevel={+headerTag.charAt(1)}
+  >
     {@html title}
   </HeadingLevel>
 

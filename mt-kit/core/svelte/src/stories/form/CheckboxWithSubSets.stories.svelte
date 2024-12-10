@@ -182,16 +182,10 @@
       options: ['primary', 'secondary'],
       control: 'radio'
     }
-  }} />
+  }}
+/>
 
-<Story
-  name="Normal"
-  
-  
-  
-  
-  
-  >
+<Story name="Normal">
   {#snippet children({ legend, options, disableCss, variation, optionsWithoutDocCount, args })}
     <div class="container layout-grid layout-grid--column-12" use:wrapInShadowDom={disableCss}>
       <section class="article-page col-1-span-12">
@@ -204,7 +198,8 @@
             {options}
             {variation}
             level1Legend={legend}
-            level2Legend={`${legend} i `} />
+            level2Legend={`${legend} i `}
+          />
         </form>
         <h2 class="mt-h2">Nested checkboxes without doc count and border</h2>
         <p>User variation="primary" (default) when checkboxes stand alone</p>
@@ -214,14 +209,16 @@
             {variation}
             level1Legend="Tema uten antall"
             border={args.border}
-            level2Legend={`${legend} i `} />
+            level2Legend={`${legend} i `}
+          />
           <h2 class="mt-h3">Variation = secondary</h2>
           <CheckboxWithSubSets
             options={optionsWithoutDocCount}
             variation="secondary"
             level1Legend="legend 1"
             level2Legend="legend 2"
-            border={args.border} />
+            border={args.border}
+          />
         </form>
         <h2 class="mt-h2">Nestede checkboxet inside disclosure</h2>
         <p>
@@ -234,7 +231,8 @@
             loadJs={!args.disableJs}
             class="disclosure-no-border--align-left"
             headingId={`${toKebabCase(args.disclosure.title)}-title`}
-            headerTag={args.disclosure.headerTag}>
+            headerTag={args.disclosure.headerTag}
+          >
             <CheckboxWithSubSets
               variation="secondary"
               options={args.disclosureOptions}
@@ -242,7 +240,8 @@
               checkAllLabel={args.disclosure.checkAllLabel}
               level1Legend={interpolate(args.disclosure.level1Legend, [
                 args.disclosure.title.toLowerCase()
-              ])} />
+              ])}
+            />
           </Disclosure>
         </form>
       </section>

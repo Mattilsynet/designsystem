@@ -32,16 +32,10 @@
     helpText: { control: 'text' },
     errorMessage: { control: 'text' },
     disableCss: { control: 'boolean' }
-  }} />
+  }}
+/>
 
-<Story
-  name="Normal"
-  
-  
-  
-  
-  
-  >
+<Story name="Normal">
   {#snippet children({ title, intro, disableCss, publishFrom, professionallyUpdated, text })}
     <div class="container">
       <article class="article-page">
@@ -63,14 +57,16 @@
             text="Noe tekst i kroppen"
             linkUrl="http://"
             linkText="Neste handling"
-            headerTag="h2" />
+            headerTag="h2"
+          />
           <CardArticle
             type="task"
             class="background-mt-white"
             title="Dette er en h3 tittel"
             text="Noe tekst i kroppen"
             linkUrl="http://"
-            linkText="Neste handling" />
+            linkText="Neste handling"
+          />
         </section>
 
         <Disclosure title={'Begrunnelse'} headerTag="h2">

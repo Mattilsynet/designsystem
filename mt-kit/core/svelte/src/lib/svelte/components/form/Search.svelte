@@ -56,13 +56,15 @@
       bind:value={searchString}
       aria-labelledby={!label && searchButtonText ? 'search-button' : undefined}
       aria-describedby={createInputAriaDescribedby(helpText ? name : undefined)}
-      {placeholder} />
+      {placeholder}
+    />
     {#if searchString}
       <button
         type="reset"
         class="mt-button mt-button--search-clear"
         on:click={() => (searchString = '')}
-        data-testid="search-clear">
+        data-testid="search-clear"
+      >
         <span class="inclusively-hidden">{ariaRemoveTextLabel}</span>
       </button>
     {/if}
@@ -72,7 +74,8 @@
       id="search-button"
       type="submit"
       class="mt-button mt-button--primary icon--search-after-primary"
-      aria-controls={ariaControls}>
+      aria-controls={ariaControls}
+    >
       {searchButtonText}
     </button>
   {/if}

@@ -1,11 +1,11 @@
 <script lang="ts">
   interface Props {
-    infoType?: 'important' | 'none';
-    iconText: string | undefined;
-    text: string;
+    infoType?: 'important' | 'none'
+    iconText: string | undefined
+    text: string
   }
 
-  let { infoType = 'none', iconText, text }: Props = $props();
+  let { infoType = 'none', iconText, text }: Props = $props()
 </script>
 
 <div class="notice" class:important={infoType !== 'none'}>

@@ -4,20 +4,19 @@
   import type { CheckboxWithSubSectionsOptions } from '../../../ts/types'
   import { interpolate } from '../../../ts/utils'
 
-  
   interface Props {
-    class?: string;
-    level1Legend: string;
-    variation?: 'primary' | 'secondary';
-    options: CheckboxWithSubSectionsOptions;
-    optionsName?: string;
-    hasCheckAll?: boolean;
-    forceCheckAll?: boolean;
-    checkAllLabel?: string;
-    level2Legend?: any;
-    level3Legend?: any;
-    helpText: string | undefined;
-    border?: boolean;
+    class?: string
+    level1Legend: string
+    variation?: 'primary' | 'secondary'
+    options: CheckboxWithSubSectionsOptions
+    optionsName?: string
+    hasCheckAll?: boolean
+    forceCheckAll?: boolean
+    checkAllLabel?: string
+    level2Legend?: any
+    level3Legend?: any
+    helpText: string | undefined
+    border?: boolean
   }
 
   let {
@@ -33,10 +32,11 @@
     level3Legend = ``,
     helpText,
     border = true
-  }: Props = $props();
+  }: Props = $props()
 
-  let fieldsetClass =
-    $derived(variation === 'primary' ? 'checkbox-subsets--primary' : 'checkbox-subsets--secondary')
+  let fieldsetClass = $derived(
+    variation === 'primary' ? 'checkbox-subsets--primary' : 'checkbox-subsets--secondary'
+  )
 
   let hasJS = $state(false)
 
@@ -75,7 +75,8 @@
     id="legend"
     class="mt-legend form-legend"
     class:border
-    class:inclusively-hidden={variation === 'secondary'}>
+    class:inclusively-hidden={variation === 'secondary'}
+  >
     {level1Legend}
   </legend>
   {#if helpText}
@@ -90,7 +91,8 @@
         name={optionsName}
         value={options.key}
         bind:checked={options.checked}
-        onchange={toggleCheckedAll} />
+        onchange={toggleCheckedAll}
+      />
       <label class="mt-label" for={`${optionsName}-${options.key}`}>
         {checkAllLabel}
       </label>
@@ -106,7 +108,8 @@
         value={listItem.key}
         bind:checked={listItem.checked}
         aria-checked={listItem.checked}
-        onchange={() => mainCategory(mainIndex)} />
+        onchange={() => mainCategory(mainIndex)}
+      />
       <label class="mt-label" for={`${optionsName}-${listItem.key}`}>
         {formatLabel(listItem.displayName, listItem.docCount)}
       </label>
@@ -114,7 +117,8 @@
     {#if (!hasJS || listItem.checked) && listItem.children && listItem.children.length > 0}
       <fieldset
         class={`mt-fieldset checkbox checkbox-subsets ${fieldsetClass}`}
-        transition:slide|local={{ y: 200, duration: 200 }}>
+        transition:slide|local={{ y: 200, duration: 200 }}
+      >
         {#if level2Legend}
           <legend class="mt-legend">
             {interpolate(level2Legend, [listItem.displayName.toLowerCase()])}
@@ -123,7 +127,8 @@
         {#each listItem.children as subListItem, subListIndex}
           <div
             class="form-control checkbox-subsets"
-            class:m-t-0={!level2Legend && subListIndex === 0}>
+            class:m-t-0={!level2Legend && subListIndex === 0}
+          >
             <input
               id={`${optionsName}-${subListItem.key}`}
               type="checkbox"
@@ -131,7 +136,8 @@
               class="mt-input input__control"
               value={subListItem.key}
               bind:checked={subListItem.checked}
-              aria-checked={subListItem.checked} />
+              aria-checked={subListItem.checked}
+            />
             <label class="mt-label" for={`${optionsName}-${subListItem.key}`}>
               {formatLabel(subListItem.displayName, subListItem.docCount)}
             </label>
@@ -139,7 +145,8 @@
           {#if subListItem.checked && subListItem.children && subListItem.children.length > 0}
             <fieldset
               class={'mt-fieldset checkbox checkbox-subsets--secondary'}
-              transition:slide|local={{ y: 200, duration: 200 }}>
+              transition:slide|local={{ y: 200, duration: 200 }}
+            >
               {#if level3Legend}
                 <legend class="mt-legend">
                   {interpolate(level3Legend, [subListItem.displayName.toLowerCase()])}
@@ -148,7 +155,8 @@
               {#each subListItem.children as subSubListItem, subSubListIndex}
                 <div
                   class="form-control checkbox-subsets"
-                  class:m-t-0={!level3Legend && subSubListIndex === 0}>
+                  class:m-t-0={!level3Legend && subSubListIndex === 0}
+                >
                   <input
                     id={`${optionsName}-${subSubListItem.key}`}
                     type="checkbox"
@@ -156,7 +164,8 @@
                     class="mt-input input__control"
                     value={subSubListItem.key}
                     bind:checked={subSubListItem.checked}
-                    aria-checked={subSubListItem.checked} />
+                    aria-checked={subSubListItem.checked}
+                  />
                   <label class="mt-label" for={`${optionsName}-${subSubListItem.key}`}>
                     {formatLabel(subSubListItem.displayName, subSubListItem.docCount)}
                   </label>

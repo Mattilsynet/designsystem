@@ -4,13 +4,12 @@
   import SuccessOutline from '../components/icons/SuccessOutline.svelte'
   import DangerOutline from '../components/icons/DangerOutline.svelte'
 
-  
   interface Props {
-    class?: string;
-    severity?: 'info' | 'success' | 'warning' | 'danger';
-    iconTitle?: string | undefined;
-    children?: import('svelte').Snippet;
-    right?: import('svelte').Snippet;
+    class?: string
+    severity?: 'info' | 'success' | 'warning' | 'danger'
+    iconTitle?: string | undefined
+    children?: import('svelte').Snippet
+    right?: import('svelte').Snippet
     [key: string]: any
   }
 
@@ -21,7 +20,7 @@
     children,
     right,
     ...rest
-  }: Props = $props();
+  }: Props = $props()
 
   const icons = {
     info: InformationOutline,
@@ -30,7 +29,7 @@
     danger: DangerOutline
   }
 
-  const SvelteComponent = $derived(icons[severity]);
+  const SvelteComponent = $derived(icons[severity])
 </script>
 
 <div class="mt-alert {className} {severity}" {...rest}>

@@ -1,17 +1,17 @@
 <script lang="ts">
-  import { preventDefault } from 'svelte/legacy';
+  import { preventDefault } from 'svelte/legacy'
 
   import type { Chapter, ChapterChangeDetails } from '../../ts/types'
   import { createEventDispatcher } from 'svelte'
 
   interface Props {
-    showChapterNumber?: boolean;
-    nextText?: string;
-    previousText?: string;
-    chapters?: Array<Chapter>;
-    currentChapterIndex?: 0 | 1;
-    startIndex?: number;
-    class?: string;
+    showChapterNumber?: boolean
+    nextText?: string
+    previousText?: string
+    chapters?: Array<Chapter>
+    currentChapterIndex?: 0 | 1
+    startIndex?: number
+    class?: string
   }
 
   let {
@@ -22,8 +22,7 @@
     currentChapterIndex = 0,
     startIndex = 0,
     class: className = ''
-  }: Props = $props();
-  
+  }: Props = $props()
 
   let nextChapterIndex = $derived(currentChapterIndex + 1)
   let nextChapterNumber = $derived(nextChapterIndex + startIndex)
@@ -51,7 +50,8 @@
       class="multi-line text-align-right {!hasNextChapter(currentChapterIndex)
         ? 'inclusively-hidden-initial'
         : ''}"
-      aria-disabled={!hasNextChapter(currentChapterIndex)}>
+      aria-disabled={!hasNextChapter(currentChapterIndex)}
+    >
       <span class="next-link">{nextText}</span>
       {showChapterNumber ? `${nextChapterNumber}.` : ''}
       {nextChapter ? nextChapter.heading : ''}
@@ -62,7 +62,8 @@
         ? 'inclusively-hidden-initial'
         : ''}"
       onclick={preventDefault(dispatch('chapterChange', { index: previousChapterIndex }))}
-      aria-disabled={!hasPreviousChapter(currentChapterIndex)}>
+      aria-disabled={!hasPreviousChapter(currentChapterIndex)}
+    >
       <span class="previous-link">{previousText}</span>
       {showChapterNumber ? `${previousChapterNumber}.` : ''}
       {previousChapter ? previousChapter.heading : ''}

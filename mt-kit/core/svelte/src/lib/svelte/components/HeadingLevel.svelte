@@ -1,13 +1,13 @@
 <script lang="ts">
-  import { run } from 'svelte/legacy';
+  import { run } from 'svelte/legacy'
 
   type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6
-  
+
   interface Props {
-    headingLevel?: HeadingLevel;
-    class?: string;
-    id?: string | undefined;
-    children?: import('svelte').Snippet;
+    headingLevel?: HeadingLevel
+    class?: string
+    id?: string | undefined
+    children?: import('svelte').Snippet
   }
 
   let {
@@ -15,9 +15,7 @@
     class: className = $bindable(''),
     id: idPassed = undefined,
     children
-  }: Props = $props();
-  
-
+  }: Props = $props()
 
   function getClassName(className: string, headingLevel: HeadingLevel): string {
     const regExpExecArray = /mt-h[1-6]/g.exec(className)
@@ -25,7 +23,7 @@
   }
   run(() => {
     className = getClassName(className, headingLevel)
-  });
+  })
 </script>
 
 {#if headingLevel === 1}

@@ -24,17 +24,18 @@
     tooManyCharactersErrorText: { control: 'text' },
     errorMessage: { control: 'text' },
     disableCss: { control: 'boolean' }
-  }} />
+  }}
+/>
 
-<Story
-  name="TextArea normal"
-  
-  
-  
-  
-  
-  >
-  {#snippet children({ label, helpText, disableCss, countCharactersLeftLabel, countCharactersTooManyLabel, tooManyCharactersErrorText })}
+<Story name="TextArea normal">
+  {#snippet children({
+    label,
+    helpText,
+    disableCss,
+    countCharactersLeftLabel,
+    countCharactersTooManyLabel,
+    tooManyCharactersErrorText
+  })}
     <div use:wrapInShadowDom={disableCss}>
       <form class="mt-form form-layout">
         <TextArea
@@ -48,7 +49,8 @@
           textOptional="Valgfritt"
           inputmode="text"
           rows="3"
-          cols="5" />
+          cols="5"
+        />
 
         <TextArea
           name="email2"
@@ -63,13 +65,14 @@
           isRequired={true}
           placeholder="Skriv inn tekst her"
           rows="3"
-          cols="5" />
+          cols="5"
+        />
       </form>
     </div>
   {/snippet}
 </Story>
 
-<Story name="TextArea with error"    >
+<Story name="TextArea with error">
   {#snippet children({ label, helpText, errorMessage, disableCss })}
     <div use:wrapInShadowDom={disableCss}>
       <form class="mt-form form-layout">
@@ -82,7 +85,8 @@
           inputmode="text"
           maxlength="100"
           rows="3"
-          cols="5" />
+          cols="5"
+        />
       </form>
     </div>
   {/snippet}

@@ -2,12 +2,12 @@
   import type { ErrorDetail } from '../../../ts/types'
 
   interface Props {
-    value: any;
-    name: string;
-    error: ErrorDetail | undefined;
+    value: any
+    name: string
+    error: ErrorDetail | undefined
   }
 
-  let { value = $bindable(), name, error }: Props = $props();
+  let { value = $bindable(), name, error }: Props = $props()
 </script>
 
 <input

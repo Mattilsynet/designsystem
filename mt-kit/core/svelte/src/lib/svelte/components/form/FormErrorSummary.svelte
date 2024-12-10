@@ -2,12 +2,12 @@
   import type { ErrorDetail } from '../../../ts/types'
 
   interface Props {
-    errors?: ErrorDetail[];
-    heading: string;
-    linkToFields?: boolean;
+    errors?: ErrorDetail[]
+    heading: string
+    linkToFields?: boolean
   }
 
-  let { errors = [], heading, linkToFields = true }: Props = $props();
+  let { errors = [], heading, linkToFields = true }: Props = $props()
 
   function setFocus(el: HTMLElement) {
     el.focus()
@@ -21,7 +21,8 @@
     style="--gap: var(--spacer-x-small)"
     role="alert"
     tabindex="-1"
-    aria-labelledby="error-summary-heading">
+    aria-labelledby="error-summary-heading"
+  >
     <h2 id="error-summary-heading" class="mt-h2">
       {heading}
     </h2>

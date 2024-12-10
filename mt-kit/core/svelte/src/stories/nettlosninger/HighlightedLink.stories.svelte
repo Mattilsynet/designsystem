@@ -60,11 +60,15 @@
   argTypes={{
     tasks: { control: 'array' },
     disableCss: { control: 'boolean' }
-  }} />
+  }}
+/>
 
-<Story name="Normal"  >
+<Story name="Normal">
   {#snippet children({ tasks, disableCss })}
-    <div use:wrapInShadowDom={disableCss} class="container layout-flex-col layout-flex-col--x-small">
+    <div
+      use:wrapInShadowDom={disableCss}
+      class="container layout-flex-col layout-flex-col--x-small"
+    >
       {#each tasks as task}
         <CardArticle
           type="highlighted-link"
@@ -76,7 +80,8 @@
           id={task.title}
           headerTag={task.headerTag}
           iconClass={task.iconClass}
-          linkTypeButton={task.linkTypeButton} />
+          linkTypeButton={task.linkTypeButton}
+        />
       {/each}
     </div>
   {/snippet}

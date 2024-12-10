@@ -21,9 +21,10 @@
       <p>At noen setter opp nye piggtrådgjerder</p>
       <p>Eldre piggtrådgjerder som utgjør en risiko for at dyr blir skadet</p>`
   }}
-  argTypes={{}} />
+  argTypes={{}}
+/>
 
-<Story name="Normal" >
+<Story name="Normal">
   {#snippet children({ content })}
     <h2 class="mt-h2">Default</h2>
     <div class="tags-wrapper">
@@ -55,13 +56,15 @@
           <ButtonSpinner
             formInProgressAriaLabel="Sender inn skjema, venter på svar."
             btnClassNames="mt-button--secondary"
-            spinnerPlacement="start">
+            spinnerPlacement="start"
+          >
             Ja
           </ButtonSpinner>
           <ButtonSpinner
             formInProgressAriaLabel="Sender inn skjema, venter på svar."
             btnClassNames="mt-button--secondary"
-            spinnerPlacement="end">
+            spinnerPlacement="end"
+          >
             Nei
           </ButtonSpinner>
         </div>

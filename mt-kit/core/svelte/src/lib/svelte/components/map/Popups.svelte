@@ -7,10 +7,10 @@
   import { addListeners } from './utils'
 
   interface Props {
-    popUpOptions?: Array<MTPopupOptions>;
+    popUpOptions?: Array<MTPopupOptions>
   }
 
-  let { popUpOptions = [] }: Props = $props();
+  let { popUpOptions = [] }: Props = $props()
 
   let map: MapContext = getMap()
   let overlays: Array<Overlay> | undefined = undefined

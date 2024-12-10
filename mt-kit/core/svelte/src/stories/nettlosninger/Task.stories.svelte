@@ -113,11 +113,15 @@
   argTypes={{
     disabled: { control: 'boolean' },
     disableCss: { control: 'boolean' }
-  }} />
+  }}
+/>
 
-<Story name="Normal"  >
+<Story name="Normal">
   {#snippet children({ tasks, disableCss })}
-    <div use:wrapInShadowDom={disableCss} class="container layout-flex-col layout-flex-col--x-small">
+    <div
+      use:wrapInShadowDom={disableCss}
+      class="container layout-flex-col layout-flex-col--x-small"
+    >
       {#each tasks as task}
         <CardArticle
           type="task"
@@ -128,7 +132,8 @@
           title={task.title}
           text={task.text}
           id={task.title}
-          headerTag={task.headerTag} />
+          headerTag={task.headerTag}
+        />
       {/each}
     </div>
   {/snippet}

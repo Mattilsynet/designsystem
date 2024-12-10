@@ -28,9 +28,10 @@
     issues: { control: 'array' },
     disableJs: { control: 'boolean' },
     disableCss: { control: 'boolean' }
-  }} />
+  }}
+/>
 
-<Story name="Normal"   >
+<Story name="Normal">
   {#snippet children({ title, issues, disableCss })}
     <main use:wrapInShadowDom={disableCss} class="mt-main container layout-flex-col">
       <h1 class="mt-h1">Aktuelle saker</h1>

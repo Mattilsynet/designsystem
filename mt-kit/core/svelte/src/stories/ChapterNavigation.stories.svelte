@@ -33,9 +33,10 @@
     disableCss: { control: 'boolean' },
     chapters: { control: 'array' },
     showChapterNumber: { control: 'boolean' }
-  }} />
+  }}
+/>
 
-<Story name="Normal"  >
+<Story name="Normal">
   {#snippet children({ disableCss, args })}
     <div use:wrapInShadowDom={disableCss}>
       <article>
@@ -47,7 +48,8 @@
           on:chapterChange={chapterChange}
           nextText="Neste"
           previousText="Forrige"
-          class="chapter-navigation--bottom" />
+          class="chapter-navigation--bottom"
+        />
       </article>
     </div>
   {/snippet}

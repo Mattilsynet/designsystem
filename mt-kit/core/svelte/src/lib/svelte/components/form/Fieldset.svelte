@@ -1,14 +1,13 @@
 <script lang="ts">
   import InputError from './InputErrorMessage.svelte'
 
-  
   interface Props {
-    class?: string;
-    legend?: string;
-    error?: any;
-    hiddenErrorText?: boolean;
-    legendClass?: string;
-    children?: import('svelte').Snippet;
+    class?: string
+    legend?: string
+    error?: any
+    hiddenErrorText?: boolean
+    legendClass?: string
+    children?: import('svelte').Snippet
   }
 
   let {
@@ -18,7 +17,7 @@
     hiddenErrorText = false,
     legendClass = '',
     children
-  }: Props = $props();
+  }: Props = $props()
   let inputErrorId = $derived(error ? `${error.key}-error` : '')
   let fieldsetErrorClass = $derived(error ? 'fieldset-error' : '')
 </script>
@@ -28,7 +27,8 @@
   aria-invalid={!!error}
   aria-describedby={inputErrorId}
   data-testid="fieldset"
-  style="--gap: 0">
+  style="--gap: 0"
+>
   <legend class="mt-legend {legendClass}">
     {legend}
   </legend>

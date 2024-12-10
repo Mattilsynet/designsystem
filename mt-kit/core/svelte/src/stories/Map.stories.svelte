@@ -350,9 +350,10 @@
   }}
   argTypes={{
     disableCss: { control: 'boolean' }
-  }} />
+  }}
+/>
 
-<Story name="Normal" >
+<Story name="Normal">
   {#snippet children({ disableCss })}
     <h1>Map</h1>
     <Map class="mt-map-wrapper" bind:this={map}>
@@ -362,7 +363,7 @@
       <Geolocation {geolocationOptions} />
       <DefaultControls />
       {#snippet extra()}
-        <Popup  {popUpOptions}></Popup>
+        <Popup {popUpOptions}></Popup>
       {/snippet}
     </Map>
     <button type="button" class="mt-button m-t-xxs" onclick={handleReset}>Reset zoom</button>

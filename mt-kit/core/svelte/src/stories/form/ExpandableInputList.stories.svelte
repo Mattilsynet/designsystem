@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { run, preventDefault } from 'svelte/legacy';
+  import { run, preventDefault } from 'svelte/legacy'
 
   import { Meta, Story } from '@storybook/addon-svelte-csf'
   import ExpandableInputList from '$lib/svelte/components/form/ExpandableInputList.svelte'
@@ -58,13 +58,12 @@
 
   let fieldSetId = 'whatCountriesHaveYouBeenTo'
   let expandableAriaLabel = ''
-  let values = $state({});
-  
+  let values = $state({})
 
-  let error;
+  let error
   run(() => {
     error = undefined
-  });
+  })
 
   function handleSubmit(e) {
     inputList = inputList.map(input => {
@@ -108,9 +107,10 @@
     inputList: { control: 'object' },
     disableJs: { control: 'boolean' },
     disableCss: { control: 'boolean' }
-  }} />
+  }}
+/>
 
-<Story name="Normal"  >
+<Story name="Normal">
   {#snippet children({ disableCss, args })}
     <main class="mt-main" use:wrapInShadowDom={disableCss}>
       <h1 class="mt-h1">Utvidebarliste med inputs</h1>
@@ -125,7 +125,8 @@
           collapsableText={args.collapsableText}
           expandableAriaLabel={args.expandableAriaLabel}
           bind:values
-          loadJs={!args.disableJs} />
+          loadJs={!args.disableJs}
+        />
         <button type="submit" class="mt-button mt-button--primary">Gå videre</button>
       </form>
     </main>

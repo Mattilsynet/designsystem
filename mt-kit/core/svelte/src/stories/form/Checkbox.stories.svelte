@@ -54,7 +54,8 @@
     options: { control: 'object' },
     buttonOptions: { control: 'object' },
     disableCss: { control: 'boolean' }
-  }} />
+  }}
+/>
 
 <Story
   name="Normal"
@@ -64,7 +65,8 @@
   let:options
   let:buttonOptions
   let:isRequired
-  let:textOptional>
+  let:textOptional
+>
   <div use:wrapInShadowDom={disableCss}>
     <h1 class="mt-h1">Checkbox</h1>
     <h2 id="theme" class="mt-h2">Theme - checkbox</h2>
@@ -76,7 +78,8 @@
         {options}
         {isRequired}
         {textOptional}
-        on:onChange={handleOnChange} />
+        on:onChange={handleOnChange}
+      />
     </form>
     <h2 id="theme" class="mt-h2">Theme - button</h2>
     <form action="" class="mt-form form-layout">
@@ -88,7 +91,8 @@
         options={buttonOptions}
         {helpText}
         theme="button"
-        bind:value={buttonCheckboxValue} />
+        bind:value={buttonCheckboxValue}
+      />
     </form>
   </div>
 </Story>
@@ -103,7 +107,8 @@
   let:options
   let:buttonOptions
   let:isRequired
-  let:textOptional>
+  let:textOptional
+>
   <div use:wrapInShadowDom={disableCss}>
     <h2 id="theme" class="mt-h2">Theme - checkbox</h2>
     <form class="mt-form">
@@ -116,7 +121,8 @@
         {hiddenErrorText}
         {textOptional}
         error={{ key: name, message: errorMessage }}
-        let:isRequired />
+        let:isRequired
+      />
     </form>
     <h2 id="theme" class="mt-h2">Theme - button</h2>
     <form class="mt-form">
@@ -129,7 +135,8 @@
         {textOptional}
         options={buttonOptions}
         error={{ key: name, message: errorMessage }}
-        theme="button" />
+        theme="button"
+      />
     </form>
   </div>
 </Story>

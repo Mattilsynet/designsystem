@@ -27,20 +27,21 @@
     linkText: { control: 'text' },
     linkIsExternal: { control: 'boolean' },
     disableCss: { control: 'boolean' }
-  }} />
+  }}
+/>
 
-<Story
-  name="Normal"
-  
-  
-  
-  
-  
-  
-  
-  
-  >
-  {#snippet children({ title, text, actionsTakenByMattilsynet, linkUrl, linkText, linkIsExternal, disableCss, publishFrom, professionallyUpdated })}
+<Story name="Normal">
+  {#snippet children({
+    title,
+    text,
+    actionsTakenByMattilsynet,
+    linkUrl,
+    linkText,
+    linkIsExternal,
+    disableCss,
+    publishFrom,
+    professionallyUpdated
+  })}
     <div class="container layout-grid layout-grid--column-12">
       <article class="col-3-span-8">
         <h1 class="mt-h1">Status med tekst, "hva gjør Mattilsynet" og link</h1>
@@ -51,17 +52,18 @@
           {linkText}
           {linkIsExternal}
           updatedDate={professionallyUpdated}
-          statusType="important">
+          statusType="important"
+        >
           {#snippet heading()}
-                <h2  class="mt-h2">{title}</h2>
-              {/snippet}
+            <h2 class="mt-h2">{title}</h2>
+          {/snippet}
         </Status>
 
         <h1 class="mt-h1 margin-top">Status med tekst og link</h1>
         <Status {text} {linkUrl} {linkText} {linkIsExternal} statusType="none">
           {#snippet heading()}
-                <h2  class="mt-h2">{title}</h2>
-              {/snippet}
+            <h2 class="mt-h2">{title}</h2>
+          {/snippet}
         </Status>
       </article>
     </div>

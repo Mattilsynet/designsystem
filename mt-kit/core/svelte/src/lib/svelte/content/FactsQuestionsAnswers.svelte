@@ -11,12 +11,12 @@
   }
 
   interface Props {
-    title: string | undefined;
-    facts: string | undefined;
-    disclosureHeadClass?: string;
-    loadJs?: boolean;
-    questionsAnswers?: Array<QuestionAnswer>;
-    headerTag?: 'h1' | 'h2' | 'h3' | 'h4';
+    title: string | undefined
+    facts: string | undefined
+    disclosureHeadClass?: string
+    loadJs?: boolean
+    questionsAnswers?: Array<QuestionAnswer>
+    headerTag?: 'h1' | 'h2' | 'h3' | 'h4'
   }
 
   let {
@@ -26,7 +26,7 @@
     loadJs = true,
     questionsAnswers = [],
     headerTag = 'h2'
-  }: Props = $props();
+  }: Props = $props()
 </script>
 
 {#if title}

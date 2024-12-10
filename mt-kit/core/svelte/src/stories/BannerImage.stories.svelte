@@ -13,9 +13,10 @@
   argTypes={{
     bannerImage: { control: 'file' },
     disableCss: { control: 'boolean' }
-  }} />
+  }}
+/>
 
-<Story name="Normal"  >
+<Story name="Normal">
   {#snippet children({ bannerImage, disableCss })}
     <div use:wrapInShadowDom={disableCss}>
       <h1 class="mt-h1">Toppbilde</h1>

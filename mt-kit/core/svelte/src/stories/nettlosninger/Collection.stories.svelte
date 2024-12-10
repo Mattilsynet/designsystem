@@ -75,9 +75,10 @@
     helpText: { control: 'text' },
     errorMessage: { control: 'text' },
     disableCss: { control: 'boolean' }
-  }} />
+  }}
+/>
 
-<Story name="Normal"      >
+<Story name="Normal">
   {#snippet children({ title, intro, legalItems, text, tableOfContents, disableCss })}
     <div use:wrapInShadowDom={disableCss} class="container layout-grid layout-grid--column-12">
       <article class="article-page col-1-span-12 legal-guidance">
@@ -105,7 +106,8 @@
           <article
             id={toKebabCase(legal.title)}
             class="legal-collection legal-collection__border-top col-1-span-12"
-            aria-labelledby="collection-title-1">
+            aria-labelledby="collection-title-1"
+          >
             <h2 id="collection-title-1" class="mt-h2">{legal.title}</h2>
 
             <div class="intro">
@@ -126,26 +128,30 @@
                 text="Noe tekst i kroppen"
                 linkUrl="http://"
                 linkText="Last ned mal for internkontroll"
-                headerTag="h4" />
+                headerTag="h4"
+              />
             </section>
 
             <section class="layout-flex-col layout-flex-col--x-small">
               <SummaryDetail
                 title="Regelverk"
                 detailsClass="color-neutral border-neutral"
-                summaryWrapperClass="background-mt-white layout-flex-col gap-13">
+                summaryWrapperClass="background-mt-white layout-flex-col gap-13"
+              >
                 <CardArticle
                   type="legal-text"
                   title="Dette er tittelen"
                   text="Noe tekst i kroppen"
                   linkUrl="http://"
-                  linkText="Last ned mal for internkontroll" />
+                  linkText="Last ned mal for internkontroll"
+                />
                 <CardArticle
                   type="legal-text"
                   title="Dette er tittelen"
                   text="Noe tekst i kroppen"
                   linkUrl="http://"
-                  linkText="Last ned mal for internkontroll" />
+                  linkText="Last ned mal for internkontroll"
+                />
               </SummaryDetail>
             </section>
           </article>

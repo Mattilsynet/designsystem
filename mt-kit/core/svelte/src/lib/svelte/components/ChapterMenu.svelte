@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { preventDefault } from 'svelte/legacy';
+  import { preventDefault } from 'svelte/legacy'
 
   import { createEventDispatcher } from 'svelte'
   import type { Chapter, ChapterChangeDetails } from '../../ts/types'
@@ -7,13 +7,13 @@
   import ChapterMenuSubChapter from './ChapterMenuSubChapter.svelte'
 
   interface Props {
-    chapters: Array<Chapter>;
-    currentChapterNumber?: number;
-    startIndex?: 0 | 1;
-    menuTitle: string;
-    showChapterNumbers?: boolean;
-    subChapterToggleAriaLabel?: string;
-    loadJs?: boolean;
+    chapters: Array<Chapter>
+    currentChapterNumber?: number
+    startIndex?: 0 | 1
+    menuTitle: string
+    showChapterNumbers?: boolean
+    subChapterToggleAriaLabel?: string
+    loadJs?: boolean
   }
 
   let {
@@ -39,7 +39,8 @@
         <a
           onclick={preventDefault(dispatch('chapterChange', { index: chapter.index }))}
           href={chapter.url}
-          aria-current={chapterIndex === currentChapterNumber ? 'page' : undefined}>
+          aria-current={chapterIndex === currentChapterNumber ? 'page' : undefined}
+        >
           {#if showChapterNumbers && chapterIndex > 0}
             {index + startIndex}.
           {/if}
@@ -51,7 +52,8 @@
           {loadJs}
           ariaLabel={subChapterToggleAriaLabel}
           parentIndex={index + startIndex}
-          subChapters={chapter.subChapters} />
+          subChapters={chapter.subChapters}
+        />
       </li>
     {/each}
   </ol>

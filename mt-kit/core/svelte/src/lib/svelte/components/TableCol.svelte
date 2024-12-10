@@ -1,12 +1,11 @@
 <script lang="ts">
-  
   interface Props {
-    class?: string;
-    header?: string;
-    children?: import('svelte').Snippet;
+    class?: string
+    header?: string
+    children?: import('svelte').Snippet
   }
 
-  let { class: className = '', header = '', children }: Props = $props();
+  let { class: className = '', header = '', children }: Props = $props()
 </script>
 
 <td class="mt-td text {className}" role="cell">

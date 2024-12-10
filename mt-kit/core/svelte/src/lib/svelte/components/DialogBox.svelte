@@ -9,12 +9,12 @@
   const dispatch = createEventDispatcher<CustomEvent<CloseDialogEvent>>()
 
   interface Props {
-    isOpen?: boolean;
-    title?: string;
-    ariaTitle?: string;
-    closeBtnAriaLabel?: string;
-    dialogRef?: any;
-    children?: import('svelte').Snippet;
+    isOpen?: boolean
+    title?: string
+    ariaTitle?: string
+    closeBtnAriaLabel?: string
+    dialogRef?: any
+    children?: import('svelte').Snippet
   }
 
   let {
@@ -24,7 +24,7 @@
     closeBtnAriaLabel = 'Lukk',
     dialogRef = $bindable(undefined),
     children
-  }: Props = $props();
+  }: Props = $props()
 
   const dialogBoxHeadingId = `ui-dialog-box-${instanceCounter++}`
   const dialogCloseButtonId = `dialog-close-button-${instanceCounter++}`
@@ -45,7 +45,8 @@
     tabindex="0"
     aria-hidden={!isOpen}
     bind:this={dialogRef}
-    aria-labelledby={dialogBoxHeadingId}>
+    aria-labelledby={dialogBoxHeadingId}
+  >
     <h2 id={dialogBoxHeadingId} class="mt-h4 dialog-box--title {title ? '' : 'inclusively-hidden'}">
       {title ? title : ariaTitle}
     </h2>
@@ -55,7 +56,8 @@
       type="button"
       class="mt-button mt-button--link dialog-box--close-button"
       onclick={handleClose}
-      aria-label={closeBtnAriaLabel}></button>
+      aria-label={closeBtnAriaLabel}
+    ></button>
 
     <div class="dialog-box--content">
       {@render children?.()}

@@ -42,9 +42,10 @@
     headerTag: { control: 'text' },
     disableJs: { control: 'boolean' },
     disableCss: { control: 'boolean' }
-  }} />
+  }}
+/>
 
-<Template >
+<Template>
   {#snippet children({ args })}
     <section class="content" use:wrapInShadowDom={args.disableCss}>
       <Disclosure
@@ -53,7 +54,8 @@
         headerTag={args.headerTag}
         headerClass={args.headerClass}
         theme={args.theme}
-        class={args.class}>
+        class={args.class}
+      >
         {@html args.body}
         <ul class="mt-ul">
           <li>Punkt 1</li>
@@ -72,7 +74,8 @@
     headerClass: 'text-body',
     disableJs: false,
     disableCss: false
-  }} />
+  }}
+/>
 
 <Story
   name="Endringslogg"
@@ -84,7 +87,7 @@
     disableCss: false,
     class: 'changelog'
   }}
-  >
+>
   {#snippet children({ args })}
     <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading">
       <Disclosure
@@ -92,12 +95,14 @@
         loadJs={!args.disableJs}
         headerTag={args.headerTag}
         headerClass={args.headerClass}
-        class={args.class}>
+        class={args.class}
+      >
         {#each args.body as log, index}
           <article
             class:border-b-secondary={index < args.body.length - 1}
             class:p-b-xs={index < args.body.length - 1}
-            class:m-b-xxs={index < args.body.length - 1}>
+            class:m-b-xxs={index < args.body.length - 1}
+          >
             <span class="text-small">01.01.2021</span>
             <HeadingLevel headingLevel={3} class="mt-h5 m-b-xs">
               {@html log.title}
@@ -121,7 +126,7 @@
     disableJs: false,
     disableCss: false
   }}
-  >
+>
   {#snippet children({ args })}
     <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading">
       <h2 id="heading" class="mt-h2">{title}</h2>
@@ -131,7 +136,8 @@
           loadJs={!args.disableJs}
           headerTag={disclosure.headerTag}
           icon={i === 2 ? icon : undefined}
-          headerClass={args.headerClass}>
+          headerClass={args.headerClass}
+        >
           {@html disclosure.body}
         </Disclosure>
       {/each}
@@ -146,7 +152,7 @@
     disableJs: false,
     disableCss: false
   }}
-  >
+>
   {#snippet children({ args })}
     <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading2">
       <h2 id="heading2" class="mt-h2">Tittel for lyseblått trekkspill</h2>
@@ -157,7 +163,8 @@
           theme="no-border"
           class="background-mt-rationale-blue"
           headerTag={disclosure.headerTag}
-          icon={i !== 2 ? icon : undefined}>
+          icon={i !== 2 ? icon : undefined}
+        >
           {@html disclosure.body}
         </Disclosure>
       {/each}
@@ -172,7 +179,7 @@
     disableJs: false,
     disableCss: false
   }}
-  >
+>
   {#snippet children({ args })}
     <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading2">
       <h2 id="heading2" class="mt-h2">Tittel for hvit trekkspill</h2>
@@ -184,7 +191,8 @@
           class="background-mt-white"
           startOpen={i === 1}
           headerTag={disclosure.headerTag}
-          icon={i !== 2 ? icon : undefined}>
+          icon={i !== 2 ? icon : undefined}
+        >
           {@html disclosure.body}
         </Disclosure>
       {/each}
@@ -200,7 +208,8 @@
     headerTag: disclosures[1].headerTag,
     disableJs: true,
     disableCss: true
-  }} />
+  }}
+/>
 
 <Story
   name="Large size"
@@ -210,7 +219,8 @@
     headerTag: disclosures[0].headerTag,
     disableJs: false,
     disableCss: false
-  }} />
+  }}
+/>
 
 <Story
   name="I Grid"
@@ -220,7 +230,7 @@
     disableJs: false,
     disableCss: false
   }}
-  >
+>
   {#snippet children({ args })}
     <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading2">
       <h2 id="heading3" class="mt-h2">{title}</h2>
@@ -232,7 +242,8 @@
             headerTag={disclosure.headerTag}
             class="layout-grid layout-grid--column-12 col-3-span-8"
             headerClass="col-1-span-12 text-h3"
-            panelClass="col-1-span-12">
+            panelClass="col-1-span-12"
+          >
             {@html disclosure.body}
           </Disclosure>
         {/each}
@@ -249,7 +260,8 @@
               ? 'disclosure-with-number'
               : ''} layout-grid layout-grid--column-12 col-3-span-8"
             headerClass={'text-h3'}
-            panelClass="col-1-span-12">
+            panelClass="col-1-span-12"
+          >
             {@html disclosure.body}
           </Disclosure>
         {/each}
@@ -267,7 +279,6 @@
     disableJs: false,
     disableCss: false
   }}
-  
   >{#snippet children({ args })}
     <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading">
       <h2 id="heading" class="mt-h2">{title}</h2>
@@ -279,7 +290,8 @@
           icon={i === 2 ? icon : undefined}
           on:open={() => alert('opening')}
           on:close={() => alert('closing')}
-          headerClass={args.headerClass}>
+          headerClass={args.headerClass}
+        >
           {@html disclosure.body}
         </Disclosure>
       {/each}

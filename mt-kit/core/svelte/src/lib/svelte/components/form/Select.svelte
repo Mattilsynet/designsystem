@@ -49,7 +49,8 @@
   bind:value
   class="form-field"
   aria-required={isRequired}
-  aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)}>
+  aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)}
+>
   {#each options as option (option.value)}
     <option value={option.value}>
       {option.text}

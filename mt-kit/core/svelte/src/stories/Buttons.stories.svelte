@@ -24,9 +24,10 @@
     disableCss: { control: 'boolean' },
     uploadRequired: { control: 'boolean' },
     removeFile: { action: 'removeFile' }
-  }} />
+  }}
+/>
 
-<Story name="Normal"     >
+<Story name="Normal">
   {#snippet children({ primary, primaryLong, disableCss, disabled, secondary })}
     <div use:wrapInShadowDom={disableCss}>
       <h1 class="mt-h1">Knapper</h1>
@@ -34,7 +35,8 @@
       <button class="mt-button mt-button--primary" {disabled}>{primary}</button>
       <button class="mt-button mt-button--primary" {disabled}>{primaryLong}</button>
       <button class="mt-button mt-button--primary" {disabled} style="width: 15rem"
-        >{primaryLong}</button>
+        >{primaryLong}</button
+      >
 
       <p class="description">Sekundær - stor</p>
       <button class="mt-button mt-button--secondary" {disabled}>{secondary}</button>
@@ -60,7 +62,7 @@
   {/snippet}
 </Story>
 
-<Story name="Loading"  >
+<Story name="Loading">
   {#snippet children({ disableCss, inProgress })}
     <div use:wrapInShadowDom={disableCss}>
       <h1 class="mt-h1">Loading</h1>
@@ -70,14 +72,16 @@
           formInProgressAriaLabel="Sender inn skjema, venter på svar."
           btnClassNames="mt-button--primary"
           spinnerPlacement="start"
-          {inProgress}>
+          {inProgress}
+        >
           Spinner placement start
         </ButtonSpinner>
         <ButtonSpinner
           formInProgressAriaLabel="Sender inn skjema, venter på svar."
           btnClassNames="mt-button--primary"
           {inProgress}
-          spinnerPlacement="end">
+          spinnerPlacement="end"
+        >
           Spinner placement end
         </ButtonSpinner>
       </div>
@@ -87,7 +91,8 @@
         formInProgressAriaLabel="Sender inn skjema, venter på svar."
         btnClassNames="mt-button--secondary"
         {inProgress}
-        spinnerPlacement="end">
+        spinnerPlacement="end"
+      >
         Send in skjema
       </ButtonSpinner>
     </div>

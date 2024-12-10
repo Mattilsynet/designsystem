@@ -20,16 +20,10 @@
     publishFrom: { control: 'text' },
     professionallyUpdated: { control: 'text' },
     disableCss: { control: 'boolean' }
-  }} />
+  }}
+/>
 
-<Story
-  name="Normal"
-  
-  
-  
-  
-  
-  >
+<Story name="Normal">
   {#snippet children({ publishFrom, professionallyUpdated, intro, text, statusTitle, disableCss })}
     <div use:wrapInShadowDom={disableCss} class="container layout-grid layout-grid--column-12">
       <article class="article-page col-3-span-8">
@@ -55,8 +49,8 @@
         <h2 class="mt-h2">Status viser alltid oppdatert</h2>
         <Status statusType={'important'} updatedDate={publishFrom} {text}>
           {#snippet heading()}
-                <h3 class="mt-h3" >{statusTitle}</h3>
-              {/snippet}
+            <h3 class="mt-h3">{statusTitle}</h3>
+          {/snippet}
         </Status>
       </article>
     </div>

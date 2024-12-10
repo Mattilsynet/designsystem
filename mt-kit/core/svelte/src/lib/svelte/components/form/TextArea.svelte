@@ -85,7 +85,8 @@
   {inputmode}
   aria-required={isRequired}
   aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error, maxlength)}
-  aria-invalid={!!error} />
+  aria-invalid={!!error}
+/>
 
 {#if helpText && helpTextPlacement === 'below'}
   <div id={`${name}-hint`} class="hint {helpTextClass}">

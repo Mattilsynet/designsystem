@@ -36,9 +36,10 @@
   argTypes={{
     disableCss: { control: 'boolean' },
     pages: { control: 'array' }
-  }} />
+  }}
+/>
 
-<Story name="Normal"  >
+<Story name="Normal">
   {#snippet children({ disableCss, args })}
     <div use:wrapInShadowDom={disableCss}>
       <article>
@@ -51,7 +52,8 @@
           previousText="Forrige"
           labelPage="Side"
           toPageTitle={`Gå til side {0} av {1}`}
-          class="" />
+          class=""
+        />
       </article>
     </div>
   {/snippet}

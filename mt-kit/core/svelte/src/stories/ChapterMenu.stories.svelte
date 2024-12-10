@@ -68,9 +68,10 @@
     disableCss: { control: 'boolean' },
     disableJs: { control: 'boolean' },
     chapterChange: { action: 'chapterChange' }
-  }} />
+  }}
+/>
 
-<Story name="Normal"    >
+<Story name="Normal">
   {#snippet children({ showChapterNumbers, disableCss, disableJs, chapters })}
     <div use:wrapInShadowDom={disableCss}>
       <div class="chapter-menu-wrapper">
@@ -81,7 +82,8 @@
           loadJs={!disableJs}
           menuTitle="Innhold"
           {currentChapterNumber}
-          on:chapterChange={chapterChange} />
+          on:chapterChange={chapterChange}
+        />
       </div>
     </div>
   {/snippet}

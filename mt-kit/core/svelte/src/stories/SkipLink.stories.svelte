@@ -6,9 +6,10 @@
   title="Components/Skip Link"
   args={{
     label: 'Hopp til hovedinnholdet'
-  }} />
+  }}
+/>
 
-<Story name="Hidden focusable link" >
+<Story name="Hidden focusable link">
   {#snippet children({ label })}
     <a href="" class="mt-link visually-hidden-focusable skip-link">{label}</a>
     <h2 class="mt-h2">Hidden focusable link</h2>

@@ -26,9 +26,10 @@
     currentPath: { control: 'string' },
     completed: { control: 'number' },
     steps: { control: 'array' }
-  }} />
+  }}
+/>
 
-<Story name="Normal"   >
+<Story name="Normal">
   {#snippet children({ completed, steps, currentPath })}
     <h1 class="h1">Form steps</h1>
     <hr />

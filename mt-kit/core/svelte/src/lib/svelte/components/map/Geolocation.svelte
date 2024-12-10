@@ -6,10 +6,10 @@
   import type { MTGeolocationOptions } from '$lib/ts'
 
   interface Props {
-    geolocationOptions?: MTGeolocationOptions | undefined;
+    geolocationOptions?: MTGeolocationOptions | undefined
   }
 
-  let { geolocationOptions = undefined }: Props = $props();
+  let { geolocationOptions = undefined }: Props = $props()
 
   let map: MapContext = getMap()
   let geolocationControl: Control | undefined = undefined

@@ -71,9 +71,10 @@
       items: breadcrumbsItems.slice(0, 3)
     },
     disableCss: false
-  }} />
+  }}
+/>
 
-<Story name="Normal"    >
+<Story name="Normal">
   {#snippet children({ breadcrumbsLong, breadcrumbsShort, loadJs, disableCss })}
     <div use:wrapInShadowDom={disableCss}>
       <div class="layout-grid layout-grid--column-12">

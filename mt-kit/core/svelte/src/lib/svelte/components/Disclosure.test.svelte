@@ -4,7 +4,7 @@
     [key: string]: any
   }
 
-  let { ...props }: Props = $props();
+  let { ...props }: Props = $props()
 </script>
 
 <Disclosure {...props}>
