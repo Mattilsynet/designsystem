@@ -1,17 +1,18 @@
-<script lang="ts">
-  import { Meta, Story } from '@storybook/addon-svelte-csf'
+<script lang="ts" module>
+  import { defineMeta } from '@storybook/addon-svelte-csf'
   import { wrapInShadowDom } from '../storybook-utils/utils'
+
+  const { Story } = defineMeta({
+    title: 'Visual Style/Ikoner',
+    args: {
+      disableCss: false
+    },
+    argTypes: {
+      disableCss: { control: 'boolean' }
+    }
+  })
 </script>
 
-<Meta
-  title="Visual Style/Ikoner"
-  args={{
-    disableCss: false
-  }}
-  argTypes={{
-    disableCss: { control: 'boolean' }
-  }}
-/>
 <Story name="All">
   {#snippet children({ primary, disableCss })}
     <div use:wrapInShadowDom={disableCss} style="--wrap: wrap">
@@ -93,8 +94,7 @@
         <a class="mt-link forward-arrow-end-link p-tb-xxs">mt-link forward-arrow-end-link</a>
         <a class="mt-link forward-arrow-end p-tb-xxs">mt-link forward-arrow-end</a>
         <a class="mt-link forward-arrow-end blue-arrow p-tb-xxs"
-          >mt-link forward-arrow-end blue-arrow</a
-        >
+          >mt-link forward-arrow-end blue-arrow</a>
         <a class="mt-link forward-arrow-after p-tb-xxs">mt-link forward-arrow-after</a>
       </section>
     </div>
@@ -105,16 +105,20 @@
   li:nth-child(2) {
     width: 10rem;
   }
+
   .layout-flex-col {
     --gap: none;
     margin-top: 2rem;
   }
+
   .icon--search-after {
     margin: 1rem;
   }
+
   .box {
     padding: var(--spacer-xx-small);
   }
+
   .icon--caret-down-after-on-primary {
     &:hover {
       background-color: var(--color-mt-white);

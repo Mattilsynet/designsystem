@@ -1,17 +1,18 @@
-<script lang="ts">
-  import { Meta, Story } from '@storybook/addon-svelte-csf'
+<script lang="ts" module>
+  import { defineMeta } from '@storybook/addon-svelte-csf'
   import { wrapInShadowDom } from '../storybook-utils/utils'
+
+  const { Story } = defineMeta({
+    title: 'Visual Style/Utils',
+    args: {
+      disableCss: false
+    },
+    argTypes: {
+      disableCss: { control: 'boolean' }
+    }
+  })
 </script>
 
-<Meta
-  title="Visual Style/Utils"
-  args={{
-    disableCss: false
-  }}
-  argTypes={{
-    disableCss: { control: 'boolean' }
-  }}
-/>
 <Story name="All">
   {#snippet children({ disableCss })}
     <div use:wrapInShadowDom={disableCss} class="layout-flex-col">
