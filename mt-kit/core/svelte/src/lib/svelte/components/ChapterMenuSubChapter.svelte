@@ -5,12 +5,12 @@
   import { slide } from 'svelte/transition'
   import { createToggleMachine } from '../../ts/toggle-machine'
   interface Props {
-    showChapterNumbers?: boolean;
-    parentIndex?: number;
-    subChapters?: Array<Chapter>;
-    ariaLabel?: string;
-    loadJs?: boolean;
-    id?: string;
+    showChapterNumbers?: boolean
+    parentIndex?: number
+    subChapters?: Array<Chapter>
+    ariaLabel?: string
+    loadJs?: boolean
+    id?: string
   }
 
   let {
@@ -20,8 +20,7 @@
     ariaLabel = 'toggle',
     loadJs = true,
     id: componentId = ''
-  }: Props = $props();
-  
+  }: Props = $props()
 
   const SLIDE_DURATION: Readonly<number> = 500
 
@@ -46,13 +45,15 @@
       aria-expanded={isOpen}
       onclick={() => {
         send('TOGGLE')
-      }}></button>
+      }}
+    ></button>
   {/if}
   {#if isOpen || onServer}
     <ul
       transition:slide={{ duration: SLIDE_DURATION }}
       id={componentId}
-      class="mt-ul list-unstyled m-t-0">
+      class="mt-ul list-unstyled m-t-0"
+    >
       {#each subChapters || [] as subChapter, subIndex}
         <li class="layout-flex layout-flex--no-wrap">
           <a href={subChapter.url} class="mt-link chapter-menu--subchapter">

@@ -32,9 +32,10 @@
     professionallyUpdated: '2021-06-24T11:32:22Z',
     disableCss: false,
     loadJs: true
-  }} />
+  }}
+/>
 
-<Story name="Normal"     >
+<Story name="Normal">
   {#snippet children({ title, facts, questionsAnswers, disableCss, loadJs })}
     <div class="container layout-grid layout-grid--column-12" use:wrapInShadowDom={disableCss}>
       <article class="col-1-span-6 facts-questions-answers">

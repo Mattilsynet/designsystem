@@ -5,7 +5,7 @@
   import { createTileLayer } from './utils'
   import { getMap, type MapContext } from './contexts'
 
-  let { kartverketLayerNames = [EUROPA_FORENKLET, NORGES_GRUNNKART] } = $props();
+  let { kartverketLayerNames = [EUROPA_FORENKLET, NORGES_GRUNNKART] } = $props()
 
   let map: MapContext = getMap()
   let layers: Array<TileLayer> | undefined = undefined

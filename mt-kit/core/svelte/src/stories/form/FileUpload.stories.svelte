@@ -54,9 +54,10 @@
     label: { control: 'text' },
     disableCss: { control: 'boolean' },
     disableJs: { control: 'boolean' }
-  }} />
+  }}
+/>
 
-<Story name="Normal" >
+<Story name="Normal">
   {#snippet children({ args })}
     <div use:wrapInShadowDom={args.disableCss}>
       <h1 class="mt-h1">Filopplasting komponent</h1>
@@ -80,7 +81,8 @@
           error={undefined}
           isLoading={args.isLoading}
           uploadInProgressAriaLabel={args.uploadInProgressAriaLabel}
-          loadJs={!args.disableJs && args.upload1.loadJs} />
+          loadJs={!args.disableJs && args.upload1.loadJs}
+        />
       </form>
       <h2 class="mt-h2 m-t-m">Uten JS</h2>
       <form method="get" class="mt-form form-layout" style="--gap: 0;">
@@ -102,7 +104,8 @@
           error={undefined}
           isLoading={args.isLoading}
           uploadInProgressAriaLabel={args.uploadInProgressAriaLabel}
-          loadJs={!args.disableJs && args.upload2.loadJs} />
+          loadJs={!args.disableJs && args.upload2.loadJs}
+        />
       </form>
       <h2 class="mt-h2 m-t-m">Kan kun velge ett bilde</h2>
       <form method="get" class="mt-form form-layout" style="--gap: 0;">
@@ -124,7 +127,8 @@
           error={{ message: 'Eksempel på feilmelding' }}
           isLoading={args.isLoading}
           uploadInProgressAriaLabel={args.uploadInProgressAriaLabel}
-          loadJs={!args.disableJs && args.upload3.loadJs} />
+          loadJs={!args.disableJs && args.upload3.loadJs}
+        />
       </form>
       <h2 class="mt-h2 m-t-m">Under opplasting</h2>
       <form method="get" class="mt-form form-layout" style="--gap: 0;">
@@ -146,7 +150,8 @@
           error={undefined}
           isLoading={true}
           uploadInProgressAriaLabel={args.uploadInProgressAriaLabel}
-          loadJs={!args.disableJs && args.upload4.loadJs} />
+          loadJs={!args.disableJs && args.upload4.loadJs}
+        />
       </form>
       <h2 class="mt-h2 m-t-m">Under opplasting. Uten JS</h2>
       <form method="get" class="mt-form form-layout" style="--gap: 0;">
@@ -168,7 +173,8 @@
           error={undefined}
           isLoading={true}
           uploadInProgressAriaLabel={args.uploadInProgressAriaLabel}
-          loadJs={!args.disableJs && !args.upload4.loadJs} />
+          loadJs={!args.disableJs && !args.upload4.loadJs}
+        />
       </form>
     </div>
   {/snippet}

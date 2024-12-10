@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { run } from 'svelte/legacy';
+  import { run } from 'svelte/legacy'
 
   import { onMount } from 'svelte'
   import type { Breadcrumbs, Link } from '../../ts/types'
@@ -8,13 +8,13 @@
 
   const BUTTON_ELLIPSIS = Symbol()
   interface Props {
-    breadcrumbs?: Breadcrumbs;
-    loadJs?: boolean;
-    class?: string;
+    breadcrumbs?: Breadcrumbs
+    loadJs?: boolean
+    class?: string
   }
 
-  let { breadcrumbs = { items: [] }, loadJs = true, class: classNames = '' }: Props = $props();
-  
+  let { breadcrumbs = { items: [] }, loadJs = true, class: classNames = '' }: Props = $props()
+
   const LIMIT_BEFORE_PARTIAL = 3
 
   interface BreadcrumbsContext {
@@ -108,7 +108,7 @@
   let onServer = $derived($state.value === 'serverRendered')
   run(() => {
     breadcrumbs, send({ type: 'RESET' })
-  });
+  })
 
   if (loadJs) {
     onMount(() => send('MOUNTED'))
@@ -127,7 +127,8 @@
             aria-expanded="false"
             aria-label={showAllBreadCrumbsLabel}
             class="mt-button mt-button--link"
-            onclick={() => send('TOGGLE')}>
+            onclick={() => send('TOGGLE')}
+          >
             ...
           </button>
         {:else if index + 1 < $state.context.breadcrumbsItems.length}

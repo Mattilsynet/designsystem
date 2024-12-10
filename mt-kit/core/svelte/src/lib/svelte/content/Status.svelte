@@ -2,18 +2,17 @@
   import { displayDataTime, mapRelExternal } from '../../ts/utils'
   import Published from '../components/Published.svelte'
 
-  
   interface Props {
-    text: string;
-    updatedDate: string;
-    publishedText?: string;
-    actionsTakenByMattilsynet: string;
-    statusType: 'important' | 'none';
-    linkUrl: string;
-    linkText: string;
-    class: string;
-    lang?: string;
-    heading?: import('svelte').Snippet;
+    text: string
+    updatedDate: string
+    publishedText?: string
+    actionsTakenByMattilsynet: string
+    statusType: 'important' | 'none'
+    linkUrl: string
+    linkText: string
+    class: string
+    lang?: string
+    heading?: import('svelte').Snippet
   }
 
   let {
@@ -27,7 +26,7 @@
     class: className,
     lang = 'NO-nb',
     heading
-  }: Props = $props();
+  }: Props = $props()
 
   let updatedDateLocalized = $derived(updatedDate ? displayDataTime(lang, updatedDate) : null)
 </script>

@@ -8,18 +8,18 @@
   import HeadingLevel from './HeadingLevel.svelte'
 
   interface Props {
-    id?: string | undefined;
-    loadJs?: boolean;
-    title: string;
-    headerTag?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-    theme?: 'bordered' | 'no-border';
-    icon?: string | undefined;
-    headerClass?: string;
-    panelClass?: string;
-    startOpen?: boolean;
-    chapter?: string | undefined;
-    class?: string;
-    children?: import('svelte').Snippet;
+    id?: string | undefined
+    loadJs?: boolean
+    title: string
+    headerTag?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+    theme?: 'bordered' | 'no-border'
+    icon?: string | undefined
+    headerClass?: string
+    panelClass?: string
+    startOpen?: boolean
+    chapter?: string | undefined
+    class?: string
+    children?: import('svelte').Snippet
   }
 
   let {
@@ -35,8 +35,7 @@
     chapter = undefined,
     class: disclosureClass = '',
     children
-  }: Props = $props();
-  
+  }: Props = $props()
 
   const bodyId = `ui-disclosure-${counter++}`
 
@@ -83,7 +82,8 @@
       class="mt-button--unstyled disclosure-header mt-{headerTag} {headerClass}"
       aria-expanded={isOpen}
       aria-controls={bodyId}
-      onclick={handleClick}>
+      onclick={handleClick}
+    >
       {#if chapter}
         <span class="chapter-number responsive-hide">
           {chapter}
@@ -107,7 +107,8 @@
     <div
       id={bodyId}
       class="disclosure-panel {panelClass}"
-      transition:slide|local={{ duration: 500 }}>
+      transition:slide|local={{ duration: 500 }}
+    >
       <HeadingLevel class="inclusively-hidden" headingLevel={+headerTag.charAt(1)}>
         {@html title}
       </HeadingLevel>

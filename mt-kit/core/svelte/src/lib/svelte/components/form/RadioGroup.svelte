@@ -34,7 +34,8 @@
   aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)}
   class="mt-fieldset form-fieldset {theme === 'radio' ? 'radio' : ''} {theme === 'button'
     ? 'mt-button-radio'
-    : ''} {className}">
+    : ''} {className}"
+>
   <legend class="mt-legend form-legend">
     {label}
     {#if !isRequired && showOptionalText}
@@ -64,10 +65,12 @@
         value={radio.value}
         aria-required={isRequired}
         aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)}
-        checked={value === radio.value} />
+        checked={value === radio.value}
+      />
       <label
         class="mt-label {theme === 'button' ? 'mt-button mt-button--secondary' : ''}"
-        for={`${name}-${toKebabCase(radio.value)}`}>
+        for={`${name}-${toKebabCase(radio.value)}`}
+      >
         {radio.text}
       </label>
     </div>

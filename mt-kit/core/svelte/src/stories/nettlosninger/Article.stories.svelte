@@ -21,9 +21,10 @@
     helpText: { control: 'text' },
     errorMessage: { control: 'text' },
     disableCss: { control: 'boolean' }
-  }} />
+  }}
+/>
 
-<Story name="Normal"     >
+<Story name="Normal">
   {#snippet children({ title, intro, disableCss, publishFrom, professionallyUpdated })}
     <div use:wrapInShadowDom={disableCss} class="container layout-grid layout-grid--column-12">
       <article class="article-page col-1-span-12">

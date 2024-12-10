@@ -8,12 +8,12 @@
   import { getMap, type MapContext } from './contexts'
 
   interface Props {
-    markers?: Array<MTMarker>;
-    markerOptions: Options | undefined;
-    clusterOptions: MTClusterOptions | undefined;
+    markers?: Array<MTMarker>
+    markerOptions: Options | undefined
+    clusterOptions: MTClusterOptions | undefined
   }
 
-  let { markers = [], markerOptions, clusterOptions }: Props = $props();
+  let { markers = [], markerOptions, clusterOptions }: Props = $props()
 
   let map: MapContext = getMap()
   let markerLayer: VectorLayer<VectorSource> | undefined = undefined

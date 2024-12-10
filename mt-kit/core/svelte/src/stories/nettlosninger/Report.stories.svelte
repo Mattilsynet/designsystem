@@ -34,25 +34,26 @@
     findings: { control: 'text' },
     file: { control: 'object' },
     disableCss: { control: 'boolean' }
-  }} />
+  }}
+/>
 
-<Story
-  name="Normal"
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  >
-  {#snippet children({ title, intro, text, publishFrom, professionallyUpdated, subjectToExamination, timePeriod, lookingForWhat, findings, reportType, organisationPerformingAssignment, file, linkGroups, disableCss })}
+<Story name="Normal">
+  {#snippet children({
+    title,
+    intro,
+    text,
+    publishFrom,
+    professionallyUpdated,
+    subjectToExamination,
+    timePeriod,
+    lookingForWhat,
+    findings,
+    reportType,
+    organisationPerformingAssignment,
+    file,
+    linkGroups,
+    disableCss
+  })}
     <div class="layout-grid layout-grid--column-12" use:wrapInShadowDom={disableCss}>
       <article class="article-page col-1-span-12 report">
         <span>{reportType}</span>

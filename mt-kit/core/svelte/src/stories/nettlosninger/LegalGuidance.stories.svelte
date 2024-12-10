@@ -36,16 +36,10 @@
     helpText: { control: 'text' },
     errorMessage: { control: 'text' },
     disableCss: { control: 'boolean' }
-  }} />
+  }}
+/>
 
-<Story
-  name="Normal"
-  
-  
-  
-  
-  
-  >
+<Story name="Normal">
   {#snippet children({ title, intro, disableCss, publishFrom, professionallyUpdated, text })}
     <div class="container layout-grid layout-grid--column-12">
       <article class="article-page col-1-span-12 legal-guidance">
@@ -66,25 +60,29 @@
             title="Dette er tittelen"
             text="Noe tekst i kroppen"
             linkUrl="http://"
-            linkText="Neste handling" />
+            linkText="Neste handling"
+          />
           <CardArticle
             type="form-intro-module"
             title="Dette er tittelen"
             text="Noe tekst i kroppen"
             linkUrl="http://"
-            linkText="Neste handling" />
+            linkText="Neste handling"
+          />
         </section>
 
         <section
           class="layout-flex-col layout-flex-col--x-small"
-          aria-labelledby="regulations-heading">
+          aria-labelledby="regulations-heading"
+        >
           <h2 id="regulations-heading" class="mt-h2">Regelverk</h2>
           <Disclosure
             title="Næringsmiddelhygieneforordningens vedlegg II, kap. I nr. 3"
             headerTag="h3"
             theme="no-border"
             class="background-mt-rationale-blue"
-            {icon}>
+            {icon}
+          >
             <p>Begrunnelsen kommer her</p>
             <ul class="mt-ul">
               <li>Punkt 1</li>
@@ -96,7 +94,8 @@
             headerTag="h3"
             theme="no-border"
             class="background-mt-rationale-blue"
-            {icon}>
+            {icon}
+          >
             <p>Begrunnelsen kommer her</p>
             <ul class="mt-ul">
               <li>Punkt 1</li>

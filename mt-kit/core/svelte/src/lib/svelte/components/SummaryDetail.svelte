@@ -1,15 +1,15 @@
 <script lang="ts">
-  import { run } from 'svelte/legacy';
+  import { run } from 'svelte/legacy'
 
   interface Props {
-    title: string;
-    detailsClass?: string;
-    summaryClass?: string;
-    summaryWrapperClass?: string;
-    testId?: string;
-    ariaLabelledBy?: any;
-    summaryId?: string;
-    children?: import('svelte').Snippet;
+    title: string
+    detailsClass?: string
+    summaryClass?: string
+    summaryWrapperClass?: string
+    testId?: string
+    ariaLabelledBy?: any
+    summaryId?: string
+    children?: import('svelte').Snippet
   }
 
   let {
@@ -21,13 +21,13 @@
     ariaLabelledBy = undefined,
     summaryId = '',
     children
-  }: Props = $props();
+  }: Props = $props()
 
   let isOpen = $state(false)
   run(() => {
     summaryId
     isOpen = false
-  });
+  })
 
   function beforePrint(): void {
     isOpen = true
@@ -43,7 +43,8 @@
   class="mt-details {detailsClass}"
   aria-labelledby={ariaLabelledBy}
   data-test-id={testId}
-  bind:open={isOpen}>
+  bind:open={isOpen}
+>
   <summary id={summaryId} class="mt-summary mt-summary-icon {summaryClass}">
     {@html title}
   </summary>

@@ -27,9 +27,10 @@
   }}
   argTypes={{
     disableCss: { control: 'boolean' }
-  }} />
+  }}
+/>
 
-<Story name="Normal"    >
+<Story name="Normal">
   {#snippet children({ disableCss, title, text, icon })}
     <div use:wrapInShadowDom={disableCss} class="container">
       <CardArticle type="legal-text" class="background-mt-white" {title} {text} id={title} />

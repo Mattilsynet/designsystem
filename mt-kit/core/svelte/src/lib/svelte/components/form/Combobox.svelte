@@ -4,27 +4,25 @@
   import InputError from './InputErrorMessage.svelte'
   import { createInputAriaDescribedby, type ErrorDetail } from '../../../ts'
 
-
-
   interface Props {
-    inputName?: string;
-    listName?: string;
-    inputLabel?: string;
-    inputValue?: string | undefined;
-    inputIsRequired?: boolean | undefined;
-    inputHelpText?: string | undefined;
-    inputClass?: string;
-    inputError?: ErrorDetail | undefined;
-    apiError?: ErrorDetail | undefined;
-    hiddenErrorText?: string | undefined;
-    textOptional?: string | undefined;
-    showOptionalText?: boolean;
-    formInProgressAriaLabel?: string;
-    isLoading?: boolean;
-    inputRef: HTMLInputElement;
-    isFetchFallback?: boolean;
-    handleInput: (e: Event) => Promise<void>;
-    options?: import('svelte').Snippet;
+    inputName?: string
+    listName?: string
+    inputLabel?: string
+    inputValue?: string | undefined
+    inputIsRequired?: boolean | undefined
+    inputHelpText?: string | undefined
+    inputClass?: string
+    inputError?: ErrorDetail | undefined
+    apiError?: ErrorDetail | undefined
+    hiddenErrorText?: string | undefined
+    textOptional?: string | undefined
+    showOptionalText?: boolean
+    formInProgressAriaLabel?: string
+    isLoading?: boolean
+    inputRef: HTMLInputElement
+    isFetchFallback?: boolean
+    handleInput: (e: Event) => Promise<void>
+    options?: import('svelte').Snippet
   }
 
   let {
@@ -46,7 +44,7 @@
     isFetchFallback = false,
     handleInput,
     options
-  }: Props = $props();
+  }: Props = $props()
 </script>
 
 <div class="combobox-wrapper">
@@ -84,12 +82,14 @@
         inputHelpText ? inputName : undefined,
         inputError
       )}
-      oninput={handleInput} />
+      oninput={handleInput}
+    />
     <span
       role="status"
       aria-live="assertive"
       class:icon--spinner={isLoading}
-      aria-label={isLoading ? formInProgressAriaLabel : ''}></span>
+      aria-label={isLoading ? formInProgressAriaLabel : ''}
+    ></span>
   </div>
   <u-datalist id={listName} class="mt-datalist">
     {@render options?.()}

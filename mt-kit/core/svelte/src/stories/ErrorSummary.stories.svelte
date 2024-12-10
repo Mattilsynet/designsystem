@@ -35,9 +35,10 @@
     helpText: { control: 'text' },
     errorMessage: { control: 'text' },
     disableCss: { control: 'boolean' }
-  }} />
+  }}
+/>
 
-<Story name="Normal"      >
+<Story name="Normal">
   {#snippet children({ errors, label, helpText, heading, disableCss, errorMessage })}
     <div use:wrapInShadowDom={disableCss}>
       <FormErrorSummary {errors} {heading} />
@@ -55,7 +56,8 @@
           id="inputfield"
           name="name"
           class="mt-input form-field"
-          aria-describedby="inputfield-hint inputfield-error" />
+          aria-describedby="inputfield-hint inputfield-error"
+        />
 
         <label class="mt-label" for="inputfield">
           {label}
@@ -77,20 +79,14 @@
           name="email"
           class="mt-input form-field error"
           aria-invalid="true"
-          aria-describedby="inputfield-hint inputfield-error" />
+          aria-describedby="inputfield-hint inputfield-error"
+        />
       </form>
     </div>
   {/snippet}
 </Story>
 
-<Story
-  name="Text only"
-  
-  
-  
-  
-  
-  >
+<Story name="Text only">
   {#snippet children({ errors, label, helpText, heading, disableCss, errorMessage })}
     <div use:wrapInShadowDom={disableCss}>
       <FormErrorSummary {errors} {heading} linkToFields={false} />

@@ -53,18 +53,19 @@
     countCharactersLeftLabel: { control: 'text' },
     disableCss: { control: 'boolean' },
     disableJs: { control: 'boolean' }
-  }} />
+  }}
+/>
 
-<Story
-  name="Normal"
-  
-  
-  
-  
-  
-  
-  >
-  {#snippet children({ label, helpText, radioLabel, checkboxLabel, checkboxWithSubsetsLegend, countCharactersLeftLabel, args })}
+<Story name="Normal">
+  {#snippet children({
+    label,
+    helpText,
+    radioLabel,
+    checkboxLabel,
+    checkboxWithSubsetsLegend,
+    countCharactersLeftLabel,
+    args
+  })}
     <div use:wrapInShadowDom={args.disableCss}>
       <h1 class="mt-h1">Adresse komponent</h1>
       <h2 class="mt-h2">Med JS</h2>
@@ -86,8 +87,8 @@
           streetHelpText={helpText}
           bind:streetValue={values['ownerStreet']}
           bind:postalCodeValue={values['ownerZip']}
-          bind:postalAreaValue={values['ownerArea']}>
-        </Address>
+          bind:postalAreaValue={values['ownerArea']}
+        ></Address>
       </form>
       <h2 class="mt-h2 m-t-m">Uten JS</h2>
       <form method="get" class="mt-form form-layout" style="--gap: 0;">
@@ -110,8 +111,8 @@
           postalCodeHelpText="Skriv inn postnummeret. 4 siffer"
           bind:streetValue={values['reporterStreet']}
           bind:postalCodeValue={values['reporterZip']}
-          bind:postalAreaValue={values['reporterArea']}>
-        </Address>
+          bind:postalAreaValue={values['reporterArea']}
+        ></Address>
       </form>
     </div>
   {/snippet}

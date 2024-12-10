@@ -62,9 +62,10 @@
     menuPoints: { control: 'array' },
     disableJs: { control: 'boolean' },
     disableCss: { control: 'boolean' }
-  }} />
+  }}
+/>
 
-<Story name="Normal"  >
+<Story name="Normal">
   {#snippet children({ menuPoints, disableCss })}
     <main use:wrapInShadowDom={disableCss} class="mt-main container layout-flex-col">
       <h1 class="mt-h1 m-b-m">Menypunkter</h1>

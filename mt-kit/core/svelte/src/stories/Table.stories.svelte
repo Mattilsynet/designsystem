@@ -84,19 +84,20 @@
     publishFrom: { control: 'text' },
     professionallyUpdated: { control: 'text' },
     disableCss: { control: 'boolean' }
-  }} />
+  }}
+/>
 
-<Story
-  name="Normal"
-  
-  
-  
-  
-  
-  
-  
-  >
-  {#snippet children({ publishFrom, professionallyUpdated, intro, text, statusTitle, headers, rows, disableCss })}
+<Story name="Normal">
+  {#snippet children({
+    publishFrom,
+    professionallyUpdated,
+    intro,
+    text,
+    statusTitle,
+    headers,
+    rows,
+    disableCss
+  })}
     <div use:wrapInShadowDom={disableCss} class="container layout-grid layout-grid--column-12">
       <article class="article-page new-thing col-1-span-12">
         <h1 class="mt-h1">Publisert og faglig oppdatert er samme dato</h1>
@@ -109,16 +110,22 @@
         </div>
         <Table {headers} {rows} style="--spacer-large: var(--spacer-x-small)">
           <!-- @migration-task: migrate this slot by hand, `headers` would shadow a prop on the parent component -->
-  <th slot="headers" let:header role="columnheader" scope="col" class="mt-th {header.class}">
+          <th
+            slot="headers"
+            let:header
+            role="columnheader"
+            scope="col"
+            class="mt-th {header.class}"
+          >
             {header.text}
           </th>
           {#snippet row({ row })}
-                <tr class="mt-tr"  >
+            <tr class="mt-tr">
               <TableCol header={headers[0]?.text}>{row.tittel1}</TableCol>
               <TableCol header={headers[1]?.text}>{@html row.tittel2}</TableCol>
               <TableCol header={headers[2]?.text}>{row.tittel3}</TableCol>
             </tr>
-              {/snippet}
+          {/snippet}
         </Table>
         <h2 class="p-t-s mt-h2">Tabell uten bruk av komponenter</h2>
         {@html text}

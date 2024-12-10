@@ -29,17 +29,10 @@
     formLinkUrl: { control: 'text' },
     formLinkText: { control: 'text' },
     disableCss: { control: 'boolean' }
-  }} />
+  }}
+/>
 
-<Story
-  name="Normal"
-  
-  
-  
-  
-  
-  
-  >
+<Story name="Normal">
   {#snippet children({ title, intro, text, moreText, formLinkUrl, formLinkText, disableCss })}
     <div use:wrapInShadowDom={disableCss} class="container layout-grid layout-grid--column-12">
       <article class="article-page col-1-span-12">
@@ -71,15 +64,7 @@
   {/snippet}
 </Story>
 
-<Story
-  name="Modul - normal"
-  
-  
-  
-  
-  
-  
-  >
+<Story name="Modul - normal">
   {#snippet children({ title, intro, text, moreText, formLinkUrl, formLinkText, disableCss })}
     <div use:wrapInShadowDom={disableCss} class="container">
       <CardArticle
@@ -89,20 +74,13 @@
         {intro}
         {title}
         {text}
-        id={title} />
+        id={title}
+      />
     </div>
   {/snippet}
 </Story>
 
-<Story
-  name="Modul - H2 heading"
-  
-  
-  
-  
-  
-  
-  >
+<Story name="Modul - H2 heading">
   {#snippet children({ title, intro, text, moreText, formLinkUrl, formLinkText, disableCss })}
     <div use:wrapInShadowDom={disableCss} class="container">
       <CardArticle
@@ -113,7 +91,8 @@
         {title}
         {text}
         headerTag="h2"
-        id={title} />
+        id={title}
+      />
     </div>
   {/snippet}
 </Story>

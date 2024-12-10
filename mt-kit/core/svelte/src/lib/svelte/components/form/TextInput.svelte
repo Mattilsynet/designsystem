@@ -47,8 +47,8 @@
 
 <!-- TODO check if we can remove wrapping after svelte5 upgrade. See MTP-2784 -->
 <div class="mt-form">
-  <Label for={name} {isRequired} {textOptional} {showOptionalText} class={labelClass}
-    >{label}</Label>
+  <Label for={name} {isRequired} {textOptional} {showOptionalText} class={labelClass}>{label}</Label
+  >
 
   {#if helpText}
     <div id={`${name}-hint`} class="hint">
@@ -76,5 +76,6 @@
     aria-invalid={!!error}
     {inputmode}
     {placeholder}
-    {autocomplete} />
+    {autocomplete}
+  />
 </div>

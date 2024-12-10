@@ -93,35 +93,37 @@
       }
     ],
     disableCss: false
-  }} />
+  }}
+/>
 
-<Template >
+<Template>
   {#snippet children({ args })}
     <div use:wrapInShadowDom={args.disableCss}>
       <section class="preview-wrapper">
         <Dropdown
           title={args.buttonLabel}
           loadJs={!args.disableJs}
-          
           icon="icon--caret-down-after"
-          class="mt-button__small-text full-menu">
+          class="mt-button__small-text full-menu"
+        >
           {#snippet children({ titleId })}
-                <ol class="mt-ol m-t-xxs alt-language" aria-labelledby={titleId}>
+            <ol class="mt-ol m-t-xxs alt-language" aria-labelledby={titleId}>
               {#each args.items as item}
                 <li>
                   <a href={item.url} class="forward-arrow-small">{item.title}</a>
                 </li>
               {/each}
             </ol>
-                        {/snippet}
-            </Dropdown>
+          {/snippet}
+        </Dropdown>
       </section>
       <section class="preview-wrapper" aria-labelledby="how-to-heading">
         <CardArticle
           headingId={args.cardArticle.headingId}
           title={args.cardArticle.title}
           intro={args.cardArticle.intro}
-          text={args.cardArticle.text} />
+          text={args.cardArticle.text}
+        />
       </section>
     </div>
   {/snippet}
@@ -129,65 +131,58 @@
 
 <Story name="Normal" args={configs[0]} />
 
-<Story name="Multiple" args={configs} >
+<Story name="Multiple" args={configs}>
   {#snippet children({ args })}
     {#each [configs[0], configs[1]] as args, i}
       <section class="preview-wrapper inline-block">
         <Dropdown
           title={args.buttonLabel}
           loadJs={!args.disableJs}
-          
           icon="icon--caret-down-after"
-          class="mt-button__small-text  full-menu">
+          class="mt-button__small-text  full-menu"
+        >
           {#snippet children({ titleId })}
-                <ol class="mt-ol m-t-xxs alt-language" aria-labelledby={titleId}>
+            <ol class="mt-ol m-t-xxs alt-language" aria-labelledby={titleId}>
               {#each args.items as item}
                 <li>
                   <a href={item.url} class="mt-link forward-arrow-small">{item.title}</a>
                 </li>
               {/each}
             </ol>
-                        {/snippet}
-            </Dropdown>
+          {/snippet}
+        </Dropdown>
       </section>
     {/each}
   {/snippet}
 </Story>
 
-<Story
-  name="Standalone"
-  args={configs}
-  
-  
-  
-  
-  
-  
-  >
+<Story name="Standalone" args={configs}>
   {#snippet children({ args, label, helpText, disableCss, options, isRequired, textOptional })}
     <div use:wrapInShadowDom={disableCss}>
       <section class="m-t-l layout-grid layout-grid--column-12">
         <Dropdown
-          
           title="Vis søkefilter"
           titleWhenOpen="Skjul søkefilter"
           loadJs={!args.disableJs}
           icon="icon--caret-down-after"
-          class="default-dropdown span-9-col-3-span-4">
+          class="default-dropdown span-9-col-3-span-4"
+        >
           {#snippet children({ isOpen })}
-                <form class="mt-form">
+            <form class="mt-form">
               <Checkbox {name} {label} {helpText} {options} {isRequired} {textOptional} />
               <button class="mt-button mt-button--primary" type="submit"> Filtrer </button>
               <button class="mt-button mt-button--secondary" type="reset" onclick={resetForm}>
                 Tøm filter
               </button>
             </form>
-                        {/snippet}
-            </Dropdown>
+          {/snippet}
+        </Dropdown>
 
         <div class="m-t-l col-3-span-6">
           <h2>Annet innhold på samme side</h2>
-          <p>Dropdown skal lukke seg når man trykker utenfor eller bruker TAB for å skifte fokus.</p>
+          <p>
+            Dropdown skal lukke seg når man trykker utenfor eller bruker TAB for å skifte fokus.
+          </p>
           <a class="mt-link" href="/">Lenke til annet innhold</a>
         </div>
       </section>

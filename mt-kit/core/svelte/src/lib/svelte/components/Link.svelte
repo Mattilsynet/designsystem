@@ -1,14 +1,13 @@
 <script lang="ts">
   import { getFileExtension, mapRelExternal } from '../../ts/utils'
 
-  
   interface Props {
-    linkText: any;
-    href: any;
-    class?: string;
-    style?: string;
-    linkStyle?: 'mt-link' | 'mt-button';
-    fileName?: string;
+    linkText: any
+    href: any
+    class?: string
+    style?: string
+    linkStyle?: 'mt-link' | 'mt-button'
+    fileName?: string
   }
 
   let {
@@ -18,7 +17,7 @@
     style = '',
     linkStyle = 'mt-link',
     fileName = ''
-  }: Props = $props();
+  }: Props = $props()
 
   let fileType = $derived(getFileExtension(fileName) ? `(${getFileExtension(fileName)})` : '')
 </script>

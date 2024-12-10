@@ -51,7 +51,8 @@
   aria-required={isRequired || undefined}
   class="mt-fieldset form-fieldset {theme === 'checkbox' ? 'checkbox' : ''} {theme === 'button'
     ? 'mt-button-checkbox'
-    : ''} {className}">
+    : ''} {className}"
+>
   <legend class="mt-legend form-legend {legendClass}">
     {label}
     {#if !isRequired && showOptionalText}
@@ -81,10 +82,12 @@
         checked={forceArray(value).includes(checkbox.value)}
         on:change={onChange}
         aria-required={isRequired}
-        aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)} />
+        aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)}
+      />
       <label
         class="mt-label {theme === 'button' ? 'mt-button mt-button--secondary' : ''}"
-        for={`${name}-${toKebabCase(checkbox.value)}`}>
+        for={`${name}-${toKebabCase(checkbox.value)}`}
+      >
         {checkbox.text}
       </label>
     </div>

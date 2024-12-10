@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { createBubbler, preventDefault } from 'svelte/legacy';
+  import { createBubbler, preventDefault } from 'svelte/legacy'
 
-  const bubble = createBubbler();
+  const bubble = createBubbler()
   import { Meta, Story } from '@storybook/addon-svelte-csf'
   import { toKebabCase } from '$lib/ts/utils'
   import DialogBox from '$lib/svelte/components/DialogBox.svelte'
@@ -84,13 +84,15 @@
     helpText: { control: 'text' },
     errorMessage: { control: 'text' },
     disableCss: { control: 'boolean' }
-  }} />
+  }}
+/>
 
-<Story name="Normal"     >
+<Story name="Normal">
   {#snippet children({ title, intro, legalItems, text, disableCss })}
     <div
       use:wrapInShadowDom={disableCss}
-      class="container content layout-grid layout-grid--column-12">
+      class="container content layout-grid layout-grid--column-12"
+    >
       <article class="article-page col-1-span-12 legal-guidance">
         <h1 class="mt-h1">{title}</h1>
         <div class="intro">
@@ -103,7 +105,8 @@
           <article
             id={toKebabCase(legal.title)}
             class="legal-collection legal-collection__border-top col-3-span-6"
-            aria-labelledby="collection-title-1">
+            aria-labelledby="collection-title-1"
+          >
             <h2 id="collection-title-1" class="mt-h2">{legal.title}</h2>
 
             <div class="intro">
@@ -120,7 +123,8 @@
         <DialogBox
           isOpen={dialogOpen}
           title={hideFeedbackText ? 'Takk for tilbakemeldingen.' : 'Fant du det du lette etter?'}
-          ariaTitle="Fant du det du lette etter?">
+          ariaTitle="Fant du det du lette etter?"
+        >
           <div role="group" class="feedback-box--buttons {hideFeedbackText ? 'hide-feedback' : ''}">
             <button
               id="feedback_yes"
@@ -128,16 +132,22 @@
               class="mt-button mt-button--secondary"
               onclick={() => {
                 handleClick('yes')
-              }}>Ja</button>
+              }}>Ja</button
+            >
             <button
               id="feedback_no"
               type="button"
               class="mt-button mt-button--secondary"
               onclick={() => {
                 handleClick('no')
-              }}>Nei</button>
+              }}>Nei</button
+            >
           </div>
-          <form name="feedback_form" class="mt-form form-layout" onsubmit={preventDefault(bubble('submit'))}>
+          <form
+            name="feedback_form"
+            class="mt-form form-layout"
+            onsubmit={preventDefault(bubble('submit'))}
+          >
             <TextArea
               name="feedback_text"
               bind:textAreaRef={feedbackTextInput}
@@ -150,10 +160,12 @@
               helpTextPlacement="below"
               textAreaClass={hideFeedbackText ? '' : 'hide-feedback'}
               helpTextClass={hideFeedbackText ? '' : 'hide-feedback'}
-              labelClass={hideFeedbackText ? '' : 'hide-feedback'} />
+              labelClass={hideFeedbackText ? '' : 'hide-feedback'}
+            />
             <button
               type="submit"
-              class="mt-button mt-button--primary {hideFeedbackText ? '' : 'hide-feedback'}">
+              class="mt-button mt-button--primary {hideFeedbackText ? '' : 'hide-feedback'}"
+            >
               Send svar
             </button>
           </form>

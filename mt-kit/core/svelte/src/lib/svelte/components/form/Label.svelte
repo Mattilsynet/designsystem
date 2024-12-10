@@ -1,13 +1,11 @@
 <script lang="ts">
-  
-  
   interface Props {
-    for: string;
-    class?: string;
-    textOptional?: string | undefined;
-    isRequired?: boolean | undefined;
-    showOptionalText?: boolean;
-    children?: import('svelte').Snippet;
+    for: string
+    class?: string
+    textOptional?: string | undefined
+    isRequired?: boolean | undefined
+    showOptionalText?: boolean
+    children?: import('svelte').Snippet
   }
 
   let {
@@ -17,7 +15,7 @@
     isRequired = undefined,
     showOptionalText = true,
     children
-  }: Props = $props();
+  }: Props = $props()
 </script>
 
 <label class="mt-label {className}" id="{htmlFor}-label" for={htmlFor}>

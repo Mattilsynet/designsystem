@@ -40,9 +40,10 @@
     tags: { control: 'array' },
     isClosable: { control: 'boolean' },
     disableCss: { control: 'boolean' }
-  }} />
+  }}
+/>
 
-<Story name="Normal" >
+<Story name="Normal">
   {#snippet children({ args })}
     <div use:wrapInShadowDom={args.disableCss}></div>
     <h1 class="mt-h1">Tags</h1>

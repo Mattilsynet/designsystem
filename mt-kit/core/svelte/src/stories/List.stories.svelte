@@ -37,9 +37,10 @@
     title: { control: 'text' },
     content: { control: 'array' },
     disableCss: { control: 'boolean' }
-  }} />
+  }}
+/>
 
-<Story name="Normal"  >
+<Story name="Normal">
   {#snippet children({ args, disableCss })}
     <div use:wrapInShadowDom={args.disableCss}>
       <h1 class="mt-h1">Dokument liste</h1>

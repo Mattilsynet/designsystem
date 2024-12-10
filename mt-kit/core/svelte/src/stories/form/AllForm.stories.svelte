@@ -131,18 +131,19 @@
     helpText: { control: 'text' },
     countCharactersLeftLabel: { control: 'text' },
     disableCss: { control: 'boolean' }
-  }} />
+  }}
+/>
 
-<Story
-  name="Normal"
-  
-  
-  
-  
-  
-  
-  >
-  {#snippet children({ label, helpText, radioLabel, checkboxLabel, checkboxWithSubsetsLegend, countCharactersLeftLabel, args })}
+<Story name="Normal">
+  {#snippet children({
+    label,
+    helpText,
+    radioLabel,
+    checkboxLabel,
+    checkboxWithSubsetsLegend,
+    countCharactersLeftLabel,
+    args
+  })}
     <div use:wrapInShadowDom={args.disableCss} class="layout-grid layout-grid--column-12">
       <div class="col-3-span-6 multipage-form-view">
         <form class="mt-form">
@@ -155,7 +156,8 @@
             textOptional="Valgfritt"
             inputmode="text"
             placeholder=""
-            autocomplete="" />
+            autocomplete=""
+          />
           <!-- TextArea   -->
           <TextArea
             name="email"
@@ -168,7 +170,8 @@
             inputmode="text"
             maxlength="300"
             rows="3"
-            cols="5" />
+            cols="5"
+          />
 
           <!--  Radio -->
           <RadioGroup
@@ -178,7 +181,8 @@
             {helpText}
             label={radioLabel}
             isRequired={true}
-            textOptional="Valgfritt" />
+            textOptional="Valgfritt"
+          />
 
           <!-- Checkbox -->
           <Checkbox
@@ -186,13 +190,15 @@
             label={checkboxLabel}
             {helpText}
             options={checkBoxOptions}
-            textOptional="Valgfritt" />
+            textOptional="Valgfritt"
+          />
 
           <!-- Checkboxes with subsets-->
           <CheckboxWithSubSets
             name={checkboxWithSubsetsName}
             level1Legend={checkboxWithSubsetsLegend}
-            options={checkboxWithSubsetsOptions} />
+            options={checkboxWithSubsetsOptions}
+          />
 
           <!-- Address -->
           <Address
@@ -207,24 +213,24 @@
             loadJs={args.address.loadJs}
             streetHelpText={helpText}
             bind:streetValue={values['ownerStreet']}
-            bind:postalCodeValue={values['ownerZip']}>
-          </Address>
+            bind:postalCodeValue={values['ownerZip']}
+          ></Address>
         </form>
       </div>
     </div>
   {/snippet}
 </Story>
 
-<Story
-  name="Input with error"
-  
-  
-  
-  
-  
-  
-  >
-  {#snippet children({ label, helpText, errorMessage, radioLabel, checkboxLabel, args, countCharactersLeftLabel })}
+<Story name="Input with error">
+  {#snippet children({
+    label,
+    helpText,
+    errorMessage,
+    radioLabel,
+    checkboxLabel,
+    args,
+    countCharactersLeftLabel
+  })}
     <div use:wrapInShadowDom={args.disableCss}>
       <form class="mt-form form-layout">
         <TextInput
@@ -237,7 +243,8 @@
           textOptional="(valgfritt felt)"
           inputmode="text"
           placeholder=""
-          autocomplete="" />
+          autocomplete=""
+        />
 
         <TextArea
           name="textfield"
@@ -249,7 +256,8 @@
           inputmode="text"
           maxlength="300"
           rows="3"
-          cols="5" />
+          cols="5"
+        />
 
         <!--  Radio -->
         <RadioGroup
@@ -259,7 +267,8 @@
           {helpText}
           label={radioLabel}
           isRequired="true"
-          textOptional="valgfritt" />
+          textOptional="valgfritt"
+        />
 
         <!--    Checkbox-->
         <Checkbox
@@ -267,7 +276,8 @@
           label={checkboxLabel}
           {helpText}
           options={checkBoxOptions}
-          error={{ key: checkboxName, message: errorMessage }} />
+          error={{ key: checkboxName, message: errorMessage }}
+        />
       </form>
     </div>
   {/snippet}

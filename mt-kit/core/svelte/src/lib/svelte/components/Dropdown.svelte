@@ -57,7 +57,8 @@
       aria-haspopup="true"
       aria-expanded={isOpen}
       aria-controls={bodyId}
-      on:click={() => send('TOGGLE')}>
+      on:click={() => send('TOGGLE')}
+    >
       {@html hasDynamicTitleAndIsOpen ? titleWhenOpen : title}
     </button>
     {#if isOpen}
@@ -69,7 +70,8 @@
         on:click={handleClick}
         on:clickOutside={() => isOpen && send('TOGGLE')}
         in:slide={{ duration: 650 }}
-        out:slide={{ duration: 500 }}>
+        out:slide={{ duration: 500 }}
+      >
         <slot {isOpen} />
       </div>
     {/if}

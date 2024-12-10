@@ -19,18 +19,19 @@
     helpText: { control: 'text' },
     disableCss: { control: 'boolean' },
     loadJs: { control: 'boolean' }
-  }} />
+  }}
+/>
 
-<Story
-  name="Search input"
-  
-  
-  
-  
-  
-  
-  >
-  {#snippet children({ args, label, disableCss, searchButtonText, placeholder, primaryButton, helpText })}
+<Story name="Search input">
+  {#snippet children({
+    args,
+    label,
+    disableCss,
+    searchButtonText,
+    placeholder,
+    primaryButton,
+    helpText
+  })}
     <div use:wrapInShadowDom={disableCss}>
       <article>
         <form class="mt-form form-layout">
@@ -54,7 +55,8 @@
             {label}
             {placeholder}
             {searchButtonText}
-            loadJs={args.loadJs} />
+            loadJs={args.loadJs}
+          />
         </form>
       </article>
       <article>
@@ -64,10 +66,12 @@
             {label}
             {helpText}
             {searchButtonText}
-            loadJs={args.loadJs} />
+            loadJs={args.loadJs}
+          />
         </form>
       </article>
-    </div>  {/snippet}
+    </div>
+  {/snippet}
 </Story>
 
 <style>

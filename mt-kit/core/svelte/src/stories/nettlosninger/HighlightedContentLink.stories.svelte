@@ -20,9 +20,10 @@
     shortTitle: { control: 'string' },
     disableJs: { control: 'boolean' },
     disableCss: { control: 'boolean' }
-  }} />
+  }}
+/>
 
-<Story name="Normal"     >
+<Story name="Normal">
   {#snippet children({ text, disableCss, title, shortTitle, date })}
     <main use:wrapInShadowDom={disableCss} class="mt-main container layout-flex-col">
       <h1 class="mt-h1">Fremhevet innhold med bilde</h1>
@@ -33,7 +34,8 @@
           image={{ src: imageFile, alt: 'Her er alt tekst til bildet' }}
           headingClass="mt-h3"
           title="Dette er tittelen"
-          shortTitle="Dette er kort tittel">
+          shortTitle="Dette er kort tittel"
+        >
           {@html text}
         </HighlightedContentLink>
       </section>
@@ -45,7 +47,8 @@
           href="https://www.mattilsynet.no"
           headingClass="mt-h3"
           title="Dette er tittelen"
-          shortTitle="Dette er kort tittel">
+          shortTitle="Dette er kort tittel"
+        >
           {@html text}
         </HighlightedContentLink>
       </section>
@@ -53,7 +56,7 @@
   {/snippet}
 </Story>
 
-<Story name="CTA type"     >
+<Story name="CTA type">
   {#snippet children({ text, disableCss, title, shortTitle, date })}
     <main use:wrapInShadowDom={disableCss} class="mt-main container layout-flex-col">
       <h1 class="mt-h1">Fremhevet innhold CTA type</h1>
@@ -64,7 +67,8 @@
           image={{ src: imageFile, alt: 'Her er alt tekst til bildet' }}
           headingClass="mt-h3"
           title="Dette er tittelen"
-          shortTitle="Dette er kort tittel">
+          shortTitle="Dette er kort tittel"
+        >
           {@html text}
         </HighlightedContentLink>
       </section>
@@ -72,7 +76,7 @@
   {/snippet}
 </Story>
 <br />
-<Story name="CTA type"     >
+<Story name="CTA type">
   {#snippet children({ text, disableCss, title, shortTitle, date })}
     <main use:wrapInShadowDom={disableCss} class="mt-main container layout-flex-col">
       <h1 class="mt-h1">Fremhevet innhold CTA type med ekstern lenke</h1>
@@ -83,19 +87,21 @@
           image={{ src: imageFile, alt: 'Her er alt tekst til bildet' }}
           headingClass="mt-h3"
           title="Dette er tittelen"
-          shortTitle="Dette er kort tittel">
+          shortTitle="Dette er kort tittel"
+        >
           {@html text}
         </HighlightedContentLink>
       </section>
     </main>
   {/snippet}
 </Story>
-<Story name="Campaign"     >
+<Story name="Campaign">
   {#snippet children({ text, disableCss, title, shortTitle, date })}
     <h2 class="mt-h2">Fremhevet innhold - promotion</h2>
     <main
       use:wrapInShadowDom={disableCss}
-      class="mt-main container layout-grid layout-grid--column-12">
+      class="mt-main container layout-grid layout-grid--column-12"
+    >
       <section class="col-1-span-12 layout-grid layout-grid--column-12 highlighted">
         <HighlightedContentLink
           displayType="campaign"
@@ -104,7 +110,8 @@
           image={{ src: imageFile, alt: 'Her er alt tekst til bildet' }}
           headingClass="mt-h3"
           title="Dette er tittelen"
-          shortTitle="Dette er kort tittel">
+          shortTitle="Dette er kort tittel"
+        >
           {@html text}
         </HighlightedContentLink>
       </section>

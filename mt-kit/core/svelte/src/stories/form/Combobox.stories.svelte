@@ -97,9 +97,10 @@
   argTypes={{
     disableCss: { control: 'boolean' },
     disableJs: { control: 'boolean' }
-  }} />
+  }}
+/>
 
-<Story name="Normal" >
+<Story name="Normal">
   {#snippet children({ args })}
     <div use:wrapInShadowDom={args.disableCss}>
       <h1 class="mt-h1">Combobox</h1>
@@ -113,16 +114,15 @@
           inputIsRequired={true}
           inputHelpText={''}
           bind:inputRef={secondInput}
-          bind:inputValue={values['choice']}>
+          bind:inputValue={values['choice']}
+        >
           {#snippet options()}
-              
-              <u-option>en</u-option>
-              <u-option>to</u-option>
-              <u-option>tre</u-option>
-              <u-option>fire</u-option>
-              <u-option>fem</u-option>
-            
-              {/snippet}
+            <u-option>en</u-option>
+            <u-option>to</u-option>
+            <u-option>tre</u-option>
+            <u-option>fire</u-option>
+            <u-option>fem</u-option>
+          {/snippet}
         </Combobox>
       </form>
       <h2 class="mt-h2 m-t-m">With api request</h2>
@@ -138,8 +138,8 @@
           inputHelpText={args.address.streetHelpText}
           bind:inputRef={input}
           bind:inputValue={values['ownerStreet']}
-          {handleInput}>
-        </Combobox>
+          {handleInput}
+        ></Combobox>
       </form>
     </div>
   {/snippet}

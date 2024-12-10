@@ -48,9 +48,10 @@
     helpText: { control: 'text' },
     errorMessage: { control: 'text' },
     disableCss: { control: 'boolean' }
-  }} />
+  }}
+/>
 
-<Story name="Normal"    >
+<Story name="Normal">
   {#snippet children({ label, helpText, disableCss, args })}
     <div use:wrapInShadowDom={disableCss}>
       <h1 class="mt-h1">Radioknapper</h1>
@@ -63,7 +64,8 @@
           {label}
           error={undefined}
           textOptional="Valgfritt"
-          theme="radio" />
+          theme="radio"
+        />
       </form>
       <h2 id="theme" class="mt-h2">Theme - button</h2>
       <form action="" class="mt-form form-layout">
@@ -75,13 +77,14 @@
           label={args.buttonRadio.label}
           error={undefined}
           textOptional={args.buttonRadio.textOptional}
-          theme="button" />
+          theme="button"
+        />
       </form>
     </div>
   {/snippet}
 </Story>
 
-<Story name="Radio with error"     >
+<Story name="Radio with error">
   {#snippet children({ label, helpText, disableCss, errorMessage, args })}
     <div use:wrapInShadowDom={disableCss}>
       <h2 class="mt-h2">Theme - radio</h2>
@@ -92,7 +95,8 @@
           {helpText}
           {label}
           error={{ key: name, message: errorMessage }}
-          textOptional="valgfritt" />
+          textOptional="valgfritt"
+        />
       </form>
       <h2 id="theme" class="mt-h2">Theme - button</h2>
       <form class="mt-form form-layout">
@@ -104,7 +108,8 @@
           label={args.buttonRadio.label}
           error={{ key: name, message: errorMessage }}
           textOptional={args.buttonRadio.textOptional}
-          theme="button" />
+          theme="button"
+        />
       </form>
     </div>
   {/snippet}

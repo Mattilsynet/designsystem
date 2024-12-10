@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { run } from 'svelte/legacy';
+  import { run } from 'svelte/legacy'
 
   import 'ol/ol.css'
   import { Map, View } from 'ol'
@@ -16,17 +16,16 @@
   } from '../../../ts/mapUtils'
   import { setMap } from './contexts'
 
-  
   interface Props {
-    class?: string;
-    mapId?: string;
-    startCoordinates?: any;
-    startZoom?: any;
-    goToMapSkipLinkText?: string;
-    enableRotation?: boolean;
-    extent?: any;
-    children?: import('svelte').Snippet;
-    extra?: import('svelte').Snippet;
+    class?: string
+    mapId?: string
+    startCoordinates?: any
+    startZoom?: any
+    goToMapSkipLinkText?: string
+    enableRotation?: boolean
+    extent?: any
+    children?: import('svelte').Snippet
+    extra?: import('svelte').Snippet
   }
 
   let {
@@ -39,7 +38,7 @@
     extent = NORWAY_EXTENT,
     children,
     extra
-  }: Props = $props();
+  }: Props = $props()
 
   let map: Map | undefined = $state()
   let mapElement = $state()
@@ -74,7 +73,7 @@
     if (map) {
       setMap(map)
     }
-  });
+  })
 
   onDestroy(() => {
     if (map) {

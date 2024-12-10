@@ -24,9 +24,10 @@
     disabled: { control: 'boolean' },
     disableJs: { control: 'boolean' },
     disableCss: { control: 'boolean' }
-  }} />
+  }}
+/>
 
-<Story name="Normal"    >
+<Story name="Normal">
   {#snippet children({ text, text2, disableCss, iconText })}
     <main use:wrapInShadowDom={disableCss} class="mt-main container layout-flex-col">
       <h1 class="mt-h1">Varseltekst</h1>

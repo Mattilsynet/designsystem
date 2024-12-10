@@ -2,13 +2,13 @@
   import { compareDates } from '../../ts/utils'
 
   interface Props {
-    publishFrom: string | undefined;
-    professionallyUpdated: string | undefined;
-    lang?: string;
-    publishedText?: string;
-    lastPublishedText?: string;
-    dtClass?: string;
-    ddClass?: string;
+    publishFrom: string | undefined
+    professionallyUpdated: string | undefined
+    lang?: string
+    publishedText?: string
+    lastPublishedText?: string
+    dtClass?: string
+    ddClass?: string
   }
 
   let {
@@ -19,14 +19,16 @@
     lastPublishedText = 'Faglig oppdatert',
     dtClass = '',
     ddClass = ''
-  }: Props = $props();
-  let dateObject = $derived(compareDates({
-    lang,
-    publishFrom,
-    professionallyUpdated,
-    publishedFromLabel: publishedText,
-    professionallyUpdatedLabel: lastPublishedText
-  }))
+  }: Props = $props()
+  let dateObject = $derived(
+    compareDates({
+      lang,
+      publishFrom,
+      professionallyUpdated,
+      publishedFromLabel: publishedText,
+      professionallyUpdatedLabel: lastPublishedText
+    })
+  )
 </script>
 
 <dl class="mt-dl meta">

@@ -16,9 +16,10 @@
   argTypes={{
     title: { control: 'text' },
     content: { control: 'text' }
-  }} />
+  }}
+/>
 
-<Story name="Normal" >
+<Story name="Normal">
   {#snippet children({ args })}
     <h1 class="mt-h1">Oppsummering og detaljer</h1>
     <main class="mt-main container layout-flex-col">
@@ -35,14 +36,15 @@
         title={args.title}
         detailsClass="color-neutral border-neutral"
         summaryClass=""
-        summaryWrapperClass="background-mt-white">
+        summaryWrapperClass="background-mt-white"
+      >
         {@html args.content}
       </SummaryDetail>
     </main>
   {/snippet}
 </Story>
 
-<Story name="Med linje på venstre side" >
+<Story name="Med linje på venstre side">
   {#snippet children({ args })}
     <p>Oppsummering og detaljer med linje på venstre side</p>
     <main class="mt-main container layout-flex-col">
@@ -53,7 +55,7 @@
   {/snippet}
 </Story>
 
-<Story name="Med ikon" >
+<Story name="Med ikon">
   {#snippet children({ args })}
     <p>Oppsummering og detaljer med ikon</p>
     <main class="mt-main container layout-flex-col">
@@ -64,7 +66,7 @@
   {/snippet}
 </Story>
 
-<Story name="Med fet skrift" >
+<Story name="Med fet skrift">
   {#snippet children({ args })}
     <p>Oppsummering og detaljer neutral</p>
     <main class="mt-main container layout-flex-col">
@@ -76,7 +78,8 @@
       <SummaryDetail
         title={`<h2 class="mt-h2">${args.title}</h2>`}
         detailsClass="color-neutral"
-        summaryClass="adjusted-heading">
+        summaryClass="adjusted-heading"
+      >
         {@html args.content}
       </SummaryDetail>
     </main>

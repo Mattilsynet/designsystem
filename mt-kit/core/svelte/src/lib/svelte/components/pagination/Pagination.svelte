@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { run, preventDefault } from 'svelte/legacy';
+  import { run, preventDefault } from 'svelte/legacy'
 
   import type { Page, ChapterChangeDetails } from '../../../ts/types'
   import { onMount, createEventDispatcher } from 'svelte'
@@ -11,14 +11,14 @@
   const ALLOWED_PAGES_MOBILE = 3
 
   interface Props {
-    nextText?: string;
-    previousText?: string;
-    paginationLabel?: string;
-    labelPage?: string;
-    toPageTitle?: string;
-    pages?: Array<Page>;
-    currentPageIndex?: 0 | 1;
-    class?: string;
+    nextText?: string
+    previousText?: string
+    paginationLabel?: string
+    labelPage?: string
+    toPageTitle?: string
+    pages?: Array<Page>
+    currentPageIndex?: 0 | 1
+    class?: string
   }
 
   let {
@@ -30,9 +30,7 @@
     pages = [],
     currentPageIndex = 0,
     class: className = ''
-  }: Props = $props();
-  
-
+  }: Props = $props()
 
   const dispatch = createEventDispatcher<{ chapterChange: ChapterChangeDetails }>()
 
@@ -107,10 +105,10 @@
   let nextPage = $derived(pages[nextPageIndex])
   let previousPageIndex = $derived(currentPageIndex - 1)
   let previousPage = $derived(pages[previousPageIndex])
-  let isMobile;
+  let isMobile
   run(() => {
     isMobile = undefined
-  });
+  })
   let mappedPages = $derived(mapPagination(isMobile, currentPageIndex + 1, pages))
 </script>
 
@@ -124,7 +122,8 @@
           : ''}"
         title={previousText}
         onclick={preventDefault(() => handleClick(previousPageIndex))}
-        aria-disabled={!hasPreviousPage(currentPageIndex)}>
+        aria-disabled={!hasPreviousPage(currentPageIndex)}
+      >
         {previousText}
       </a>
     {/if}
@@ -135,13 +134,15 @@
         {:else if !chapter.hidden}
           <li
             class="mt-li pagination-item"
-            class:pagination-item--current={index === currentPageIndex ? 'page' : undefined}>
+            class:pagination-item--current={index === currentPageIndex ? 'page' : undefined}
+          >
             <a
               href={chapter.url}
               class="mt-link"
               title={interpolate(toPageTitle, [index + 1, pages.length])}
               aria-current={index === currentPageIndex ? 'page' : undefined}
-              onclick={preventDefault(() => handleClick(index))}>
+              onclick={preventDefault(() => handleClick(index))}
+            >
               <span class="inclusively-hidden-initial">{labelPage}</span>
               {index + 1}
             </a>
@@ -157,7 +158,8 @@
           : ''}"
         title={previousText}
         onclick={preventDefault(() => handleClick(previousPageIndex))}
-        aria-disabled={!hasPreviousPage(currentPageIndex)}>
+        aria-disabled={!hasPreviousPage(currentPageIndex)}
+      >
         {previousText}
       </a>
     {/if}
@@ -168,7 +170,8 @@
       class="mt-link next-link {!hasNextPage(currentPageIndex, pages)
         ? 'inclusively-hidden--fit-content'
         : ''}"
-      aria-disabled={!hasNextPage(currentPageIndex, pages)}>
+      aria-disabled={!hasNextPage(currentPageIndex, pages)}
+    >
       {nextText}
     </a>
   </nav>

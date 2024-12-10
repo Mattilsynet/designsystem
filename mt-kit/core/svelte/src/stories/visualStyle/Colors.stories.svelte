@@ -14,7 +14,7 @@
     disableCss: { control: 'boolean' }
   }}
 />
-<Story name="All"  >
+<Story name="All">
   {#snippet children({ primary, disableCss })}
     <div
       use:wrapInShadowDom={disableCss}
