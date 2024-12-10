@@ -1,41 +1,44 @@
-<script lang="ts">
-  import { Meta, Story } from '@storybook/addon-svelte-csf'
+<script lang="ts" module>
+  import { defineMeta } from '@storybook/addon-svelte-csf'
   import Published from '$lib/svelte/components/Published.svelte'
   import Link from '$lib/svelte/components/Link.svelte'
   import { wrapInShadowDom } from '../storybook-utils/utils'
-</script>
 
-<Meta
-  title="Innhold/Rapport"
-  args={{
-    reportType: 'Rapport',
-    title: 'Veterinær grensekontroll sjømat 2020',
-    intro: 'Intro til grensekontroll',
-    text: 'Teksten til grensekontrollen',
-    publishFrom: '2021-06-24T11:40:02.889Z',
-    professionallyUpdated: '2021-06-24T11:32:22Z',
-    subjectToExamination: 'Dette undersøkte vi',
-    timePeriod: 'Dette er tidsperioden',
-    lookingForWhat: 'Dette så vi etter',
-    organisationPerformingAssignment: 'Disse utførte oppdraget',
-    findings: 'Dette fant vi',
-    file: { text: 'Filrapporten.pdf', url: 'http://www.mattilsynet-xp7prod.enonic.cloud/test.pdf' },
-    disableCss: false
-  }}
-  argTypes={{
-    title: { control: 'text' },
-    reportType: { control: 'text' },
-    publishFrom: { control: 'text' },
-    professionallyUpdated: { control: 'text' },
-    subjectToExamination: { control: 'text' },
-    timePeriod: { control: 'text' },
-    lookingForWhat: { control: 'text' },
-    organisationPerformingAssignment: { control: 'text' },
-    findings: { control: 'text' },
-    file: { control: 'object' },
-    disableCss: { control: 'boolean' }
-  }}
-/>
+  const { Story } = defineMeta({
+    title: 'Innhold/Rapport',
+    args: {
+      reportType: 'Rapport',
+      title: 'Veterinær grensekontroll sjømat 2020',
+      intro: 'Intro til grensekontroll',
+      text: 'Teksten til grensekontrollen',
+      publishFrom: '2021-06-24T11:40:02.889Z',
+      professionallyUpdated: '2021-06-24T11:32:22Z',
+      subjectToExamination: 'Dette undersøkte vi',
+      timePeriod: 'Dette er tidsperioden',
+      lookingForWhat: 'Dette så vi etter',
+      organisationPerformingAssignment: 'Disse utførte oppdraget',
+      findings: 'Dette fant vi',
+      file: {
+        text: 'Filrapporten.pdf',
+        url: 'http://www.mattilsynet-xp7prod.enonic.cloud/test.pdf'
+      },
+      disableCss: false
+    },
+    argTypes: {
+      title: { control: 'text' },
+      reportType: { control: 'text' },
+      publishFrom: { control: 'text' },
+      professionallyUpdated: { control: 'text' },
+      subjectToExamination: { control: 'text' },
+      timePeriod: { control: 'text' },
+      lookingForWhat: { control: 'text' },
+      organisationPerformingAssignment: { control: 'text' },
+      findings: { control: 'text' },
+      file: { control: 'object' },
+      disableCss: { control: 'boolean' }
+    }
+  })
+</script>
 
 <Story name="Normal">
   {#snippet children({

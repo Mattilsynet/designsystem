@@ -1,19 +1,18 @@
-<script lang="ts">
-  import { Meta, Story } from '@storybook/addon-svelte-csf'
+<script lang="ts" module>
+  import { defineMeta } from '@storybook/addon-svelte-csf'
   import CardArticle from '$lib/svelte/components/CardArticle.svelte'
   import SummaryDetail from '$lib/svelte/components/SummaryDetail.svelte'
   import { toKebabCase } from '$lib/ts/utils'
   import { wrapInShadowDom } from '../storybook-utils/utils'
-</script>
 
-<Meta
-  title="Innhold/Samleside"
-  args={{
-    title: 'Regelveiledning samleside overskrift',
-    intro: 'Regelveiledning samleside ingress',
-    tableOfContents: 'Innhold på siden',
-    text: `<h2 class="mt-h2">Andre overskrift</h2>
-      <p>Paragraf med tekst. Paragraf med tekst. <a class="mt-link" href="">Paragraf med tekst.</a> Paragraf med tekst</p>
+  const { Story } = defineMeta({
+    title: 'Innhold/Samleside',
+    args: {
+      title: 'Regelveiledning samleside overskrift',
+      intro: 'Regelveiledning samleside ingress',
+      tableOfContents: 'Innhold på siden',
+      text: `<h2 class='mt-h2'>Andre overskrift</h2>
+      <p>Paragraf med tekst. Paragraf med tekst. <a class='mt-link' href=''>Paragraf med tekst.</a> Paragraf med tekst</p>
       <ul >
         <li>Valget om å skaffe dyr må være godt gjennomtenkt. Er hele familien enige og innstilt på det?</li>
         <li>
@@ -21,13 +20,13 @@
           selvstendig ansvar for dyr.
         </li>
       </ul>`,
-    disableCss: false,
-    legalItems: [
-      {
-        title: 'Første regelveiledning',
-        intro: 'Første regelveiledning intro tekst.',
-        text: `<h2 class="mt-h2">Andre overskrift</h2>
-          <p>Paragraf med tekst. Paragraf med tekst. <a class="mt-link" href="">Paragraf med tekst.</a> Paragraf med tekst</p>
+      disableCss: false,
+      legalItems: [
+        {
+          title: 'Første regelveiledning',
+          intro: 'Første regelveiledning intro tekst.',
+          text: `<h2 class='mt-h2'>Andre overskrift</h2>
+          <p>Paragraf med tekst. Paragraf med tekst. <a class='mt-link' href=''>Paragraf med tekst.</a> Paragraf med tekst</p>
           <ul >
             <li>Valget om å skaffe dyr må være godt gjennomtenkt. Er hele familien enige og innstilt på det?</li>
             <li>
@@ -35,29 +34,29 @@
               selvstendig ansvar for dyr.
             </li>
           </ul>
-          <table class="mt-table responsive-table col-2-span-10" role="table">
-          <caption class="mt-caption">Merkeregler for flaskevann</caption>
-          <thead role="rowgroup" class="mt-thead">
-          <tr role="row" class="mt-tr"><th role="columnheader" scope="col" class="mt-th">Produkt/merking med</th>
-          <th role="columnheader" scope="col" class="mt-th">Handelsnavn/varenavn/varemerke</th>
-          <th role="columnheader" scope="col" class="mt-th">Kilde/utvinningssted for kilden (for naturlig mineralvann/kildevann)</th>
-          <th role="columnheader" scope="col" class="mt-th">Varebetegnelse</th></tr></thead>
-          <tbody><tr role="row">
-          <td class="text" role="cell"><span class="responsive-table__heading" aria-hidden="true">Produkt/merking med</span>Naturlig mineralvann/kildevann</td>
-          <td class="text" role="cell"><span class="responsive-table__heading" aria-hidden="true">Handelsnavn/varenavn/varemerke</span>Skal ikke frambys under mer enn ett handelsnavn/varenavn.</td>
-          <td class="text" role="cell"><span class="responsive-table__heading" aria-hidden="true">Kilde/utvinningssted for kilden (for naturlig mineralvann/kildevann)</span>Navnet på kilden/utvinningsstedet skal være dominerende.</td>
-          <td class="text" role="cell"><span class="responsive-table__heading" aria-hidden="true">Varebetegnelse</span>Naturlig mineralvann eller kildevann.<br><br>Varebetegnelsen naturlig mineralvann tillates bare på vann som har et naturlig mineralinnhold som avviker fra kildevann og drikkevann.</td></tr>
+          <table class='mt-table responsive-table col-2-span-10' role='table'>
+          <caption class='mt-caption'>Merkeregler for flaskevann</caption>
+          <thead role='rowgroup' class='mt-thead'>
+          <tr role='row' class='mt-tr'><th role='columnheader' scope='col' class='mt-th'>Produkt/merking med</th>
+          <th role='columnheader' scope='col' class='mt-th'>Handelsnavn/varenavn/varemerke</th>
+          <th role='columnheader' scope='col' class='mt-th'>Kilde/utvinningssted for kilden (for naturlig mineralvann/kildevann)</th>
+          <th role='columnheader' scope='col' class='mt-th'>Varebetegnelse</th></tr></thead>
+          <tbody><tr role='row'>
+          <td class='text' role='cell'><span class='responsive-table__heading' aria-hidden='true'>Produkt/merking med</span>Naturlig mineralvann/kildevann</td>
+          <td class='text' role='cell'><span class='responsive-table__heading' aria-hidden='true'>Handelsnavn/varenavn/varemerke</span>Skal ikke frambys under mer enn ett handelsnavn/varenavn.</td>
+          <td class='text' role='cell'><span class='responsive-table__heading' aria-hidden='true'>Kilde/utvinningssted for kilden (for naturlig mineralvann/kildevann)</span>Navnet på kilden/utvinningsstedet skal være dominerende.</td>
+          <td class='text' role='cell'><span class='responsive-table__heading' aria-hidden='true'>Varebetegnelse</span>Naturlig mineralvann eller kildevann.<br><br>Varebetegnelsen naturlig mineralvann tillates bare på vann som har et naturlig mineralinnhold som avviker fra kildevann og drikkevann.</td></tr>
           </tbody></table>
 
           `,
-        howToDoItTitle: 'Slik gjør du',
-        howToDoIt: `<p>Slik gjør du beskrivelse</p>`
-      },
-      {
-        title: 'Andre regelveiledning',
-        intro: 'Andre regelveiledning intro tekst.',
-        text: `<h2 class="mt-h2">Andre overskrift</h2>
-          <p>Paragraf med tekst. Paragraf med tekst. <a class="mt-link" href="">Paragraf med tekst.</a> Paragraf med tekst</p>
+          howToDoItTitle: 'Slik gjør du',
+          howToDoIt: `<p>Slik gjør du beskrivelse</p>`
+        },
+        {
+          title: 'Andre regelveiledning',
+          intro: 'Andre regelveiledning intro tekst.',
+          text: `<h2 class='mt-h2'>Andre overskrift</h2>
+          <p>Paragraf med tekst. Paragraf med tekst. <a class='mt-link' href=''>Paragraf med tekst.</a> Paragraf med tekst</p>
           <ul >
             <li>Valget om å skaffe dyr må være godt gjennomtenkt. Er hele familien enige og innstilt på det?</li>
             <li>
@@ -65,18 +64,19 @@
               selvstendig ansvar for dyr.
             </li>
           </ul>`,
-        howToDoItTitle: 'Slik gjør du',
-        howToDoIt: `<p>Slik gjør du beskrivelse</p>`
-      }
-    ]
-  }}
-  argTypes={{
-    label: { control: 'text' },
-    helpText: { control: 'text' },
-    errorMessage: { control: 'text' },
-    disableCss: { control: 'boolean' }
-  }}
-/>
+          howToDoItTitle: 'Slik gjør du',
+          howToDoIt: `<p>Slik gjør du beskrivelse</p>`
+        }
+      ]
+    },
+    argTypes: {
+      label: { control: 'text' },
+      helpText: { control: 'text' },
+      errorMessage: { control: 'text' },
+      disableCss: { control: 'boolean' }
+    }
+  })
+</script>
 
 <Story name="Normal">
   {#snippet children({ title, intro, legalItems, text, tableOfContents, disableCss })}
@@ -106,8 +106,7 @@
           <article
             id={toKebabCase(legal.title)}
             class="legal-collection legal-collection__border-top col-1-span-12"
-            aria-labelledby="collection-title-1"
-          >
+            aria-labelledby="collection-title-1">
             <h2 id="collection-title-1" class="mt-h2">{legal.title}</h2>
 
             <div class="intro">
@@ -128,30 +127,26 @@
                 text="Noe tekst i kroppen"
                 linkUrl="http://"
                 linkText="Last ned mal for internkontroll"
-                headerTag="h4"
-              />
+                headerTag="h4" />
             </section>
 
             <section class="layout-flex-col layout-flex-col--x-small">
               <SummaryDetail
                 title="Regelverk"
                 detailsClass="color-neutral border-neutral"
-                summaryWrapperClass="background-mt-white layout-flex-col gap-13"
-              >
+                summaryWrapperClass="background-mt-white layout-flex-col gap-13">
                 <CardArticle
                   type="legal-text"
                   title="Dette er tittelen"
                   text="Noe tekst i kroppen"
                   linkUrl="http://"
-                  linkText="Last ned mal for internkontroll"
-                />
+                  linkText="Last ned mal for internkontroll" />
                 <CardArticle
                   type="legal-text"
                   title="Dette er tittelen"
                   text="Noe tekst i kroppen"
                   linkUrl="http://"
-                  linkText="Last ned mal for internkontroll"
-                />
+                  linkText="Last ned mal for internkontroll" />
               </SummaryDetail>
             </section>
           </article>
