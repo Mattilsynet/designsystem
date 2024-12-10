@@ -5,7 +5,7 @@
   import Pagination from '$lib/svelte/components/pagination/Pagination.svelte'
 
   const pageChangeAction = action('pageChange')
-  let currentPageNumber = 0
+  let currentPageNumber = $state(0)
 
   function handlePageChange(e) {
     e.preventDefault()
@@ -38,21 +38,23 @@
     pages: { control: 'array' }
   }} />
 
-<Story name="Normal" let:disableCss let:args>
-  <div use:wrapInShadowDom={disableCss}>
-    <article>
-      <h2 class="mt-h2">Pagination</h2>
-      <Pagination
-        pages={args.pages}
-        currentPageIndex={currentPageNumber}
-        on:page-change={handlePageChange}
-        nextText="Neste"
-        previousText="Forrige"
-        labelPage="Side"
-        toPageTitle={`Gå til side {0} av {1}`}
-        class="" />
-    </article>
-  </div>
+<Story name="Normal"  >
+  {#snippet children({ disableCss, args })}
+    <div use:wrapInShadowDom={disableCss}>
+      <article>
+        <h2 class="mt-h2">Pagination</h2>
+        <Pagination
+          pages={args.pages}
+          currentPageIndex={currentPageNumber}
+          on:page-change={handlePageChange}
+          nextText="Neste"
+          previousText="Forrige"
+          labelPage="Side"
+          toPageTitle={`Gå til side {0} av {1}`}
+          class="" />
+      </article>
+    </div>
+  {/snippet}
 </Story>
 
 <style lang="scss">

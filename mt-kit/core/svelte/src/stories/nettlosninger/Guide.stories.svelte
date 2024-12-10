@@ -1,3 +1,4 @@
+<!-- @migration-task Error while migrating Svelte code: Cannot read properties of undefined (reading 'end') -->
 <script lang="ts">
   import { Meta, Story } from '@storybook/addon-svelte-csf'
   import Dropdown from '$lib/svelte/components/Dropdown.svelte'

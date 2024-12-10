@@ -1,11 +1,13 @@
 <script lang="ts">
+  import { preventDefault, stopPropagation } from 'svelte/legacy';
+
   import { Meta, Story } from '@storybook/addon-svelte-csf'
   import Select from '$lib/svelte/components/form/Select.svelte'
   import MultiSelect from '$lib/svelte/components/form/MultiSelect.svelte'
   import { wrapInShadowDom } from '../storybook-utils/utils'
   import ResourceList from '../storybook-utils/ResourceList.svelte'
 
-  let value = []
+  let value = $state([])
 
   function handleSubmit() {
     console.log('FORM handle submit')
@@ -62,80 +64,84 @@
     disableCss: { control: 'boolean' }
   }} />
 
-<Story name="Normal" let:label let:helpText let:disableCss>
-  <div use:wrapInShadowDom={disableCss}>
-    <form class="mt-form">
-      <Select
-        options={[
-          { text: 'Hund', value: 'dog' },
-          { text: 'Cat', value: 'cat' }
-        ]}
-        {label}
-        {helpText}
-        name="animal"
-        error={undefined}
-        idPrefix="select-box-" />
-    </form>
-  </div>
+<Story name="Normal"   >
+  {#snippet children({ label, helpText, disableCss })}
+    <div use:wrapInShadowDom={disableCss}>
+      <form class="mt-form">
+        <Select
+          options={[
+            { text: 'Hund', value: 'dog' },
+            { text: 'Cat', value: 'cat' }
+          ]}
+          {label}
+          {helpText}
+          name="animal"
+          error={undefined}
+          idPrefix="select-box-" />
+      </form>
+    </div>
+  {/snippet}
 </Story>
 
-<Story name="Velg fler" let:args let:disableCss>
-  <div use:wrapInShadowDom={disableCss}>
-    <h1 class="mt-h1">Flervalg</h1>
-    <ResourceList
-      figmaUrl="https://www.figma.com/file/dp856nY6joVcAUSVSmPSRO/MT-Eksternt-Designsystem?node-id=1871%3A5152&t=3fZ5xL2MGOLfFwqv-4"
-      githubUrl="https://github.com/Mattilsynet/designsystem/blob/main/src/svelte/components/form/MultiSelect.svelte" />
-    <section>
-      <h2 class="mt-h2">Normal</h2>
-      <form
-        class="mt-form"
-        on:keyup|preventDefault={handleFormKeyUp}
-        on:keydown|stopPropagation={handleFormKeyDown}
-        on:submit|preventDefault={handleSubmit}>
-        <MultiSelect
-          options={args.multiselect.options}
-          preferredOptions={args.multiselect.preferredOptions}
-          label={args.multiselect.label}
-          error={args.multiselect.error !== ''
-            ? { key: 'multi-select', message: args.multiselect.error }
-            : undefined}
-          name="multi-select"
-          bind:values={value}
-          loadJs={true}
-          tagsLabel={args.multiselect.tagsLabel}
-          isRequired={args.multiselect.isRequired}
-          helpText={args.multiselect.helpText} />
-        <button type="submit" class="mt-button">Submit</button>
-        <p>
-          Values:
-          {JSON.stringify(value, null, 2)}
-        </p>
-      </form>
-    </section>
-    <section>
-      <h2 class="mt-h2">Normal - without JS</h2>
-      <form class="mt-form" on:submit|preventDefault={handleSubmit}>
-        <MultiSelect
-          options={args.multiselect.options}
-          preferredOptions={args.multiselect.preferredOptions}
-          label={args.multiselect.label}
-          error={args.multiselect.error !== ''
-            ? { key: 'multi-select', message: args.multiselect.error }
-            : undefined}
-          name="multi-select-no-js"
-          bind:values={value}
-          loadJs={false}
-          tagsLabel={args.multiselect.tagsLabel}
-          isRequired={args.multiselect.isRequired}
-          helpText={args.multiselect.helpText} />
-        <button type="submit" class="mt-button">Submit</button>
-        <p>
-          Values:
-          {JSON.stringify(value, null, 2)}
-        </p>
-      </form>
-    </section>
-  </div>
+<Story name="Velg fler"  >
+  {#snippet children({ args, disableCss })}
+    <div use:wrapInShadowDom={disableCss}>
+      <h1 class="mt-h1">Flervalg</h1>
+      <ResourceList
+        figmaUrl="https://www.figma.com/file/dp856nY6joVcAUSVSmPSRO/MT-Eksternt-Designsystem?node-id=1871%3A5152&t=3fZ5xL2MGOLfFwqv-4"
+        githubUrl="https://github.com/Mattilsynet/designsystem/blob/main/src/svelte/components/form/MultiSelect.svelte" />
+      <section>
+        <h2 class="mt-h2">Normal</h2>
+        <form
+          class="mt-form"
+          onkeyup={preventDefault(handleFormKeyUp)}
+          onkeydown={stopPropagation(handleFormKeyDown)}
+          onsubmit={preventDefault(handleSubmit)}>
+          <MultiSelect
+            options={args.multiselect.options}
+            preferredOptions={args.multiselect.preferredOptions}
+            label={args.multiselect.label}
+            error={args.multiselect.error !== ''
+              ? { key: 'multi-select', message: args.multiselect.error }
+              : undefined}
+            name="multi-select"
+            bind:values={value}
+            loadJs={true}
+            tagsLabel={args.multiselect.tagsLabel}
+            isRequired={args.multiselect.isRequired}
+            helpText={args.multiselect.helpText} />
+          <button type="submit" class="mt-button">Submit</button>
+          <p>
+            Values:
+            {JSON.stringify(value, null, 2)}
+          </p>
+        </form>
+      </section>
+      <section>
+        <h2 class="mt-h2">Normal - without JS</h2>
+        <form class="mt-form" onsubmit={preventDefault(handleSubmit)}>
+          <MultiSelect
+            options={args.multiselect.options}
+            preferredOptions={args.multiselect.preferredOptions}
+            label={args.multiselect.label}
+            error={args.multiselect.error !== ''
+              ? { key: 'multi-select', message: args.multiselect.error }
+              : undefined}
+            name="multi-select-no-js"
+            bind:values={value}
+            loadJs={false}
+            tagsLabel={args.multiselect.tagsLabel}
+            isRequired={args.multiselect.isRequired}
+            helpText={args.multiselect.helpText} />
+          <button type="submit" class="mt-button">Submit</button>
+          <p>
+            Values:
+            {JSON.stringify(value, null, 2)}
+          </p>
+        </form>
+      </section>
+    </div>
+  {/snippet}
 </Story>
 
 <style>

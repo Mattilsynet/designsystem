@@ -115,19 +115,21 @@
     disableCss: { control: 'boolean' }
   }} />
 
-<Story name="Normal" let:tasks let:disableCss>
-  <div use:wrapInShadowDom={disableCss} class="container layout-flex-col layout-flex-col--x-small">
-    {#each tasks as task}
-      <CardArticle
-        type="task"
-        class="background-mt-white"
-        linkText={task.nextActionLinkText}
-        linkUrl={task.nextActionUrl}
-        intro={task.intro}
-        title={task.title}
-        text={task.text}
-        id={task.title}
-        headerTag={task.headerTag} />
-    {/each}
-  </div>
+<Story name="Normal"  >
+  {#snippet children({ tasks, disableCss })}
+    <div use:wrapInShadowDom={disableCss} class="container layout-flex-col layout-flex-col--x-small">
+      {#each tasks as task}
+        <CardArticle
+          type="task"
+          class="background-mt-white"
+          linkText={task.nextActionLinkText}
+          linkUrl={task.nextActionUrl}
+          intro={task.intro}
+          title={task.title}
+          text={task.text}
+          id={task.title}
+          headerTag={task.headerTag} />
+      {/each}
+    </div>
+  {/snippet}
 </Story>

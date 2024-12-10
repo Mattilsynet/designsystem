@@ -7,9 +7,13 @@
   import { createClusterLayer, createMarkerLayer } from './layer-utils'
   import { getMap, type MapContext } from './contexts'
 
-  export let markers: Array<MTMarker> = []
-  export let markerOptions: Options | undefined
-  export let clusterOptions: MTClusterOptions | undefined
+  interface Props {
+    markers?: Array<MTMarker>;
+    markerOptions: Options | undefined;
+    clusterOptions: MTClusterOptions | undefined;
+  }
+
+  let { markers = [], markerOptions, clusterOptions }: Props = $props();
 
   let map: MapContext = getMap()
   let markerLayer: VectorLayer<VectorSource> | undefined = undefined

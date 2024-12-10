@@ -4,24 +4,41 @@
   import type { CheckboxWithSubSectionsOptions } from '../../../ts/types'
   import { interpolate } from '../../../ts/utils'
 
-  let className = ''
-  export { className as class }
-  export let level1Legend: string
-  export let variation: 'primary' | 'secondary' = 'primary'
-  export let options: CheckboxWithSubSectionsOptions
-  export let optionsName = 'kategori'
-  export let hasCheckAll = false
-  export let forceCheckAll = false
-  export let checkAllLabel = 'Velg alle'
-  export let level2Legend = ``
-  export let level3Legend = ``
-  export let helpText: string | undefined
-  export let border: boolean = true
+  
+  interface Props {
+    class?: string;
+    level1Legend: string;
+    variation?: 'primary' | 'secondary';
+    options: CheckboxWithSubSectionsOptions;
+    optionsName?: string;
+    hasCheckAll?: boolean;
+    forceCheckAll?: boolean;
+    checkAllLabel?: string;
+    level2Legend?: any;
+    level3Legend?: any;
+    helpText: string | undefined;
+    border?: boolean;
+  }
 
-  $: fieldsetClass =
-    variation === 'primary' ? 'checkbox-subsets--primary' : 'checkbox-subsets--secondary'
+  let {
+    class: className = '',
+    level1Legend,
+    variation = 'primary',
+    options = $bindable(),
+    optionsName = 'kategori',
+    hasCheckAll = false,
+    forceCheckAll = false,
+    checkAllLabel = 'Velg alle',
+    level2Legend = ``,
+    level3Legend = ``,
+    helpText,
+    border = true
+  }: Props = $props();
 
-  let hasJS = false
+  let fieldsetClass =
+    $derived(variation === 'primary' ? 'checkbox-subsets--primary' : 'checkbox-subsets--secondary')
+
+  let hasJS = $state(false)
 
   onMount(() => {
     hasJS = true
@@ -73,7 +90,7 @@
         name={optionsName}
         value={options.key}
         bind:checked={options.checked}
-        on:change={toggleCheckedAll} />
+        onchange={toggleCheckedAll} />
       <label class="mt-label" for={`${optionsName}-${options.key}`}>
         {checkAllLabel}
       </label>
@@ -89,7 +106,7 @@
         value={listItem.key}
         bind:checked={listItem.checked}
         aria-checked={listItem.checked}
-        on:change={() => mainCategory(mainIndex)} />
+        onchange={() => mainCategory(mainIndex)} />
       <label class="mt-label" for={`${optionsName}-${listItem.key}`}>
         {formatLabel(listItem.displayName, listItem.docCount)}
       </label>

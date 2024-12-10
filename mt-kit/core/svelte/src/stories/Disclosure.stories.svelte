@@ -44,22 +44,24 @@
     disableCss: { control: 'boolean' }
   }} />
 
-<Template let:args>
-  <section class="content" use:wrapInShadowDom={args.disableCss}>
-    <Disclosure
-      title={args.title}
-      loadJs={!args.disableJs}
-      headerTag={args.headerTag}
-      headerClass={args.headerClass}
-      theme={args.theme}
-      class={args.class}>
-      {@html args.body}
-      <ul class="mt-ul">
-        <li>Punkt 1</li>
-        <li>Punkt 2</li>
-      </ul>
-    </Disclosure>
-  </section>
+<Template >
+  {#snippet children({ args })}
+    <section class="content" use:wrapInShadowDom={args.disableCss}>
+      <Disclosure
+        title={args.title}
+        loadJs={!args.disableJs}
+        headerTag={args.headerTag}
+        headerClass={args.headerClass}
+        theme={args.theme}
+        class={args.class}>
+        {@html args.body}
+        <ul class="mt-ul">
+          <li>Punkt 1</li>
+          <li>Punkt 2</li>
+        </ul>
+      </Disclosure>
+    </section>
+  {/snippet}
 </Template>
 
 <Story
@@ -82,30 +84,32 @@
     disableCss: false,
     class: 'changelog'
   }}
-  let:args>
-  <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading">
-    <Disclosure
-      title={'Se endringer'}
-      loadJs={!args.disableJs}
-      headerTag={args.headerTag}
-      headerClass={args.headerClass}
-      class={args.class}>
-      {#each args.body as log, index}
-        <article
-          class:border-b-secondary={index < args.body.length - 1}
-          class:p-b-xs={index < args.body.length - 1}
-          class:m-b-xxs={index < args.body.length - 1}>
-          <span class="text-small">01.01.2021</span>
-          <HeadingLevel headingLevel={3} class="mt-h5 m-b-xs">
-            {@html log.title}
-          </HeadingLevel>
-          <div class="text">
-            {@html log.body}
-          </div>
-        </article>
-      {/each}
-    </Disclosure>
-  </section>
+  >
+  {#snippet children({ args })}
+    <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading">
+      <Disclosure
+        title={'Se endringer'}
+        loadJs={!args.disableJs}
+        headerTag={args.headerTag}
+        headerClass={args.headerClass}
+        class={args.class}>
+        {#each args.body as log, index}
+          <article
+            class:border-b-secondary={index < args.body.length - 1}
+            class:p-b-xs={index < args.body.length - 1}
+            class:m-b-xxs={index < args.body.length - 1}>
+            <span class="text-small">01.01.2021</span>
+            <HeadingLevel headingLevel={3} class="mt-h5 m-b-xs">
+              {@html log.title}
+            </HeadingLevel>
+            <div class="text">
+              {@html log.body}
+            </div>
+          </article>
+        {/each}
+      </Disclosure>
+    </section>
+  {/snippet}
 </Story>
 
 <Story
@@ -117,20 +121,22 @@
     disableJs: false,
     disableCss: false
   }}
-  let:args>
-  <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading">
-    <h2 id="heading" class="mt-h2">{title}</h2>
-    {#each disclosures as disclosure, i}
-      <Disclosure
-        title={disclosure.title}
-        loadJs={!args.disableJs}
-        headerTag={disclosure.headerTag}
-        icon={i === 2 ? icon : undefined}
-        headerClass={args.headerClass}>
-        {@html disclosure.body}
-      </Disclosure>
-    {/each}
-  </section>
+  >
+  {#snippet children({ args })}
+    <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading">
+      <h2 id="heading" class="mt-h2">{title}</h2>
+      {#each disclosures as disclosure, i}
+        <Disclosure
+          title={disclosure.title}
+          loadJs={!args.disableJs}
+          headerTag={disclosure.headerTag}
+          icon={i === 2 ? icon : undefined}
+          headerClass={args.headerClass}>
+          {@html disclosure.body}
+        </Disclosure>
+      {/each}
+    </section>
+  {/snippet}
 </Story>
 
 <Story
@@ -140,21 +146,23 @@
     disableJs: false,
     disableCss: false
   }}
-  let:args>
-  <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading2">
-    <h2 id="heading2" class="mt-h2">Tittel for lyseblått trekkspill</h2>
-    {#each disclosures as disclosure, i}
-      <Disclosure
-        title={disclosure.title}
-        loadJs={!args.disableJs}
-        theme="no-border"
-        class="background-mt-rationale-blue"
-        headerTag={disclosure.headerTag}
-        icon={i !== 2 ? icon : undefined}>
-        {@html disclosure.body}
-      </Disclosure>
-    {/each}
-  </section>
+  >
+  {#snippet children({ args })}
+    <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading2">
+      <h2 id="heading2" class="mt-h2">Tittel for lyseblått trekkspill</h2>
+      {#each disclosures as disclosure, i}
+        <Disclosure
+          title={disclosure.title}
+          loadJs={!args.disableJs}
+          theme="no-border"
+          class="background-mt-rationale-blue"
+          headerTag={disclosure.headerTag}
+          icon={i !== 2 ? icon : undefined}>
+          {@html disclosure.body}
+        </Disclosure>
+      {/each}
+    </section>
+  {/snippet}
 </Story>
 
 <Story
@@ -164,22 +172,24 @@
     disableJs: false,
     disableCss: false
   }}
-  let:args>
-  <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading2">
-    <h2 id="heading2" class="mt-h2">Tittel for hvit trekkspill</h2>
-    {#each disclosures as disclosure, i}
-      <Disclosure
-        title={disclosure.title}
-        loadJs={!args.disableJs}
-        theme="no-border"
-        class="background-mt-white"
-        startOpen={i === 1}
-        headerTag={disclosure.headerTag}
-        icon={i !== 2 ? icon : undefined}>
-        {@html disclosure.body}
-      </Disclosure>
-    {/each}
-  </section>
+  >
+  {#snippet children({ args })}
+    <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading2">
+      <h2 id="heading2" class="mt-h2">Tittel for hvit trekkspill</h2>
+      {#each disclosures as disclosure, i}
+        <Disclosure
+          title={disclosure.title}
+          loadJs={!args.disableJs}
+          theme="no-border"
+          class="background-mt-white"
+          startOpen={i === 1}
+          headerTag={disclosure.headerTag}
+          icon={i !== 2 ? icon : undefined}>
+          {@html disclosure.body}
+        </Disclosure>
+      {/each}
+    </section>
+  {/snippet}
 </Story>
 
 <Story
@@ -210,40 +220,42 @@
     disableJs: false,
     disableCss: false
   }}
-  let:args>
-  <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading2">
-    <h2 id="heading3" class="mt-h2">{title}</h2>
-    <section class="layout-grid layout-grid--column-12">
-      {#each disclosures as disclosure}
-        <Disclosure
-          title={disclosure.title}
-          loadJs={!args.disableJs}
-          headerTag={disclosure.headerTag}
-          class="layout-grid layout-grid--column-12 col-3-span-8"
-          headerClass="col-1-span-12 text-h3"
-          panelClass="col-1-span-12">
-          {@html disclosure.body}
-        </Disclosure>
-      {/each}
+  >
+  {#snippet children({ args })}
+    <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading2">
+      <h2 id="heading3" class="mt-h2">{title}</h2>
+      <section class="layout-grid layout-grid--column-12">
+        {#each disclosures as disclosure}
+          <Disclosure
+            title={disclosure.title}
+            loadJs={!args.disableJs}
+            headerTag={disclosure.headerTag}
+            class="layout-grid layout-grid--column-12 col-3-span-8"
+            headerClass="col-1-span-12 text-h3"
+            panelClass="col-1-span-12">
+            {@html disclosure.body}
+          </Disclosure>
+        {/each}
+      </section>
+      <h2 class="mt-h2">Trekkspill med kapittel nr</h2>
+      <section class="layout-grid layout-grid--column-12">
+        {#each disclosures as disclosure, i}
+          <Disclosure
+            title={disclosure.title}
+            loadJs={!args.disableJs}
+            headerTag={disclosure.headerTag}
+            chapter={i + 1 + '.' + 10 + '.' + i}
+            class="{args.showNr
+              ? 'disclosure-with-number'
+              : ''} layout-grid layout-grid--column-12 col-3-span-8"
+            headerClass={'text-h3'}
+            panelClass="col-1-span-12">
+            {@html disclosure.body}
+          </Disclosure>
+        {/each}
+      </section>
     </section>
-    <h2 class="mt-h2">Trekkspill med kapittel nr</h2>
-    <section class="layout-grid layout-grid--column-12">
-      {#each disclosures as disclosure, i}
-        <Disclosure
-          title={disclosure.title}
-          loadJs={!args.disableJs}
-          headerTag={disclosure.headerTag}
-          chapter={i + 1 + '.' + 10 + '.' + i}
-          class="{args.showNr
-            ? 'disclosure-with-number'
-            : ''} layout-grid layout-grid--column-12 col-3-span-8"
-          headerClass={'text-h3'}
-          panelClass="col-1-span-12">
-          {@html disclosure.body}
-        </Disclosure>
-      {/each}
-    </section>
-  </section>
+  {/snippet}
 </Story>
 
 <Story
@@ -255,20 +267,22 @@
     disableJs: false,
     disableCss: false
   }}
-  let:args
-  ><section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading">
-    <h2 id="heading" class="mt-h2">{title}</h2>
-    {#each disclosures as disclosure, i}
-      <Disclosure
-        title={disclosure.title}
-        loadJs={!args.disableJs}
-        headerTag={disclosure.headerTag}
-        icon={i === 2 ? icon : undefined}
-        on:open={() => alert('opening')}
-        on:close={() => alert('closing')}
-        headerClass={args.headerClass}>
-        {@html disclosure.body}
-      </Disclosure>
-    {/each}
-  </section>
+  
+  >{#snippet children({ args })}
+    <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading">
+      <h2 id="heading" class="mt-h2">{title}</h2>
+      {#each disclosures as disclosure, i}
+        <Disclosure
+          title={disclosure.title}
+          loadJs={!args.disableJs}
+          headerTag={disclosure.headerTag}
+          icon={i === 2 ? icon : undefined}
+          on:open={() => alert('opening')}
+          on:close={() => alert('closing')}
+          headerClass={args.headerClass}>
+          {@html disclosure.body}
+        </Disclosure>
+      {/each}
+    </section>
+  {/snippet}
 </Story>

@@ -5,13 +5,17 @@
   import { createActivateMapControl, type MTActivateMapOptions } from './activate-map-control'
   import { isMobileOrTablet } from '../../../ts/utils'
 
-  export let activateMapOptions: MTActivateMapOptions = {
+  interface Props {
+    activateMapOptions?: MTActivateMapOptions;
+  }
+
+  let { activateMapOptions = {
     label: 'Aktiver kart',
     labelActive: 'Lukk kart',
     labelId: 'activate-map-label',
     className: 'activate-map',
     fullscreenClassName: 'fullscreen'
-  }
+  } }: Props = $props();
 
   let map: MapContext = getMap()
   let activateControl: Control | undefined = undefined

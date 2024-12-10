@@ -36,45 +36,47 @@
 
 <Story
   name="Normal"
-  let:title
-  let:intro
-  let:disableCss
-  let:publishFrom
-  let:professionallyUpdated
-  let:text>
-  <div class="container">
-    <article class="article-page">
-      <h1 class="mt-h1">{title}</h1>
-      <div class="intro">
-        <p>{intro}</p>
-      </div>
-      <Published {publishFrom} {professionallyUpdated} />
+  
+  
+  
+  
+  
+  >
+  {#snippet children({ title, intro, disableCss, publishFrom, professionallyUpdated, text })}
+    <div class="container">
+      <article class="article-page">
+        <h1 class="mt-h1">{title}</h1>
+        <div class="intro">
+          <p>{intro}</p>
+        </div>
+        <Published {publishFrom} {professionallyUpdated} />
 
-      {@html text}
+        {@html text}
 
-      <section class="layout-flex-col layout-flex-col--x-small" aria-labelledby="how-to-heading">
-        <h2 id="how-to-heading" class="mt-h2">Dette gjør du</h2>
-        <p>Litt tekst her</p>
-        <CardArticle
-          type="task"
-          class="background-mt-white"
-          title="Dette er en h2 tittel"
-          text="Noe tekst i kroppen"
-          linkUrl="http://"
-          linkText="Neste handling"
-          headerTag="h2" />
-        <CardArticle
-          type="task"
-          class="background-mt-white"
-          title="Dette er en h3 tittel"
-          text="Noe tekst i kroppen"
-          linkUrl="http://"
-          linkText="Neste handling" />
-      </section>
+        <section class="layout-flex-col layout-flex-col--x-small" aria-labelledby="how-to-heading">
+          <h2 id="how-to-heading" class="mt-h2">Dette gjør du</h2>
+          <p>Litt tekst her</p>
+          <CardArticle
+            type="task"
+            class="background-mt-white"
+            title="Dette er en h2 tittel"
+            text="Noe tekst i kroppen"
+            linkUrl="http://"
+            linkText="Neste handling"
+            headerTag="h2" />
+          <CardArticle
+            type="task"
+            class="background-mt-white"
+            title="Dette er en h3 tittel"
+            text="Noe tekst i kroppen"
+            linkUrl="http://"
+            linkText="Neste handling" />
+        </section>
 
-      <Disclosure title={'Begrunnelse'} headerTag="h2">
-        <p>Her kommer begrunnelsen</p>
-      </Disclosure>
-    </article>
-  </div>
+        <Disclosure title={'Begrunnelse'} headerTag="h2">
+          <p>Her kommer begrunnelsen</p>
+        </Disclosure>
+      </article>
+    </div>
+  {/snippet}
 </Story>

@@ -4,25 +4,49 @@
   import InputError from './InputErrorMessage.svelte'
   import { createInputAriaDescribedby, type ErrorDetail } from '../../../ts'
 
-  export let inputName = ''
-  export let listName = ''
-  export let inputLabel = ''
-  export let inputValue: string | undefined = undefined
-  export let inputIsRequired: boolean | undefined = undefined
-  export let inputHelpText: string | undefined = undefined
-  export let inputClass = ''
-  export let inputError: ErrorDetail | undefined = undefined
-  export let apiError: ErrorDetail | undefined = undefined
-  export let hiddenErrorText: string | undefined = undefined
-  export let textOptional: string | undefined = undefined
-  export let showOptionalText = true
-  export let formInProgressAriaLabel = 'Søker'
-  export let isLoading = false
 
-  export let inputRef: HTMLInputElement
-  export let isFetchFallback = false
 
-  export let handleInput: (e: Event) => Promise<void>
+  interface Props {
+    inputName?: string;
+    listName?: string;
+    inputLabel?: string;
+    inputValue?: string | undefined;
+    inputIsRequired?: boolean | undefined;
+    inputHelpText?: string | undefined;
+    inputClass?: string;
+    inputError?: ErrorDetail | undefined;
+    apiError?: ErrorDetail | undefined;
+    hiddenErrorText?: string | undefined;
+    textOptional?: string | undefined;
+    showOptionalText?: boolean;
+    formInProgressAriaLabel?: string;
+    isLoading?: boolean;
+    inputRef: HTMLInputElement;
+    isFetchFallback?: boolean;
+    handleInput: (e: Event) => Promise<void>;
+    options?: import('svelte').Snippet;
+  }
+
+  let {
+    inputName = '',
+    listName = '',
+    inputLabel = '',
+    inputValue = $bindable(undefined),
+    inputIsRequired = undefined,
+    inputHelpText = undefined,
+    inputClass = '',
+    inputError = undefined,
+    apiError = undefined,
+    hiddenErrorText = undefined,
+    textOptional = undefined,
+    showOptionalText = true,
+    formInProgressAriaLabel = 'Søker',
+    isLoading = false,
+    inputRef = $bindable(),
+    isFetchFallback = false,
+    handleInput,
+    options
+  }: Props = $props();
 </script>
 
 <div class="combobox-wrapper">
@@ -60,14 +84,14 @@
         inputHelpText ? inputName : undefined,
         inputError
       )}
-      on:input={handleInput} />
+      oninput={handleInput} />
     <span
       role="status"
       aria-live="assertive"
       class:icon--spinner={isLoading}
-      aria-label={isLoading ? formInProgressAriaLabel : ''} />
+      aria-label={isLoading ? formInProgressAriaLabel : ''}></span>
   </div>
   <u-datalist id={listName} class="mt-datalist">
-    <slot name="options" />
+    {@render options?.()}
   </u-datalist>
 </div>

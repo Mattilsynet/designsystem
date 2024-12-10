@@ -1,9 +1,11 @@
 <script lang="ts">
+  import { run, preventDefault } from 'svelte/legacy';
+
   import { Meta, Story } from '@storybook/addon-svelte-csf'
   import ExpandableInputList from '$lib/svelte/components/form/ExpandableInputList.svelte'
   import { wrapInShadowDom } from '../storybook-utils/utils'
 
-  let inputList = [
+  let inputList = $state([
     {
       label: 'Hund, antall:',
       name: 'dogs',
@@ -52,13 +54,17 @@
       textOptional: '',
       error: undefined
     }
-  ]
+  ])
 
   let fieldSetId = 'whatCountriesHaveYouBeenTo'
   let expandableAriaLabel = ''
-  $: values = {}
+  let values = $state({});
+  
 
-  $: error = undefined
+  let error;
+  run(() => {
+    error = undefined
+  });
 
   function handleSubmit(e) {
     inputList = inputList.map(input => {
@@ -104,24 +110,26 @@
     disableCss: { control: 'boolean' }
   }} />
 
-<Story name="Normal" let:disableCss let:args>
-  <main class="mt-main" use:wrapInShadowDom={disableCss}>
-    <h1 class="mt-h1">Utvidebarliste med inputs</h1>
-    <form class="mt-form" on:submit|preventDefault={handleSubmit}>
-      <ExpandableInputList
-        inputList={args.inputList}
-        {fieldSetId}
-        fieldSetLabel={args.fieldSetLabel}
-        fieldSetHelpText={args.helpText}
-        fieldSetError={error}
-        expandableText={args.expandableText}
-        collapsableText={args.collapsableText}
-        expandableAriaLabel={args.expandableAriaLabel}
-        bind:values
-        loadJs={!args.disableJs} />
-      <button type="submit" class="mt-button mt-button--primary">Gå videre</button>
-    </form>
-  </main>
+<Story name="Normal"  >
+  {#snippet children({ disableCss, args })}
+    <main class="mt-main" use:wrapInShadowDom={disableCss}>
+      <h1 class="mt-h1">Utvidebarliste med inputs</h1>
+      <form class="mt-form" onsubmit={preventDefault(handleSubmit)}>
+        <ExpandableInputList
+          inputList={args.inputList}
+          {fieldSetId}
+          fieldSetLabel={args.fieldSetLabel}
+          fieldSetHelpText={args.helpText}
+          fieldSetError={error}
+          expandableText={args.expandableText}
+          collapsableText={args.collapsableText}
+          expandableAriaLabel={args.expandableAriaLabel}
+          bind:values
+          loadJs={!args.disableJs} />
+        <button type="submit" class="mt-button mt-button--primary">Gå videre</button>
+      </form>
+    </main>
+  {/snippet}
 </Story>
 
 <style lang="scss">

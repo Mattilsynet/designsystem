@@ -1,14 +1,26 @@
 <script lang="ts">
   import InputError from './InputErrorMessage.svelte'
 
-  let className = ''
-  export { className as class }
-  export let legend = ''
-  export let error = null
-  export let hiddenErrorText = false
-  export let legendClass = ''
-  $: inputErrorId = error ? `${error.key}-error` : ''
-  $: fieldsetErrorClass = error ? 'fieldset-error' : ''
+  
+  interface Props {
+    class?: string;
+    legend?: string;
+    error?: any;
+    hiddenErrorText?: boolean;
+    legendClass?: string;
+    children?: import('svelte').Snippet;
+  }
+
+  let {
+    class: className = '',
+    legend = '',
+    error = null,
+    hiddenErrorText = false,
+    legendClass = '',
+    children
+  }: Props = $props();
+  let inputErrorId = $derived(error ? `${error.key}-error` : '')
+  let fieldsetErrorClass = $derived(error ? 'fieldset-error' : '')
 </script>
 
 <fieldset
@@ -25,5 +37,5 @@
     <InputError {...error} {hiddenErrorText} />
   {/if}
 
-  <slot />
+  {@render children?.()}
 </fieldset>

@@ -73,26 +73,28 @@
     disableCss: false
   }} />
 
-<Story name="Normal" let:breadcrumbsLong let:breadcrumbsShort let:loadJs let:disableCss>
-  <div use:wrapInShadowDom={disableCss}>
-    <div class="layout-grid layout-grid--column-12">
-      <div class="col-3-span-6">
-        <p class="description">Brødsmuler med 4 eller fler elementer</p>
-        <Breadcrumbs breadcrumbs={breadcrumbsLong} {loadJs} />
-        <p class="description">Brødsmuler med 3 eller færre elementer</p>
-        <Breadcrumbs breadcrumbs={breadcrumbsShort} {loadJs} />
-      </div>
-      <div class="col-1-span-12 space">
-        <hr />
-      </div>
-      <div class="col-1-span-12">
-        <p class="description">Brødsmuler med 4 eller fler elementer</p>
-        <Breadcrumbs breadcrumbs={breadcrumbsLong} {loadJs} />
-        <p class="description">Brødsmuler med 3 eller færre elementer</p>
-        <Breadcrumbs breadcrumbs={breadcrumbsShort} {loadJs} />
+<Story name="Normal"    >
+  {#snippet children({ breadcrumbsLong, breadcrumbsShort, loadJs, disableCss })}
+    <div use:wrapInShadowDom={disableCss}>
+      <div class="layout-grid layout-grid--column-12">
+        <div class="col-3-span-6">
+          <p class="description">Brødsmuler med 4 eller fler elementer</p>
+          <Breadcrumbs breadcrumbs={breadcrumbsLong} {loadJs} />
+          <p class="description">Brødsmuler med 3 eller færre elementer</p>
+          <Breadcrumbs breadcrumbs={breadcrumbsShort} {loadJs} />
+        </div>
+        <div class="col-1-span-12 space">
+          <hr />
+        </div>
+        <div class="col-1-span-12">
+          <p class="description">Brødsmuler med 4 eller fler elementer</p>
+          <Breadcrumbs breadcrumbs={breadcrumbsLong} {loadJs} />
+          <p class="description">Brødsmuler med 3 eller færre elementer</p>
+          <Breadcrumbs breadcrumbs={breadcrumbsShort} {loadJs} />
+        </div>
       </div>
     </div>
-  </div>
+  {/snippet}
 </Story>
 
 <style>

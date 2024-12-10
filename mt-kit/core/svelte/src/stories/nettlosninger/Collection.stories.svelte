@@ -77,78 +77,80 @@
     disableCss: { control: 'boolean' }
   }} />
 
-<Story name="Normal" let:title let:intro let:legalItems let:text let:tableOfContents let:disableCss>
-  <div use:wrapInShadowDom={disableCss} class="container layout-grid layout-grid--column-12">
-    <article class="article-page col-1-span-12 legal-guidance">
-      <h1 class="mt-h1">{title}</h1>
-      <div class="intro">
-        <p>{intro}</p>
-      </div>
+<Story name="Normal"      >
+  {#snippet children({ title, intro, legalItems, text, tableOfContents, disableCss })}
+    <div use:wrapInShadowDom={disableCss} class="container layout-grid layout-grid--column-12">
+      <article class="article-page col-1-span-12 legal-guidance">
+        <h1 class="mt-h1">{title}</h1>
+        <div class="intro">
+          <p>{intro}</p>
+        </div>
 
-      <section class="table-of-contents" aria-labelledby="table-of-contents">
-        <h2 id="table-of-contents" class="mt-h4">
-          {tableOfContents}
-        </h2>
-        <ol class="mt-ol m-t-xxs list-unstyled">
-          {#each legalItems as legal}
-            <li>
-              <a href="#{toKebabCase(legal.title)}" class="mt-link down-arrow">{legal.title}</a>
-            </li>
-          {/each}
-        </ol>
-      </section>
+        <section class="table-of-contents" aria-labelledby="table-of-contents">
+          <h2 id="table-of-contents" class="mt-h4">
+            {tableOfContents}
+          </h2>
+          <ol class="mt-ol m-t-xxs list-unstyled">
+            {#each legalItems as legal}
+              <li>
+                <a href="#{toKebabCase(legal.title)}" class="mt-link down-arrow">{legal.title}</a>
+              </li>
+            {/each}
+          </ol>
+        </section>
 
-      {@html text}
+        {@html text}
 
-      {#each legalItems as legal}
-        <article
-          id={toKebabCase(legal.title)}
-          class="legal-collection legal-collection__border-top col-1-span-12"
-          aria-labelledby="collection-title-1">
-          <h2 id="collection-title-1" class="mt-h2">{legal.title}</h2>
+        {#each legalItems as legal}
+          <article
+            id={toKebabCase(legal.title)}
+            class="legal-collection legal-collection__border-top col-1-span-12"
+            aria-labelledby="collection-title-1">
+            <h2 id="collection-title-1" class="mt-h2">{legal.title}</h2>
 
-          <div class="intro">
-            {legal.intro}
-          </div>
+            <div class="intro">
+              {legal.intro}
+            </div>
 
-          {@html legal.text}
+            {@html legal.text}
 
-          <section class="article-page children-full-width" aria-labelledby="how-to-heading-1">
-            <h3 id="how-to-heading-1" class="mt-h3">
-              {legal.howToDoItTitle}
-            </h3>
-            {@html legal.howToDoIt}
-            <CardArticle
-              type="task"
-              class="background-mt-white"
-              title="Dette er tittelen"
-              text="Noe tekst i kroppen"
-              linkUrl="http://"
-              linkText="Last ned mal for internkontroll"
-              headerTag="h4" />
-          </section>
-
-          <section class="layout-flex-col layout-flex-col--x-small">
-            <SummaryDetail
-              title="Regelverk"
-              detailsClass="color-neutral border-neutral"
-              summaryWrapperClass="background-mt-white layout-flex-col gap-13">
+            <section class="article-page children-full-width" aria-labelledby="how-to-heading-1">
+              <h3 id="how-to-heading-1" class="mt-h3">
+                {legal.howToDoItTitle}
+              </h3>
+              {@html legal.howToDoIt}
               <CardArticle
-                type="legal-text"
+                type="task"
+                class="background-mt-white"
                 title="Dette er tittelen"
                 text="Noe tekst i kroppen"
                 linkUrl="http://"
-                linkText="Last ned mal for internkontroll" />
-              <CardArticle
-                type="legal-text"
-                title="Dette er tittelen"
-                text="Noe tekst i kroppen"
-                linkUrl="http://"
-                linkText="Last ned mal for internkontroll" />
-            </SummaryDetail>
-          </section>
-        </article>
-      {/each}
-    </article>
-  </div>
+                linkText="Last ned mal for internkontroll"
+                headerTag="h4" />
+            </section>
+
+            <section class="layout-flex-col layout-flex-col--x-small">
+              <SummaryDetail
+                title="Regelverk"
+                detailsClass="color-neutral border-neutral"
+                summaryWrapperClass="background-mt-white layout-flex-col gap-13">
+                <CardArticle
+                  type="legal-text"
+                  title="Dette er tittelen"
+                  text="Noe tekst i kroppen"
+                  linkUrl="http://"
+                  linkText="Last ned mal for internkontroll" />
+                <CardArticle
+                  type="legal-text"
+                  title="Dette er tittelen"
+                  text="Noe tekst i kroppen"
+                  linkUrl="http://"
+                  linkText="Last ned mal for internkontroll" />
+              </SummaryDetail>
+            </section>
+          </article>
+        {/each}
+      </article>
+    </div>
+  {/snippet}
 </Story>

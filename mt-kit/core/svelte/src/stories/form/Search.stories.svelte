@@ -23,50 +23,52 @@
 
 <Story
   name="Search input"
-  let:args
-  let:label
-  let:disableCss
-  let:searchButtonText
-  let:placeholder
-  let:primaryButton
-  let:helpText>
-  <div use:wrapInShadowDom={disableCss}>
-    <article>
-      <form class="mt-form form-layout">
-        <TextInputSearch name="inputfield_3" {searchButtonText} loadJs={args.loadJs} />
-      </form>
-    </article>
-    <article>
-      <form class="mt-form form-layout">
-        <TextInputSearch name="inputfield_1" {label} loadJs={args.loadJs} />
-      </form>
-    </article>
-    <article>
-      <form class="mt-form form-layout">
-        <TextInputSearch name="inputfield_2" {label} {searchButtonText} loadJs={args.loadJs} />
-      </form>
-    </article>
-    <article>
-      <form class="mt-form form-layout">
-        <TextInputSearch
-          name="inputfield_3"
-          {label}
-          {placeholder}
-          {searchButtonText}
-          loadJs={args.loadJs} />
-      </form>
-    </article>
-    <article>
-      <form class="mt-form form-layout">
-        <TextInputSearch
-          name="inputfield_4"
-          {label}
-          {helpText}
-          {searchButtonText}
-          loadJs={args.loadJs} />
-      </form>
-    </article>
-  </div></Story>
+  
+  
+  
+  
+  
+  
+  >
+  {#snippet children({ args, label, disableCss, searchButtonText, placeholder, primaryButton, helpText })}
+    <div use:wrapInShadowDom={disableCss}>
+      <article>
+        <form class="mt-form form-layout">
+          <TextInputSearch name="inputfield_3" {searchButtonText} loadJs={args.loadJs} />
+        </form>
+      </article>
+      <article>
+        <form class="mt-form form-layout">
+          <TextInputSearch name="inputfield_1" {label} loadJs={args.loadJs} />
+        </form>
+      </article>
+      <article>
+        <form class="mt-form form-layout">
+          <TextInputSearch name="inputfield_2" {label} {searchButtonText} loadJs={args.loadJs} />
+        </form>
+      </article>
+      <article>
+        <form class="mt-form form-layout">
+          <TextInputSearch
+            name="inputfield_3"
+            {label}
+            {placeholder}
+            {searchButtonText}
+            loadJs={args.loadJs} />
+        </form>
+      </article>
+      <article>
+        <form class="mt-form form-layout">
+          <TextInputSearch
+            name="inputfield_4"
+            {label}
+            {helpText}
+            {searchButtonText}
+            loadJs={args.loadJs} />
+        </form>
+      </article>
+    </div>  {/snippet}
+</Story>
 
 <style>
   article {

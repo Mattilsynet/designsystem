@@ -44,99 +44,103 @@
     disableCss: { control: 'boolean' }
   }} />
 
-<Story name="Input" let:label let:helpText let:disableCss let:args>
-  <div use:wrapInShadowDom={disableCss}>
-    <form class="mt-form form-layout">
-      <TextInput
-        name="inputfield"
-        {label}
-        {helpText}
-        textOptional={args.textOptional}
-        inputmode="text"
-        isRequired={args.isRequired}
-        placeholder=""
-        autocomplete="" />
+<Story name="Input"    >
+  {#snippet children({ label, helpText, disableCss, args })}
+    <div use:wrapInShadowDom={disableCss}>
+      <form class="mt-form form-layout">
+        <TextInput
+          name="inputfield"
+          {label}
+          {helpText}
+          textOptional={args.textOptional}
+          inputmode="text"
+          isRequired={args.isRequired}
+          placeholder=""
+          autocomplete="" />
 
-      <TextInput
-        name="inputfield2"
-        {label}
-        {helpText}
-        textOptional={args.textOptional}
-        inputmode="text"
-        isRequired={args.isRequired}
-        placeholder="Skriv noe"
-        autocomplete="" />
+        <TextInput
+          name="inputfield2"
+          {label}
+          {helpText}
+          textOptional={args.textOptional}
+          inputmode="text"
+          isRequired={args.isRequired}
+          placeholder="Skriv noe"
+          autocomplete="" />
 
-      <TextInput
-        name="inputfield3"
-        {label}
-        {helpText}
-        textOptional={args.textOptional}
-        inputmode="text"
-        isRequired={args.isRequired}
-        placeholder=""
-        autocomplete=""
-        tooManyCharactersErrorText={args.tooManyCharactersErrorText}
-        maxlength={30} />
+        <TextInput
+          name="inputfield3"
+          {label}
+          {helpText}
+          textOptional={args.textOptional}
+          inputmode="text"
+          isRequired={args.isRequired}
+          placeholder=""
+          autocomplete=""
+          tooManyCharactersErrorText={args.tooManyCharactersErrorText}
+          maxlength={30} />
 
-      <h2 class="mt-h2">Horisontal layout</h2>
-      <div class="collapsable-input-list-grid">
-        {#each args.horizontal as horizontal}
-          <TextInputHorizontal
-            name="inputfield4"
-            label={horizontal.label}
-            textOptional={horizontal.textOptional}
-            helpText={horizontal.helpText}
-            inputmode="text"
-            isRequired={horizontal.isRequired}
-            maxlength={horizontal.maxLength}
-            placeholder=""
-            autocomplete=""
-            inputClass="form-field--small form-field--small-width" />
-        {/each}
-      </div>
-    </form>
-  </div>
+        <h2 class="mt-h2">Horisontal layout</h2>
+        <div class="collapsable-input-list-grid">
+          {#each args.horizontal as horizontal}
+            <TextInputHorizontal
+              name="inputfield4"
+              label={horizontal.label}
+              textOptional={horizontal.textOptional}
+              helpText={horizontal.helpText}
+              inputmode="text"
+              isRequired={horizontal.isRequired}
+              maxlength={horizontal.maxLength}
+              placeholder=""
+              autocomplete=""
+              inputClass="form-field--small form-field--small-width" />
+          {/each}
+        </div>
+      </form>
+    </div>
+  {/snippet}
 </Story>
 
 <Story
   name="Input with error"
-  let:label
-  let:helpText
-  let:errorMessage
-  let:disableCss
-  let:args
-  let:countCharactersLeftLabel>
-  <div use:wrapInShadowDom={disableCss}>
-    <form class="mt-form form-layout">
-      <TextInput
-        name="inputfield"
-        {label}
-        {helpText}
-        countCharactersLeftLabel="karakterer igjen"
-        error={{ key: 'inputfield', message: errorMessage }}
-        textOptional={args.textOptional}
-        inputmode="text"
-        maxlength={10}
-        placeholder=""
-        autocomplete="" />
-      <div class="collapsable-input-list-grid">
-        {#each args.horizontal as horizontal, index}
-          <TextInputHorizontal
-            name="inputfield{index}"
-            label={horizontal.label}
-            textOptional={horizontal.textOptional}
-            helpText={horizontal.helpText}
-            inputmode="text"
-            error={{ key: 'inputfield', message: 'Feltet er påkrevd' }}
-            isRequired={horizontal.isRequired}
-            placeholder=""
-            autocomplete=""
-            inputClass="form-field--small form-field--small-width" />
-        {/each}
-      </div>
-    </form>
-  </div>
+  
+  
+  
+  
+  
+  >
+  {#snippet children({ label, helpText, errorMessage, disableCss, args, countCharactersLeftLabel })}
+    <div use:wrapInShadowDom={disableCss}>
+      <form class="mt-form form-layout">
+        <TextInput
+          name="inputfield"
+          {label}
+          {helpText}
+          countCharactersLeftLabel="karakterer igjen"
+          error={{ key: 'inputfield', message: errorMessage }}
+          textOptional={args.textOptional}
+          inputmode="text"
+          maxlength={10}
+          placeholder=""
+          autocomplete="" />
+        <div class="collapsable-input-list-grid">
+          {#each args.horizontal as horizontal, index}
+            <TextInputHorizontal
+              name="inputfield{index}"
+              label={horizontal.label}
+              textOptional={horizontal.textOptional}
+              helpText={horizontal.helpText}
+              inputmode="text"
+              error={{ key: 'inputfield', message: 'Feltet er påkrevd' }}
+              isRequired={horizontal.isRequired}
+              placeholder=""
+              autocomplete=""
+              inputClass="form-field--small form-field--small-width" />
+          {/each}
+        </div>
+      </form>
+    </div>
+  {/snippet}
 </Story>
 
 <style>

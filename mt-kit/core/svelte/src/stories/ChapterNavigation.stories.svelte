@@ -5,7 +5,7 @@
   import ChapterNavigation from '$lib/svelte/components/ChapterNavigation.svelte'
 
   const chapterChangeAction = action('chapterChange')
-  let currentChapterNumber = 0
+  let currentChapterNumber = $state(0)
 
   function chapterChange(e) {
     e.preventDefault()
@@ -35,20 +35,22 @@
     showChapterNumber: { control: 'boolean' }
   }} />
 
-<Story name="Normal" let:disableCss let:args>
-  <div use:wrapInShadowDom={disableCss}>
-    <article>
-      <h1 class="mt-h2">Kapittelnavigering</h1>
-      <ChapterNavigation
-        showChapterNumber={args.showChapterNumber}
-        chapters={args.chapters}
-        currentChapterIndex={currentChapterNumber}
-        on:chapterChange={chapterChange}
-        nextText="Neste"
-        previousText="Forrige"
-        class="chapter-navigation--bottom" />
-    </article>
-  </div>
+<Story name="Normal"  >
+  {#snippet children({ disableCss, args })}
+    <div use:wrapInShadowDom={disableCss}>
+      <article>
+        <h1 class="mt-h2">Kapittelnavigering</h1>
+        <ChapterNavigation
+          showChapterNumber={args.showChapterNumber}
+          chapters={args.chapters}
+          currentChapterIndex={currentChapterNumber}
+          on:chapterChange={chapterChange}
+          nextText="Neste"
+          previousText="Forrige"
+          class="chapter-navigation--bottom" />
+      </article>
+    </div>
+  {/snippet}
 </Story>
 
 <style lang="scss">

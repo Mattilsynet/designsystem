@@ -19,7 +19,7 @@
   import { type MTPopupOptions } from '$lib/svelte/components/map/utils'
   import type { MTActivateMapOptions, MusselMarker } from '$lib/ts/types'
 
-  let map
+  let map = $state()
   let markers: Array<MusselMarker> = [
     {
       municipality: 'Asker',
@@ -352,17 +352,21 @@
     disableCss: { control: 'boolean' }
   }} />
 
-<Story name="Normal" let:disableCss>
-  <h1>Map</h1>
-  <Map class="mt-map-wrapper" bind:this={map}>
-    <KartverketLayers kartverketLayerNames={[EUROPA_FORENKLET, NORGES_GRUNNKART]} />
-    <Markers {markers} {markerOptions} {clusterOptions} />
-    <ActivateMapControl {activateMapOptions} />
-    <Geolocation {geolocationOptions} />
-    <DefaultControls />
-    <Popup slot="extra" {popUpOptions}></Popup>
-  </Map>
-  <button type="button" class="mt-button m-t-xxs" on:click={handleReset}>Reset zoom</button>
+<Story name="Normal" >
+  {#snippet children({ disableCss })}
+    <h1>Map</h1>
+    <Map class="mt-map-wrapper" bind:this={map}>
+      <KartverketLayers kartverketLayerNames={[EUROPA_FORENKLET, NORGES_GRUNNKART]} />
+      <Markers {markers} {markerOptions} {clusterOptions} />
+      <ActivateMapControl {activateMapOptions} />
+      <Geolocation {geolocationOptions} />
+      <DefaultControls />
+      {#snippet extra()}
+        <Popup  {popUpOptions}></Popup>
+      {/snippet}
+    </Map>
+    <button type="button" class="mt-button m-t-xxs" onclick={handleReset}>Reset zoom</button>
+  {/snippet}
 </Story>
 
 <style lang="scss">

@@ -1,34 +1,60 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
   let counter = 0
 </script>
 
 <script lang="ts">
+  import { run, preventDefault } from 'svelte/legacy';
+
   import type { InputProps, ErrorDetail, InputModeType } from '../../../ts/types'
   import { createInputAriaDescribedby, interpolate } from '../../../ts/utils'
   import TextInputHorizontal from './TextInputHorizontal.svelte'
 
-  export let values = {}
-  export let isRequired: boolean | undefined = undefined
-  export let inputClass = ''
-  export let inputList: Array<InputProps> = []
-  export let numberOfInputOutside = 2
-  export let fieldSetId // use to relate error to fieldset
-  export let fieldSetLabel
-  export let fieldSetErrorHeading = 'Feil oppstod'
-  export let fieldSetError: Array<ErrorDetail> | undefined = undefined
-  export let fieldSetHelpText: string | undefined = undefined
-  export let expandableAriaLabel = '' //'{0}, viser {1} av {2}'
-  export let expandableText = ''
-  export let collapsableText = ''
-  export let showOptionalText = false
-  export let loadJs = true
-  export let inputMode: InputModeType | undefined
+  interface Props {
+    values?: any;
+    isRequired?: boolean | undefined;
+    inputClass?: string;
+    inputList?: Array<InputProps>;
+    numberOfInputOutside?: number;
+    fieldSetId: any; // use to relate error to fieldset
+    fieldSetLabel: any;
+    fieldSetErrorHeading?: string;
+    fieldSetError?: Array<ErrorDetail> | undefined;
+    fieldSetHelpText?: string | undefined;
+    expandableAriaLabel?: string; //'{0}, viser {1} av {2}'
+    expandableText?: string;
+    collapsableText?: string;
+    showOptionalText?: boolean;
+    loadJs?: boolean;
+    inputMode: InputModeType | undefined;
+  }
 
-  $: outsides = inputList.slice(0, numberOfInputOutside)
-  $: insides = inputList.slice(numberOfInputOutside, inputList.length)
-  $: showMore = insides.some(({ name }) => {
-    return values[name]
-  })
+  let {
+    values = $bindable({}),
+    isRequired = undefined,
+    inputClass = '',
+    inputList = [],
+    numberOfInputOutside = 2,
+    fieldSetId,
+    fieldSetLabel,
+    fieldSetErrorHeading = 'Feil oppstod',
+    fieldSetError = undefined,
+    fieldSetHelpText = undefined,
+    expandableAriaLabel = '',
+    expandableText = '',
+    collapsableText = '',
+    showOptionalText = false,
+    loadJs = true,
+    inputMode
+  }: Props = $props();
+
+  let outsides = $derived(inputList.slice(0, numberOfInputOutside))
+  let insides = $derived(inputList.slice(numberOfInputOutside, inputList.length))
+  let showMore;
+  run(() => {
+    showMore = insides.some(({ name }) => {
+      return values[name]
+    })
+  });
   const bodyId = `ui-expandable-list-${counter++}`
 
   function createAriaLabel(showMore: boolean) {
@@ -109,7 +135,7 @@
           aria-expanded={showMore}
           aria-controls={bodyId}
           aria-label={createAriaLabel(showMore)}
-          on:click|preventDefault={() => (showMore = !showMore)}
+          onclick={preventDefault(() => (showMore = !showMore))}
           style="order: {insides.length + outsides.length};">
           {#if showMore}
             {@html collapsableText}

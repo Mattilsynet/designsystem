@@ -15,11 +15,13 @@
     disableCss: { control: 'boolean' }
   }} />
 
-<Story name="Normal" let:bannerImage let:disableCss>
-  <div use:wrapInShadowDom={disableCss}>
-    <h1 class="mt-h1">Toppbilde</h1>
-    <div class="banner-image" style={`--banner-image-url: url(${bannerImage})`}>
-      <div class="banner-image--layout" />
+<Story name="Normal"  >
+  {#snippet children({ bannerImage, disableCss })}
+    <div use:wrapInShadowDom={disableCss}>
+      <h1 class="mt-h1">Toppbilde</h1>
+      <div class="banner-image" style={`--banner-image-url: url(${bannerImage})`}>
+        <div class="banner-image--layout"></div>
+      </div>
     </div>
-  </div>
+  {/snippet}
 </Story>

@@ -14,7 +14,7 @@
       value: 'no'
     }
   ]
-  let buttonRadioValue
+  let buttonRadioValue = $state()
   const buttonOptions = [
     {
       text: 'Ja',
@@ -50,60 +50,64 @@
     disableCss: { control: 'boolean' }
   }} />
 
-<Story name="Normal" let:label let:helpText let:disableCss let:args>
-  <div use:wrapInShadowDom={disableCss}>
-    <h1 class="mt-h1">Radioknapper</h1>
-    <h2 class="mt-h2">Theme - radio</h2>
-    <form class="mt-form form-layout">
-      <RadioGroup
-        {options}
-        {name}
-        {helpText}
-        {label}
-        error={undefined}
-        textOptional="Valgfritt"
-        theme="radio" />
-    </form>
-    <h2 id="theme" class="mt-h2">Theme - button</h2>
-    <form action="" class="mt-form form-layout">
-      <RadioGroup
-        options={buttonOptions}
-        bind:value={buttonRadioValue}
-        name={args.buttonRadio.name}
-        {helpText}
-        label={args.buttonRadio.label}
-        error={undefined}
-        textOptional={args.buttonRadio.textOptional}
-        theme="button" />
-    </form>
-  </div>
+<Story name="Normal"    >
+  {#snippet children({ label, helpText, disableCss, args })}
+    <div use:wrapInShadowDom={disableCss}>
+      <h1 class="mt-h1">Radioknapper</h1>
+      <h2 class="mt-h2">Theme - radio</h2>
+      <form class="mt-form form-layout">
+        <RadioGroup
+          {options}
+          {name}
+          {helpText}
+          {label}
+          error={undefined}
+          textOptional="Valgfritt"
+          theme="radio" />
+      </form>
+      <h2 id="theme" class="mt-h2">Theme - button</h2>
+      <form action="" class="mt-form form-layout">
+        <RadioGroup
+          options={buttonOptions}
+          bind:value={buttonRadioValue}
+          name={args.buttonRadio.name}
+          {helpText}
+          label={args.buttonRadio.label}
+          error={undefined}
+          textOptional={args.buttonRadio.textOptional}
+          theme="button" />
+      </form>
+    </div>
+  {/snippet}
 </Story>
 
-<Story name="Radio with error" let:label let:helpText let:disableCss let:errorMessage let:args>
-  <div use:wrapInShadowDom={disableCss}>
-    <h2 class="mt-h2">Theme - radio</h2>
-    <form class="mt-form form-layout">
-      <RadioGroup
-        {options}
-        {name}
-        {helpText}
-        {label}
-        error={{ key: name, message: errorMessage }}
-        textOptional="valgfritt" />
-    </form>
-    <h2 id="theme" class="mt-h2">Theme - button</h2>
-    <form class="mt-form form-layout">
-      <RadioGroup
-        options={buttonOptions}
-        bind:value={buttonRadioValue}
-        name={args.buttonRadio.name}
-        {helpText}
-        label={args.buttonRadio.label}
-        error={{ key: name, message: errorMessage }}
-        textOptional={args.buttonRadio.textOptional}
-        theme="button" />
-    </form>
-  </div>
+<Story name="Radio with error"     >
+  {#snippet children({ label, helpText, disableCss, errorMessage, args })}
+    <div use:wrapInShadowDom={disableCss}>
+      <h2 class="mt-h2">Theme - radio</h2>
+      <form class="mt-form form-layout">
+        <RadioGroup
+          {options}
+          {name}
+          {helpText}
+          {label}
+          error={{ key: name, message: errorMessage }}
+          textOptional="valgfritt" />
+      </form>
+      <h2 id="theme" class="mt-h2">Theme - button</h2>
+      <form class="mt-form form-layout">
+        <RadioGroup
+          options={buttonOptions}
+          bind:value={buttonRadioValue}
+          name={args.buttonRadio.name}
+          {helpText}
+          label={args.buttonRadio.label}
+          error={{ key: name, message: errorMessage }}
+          textOptional={args.buttonRadio.textOptional}
+          theme="button" />
+      </form>
+    </div>
+  {/snippet}
 </Story>
 
 <style lang="scss">

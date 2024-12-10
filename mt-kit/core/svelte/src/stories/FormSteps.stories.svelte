@@ -28,8 +28,10 @@
     steps: { control: 'array' }
   }} />
 
-<Story name="Normal" let:completed let:steps let:currentPath>
-  <h1 class="h1">Form steps</h1>
-  <hr />
-  <FormSteps {steps} {completed} {currentPath} progressBarLabel={'Fremdriftslinje for skjema'} />
+<Story name="Normal"   >
+  {#snippet children({ completed, steps, currentPath })}
+    <h1 class="h1">Form steps</h1>
+    <hr />
+    <FormSteps {steps} {completed} {currentPath} progressBarLabel={'Fremdriftslinje for skjema'} />
+  {/snippet}
 </Story>

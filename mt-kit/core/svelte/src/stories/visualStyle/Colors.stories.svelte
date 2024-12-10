@@ -14,23 +14,25 @@
     disableCss: { control: 'boolean' }
   }}
 />
-<Story name="All" let:primary let:disableCss>
-  <div
-    use:wrapInShadowDom={disableCss}
-    class="layout-grid layout-grid--column-3"
-    style="--wrap: wrap"
-  >
-    {#each colors as color}
-      <div class="layout-flex-col">
-        <div class="colors" style={`background-color: var(--color-${color.name})`} />
-        <span class="text-small">Navn: {color.name}</span>
-        {#if color.alias}
-          <span class="text-small">Alias: {color.alias}</span>
-        {/if}
-        <span class="text-small">Farge: {color.color}</span>
-      </div>
-    {/each}
-  </div>
+<Story name="All"  >
+  {#snippet children({ primary, disableCss })}
+    <div
+      use:wrapInShadowDom={disableCss}
+      class="layout-grid layout-grid--column-3"
+      style="--wrap: wrap"
+    >
+      {#each colors as color}
+        <div class="layout-flex-col">
+          <div class="colors" style={`background-color: var(--color-${color.name})`}></div>
+          <span class="text-small">Navn: {color.name}</span>
+          {#if color.alias}
+            <span class="text-small">Alias: {color.alias}</span>
+          {/if}
+          <span class="text-small">Farge: {color.color}</span>
+        </div>
+      {/each}
+    </div>
+  {/snippet}
 </Story>
 
 <style lang="scss">

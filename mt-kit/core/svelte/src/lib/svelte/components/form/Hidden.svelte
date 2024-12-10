@@ -1,9 +1,13 @@
 <script lang="ts">
   import type { ErrorDetail } from '../../../ts/types'
 
-  export let value
-  export let name: string
-  export let error: ErrorDetail | undefined
+  interface Props {
+    value: any;
+    name: string;
+    error: ErrorDetail | undefined;
+  }
+
+  let { value = $bindable(), name, error }: Props = $props();
 </script>
 
 <input

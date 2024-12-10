@@ -31,43 +31,53 @@
     disableCss: { control: 'boolean' }
   }} />
 
-<Story name="Normal" let:alerts let:disableCss>
-  <div use:wrapInShadowDom={disableCss} class="wrapper">
-    <Alert severity={alerts[0].severity}>
-      <p>Informasjon som kommer på en linje</p>
-    </Alert>
-    <Alert severity={alerts[0].severity}>
-      {@html alerts[0].text}
-    </Alert>
-  </div>
+<Story name="Normal"  >
+  {#snippet children({ alerts, disableCss })}
+    <div use:wrapInShadowDom={disableCss} class="wrapper">
+      <Alert severity={alerts[0].severity}>
+        <p>Informasjon som kommer på en linje</p>
+      </Alert>
+      <Alert severity={alerts[0].severity}>
+        {@html alerts[0].text}
+      </Alert>
+    </div>
+  {/snippet}
 </Story>
-<Story name="Information" let:alerts let:disableCss>
-  <div use:wrapInShadowDom={disableCss} class="wrapper">
-    <Alert severity={alerts[0].severity}>
-      {@html alerts[0].text}
-    </Alert>
-  </div>
+<Story name="Information"  >
+  {#snippet children({ alerts, disableCss })}
+    <div use:wrapInShadowDom={disableCss} class="wrapper">
+      <Alert severity={alerts[0].severity}>
+        {@html alerts[0].text}
+      </Alert>
+    </div>
+  {/snippet}
 </Story>
-<Story name="Success" let:alerts let:disableCss>
-  <div use:wrapInShadowDom={disableCss} class="wrapper">
-    <Alert severity={alerts[1].severity}>
-      {@html alerts[1].text}
-    </Alert>
-  </div>
+<Story name="Success"  >
+  {#snippet children({ alerts, disableCss })}
+    <div use:wrapInShadowDom={disableCss} class="wrapper">
+      <Alert severity={alerts[1].severity}>
+        {@html alerts[1].text}
+      </Alert>
+    </div>
+  {/snippet}
 </Story>
-<Story name="Warning" let:alerts let:disableCss>
-  <div use:wrapInShadowDom={disableCss} class="wrapper">
-    <Alert severity={alerts[2].severity}>
-      {@html alerts[2].text}
-    </Alert>
-  </div>
+<Story name="Warning"  >
+  {#snippet children({ alerts, disableCss })}
+    <div use:wrapInShadowDom={disableCss} class="wrapper">
+      <Alert severity={alerts[2].severity}>
+        {@html alerts[2].text}
+      </Alert>
+    </div>
+  {/snippet}
 </Story>
-<Story name="Danger" let:alerts let:disableCss>
-  <div use:wrapInShadowDom={disableCss} class="wrapper">
-    <Alert severity={alerts[3].severity}>
-      {@html alerts[3].text}
-    </Alert>
-  </div>
+<Story name="Danger"  >
+  {#snippet children({ alerts, disableCss })}
+    <div use:wrapInShadowDom={disableCss} class="wrapper">
+      <Alert severity={alerts[3].severity}>
+        {@html alerts[3].text}
+      </Alert>
+    </div>
+  {/snippet}
 </Story>
 
 <style lang="scss">

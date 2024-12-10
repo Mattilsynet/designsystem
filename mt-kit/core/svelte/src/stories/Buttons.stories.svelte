@@ -26,68 +26,72 @@
     removeFile: { action: 'removeFile' }
   }} />
 
-<Story name="Normal" let:primary let:primaryLong let:disableCss let:disabled let:secondary>
-  <div use:wrapInShadowDom={disableCss}>
-    <h1 class="mt-h1">Knapper</h1>
-    <p class="description">Hovedknapp - stor</p>
-    <button class="mt-button mt-button--primary" {disabled}>{primary}</button>
-    <button class="mt-button mt-button--primary" {disabled}>{primaryLong}</button>
-    <button class="mt-button mt-button--primary" {disabled} style="width: 15rem"
-      >{primaryLong}</button>
+<Story name="Normal"     >
+  {#snippet children({ primary, primaryLong, disableCss, disabled, secondary })}
+    <div use:wrapInShadowDom={disableCss}>
+      <h1 class="mt-h1">Knapper</h1>
+      <p class="description">Hovedknapp - stor</p>
+      <button class="mt-button mt-button--primary" {disabled}>{primary}</button>
+      <button class="mt-button mt-button--primary" {disabled}>{primaryLong}</button>
+      <button class="mt-button mt-button--primary" {disabled} style="width: 15rem"
+        >{primaryLong}</button>
 
-    <p class="description">Sekundær - stor</p>
-    <button class="mt-button mt-button--secondary" {disabled}>{secondary}</button>
+      <p class="description">Sekundær - stor</p>
+      <button class="mt-button mt-button--secondary" {disabled}>{secondary}</button>
 
-    <p class="description">Lenkeknapp</p>
-    <button class="mt-button mt-button--link"> ... </button>
+      <p class="description">Lenkeknapp</p>
+      <button class="mt-button mt-button--link"> ... </button>
 
-    <p class="description">Flat - stor</p>
-    <button class="mt-button mt-button--flat no-icon">Uten ikon</button>
-    <button class="mt-button mt-button--flat no-icon">Avbryt</button>
+      <p class="description">Flat - stor</p>
+      <button class="mt-button mt-button--flat no-icon">Uten ikon</button>
+      <button class="mt-button mt-button--flat no-icon">Avbryt</button>
 
-    <p class="description">Flat med icon - stor</p>
-    <button class="mt-button mt-button--flat closable">Med ikon</button>
+      <p class="description">Flat med icon - stor</p>
+      <button class="mt-button mt-button--flat closable">Med ikon</button>
 
-    <p class="description">Flat med icon på venstre side</p>
-    <button class="mt-button mt-button--flat icon--search-before">Søk</button>
+      <p class="description">Flat med icon på venstre side</p>
+      <button class="mt-button mt-button--flat icon--search-before">Søk</button>
 
-    <p class="description">På blå - stor</p>
-    <div class="background-mt-blue p-xxs">
-      <button type="button" class="mt-button mt-button--on-primary">{primary}</button>
+      <p class="description">På blå - stor</p>
+      <div class="background-mt-blue p-xxs">
+        <button type="button" class="mt-button mt-button--on-primary">{primary}</button>
+      </div>
     </div>
-  </div>
+  {/snippet}
 </Story>
 
-<Story name="Loading" let:disableCss let:inProgress>
-  <div use:wrapInShadowDom={disableCss}>
-    <h1 class="mt-h1">Loading</h1>
-    <p class="description">Hovedknapp</p>
-    <div class="layout-flex">
+<Story name="Loading"  >
+  {#snippet children({ disableCss, inProgress })}
+    <div use:wrapInShadowDom={disableCss}>
+      <h1 class="mt-h1">Loading</h1>
+      <p class="description">Hovedknapp</p>
+      <div class="layout-flex">
+        <ButtonSpinner
+          formInProgressAriaLabel="Sender inn skjema, venter på svar."
+          btnClassNames="mt-button--primary"
+          spinnerPlacement="start"
+          {inProgress}>
+          Spinner placement start
+        </ButtonSpinner>
+        <ButtonSpinner
+          formInProgressAriaLabel="Sender inn skjema, venter på svar."
+          btnClassNames="mt-button--primary"
+          {inProgress}
+          spinnerPlacement="end">
+          Spinner placement end
+        </ButtonSpinner>
+      </div>
+
+      <p class="description">Sekundær</p>
       <ButtonSpinner
         formInProgressAriaLabel="Sender inn skjema, venter på svar."
-        btnClassNames="mt-button--primary"
-        spinnerPlacement="start"
-        {inProgress}>
-        Spinner placement start
-      </ButtonSpinner>
-      <ButtonSpinner
-        formInProgressAriaLabel="Sender inn skjema, venter på svar."
-        btnClassNames="mt-button--primary"
+        btnClassNames="mt-button--secondary"
         {inProgress}
         spinnerPlacement="end">
-        Spinner placement end
+        Send in skjema
       </ButtonSpinner>
     </div>
-
-    <p class="description">Sekundær</p>
-    <ButtonSpinner
-      formInProgressAriaLabel="Sender inn skjema, venter på svar."
-      btnClassNames="mt-button--secondary"
-      {inProgress}
-      spinnerPlacement="end">
-      Send in skjema
-    </ButtonSpinner>
-  </div>
+  {/snippet}
 </Story>
 
 <style lang="scss" global>

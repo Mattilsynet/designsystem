@@ -3,10 +3,19 @@
   import HeadingLevel from '../components/HeadingLevel.svelte'
   import type { SearchResult } from '$lib/ts'
 
-  export let searchResult: Array<SearchResult> = []
-  export let headingClass = 'mt-h3'
-  export let headerTag: 'h2' | 'h3' = 'h2'
-  export let breadCrumbAriaLabel = 'Brødsmulesti'
+  interface Props {
+    searchResult?: Array<SearchResult>;
+    headingClass?: string;
+    headerTag?: 'h2' | 'h3';
+    breadCrumbAriaLabel?: string;
+  }
+
+  let {
+    searchResult = [],
+    headingClass = 'mt-h3',
+    headerTag = 'h2',
+    breadCrumbAriaLabel = 'Brødsmulesti'
+  }: Props = $props();
 </script>
 
 {#each searchResult as result}

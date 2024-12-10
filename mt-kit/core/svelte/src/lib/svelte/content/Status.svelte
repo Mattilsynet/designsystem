@@ -2,24 +2,40 @@
   import { displayDataTime, mapRelExternal } from '../../ts/utils'
   import Published from '../components/Published.svelte'
 
-  export let text: string
-  export let updatedDate: string
-  export let publishedText = 'Oppdatert'
-  export let actionsTakenByMattilsynet: string
-  export let statusType: 'important' | 'none'
-  export let linkUrl: string
-  export let linkText: string
-  let className: string
-  export { className as class }
-  export let lang = 'NO-nb'
+  
+  interface Props {
+    text: string;
+    updatedDate: string;
+    publishedText?: string;
+    actionsTakenByMattilsynet: string;
+    statusType: 'important' | 'none';
+    linkUrl: string;
+    linkText: string;
+    class: string;
+    lang?: string;
+    heading?: import('svelte').Snippet;
+  }
 
-  $: updatedDateLocalized = updatedDate ? displayDataTime(lang, updatedDate) : null
+  let {
+    text,
+    updatedDate,
+    publishedText = 'Oppdatert',
+    actionsTakenByMattilsynet,
+    statusType,
+    linkUrl,
+    linkText,
+    class: className,
+    lang = 'NO-nb',
+    heading
+  }: Props = $props();
+
+  let updatedDateLocalized = $derived(updatedDate ? displayDataTime(lang, updatedDate) : null)
 </script>
 
 <div class="status {className}">
-  <span class="{statusType} mt-h2" data-testid="status-type" />
+  <span class="{statusType} mt-h2" data-testid="status-type"></span>
 
-  <slot name="heading" />
+  {@render heading?.()}
 
   <div class="text">
     {@html text}

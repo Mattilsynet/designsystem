@@ -1,15 +1,26 @@
 <script lang="ts">
   import { getFileExtension, mapRelExternal } from '../../ts/utils'
 
-  export let linkText
-  export let href
-  let className = ''
-  export { className as class }
-  export let style = ''
-  export let linkStyle: 'mt-link' | 'mt-button' = 'mt-link'
-  export let fileName = ''
+  
+  interface Props {
+    linkText: any;
+    href: any;
+    class?: string;
+    style?: string;
+    linkStyle?: 'mt-link' | 'mt-button';
+    fileName?: string;
+  }
 
-  $: fileType = getFileExtension(fileName) ? `(${getFileExtension(fileName)})` : ''
+  let {
+    linkText,
+    href,
+    class: className = '',
+    style = '',
+    linkStyle = 'mt-link',
+    fileName = ''
+  }: Props = $props();
+
+  let fileType = $derived(getFileExtension(fileName) ? `(${getFileExtension(fileName)})` : '')
 </script>
 
 <a class="{linkStyle} {className}" rel={mapRelExternal(href)} {href} {style}>
