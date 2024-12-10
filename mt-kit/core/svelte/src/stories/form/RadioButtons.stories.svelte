@@ -1,5 +1,5 @@
-<script lang="ts">
-  import { Meta, Story } from '@storybook/addon-svelte-csf'
+<script lang="ts" module>
+  import { defineMeta } from '@storybook/addon-svelte-csf'
   import RadioGroup from '$lib/svelte/components/form/RadioGroup.svelte'
   import { wrapInShadowDom } from '../storybook-utils/utils'
 
@@ -25,31 +25,31 @@
       value: '2'
     }
   ]
-</script>
 
-<Meta
-  title="Components/Form/RadioButtons"
-  args={{
-    label: 'Kan vi kontakte deg?',
-    helpText:
-      'Beskriv kort og konkret hva du har observert og hvor alvorlig hendelsen er. Vær oppmerksom på den ansvarlige ofte får se meldingen.',
-    errorMessage: 'Fyll inn dette feltet.',
-    buttonRadio: {
-      label: 'Reiser du selv med dyret?',
-      helpText: 'Hjelpetekst',
+  const { Story } = defineMeta({
+    title: 'Components/Form/RadioButtons',
+    args: {
+      label: 'Kan vi kontakte deg?',
+      helpText:
+        'Beskriv kort og konkret hva du har observert og hvor alvorlig hendelsen er. Vær oppmerksom på den ansvarlige ofte får se meldingen.',
       errorMessage: 'Fyll inn dette feltet.',
-      name: 'travelWithAnimal',
-      textOptional: 'Valgfritt'
+      buttonRadio: {
+        label: 'Reiser du selv med dyret?',
+        helpText: 'Hjelpetekst',
+        errorMessage: 'Fyll inn dette feltet.',
+        name: 'travelWithAnimal',
+        textOptional: 'Valgfritt'
+      },
+      disableCss: false
     },
-    disableCss: false
-  }}
-  argTypes={{
-    label: { control: 'text' },
-    helpText: { control: 'text' },
-    errorMessage: { control: 'text' },
-    disableCss: { control: 'boolean' }
-  }}
-/>
+    argTypes: {
+      label: { control: 'text' },
+      helpText: { control: 'text' },
+      errorMessage: { control: 'text' },
+      disableCss: { control: 'boolean' }
+    }
+  })
+</script>
 
 <Story name="Normal">
   {#snippet children({ label, helpText, disableCss, args })}
@@ -64,8 +64,7 @@
           {label}
           error={undefined}
           textOptional="Valgfritt"
-          theme="radio"
-        />
+          theme="radio" />
       </form>
       <h2 id="theme" class="mt-h2">Theme - button</h2>
       <form action="" class="mt-form form-layout">
@@ -77,8 +76,7 @@
           label={args.buttonRadio.label}
           error={undefined}
           textOptional={args.buttonRadio.textOptional}
-          theme="button"
-        />
+          theme="button" />
       </form>
     </div>
   {/snippet}
@@ -95,8 +93,7 @@
           {helpText}
           {label}
           error={{ key: name, message: errorMessage }}
-          textOptional="valgfritt"
-        />
+          textOptional="valgfritt" />
       </form>
       <h2 id="theme" class="mt-h2">Theme - button</h2>
       <form class="mt-form form-layout">
@@ -108,8 +105,7 @@
           label={args.buttonRadio.label}
           error={{ key: name, message: errorMessage }}
           textOptional={args.buttonRadio.textOptional}
-          theme="button"
-        />
+          theme="button" />
       </form>
     </div>
   {/snippet}

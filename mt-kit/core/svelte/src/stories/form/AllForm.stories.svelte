@@ -1,5 +1,5 @@
-<script lang="ts">
-  import { Meta, Story } from '@storybook/addon-svelte-csf'
+<script lang="ts" module>
+  import { defineMeta } from '@storybook/addon-svelte-csf'
   import TextInput from '$lib/svelte/components/form/TextInput.svelte'
   import { wrapInShadowDom } from '../storybook-utils/utils'
   import TextArea from '$lib/svelte/components/form/TextArea.svelte'
@@ -7,6 +7,7 @@
   import Checkbox from '$lib/svelte/components/form/Checkbox.svelte'
   import CheckboxWithSubSets from '$lib/svelte/components/form/CheckboxWithSubSets.svelte'
   import Address from '$lib/svelte/components/form/Address.svelte'
+
   const radioName = 'radiobuttons'
   const checkboxName = 'checkboxes'
   const checkboxWithSubsetsName = 'checkboxesWithSubsets'
@@ -99,40 +100,40 @@
     ]
   }
   let values = $state({})
-</script>
 
-<Meta
-  title="Components/Form/All"
-  args={{
-    label: 'Når skjedde det?',
-    radioLabel: 'Kan vi kontakte deg?',
-    checkboxLabel: 'Hva liker du?',
-    checkboxWithSubsetsLegend: 'Hvilkt tema er det du er interessert i?',
-    helpText: 'Skriv når hendelsen skjedde og om det har pågått over lengere periode.',
-    errorMessage: 'Fyll inn dette feltet.',
-    countCharactersLeftLabel: 'karakterer igjen',
-    address: {
-      streetLabel: 'Søk i gateadresse',
-      streetFallbackLabel: 'Gateadresse',
-      streetName: 'ownerStreet',
-      streetError: undefined,
-      postalCodeLabel: 'Postnummer',
-      postalCodeName: 'ownerZip',
-      postalCodeError: undefined,
-      loadJs: true
+  const { Story } = defineMeta({
+    title: 'Components/Form/All',
+    args: {
+      label: 'Når skjedde det?',
+      radioLabel: 'Kan vi kontakte deg?',
+      checkboxLabel: 'Hva liker du?',
+      checkboxWithSubsetsLegend: 'Hvilkt tema er det du er interessert i?',
+      helpText: 'Skriv når hendelsen skjedde og om det har pågått over lengere periode.',
+      errorMessage: 'Fyll inn dette feltet.',
+      countCharactersLeftLabel: 'karakterer igjen',
+      address: {
+        streetLabel: 'Søk i gateadresse',
+        streetFallbackLabel: 'Gateadresse',
+        streetName: 'ownerStreet',
+        streetError: undefined,
+        postalCodeLabel: 'Postnummer',
+        postalCodeName: 'ownerZip',
+        postalCodeError: undefined,
+        loadJs: true
+      },
+      disableCss: false
     },
-    disableCss: false
-  }}
-  argTypes={{
-    label: { control: 'text' },
-    radioLabel: { control: 'text' },
-    checkboxLabel: { control: 'text' },
-    checkboxWithSubsetsLegend: { control: 'text' },
-    helpText: { control: 'text' },
-    countCharactersLeftLabel: { control: 'text' },
-    disableCss: { control: 'boolean' }
-  }}
-/>
+    argTypes: {
+      label: { control: 'text' },
+      radioLabel: { control: 'text' },
+      checkboxLabel: { control: 'text' },
+      checkboxWithSubsetsLegend: { control: 'text' },
+      helpText: { control: 'text' },
+      countCharactersLeftLabel: { control: 'text' },
+      disableCss: { control: 'boolean' }
+    }
+  })
+</script>
 
 <Story name="Normal">
   {#snippet children({
@@ -156,8 +157,7 @@
             textOptional="Valgfritt"
             inputmode="text"
             placeholder=""
-            autocomplete=""
-          />
+            autocomplete="" />
           <!-- TextArea   -->
           <TextArea
             name="email"
@@ -170,8 +170,7 @@
             inputmode="text"
             maxlength="300"
             rows="3"
-            cols="5"
-          />
+            cols="5" />
 
           <!--  Radio -->
           <RadioGroup
@@ -181,8 +180,7 @@
             {helpText}
             label={radioLabel}
             isRequired={true}
-            textOptional="Valgfritt"
-          />
+            textOptional="Valgfritt" />
 
           <!-- Checkbox -->
           <Checkbox
@@ -190,15 +188,13 @@
             label={checkboxLabel}
             {helpText}
             options={checkBoxOptions}
-            textOptional="Valgfritt"
-          />
+            textOptional="Valgfritt" />
 
           <!-- Checkboxes with subsets-->
           <CheckboxWithSubSets
             name={checkboxWithSubsetsName}
             level1Legend={checkboxWithSubsetsLegend}
-            options={checkboxWithSubsetsOptions}
-          />
+            options={checkboxWithSubsetsOptions} />
 
           <!-- Address -->
           <Address
@@ -213,8 +209,7 @@
             loadJs={args.address.loadJs}
             streetHelpText={helpText}
             bind:streetValue={values['ownerStreet']}
-            bind:postalCodeValue={values['ownerZip']}
-          ></Address>
+            bind:postalCodeValue={values['ownerZip']}></Address>
         </form>
       </div>
     </div>
@@ -243,8 +238,7 @@
           textOptional="(valgfritt felt)"
           inputmode="text"
           placeholder=""
-          autocomplete=""
-        />
+          autocomplete="" />
 
         <TextArea
           name="textfield"
@@ -256,8 +250,7 @@
           inputmode="text"
           maxlength="300"
           rows="3"
-          cols="5"
-        />
+          cols="5" />
 
         <!--  Radio -->
         <RadioGroup
@@ -267,8 +260,7 @@
           {helpText}
           label={radioLabel}
           isRequired="true"
-          textOptional="valgfritt"
-        />
+          textOptional="valgfritt" />
 
         <!--    Checkbox-->
         <Checkbox
@@ -276,8 +268,7 @@
           label={checkboxLabel}
           {helpText}
           options={checkBoxOptions}
-          error={{ key: checkboxName, message: errorMessage }}
-        />
+          error={{ key: checkboxName, message: errorMessage }} />
       </form>
     </div>
   {/snippet}

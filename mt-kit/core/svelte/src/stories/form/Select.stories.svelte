@@ -1,7 +1,7 @@
-<script lang="ts">
+<script lang="ts" module>
   import { preventDefault, stopPropagation } from 'svelte/legacy'
 
-  import { Meta, Story } from '@storybook/addon-svelte-csf'
+  import { defineMeta } from '@storybook/addon-svelte-csf'
   import Select from '$lib/svelte/components/form/Select.svelte'
   import MultiSelect from '$lib/svelte/components/form/MultiSelect.svelte'
   import { wrapInShadowDom } from '../storybook-utils/utils'
@@ -22,48 +22,48 @@
       e.preventDefault()
     }
   }
-</script>
 
-<Meta
-  title="Components/Form/Select"
-  args={{
-    label: 'Velg dyr',
-    helpText: 'Velg den typen dyr som denne saken gjelder',
-    errorMessage: 'Fyll inn dette feltet.',
-    multiselect: {
-      preferredOptions: [
-        { value: 'NO', text: 'Norge', removeAriaLabel: 'Fjern Norge fra listen' },
-        { value: 'SE', text: 'Sverige', removeAriaLabel: 'Fjern Sverig fra listen' },
-        { value: 'FI', text: 'Finland', removeAriaLabel: 'Fjern Finland fra listen' }
-      ],
-      options: [
-        { value: 'DA', text: 'Danmark', removeAriaLabel: 'Fjern Danmark fra listen' },
-        { value: 'FI', text: 'Finland', removeAriaLabel: 'Fjern Finland fra listen' },
-        { value: 'FR', text: 'Frankrike', removeAriaLabel: 'Fjern Frankrike fra listen' },
-        { value: 'NO', text: 'Norge', removeAriaLabel: 'Fjern Norge fra listen' },
-        { value: 'PT', text: 'Portugal', removeAriaLabel: 'Fjern Portugal fra listen' },
-        { value: 'ES', text: 'Spania', removeAriaLabel: 'Fjern Spania fra listen' },
-        { value: 'SE', text: 'Sverige', removeAriaLabel: 'Fjern Sverige fra listen' },
-        { value: 'KR', text: 'Sør Korea', removeAriaLabel: 'Fjern Sør Korea fra listen' },
-        { value: 'DE', text: 'Tyskland', removeAriaLabel: 'Fjern Tyskland fra listen' }
-      ],
-      label: 'Hvilke land har du vært i?',
-      error: '',
-      tagsLabel: 'Land du skal besøke:',
-      helpText: 'Legg til landene du har vært i før dere kom til Norge.',
-      isRequired: true
+  const { Story } = defineMeta({
+    title: 'Components/Form/Select',
+    args: {
+      label: 'Velg dyr',
+      helpText: 'Velg den typen dyr som denne saken gjelder',
+      errorMessage: 'Fyll inn dette feltet.',
+      multiselect: {
+        preferredOptions: [
+          { value: 'NO', text: 'Norge', removeAriaLabel: 'Fjern Norge fra listen' },
+          { value: 'SE', text: 'Sverige', removeAriaLabel: 'Fjern Sverig fra listen' },
+          { value: 'FI', text: 'Finland', removeAriaLabel: 'Fjern Finland fra listen' }
+        ],
+        options: [
+          { value: 'DA', text: 'Danmark', removeAriaLabel: 'Fjern Danmark fra listen' },
+          { value: 'FI', text: 'Finland', removeAriaLabel: 'Fjern Finland fra listen' },
+          { value: 'FR', text: 'Frankrike', removeAriaLabel: 'Fjern Frankrike fra listen' },
+          { value: 'NO', text: 'Norge', removeAriaLabel: 'Fjern Norge fra listen' },
+          { value: 'PT', text: 'Portugal', removeAriaLabel: 'Fjern Portugal fra listen' },
+          { value: 'ES', text: 'Spania', removeAriaLabel: 'Fjern Spania fra listen' },
+          { value: 'SE', text: 'Sverige', removeAriaLabel: 'Fjern Sverige fra listen' },
+          { value: 'KR', text: 'Sør Korea', removeAriaLabel: 'Fjern Sør Korea fra listen' },
+          { value: 'DE', text: 'Tyskland', removeAriaLabel: 'Fjern Tyskland fra listen' }
+        ],
+        label: 'Hvilke land har du vært i?',
+        error: '',
+        tagsLabel: 'Land du skal besøke:',
+        helpText: 'Legg til landene du har vært i før dere kom til Norge.',
+        isRequired: true
+      },
+      disableJs: false,
+      disableCss: false
     },
-    disableJs: false,
-    disableCss: false
-  }}
-  argTypes={{
-    label: { control: 'text' },
-    helpText: { control: 'text' },
-    errorMessage: { control: 'text' },
-    disableJs: { control: 'boolean' },
-    disableCss: { control: 'boolean' }
-  }}
-/>
+    argTypes: {
+      label: { control: 'text' },
+      helpText: { control: 'text' },
+      errorMessage: { control: 'text' },
+      disableJs: { control: 'boolean' },
+      disableCss: { control: 'boolean' }
+    }
+  })
+</script>
 
 <Story name="Normal">
   {#snippet children({ label, helpText, disableCss })}
@@ -78,8 +78,7 @@
           {helpText}
           name="animal"
           error={undefined}
-          idPrefix="select-box-"
-        />
+          idPrefix="select-box-" />
       </form>
     </div>
   {/snippet}
@@ -91,16 +90,14 @@
       <h1 class="mt-h1">Flervalg</h1>
       <ResourceList
         figmaUrl="https://www.figma.com/file/dp856nY6joVcAUSVSmPSRO/MT-Eksternt-Designsystem?node-id=1871%3A5152&t=3fZ5xL2MGOLfFwqv-4"
-        githubUrl="https://github.com/Mattilsynet/designsystem/blob/main/src/svelte/components/form/MultiSelect.svelte"
-      />
+        githubUrl="https://github.com/Mattilsynet/designsystem/blob/main/src/svelte/components/form/MultiSelect.svelte" />
       <section>
         <h2 class="mt-h2">Normal</h2>
         <form
           class="mt-form"
           onkeyup={preventDefault(handleFormKeyUp)}
           onkeydown={stopPropagation(handleFormKeyDown)}
-          onsubmit={preventDefault(handleSubmit)}
-        >
+          onsubmit={preventDefault(handleSubmit)}>
           <MultiSelect
             options={args.multiselect.options}
             preferredOptions={args.multiselect.preferredOptions}
@@ -113,8 +110,7 @@
             loadJs={true}
             tagsLabel={args.multiselect.tagsLabel}
             isRequired={args.multiselect.isRequired}
-            helpText={args.multiselect.helpText}
-          />
+            helpText={args.multiselect.helpText} />
           <button type="submit" class="mt-button">Submit</button>
           <p>
             Values:
@@ -137,8 +133,7 @@
             loadJs={false}
             tagsLabel={args.multiselect.tagsLabel}
             isRequired={args.multiselect.isRequired}
-            helpText={args.multiselect.helpText}
-          />
+            helpText={args.multiselect.helpText} />
           <button type="submit" class="mt-button">Submit</button>
           <p>
             Values:

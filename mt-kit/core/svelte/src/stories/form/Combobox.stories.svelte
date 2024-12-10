@@ -1,5 +1,5 @@
-<script lang="ts">
-  import { Meta, Story } from '@storybook/addon-svelte-csf'
+<script lang="ts" module>
+  import { defineMeta } from '@storybook/addon-svelte-csf'
   import { wrapInShadowDom } from '../storybook-utils/utils'
   import Combobox from '$lib/svelte/components/form/Combobox.svelte'
   import type { ErrorDetail } from '$lib/ts'
@@ -66,39 +66,39 @@
       }, 300)
     }
   }
-</script>
 
-<Meta
-  title="Components/Form/Combobox"
-  args={{
-    errorMessage: 'Fyll inn dette feltet.',
-    address: {
-      streetLabel: 'Søk etter gateadresse',
-      streetFallbackLabel: 'Gateadresse',
-      streetName: 'ownerStreet',
-      listName: 'ownerStreet-list',
-      isRequired: false,
-      showOptionalText: false,
-      streetHelpText: 'Skriv når hendelsen skjedde og om det har pågått over lengere periode.',
-      streetError: undefined,
-      postalCodeLabel: 'Postnummer',
-      postalCodeName: 'ownerZip',
-      postalCodeError: undefined,
-      loadJs: true
+  const { Story } = defineMeta({
+    title: 'Components/Form/Combobox',
+    args: {
+      errorMessage: 'Fyll inn dette feltet.',
+      address: {
+        streetLabel: 'Søk etter gateadresse',
+        streetFallbackLabel: 'Gateadresse',
+        streetName: 'ownerStreet',
+        listName: 'ownerStreet-list',
+        isRequired: false,
+        showOptionalText: false,
+        streetHelpText: 'Skriv når hendelsen skjedde og om det har pågått over lengere periode.',
+        streetError: undefined,
+        postalCodeLabel: 'Postnummer',
+        postalCodeName: 'ownerZip',
+        postalCodeError: undefined,
+        loadJs: true
+      },
+      simple: {
+        inputLabel: 'Velg et tall',
+        inputName: 'choice',
+        listName: 'choices-list',
+        inputError: undefined
+      },
+      disableCss: false
     },
-    simple: {
-      inputLabel: 'Velg et tall',
-      inputName: 'choice',
-      listName: 'choices-list',
-      inputError: undefined
-    },
-    disableCss: false
-  }}
-  argTypes={{
-    disableCss: { control: 'boolean' },
-    disableJs: { control: 'boolean' }
-  }}
-/>
+    argTypes: {
+      disableCss: { control: 'boolean' },
+      disableJs: { control: 'boolean' }
+    }
+  })
+</script>
 
 <Story name="Normal">
   {#snippet children({ args })}
@@ -114,8 +114,7 @@
           inputIsRequired={true}
           inputHelpText={''}
           bind:inputRef={secondInput}
-          bind:inputValue={values['choice']}
-        >
+          bind:inputValue={values['choice']}>
           {#snippet options()}
             <u-option>en</u-option>
             <u-option>to</u-option>
@@ -138,8 +137,7 @@
           inputHelpText={args.address.streetHelpText}
           bind:inputRef={input}
           bind:inputValue={values['ownerStreet']}
-          {handleInput}
-        ></Combobox>
+          {handleInput}></Combobox>
       </form>
     </div>
   {/snippet}

@@ -1,7 +1,7 @@
-<script lang="ts">
+<script lang="ts" module>
   import { run, preventDefault } from 'svelte/legacy'
 
-  import { Meta, Story } from '@storybook/addon-svelte-csf'
+  import { defineMeta } from '@storybook/addon-svelte-csf'
   import ExpandableInputList from '$lib/svelte/components/form/ExpandableInputList.svelte'
   import { wrapInShadowDom } from '../storybook-utils/utils'
 
@@ -84,31 +84,31 @@
       inputList = inputList
     }
   }
-</script>
 
-<Meta
-  title="Components/Form/Utvidbar liste med inputs"
-  args={{
-    fieldSetLabel: 'Hvilke dyr reiser du med?',
-    helpText: 'Legg til de dyrene du reiser med.',
-    expandableAriaLabel: '{0}, viser {1} av {2}',
-    expandableText: 'Vis flere',
-    collapsableText: 'Vis færre',
-    inputList: inputList,
-    disableJs: false,
-    disableCss: false
-  }}
-  argTypes={{
-    fieldSetLabel: { control: 'text' },
-    helpText: { control: 'text' },
-    expandableAriaLabel: { control: 'text' },
-    expandableText: { control: 'text' },
-    collapsableText: { control: 'text' },
-    inputList: { control: 'object' },
-    disableJs: { control: 'boolean' },
-    disableCss: { control: 'boolean' }
-  }}
-/>
+  const { Story } = defineMeta({
+    title: 'Components/Form/Utvidbar liste med inputs',
+    args: {
+      fieldSetLabel: 'Hvilke dyr reiser du med?',
+      helpText: 'Legg til de dyrene du reiser med.',
+      expandableAriaLabel: '{0}, viser {1} av {2}',
+      expandableText: 'Vis flere',
+      collapsableText: 'Vis færre',
+      inputList: inputList,
+      disableJs: false,
+      disableCss: false
+    },
+    argTypes: {
+      fieldSetLabel: { control: 'text' },
+      helpText: { control: 'text' },
+      expandableAriaLabel: { control: 'text' },
+      expandableText: { control: 'text' },
+      collapsableText: { control: 'text' },
+      inputList: { control: 'object' },
+      disableJs: { control: 'boolean' },
+      disableCss: { control: 'boolean' }
+    }
+  })
+</script>
 
 <Story name="Normal">
   {#snippet children({ disableCss, args })}
@@ -125,8 +125,7 @@
           collapsableText={args.collapsableText}
           expandableAriaLabel={args.expandableAriaLabel}
           bind:values
-          loadJs={!args.disableJs}
-        />
+          loadJs={!args.disableJs} />
         <button type="submit" class="mt-button mt-button--primary">Gå videre</button>
       </form>
     </main>

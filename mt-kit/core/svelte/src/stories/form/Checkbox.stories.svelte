@@ -1,6 +1,6 @@
 <!-- @migration-task Error while migrating Svelte code: Cannot read properties of undefined (reading 'end') -->
-<script lang="ts">
-  import { Meta, Story } from '@storybook/addon-svelte-csf'
+<script lang="ts" module>
+  import { defineMeta } from '@storybook/addon-svelte-csf'
   import Checkbox from '$lib/svelte/components/form/Checkbox.svelte'
   import { wrapInShadowDom } from '../storybook-utils/utils'
 
@@ -10,52 +10,52 @@
   function handleOnChange(event) {
     console.log(event.detail)
   }
-</script>
 
-<Meta
-  title="Components/Form/Checkbox"
-  args={{
-    label: 'Kan vi kontakte deg?',
-    helpText:
-      'Beskriv kort og konkret hva du har observert og hvor alvorlig hendelsen er. Vær oppmerksom på den ansvarlige ofte får se meldingen.',
-    errorMessage: 'Fyll inn dette feltet.',
-    hiddenErrorText: 'Feilmelding',
-    isRequired: false,
-    textOptional: 'Valgfitt',
-    options: [
-      {
-        text: 'Dere kan kontakte meg',
-        value: 'yes'
-      },
-      {
-        text: 'Jeg ønsker å være anonym',
-        value: 'no'
-      }
-    ],
-    buttonOptions: [
-      {
-        text: 'Ja',
-        value: '1'
-      },
-      {
-        text: 'Nei',
-        value: '2'
-      }
-    ],
-    disableCss: false
-  }}
-  argTypes={{
-    label: { control: 'text' },
-    helpText: { control: 'text' },
-    errorMessage: { control: 'text' },
-    hiddenErrorText: { control: 'text' },
-    isRequired: { control: 'boolean' },
-    textOptional: { control: 'text' },
-    options: { control: 'object' },
-    buttonOptions: { control: 'object' },
-    disableCss: { control: 'boolean' }
-  }}
-/>
+  const { Story } = defineMeta({
+    title: 'Components/Form/Checkbox',
+    args: {
+      label: 'Kan vi kontakte deg?',
+      helpText:
+        'Beskriv kort og konkret hva du har observert og hvor alvorlig hendelsen er. Vær oppmerksom på den ansvarlige ofte får se meldingen.',
+      errorMessage: 'Fyll inn dette feltet.',
+      hiddenErrorText: 'Feilmelding',
+      isRequired: false,
+      textOptional: 'Valgfitt',
+      options: [
+        {
+          text: 'Dere kan kontakte meg',
+          value: 'yes'
+        },
+        {
+          text: 'Jeg ønsker å være anonym',
+          value: 'no'
+        }
+      ],
+      buttonOptions: [
+        {
+          text: 'Ja',
+          value: '1'
+        },
+        {
+          text: 'Nei',
+          value: '2'
+        }
+      ],
+      disableCss: false
+    },
+    argTypes: {
+      label: { control: 'text' },
+      helpText: { control: 'text' },
+      errorMessage: { control: 'text' },
+      hiddenErrorText: { control: 'text' },
+      isRequired: { control: 'boolean' },
+      textOptional: { control: 'text' },
+      options: { control: 'object' },
+      buttonOptions: { control: 'object' },
+      disableCss: { control: 'boolean' }
+    }
+  })
+</script>
 
 <Story
   name="Normal"
@@ -65,8 +65,7 @@
   let:options
   let:buttonOptions
   let:isRequired
-  let:textOptional
->
+  let:textOptional>
   <div use:wrapInShadowDom={disableCss}>
     <h1 class="mt-h1">Checkbox</h1>
     <h2 id="theme" class="mt-h2">Theme - checkbox</h2>
@@ -78,8 +77,7 @@
         {options}
         {isRequired}
         {textOptional}
-        on:onChange={handleOnChange}
-      />
+        on:onChange={handleOnChange} />
     </form>
     <h2 id="theme" class="mt-h2">Theme - button</h2>
     <form action="" class="mt-form form-layout">
@@ -91,8 +89,7 @@
         options={buttonOptions}
         {helpText}
         theme="button"
-        bind:value={buttonCheckboxValue}
-      />
+        bind:value={buttonCheckboxValue} />
     </form>
   </div>
 </Story>
@@ -107,8 +104,7 @@
   let:options
   let:buttonOptions
   let:isRequired
-  let:textOptional
->
+  let:textOptional>
   <div use:wrapInShadowDom={disableCss}>
     <h2 id="theme" class="mt-h2">Theme - checkbox</h2>
     <form class="mt-form">
@@ -121,8 +117,7 @@
         {hiddenErrorText}
         {textOptional}
         error={{ key: name, message: errorMessage }}
-        let:isRequired
-      />
+        let:isRequired />
     </form>
     <h2 id="theme" class="mt-h2">Theme - button</h2>
     <form class="mt-form">
@@ -135,8 +130,7 @@
         {textOptional}
         options={buttonOptions}
         error={{ key: name, message: errorMessage }}
-        theme="button"
-      />
+        theme="button" />
     </form>
   </div>
 </Story>
