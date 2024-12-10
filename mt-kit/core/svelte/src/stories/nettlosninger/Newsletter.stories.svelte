@@ -1,15 +1,14 @@
-<script lang="ts">
-  import { Story, Meta } from '@storybook/addon-svelte-csf'
-</script>
+<script lang="ts" module>
+  import { defineMeta } from '@storybook/addon-svelte-csf'
 
-<Meta
-  title="Innhold/Nyhetsbrev"
-  ,
-  argTypes={{
-    disableCss: { control: 'boolean' },
-    disabled: { control: 'boolean' }
-  }}
-/>
+  const { Story } = defineMeta({
+    title: 'Innhold/Nyhetsbrev',
+    argTypes: {
+      disableCss: { control: 'boolean' },
+      disabled: { control: 'boolean' }
+    }
+  })
+</script>
 
 <Story name="Nyhetsbrev">
   {#snippet children({ disableCss, disabled })}
@@ -18,7 +17,6 @@
     <a
       href="#"
       class="mt-link mt-button mt-button--secondary icon--newsletter-bell-before"
-      {disabled}>Abonner på nyhetsbrev</a
-    >
+      {disabled}>Abonner på nyhetsbrev</a>
   {/snippet}
 </Story>

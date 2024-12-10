@@ -1,55 +1,58 @@
-<script lang="ts">
-  import { Meta, Story } from '@storybook/addon-svelte-csf'
+<script lang="ts" module>
+  import { defineMeta } from '@storybook/addon-svelte-csf'
   import Disclosure from '$lib/svelte/components/Disclosure.svelte'
   import Published from '$lib/svelte/components/Published.svelte'
   import Link from '$lib/svelte/components/Link.svelte'
   import { wrapInShadowDom } from '../storybook-utils/utils'
-</script>
 
-<Meta
-  title="Innhold/Rapportserie"
-  args={{
-    title: 'Hovedoverskrift',
-    intro: 'Veterinær grensekontroll sjømat 2020',
-    text: 'Veterinær grensekontroll sjømat 2020',
-    publishFrom: '2021-06-24T11:40:02.889Z',
-    professionallyUpdated: '2021-06-24T11:32:22Z',
-    publications: [
-      {
-        title: 'Overskrift 1',
-        text: 'Tekst 1',
-        subjectToExamination: 'Dette undersøkte vi',
-        timePeriod: 'Dette er tidsperioden',
-        lookingForWhat: 'Dette så vi etter',
-        organisationPerformingAssignment: 'Disse utførte oppdraget',
-        findings: 'Dette fant vi',
-        file: {
-          text: 'Filrapporten.pdf',
-          url: 'http://www.mattilsynet-xp7prod.enonic.cloud/test.pdf'
+  const { Story } = defineMeta({
+    title: 'Innhold/Rapportserie',
+    args: {
+      title: 'Hovedoverskrift',
+      intro: 'Veterinær grensekontroll sjømat 2020',
+      text: 'Veterinær grensekontroll sjømat 2020',
+      publishFrom: '2021-06-24T11:40:02.889Z',
+      professionallyUpdated: '2021-06-24T11:32:22Z',
+      publications: [
+        {
+          title: 'Overskrift 1',
+          text: 'Tekst 1',
+          subjectToExamination: 'Dette undersøkte vi',
+          timePeriod: 'Dette er tidsperioden',
+          lookingForWhat: 'Dette så vi etter',
+          organisationPerformingAssignment: 'Disse utførte oppdraget',
+          findings: 'Dette fant vi',
+          file: {
+            text: 'Filrapporten.pdf',
+            url: 'http://www.mattilsynet-xp7prod.enonic.cloud/test.pdf'
+          }
+        },
+        {
+          title: 'Overskrift 2',
+          subjectToExamination: 'Dette undersøkte vi',
+          timePeriod: 'Dette er tidsperioden',
+          lookingForWhat: 'Dette så vi etter',
+          organisationPerformingAssignment: 'Disse utførte oppdraget',
+          findings: 'Dette fant vi',
+          file: {
+            text: 'Filrapporten',
+            url: 'http://www.mattilsynet-xp7prod.enonic.cloud/test.pdf'
+          }
         }
-      },
-      {
-        title: 'Overskrift 2',
-        subjectToExamination: 'Dette undersøkte vi',
-        timePeriod: 'Dette er tidsperioden',
-        lookingForWhat: 'Dette så vi etter',
-        organisationPerformingAssignment: 'Disse utførte oppdraget',
-        findings: 'Dette fant vi',
-        file: { text: 'Filrapporten', url: 'http://www.mattilsynet-xp7prod.enonic.cloud/test.pdf' }
-      }
-    ],
-    disableCss: false
-  }}
-  argTypes={{
-    title: { control: 'text' },
-    intro: { control: 'text' },
-    text: { control: 'text' },
-    publishFrom: { control: 'text' },
-    professionallyUpdated: { control: 'text' },
-    publications: { control: 'array' },
-    disableCss: { control: 'boolean' }
-  }}
-/>
+      ],
+      disableCss: false
+    },
+    argTypes: {
+      title: { control: 'text' },
+      intro: { control: 'text' },
+      text: { control: 'text' },
+      publishFrom: { control: 'text' },
+      professionallyUpdated: { control: 'text' },
+      publications: { control: 'array' },
+      disableCss: { control: 'boolean' }
+    }
+  })
+</script>
 
 <Story name="Normal">
   {#snippet children({
@@ -78,8 +81,7 @@
             theme="no-border"
             class="background-mt-white col-3-span-8"
             startOpen={index === 0}
-            headerTag="h2"
-          >
+            headerTag="h2">
             {#if publication.text}
               <div class="text">
                 {@html publication.text}
@@ -114,8 +116,7 @@
                       class="document"
                       href={publication.file.url}
                       linkText={publication.title}
-                      fileName={publication.file.text}
-                    />
+                      fileName={publication.file.text} />
                   {/if}
                 </dd>
               {/if}

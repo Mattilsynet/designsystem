@@ -1,36 +1,36 @@
-<script lang="ts">
-  import { Meta, Story } from '@storybook/addon-svelte-csf'
+<script lang="ts" module>
+  import { defineMeta } from '@storybook/addon-svelte-csf'
   import CardArticle from '$lib/svelte/components/CardArticle.svelte'
   import { wrapInShadowDom } from '../storybook-utils/utils'
-</script>
 
-<Meta
-  title="Innhold/Skjemaforside"
-  args={{
-    title: 'Varsle om piggtrådgjerder',
-    intro: `<p>Dette er introen</p>`,
-    text: `<p>Du bør varsle Mattilsynet hvis du oppdager</p>
+  const { Story } = defineMeta({
+    title: 'Innhold/Skjemaforside',
+    args: {
+      title: 'Varsle om piggtrådgjerder',
+      intro: `<p>Dette er introen</p>`,
+      text: `<p>Du bør varsle Mattilsynet hvis du oppdager</p>
            <ul>
             <li>at noen setter opp nye piggtrådgjerder</li>
             <li>eldre piggtrådgjerder som utgjør en risiko for at dyr blir skadet</li>
            </ul>`,
-    moreText: `<h2>Du bør varsle</h2>
+      moreText: `<h2>Du bør varsle</h2>
                <p>At noen setter opp nye piggtrådgjerder</p>
                <p>Eldre piggtrådgjerder som utgjør en risiko for at dyr blir skadet</p>`,
-    formLinkUrl: 'http://www.mattilsynet.no',
-    formLinkText: 'Lenke til skjema',
-    disableCss: false
-  }}
-  argTypes={{
-    title: { control: 'text' },
-    intro: { control: 'text' },
-    text: { control: 'text' },
-    moreText: { control: 'text' },
-    formLinkUrl: { control: 'text' },
-    formLinkText: { control: 'text' },
-    disableCss: { control: 'boolean' }
-  }}
-/>
+      formLinkUrl: 'http://www.mattilsynet.no',
+      formLinkText: 'Lenke til skjema',
+      disableCss: false
+    },
+    argTypes: {
+      title: { control: 'text' },
+      intro: { control: 'text' },
+      text: { control: 'text' },
+      moreText: { control: 'text' },
+      formLinkUrl: { control: 'text' },
+      formLinkText: { control: 'text' },
+      disableCss: { control: 'boolean' }
+    }
+  })
+</script>
 
 <Story name="Normal">
   {#snippet children({ title, intro, text, moreText, formLinkUrl, formLinkText, disableCss })}
@@ -74,8 +74,7 @@
         {intro}
         {title}
         {text}
-        id={title}
-      />
+        id={title} />
     </div>
   {/snippet}
 </Story>
@@ -91,8 +90,7 @@
         {title}
         {text}
         headerTag="h2"
-        id={title}
-      />
+        id={title} />
     </div>
   {/snippet}
 </Story>

@@ -1,28 +1,28 @@
-<script lang="ts">
-  import { Meta, Story } from '@storybook/addon-svelte-csf'
+<script lang="ts" module>
+  import { defineMeta } from '@storybook/addon-svelte-csf'
   import Published from '$lib/svelte/components/Published.svelte'
   import imageFile from '../assets/testbilde.jpg'
   import { wrapInShadowDom } from '../storybook-utils/utils'
-</script>
 
-<Meta
-  title="Innhold/Artikkel"
-  args={{
-    title: 'Dette er det viktig at du vet før du får kjæledyr',
-    intro:
-      'Å anskaffe seg et dyr er et stort ansvar og det er tid- og ressurskrevende å sørge for at dyrene får et fullverdig liv. Det gjelder alle typer dyr, også små kjæledyr som hamster, marsvin, kanin, ilder, fugler eller akvariefisk',
-    content: '',
-    publishFrom: '2021-06-24T11:40:02.889Z',
-    professionallyUpdated: '2021-06-24T11:32:22Z',
-    disableCss: false
-  }}
-  argTypes={{
-    label: { control: 'text' },
-    helpText: { control: 'text' },
-    errorMessage: { control: 'text' },
-    disableCss: { control: 'boolean' }
-  }}
-/>
+  const { Story } = defineMeta({
+    title: 'Innhold/Artikkel',
+    args: {
+      title: 'Dette er det viktig at du vet før du får kjæledyr',
+      intro:
+        'Å anskaffe seg et dyr er et stort ansvar og det er tid- og ressurskrevende å sørge for at dyrene får et fullverdig liv. Det gjelder alle typer dyr, også små kjæledyr som hamster, marsvin, kanin, ilder, fugler eller akvariefisk',
+      content: '',
+      publishFrom: '2021-06-24T11:40:02.889Z',
+      professionallyUpdated: '2021-06-24T11:32:22Z',
+      disableCss: false
+    },
+    argTypes: {
+      label: { control: 'text' },
+      helpText: { control: 'text' },
+      errorMessage: { control: 'text' },
+      disableCss: { control: 'boolean' }
+    }
+  })
+</script>
 
 <Story name="Normal">
   {#snippet children({ title, intro, disableCss, publishFrom, professionallyUpdated })}
