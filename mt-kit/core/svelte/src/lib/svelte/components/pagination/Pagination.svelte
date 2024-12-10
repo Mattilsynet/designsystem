@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { run, preventDefault } from 'svelte/legacy';
+
   import type { Page, ChapterChangeDetails } from '../../../ts/types'
   import { onMount, createEventDispatcher } from 'svelte'
   import { interpolate } from '../../../ts/utils'
@@ -7,23 +9,30 @@
   const PAGE_CHANGE_EVENT = 'page-change'
   const ALLOWED_PAGES_DESKTOP = 5
   const ALLOWED_PAGES_MOBILE = 3
-  export let nextText = 'Neste'
-  export let previousText = 'Forrige'
-  export let paginationLabel = 'Paginering'
-  export let labelPage = 'Side'
-  export let toPageTitle = 'Gå til side {0} av {1}'
-  export let pages: Array<Page> = []
-  export let currentPageIndex: 0 | 1 = 0
 
-  let className = ''
-  export { className as class }
+  interface Props {
+    nextText?: string;
+    previousText?: string;
+    paginationLabel?: string;
+    labelPage?: string;
+    toPageTitle?: string;
+    pages?: Array<Page>;
+    currentPageIndex?: 0 | 1;
+    class?: string;
+  }
 
-  $: nextPageIndex = currentPageIndex + 1
-  $: nextPage = pages[nextPageIndex]
-  $: previousPageIndex = currentPageIndex - 1
-  $: previousPage = pages[previousPageIndex]
-  $: isMobile = undefined
-  $: mappedPages = mapPagination(isMobile, currentPageIndex + 1, pages)
+  let {
+    nextText = 'Neste',
+    previousText = 'Forrige',
+    paginationLabel = 'Paginering',
+    labelPage = 'Side',
+    toPageTitle = 'Gå til side {0} av {1}',
+    pages = [],
+    currentPageIndex = 0,
+    class: className = ''
+  }: Props = $props();
+  
+
 
   const dispatch = createEventDispatcher<{ chapterChange: ChapterChangeDetails }>()
 
@@ -94,6 +103,15 @@
       return { ...page, hidden: true }
     })
   }
+  let nextPageIndex = $derived(currentPageIndex + 1)
+  let nextPage = $derived(pages[nextPageIndex])
+  let previousPageIndex = $derived(currentPageIndex - 1)
+  let previousPage = $derived(pages[previousPageIndex])
+  let isMobile;
+  run(() => {
+    isMobile = undefined
+  });
+  let mappedPages = $derived(mapPagination(isMobile, currentPageIndex + 1, pages))
 </script>
 
 {#if pages.length > 1}
@@ -105,7 +123,7 @@
           ? 'inclusively-hidden--fit-content'
           : ''}"
         title={previousText}
-        on:click|preventDefault={() => handleClick(previousPageIndex)}
+        onclick={preventDefault(() => handleClick(previousPageIndex))}
         aria-disabled={!hasPreviousPage(currentPageIndex)}>
         {previousText}
       </a>
@@ -123,7 +141,7 @@
               class="mt-link"
               title={interpolate(toPageTitle, [index + 1, pages.length])}
               aria-current={index === currentPageIndex ? 'page' : undefined}
-              on:click|preventDefault={() => handleClick(index)}>
+              onclick={preventDefault(() => handleClick(index))}>
               <span class="inclusively-hidden-initial">{labelPage}</span>
               {index + 1}
             </a>
@@ -138,14 +156,14 @@
           ? 'inclusively-hidden--fit-content'
           : ''}"
         title={previousText}
-        on:click|preventDefault={() => handleClick(previousPageIndex)}
+        onclick={preventDefault(() => handleClick(previousPageIndex))}
         aria-disabled={!hasPreviousPage(currentPageIndex)}>
         {previousText}
       </a>
     {/if}
     <a
       href={nextPage ? nextPage.url : undefined}
-      on:click|preventDefault={() => handleClick(nextPageIndex)}
+      onclick={preventDefault(() => handleClick(nextPageIndex))}
       title={nextText}
       class="mt-link next-link {!hasNextPage(currentPageIndex, pages)
         ? 'inclusively-hidden--fit-content'

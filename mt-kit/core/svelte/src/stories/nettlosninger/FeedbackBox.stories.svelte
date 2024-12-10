@@ -1,4 +1,7 @@
 <script lang="ts">
+  import { createBubbler, preventDefault } from 'svelte/legacy';
+
+  const bubble = createBubbler();
   import { Meta, Story } from '@storybook/addon-svelte-csf'
   import { toKebabCase } from '$lib/ts/utils'
   import DialogBox from '$lib/svelte/components/DialogBox.svelte'
@@ -11,8 +14,8 @@
     { value: 'no', text: 'Nei' }
   ]
   let radioValue = undefined
-  let hideFeedbackText = false
-  let feedbackTextInput
+  let hideFeedbackText = $state(false)
+  let feedbackTextInput = $state()
 
   let dialogOpen = true
 
@@ -83,77 +86,79 @@
     disableCss: { control: 'boolean' }
   }} />
 
-<Story name="Normal" let:title let:intro let:legalItems let:text let:disableCss>
-  <div
-    use:wrapInShadowDom={disableCss}
-    class="container content layout-grid layout-grid--column-12">
-    <article class="article-page col-1-span-12 legal-guidance">
-      <h1 class="mt-h1">{title}</h1>
-      <div class="intro">
-        <p>{intro}</p>
-      </div>
-
-      {@html text}
-
-      {#each legalItems as legal}
-        <article
-          id={toKebabCase(legal.title)}
-          class="legal-collection legal-collection__border-top col-3-span-6"
-          aria-labelledby="collection-title-1">
-          <h2 id="collection-title-1" class="mt-h2">{legal.title}</h2>
-
-          <div class="intro">
-            {legal.intro}
-          </div>
-
-          {@html legal.text}
-        </article>
-      {/each}
-    </article>
-  </div>
-  <div class="feedback-container">
-    <div class="feedback-box">
-      <DialogBox
-        isOpen={dialogOpen}
-        title={hideFeedbackText ? 'Takk for tilbakemeldingen.' : 'Fant du det du lette etter?'}
-        ariaTitle="Fant du det du lette etter?">
-        <div role="group" class="feedback-box--buttons {hideFeedbackText ? 'hide-feedback' : ''}">
-          <button
-            id="feedback_yes"
-            type="button"
-            class="mt-button mt-button--secondary"
-            on:click={() => {
-              handleClick('yes')
-            }}>Ja</button>
-          <button
-            id="feedback_no"
-            type="button"
-            class="mt-button mt-button--secondary"
-            on:click={() => {
-              handleClick('no')
-            }}>Nei</button>
+<Story name="Normal"     >
+  {#snippet children({ title, intro, legalItems, text, disableCss })}
+    <div
+      use:wrapInShadowDom={disableCss}
+      class="container content layout-grid layout-grid--column-12">
+      <article class="article-page col-1-span-12 legal-guidance">
+        <h1 class="mt-h1">{title}</h1>
+        <div class="intro">
+          <p>{intro}</p>
         </div>
-        <form name="feedback_form" class="mt-form form-layout" on:submit|preventDefault>
-          <TextArea
-            name="feedback_text"
-            bind:textAreaRef={feedbackTextInput}
-            label="Er det noe vi kan forbedre med nettsiden?"
-            value=""
-            showOptionalText={false}
-            helpText={'Informasjon blir brukt til å forbedre nettstedet. Vi kan ikke svare. <a class="mt-link" ' +
-              'href="" ' +
-              'on:click|preventDefault>Kontakt oss</a> hvis du luerer på noe'}
-            helpTextPlacement="below"
-            textAreaClass={hideFeedbackText ? '' : 'hide-feedback'}
-            helpTextClass={hideFeedbackText ? '' : 'hide-feedback'}
-            labelClass={hideFeedbackText ? '' : 'hide-feedback'} />
-          <button
-            type="submit"
-            class="mt-button mt-button--primary {hideFeedbackText ? '' : 'hide-feedback'}">
-            Send svar
-          </button>
-        </form>
-      </DialogBox>
+
+        {@html text}
+
+        {#each legalItems as legal}
+          <article
+            id={toKebabCase(legal.title)}
+            class="legal-collection legal-collection__border-top col-3-span-6"
+            aria-labelledby="collection-title-1">
+            <h2 id="collection-title-1" class="mt-h2">{legal.title}</h2>
+
+            <div class="intro">
+              {legal.intro}
+            </div>
+
+            {@html legal.text}
+          </article>
+        {/each}
+      </article>
     </div>
-  </div>
+    <div class="feedback-container">
+      <div class="feedback-box">
+        <DialogBox
+          isOpen={dialogOpen}
+          title={hideFeedbackText ? 'Takk for tilbakemeldingen.' : 'Fant du det du lette etter?'}
+          ariaTitle="Fant du det du lette etter?">
+          <div role="group" class="feedback-box--buttons {hideFeedbackText ? 'hide-feedback' : ''}">
+            <button
+              id="feedback_yes"
+              type="button"
+              class="mt-button mt-button--secondary"
+              onclick={() => {
+                handleClick('yes')
+              }}>Ja</button>
+            <button
+              id="feedback_no"
+              type="button"
+              class="mt-button mt-button--secondary"
+              onclick={() => {
+                handleClick('no')
+              }}>Nei</button>
+          </div>
+          <form name="feedback_form" class="mt-form form-layout" onsubmit={preventDefault(bubble('submit'))}>
+            <TextArea
+              name="feedback_text"
+              bind:textAreaRef={feedbackTextInput}
+              label="Er det noe vi kan forbedre med nettsiden?"
+              value=""
+              showOptionalText={false}
+              helpText={'Informasjon blir brukt til å forbedre nettstedet. Vi kan ikke svare. <a class="mt-link" ' +
+                'href="" ' +
+                'on:click|preventDefault>Kontakt oss</a> hvis du luerer på noe'}
+              helpTextPlacement="below"
+              textAreaClass={hideFeedbackText ? '' : 'hide-feedback'}
+              helpTextClass={hideFeedbackText ? '' : 'hide-feedback'}
+              labelClass={hideFeedbackText ? '' : 'hide-feedback'} />
+            <button
+              type="submit"
+              class="mt-button mt-button--primary {hideFeedbackText ? '' : 'hide-feedback'}">
+              Send svar
+            </button>
+          </form>
+        </DialogBox>
+      </div>
+    </div>
+  {/snippet}
 </Story>

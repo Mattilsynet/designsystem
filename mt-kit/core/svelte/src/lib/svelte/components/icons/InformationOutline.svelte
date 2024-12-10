@@ -1,9 +1,13 @@
-<script context="module" lang="ts">
+<script module lang="ts">
   let instanceCounter = 0
 </script>
 
 <script lang="ts">
-  export let title = 'Information'
+  interface Props {
+    title?: string;
+  }
+
+  let { title = 'Information' }: Props = $props();
   const titleId = `information-outline-${instanceCounter++}`
 </script>
 

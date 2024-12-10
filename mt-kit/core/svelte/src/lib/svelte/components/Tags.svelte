@@ -1,6 +1,10 @@
 <script lang="ts">
-  export let tags: Array<{ text: string; ariaLabel: string; color: TagColors }> = []
-  export let isClosable = false
+  interface Props {
+    tags?: Array<{ text: string; ariaLabel: string; color: TagColors }>;
+    isClosable?: boolean;
+  }
+
+  let { tags = $bindable([]), isClosable = false }: Props = $props();
   type TagColors = 'info' | 'success' | 'warning' | 'error' | 'neutral'
 
   function handleClick(index: number) {
@@ -19,7 +23,7 @@
       {#if isClosable}
         <button
           class="mt-button mt-button--secondary mt-button--small closable m-r-0 m-t-0"
-          on:click={() => {
+          onclick={() => {
             handleClick(i)
           }}
           aria-label={tag.ariaLabel}>

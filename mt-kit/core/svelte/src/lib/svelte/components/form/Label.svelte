@@ -1,15 +1,27 @@
 <script lang="ts">
-  let htmlFor: string
-  export { htmlFor as for }
-  let className = ''
-  export { className as class }
-  export let textOptional: string | undefined = 'Valgfritt'
-  export let isRequired: boolean | undefined = undefined
-  export let showOptionalText = true
+  
+  
+  interface Props {
+    for: string;
+    class?: string;
+    textOptional?: string | undefined;
+    isRequired?: boolean | undefined;
+    showOptionalText?: boolean;
+    children?: import('svelte').Snippet;
+  }
+
+  let {
+    for: htmlFor,
+    class: className = '',
+    textOptional = 'Valgfritt',
+    isRequired = undefined,
+    showOptionalText = true,
+    children
+  }: Props = $props();
 </script>
 
 <label class="mt-label {className}" id="{htmlFor}-label" for={htmlFor}>
-  <slot />
+  {@render children?.()}
   {#if !isRequired && showOptionalText}
     <span class="tag info tag-text">{textOptional}</span>
   {/if}

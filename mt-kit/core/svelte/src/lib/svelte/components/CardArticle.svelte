@@ -2,18 +2,32 @@
   import HeadingLevel from './HeadingLevel.svelte'
   import { mapRelExternal } from '../../ts/utils'
 
-  export let headingId: string
-  export let title: string
-  export let intro: string | undefined
-  export let text: string | undefined
-  export let linkUrl: string | undefined
-  export let linkText: string | undefined
-  export let type: 'task' | 'form-intro-module' | 'legal-text' | 'highlighted-link' | '' = ''
-  let className = ''
-  export { className as class }
-  export let headerTag: 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | undefined = 'h3' // Fallback is h3
-  export let iconClass: 'info-icon' | 'warning-icon' | 'task-icon' | '' =
-    type === 'task' ? 'task-icon' : ''
+  
+  interface Props {
+    headingId: string;
+    title: string;
+    intro: string | undefined;
+    text: string | undefined;
+    linkUrl: string | undefined;
+    linkText: string | undefined;
+    type?: 'task' | 'form-intro-module' | 'legal-text' | 'highlighted-link' | '';
+    class?: string;
+    headerTag?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | undefined; // Fallback is h3
+    iconClass?: 'info-icon' | 'warning-icon' | 'task-icon' | '';
+  }
+
+  let {
+    headingId,
+    title,
+    intro,
+    text,
+    linkUrl,
+    linkText,
+    type = '',
+    class: className = '',
+    headerTag = 'h3',
+    iconClass = type === 'task' ? 'task-icon' : ''
+  }: Props = $props();
 </script>
 
 <article class="{type} {className}" aria-labelledby={headingId}>

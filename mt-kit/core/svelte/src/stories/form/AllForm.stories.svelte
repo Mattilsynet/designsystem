@@ -98,7 +98,7 @@
       }
     ]
   }
-  let values = {}
+  let values = $state({})
 </script>
 
 <Meta
@@ -135,35 +135,117 @@
 
 <Story
   name="Normal"
-  let:label
-  let:helpText
-  let:radioLabel
-  let:checkboxLabel
-  let:checkboxWithSubsetsLegend
-  let:countCharactersLeftLabel
-  let:args>
-  <div use:wrapInShadowDom={args.disableCss} class="layout-grid layout-grid--column-12">
-    <div class="col-3-span-6 multipage-form-view">
-      <form class="mt-form">
+  
+  
+  
+  
+  
+  
+  >
+  {#snippet children({ label, helpText, radioLabel, checkboxLabel, checkboxWithSubsetsLegend, countCharactersLeftLabel, args })}
+    <div use:wrapInShadowDom={args.disableCss} class="layout-grid layout-grid--column-12">
+      <div class="col-3-span-6 multipage-form-view">
+        <form class="mt-form">
+          <TextInput
+            name="inputfield"
+            {label}
+            {helpText}
+            error={undefined}
+            isRequired={true}
+            textOptional="Valgfritt"
+            inputmode="text"
+            placeholder=""
+            autocomplete="" />
+          <!-- TextArea   -->
+          <TextArea
+            name="email"
+            {label}
+            {helpText}
+            {countCharactersLeftLabel}
+            error={undefined}
+            isRequired={true}
+            textOptional="Valgfritt"
+            inputmode="text"
+            maxlength="300"
+            rows="3"
+            cols="5" />
+
+          <!--  Radio -->
+          <RadioGroup
+            options={radioOptions}
+            name={radioName}
+            error={undefined}
+            {helpText}
+            label={radioLabel}
+            isRequired={true}
+            textOptional="Valgfritt" />
+
+          <!-- Checkbox -->
+          <Checkbox
+            name={checkboxName}
+            label={checkboxLabel}
+            {helpText}
+            options={checkBoxOptions}
+            textOptional="Valgfritt" />
+
+          <!-- Checkboxes with subsets-->
+          <CheckboxWithSubSets
+            name={checkboxWithSubsetsName}
+            level1Legend={checkboxWithSubsetsLegend}
+            options={checkboxWithSubsetsOptions} />
+
+          <!-- Address -->
+          <Address
+            streetLabel={args.address.streetLabel}
+            streetFallbackLabel={args.address.streetFallbackLabel}
+            streetName={args.address.streetName}
+            postalCodeLabel={args.address.postalCodeLabel}
+            postalCodeName={args.address.postalCodeName}
+            streetError={args.address.streetError}
+            streetIsRequired={true}
+            postalCodeIsRequired={true}
+            loadJs={args.address.loadJs}
+            streetHelpText={helpText}
+            bind:streetValue={values['ownerStreet']}
+            bind:postalCodeValue={values['ownerZip']}>
+          </Address>
+        </form>
+      </div>
+    </div>
+  {/snippet}
+</Story>
+
+<Story
+  name="Input with error"
+  
+  
+  
+  
+  
+  
+  >
+  {#snippet children({ label, helpText, errorMessage, radioLabel, checkboxLabel, args, countCharactersLeftLabel })}
+    <div use:wrapInShadowDom={args.disableCss}>
+      <form class="mt-form form-layout">
         <TextInput
-          name="inputfield"
-          {label}
-          {helpText}
-          error={undefined}
-          isRequired={true}
-          textOptional="Valgfritt"
-          inputmode="text"
-          placeholder=""
-          autocomplete="" />
-        <!-- TextArea   -->
-        <TextArea
-          name="email"
+          name="name"
           {label}
           {helpText}
           {countCharactersLeftLabel}
-          error={undefined}
+          error={{ key: 'name', message: errorMessage }}
           isRequired={true}
-          textOptional="Valgfritt"
+          textOptional="(valgfritt felt)"
+          inputmode="text"
+          placeholder=""
+          autocomplete="" />
+
+        <TextArea
+          name="textfield"
+          {label}
+          {helpText}
+          error={{ key: 'textfield', message: errorMessage }}
+          isRequired={true}
+          textOptional="(valgfritt felt)"
           inputmode="text"
           maxlength="300"
           rows="3"
@@ -173,98 +255,20 @@
         <RadioGroup
           options={radioOptions}
           name={radioName}
-          error={undefined}
+          error={{ key: radioName, message: errorMessage }}
           {helpText}
           label={radioLabel}
-          isRequired={true}
-          textOptional="Valgfritt" />
+          isRequired="true"
+          textOptional="valgfritt" />
 
-        <!-- Checkbox -->
+        <!--    Checkbox-->
         <Checkbox
           name={checkboxName}
           label={checkboxLabel}
           {helpText}
           options={checkBoxOptions}
-          textOptional="Valgfritt" />
-
-        <!-- Checkboxes with subsets-->
-        <CheckboxWithSubSets
-          name={checkboxWithSubsetsName}
-          level1Legend={checkboxWithSubsetsLegend}
-          options={checkboxWithSubsetsOptions} />
-
-        <!-- Address -->
-        <Address
-          streetLabel={args.address.streetLabel}
-          streetFallbackLabel={args.address.streetFallbackLabel}
-          streetName={args.address.streetName}
-          postalCodeLabel={args.address.postalCodeLabel}
-          postalCodeName={args.address.postalCodeName}
-          streetError={args.address.streetError}
-          streetIsRequired={true}
-          postalCodeIsRequired={true}
-          loadJs={args.address.loadJs}
-          streetHelpText={helpText}
-          bind:streetValue={values['ownerStreet']}
-          bind:postalCodeValue={values['ownerZip']}>
-        </Address>
+          error={{ key: checkboxName, message: errorMessage }} />
       </form>
     </div>
-  </div>
-</Story>
-
-<Story
-  name="Input with error"
-  let:label
-  let:helpText
-  let:errorMessage
-  let:radioLabel
-  let:checkboxLabel
-  let:args
-  let:countCharactersLeftLabel>
-  <div use:wrapInShadowDom={args.disableCss}>
-    <form class="mt-form form-layout">
-      <TextInput
-        name="name"
-        {label}
-        {helpText}
-        {countCharactersLeftLabel}
-        error={{ key: 'name', message: errorMessage }}
-        isRequired={true}
-        textOptional="(valgfritt felt)"
-        inputmode="text"
-        placeholder=""
-        autocomplete="" />
-
-      <TextArea
-        name="textfield"
-        {label}
-        {helpText}
-        error={{ key: 'textfield', message: errorMessage }}
-        isRequired={true}
-        textOptional="(valgfritt felt)"
-        inputmode="text"
-        maxlength="300"
-        rows="3"
-        cols="5" />
-
-      <!--  Radio -->
-      <RadioGroup
-        options={radioOptions}
-        name={radioName}
-        error={{ key: radioName, message: errorMessage }}
-        {helpText}
-        label={radioLabel}
-        isRequired="true"
-        textOptional="valgfritt" />
-
-      <!--    Checkbox-->
-      <Checkbox
-        name={checkboxName}
-        label={checkboxLabel}
-        {helpText}
-        options={checkBoxOptions}
-        error={{ key: checkboxName, message: errorMessage }} />
-    </form>
-  </div>
+  {/snippet}
 </Story>

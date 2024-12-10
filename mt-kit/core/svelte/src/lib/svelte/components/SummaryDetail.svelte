@@ -1,17 +1,33 @@
 <script lang="ts">
-  export let title: string
-  export let detailsClass = ''
-  export let summaryClass = ''
-  export let summaryWrapperClass = ''
-  export let testId = ''
-  export let ariaLabelledBy = undefined
-  export let summaryId = ''
+  import { run } from 'svelte/legacy';
 
-  let isOpen = false
-  $: {
+  interface Props {
+    title: string;
+    detailsClass?: string;
+    summaryClass?: string;
+    summaryWrapperClass?: string;
+    testId?: string;
+    ariaLabelledBy?: any;
+    summaryId?: string;
+    children?: import('svelte').Snippet;
+  }
+
+  let {
+    title,
+    detailsClass = '',
+    summaryClass = '',
+    summaryWrapperClass = '',
+    testId = '',
+    ariaLabelledBy = undefined,
+    summaryId = '',
+    children
+  }: Props = $props();
+
+  let isOpen = $state(false)
+  run(() => {
     summaryId
     isOpen = false
-  }
+  });
 
   function beforePrint(): void {
     isOpen = true
@@ -21,7 +37,7 @@
   }
 </script>
 
-<svelte:window on:beforeprint={beforePrint} on:afterprint={afterPrint} />
+<svelte:window onbeforeprint={beforePrint} onafterprint={afterPrint} />
 
 <details
   class="mt-details {detailsClass}"
@@ -32,6 +48,6 @@
     {@html title}
   </summary>
   <div class="summary-wrapper {summaryWrapperClass}">
-    <slot />
+    {@render children?.()}
   </div>
 </details>

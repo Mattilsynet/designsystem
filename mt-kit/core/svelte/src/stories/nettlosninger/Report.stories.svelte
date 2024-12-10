@@ -38,70 +38,72 @@
 
 <Story
   name="Normal"
-  let:title
-  let:intro
-  let:text
-  let:publishFrom
-  let:professionallyUpdated
-  let:subjectToExamination
-  let:timePeriod
-  let:lookingForWhat
-  let:findings
-  let:reportType
-  let:organisationPerformingAssignment
-  let:file
-  let:linkGroups
-  let:disableCss>
-  <div class="layout-grid layout-grid--column-12" use:wrapInShadowDom={disableCss}>
-    <article class="article-page col-1-span-12 report">
-      <span>{reportType}</span>
-      <h1 class="mt-h1">{@html title}</h1>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  >
+  {#snippet children({ title, intro, text, publishFrom, professionallyUpdated, subjectToExamination, timePeriod, lookingForWhat, findings, reportType, organisationPerformingAssignment, file, linkGroups, disableCss })}
+    <div class="layout-grid layout-grid--column-12" use:wrapInShadowDom={disableCss}>
+      <article class="article-page col-1-span-12 report">
+        <span>{reportType}</span>
+        <h1 class="mt-h1">{@html title}</h1>
 
-      {#if intro}
-        <div class="intro">
-          {@html intro}
-        </div>
-      {/if}
-
-      <Published {publishFrom} {professionallyUpdated} />
-
-      <section class="background-mt-white col-3-span-8 p-xs m-t-m">
-        {#if text}
-          <div class="text">
-            {@html text}
+        {#if intro}
+          <div class="intro">
+            {@html intro}
           </div>
         {/if}
-        <dl class="mt-dl report-list">
-          {#if subjectToExamination}
-            <dt>Hva undersøkte vi?</dt>
-            <dd class="text">{@html subjectToExamination}</dd>
+
+        <Published {publishFrom} {professionallyUpdated} />
+
+        <section class="background-mt-white col-3-span-8 p-xs m-t-m">
+          {#if text}
+            <div class="text">
+              {@html text}
+            </div>
           {/if}
-          {#if timePeriod}
-            <dt>Tidsrom</dt>
-            <dd class="text">{@html timePeriod}</dd>
-          {/if}
-          {#if lookingForWhat}
-            <dt>Hva lette vi etter?</dt>
-            <dd class="text">{@html lookingForWhat}</dd>
-          {/if}
-          {#if findings}
-            <dt>Hva fant vi?</dt>
-            <dd class="text">{@html findings}</dd>
-          {/if}
-          {#if organisationPerformingAssignment}
-            <dt>Hvem utførte oppdraget?</dt>
-            <dd class="text">{@html organisationPerformingAssignment}</dd>
-          {/if}
-          {#if file.url}
-            <dt>File</dt>
-            <dd class="text">
-              {#if file.url}
-                <Link class="document" href={file.url} linkText={title} fileName={file.text} />
-              {/if}
-            </dd>
-          {/if}
-        </dl>
-      </section>
-    </article>
-  </div>
+          <dl class="mt-dl report-list">
+            {#if subjectToExamination}
+              <dt>Hva undersøkte vi?</dt>
+              <dd class="text">{@html subjectToExamination}</dd>
+            {/if}
+            {#if timePeriod}
+              <dt>Tidsrom</dt>
+              <dd class="text">{@html timePeriod}</dd>
+            {/if}
+            {#if lookingForWhat}
+              <dt>Hva lette vi etter?</dt>
+              <dd class="text">{@html lookingForWhat}</dd>
+            {/if}
+            {#if findings}
+              <dt>Hva fant vi?</dt>
+              <dd class="text">{@html findings}</dd>
+            {/if}
+            {#if organisationPerformingAssignment}
+              <dt>Hvem utførte oppdraget?</dt>
+              <dd class="text">{@html organisationPerformingAssignment}</dd>
+            {/if}
+            {#if file.url}
+              <dt>File</dt>
+              <dd class="text">
+                {#if file.url}
+                  <Link class="document" href={file.url} linkText={title} fileName={file.text} />
+                {/if}
+              </dd>
+            {/if}
+          </dl>
+        </section>
+      </article>
+    </div>
+  {/snippet}
 </Story>

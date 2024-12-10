@@ -34,10 +34,12 @@
     loadJs: true
   }} />
 
-<Story name="Normal" let:title let:facts let:questionsAnswers let:disableCss let:loadJs>
-  <div class="container layout-grid layout-grid--column-12" use:wrapInShadowDom={disableCss}>
-    <article class="col-1-span-6 facts-questions-answers">
-      <FactsQuestionsAnswers {facts} {title} {questionsAnswers} {loadJs} />
-    </article>
-  </div>
+<Story name="Normal"     >
+  {#snippet children({ title, facts, questionsAnswers, disableCss, loadJs })}
+    <div class="container layout-grid layout-grid--column-12" use:wrapInShadowDom={disableCss}>
+      <article class="col-1-span-6 facts-questions-answers">
+        <FactsQuestionsAnswers {facts} {title} {questionsAnswers} {loadJs} />
+      </article>
+    </div>
+  {/snippet}
 </Story>

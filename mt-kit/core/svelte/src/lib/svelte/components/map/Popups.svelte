@@ -6,7 +6,11 @@
   import { getMap, type MapContext } from './contexts'
   import { addListeners } from './utils'
 
-  export let popUpOptions: Array<MTPopupOptions> = []
+  interface Props {
+    popUpOptions?: Array<MTPopupOptions>;
+  }
+
+  let { popUpOptions = [] }: Props = $props();
 
   let map: MapContext = getMap()
   let overlays: Array<Overlay> | undefined = undefined

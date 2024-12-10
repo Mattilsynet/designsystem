@@ -40,69 +40,71 @@
 
 <Story
   name="Normal"
-  let:title
-  let:intro
-  let:disableCss
-  let:publishFrom
-  let:professionallyUpdated
-  let:text>
-  <div class="container layout-grid layout-grid--column-12">
-    <article class="article-page col-1-span-12 legal-guidance">
-      <h1 class="mt-h1">{title}</h1>
-      <div class="intro">
-        <p>{intro}</p>
-      </div>
-      <Published {publishFrom} {professionallyUpdated} />
+  
+  
+  
+  
+  
+  >
+  {#snippet children({ title, intro, disableCss, publishFrom, professionallyUpdated, text })}
+    <div class="container layout-grid layout-grid--column-12">
+      <article class="article-page col-1-span-12 legal-guidance">
+        <h1 class="mt-h1">{title}</h1>
+        <div class="intro">
+          <p>{intro}</p>
+        </div>
+        <Published {publishFrom} {professionallyUpdated} />
 
-      {@html text}
+        {@html text}
 
-      <section class="layout-flex-col layout-flex-col--x-small" aria-labelledby="how-to-heading">
-        <h2 id="how-to-heading" class="mt-h2">Slik gjør du</h2>
-        <p>Litt tekst her</p>
-        <CardArticle
-          type="task"
-          class="background-mt-white"
-          title="Dette er tittelen"
-          text="Noe tekst i kroppen"
-          linkUrl="http://"
-          linkText="Neste handling" />
-        <CardArticle
-          type="form-intro-module"
-          title="Dette er tittelen"
-          text="Noe tekst i kroppen"
-          linkUrl="http://"
-          linkText="Neste handling" />
-      </section>
+        <section class="layout-flex-col layout-flex-col--x-small" aria-labelledby="how-to-heading">
+          <h2 id="how-to-heading" class="mt-h2">Slik gjør du</h2>
+          <p>Litt tekst her</p>
+          <CardArticle
+            type="task"
+            class="background-mt-white"
+            title="Dette er tittelen"
+            text="Noe tekst i kroppen"
+            linkUrl="http://"
+            linkText="Neste handling" />
+          <CardArticle
+            type="form-intro-module"
+            title="Dette er tittelen"
+            text="Noe tekst i kroppen"
+            linkUrl="http://"
+            linkText="Neste handling" />
+        </section>
 
-      <section
-        class="layout-flex-col layout-flex-col--x-small"
-        aria-labelledby="regulations-heading">
-        <h2 id="regulations-heading" class="mt-h2">Regelverk</h2>
-        <Disclosure
-          title="Næringsmiddelhygieneforordningens vedlegg II, kap. I nr. 3"
-          headerTag="h3"
-          theme="no-border"
-          class="background-mt-rationale-blue"
-          {icon}>
-          <p>Begrunnelsen kommer her</p>
-          <ul class="mt-ul">
-            <li>Punkt 1</li>
-            <li>Punkt 2</li>
-          </ul>
-        </Disclosure>
-        <Disclosure
-          title="Lov/Forskrift"
-          headerTag="h3"
-          theme="no-border"
-          class="background-mt-rationale-blue"
-          {icon}>
-          <p>Begrunnelsen kommer her</p>
-          <ul class="mt-ul">
-            <li>Punkt 1</li>
-            <li>Punkt 2</li>
-          </ul>
-        </Disclosure>
-      </section>
-    </article>
-  </div>
+        <section
+          class="layout-flex-col layout-flex-col--x-small"
+          aria-labelledby="regulations-heading">
+          <h2 id="regulations-heading" class="mt-h2">Regelverk</h2>
+          <Disclosure
+            title="Næringsmiddelhygieneforordningens vedlegg II, kap. I nr. 3"
+            headerTag="h3"
+            theme="no-border"
+            class="background-mt-rationale-blue"
+            {icon}>
+            <p>Begrunnelsen kommer her</p>
+            <ul class="mt-ul">
+              <li>Punkt 1</li>
+              <li>Punkt 2</li>
+            </ul>
+          </Disclosure>
+          <Disclosure
+            title="Lov/Forskrift"
+            headerTag="h3"
+            theme="no-border"
+            class="background-mt-rationale-blue"
+            {icon}>
+            <p>Begrunnelsen kommer her</p>
+            <ul class="mt-ul">
+              <li>Punkt 1</li>
+              <li>Punkt 2</li>
+            </ul>
+          </Disclosure>
+        </section>
+      </article>
+    </div>
+  {/snippet}
 </Story>

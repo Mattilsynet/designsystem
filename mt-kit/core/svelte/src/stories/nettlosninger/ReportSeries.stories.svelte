@@ -52,72 +52,74 @@
 
 <Story
   name="Normal"
-  let:title
-  let:intro
-  let:text
-  let:publishFrom
-  let:professionallyUpdated
-  let:publications
-  let:disableCss>
-  <div class="layout-grid layout-grid--column-12" use:wrapInShadowDom={disableCss}>
-    <article class="article-page col-1-span-12 report">
-      <span>Rapport</span>
-      <h1 class="mt-h1">{@html title}</h1>
-      {#if intro}
-        <div class="intro">
-          {@html intro}
-        </div>
-      {/if}
-      <Published {publishFrom} {professionallyUpdated} />
+  
+  
+  
+  
+  
+  
+  >
+  {#snippet children({ title, intro, text, publishFrom, professionallyUpdated, publications, disableCss })}
+    <div class="layout-grid layout-grid--column-12" use:wrapInShadowDom={disableCss}>
+      <article class="article-page col-1-span-12 report">
+        <span>Rapport</span>
+        <h1 class="mt-h1">{@html title}</h1>
+        {#if intro}
+          <div class="intro">
+            {@html intro}
+          </div>
+        {/if}
+        <Published {publishFrom} {professionallyUpdated} />
 
-      {#each publications as publication, index}
-        <Disclosure
-          title={publication.title}
-          theme="no-border"
-          class="background-mt-white col-3-span-8"
-          startOpen={index === 0}
-          headerTag="h2">
-          {#if publication.text}
-            <div class="text">
-              {@html publication.text}
-            </div>
-          {/if}
-          <dl class="mt-dl report-list">
-            {#if publication.subjectToExamination}
-              <dt>Hva undersøkte vi?</dt>
-              <dd class="text">{@html publication.subjectToExamination}</dd>
+        {#each publications as publication, index}
+          <Disclosure
+            title={publication.title}
+            theme="no-border"
+            class="background-mt-white col-3-span-8"
+            startOpen={index === 0}
+            headerTag="h2">
+            {#if publication.text}
+              <div class="text">
+                {@html publication.text}
+              </div>
             {/if}
-            {#if publication.timePeriod}
-              <dt>Tidsrom</dt>
-              <dd class="text">{@html publication.timePeriod}</dd>
-            {/if}
-            {#if publication.lookingForWhat}
-              <dt>Hva lette vi etter?</dt>
-              <dd class="text">{@html publication.lookingForWhat}</dd>
-            {/if}
-            {#if publication.findings}
-              <dt>Hva fant vi?</dt>
-              <dd class="text">{@html publication.findings}</dd>
-            {/if}
-            {#if publication.organisationPerformingAssignment}
-              <dt>Hvem utførte oppdraget?</dt>
-              <dd class="text">{@html publication.organisationPerformingAssignment}</dd>
-            {/if}
-            {#if publication.file.url}
-              <dt>File</dt>
-              <dd class="text">
-                {#if publication.file.url}
-                  <Link
-                    class="document"
-                    href={publication.file.url}
-                    linkText={publication.title}
-                    fileName={publication.file.text} />
-                {/if}
-              </dd>
-            {/if}
-          </dl>
-        </Disclosure>
-      {/each}
-    </article>
-  </div>
+            <dl class="mt-dl report-list">
+              {#if publication.subjectToExamination}
+                <dt>Hva undersøkte vi?</dt>
+                <dd class="text">{@html publication.subjectToExamination}</dd>
+              {/if}
+              {#if publication.timePeriod}
+                <dt>Tidsrom</dt>
+                <dd class="text">{@html publication.timePeriod}</dd>
+              {/if}
+              {#if publication.lookingForWhat}
+                <dt>Hva lette vi etter?</dt>
+                <dd class="text">{@html publication.lookingForWhat}</dd>
+              {/if}
+              {#if publication.findings}
+                <dt>Hva fant vi?</dt>
+                <dd class="text">{@html publication.findings}</dd>
+              {/if}
+              {#if publication.organisationPerformingAssignment}
+                <dt>Hvem utførte oppdraget?</dt>
+                <dd class="text">{@html publication.organisationPerformingAssignment}</dd>
+              {/if}
+              {#if publication.file.url}
+                <dt>File</dt>
+                <dd class="text">
+                  {#if publication.file.url}
+                    <Link
+                      class="document"
+                      href={publication.file.url}
+                      linkText={publication.title}
+                      fileName={publication.file.text} />
+                  {/if}
+                </dd>
+              {/if}
+            </dl>
+          </Disclosure>
+        {/each}
+      </article>
+    </div>
+  {/snippet}
 </Story>

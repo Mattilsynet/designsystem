@@ -31,35 +31,41 @@
 
 <Story
   name="Normal"
-  let:title
-  let:text
-  let:actionsTakenByMattilsynet
-  let:linkUrl
-  let:linkText
-  let:linkIsExternal
-  let:disableCss
-  let:publishFrom
-  let:professionallyUpdated>
-  <div class="container layout-grid layout-grid--column-12">
-    <article class="col-3-span-8">
-      <h1 class="mt-h1">Status med tekst, "hva gjør Mattilsynet" og link</h1>
-      <Status
-        {text}
-        {actionsTakenByMattilsynet}
-        {linkUrl}
-        {linkText}
-        {linkIsExternal}
-        updatedDate={professionallyUpdated}
-        statusType="important">
-        <h2 slot="heading" class="mt-h2">{title}</h2>
-      </Status>
+  
+  
+  
+  
+  
+  
+  
+  
+  >
+  {#snippet children({ title, text, actionsTakenByMattilsynet, linkUrl, linkText, linkIsExternal, disableCss, publishFrom, professionallyUpdated })}
+    <div class="container layout-grid layout-grid--column-12">
+      <article class="col-3-span-8">
+        <h1 class="mt-h1">Status med tekst, "hva gjør Mattilsynet" og link</h1>
+        <Status
+          {text}
+          {actionsTakenByMattilsynet}
+          {linkUrl}
+          {linkText}
+          {linkIsExternal}
+          updatedDate={professionallyUpdated}
+          statusType="important">
+          {#snippet heading()}
+                <h2  class="mt-h2">{title}</h2>
+              {/snippet}
+        </Status>
 
-      <h1 class="mt-h1 margin-top">Status med tekst og link</h1>
-      <Status {text} {linkUrl} {linkText} {linkIsExternal} statusType="none">
-        <h2 slot="heading" class="mt-h2">{title}</h2>
-      </Status>
-    </article>
-  </div>
+        <h1 class="mt-h1 margin-top">Status med tekst og link</h1>
+        <Status {text} {linkUrl} {linkText} {linkIsExternal} statusType="none">
+          {#snippet heading()}
+                <h2  class="mt-h2">{title}</h2>
+              {/snippet}
+        </Status>
+      </article>
+    </div>
+  {/snippet}
 </Story>
 
 <style lang="scss">

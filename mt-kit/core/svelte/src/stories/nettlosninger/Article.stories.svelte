@@ -23,53 +23,55 @@
     disableCss: { control: 'boolean' }
   }} />
 
-<Story name="Normal" let:title let:intro let:disableCss let:publishFrom let:professionallyUpdated>
-  <div use:wrapInShadowDom={disableCss} class="container layout-grid layout-grid--column-12">
-    <article class="article-page col-1-span-12">
-      <h1 class="mt-h1">{title}</h1>
-      <div class="intro">
-        <p>{intro}</p>
-      </div>
-      <Published {publishFrom} {professionallyUpdated} />
+<Story name="Normal"     >
+  {#snippet children({ title, intro, disableCss, publishFrom, professionallyUpdated })}
+    <div use:wrapInShadowDom={disableCss} class="container layout-grid layout-grid--column-12">
+      <article class="article-page col-1-span-12">
+        <h1 class="mt-h1">{title}</h1>
+        <div class="intro">
+          <p>{intro}</p>
+        </div>
+        <Published {publishFrom} {professionallyUpdated} />
 
-      <figure class="mt-figure col-2-span-10">
-        <img src={imageFile} alt="Alternativ bildetekst" class="mt-img" />
-        <figcaption>Bildetekst</figcaption>
-      </figure>
+        <figure class="mt-figure col-2-span-10">
+          <img src={imageFile} alt="Alternativ bildetekst" class="mt-img" />
+          <figcaption>Bildetekst</figcaption>
+        </figure>
 
-      <h2 class="mt-h2">Andre overskrift</h2>
-      <p>
-        Paragraf med tekst. Paragraf med tekst. <a class="mt-link" href="">Paragraf med tekst.</a>
-        Paragraf med tekst
-      </p>
-      <ul class="mt-ul">
-        <li>
-          Valget om å skaffe dyr må være godt gjennomtenkt. Er hele familien enige og innstilt på
-          det?
-        </li>
-        <li>
-          En voksen person må være hovedansvarlig for dyret. I følge dyrevelferdsloven kan barn
-          under 16 år ikke ha et selvstendig ansvar for dyr.
-        </li>
-        <li>
-          Barn kan miste interessen og dyr lever i mange år.
-          <ul class="mt-ul">
-            <li>Under punkt</li>
-            <li>Under punkt</li>
-          </ul>
-        </li>
-      </ul>
-      <p>Paragraf med tekst</p>
+        <h2 class="mt-h2">Andre overskrift</h2>
+        <p>
+          Paragraf med tekst. Paragraf med tekst. <a class="mt-link" href="">Paragraf med tekst.</a>
+          Paragraf med tekst
+        </p>
+        <ul class="mt-ul">
+          <li>
+            Valget om å skaffe dyr må være godt gjennomtenkt. Er hele familien enige og innstilt på
+            det?
+          </li>
+          <li>
+            En voksen person må være hovedansvarlig for dyret. I følge dyrevelferdsloven kan barn
+            under 16 år ikke ha et selvstendig ansvar for dyr.
+          </li>
+          <li>
+            Barn kan miste interessen og dyr lever i mange år.
+            <ul class="mt-ul">
+              <li>Under punkt</li>
+              <li>Under punkt</li>
+            </ul>
+          </li>
+        </ul>
+        <p>Paragraf med tekst</p>
 
-      <h2 class="mt-h2">Enda en overskrift</h2>
-      <p>Paragraf med tekst</p>
-      <p>Paragraf med tekst</p>
+        <h2 class="mt-h2">Enda en overskrift</h2>
+        <p>Paragraf med tekst</p>
+        <p>Paragraf med tekst</p>
 
-      <h3 class="mt-h3">Underoverskrift</h3>
-      <p>Paragraf med tekst</p>
-      <p>Paragraf med tekst</p>
-    </article>
-  </div>
+        <h3 class="mt-h3">Underoverskrift</h3>
+        <p>Paragraf med tekst</p>
+        <p>Paragraf med tekst</p>
+      </article>
+    </div>
+  {/snippet}
 </Story>
 
 <style>

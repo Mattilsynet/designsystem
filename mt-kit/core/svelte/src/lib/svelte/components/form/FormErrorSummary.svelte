@@ -1,9 +1,13 @@
 <script lang="ts">
   import type { ErrorDetail } from '../../../ts/types'
 
-  export let errors: ErrorDetail[] = []
-  export let heading: string
-  export let linkToFields = true
+  interface Props {
+    errors?: ErrorDetail[];
+    heading: string;
+    linkToFields?: boolean;
+  }
+
+  let { errors = [], heading, linkToFields = true }: Props = $props();
 
   function setFocus(el: HTMLElement) {
     el.focus()

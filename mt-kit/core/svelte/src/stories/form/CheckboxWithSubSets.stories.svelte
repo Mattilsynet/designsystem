@@ -186,66 +186,68 @@
 
 <Story
   name="Normal"
-  let:legend
-  let:options
-  let:disableCss
-  let:variation
-  let:optionsWithoutDocCount
-  let:args>
-  <div class="container layout-grid layout-grid--column-12" use:wrapInShadowDom={disableCss}>
-    <section class="article-page col-1-span-12">
-      <h1 class="mt-h1">Nested checkbox</h1>
-      <h2 class="mt-h2">Nested checkbox with doc count</h2>
-      <p>Use variation="primary" (default) when checkboxes stand alone</p>
-      <form class="mt-form">
-        <CheckboxWithSubSets
-          helpText="Velg et tema"
-          {options}
-          {variation}
-          level1Legend={legend}
-          level2Legend={`${legend} i `} />
-      </form>
-      <h2 class="mt-h2">Nested checkboxes without doc count and border</h2>
-      <p>User variation="primary" (default) when checkboxes stand alone</p>
-      <form class="mt-form">
-        <CheckboxWithSubSets
-          options={optionsWithoutDocCount}
-          {variation}
-          level1Legend="Tema uten antall"
-          border={args.border}
-          level2Legend={`${legend} i `} />
-        <h2 class="mt-h3">Variation = secondary</h2>
-        <CheckboxWithSubSets
-          options={optionsWithoutDocCount}
-          variation="secondary"
-          level1Legend="legend 1"
-          level2Legend="legend 2"
-          border={args.border} />
-      </form>
-      <h2 class="mt-h2">Nestede checkboxet inside disclosure</h2>
-      <p>
-        Use variation="secondary" when checkboxes are used in combination with another component
-        which has the title for the checkboxes, eg. Disclosure
-      </p>
-      <form class="mt-form">
-        <Disclosure
-          title={args.disclosure.title}
-          loadJs={!args.disableJs}
-          class="disclosure-no-border--align-left"
-          headingId={`${toKebabCase(args.disclosure.title)}-title`}
-          headerTag={args.disclosure.headerTag}>
+  
+  
+  
+  
+  
+  >
+  {#snippet children({ legend, options, disableCss, variation, optionsWithoutDocCount, args })}
+    <div class="container layout-grid layout-grid--column-12" use:wrapInShadowDom={disableCss}>
+      <section class="article-page col-1-span-12">
+        <h1 class="mt-h1">Nested checkbox</h1>
+        <h2 class="mt-h2">Nested checkbox with doc count</h2>
+        <p>Use variation="primary" (default) when checkboxes stand alone</p>
+        <form class="mt-form">
           <CheckboxWithSubSets
+            helpText="Velg et tema"
+            {options}
+            {variation}
+            level1Legend={legend}
+            level2Legend={`${legend} i `} />
+        </form>
+        <h2 class="mt-h2">Nested checkboxes without doc count and border</h2>
+        <p>User variation="primary" (default) when checkboxes stand alone</p>
+        <form class="mt-form">
+          <CheckboxWithSubSets
+            options={optionsWithoutDocCount}
+            {variation}
+            level1Legend="Tema uten antall"
+            border={args.border}
+            level2Legend={`${legend} i `} />
+          <h2 class="mt-h3">Variation = secondary</h2>
+          <CheckboxWithSubSets
+            options={optionsWithoutDocCount}
             variation="secondary"
-            options={args.disclosureOptions}
-            hasCheckAll={true}
-            checkAllLabel={args.disclosure.checkAllLabel}
-            level1Legend={interpolate(args.disclosure.level1Legend, [
-              args.disclosure.title.toLowerCase()
-            ])} />
-        </Disclosure>
-      </form>
-    </section>
-  </div>
+            level1Legend="legend 1"
+            level2Legend="legend 2"
+            border={args.border} />
+        </form>
+        <h2 class="mt-h2">Nestede checkboxet inside disclosure</h2>
+        <p>
+          Use variation="secondary" when checkboxes are used in combination with another component
+          which has the title for the checkboxes, eg. Disclosure
+        </p>
+        <form class="mt-form">
+          <Disclosure
+            title={args.disclosure.title}
+            loadJs={!args.disableJs}
+            class="disclosure-no-border--align-left"
+            headingId={`${toKebabCase(args.disclosure.title)}-title`}
+            headerTag={args.disclosure.headerTag}>
+            <CheckboxWithSubSets
+              variation="secondary"
+              options={args.disclosureOptions}
+              hasCheckAll={true}
+              checkAllLabel={args.disclosure.checkAllLabel}
+              level1Legend={interpolate(args.disclosure.level1Legend, [
+                args.disclosure.title.toLowerCase()
+              ])} />
+          </Disclosure>
+        </form>
+      </section>
+    </div>
+  {/snippet}
 </Story>
 
 <style lang="scss">

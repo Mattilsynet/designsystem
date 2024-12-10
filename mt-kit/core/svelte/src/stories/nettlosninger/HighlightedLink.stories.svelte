@@ -62,22 +62,24 @@
     disableCss: { control: 'boolean' }
   }} />
 
-<Story name="Normal" let:tasks let:disableCss>
-  <div use:wrapInShadowDom={disableCss} class="container layout-flex-col layout-flex-col--x-small">
-    {#each tasks as task}
-      <CardArticle
-        type="highlighted-link"
-        class="background-mt-white"
-        linkText={task.nextActionLinkText}
-        linkUrl={task.nextActionUrl}
-        title={task.title}
-        text={task.text}
-        id={task.title}
-        headerTag={task.headerTag}
-        iconClass={task.iconClass}
-        linkTypeButton={task.linkTypeButton} />
-    {/each}
-  </div>
+<Story name="Normal"  >
+  {#snippet children({ tasks, disableCss })}
+    <div use:wrapInShadowDom={disableCss} class="container layout-flex-col layout-flex-col--x-small">
+      {#each tasks as task}
+        <CardArticle
+          type="highlighted-link"
+          class="background-mt-white"
+          linkText={task.nextActionLinkText}
+          linkUrl={task.nextActionUrl}
+          title={task.title}
+          text={task.text}
+          id={task.title}
+          headerTag={task.headerTag}
+          iconClass={task.iconClass}
+          linkTypeButton={task.linkTypeButton} />
+      {/each}
+    </div>
+  {/snippet}
 </Story>
 
 <style lang="scss">

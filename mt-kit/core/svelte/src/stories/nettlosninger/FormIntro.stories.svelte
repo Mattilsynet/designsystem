@@ -33,81 +33,87 @@
 
 <Story
   name="Normal"
-  let:title
-  let:intro
-  let:text
-  let:moreText
-  let:formLinkUrl
-  let:formLinkText
-  let:disableCss>
-  <div use:wrapInShadowDom={disableCss} class="container layout-grid layout-grid--column-12">
-    <article class="article-page col-1-span-12">
-      <h1>{title}</h1>
+  
+  
+  
+  
+  
+  
+  >
+  {#snippet children({ title, intro, text, moreText, formLinkUrl, formLinkText, disableCss })}
+    <div use:wrapInShadowDom={disableCss} class="container layout-grid layout-grid--column-12">
+      <article class="article-page col-1-span-12">
+        <h1>{title}</h1>
 
-      {#if intro}
-        <div class="intro">
-          {@html intro}
-        </div>
-      {/if}
+        {#if intro}
+          <div class="intro">
+            {@html intro}
+          </div>
+        {/if}
 
-      {#if text}
-        {@html text}
-      {/if}
+        {#if text}
+          {@html text}
+        {/if}
 
-      {#if moreText}
-        {@html moreText}
-      {/if}
+        {#if moreText}
+          {@html moreText}
+        {/if}
 
-      {#if formLinkUrl && formLinkText}
-        <p>
-          <a href={formLinkUrl} class="mt-link link--transport link--transport--primary">
-            {formLinkText}
-          </a>
-        </p>
-      {/if}
-    </article>
-  </div>
+        {#if formLinkUrl && formLinkText}
+          <p>
+            <a href={formLinkUrl} class="mt-link link--transport link--transport--primary">
+              {formLinkText}
+            </a>
+          </p>
+        {/if}
+      </article>
+    </div>
+  {/snippet}
 </Story>
 
 <Story
   name="Modul - normal"
-  let:title
-  let:intro
-  let:text
-  let:moreText
-  let:formLinkUrl
-  let:formLinkText
-  let:disableCss>
-  <div use:wrapInShadowDom={disableCss} class="container">
-    <CardArticle
-      type="form-intro-module"
-      linkText={formLinkText}
-      linkUrl={formLinkUrl}
-      {intro}
-      {title}
-      {text}
-      id={title} />
-  </div>
+  
+  
+  
+  
+  
+  
+  >
+  {#snippet children({ title, intro, text, moreText, formLinkUrl, formLinkText, disableCss })}
+    <div use:wrapInShadowDom={disableCss} class="container">
+      <CardArticle
+        type="form-intro-module"
+        linkText={formLinkText}
+        linkUrl={formLinkUrl}
+        {intro}
+        {title}
+        {text}
+        id={title} />
+    </div>
+  {/snippet}
 </Story>
 
 <Story
   name="Modul - H2 heading"
-  let:title
-  let:intro
-  let:text
-  let:moreText
-  let:formLinkUrl
-  let:formLinkText
-  let:disableCss>
-  <div use:wrapInShadowDom={disableCss} class="container">
-    <CardArticle
-      type="form-intro-module"
-      linkText={formLinkText}
-      linkUrl={formLinkUrl}
-      {intro}
-      {title}
-      {text}
-      headerTag="h2"
-      id={title} />
-  </div>
+  
+  
+  
+  
+  
+  
+  >
+  {#snippet children({ title, intro, text, moreText, formLinkUrl, formLinkText, disableCss })}
+    <div use:wrapInShadowDom={disableCss} class="container">
+      <CardArticle
+        type="form-intro-module"
+        linkText={formLinkText}
+        linkUrl={formLinkUrl}
+        {intro}
+        {title}
+        {text}
+        headerTag="h2"
+        id={title} />
+    </div>
+  {/snippet}
 </Story>

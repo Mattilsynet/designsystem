@@ -4,21 +4,32 @@
   import { onMount } from 'svelte'
   import { slide } from 'svelte/transition'
   import { createToggleMachine } from '../../ts/toggle-machine'
-  export let showChapterNumbers = false
-  export let parentIndex = 0
-  export let subChapters: Array<Chapter> = []
-  export let ariaLabel = 'toggle'
-  export let loadJs = true
-  let componentId = ''
-  export { componentId as id }
+  interface Props {
+    showChapterNumbers?: boolean;
+    parentIndex?: number;
+    subChapters?: Array<Chapter>;
+    ariaLabel?: string;
+    loadJs?: boolean;
+    id?: string;
+  }
+
+  let {
+    showChapterNumbers = false,
+    parentIndex = 0,
+    subChapters = [],
+    ariaLabel = 'toggle',
+    loadJs = true,
+    id: componentId = ''
+  }: Props = $props();
+  
 
   const SLIDE_DURATION: Readonly<number> = 500
 
   const subChapterMachine = createToggleMachine(`ChapterMenuSubSChapterMachine-${parentIndex}`)
   const { state, send } = useMachine(subChapterMachine)
 
-  $: isOpen = $state.context.isOpen
-  $: onServer = $state.value === 'serverRendered'
+  let isOpen = $derived($state.context.isOpen)
+  let onServer = $derived($state.value === 'serverRendered')
 
   if (loadJs) {
     onMount(() => send('MOUNTED'))
@@ -33,9 +44,9 @@
       aria-haspopup="true"
       aria-controls={componentId}
       aria-expanded={isOpen}
-      on:click={() => {
+      onclick={() => {
         send('TOGGLE')
-      }} />
+      }}></button>
   {/if}
   {#if isOpen || onServer}
     <ul

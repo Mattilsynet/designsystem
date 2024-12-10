@@ -37,59 +37,63 @@
     disableCss: { control: 'boolean' }
   }} />
 
-<Story name="Normal" let:errors let:label let:helpText let:heading let:disableCss let:errorMessage>
-  <div use:wrapInShadowDom={disableCss}>
-    <FormErrorSummary {errors} {heading} />
+<Story name="Normal"      >
+  {#snippet children({ errors, label, helpText, heading, disableCss, errorMessage })}
+    <div use:wrapInShadowDom={disableCss}>
+      <FormErrorSummary {errors} {heading} />
 
-    <form class="mt-form form-layout">
-      <label class="mt-label" for="inputfield"> Navn </label>
+      <form class="mt-form form-layout">
+        <label class="mt-label" for="inputfield"> Navn </label>
 
-      {#if helpText}
-        <div class="hint">
-          {@html helpText}
-        </div>
-      {/if}
+        {#if helpText}
+          <div class="hint">
+            {@html helpText}
+          </div>
+        {/if}
 
-      <input
-        id="inputfield"
-        name="name"
-        class="mt-input form-field"
-        aria-describedby="inputfield-hint inputfield-error" />
+        <input
+          id="inputfield"
+          name="name"
+          class="mt-input form-field"
+          aria-describedby="inputfield-hint inputfield-error" />
 
-      <label class="mt-label" for="inputfield">
-        {label}
-      </label>
+        <label class="mt-label" for="inputfield">
+          {label}
+        </label>
 
-      {#if helpText}
-        <div class="hint">
-          {@html helpText}
-        </div>
-      {/if}
+        {#if helpText}
+          <div class="hint">
+            {@html helpText}
+          </div>
+        {/if}
 
-      <span id="inputfield-error" class="form-error">
-        <span class="inclusively-hidden">Feilmelding:</span>
-        {errors[0].message}
-      </span>
+        <span id="inputfield-error" class="form-error">
+          <span class="inclusively-hidden">Feilmelding:</span>
+          {errors[0].message}
+        </span>
 
-      <input
-        id="email"
-        name="email"
-        class="mt-input form-field error"
-        aria-invalid="true"
-        aria-describedby="inputfield-hint inputfield-error" />
-    </form>
-  </div>
+        <input
+          id="email"
+          name="email"
+          class="mt-input form-field error"
+          aria-invalid="true"
+          aria-describedby="inputfield-hint inputfield-error" />
+      </form>
+    </div>
+  {/snippet}
 </Story>
 
 <Story
   name="Text only"
-  let:errors
-  let:label
-  let:helpText
-  let:heading
-  let:disableCss
-  let:errorMessage>
-  <div use:wrapInShadowDom={disableCss}>
-    <FormErrorSummary {errors} {heading} linkToFields={false} />
-  </div>
+  
+  
+  
+  
+  
+  >
+  {#snippet children({ errors, label, helpText, heading, disableCss, errorMessage })}
+    <div use:wrapInShadowDom={disableCss}>
+      <FormErrorSummary {errors} {heading} linkToFields={false} />
+    </div>
+  {/snippet}
 </Story>

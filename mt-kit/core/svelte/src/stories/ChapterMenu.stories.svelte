@@ -5,7 +5,7 @@
   import { action } from '@storybook/addon-actions'
 
   const chapterChangeAction = action('chapterChange')
-  let currentChapterNumber = 0
+  let currentChapterNumber = $state(0)
 
   function chapterChange(e) {
     chapterChangeAction(e)
@@ -70,19 +70,21 @@
     chapterChange: { action: 'chapterChange' }
   }} />
 
-<Story name="Normal" let:showChapterNumbers let:disableCss let:disableJs let:chapters>
-  <div use:wrapInShadowDom={disableCss}>
-    <div class="chapter-menu-wrapper">
-      <ChapterMenu
-        {chapters}
-        {showChapterNumbers}
-        basePath="/#"
-        loadJs={!disableJs}
-        menuTitle="Innhold"
-        {currentChapterNumber}
-        on:chapterChange={chapterChange} />
+<Story name="Normal"    >
+  {#snippet children({ showChapterNumbers, disableCss, disableJs, chapters })}
+    <div use:wrapInShadowDom={disableCss}>
+      <div class="chapter-menu-wrapper">
+        <ChapterMenu
+          {chapters}
+          {showChapterNumbers}
+          basePath="/#"
+          loadJs={!disableJs}
+          menuTitle="Innhold"
+          {currentChapterNumber}
+          on:chapterChange={chapterChange} />
+      </div>
     </div>
-  </div>
+  {/snippet}
 </Story>
 
 <style lang="scss">

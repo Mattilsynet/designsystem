@@ -1,9 +1,21 @@
 <script lang="ts">
-  export let type: 'button' | 'submit' | 'reset' = 'button'
-  export let formInProgressAriaLabel = ''
-  export let spinnerPlacement: 'start' | 'end' = 'end'
-  export let btnClassNames = ''
-  export let inProgress = false
+  interface Props {
+    type?: 'button' | 'submit' | 'reset';
+    formInProgressAriaLabel?: string;
+    spinnerPlacement?: 'start' | 'end';
+    btnClassNames?: string;
+    inProgress?: boolean;
+    children?: import('svelte').Snippet;
+  }
+
+  let {
+    type = 'button',
+    formInProgressAriaLabel = '',
+    spinnerPlacement = 'end',
+    btnClassNames = '',
+    inProgress = $bindable(false),
+    children
+  }: Props = $props();
 
   function setInProgress(e: Event): void {
     if (inProgress) {
@@ -16,7 +28,7 @@
 
 <button
   {type}
-  on:click={setInProgress}
+  onclick={setInProgress}
   class={`mt-button mt-button--spinner--${
     spinnerPlacement === 'end' ? 'end' : 'start'
   } ${btnClassNames}`}
@@ -25,6 +37,6 @@
     role="status"
     aria-live="assertive"
     class:spinner={inProgress}
-    aria-label={inProgress ? formInProgressAriaLabel : ''} />
-  <slot />
+    aria-label={inProgress ? formInProgressAriaLabel : ''}></span>
+  {@render children?.()}
 </button>

@@ -2,10 +2,19 @@
   import HeadingLevel from '../components/HeadingLevel.svelte'
   import { mapRelExternal } from '../../ts/utils'
 
-  export let title = 'Aktuelle saker'
-  export let headingClass = 'mt-h4'
-  export let headerTag: 'h2' | 'h3' | 'h4' = 'h2'
-  export let issues = []
+  interface Props {
+    title?: string;
+    headingClass?: string;
+    headerTag?: 'h2' | 'h3' | 'h4';
+    issues?: any;
+  }
+
+  let {
+    title = 'Aktuelle saker',
+    headingClass = 'mt-h4',
+    headerTag = 'h2',
+    issues = []
+  }: Props = $props();
 </script>
 
 <section

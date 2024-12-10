@@ -3,28 +3,50 @@
   import { createEventDispatcher } from 'svelte'
   import { InputErrorMessage, Label } from '$lib/index'
 
-  export let loadJs = false
-  export let name: string
-  export let error: ErrorDetail | undefined
-  export let multiple = false
-  export let accept: string | undefined
-  export let buttonText = 'Legg til fil'
-  export let isRequired: boolean | undefined = undefined
 
-  export let value: undefined | string | Array<string>
-  export let label: string
-  export let fileInputName: string
-  export let fileNameInputName: string
-  export let helpText: string | undefined
-  export let fileName: string | Array<string> | undefined
-  export let textOptional: string | undefined
-  export let hiddenErrorText: string | undefined
 
-  export let isLoading: boolean = false
-  export let uploadInProgressAriaLabel = 'Laster opp filer'
+  interface Props {
+    loadJs?: boolean;
+    name: string;
+    error: ErrorDetail | undefined;
+    multiple?: boolean;
+    accept: string | undefined;
+    buttonText?: string;
+    isRequired?: boolean | undefined;
+    value: undefined | string | Array<string>;
+    label: string;
+    fileInputName: string;
+    fileNameInputName: string;
+    helpText: string | undefined;
+    fileName: string | Array<string> | undefined;
+    textOptional: string | undefined;
+    hiddenErrorText: string | undefined;
+    isLoading?: boolean;
+    uploadInProgressAriaLabel?: string;
+  }
 
-  let uuidInput: HTMLInputElement
-  let nameInput: HTMLInputElement
+  let {
+    loadJs = false,
+    name,
+    error,
+    multiple = false,
+    accept,
+    buttonText = 'Legg til fil',
+    isRequired = undefined,
+    value = $bindable(),
+    label,
+    fileInputName,
+    fileNameInputName,
+    helpText,
+    fileName = $bindable(),
+    textOptional,
+    hiddenErrorText,
+    isLoading = false,
+    uploadInProgressAriaLabel = 'Laster opp filer'
+  }: Props = $props();
+
+  let uuidInput: HTMLInputElement = $state()
+  let nameInput: HTMLInputElement = $state()
 
   const dispatch = createEventDispatcher()
 
@@ -104,7 +126,7 @@
   {multiple}
   {accept}
   class="mt-input form-field"
-  on:change={(e) => handleChange(e)}
+  onchange={(e) => handleChange(e)}
   class:error
   class:inclusively-hidden-initial={loadJs}
   disabled={isLoading}
@@ -120,7 +142,7 @@
       role="status"
       aria-live="polite"
       class:spinner={isLoading}
-      aria-label={isLoading ? uploadInProgressAriaLabel : ''} />
+      aria-label={isLoading ? uploadInProgressAriaLabel : ''}></span>
   </label>
 
   <ol class="mt-ol m-t-xxs list-unstyled file-button__file-list" aria-label="Vedlegg">
@@ -130,7 +152,7 @@
         <button
           type="button"
           class="mt-button mt-button--search-clear file-button__file-remove"
-          on:click={() => removeFile(file)}
+          onclick={() => removeFile(file)}
           data-testid={`remove-${file}`}>
           <span class="inclusively-hidden">Slett vedlegget: "{file}"</span>
           <svg

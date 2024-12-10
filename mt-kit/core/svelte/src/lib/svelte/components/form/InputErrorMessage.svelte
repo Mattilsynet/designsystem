@@ -1,9 +1,18 @@
 <script lang="ts">
-  export let key: string
-  export let message: string
-  export let hiddenErrorText = 'Feilmelding'
-  let className = ''
-  export { className as class }
+  interface Props {
+    key: string;
+    message: string;
+    hiddenErrorText?: string;
+    class?: string;
+  }
+
+  let {
+    key,
+    message,
+    hiddenErrorText = 'Feilmelding',
+    class: className = ''
+  }: Props = $props();
+  
 </script>
 
 <span id={`${key}-error`} class="form-error {className}">
