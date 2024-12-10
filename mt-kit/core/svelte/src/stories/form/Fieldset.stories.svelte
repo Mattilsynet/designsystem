@@ -1,94 +1,94 @@
-<script lang="ts">
-  import { Meta, Story } from '@storybook/addon-svelte-csf'
+<script lang="ts" module>
+  import { defineMeta } from '@storybook/addon-svelte-csf'
   import { wrapInShadowDom } from '../storybook-utils/utils'
   import Fieldset from '$lib/svelte/components/form/Fieldset.svelte'
   import CheckboxWithSubSets from '$lib/svelte/components/form/CheckboxWithSubSets.svelte'
   import Disclosure from '$lib/svelte/components/Disclosure.svelte'
   import { interpolate, toKebabCase } from '$lib/ts/utils'
   import FormErrorSummary from '$lib/svelte/components/form/FormErrorSummary.svelte'
-</script>
 
-<Meta
-  title="Components/Form/Fieldset"
-  args={{
-    legend: 'Temaer for nyhetsbrev',
-    errorsNormal: [],
-    errors: [
-      {
-        key: 'fieldset-id',
-        message: 'Fyll inn ett av feltene.'
-      }
-    ],
-    errorSummaryHeading: 'Feil oppstod',
-    fieldsetId: 'fieldset-id',
-    disclosure: {
-      title: 'Dyr',
-      headerTag: 'h2',
-      level1Legend: 'Velg tema innen {0}',
-      level2Legend: 'Ønsker du å velge bare spesifikke tema?',
-      checkAllLabel: 'Velg alle',
-      checkAllValue: 'dyr3'
-    },
-    disclosureOptions: {
-      key: 'alldyr',
-      checked: false,
-      children: [
+  const { Story } = defineMeta({
+    title: 'Components/Form/Fieldset',
+    args: {
+      legend: 'Temaer for nyhetsbrev',
+      errorsNormal: [],
+      errors: [
         {
-          key: 'produksjonsdyr3',
-          displayName:
-            'Produksjonsdyr asdf kljdfalskj sadk ffkljdsas jdfklasj fdlkasdfj lkajs flk fadslkfaj sklsalaslkdladks asdkljdkdajf',
-          children: [
-            {
-              key: 'produksjonsdyr3/hest',
-              displayName:
-                'Hest asdf kljdfalskj sadk ffkljdsas jdfklasj fdlkasdfj lkajs flk fadslkfaj sklsalaslkdladks asdkljdkdajf',
-              children: []
-            },
-            {
-              key: 'produksjonsdyr3/storfe',
-              displayName: 'Storfe',
-              children: []
-            },
-            {
-              key: 'produksjonsdyr3/kanin',
-              displayName: 'Kanin',
-              children: []
-            }
-          ]
-        },
-        {
-          key: 'dyresykdommer3',
-          displayName: 'Dyresykdommer',
-          children: [
-            {
-              key: 'dyresykdommer3/afrikanskHestepest',
-              displayName: 'Afrikansk hestepest',
-              children: []
-            },
-            {
-              key: 'dyresykdommer3/afrikanskSvinepest',
-              displayName: 'Afrikansk svinepest',
-              children: []
-            }
-          ]
-        },
-        {
-          key: 'dyr-som-lider',
-          displayName: 'Dyr som lider',
-          children: []
+          key: 'fieldset-id',
+          message: 'Fyll inn ett av feltene.'
         }
-      ]
+      ],
+      errorSummaryHeading: 'Feil oppstod',
+      fieldsetId: 'fieldset-id',
+      disclosure: {
+        title: 'Dyr',
+        headerTag: 'h2',
+        level1Legend: 'Velg tema innen {0}',
+        level2Legend: 'Ønsker du å velge bare spesifikke tema?',
+        checkAllLabel: 'Velg alle',
+        checkAllValue: 'dyr3'
+      },
+      disclosureOptions: {
+        key: 'alldyr',
+        checked: false,
+        children: [
+          {
+            key: 'produksjonsdyr3',
+            displayName:
+              'Produksjonsdyr asdf kljdfalskj sadk ffkljdsas jdfklasj fdlkasdfj lkajs flk fadslkfaj sklsalaslkdladks asdkljdkdajf',
+            children: [
+              {
+                key: 'produksjonsdyr3/hest',
+                displayName:
+                  'Hest asdf kljdfalskj sadk ffkljdsas jdfklasj fdlkasdfj lkajs flk fadslkfaj sklsalaslkdladks asdkljdkdajf',
+                children: []
+              },
+              {
+                key: 'produksjonsdyr3/storfe',
+                displayName: 'Storfe',
+                children: []
+              },
+              {
+                key: 'produksjonsdyr3/kanin',
+                displayName: 'Kanin',
+                children: []
+              }
+            ]
+          },
+          {
+            key: 'dyresykdommer3',
+            displayName: 'Dyresykdommer',
+            children: [
+              {
+                key: 'dyresykdommer3/afrikanskHestepest',
+                displayName: 'Afrikansk hestepest',
+                children: []
+              },
+              {
+                key: 'dyresykdommer3/afrikanskSvinepest',
+                displayName: 'Afrikansk svinepest',
+                children: []
+              }
+            ]
+          },
+          {
+            key: 'dyr-som-lider',
+            displayName: 'Dyr som lider',
+            children: []
+          }
+        ]
+      },
+      hiddenErrorText: 'Fyll inn tekst',
+      disableJs: false,
+      disableCss: false
     },
-    hiddenErrorText: 'Fyll inn tekst',
-    disableJs: false,
-    disableCss: false
-  }}
-  argTypes={{
-    legend: { control: 'text' },
-    disableJs: { control: 'boolean' },
-    disableCss: { control: 'boolean' }
-  }}
-/>
+    argTypes: {
+      legend: { control: 'text' },
+      disableJs: { control: 'boolean' },
+      disableCss: { control: 'boolean' }
+    }
+  })
+</script>
 
 <Story name="Normal">
   {#snippet children({ args })}
@@ -102,22 +102,19 @@
             errors={args.errorsNormal}
             heading={args.errorSummaryHeading}
             hiddenErrorText={args.hiddenErrorText}
-            legendClass="h2"
-          />
+            legendClass="h2" />
           <form class="mt-form col-3-span-8 form-layout">
             <Fieldset
               class="validation m-t-m"
               legend={args.legend}
-              error={args.errorsNormal.find(error => error.key === args.fieldsetId)}
-            >
+              error={args.errorsNormal.find(error => error.key === args.fieldsetId)}>
               <Disclosure
                 id={args.fieldsetId}
                 title={args.disclosure.title}
                 loadJs={!args.disableJs}
                 class="disclosure-no-border--align-left"
                 headingId={`${toKebabCase(args.disclosure.title)}-title`}
-                headerTag={args.disclosure.headerTag}
-              >
+                headerTag={args.disclosure.headerTag}>
                 <CheckboxWithSubSets
                   variation="secondary"
                   options={args.disclosureOptions}
@@ -126,8 +123,7 @@
                   level1Legend={interpolate(args.disclosure.level1Legend, [
                     args.disclosure.title.toLowerCase()
                   ])}
-                  level2Legend={args.disclosure.level2Legend}
-                />
+                  level2Legend={args.disclosure.level2Legend} />
               </Disclosure>
             </Fieldset>
           </form>
@@ -152,24 +148,21 @@
             <FormErrorSummary
               errors={args.errors}
               heading={args.errorSummaryHeading}
-              hiddenErrorText={args.hiddenErrorText}
-            />
+              hiddenErrorText={args.hiddenErrorText} />
           </div>
           <form class="mt-form col-3-span-8 form-layout">
             <Fieldset
               class="validation m-t-m"
               legend={args.legend}
               error={args.errors.find(error => error.key === args.fieldsetId)}
-              legendClass="mt-h2"
-            >
+              legendClass="mt-h2">
               <Disclosure
                 id={args.fieldsetId}
                 title={args.disclosure.title}
                 loadJs={!args.disableJs}
                 class="disclosure-no-border--align-left"
                 headingId={`${toKebabCase(args.disclosure.title)}-title`}
-                headerTag={args.disclosure.headerTag}
-              >
+                headerTag={args.disclosure.headerTag}>
                 <CheckboxWithSubSets
                   variation="secondary"
                   options={args.disclosureOptions}
@@ -178,8 +171,7 @@
                   level1Legend={interpolate(args.disclosure.level1Legend, [
                     args.disclosure.title.toLowerCase()
                   ])}
-                  level2Legend={args.disclosure.level2Legend}
-                />
+                  level2Legend={args.disclosure.level2Legend} />
               </Disclosure>
             </Fieldset>
           </form>

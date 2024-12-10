@@ -1,61 +1,62 @@
-<script lang="ts">
-  import { Meta, Story } from '@storybook/addon-svelte-csf'
+<script lang="ts" module>
+  import { defineMeta } from '@storybook/addon-svelte-csf'
   import { wrapInShadowDom } from '../storybook-utils/utils'
   import FileUpload from '$lib/svelte/components/form/FileUpload.svelte'
   import { forceArray } from '$lib/ts/utils.js'
 
   let values: Record<string, Array<string> | undefined> = $state({})
+
   async function handleChange(e: CustomEvent, name): Promise<void> {
     const files = e.detail.files
     const existingFiles = forceArray(values[`filename-${name}`])
     values[`filename-${name}`] = [...existingFiles, ...Array.from(files).map(f => f.name)]
   }
-</script>
 
-<Meta
-  title="Components/Form/FileUpload"
-  args={{
-    label: 'Legg til fil',
-    helpText: 'Hjelpetekst',
-    buttonText: 'Legg til fil',
-    uploadInProgressAriaLabel: 'Laster opp filer',
-    hiddenErrorText: 'Skjult feilmelding',
-    textOptional: 'Valgfritt',
-    accept: 'image/*',
-    upload1: {
-      name: 'fileUpload1',
-      isRequired: false,
-      multiple: true,
-      loadJs: true
+  const { Story } = defineMeta({
+    title: 'Components/Form/FileUpload',
+    args: {
+      label: 'Legg til fil',
+      helpText: 'Hjelpetekst',
+      buttonText: 'Legg til fil',
+      uploadInProgressAriaLabel: 'Laster opp filer',
+      hiddenErrorText: 'Skjult feilmelding',
+      textOptional: 'Valgfritt',
+      accept: 'image/*',
+      upload1: {
+        name: 'fileUpload1',
+        isRequired: false,
+        multiple: true,
+        loadJs: true
+      },
+      upload2: {
+        name: 'fileUpload2',
+        isRequired: true,
+        multiple: true,
+        loadJs: false
+      },
+      upload3: {
+        name: 'fileUpload3',
+        isRequired: true,
+        multiple: false,
+        loadJs: true
+      },
+      upload4: {
+        name: 'fileUpload4',
+        isRequired: true,
+        multiple: true,
+        loadJs: true
+      },
+      isLoading: false,
+      disableCss: false,
+      disableJs: false
     },
-    upload2: {
-      name: 'fileUpload2',
-      isRequired: true,
-      multiple: true,
-      loadJs: false
-    },
-    upload3: {
-      name: 'fileUpload3',
-      isRequired: true,
-      multiple: false,
-      loadJs: true
-    },
-    upload4: {
-      name: 'fileUpload4',
-      isRequired: true,
-      multiple: true,
-      loadJs: true
-    },
-    isLoading: false,
-    disableCss: false,
-    disableJs: false
-  }}
-  argTypes={{
-    label: { control: 'text' },
-    disableCss: { control: 'boolean' },
-    disableJs: { control: 'boolean' }
-  }}
-/>
+    argTypes: {
+      label: { control: 'text' },
+      disableCss: { control: 'boolean' },
+      disableJs: { control: 'boolean' }
+    }
+  })
+</script>
 
 <Story name="Normal">
   {#snippet children({ args })}
@@ -81,8 +82,7 @@
           error={undefined}
           isLoading={args.isLoading}
           uploadInProgressAriaLabel={args.uploadInProgressAriaLabel}
-          loadJs={!args.disableJs && args.upload1.loadJs}
-        />
+          loadJs={!args.disableJs && args.upload1.loadJs} />
       </form>
       <h2 class="mt-h2 m-t-m">Uten JS</h2>
       <form method="get" class="mt-form form-layout" style="--gap: 0;">
@@ -104,8 +104,7 @@
           error={undefined}
           isLoading={args.isLoading}
           uploadInProgressAriaLabel={args.uploadInProgressAriaLabel}
-          loadJs={!args.disableJs && args.upload2.loadJs}
-        />
+          loadJs={!args.disableJs && args.upload2.loadJs} />
       </form>
       <h2 class="mt-h2 m-t-m">Kan kun velge ett bilde</h2>
       <form method="get" class="mt-form form-layout" style="--gap: 0;">
@@ -127,8 +126,7 @@
           error={{ message: 'Eksempel på feilmelding' }}
           isLoading={args.isLoading}
           uploadInProgressAriaLabel={args.uploadInProgressAriaLabel}
-          loadJs={!args.disableJs && args.upload3.loadJs}
-        />
+          loadJs={!args.disableJs && args.upload3.loadJs} />
       </form>
       <h2 class="mt-h2 m-t-m">Under opplasting</h2>
       <form method="get" class="mt-form form-layout" style="--gap: 0;">
@@ -150,8 +148,7 @@
           error={undefined}
           isLoading={true}
           uploadInProgressAriaLabel={args.uploadInProgressAriaLabel}
-          loadJs={!args.disableJs && args.upload4.loadJs}
-        />
+          loadJs={!args.disableJs && args.upload4.loadJs} />
       </form>
       <h2 class="mt-h2 m-t-m">Under opplasting. Uten JS</h2>
       <form method="get" class="mt-form form-layout" style="--gap: 0;">
@@ -173,8 +170,7 @@
           error={undefined}
           isLoading={true}
           uploadInProgressAriaLabel={args.uploadInProgressAriaLabel}
-          loadJs={!args.disableJs && !args.upload4.loadJs}
-        />
+          loadJs={!args.disableJs && !args.upload4.loadJs} />
       </form>
     </div>
   {/snippet}

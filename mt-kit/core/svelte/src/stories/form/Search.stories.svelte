@@ -1,26 +1,26 @@
-<script lang="ts">
-  import { Meta, Story } from '@storybook/addon-svelte-csf'
+<script lang="ts" module>
+  import { defineMeta } from '@storybook/addon-svelte-csf'
   import { wrapInShadowDom } from '../storybook-utils/utils'
   import TextInputSearch from '$lib/svelte/components/form/Search.svelte'
-</script>
 
-<Meta
-  title="Components/Form/Search"
-  args={{
-    label: 'Skriv inn navnet på skjema',
-    helpText: 'Her kan du søke etter artikler og veiledere',
-    placeholder: 'Søk etter artikler, skjemaer, pdfer og veiledere, veivisere, rapporter og mer',
-    searchButtonText: 'Søk',
-    disableCss: false,
-    loadJs: true
-  }}
-  argTypes={{
-    label: { control: 'text' },
-    helpText: { control: 'text' },
-    disableCss: { control: 'boolean' },
-    loadJs: { control: 'boolean' }
-  }}
-/>
+  const { Story } = defineMeta({
+    title: 'Components/Form/Search',
+    args: {
+      label: 'Skriv inn navnet på skjema',
+      helpText: 'Her kan du søke etter artikler og veiledere',
+      placeholder: 'Søk etter artikler, skjemaer, pdfer og veiledere, veivisere, rapporter og mer',
+      searchButtonText: 'Søk',
+      disableCss: false,
+      loadJs: true
+    },
+    argTypes: {
+      label: { control: 'text' },
+      helpText: { control: 'text' },
+      disableCss: { control: 'boolean' },
+      loadJs: { control: 'boolean' }
+    }
+  })
+</script>
 
 <Story name="Search input">
   {#snippet children({
@@ -55,8 +55,7 @@
             {label}
             {placeholder}
             {searchButtonText}
-            loadJs={args.loadJs}
-          />
+            loadJs={args.loadJs} />
         </form>
       </article>
       <article>
@@ -66,8 +65,7 @@
             {label}
             {helpText}
             {searchButtonText}
-            loadJs={args.loadJs}
-          />
+            loadJs={args.loadJs} />
         </form>
       </article>
     </div>

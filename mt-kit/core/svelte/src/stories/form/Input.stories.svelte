@@ -1,49 +1,49 @@
-<script lang="ts">
-  import { Meta, Story } from '@storybook/addon-svelte-csf'
+<script lang="ts" module>
+  import { defineMeta } from '@storybook/addon-svelte-csf'
   import TextInput from '$lib/svelte/components/form/TextInput.svelte'
   import { wrapInShadowDom } from '../storybook-utils/utils'
   import TextInputHorizontal from '$lib/svelte/components/form/TextInputHorizontal.svelte'
-</script>
 
-<Meta
-  title="Components/Form/Input"
-  args={{
-    label: 'Når skjedde det?',
-    helpText: 'Skriv når hendelsen skjedde og om det har pågått over lengere periode.',
-    errorMessage: 'Fyll inn dette feltet.',
-    textOptional: 'Valgfritt',
-    isRequired: false,
-    horizontal: [
-      {
-        label: 'Hund, antall',
-        textOptional: 'Valgfritt',
-        helpText: 'Hjelpetekst',
-        isRequired: true,
-        maxLength: 2
-      },
-      {
-        label: 'Katt, antall',
-        textOptional: 'Valgfritt',
-        helpText: 'Hjelpetekst',
-        isRequired: true
-      }
-    ],
-    countCharactersLeftLabel: 'karakterer igjen',
-    tooManyCharactersErrorText: 'For lang tekst',
-    disableCss: false
-  }}
-  argTypes={{
-    label: { control: 'text' },
-    helpText: { control: 'text' },
-    isRequired: { control: 'boolean' },
-    textOptional: { control: 'text' },
-    errorMessage: { control: 'text' },
-    tooManyCharactersErrorText: { control: 'text' },
-    horizontal: { control: 'object' },
-    countCharactersLeftLabel: { control: 'text' },
-    disableCss: { control: 'boolean' }
-  }}
-/>
+  const { Story } = defineMeta({
+    title: 'Components/Form/Input',
+    args: {
+      label: 'Når skjedde det?',
+      helpText: 'Skriv når hendelsen skjedde og om det har pågått over lengere periode.',
+      errorMessage: 'Fyll inn dette feltet.',
+      textOptional: 'Valgfritt',
+      isRequired: false,
+      horizontal: [
+        {
+          label: 'Hund, antall',
+          textOptional: 'Valgfritt',
+          helpText: 'Hjelpetekst',
+          isRequired: true,
+          maxLength: 2
+        },
+        {
+          label: 'Katt, antall',
+          textOptional: 'Valgfritt',
+          helpText: 'Hjelpetekst',
+          isRequired: true
+        }
+      ],
+      countCharactersLeftLabel: 'karakterer igjen',
+      tooManyCharactersErrorText: 'For lang tekst',
+      disableCss: false
+    },
+    argTypes: {
+      label: { control: 'text' },
+      helpText: { control: 'text' },
+      isRequired: { control: 'boolean' },
+      textOptional: { control: 'text' },
+      errorMessage: { control: 'text' },
+      tooManyCharactersErrorText: { control: 'text' },
+      horizontal: { control: 'object' },
+      countCharactersLeftLabel: { control: 'text' },
+      disableCss: { control: 'boolean' }
+    }
+  })
+</script>
 
 <Story name="Input">
   {#snippet children({ label, helpText, disableCss, args })}
@@ -57,8 +57,7 @@
           inputmode="text"
           isRequired={args.isRequired}
           placeholder=""
-          autocomplete=""
-        />
+          autocomplete="" />
 
         <TextInput
           name="inputfield2"
@@ -68,8 +67,7 @@
           inputmode="text"
           isRequired={args.isRequired}
           placeholder="Skriv noe"
-          autocomplete=""
-        />
+          autocomplete="" />
 
         <TextInput
           name="inputfield3"
@@ -81,8 +79,7 @@
           placeholder=""
           autocomplete=""
           tooManyCharactersErrorText={args.tooManyCharactersErrorText}
-          maxlength={30}
-        />
+          maxlength={30} />
 
         <h2 class="mt-h2">Horisontal layout</h2>
         <div class="collapsable-input-list-grid">
@@ -97,8 +94,7 @@
               maxlength={horizontal.maxLength}
               placeholder=""
               autocomplete=""
-              inputClass="form-field--small form-field--small-width"
-            />
+              inputClass="form-field--small form-field--small-width" />
           {/each}
         </div>
       </form>
@@ -120,8 +116,7 @@
           inputmode="text"
           maxlength={10}
           placeholder=""
-          autocomplete=""
-        />
+          autocomplete="" />
         <div class="collapsable-input-list-grid">
           {#each args.horizontal as horizontal, index}
             <TextInputHorizontal
@@ -134,8 +129,7 @@
               isRequired={horizontal.isRequired}
               placeholder=""
               autocomplete=""
-              inputClass="form-field--small form-field--small-width"
-            />
+              inputClass="form-field--small form-field--small-width" />
           {/each}
         </div>
       </form>
