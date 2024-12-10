@@ -1,7 +1,6 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/svelte'
 import ChapterMenuSubChapter from './ChapterMenuSubChapter.svelte'
 import type { Chapter } from '$lib/ts'
-import { vi } from 'vitest'
 
 describe('Chapter sub menu', () => {
   const subChapters: Chapter[] = [
@@ -15,21 +14,6 @@ describe('Chapter sub menu', () => {
     ariaLabel: 'view sub chapters',
     loadJs: true
   }
-
-  /**
-   * Fix so svelte-transitions don´t get stuck in transition,
-   * i.e. never completely hide element, when running tests
-   * Ref: https://github.com/testing-library/svelte-testing-library/issues/206#issuecomment-1470158576
-   */
-  beforeEach(() => {
-    vi.stubGlobal('requestAnimationFrame', fn => {
-      return window.setTimeout(() => fn(Date.now()), 16)
-    })
-  })
-
-  afterEach(() => {
-    vi.unstubAllGlobals()
-  })
 
   test('Toggle visibility of subchapter list', async () => {
     // Arrange

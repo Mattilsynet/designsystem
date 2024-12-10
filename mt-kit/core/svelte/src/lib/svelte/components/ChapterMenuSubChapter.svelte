@@ -23,7 +23,7 @@
     })
   }
 
-  const handleButtonClick = (): void => {
+  function handleButtonClick(): void {
     isOpen = !isOpen
   }
 </script>

@@ -19,3 +19,12 @@ const ResizeObserverMock = vi.fn(() => ({
 }))
 
 vi.stubGlobal('ResizeObserver', ResizeObserverMock)
+
+/**
+ * Fix so svelte-transitions don´t get stuck in transition,
+ * i.e. never completely hide element, when running tests
+ * Ref: https://github.com/testing-library/svelte-testing-library/issues/206#issuecomment-1470158576
+ */
+vi.stubGlobal('requestAnimationFrame', fn => {
+  return window.setTimeout(() => fn(Date.now()), 16)
+})

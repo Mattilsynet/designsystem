@@ -1,24 +1,8 @@
 import { fireEvent, render, waitFor } from '@testing-library/svelte'
 import CheckboxWithSubSets from './CheckboxWithSubSets.svelte'
 import type { CheckboxWithSubSectionsOptions } from '../../../ts/types'
-import { vi } from 'vitest'
 
 describe('Checkbox with subsets', () => {
-  /**
-   * Fix so svelte-transitions don´t get stuck in transition,
-   * i.e. never completely hide element, when running tests
-   * Ref: https://github.com/testing-library/svelte-testing-library/issues/206#issuecomment-1470158576
-   */
-  beforeEach(() => {
-    vi.stubGlobal('requestAnimationFrame', fn => {
-      return window.setTimeout(() => fn(Date.now()), 16)
-    })
-  })
-
-  afterEach(() => {
-    vi.unstubAllGlobals()
-  })
-
   const level1Legend = 'Checkbox with subsets'
   const options = [
     {
