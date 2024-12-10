@@ -1,5 +1,5 @@
-<script lang="ts">
-  import { Meta, Story, Template } from '@storybook/addon-svelte-csf'
+<script lang="ts" module>
+  import { defineMeta } from '@storybook/addon-svelte-csf'
   import Dropdown from '$lib/svelte/components/Dropdown.svelte'
   import Checkbox from '$lib/svelte/components/form/Checkbox.svelte'
   import CardArticle from '$lib/svelte/components/CardArticle.svelte'
@@ -60,43 +60,43 @@
     filterForm.reset()
     filterForm.submit()
   }
+
+  const { Story } = defineMeta({
+    parameters: {
+      xstate: true,
+      inspectUrl: 'https://stately.ai/viz?inspect',
+      layout: 'fullscreen',
+      disableCss: false
+    },
+    title: 'Components/Dropdown',
+    argTypes: {
+      buttonLabel: { control: 'text' },
+      disableJs: { control: 'boolean' },
+      disableCss: { control: 'boolean' }
+    },
+    args: {
+      label: '',
+      helpText: '',
+      errorMessage: 'Fyll inn dette feltet.',
+      hiddenErrorText: 'Feilmelding',
+      isRequired: false,
+      textOptional: '',
+      options: [
+        {
+          text: 'Temasider',
+          value: 'true'
+        },
+        {
+          text: 'Nyheter',
+          value: 'no'
+        }
+      ],
+      disableCss: false
+    }
+  })
 </script>
 
-<Meta
-  parameters={{
-    xstate: true,
-    inspectUrl: 'https://stately.ai/viz?inspect',
-    layout: 'fullscreen',
-    disableCss: false
-  }}
-  title="Components/Dropdown"
-  argTypes={{
-    buttonLabel: { control: 'text' },
-    disableJs: { control: 'boolean' },
-    disableCss: { control: 'boolean' }
-  }}
-  args={{
-    label: '',
-    helpText: '',
-    errorMessage: 'Fyll inn dette feltet.',
-    hiddenErrorText: 'Feilmelding',
-    isRequired: false,
-    textOptional: '',
-    options: [
-      {
-        text: 'Temasider',
-        value: 'true'
-      },
-      {
-        text: 'Nyheter',
-        value: 'no'
-      }
-    ],
-    disableCss: false
-  }}
-/>
-
-<Template>
+{#snippet template()}
   {#snippet children({ args })}
     <div use:wrapInShadowDom={args.disableCss}>
       <section class="preview-wrapper">
@@ -104,8 +104,7 @@
           title={args.buttonLabel}
           loadJs={!args.disableJs}
           icon="icon--caret-down-after"
-          class="mt-button__small-text full-menu"
-        >
+          class="mt-button__small-text full-menu">
           {#snippet children({ titleId })}
             <ol class="mt-ol m-t-xxs alt-language" aria-labelledby={titleId}>
               {#each args.items as item}
@@ -122,12 +121,11 @@
           headingId={args.cardArticle.headingId}
           title={args.cardArticle.title}
           intro={args.cardArticle.intro}
-          text={args.cardArticle.text}
-        />
+          text={args.cardArticle.text} />
       </section>
     </div>
   {/snippet}
-</Template>
+{/snippet}
 
 <Story name="Normal" args={configs[0]} />
 
@@ -139,8 +137,7 @@
           title={args.buttonLabel}
           loadJs={!args.disableJs}
           icon="icon--caret-down-after"
-          class="mt-button__small-text  full-menu"
-        >
+          class="mt-button__small-text  full-menu">
           {#snippet children({ titleId })}
             <ol class="mt-ol m-t-xxs alt-language" aria-labelledby={titleId}>
               {#each args.items as item}
@@ -165,12 +162,11 @@
           titleWhenOpen="Skjul søkefilter"
           loadJs={!args.disableJs}
           icon="icon--caret-down-after"
-          class="default-dropdown span-9-col-3-span-4"
-        >
+          class="default-dropdown span-9-col-3-span-4">
           {#snippet children({ isOpen })}
             <form class="mt-form">
               <Checkbox {name} {label} {helpText} {options} {isRequired} {textOptional} />
-              <button class="mt-button mt-button--primary" type="submit"> Filtrer </button>
+              <button class="mt-button mt-button--primary" type="submit"> Filtrer</button>
               <button class="mt-button mt-button--secondary" type="reset" onclick={resetForm}>
                 Tøm filter
               </button>

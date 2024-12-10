@@ -1,5 +1,5 @@
-<script lang="ts">
-  import { Meta, Story } from '@storybook/addon-svelte-csf'
+<script lang="ts" module>
+  import { defineMeta } from '@storybook/addon-svelte-csf'
   import Tags from '$lib/svelte/components/Tags.svelte'
   import { wrapInShadowDom } from './storybook-utils/utils'
 
@@ -16,32 +16,32 @@
       { text: 'Finland', ariaLabel: 'Fjern Finland fra listen' }
     ]
   }
-</script>
 
-<Meta
-  title="Components/Tags"
-  args={{
-    tags: [
-      { text: 'Hund', color: 'no-color' },
-      { text: 'Katt', color: 'no-color' },
-      { text: 'Ilder', color: 'no-color' }
-    ],
-    tagsWithColor: [
-      { text: 'PDF', color: 'info' },
-      { text: 'Altinn', color: 'success' },
-      { text: 'Altinn', color: 'warning' },
-      { text: 'Altinn', color: 'error' },
-      { text: 'Mattilsynets skjematjenester', color: 'neutral' }
-    ],
-    isClosable: true,
-    disableCss: false
-  }}
-  argTypes={{
-    tags: { control: 'array' },
-    isClosable: { control: 'boolean' },
-    disableCss: { control: 'boolean' }
-  }}
-/>
+  const { Story } = defineMeta({
+    title: 'Components/Tags',
+    args: {
+      tags: [
+        { text: 'Hund', color: 'no-color' },
+        { text: 'Katt', color: 'no-color' },
+        { text: 'Ilder', color: 'no-color' }
+      ],
+      tagsWithColor: [
+        { text: 'PDF', color: 'info' },
+        { text: 'Altinn', color: 'success' },
+        { text: 'Altinn', color: 'warning' },
+        { text: 'Altinn', color: 'error' },
+        { text: 'Mattilsynets skjematjenester', color: 'neutral' }
+      ],
+      isClosable: true,
+      disableCss: false
+    },
+    argTypes: {
+      tags: { control: 'array' },
+      isClosable: { control: 'boolean' },
+      disableCss: { control: 'boolean' }
+    }
+  })
+</script>
 
 <Story name="Normal">
   {#snippet children({ args })}
