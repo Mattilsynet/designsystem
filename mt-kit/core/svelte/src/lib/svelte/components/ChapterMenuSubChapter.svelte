@@ -13,18 +13,18 @@
 
   const SLIDE_DURATION: Readonly<number> = 500
 
-  let isOpen = true;
-  let onServer = true;
+  let isOpen = true
+  let onServer = true
 
   if (loadJs) {
     onMount(() => {
-      onServer = false;
-      isOpen = false;
-    });
+      onServer = false
+      isOpen = false
+    })
   }
 
   const handleButtonClick = (): void => {
-    isOpen = !isOpen;
+    isOpen = !isOpen
   }
 </script>
 

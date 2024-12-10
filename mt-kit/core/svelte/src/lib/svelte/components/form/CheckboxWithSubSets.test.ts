@@ -1,4 +1,4 @@
-import {fireEvent, render, waitFor} from '@testing-library/svelte'
+import { fireEvent, render, waitFor } from '@testing-library/svelte'
 import CheckboxWithSubSets from './CheckboxWithSubSets.svelte'
 import type { CheckboxWithSubSectionsOptions } from '../../../ts/types'
 import { vi } from 'vitest'
@@ -10,14 +10,14 @@ describe('Checkbox with subsets', () => {
    * Ref: https://github.com/testing-library/svelte-testing-library/issues/206#issuecomment-1470158576
    */
   beforeEach(() => {
-    vi.stubGlobal('requestAnimationFrame', (fn) => {
-      return window.setTimeout(() => fn(Date.now()), 16);
-    });
-  });
+    vi.stubGlobal('requestAnimationFrame', fn => {
+      return window.setTimeout(() => fn(Date.now()), 16)
+    })
+  })
 
   afterEach(() => {
-    vi.unstubAllGlobals();
-  });
+    vi.unstubAllGlobals()
+  })
 
   const level1Legend = 'Checkbox with subsets'
   const options = [
@@ -180,7 +180,7 @@ describe('Checkbox with subsets', () => {
     expect(mainCategoryCheckbox).not.toBeChecked()
 
     await waitFor(() => {
-      let actual = queryByLabelText(
+      const actual = queryByLabelText(
         `${options[0].children[0].displayName} (${options[0].children[0].docCount})`
       )
       expect(actual).not.toBeInTheDocument()
