@@ -1,27 +1,27 @@
-<script lang="ts">
-  import { Meta, Story } from '@storybook/addon-svelte-csf'
+<script lang="ts" module>
+  import { defineMeta } from '@storybook/addon-svelte-csf'
   import Published from '$lib/svelte/components/Published.svelte'
   import Status from '$lib/svelte/content/Status.svelte'
   import { wrapInShadowDom } from './storybook-utils/utils'
-</script>
 
-<Meta
-  title="Components/Publisert"
-  args={{
-    intro: `<p>Paragraf med tekst. Paragraf med tekst.`,
-    statusTitle: `Status tittel`,
-    text: `<p>Status tekst</p>`,
-    publishFrom: '2021-06-24T11:40:02.889Z',
-    professionallyUpdated: '2021-06-24T11:32:22Z',
-    disableCss: false
-  }}
-  argTypes={{
-    intro: { control: 'text' },
-    publishFrom: { control: 'text' },
-    professionallyUpdated: { control: 'text' },
-    disableCss: { control: 'boolean' }
-  }}
-/>
+  const { Story } = defineMeta({
+    title: 'Components/Publisert',
+    args: {
+      intro: `<p>Paragraf med tekst. Paragraf med tekst.`,
+      statusTitle: `Status tittel`,
+      text: `<p>Status tekst</p>`,
+      publishFrom: '2021-06-24T11:40:02.889Z',
+      professionallyUpdated: '2021-06-24T11:32:22Z',
+      disableCss: false
+    },
+    argTypes: {
+      intro: { control: 'text' },
+      publishFrom: { control: 'text' },
+      professionallyUpdated: { control: 'text' },
+      disableCss: { control: 'boolean' }
+    }
+  })
+</script>
 
 <Story name="Normal">
   {#snippet children({ publishFrom, professionallyUpdated, intro, text, statusTitle, disableCss })}

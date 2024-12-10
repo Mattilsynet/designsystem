@@ -1,5 +1,5 @@
-<script lang="ts">
-  import { Meta, Story } from '@storybook/addon-svelte-csf'
+<script lang="ts" module>
+  import { defineMeta } from '@storybook/addon-svelte-csf'
   import DialogBox from '$lib/svelte/components/DialogBox.svelte'
   import ButtonSpinner from '$lib/svelte/components/ButtonSpinner.svelte'
 
@@ -12,17 +12,17 @@
   function handleClick() {
     showDialog = !showDialog
   }
-</script>
 
-<Meta
-  title="Components/Dialogboks"
-  args={{
-    content: `<h2 class="mt-h2">Du bør varsle</h2>
+  const { Story } = defineMeta({
+    title: 'Components/Dialogboks',
+    args: {
+      content: `<h2 class='mt-h2'>Du bør varsle</h2>
       <p>At noen setter opp nye piggtrådgjerder</p>
       <p>Eldre piggtrådgjerder som utgjør en risiko for at dyr blir skadet</p>`
-  }}
-  argTypes={{}}
-/>
+    },
+    argTypes: {}
+  })
+</script>
 
 <Story name="Normal">
   {#snippet children({ content })}
@@ -56,15 +56,13 @@
           <ButtonSpinner
             formInProgressAriaLabel="Sender inn skjema, venter på svar."
             btnClassNames="mt-button--secondary"
-            spinnerPlacement="start"
-          >
+            spinnerPlacement="start">
             Ja
           </ButtonSpinner>
           <ButtonSpinner
             formInProgressAriaLabel="Sender inn skjema, venter på svar."
             btnClassNames="mt-button--secondary"
-            spinnerPlacement="end"
-          >
+            spinnerPlacement="end">
             Nei
           </ButtonSpinner>
         </div>
@@ -88,6 +86,7 @@
     margin: 2rem;
     max-width: 420px;
   }
+
   .toggle-button {
     margin-top: 0;
     margin-left: 0;

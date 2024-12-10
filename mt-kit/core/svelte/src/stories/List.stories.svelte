@@ -1,44 +1,44 @@
-<script lang="ts">
-  import { Meta, Story } from '@storybook/addon-svelte-csf'
+<script lang="ts" module>
+  import { defineMeta } from '@storybook/addon-svelte-csf'
   import { wrapInShadowDom } from './storybook-utils/utils'
-</script>
 
-<Meta
-  title="Components/List"
-  args={{
-    title: 'A two coloured modern document list with hyper text links.',
-    content: [
-      {
-        url: '?content=1',
-        displayName: 'Rekvisisjon, meieri'
-      },
-      {
-        url: '?content=2',
-        displayName:
-          'Ny matbedrift og/eller import, produksjon og engrossalg av matkontaktmaterialer'
-      },
-      {
-        url: '?content=3',
-        displayName: 'Ny importør av næringsmidler'
-      },
-      {
-        url: '?content=5',
-        displayName: 'Vannkvalitet'
-      },
-      {
-        url: '?content=4',
-        displayName:
-          'Endre informasjon om Ny matbedrift og/eller import, produksjon og engrossalg av matkontaktmaterialer'
-      }
-    ],
-    disableCss: false
-  }}
-  argTypes={{
-    title: { control: 'text' },
-    content: { control: 'array' },
-    disableCss: { control: 'boolean' }
-  }}
-/>
+  const { Story } = defineMeta({
+    title: 'Components/List',
+    args: {
+      title: 'A two coloured modern document list with hyper text links.',
+      content: [
+        {
+          url: '?content=1',
+          displayName: 'Rekvisisjon, meieri'
+        },
+        {
+          url: '?content=2',
+          displayName:
+            'Ny matbedrift og/eller import, produksjon og engrossalg av matkontaktmaterialer'
+        },
+        {
+          url: '?content=3',
+          displayName: 'Ny importør av næringsmidler'
+        },
+        {
+          url: '?content=5',
+          displayName: 'Vannkvalitet'
+        },
+        {
+          url: '?content=4',
+          displayName:
+            'Endre informasjon om Ny matbedrift og/eller import, produksjon og engrossalg av matkontaktmaterialer'
+        }
+      ],
+      disableCss: false
+    },
+    argTypes: {
+      title: { control: 'text' },
+      content: { control: 'array' },
+      disableCss: { control: 'boolean' }
+    }
+  })
+</script>
 
 <Story name="Normal">
   {#snippet children({ args, disableCss })}

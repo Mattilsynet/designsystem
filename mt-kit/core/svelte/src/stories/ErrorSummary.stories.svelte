@@ -1,5 +1,5 @@
-<script lang="ts">
-  import { Meta, Story } from '@storybook/addon-svelte-csf'
+<script lang="ts" module>
+  import { defineMeta } from '@storybook/addon-svelte-csf'
   import { wrapInShadowDom } from './storybook-utils/utils'
   import FormErrorSummary from '$lib/svelte/components/form/FormErrorSummary.svelte'
 
@@ -14,29 +14,29 @@
       value: 'no'
     }
   ]
-</script>
 
-<Meta
-  title="Components/Error Summary"
-  args={{
-    label: 'E-post',
-    helpText: '',
-    errorMessage: 'Fyll inn dette feltet.',
-    heading: 'Feil oppstod',
-    errors: [
-      { fieldName: 'name', message: 'Fyll inn navn' },
-      { fieldName: 'phone', message: 'Fyll inn telefonnummer' },
-      { fieldName: 'email', message: 'Fyll inn epost' }
-    ],
-    disableCss: false
-  }}
-  argTypes={{
-    label: { control: 'text' },
-    helpText: { control: 'text' },
-    errorMessage: { control: 'text' },
-    disableCss: { control: 'boolean' }
-  }}
-/>
+  const { Story } = defineMeta({
+    title: 'Components/Error Summary',
+    args: {
+      label: 'E-post',
+      helpText: '',
+      errorMessage: 'Fyll inn dette feltet.',
+      heading: 'Feil oppstod',
+      errors: [
+        { fieldName: 'name', message: 'Fyll inn navn' },
+        { fieldName: 'phone', message: 'Fyll inn telefonnummer' },
+        { fieldName: 'email', message: 'Fyll inn epost' }
+      ],
+      disableCss: false
+    },
+    argTypes: {
+      label: { control: 'text' },
+      helpText: { control: 'text' },
+      errorMessage: { control: 'text' },
+      disableCss: { control: 'boolean' }
+    }
+  })
+</script>
 
 <Story name="Normal">
   {#snippet children({ errors, label, helpText, heading, disableCss, errorMessage })}
@@ -56,8 +56,7 @@
           id="inputfield"
           name="name"
           class="mt-input form-field"
-          aria-describedby="inputfield-hint inputfield-error"
-        />
+          aria-describedby="inputfield-hint inputfield-error" />
 
         <label class="mt-label" for="inputfield">
           {label}
@@ -79,8 +78,7 @@
           name="email"
           class="mt-input form-field error"
           aria-invalid="true"
-          aria-describedby="inputfield-hint inputfield-error"
-        />
+          aria-describedby="inputfield-hint inputfield-error" />
       </form>
     </div>
   {/snippet}

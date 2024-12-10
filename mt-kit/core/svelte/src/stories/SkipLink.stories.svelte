@@ -1,13 +1,13 @@
-<script lang="ts">
-  import { Meta, Story } from '@storybook/addon-svelte-csf'
-</script>
+<script lang="ts" module>
+  import { defineMeta } from '@storybook/addon-svelte-csf'
 
-<Meta
-  title="Components/Skip Link"
-  args={{
-    label: 'Hopp til hovedinnholdet'
-  }}
-/>
+  const { Story } = defineMeta({
+    title: 'Components/Skip Link',
+    args: {
+      label: 'Hopp til hovedinnholdet'
+    }
+  })
+</script>
 
 <Story name="Hidden focusable link">
   {#snippet children({ label })}

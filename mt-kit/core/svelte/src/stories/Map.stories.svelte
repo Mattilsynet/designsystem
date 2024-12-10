@@ -1,5 +1,5 @@
-<script lang="ts">
-  import { Meta, Story } from '@storybook/addon-svelte-csf'
+<script lang="ts" module>
+  import { defineMeta } from '@storybook/addon-svelte-csf'
   import Map from '$lib/svelte/components/map/Map.svelte'
   import KartverketLayers from '$lib/svelte/components/map/KartverketLayers.svelte'
   import Markers from '$lib/svelte/components/map/Markers.svelte'
@@ -341,17 +341,17 @@
       map.resetZoom()
     }
   }
-</script>
 
-<Meta
-  title="Components/Map"
-  args={{
-    disableCss: false
-  }}
-  argTypes={{
-    disableCss: { control: 'boolean' }
-  }}
-/>
+  const { Story } = defineMeta({
+    title: 'Components/Map',
+    args: {
+      disableCss: false
+    },
+    argTypes: {
+      disableCss: { control: 'boolean' }
+    }
+  })
+</script>
 
 <Story name="Normal">
   {#snippet children({ disableCss })}

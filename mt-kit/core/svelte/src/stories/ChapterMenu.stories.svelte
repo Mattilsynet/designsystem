@@ -1,5 +1,5 @@
-<script lang="ts">
-  import { Meta, Story } from '@storybook/addon-svelte-csf'
+<script lang="ts" module>
+  import { defineMeta } from '@storybook/addon-svelte-csf'
   import ChapterMenu from '$lib/svelte/components/ChapterMenu.svelte'
   import { wrapInShadowDom } from './storybook-utils/utils'
   import { action } from '@storybook/addon-actions'
@@ -11,65 +11,75 @@
     chapterChangeAction(e)
     currentChapterNumber = e.detail.index
   }
-</script>
 
-<Meta
-  title="Components/Chapter Menu"
-  parameters={{ layout: 'fullscreen' }}
-  args={{
-    showChapterNumbers: true,
-    chapters: [
-      {
-        heading: 'Formål',
-        url: '?0',
-        index: 0
+  const { Story } = defineMeta({
+    title: 'Components/Chapter Menu',
+    parameters: { layout: 'fullscreen' },
+    args: {
+      showChapterNumbers: true,
+      chapters: [
+        {
+          heading: 'Formål',
+          url: '?0',
+          index: 0
+        },
+        {
+          heading: 'Virkeområde',
+          url: '?1',
+          index: 1,
+          subChapters: [
+            { heading: 'Subchapter', url: '', index: 0 },
+            { heading: 'Another chapter', url: '', index: 1 }
+          ]
+        },
+        {
+          heading: 'Grenseverdier',
+          url: '?2',
+          index: 2
+        },
+        {
+          heading: 'Registrering',
+          url: '?3',
+          index: 3,
+          subChapters: [
+            { heading: 'Subchapter', url: '', index: 0 },
+            { heading: 'Another chapter', url: '', index: 1 },
+            { heading: 'Subchapter', url: '', index: 2 },
+            { heading: 'Another chapter', url: '', index: 3 }
+          ]
+        },
+        {
+          heading: 'Distribusjonssystem og internt fordelingsnett',
+          url: '?4',
+          index: 4,
+          subChapters: [
+            { heading: 'Subchapter', url: '', index: 0 },
+            { heading: 'Another chapter', url: '', index: 1 }
+          ]
+        }
+      ],
+      disableJs: false,
+      disableCss: false
+    },
+    argTypes: {
+      showChapterNumbers: {
+        control: 'boolean'
       },
-      {
-        heading: 'Virkeområde',
-        url: '?1',
-        index: 1,
-        subChapters: [
-          { heading: 'Subchapter', url: '', index: 0 },
-          { heading: 'Another chapter', url: '', index: 1 }
-        ]
+      chapters: {
+        control: 'array'
       },
-      {
-        heading: 'Grenseverdier',
-        url: '?2',
-        index: 2
+      disableCss: {
+        control: 'boolean'
       },
-      {
-        heading: 'Registrering',
-        url: '?3',
-        index: 3,
-        subChapters: [
-          { heading: 'Subchapter', url: '', index: 0 },
-          { heading: 'Another chapter', url: '', index: 1 },
-          { heading: 'Subchapter', url: '', index: 2 },
-          { heading: 'Another chapter', url: '', index: 3 }
-        ]
+      disableJs: {
+        control: 'boolean'
       },
-      {
-        heading: 'Distribusjonssystem og internt fordelingsnett',
-        url: '?4',
-        index: 4,
-        subChapters: [
-          { heading: 'Subchapter', url: '', index: 0 },
-          { heading: 'Another chapter', url: '', index: 1 }
-        ]
+      chapterChange: {
+        action: 'chapterChange'
       }
-    ],
-    disableJs: false,
-    disableCss: false
-  }}
-  argTypes={{
-    showChapterNumbers: { control: 'boolean' },
-    chapters: { control: 'array' },
-    disableCss: { control: 'boolean' },
-    disableJs: { control: 'boolean' },
-    chapterChange: { action: 'chapterChange' }
-  }}
-/>
+    }
+  })
+</script>
 
 <Story name="Normal">
   {#snippet children({ showChapterNumbers, disableCss, disableJs, chapters })}
@@ -82,8 +92,7 @@
           loadJs={!disableJs}
           menuTitle="Innhold"
           {currentChapterNumber}
-          on:chapterChange={chapterChange}
-        />
+          on:chapterChange={chapterChange} />
       </div>
     </div>
   {/snippet}
