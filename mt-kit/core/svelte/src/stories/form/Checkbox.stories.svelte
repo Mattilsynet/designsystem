@@ -57,82 +57,87 @@
   })
 </script>
 
-<Story
-  name="Normal"
-  let:label
-  let:helpText
-  let:disableCss
-  let:options
-  let:buttonOptions
-  let:isRequired
-  let:textOptional>
-  <div use:wrapInShadowDom={disableCss}>
-    <h1 class="mt-h1">Checkbox</h1>
-    <h2 id="theme" class="mt-h2">Theme - checkbox</h2>
-    <form class="mt-form">
-      <Checkbox
-        {name}
-        {label}
-        {helpText}
-        {options}
-        {isRequired}
-        {textOptional}
-        on:onChange={handleOnChange} />
-    </form>
-    <h2 id="theme" class="mt-h2">Theme - button</h2>
-    <form action="" class="mt-form form-layout">
-      <Checkbox
-        {name}
-        {label}
-        {isRequired}
-        {textOptional}
-        options={buttonOptions}
-        {helpText}
-        theme="button"
-        bind:value={buttonCheckboxValue} />
-    </form>
-  </div>
+<Story name="Normal">
+  {#snippet children({
+    label,
+    helpText,
+    disableCss,
+    options,
+    buttonOptions,
+    isRequired,
+    textOptional
+  })}
+    <div use:wrapInShadowDom={disableCss}>
+      <h1 class="mt-h1">Checkbox</h1>
+      <h2 id="theme" class="mt-h2">Theme - checkbox</h2>
+      <form class="mt-form">
+        <Checkbox
+          {name}
+          {label}
+          {helpText}
+          {options}
+          {isRequired}
+          {textOptional}
+          on:onChange={handleOnChange} />
+      </form>
+      <h2 id="theme" class="mt-h2">Theme - button</h2>
+      <form action="" class="mt-form form-layout">
+        <Checkbox
+          {name}
+          {label}
+          {isRequired}
+          {textOptional}
+          options={buttonOptions}
+          {helpText}
+          theme="button"
+          bind:value={buttonCheckboxValue} />
+      </form>
+    </div>
+  {/snippet}
 </Story>
 
 <Story
-  name="Checkbox with error"
-  let:label
-  let:helpText
-  let:disableCss
-  let:errorMessage
-  let:hiddenErrorText
-  let:options
-  let:buttonOptions
-  let:isRequired
-  let:textOptional>
-  <div use:wrapInShadowDom={disableCss}>
-    <h2 id="theme" class="mt-h2">Theme - checkbox</h2>
-    <form class="mt-form">
-      <Checkbox
-        {name}
-        {label}
-        {helpText}
-        {options}
-        {isRequired}
-        {hiddenErrorText}
-        {textOptional}
-        error={{ key: name, message: errorMessage }}
-        let:isRequired />
-    </form>
-    <h2 id="theme" class="mt-h2">Theme - button</h2>
-    <form class="mt-form">
-      <Checkbox
-        {name}
-        {label}
-        {helpText}
-        {isRequired}
-        {hiddenErrorText}
-        {textOptional}
-        options={buttonOptions}
-        error={{ key: name, message: errorMessage }}
-        theme="button" />
-    </form>
-  </div>
+  name="Checkbox with error">
+  {#snippet children({
+    label,
+    helpText,
+    disableCss,
+    errorMessage,
+    hiddenErrorText,
+    options,
+    buttonOptions,
+    isRequired,
+    textOptional
+  })}
+    <div use:wrapInShadowDom={disableCss}>
+      <h2 id="theme" class="mt-h2">Theme - checkbox</h2>
+      <form class="mt-form">
+        <Checkbox
+          {name}
+          {label}
+          {helpText}
+          {options}
+          {isRequired}
+          {hiddenErrorText}
+          {textOptional}
+          error={{ key: name, message: errorMessage }}
+          let:isRequired />
+      </form>
+      <h2 id="theme" class="mt-h2">Theme - button</h2>
+      <form class="mt-form">
+        <Checkbox
+          {name}
+          {label}
+          {helpText}
+          {isRequired}
+          {hiddenErrorText}
+          {textOptional}
+          options={buttonOptions}
+          error={{ key: name, message: errorMessage }}
+          theme="button" />
+      </form>
+    </div>
+  {/snippet}
 </Story>
 
 <style lang="scss">
