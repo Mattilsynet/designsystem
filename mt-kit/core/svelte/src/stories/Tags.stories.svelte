@@ -44,7 +44,7 @@
 </script>
 
 <Story name="Normal">
-  {#snippet children({ args })}
+  {#snippet children(args)}
     <div use:wrapInShadowDom={args.disableCss}></div>
     <h1 class="mt-h1">Tags</h1>
     <div class="tags-wrapper">
