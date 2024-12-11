@@ -20,7 +20,7 @@
 </script>
 
 <Story name="Normal">
-  {#snippet children({ args })}
+  {#snippet children(args)}
     <h1 class="mt-h1">Oppsummering og detaljer</h1>
     <main class="mt-main container layout-flex-col">
       <h2 class="mt-h2 m-t-s">Default</h2>
@@ -44,7 +44,7 @@
 </Story>
 
 <Story name="Med linje på venstre side">
-  {#snippet children({ args })}
+  {#snippet children(args)}
     <p>Oppsummering og detaljer med linje på venstre side</p>
     <main class="mt-main container layout-flex-col">
       <SummaryDetail title={args.title} detailsClass="with-border">
@@ -55,7 +55,7 @@
 </Story>
 
 <Story name="Med ikon">
-  {#snippet children({ args })}
+  {#snippet children(args)}
     <p>Oppsummering og detaljer med ikon</p>
     <main class="mt-main container layout-flex-col">
       <SummaryDetail title={args.title} detailsClass="with-icon">
@@ -66,7 +66,7 @@
 </Story>
 
 <Story name="Med fet skrift">
-  {#snippet children({ args })}
+  {#snippet children(args)}
     <p>Oppsummering og detaljer neutral</p>
     <main class="mt-main container layout-flex-col">
       <SummaryDetail title={args.title} detailsClass="color-neutral">
