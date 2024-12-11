@@ -127,7 +127,7 @@
 </script>
 
 <Story name="Normal">
-  {#snippet children({ args })}
+  {#snippet children(args)}
     <div use:wrapInShadowDom={args.disableCss}>
       <h1 class="mt-h1 m-b-s" id="header">{args.title}</h1>
       <ListOfDescriptionLists {...args} labelledBy="header" />
