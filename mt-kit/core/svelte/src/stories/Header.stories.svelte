@@ -138,8 +138,8 @@
 </script>
 
 <Story name="Normal">
-  {#snippet children({ title, disableCss, args, disableJs })}
-    <header class="mt-header" use:wrapInShadowDom={disableCss}>
+  {#snippet children(args)}
+    <header class="mt-header" use:wrapInShadowDom={args.disableCss}>
       <div class="container mt-header-wrapper mt-header-wrapper--regular">
         <a href="https://mattilsynet.no/" class="mt-link fit-content">
           <svg
