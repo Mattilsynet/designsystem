@@ -186,8 +186,18 @@
 </script>
 
 <Story name="Normal">
-  {#snippet children({ legend, options, disableCss, variation, optionsWithoutDocCount, args })}
-    <div class="container layout-grid layout-grid--column-12" use:wrapInShadowDom={args.disableCss}>
+  {#snippet children({
+    disableJs,
+    legend,
+    options,
+    disableCss,
+    variation,
+    optionsWithoutDocCount,
+    border,
+    disclosure,
+    disclosureOptions
+  })}
+    <div class="container layout-grid layout-grid--column-12" use:wrapInShadowDom={disableCss}>
       <section class="article-page col-1-span-12">
         <h1 class="mt-h1">Nested checkbox</h1>
         <h2 class="mt-h2">Nested checkbox with doc count</h2>
@@ -207,7 +217,7 @@
             options={optionsWithoutDocCount}
             {variation}
             level1Legend="Tema uten antall"
-            border={args.border}
+            {border}
             level2Legend={`${legend} i `} />
           <h2 class="mt-h3">Variation = secondary</h2>
           <CheckboxWithSubSets
@@ -215,7 +225,7 @@
             variation="secondary"
             level1Legend="legend 1"
             level2Legend="legend 2"
-            border={args.border} />
+            {border} />
         </form>
         <h2 class="mt-h2">Nestede checkboxet inside disclosure</h2>
         <p>
@@ -224,18 +234,18 @@
         </p>
         <form class="mt-form">
           <Disclosure
-            title={args.disclosure.title}
-            loadJs={!args.disableJs}
+            title={disclosure.title}
+            loadJs={!disableJs}
             class="disclosure-no-border--align-left"
-            headingId={`${toKebabCase(args.disclosure.title)}-title`}
-            headerTag={args.disclosure.headerTag}>
+            headingId={`${toKebabCase(disclosure.title)}-title`}
+            headerTag={disclosure.headerTag}>
             <CheckboxWithSubSets
               variation="secondary"
-              options={args.disclosureOptions}
+              options={disclosureOptions}
               hasCheckAll={true}
-              checkAllLabel={args.disclosure.checkAllLabel}
-              level1Legend={interpolate(args.disclosure.level1Legend, [
-                args.disclosure.title.toLowerCase()
+              checkAllLabel={disclosure.checkAllLabel}
+              level1Legend={interpolate(disclosure.level1Legend, [
+                disclosure.title.toLowerCase()
               ])} />
           </Disclosure>
         </form>
