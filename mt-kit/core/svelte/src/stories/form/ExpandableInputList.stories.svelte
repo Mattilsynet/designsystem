@@ -1,6 +1,4 @@
 <script lang="ts" module>
-  import { run, preventDefault } from 'svelte/legacy'
-
   import { defineMeta } from '@storybook/addon-svelte-csf'
   import ExpandableInputList from '$lib/svelte/components/form/ExpandableInputList.svelte'
   import { wrapInShadowDom } from '../storybook-utils/utils'
@@ -60,12 +58,10 @@
   let expandableAriaLabel = ''
   let values = $state({})
 
-  let error
-  run(() => {
-    error = undefined
-  })
+  let error: { key: string; message: string }[] | undefined = $state()
 
-  function handleSubmit(e) {
+  function handleSubmit(e: SubmitEvent) {
+    e.preventDefault()
     inputList = inputList.map(input => {
       if (values[input.name] === undefined || values[input.name] === '') {
         return input
@@ -111,10 +107,10 @@
 </script>
 
 <Story name="Normal">
-  {#snippet children({ disableCss, args })}
-    <main class="mt-main" use:wrapInShadowDom={disableCss}>
+  {#snippet children(args)}
+    <main class="mt-main" use:wrapInShadowDom={args.disableCss}>
       <h1 class="mt-h1">Utvidebarliste med inputs</h1>
-      <form class="mt-form" onsubmit={preventDefault(handleSubmit)}>
+      <form class="mt-form" onsubmit={handleSubmit}>
         <ExpandableInputList
           inputList={args.inputList}
           {fieldSetId}
