@@ -46,16 +46,26 @@
 </script>
 
 <Story name="Input">
-  {#snippet children({ label, helpText, disableCss, args })}
+  {#snippet children({
+    label,
+    helpText,
+    disableCss,
+    textOptional,
+    isRequired,
+    tooManyCharactersErrorText,
+    horizontal,
+    countCharactersLeftLabel
+  })}
     <div use:wrapInShadowDom={disableCss}>
       <form class="mt-form form-layout">
         <TextInput
           name="inputfield"
           {label}
           {helpText}
-          textOptional={args.textOptional}
+          {textOptional}
           inputmode="text"
-          isRequired={args.isRequired}
+          {isRequired}
+          {countCharactersLeftLabel}
           placeholder=""
           autocomplete="" />
 
@@ -63,9 +73,10 @@
           name="inputfield2"
           {label}
           {helpText}
-          textOptional={args.textOptional}
+          {textOptional}
           inputmode="text"
-          isRequired={args.isRequired}
+          {isRequired}
+          {countCharactersLeftLabel}
           placeholder="Skriv noe"
           autocomplete="" />
 
@@ -73,23 +84,25 @@
           name="inputfield3"
           {label}
           {helpText}
-          textOptional={args.textOptional}
+          {textOptional}
           inputmode="text"
-          isRequired={args.isRequired}
+          {isRequired}
+          {countCharactersLeftLabel}
           placeholder=""
           autocomplete=""
-          tooManyCharactersErrorText={args.tooManyCharactersErrorText}
+          {tooManyCharactersErrorText}
           maxlength={30} />
 
         <h2 class="mt-h2">Horisontal layout</h2>
         <div class="collapsable-input-list-grid">
-          {#each args.horizontal as horizontal}
+          {#each horizontal as horizontal}
             <TextInputHorizontal
               name="inputfield4"
               label={horizontal.label}
               textOptional={horizontal.textOptional}
               helpText={horizontal.helpText}
               inputmode="text"
+              {countCharactersLeftLabel}
               isRequired={horizontal.isRequired}
               maxlength={horizontal.maxLength}
               placeholder=""
@@ -103,22 +116,30 @@
 </Story>
 
 <Story name="Input with error">
-  {#snippet children({ label, helpText, errorMessage, disableCss, args, countCharactersLeftLabel })}
+  {#snippet children({
+    label,
+    helpText,
+    errorMessage,
+    disableCss,
+    countCharactersLeftLabel,
+    textOptional,
+    horizontal
+  })}
     <div use:wrapInShadowDom={disableCss}>
       <form class="mt-form form-layout">
         <TextInput
           name="inputfield"
           {label}
           {helpText}
-          countCharactersLeftLabel="karakterer igjen"
+          {countCharactersLeftLabel}
           error={{ key: 'inputfield', message: errorMessage }}
-          textOptional={args.textOptional}
+          {textOptional}
           inputmode="text"
           maxlength={10}
           placeholder=""
           autocomplete="" />
         <div class="collapsable-input-list-grid">
-          {#each args.horizontal as horizontal, index}
+          {#each horizontal as horizontal, index}
             <TextInputHorizontal
               name="inputfield{index}"
               label={horizontal.label}
@@ -126,6 +147,7 @@
               helpText={horizontal.helpText}
               inputmode="text"
               error={{ key: 'inputfield', message: 'Feltet er påkrevd' }}
+              {countCharactersLeftLabel}
               isRequired={horizontal.isRequired}
               placeholder=""
               autocomplete=""
