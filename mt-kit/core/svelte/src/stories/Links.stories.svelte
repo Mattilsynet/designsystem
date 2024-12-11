@@ -4,7 +4,7 @@
   import { wrapInShadowDom } from './storybook-utils/utils'
   import SearchResult from '$lib/svelte/components/SearchResult.svelte'
 
-  function getColSpanClass(twoColumns, index) {
+  function getColSpanClass(twoColumns: boolean, index: number) {
     if (!twoColumns) {
       return 'col-3-span-6'
     }
@@ -212,7 +212,7 @@
 </script>
 
 <Story name="Normal">
-  {#snippet children({ primary, disableCss, args, disabled, secondary })}
+  {#snippet children({ primary, disableCss, disabled, secondary, inText, cards })}
     <div use:wrapInShadowDom={disableCss}>
       <h1 class="mt-h1">Normale lenker</h1>
       <article>
@@ -223,7 +223,7 @@
         <h2 class="mt-h2">Lenke i paragraf over flere linjer:</h2>
         <p class="text">
           Hvis du har spørsmål, ta kontakt med
-          <Link href="/mattilsynet/mat/drikkevann" class="" linkText={args.inText} />
+          <Link href="/mattilsynet/mat/drikkevann" class="" linkText={inText} />
           for innreiseregler. Ved andre henvendelser ta kontakt med politiet på
           <Link href="https://www.politiet.no" linkText="politiet.no" />
           for svar.
@@ -281,7 +281,7 @@
       <article>
         <h2 class="mt-h2">Flere linjer</h2>
         <div class="wrapper">
-          <Link href="#" class="inline-flex" linkText={args.cards[5].text} />
+          <Link href="#" class="inline-flex" linkText={cards[5].text} />
         </div>
       </article>
     </div>
@@ -289,7 +289,7 @@
 </Story>
 
 <Story name="Eksternlenke regel">
-  {#snippet children({ disableCss, args, disabled, internalLinks, externalLinks })}
+  {#snippet children({ disableCss, disabled, internalLinks, externalLinks })}
     <div use:wrapInShadowDom={disableCss}>
       <h1 class="mt-h1">Eksterne lenker</h1>
       <section class="link--button-wrapper m-t-xs space-y-children--xxx-small">
