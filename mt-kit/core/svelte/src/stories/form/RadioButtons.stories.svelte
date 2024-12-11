@@ -52,7 +52,7 @@
 </script>
 
 <Story name="Normal">
-  {#snippet children({ label, helpText, disableCss, args })}
+  {#snippet children({ label, helpText, disableCss, buttonRadio })}
     <div use:wrapInShadowDom={disableCss}>
       <h1 class="mt-h1">Radioknapper</h1>
       <h2 class="mt-h2">Theme - radio</h2>
@@ -71,11 +71,11 @@
         <RadioGroup
           options={buttonOptions}
           bind:value={buttonRadioValue}
-          name={args.buttonRadio.name}
+          name={buttonRadio.name}
           {helpText}
-          label={args.buttonRadio.label}
+          label={buttonRadio.label}
           error={undefined}
-          textOptional={args.buttonRadio.textOptional}
+          textOptional={buttonRadio.textOptional}
           theme="button" />
       </form>
     </div>
@@ -83,7 +83,7 @@
 </Story>
 
 <Story name="Radio with error">
-  {#snippet children({ label, helpText, disableCss, errorMessage, args })}
+  {#snippet children({ label, helpText, disableCss, errorMessage, buttonRadio })}
     <div use:wrapInShadowDom={disableCss}>
       <h2 class="mt-h2">Theme - radio</h2>
       <form class="mt-form form-layout">
@@ -100,11 +100,11 @@
         <RadioGroup
           options={buttonOptions}
           bind:value={buttonRadioValue}
-          name={args.buttonRadio.name}
+          name={buttonRadio.name}
           {helpText}
-          label={args.buttonRadio.label}
+          label={buttonRadio.label}
           error={{ key: name, message: errorMessage }}
-          textOptional={args.buttonRadio.textOptional}
+          textOptional={buttonRadio.textOptional}
           theme="button" />
       </form>
     </div>
