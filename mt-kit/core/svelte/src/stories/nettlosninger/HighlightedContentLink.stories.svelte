@@ -69,14 +69,7 @@
           {@html text}
         </HighlightedContentLink>
       </section>
-    </main>
-  {/snippet}
-</Story>
-<br />
-<Story name="CTA type">
-  {#snippet children({ text, disableCss, title, shortTitle, date })}
-    <main use:wrapInShadowDom={disableCss} class="mt-main container layout-flex-col">
-      <h1 class="mt-h1">Fremhevet innhold CTA type med ekstern lenke</h1>
+      <h2 class="mt-h1">Fremhevet innhold CTA type med ekstern lenke</h2>
       <section class="layout-flex-col">
         <HighlightedContentLink
           displayType="cta"
