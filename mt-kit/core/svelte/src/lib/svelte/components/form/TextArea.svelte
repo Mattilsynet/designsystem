@@ -27,7 +27,7 @@
   export let showOptionalText = true
   export let hiddenErrorText: string | undefined
   export let helpTextPlacement: 'above' | 'below' = 'above'
-  export let textAreaRef = undefined
+  export let textAreaRef: HTMLElement | undefined = undefined
   export let textAreaClass = ''
 
   export let rows: number | undefined = 5
