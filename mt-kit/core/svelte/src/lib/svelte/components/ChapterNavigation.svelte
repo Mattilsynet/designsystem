@@ -1,17 +1,15 @@
 <script lang="ts">
-  import { preventDefault } from 'svelte/legacy'
-
-  import type { Chapter, ChapterChangeDetails } from '../../ts/types'
-  import { createEventDispatcher } from 'svelte'
+  import type { Chapter } from '$lib/ts'
 
   interface Props {
     showChapterNumber?: boolean
     nextText?: string
     previousText?: string
     chapters?: Array<Chapter>
-    currentChapterIndex?: 0 | 1
+    currentChapterIndex?: number
     startIndex?: number
     class?: string
+    chapterChange: (index: number) => void
   }
 
   let {
@@ -21,7 +19,8 @@
     chapters = [],
     currentChapterIndex = 0,
     startIndex = 0,
-    class: className = ''
+    class: className = '',
+    chapterChange = _ => {}
   }: Props = $props()
 
   let nextChapterIndex = $derived(currentChapterIndex + 1)
@@ -39,19 +38,21 @@
     return currentChapterNumber > 0
   }
 
-  const dispatch = createEventDispatcher<{ chapterChange: ChapterChangeDetails }>()
+  const handleChapterChange = (e: MouseEvent, index: number) => {
+    e.preventDefault()
+    chapterChange(index)
+  }
 </script>
 
 {#if chapters.length > 1}
   <nav class="chapter-navigation {className}">
     <a
       href={nextChapter ? nextChapter.url : undefined}
-      onclick={preventDefault(dispatch('chapterChange', { index: nextChapterIndex }))}
+      onclick={e => handleChapterChange(e, nextChapterIndex)}
       class="multi-line text-align-right {!hasNextChapter(currentChapterIndex)
         ? 'inclusively-hidden-initial'
         : ''}"
-      aria-disabled={!hasNextChapter(currentChapterIndex)}
-    >
+      aria-disabled={!hasNextChapter(currentChapterIndex)}>
       <span class="next-link">{nextText}</span>
       {showChapterNumber ? `${nextChapterNumber}.` : ''}
       {nextChapter ? nextChapter.heading : ''}
@@ -61,9 +62,8 @@
       class="multi-line {!hasPreviousChapter(currentChapterIndex)
         ? 'inclusively-hidden-initial'
         : ''}"
-      onclick={preventDefault(dispatch('chapterChange', { index: previousChapterIndex }))}
-      aria-disabled={!hasPreviousChapter(currentChapterIndex)}
-    >
+      onclick={e => handleChapterChange(e, previousChapterIndex)}
+      aria-disabled={!hasPreviousChapter(currentChapterIndex)}>
       <span class="previous-link">{previousText}</span>
       {showChapterNumber ? `${previousChapterNumber}.` : ''}
       {previousChapter ? previousChapter.heading : ''}

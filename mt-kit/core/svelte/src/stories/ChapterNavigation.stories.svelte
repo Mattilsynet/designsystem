@@ -5,13 +5,6 @@
   import ChapterNavigation from '$lib/svelte/components/ChapterNavigation.svelte'
 
   const chapterChangeAction = action('chapterChange')
-  let currentChapterNumber = $state(0)
-
-  function chapterChange(e) {
-    e.preventDefault()
-    chapterChangeAction(e)
-    currentChapterNumber = e.detail.index
-  }
 
   const { Story } = defineMeta({
     title: 'Components/Chapter Navigation',
@@ -36,16 +29,25 @@
   })
 </script>
 
+<script lang="ts">
+  let currentChapterIndex = $state(0)
+
+  function chapterChange(index: number) {
+    chapterChangeAction(index)
+    currentChapterIndex = index
+  }
+</script>
+
 <Story name="Normal">
-  {#snippet children({ disableCss, args })}
+  {#snippet children({ disableCss, showChapterNumber, chapters })}
     <div use:wrapInShadowDom={disableCss}>
       <article>
         <h1 class="mt-h2">Kapittelnavigering</h1>
         <ChapterNavigation
-          showChapterNumber={args.showChapterNumber}
-          chapters={args.chapters}
-          currentChapterIndex={currentChapterNumber}
-          on:chapterChange={chapterChange}
+          {showChapterNumber}
+          {chapters}
+          {currentChapterIndex}
+          {chapterChange}
           nextText="Neste"
           previousText="Forrige"
           class="chapter-navigation--bottom" />
