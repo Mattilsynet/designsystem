@@ -101,7 +101,7 @@
 </script>
 
 <Story name="Normal">
-  {#snippet children({ args })}
+  {#snippet children(args)}
     <div use:wrapInShadowDom={args.disableCss}>
       <h1 class="mt-h1">Combobox</h1>
       <h2 class="mt-h2">Simple options</h2>
