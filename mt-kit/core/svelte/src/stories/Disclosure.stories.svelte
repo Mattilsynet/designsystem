@@ -45,24 +45,22 @@
   })
 </script>
 
-{#snippet template()}
-  {#snippet children({ args })}
-    <section class="content" use:wrapInShadowDom={args.disableCss}>
-      <Disclosure
-        title={args.title}
-        loadJs={!args.disableJs}
-        headerTag={args.headerTag}
-        headerClass={args.headerClass}
-        theme={args.theme}
-        class={args.class}>
-        {@html args.body}
-        <ul class="mt-ul">
-          <li>Punkt 1</li>
-          <li>Punkt 2</li>
-        </ul>
-      </Disclosure>
-    </section>
-  {/snippet}
+{#snippet template(args)}
+  <section class="content" use:wrapInShadowDom={args.disableCss}>
+    <Disclosure
+      title={args.title}
+      loadJs={!args.disableJs}
+      headerTag={args.headerTag}
+      headerClass={args.headerClass}
+      theme={args.theme}
+      class={args.class}>
+      {@html args.body}
+      <ul class="mt-ul">
+        <li>Punkt 1</li>
+        <li>Punkt 2</li>
+      </ul>
+    </Disclosure>
+  </section>
 {/snippet}
 
 <Story
@@ -73,7 +71,8 @@
     headerClass: 'text-body',
     disableJs: false,
     disableCss: false
-  }} />
+  }}
+  children={template} />
 
 <Story
   name="Endringslogg"
@@ -85,7 +84,7 @@
     disableCss: false,
     class: 'changelog'
   }}>
-  {#snippet children({ args })}
+  {#snippet children(args)}
     <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading">
       <Disclosure
         title={'Se endringer'}
@@ -121,7 +120,7 @@
     disableJs: false,
     disableCss: false
   }}>
-  {#snippet children({ args })}
+  {#snippet children(args)}
     <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading">
       <h2 id="heading" class="mt-h2">{title}</h2>
       {#each disclosures as disclosure, i}
@@ -145,7 +144,7 @@
     disableJs: false,
     disableCss: false
   }}>
-  {#snippet children({ args })}
+  {#snippet children(args)}
     <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading2">
       <h2 id="heading2" class="mt-h2">Tittel for lyseblått trekkspill</h2>
       {#each disclosures as disclosure, i}
@@ -170,7 +169,7 @@
     disableJs: false,
     disableCss: false
   }}>
-  {#snippet children({ args })}
+  {#snippet children(args)}
     <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading2">
       <h2 id="heading2" class="mt-h2">Tittel for hvit trekkspill</h2>
       {#each disclosures as disclosure, i}
@@ -197,7 +196,8 @@
     headerTag: disclosures[1].headerTag,
     disableJs: true,
     disableCss: true
-  }} />
+  }}
+  children={template} />
 
 <Story
   name="Large size"
@@ -207,7 +207,8 @@
     headerTag: disclosures[0].headerTag,
     disableJs: false,
     disableCss: false
-  }} />
+  }}
+  children={template} />
 
 <Story
   name="I Grid"
@@ -217,7 +218,7 @@
     disableJs: false,
     disableCss: false
   }}>
-  {#snippet children({ args })}
+  {#snippet children(args)}
     <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading2">
       <h2 id="heading3" class="mt-h2">{title}</h2>
       <section class="layout-grid layout-grid--column-12">
@@ -263,7 +264,7 @@
     disableJs: false,
     disableCss: false
   }}>
-  {#snippet children({ args })}
+  {#snippet children(args)}
     <section class="content" use:wrapInShadowDom={args.disableCss} aria-labelledby="heading">
       <h2 id="heading" class="mt-h2">{title}</h2>
       {#each disclosures as disclosure, i}
