@@ -10,62 +10,42 @@
       helpText: 'Her kan du søke etter artikler og veiledere',
       placeholder: 'Søk etter artikler, skjemaer, pdfer og veiledere, veivisere, rapporter og mer',
       searchButtonText: 'Søk',
-      disableCss: false,
-      loadJs: true
+      disableCss: false
     },
     argTypes: {
       label: { control: 'text' },
       helpText: { control: 'text' },
-      disableCss: { control: 'boolean' },
-      loadJs: { control: 'boolean' }
+      disableCss: { control: 'boolean' }
     }
   })
 </script>
 
 <Story name="Search input">
-  {#snippet children({
-    args,
-    label,
-    disableCss,
-    searchButtonText,
-    placeholder,
-    primaryButton,
-    helpText
-  })}
+  {#snippet children({ label, disableCss, searchButtonText, placeholder, helpText })}
     <div use:wrapInShadowDom={disableCss}>
       <article>
         <form class="mt-form form-layout">
-          <TextInputSearch name="inputfield_3" {searchButtonText} loadJs={args.loadJs} />
+          <TextInputSearch name="inputfield_3" {searchButtonText} />
         </form>
       </article>
       <article>
         <form class="mt-form form-layout">
-          <TextInputSearch name="inputfield_1" {label} loadJs={args.loadJs} />
+          <TextInputSearch name="inputfield_1" {label} />
         </form>
       </article>
       <article>
         <form class="mt-form form-layout">
-          <TextInputSearch name="inputfield_2" {label} {searchButtonText} loadJs={args.loadJs} />
+          <TextInputSearch name="inputfield_2" {label} {searchButtonText} />
         </form>
       </article>
       <article>
         <form class="mt-form form-layout">
-          <TextInputSearch
-            name="inputfield_3"
-            {label}
-            {placeholder}
-            {searchButtonText}
-            loadJs={args.loadJs} />
+          <TextInputSearch name="inputfield_3" {label} {placeholder} {searchButtonText} />
         </form>
       </article>
       <article>
         <form class="mt-form form-layout">
-          <TextInputSearch
-            name="inputfield_4"
-            {label}
-            {helpText}
-            {searchButtonText}
-            loadJs={args.loadJs} />
+          <TextInputSearch name="inputfield_4" {label} {helpText} {searchButtonText} />
         </form>
       </article>
     </div>
