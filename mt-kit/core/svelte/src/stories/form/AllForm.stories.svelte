@@ -143,9 +143,10 @@
     checkboxLabel,
     checkboxWithSubsetsLegend,
     countCharactersLeftLabel,
-    args
+    address,
+    disableCss
   })}
-    <div use:wrapInShadowDom={args.disableCss} class="layout-grid layout-grid--column-12">
+    <div use:wrapInShadowDom={disableCss} class="layout-grid layout-grid--column-12">
       <div class="col-3-span-6 multipage-form-view">
         <form class="mt-form">
           <TextInput
@@ -168,9 +169,9 @@
             isRequired={true}
             textOptional="Valgfritt"
             inputmode="text"
-            maxlength="300"
-            rows="3"
-            cols="5" />
+            maxlength={300}
+            rows={3}
+            cols={5} />
 
           <!--  Radio -->
           <RadioGroup
@@ -198,15 +199,15 @@
 
           <!-- Address -->
           <Address
-            streetLabel={args.address.streetLabel}
-            streetFallbackLabel={args.address.streetFallbackLabel}
-            streetName={args.address.streetName}
-            postalCodeLabel={args.address.postalCodeLabel}
-            postalCodeName={args.address.postalCodeName}
-            streetError={args.address.streetError}
+            streetLabel={address.streetLabel}
+            streetFallbackLabel={address.streetFallbackLabel}
+            streetName={address.streetName}
+            postalCodeLabel={address.postalCodeLabel}
+            postalCodeName={address.postalCodeName}
+            streetError={address.streetError}
             streetIsRequired={true}
             postalCodeIsRequired={true}
-            loadJs={args.address.loadJs}
+            loadJs={address.loadJs}
             streetHelpText={helpText}
             bind:streetValue={values['ownerStreet']}
             bind:postalCodeValue={values['ownerZip']}></Address>
@@ -223,10 +224,10 @@
     errorMessage,
     radioLabel,
     checkboxLabel,
-    args,
-    countCharactersLeftLabel
+    countCharactersLeftLabel,
+    disableCss
   })}
-    <div use:wrapInShadowDom={args.disableCss}>
+    <div use:wrapInShadowDom={disableCss}>
       <form class="mt-form form-layout">
         <TextInput
           name="name"
@@ -248,9 +249,9 @@
           isRequired={true}
           textOptional="(valgfritt felt)"
           inputmode="text"
-          maxlength="300"
-          rows="3"
-          cols="5" />
+          maxlength={300}
+          rows={3}
+          cols={5} />
 
         <!--  Radio -->
         <RadioGroup
@@ -259,7 +260,7 @@
           error={{ key: radioName, message: errorMessage }}
           {helpText}
           label={radioLabel}
-          isRequired="true"
+          isRequired={true}
           textOptional="valgfritt" />
 
         <!--    Checkbox-->
