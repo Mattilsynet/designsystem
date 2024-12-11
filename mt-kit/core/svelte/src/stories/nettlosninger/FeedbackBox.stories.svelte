@@ -1,7 +1,4 @@
 <script lang="ts" module>
-  import { createBubbler, preventDefault } from 'svelte/legacy'
-
-  const bubble = createBubbler()
   import { defineMeta } from '@storybook/addon-svelte-csf'
   import { toKebabCase } from '$lib/ts/utils'
   import DialogBox from '$lib/svelte/components/DialogBox.svelte'
@@ -9,20 +6,15 @@
   import TextArea from '$lib/svelte/components/form/TextArea.svelte'
   import { wrapInShadowDom } from '../storybook-utils/utils'
 
-  const options = [
-    { value: 'yes', text: 'Ja' },
-    { value: 'no', text: 'Nei' }
-  ]
-  let radioValue = undefined
   let hideFeedbackText = $state(false)
-  let feedbackTextInput = $state()
+  let feedbackTextInput: HTMLInputElement | undefined = $state()
 
   let dialogOpen = true
 
   async function handleClick() {
     hideFeedbackText = true
     await tick()
-    feedbackTextInput.focus()
+    feedbackTextInput?.focus()
   }
 
   const { Story } = defineMeta({
@@ -127,25 +119,18 @@
               id="feedback_yes"
               type="button"
               class="mt-button mt-button--secondary"
-              onclick={() => {
-                handleClick('yes')
-              }}
+              onclick={handleClick}
               >Ja
             </button>
             <button
               id="feedback_no"
               type="button"
               class="mt-button mt-button--secondary"
-              onclick={() => {
-                handleClick('no')
-              }}
+              onclick={handleClick}
               >Nei
             </button>
           </div>
-          <form
-            name="feedback_form"
-            class="mt-form form-layout"
-            onsubmit={preventDefault(bubble('submit'))}>
+          <form name="feedback_form" class="mt-form form-layout" onsubmit={e => e.preventDefault()}>
             <TextArea
               name="feedback_text"
               bind:textAreaRef={feedbackTextInput}
@@ -153,8 +138,7 @@
               value=""
               showOptionalText={false}
               helpText={'Informasjon blir brukt til å forbedre nettstedet. Vi kan ikke svare. <a class="mt-link" ' +
-                'href="" ' +
-                'on:click|preventDefault>Kontakt oss</a> hvis du luerer på noe'}
+                'href="" >Kontakt oss</a> hvis du luerer på noe'}
               helpTextPlacement="below"
               textAreaClass={hideFeedbackText ? '' : 'hide-feedback'}
               helpTextClass={hideFeedbackText ? '' : 'hide-feedback'}
