@@ -96,42 +96,40 @@
   })
 </script>
 
-{#snippet template()}
-  {#snippet children({ args })}
-    <div use:wrapInShadowDom={args.disableCss}>
-      <section class="preview-wrapper">
-        <Dropdown
-          title={args.buttonLabel}
-          loadJs={!args.disableJs}
-          icon="icon--caret-down-after"
-          class="mt-button__small-text full-menu">
-          {#snippet children({ titleId })}
-            <ol class="mt-ol m-t-xxs alt-language" aria-labelledby={titleId}>
-              {#each args.items as item}
-                <li>
-                  <a href={item.url} class="forward-arrow-small">{item.title}</a>
-                </li>
-              {/each}
-            </ol>
-          {/snippet}
-        </Dropdown>
-      </section>
-      <section class="preview-wrapper" aria-labelledby="how-to-heading">
-        <CardArticle
-          headingId={args.cardArticle.headingId}
-          title={args.cardArticle.title}
-          intro={args.cardArticle.intro}
-          text={args.cardArticle.text} />
-      </section>
-    </div>
-  {/snippet}
+{#snippet template(args)}
+  <div use:wrapInShadowDom={args.disableCss}>
+    <section class="preview-wrapper">
+      <Dropdown
+        title={args.buttonLabel}
+        loadJs={!args.disableJs}
+        icon="icon--caret-down-after"
+        class="mt-button__small-text full-menu">
+        {#snippet children({ titleId })}
+          <ol class="mt-ol m-t-xxs alt-language" aria-labelledby={titleId}>
+            {#each args.items as item}
+              <li>
+                <a href={item.url} class="forward-arrow-small">{item.title}</a>
+              </li>
+            {/each}
+          </ol>
+        {/snippet}
+      </Dropdown>
+    </section>
+    <section class="preview-wrapper" aria-labelledby="how-to-heading">
+      <CardArticle
+        headingId={args.cardArticle.headingId}
+        title={args.cardArticle.title}
+        intro={args.cardArticle.intro}
+        text={args.cardArticle.text} />
+    </section>
+  </div>
 {/snippet}
 
-<Story name="Normal" args={configs[0]} />
+<Story name="Normal" args={configs[0]} children={template} />
 
 <Story name="Multiple" args={configs}>
-  {#snippet children({ args })}
-    {#each [configs[0], configs[1]] as args, i}
+  {#snippet children(configs)}
+    {#each [configs[0], configs[1]] as args}
       <section class="preview-wrapper inline-block">
         <Dropdown
           title={args.buttonLabel}
@@ -154,13 +152,13 @@
 </Story>
 
 <Story name="Standalone" args={configs}>
-  {#snippet children({ args, label, helpText, disableCss, options, isRequired, textOptional })}
+  {#snippet children({ disableJs, label, helpText, disableCss, options, isRequired, textOptional })}
     <div use:wrapInShadowDom={disableCss}>
       <section class="m-t-l layout-grid layout-grid--column-12">
         <Dropdown
           title="Vis søkefilter"
           titleWhenOpen="Skjul søkefilter"
-          loadJs={!args.disableJs}
+          loadJs={!disableJs}
           icon="icon--caret-down-after"
           class="default-dropdown span-9-col-3-span-4">
           {#snippet children({ isOpen })}
