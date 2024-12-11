@@ -91,7 +91,7 @@
 </script>
 
 <Story name="Normal">
-  {#snippet children({ args })}
+  {#snippet children(args)}
     <div use:wrapInShadowDom={args.disableCss}>
       <div class="container layout-grid layout-grid--column-12">
         <section class="article-page col-1-span-12">
@@ -134,7 +134,7 @@
 </Story>
 
 <Story name="With form validation errors">
-  {#snippet children({ args })}
+  {#snippet children(args)}
     <div use:wrapInShadowDom={args.disableCss}>
       <div class="container layout-grid layout-grid--column-12">
         <section class="article-page col-1-span-12">
