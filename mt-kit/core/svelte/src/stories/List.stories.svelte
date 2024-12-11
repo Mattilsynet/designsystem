@@ -41,11 +41,11 @@
 </script>
 
 <Story name="Normal">
-  {#snippet children({ args, disableCss })}
-    <div use:wrapInShadowDom={args.disableCss}>
+  {#snippet children({ disableCss, content })}
+    <div use:wrapInShadowDom={disableCss}>
       <h1 class="mt-h1">Dokument liste</h1>
       <ol class="mt-ol m-t-xxs list list-unstyled">
-        {#each args.content as item}
+        {#each content as item}
           <li class="layout-flex layout-flex--no-wrap layout-flex--space-between">
             <a class="mt-link" href={item.url}>{item.displayName}</a>
           </li>
