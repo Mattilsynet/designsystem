@@ -17,7 +17,7 @@
     labelPage?: string
     toPageTitle?: string
     pages?: Array<Page>
-    currentPageIndex?: 0 | 1
+    currentPageIndex?: number
     class?: string
   }
 
