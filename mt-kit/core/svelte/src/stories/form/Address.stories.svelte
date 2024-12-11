@@ -57,15 +57,7 @@
 </script>
 
 <Story name="Normal">
-  {#snippet children({
-    label,
-    helpText,
-    radioLabel,
-    checkboxLabel,
-    checkboxWithSubsetsLegend,
-    countCharactersLeftLabel,
-    args
-  })}
+  {#snippet children(args)}
     <div use:wrapInShadowDom={args.disableCss}>
       <h1 class="mt-h1">Adresse komponent</h1>
       <h2 class="mt-h2">Med JS</h2>
@@ -84,7 +76,7 @@
           postalCodeIsRequired={true}
           postalAreaIsRequired={true}
           loadJs={args.address.loadJs}
-          streetHelpText={helpText}
+          streetHelpText={args.helpText}
           bind:streetValue={values['ownerStreet']}
           bind:postalCodeValue={values['ownerZip']}
           bind:postalAreaValue={values['ownerArea']}></Address>
@@ -106,7 +98,7 @@
           postalCodeIsRequired={true}
           postalAreaIsRequired={true}
           loadJs={args.address2.loadJs}
-          streetHelpText={helpText}
+          streetHelpText={args.helpText}
           postalCodeHelpText="Skriv inn postnummeret. 4 siffer"
           bind:streetValue={values['reporterStreet']}
           bind:postalCodeValue={values['reporterZip']}
