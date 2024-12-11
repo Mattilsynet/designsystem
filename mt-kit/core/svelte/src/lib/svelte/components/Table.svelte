@@ -17,7 +17,7 @@
   <thead class="mt-thead">
     <tr class="mt-tr">
       {#each headers as header}
-        <slot name="headers" {header} />
+        <slot name="header" {header} />
       {/each}
     </tr>
   </thead>
