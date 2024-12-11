@@ -5,12 +5,12 @@
   import Pagination from '$lib/svelte/components/pagination/Pagination.svelte'
 
   const pageChangeAction = action('pageChange')
-  let currentPageNumber = $state(0)
+  let currentPageIndex = $state(0)
 
   function handlePageChange(e) {
     e.preventDefault()
     pageChangeAction(e)
-    currentPageNumber = e.detail.index
+    currentPageIndex = e.detail.index
   }
 
   const { Story } = defineMeta({
@@ -40,13 +40,13 @@
 </script>
 
 <Story name="Normal">
-  {#snippet children({ disableCss, args })}
+  {#snippet children({ disableCss, pages })}
     <div use:wrapInShadowDom={disableCss}>
       <article>
         <h2 class="mt-h2">Pagination</h2>
         <Pagination
-          pages={args.pages}
-          currentPageIndex={currentPageNumber}
+          {pages}
+          {currentPageIndex}
           on:page-change={handlePageChange}
           nextText="Neste"
           previousText="Forrige"
