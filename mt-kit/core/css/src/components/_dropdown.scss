@@ -137,14 +137,16 @@
     .disclosure-header,
     .disclosure > .mt-link {
       @include apply-icon($icon: $icon-arrow-right-primary-small, $position: after);
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      grid-template-areas: 'svg title pseudo';
-      grid-area: title;
-      align-items: center;
-      gap: var(--spacer-xx-small);
-      font-weight: var(--font-weight-light);
-      font-size: $font-size-body;
+      & {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        grid-template-areas: 'svg title pseudo';
+        grid-area: title;
+        align-items: center;
+        gap: var(--spacer-xx-small);
+        font-weight: var(--font-weight-light);
+        font-size: $font-size-body;
+      }
 
       &::after {
         grid-area: pseudo;
@@ -154,7 +156,9 @@
       }
       &[aria-current='page'] {
         @include text-decoration-underline;
-        font-weight: var(--font-weight-bold);
+        & {
+          font-weight: var(--font-weight-bold);
+        }
       }
     }
 
@@ -268,7 +272,9 @@
 
     &[aria-current='page'] {
       @include text-decoration-underline;
-      font-weight: var(--font-weight-bold);
+      & {
+        font-weight: var(--font-weight-bold);
+      }
     }
   }
   li {
@@ -388,14 +394,18 @@
       @include text-decoration-hover;
       gap: var(--spacer-xx-small);
       @include apply-icon($icon: $icon-carret-down-primary, $position: after) {
-        margin-left: auto;
+        & {
+          margin-left: auto;
+        }
       }
       &::before {
         display: none;
       }
       &[href] {
         @include apply-icon($icon: $icon-arrow-right-primary-small, $position: after) {
-          margin-left: auto;
+          & {
+            margin-left: auto;
+          }
         }
       }
     }

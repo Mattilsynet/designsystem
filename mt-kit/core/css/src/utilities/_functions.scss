@@ -1,10 +1,11 @@
 @use '../color-tokens' as *;
+@use 'sass:color';
 
 $focus-color-on-light: var(--focus-on-light);
 $focus-color-on-dark: var(--focus-on-dark);
 
 @function set-focus-color($bg) {
-  @if (lightness($bg) > 50) {
+  @if (color.channel($bg, 'lightness', $space: hsl) > 50) {
     @return $focus-color-on-light;
   } @else {
     @return $focus-color-on-dark;
@@ -12,7 +13,7 @@ $focus-color-on-dark: var(--focus-on-dark);
 }
 
 @function set-color($bg) {
-  @if (lightness($bg) > 50) {
+  @if (color.channel($bg, 'lightness', $space: hsl) > 50) {
     @return $color-mt-text-dark;
   } @else {
     @return $color-mt-white;
