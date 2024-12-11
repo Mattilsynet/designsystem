@@ -1,6 +1,4 @@
 <script lang="ts" module>
-  import { preventDefault, stopPropagation } from 'svelte/legacy'
-
   import { defineMeta } from '@storybook/addon-svelte-csf'
   import Select from '$lib/svelte/components/form/Select.svelte'
   import MultiSelect from '$lib/svelte/components/form/MultiSelect.svelte'
@@ -9,15 +7,18 @@
 
   let value = $state([])
 
-  function handleSubmit() {
+  function handleSubmit(e: SubmitEvent) {
+    e.preventDefault()
     console.log('FORM handle submit')
   }
 
-  function handleFormKeyUp() {
+  function handleFormKeyUp(e: KeyboardEvent) {
+    e.preventDefault()
     console.log('HandleFormKeyUp')
   }
 
-  function handleFormKeyDown(e) {
+  function handleFormKeyDown(e: KeyboardEvent) {
+    e.stopPropagation()
     if (e.key === 'Enter' && e.target.type !== 'submit') {
       e.preventDefault()
     }
@@ -85,8 +86,8 @@
 </Story>
 
 <Story name="Velg fler">
-  {#snippet children({ args, disableCss })}
-    <div use:wrapInShadowDom={disableCss}>
+  {#snippet children(args)}
+    <div use:wrapInShadowDom={args.disableCss}>
       <h1 class="mt-h1">Flervalg</h1>
       <ResourceList
         figmaUrl="https://www.figma.com/file/dp856nY6joVcAUSVSmPSRO/MT-Eksternt-Designsystem?node-id=1871%3A5152&t=3fZ5xL2MGOLfFwqv-4"
@@ -95,9 +96,9 @@
         <h2 class="mt-h2">Normal</h2>
         <form
           class="mt-form"
-          onkeyup={preventDefault(handleFormKeyUp)}
-          onkeydown={stopPropagation(handleFormKeyDown)}
-          onsubmit={preventDefault(handleSubmit)}>
+          onkeyup={handleFormKeyUp}
+          onkeydown={handleFormKeyDown}
+          onsubmit={handleSubmit}>
           <MultiSelect
             options={args.multiselect.options}
             preferredOptions={args.multiselect.preferredOptions}
@@ -110,7 +111,9 @@
             loadJs={true}
             tagsLabel={args.multiselect.tagsLabel}
             isRequired={args.multiselect.isRequired}
-            helpText={args.multiselect.helpText} />
+            helpText={args.multiselect.helpText}
+            textOptional="Valgfritt"
+            hiddenErrorText={undefined} />
           <button type="submit" class="mt-button">Submit</button>
           <p>
             Values:
@@ -120,7 +123,7 @@
       </section>
       <section>
         <h2 class="mt-h2">Normal - without JS</h2>
-        <form class="mt-form" onsubmit={preventDefault(handleSubmit)}>
+        <form class="mt-form" onsubmit={handleSubmit}>
           <MultiSelect
             options={args.multiselect.options}
             preferredOptions={args.multiselect.preferredOptions}
@@ -133,7 +136,9 @@
             loadJs={false}
             tagsLabel={args.multiselect.tagsLabel}
             isRequired={args.multiselect.isRequired}
-            helpText={args.multiselect.helpText} />
+            helpText={args.multiselect.helpText}
+            textOptional="Valgfritt"
+            hiddenErrorText={undefined} />
           <button type="submit" class="mt-button">Submit</button>
           <p>
             Values:
