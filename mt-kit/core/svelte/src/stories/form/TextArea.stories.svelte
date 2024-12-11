@@ -45,11 +45,11 @@
           {countCharactersLeftLabel}
           {countCharactersTooManyLabel}
           {tooManyCharactersErrorText}
-          maxlength="100"
+          maxlength={100}
           textOptional="Valgfritt"
           inputmode="text"
-          rows="3"
-          cols="5" />
+          rows={3}
+          cols={5} />
 
         <TextArea
           name="email2"
@@ -60,11 +60,11 @@
           {tooManyCharactersErrorText}
           textOptional="Valgfritt"
           inputmode="text"
-          maxlength="100"
+          maxlength={100}
           isRequired={true}
           placeholder="Skriv inn tekst her"
-          rows="3"
-          cols="5" />
+          rows={3}
+          cols={5} />
       </form>
     </div>
   {/snippet}
@@ -81,9 +81,9 @@
           error={{ key: 'email', message: errorMessage }}
           textOptional="(valgfritt felt)"
           inputmode="text"
-          maxlength="100"
-          rows="3"
-          cols="5" />
+          maxlength={100}
+          rows={3}
+          cols={5} />
       </form>
     </div>
   {/snippet}
