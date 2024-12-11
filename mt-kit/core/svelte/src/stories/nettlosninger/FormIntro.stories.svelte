@@ -65,7 +65,7 @@
 </Story>
 
 <Story name="Modul - normal">
-  {#snippet children({ title, intro, text, moreText, formLinkUrl, formLinkText, disableCss })}
+  {#snippet children({ title, intro, text, formLinkUrl, formLinkText, disableCss })}
     <div use:wrapInShadowDom={disableCss} class="container">
       <CardArticle
         type="form-intro-module"
@@ -80,7 +80,7 @@
 </Story>
 
 <Story name="Modul - H2 heading">
-  {#snippet children({ title, intro, text, moreText, formLinkUrl, formLinkText, disableCss })}
+  {#snippet children({ title, intro, text, formLinkUrl, formLinkText, disableCss })}
     <div use:wrapInShadowDom={disableCss} class="container">
       <CardArticle
         type="form-intro-module"
