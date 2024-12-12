@@ -54,7 +54,6 @@
     reportType,
     organisationPerformingAssignment,
     file,
-    linkGroups,
     disableCss
   })}
     <div class="layout-grid layout-grid--column-12" use:wrapInShadowDom={disableCss}>
