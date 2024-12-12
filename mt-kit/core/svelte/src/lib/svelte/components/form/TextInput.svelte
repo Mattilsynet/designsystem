@@ -1,32 +1,51 @@
-<!-- @migration-task Error while migrating Svelte code: Can't migrate code with beforeUpdate. Please migrate by hand. -->
-<!--suppress XmlDuplicatedId -->
 <script lang="ts">
   import InputError from './InputErrorMessage.svelte'
   import type { AutocompleteType, CountCharsParams, ErrorDetail, InputModeType } from '$lib/ts'
   import { countCharacters, createInputAriaDescribedby, errorOnTooManyCharacters } from '$lib/ts'
   import Label from './Label.svelte'
-  import { beforeUpdate } from 'svelte'
+  import { tick } from 'svelte'
 
-  export let value
-  export let name: string
-  export let label: string
-  export let labelClass: string = ''
-  export let countCharactersLeftLabel: string | undefined = undefined
-  export let countCharactersTooManyLabel: string | undefined = undefined
-  export let tooManyCharactersErrorText = 'Teksten er for lang'
-  export let error: ErrorDetail | undefined = undefined
-  export let helpText: string | undefined = undefined
-  export let textOptional: string | undefined = undefined
-  export let showOptionalText: boolean = true
-  export let hiddenErrorText: string | undefined = undefined
-  export let maxlength: number | undefined = undefined
-  export let placeholder: string | undefined = undefined
-  export let isRequired: boolean | undefined = undefined
-  export let inputmode: InputModeType | undefined = undefined
-  export let autocomplete: AutocompleteType | undefined = undefined
-  export let hasTransition = false
+  interface Props {
+    value?: string
+    name: string
+    label: string
+    labelClass?: string
+    countCharactersLeftLabel?: string | undefined
+    countCharactersTooManyLabel?: string | undefined
+    tooManyCharactersErrorText?: string
+    error?: ErrorDetail | undefined
+    helpText?: string | undefined
+    textOptional?: string | undefined
+    showOptionalText?: boolean
+    hiddenErrorText?: string | undefined
+    maxlength?: number | undefined
+    placeholder?: string | undefined
+    isRequired?: boolean | undefined
+    inputmode?: InputModeType | undefined
+    autocomplete?: AutocompleteType | undefined
+    inputClass?: string
+  }
 
-  export let inputClass = ''
+  let {
+    value = $bindable(),
+    name,
+    label,
+    labelClass = '',
+    countCharactersLeftLabel = undefined,
+    countCharactersTooManyLabel = undefined,
+    tooManyCharactersErrorText = 'Teksten er for lang',
+    error = $bindable(),
+    helpText = undefined,
+    textOptional = undefined,
+    showOptionalText = true,
+    hiddenErrorText = undefined,
+    maxlength = undefined,
+    placeholder = undefined,
+    isRequired = undefined,
+    inputmode = undefined,
+    autocomplete = undefined,
+    inputClass = ''
+  }: Props = $props()
   let isInitialized = false
 
   let countCharsParams: CountCharsParams = {
@@ -37,18 +56,20 @@
     countCharactersTooManyLabel: countCharactersTooManyLabel
   }
 
-  beforeUpdate(() => {
-    if (value === undefined && !isInitialized && document) {
-      value = document?.querySelector(`input[name="${name}"]`)?.value
-      isInitialized = true
-    }
+  $effect.pre(() => {
+    tick().then(() => {
+      if (value === undefined && !isInitialized && document) {
+        value = document?.querySelector<HTMLInputElement>(`input[name="${name}"]`)?.value
+        isInitialized = true
+      }
+    })
   })
 </script>
 
 <!-- TODO check if we can remove wrapping after svelte5 upgrade. See MTP-2784 -->
 <div class="mt-form">
-  <Label for={name} {isRequired} {textOptional} {showOptionalText} class={labelClass}>{label}</Label
-  >
+  <Label for={name} {isRequired} {textOptional} {showOptionalText} class={labelClass}
+    >{label}</Label>
 
   {#if helpText}
     <div id={`${name}-hint`} class="hint">
@@ -64,7 +85,7 @@
     id={name}
     {name}
     use:countCharacters={countCharsParams}
-    on:input={e => {
+    oninput={e => {
       error =
         errorOnTooManyCharacters(e, countCharsParams, name, tooManyCharactersErrorText) || error
     }}
@@ -76,6 +97,5 @@
     aria-invalid={!!error}
     {inputmode}
     {placeholder}
-    {autocomplete}
-  />
+    {autocomplete} />
 </div>
