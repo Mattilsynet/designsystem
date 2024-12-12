@@ -14,7 +14,7 @@
 </script>
 
 <Story name="All">
-  {#snippet children({ primary, disableCss })}
+  {#snippet children({ disableCss })}
     <div use:wrapInShadowDom={disableCss} style="--wrap: wrap">
       <h1 class="mt-h1">Ikoner</h1>
       <section class="layout-flex layout-flex-col">
