@@ -128,7 +128,7 @@
       disableJs: false
     },
     argTypes: {
-      items: { control: 'array' },
+      items: { control: 'object' },
       search: { control: 'object' },
       language: { control: 'object' },
       menu: { control: 'object' },

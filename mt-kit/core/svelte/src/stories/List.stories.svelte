@@ -34,7 +34,7 @@
     },
     argTypes: {
       title: { control: 'text' },
-      content: { control: 'array' },
+      content: { control: 'object' },
       disableCss: { control: 'boolean' }
     }
   })

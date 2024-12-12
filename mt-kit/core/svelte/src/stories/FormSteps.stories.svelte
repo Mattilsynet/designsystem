@@ -24,7 +24,7 @@
     argTypes: {
       currentPath: { control: 'string' },
       completed: { control: 'number' },
-      steps: { control: 'array' }
+      steps: { control: 'object' }
     }
   })
 </script>

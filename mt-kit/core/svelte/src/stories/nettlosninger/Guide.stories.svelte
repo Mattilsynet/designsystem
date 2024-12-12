@@ -104,7 +104,7 @@
     },
     argTypes: {
       menu: { control: 'object' },
-      chapters: { control: 'array' },
+      chapters: { control: 'object' },
       showChapterNumbers: { control: 'boolean' },
       disableJs: { control: 'boolean' }
     }

@@ -57,7 +57,7 @@
       disableCss: false
     },
     argTypes: {
-      tasks: { control: 'array' },
+      tasks: { control: 'object' },
       disableCss: { control: 'boolean' }
     }
   })

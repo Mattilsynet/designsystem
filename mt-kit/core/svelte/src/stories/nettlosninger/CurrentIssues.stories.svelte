@@ -24,7 +24,7 @@
     },
     argTypes: {
       title: { control: 'text' },
-      issues: { control: 'array' },
+      issues: { control: 'object' },
       disableJs: { control: 'boolean' },
       disableCss: { control: 'boolean' }
     }

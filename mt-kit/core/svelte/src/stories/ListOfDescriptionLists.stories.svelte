@@ -118,9 +118,9 @@
     },
     argTypes: {
       title: { control: 'text' },
-      descriptionValuesToUseAsTitle: { control: 'array' },
+      descriptionValuesToUseAsTitle: { control: 'object' },
       titleSeparator: { control: 'text' },
-      listOfDescriptionLists: { control: 'array' },
+      listOfDescriptionLists: { control: 'object' },
       disableCss: { control: 'boolean' }
     }
   })

@@ -34,7 +34,7 @@
     },
     argTypes: {
       disableCss: { control: 'boolean' },
-      pages: { control: 'array' }
+      pages: { control: 'object' }
     }
   })
 </script>
