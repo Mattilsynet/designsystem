@@ -1,16 +1,16 @@
 <script lang="ts">
-  import { displayDataTime, mapRelExternal } from '../../ts/utils'
+  import { mapRelExternal } from '$lib/ts'
   import Published from '../components/Published.svelte'
 
   interface Props {
     text: string
     updatedDate: string
     publishedText?: string
-    actionsTakenByMattilsynet: string
+    actionsTakenByMattilsynet?: string
     statusType: 'important' | 'none'
     linkUrl: string
     linkText: string
-    class: string
+    class?: string
     lang?: string
     heading?: import('svelte').Snippet
   }
@@ -24,11 +24,9 @@
     linkUrl,
     linkText,
     class: className,
-    lang = 'NO-nb',
+    lang = 'nb',
     heading
   }: Props = $props()
-
-  let updatedDateLocalized = $derived(updatedDate ? displayDataTime(lang, updatedDate) : null)
 </script>
 
 <div class="status {className}">
@@ -48,6 +46,6 @@
     <a href={linkUrl} rel={mapRelExternal(linkUrl)} class="fit-content">{linkText}</a>
   {/if}
   {#if updatedDate && statusType === 'important'}
-    <Published publishFrom={updatedDate} {publishedText} />
+    <Published publishFrom={updatedDate} {publishedText} professionallyUpdated={undefined} {lang} />
   {/if}
 </div>
