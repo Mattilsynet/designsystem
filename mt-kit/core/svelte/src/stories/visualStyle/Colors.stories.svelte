@@ -9,14 +9,13 @@
       disableCss: false
     },
     argTypes: {
-      title: { control: 'text' },
       disableCss: { control: 'boolean' }
     }
   })
 </script>
 
 <Story name="All">
-  {#snippet children({ primary, disableCss })}
+  {#snippet children({ disableCss })}
     <div
       use:wrapInShadowDom={disableCss}
       class="layout-grid layout-grid--column-3"
