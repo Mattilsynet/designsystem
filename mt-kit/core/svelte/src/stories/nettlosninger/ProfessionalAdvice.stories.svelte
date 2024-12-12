@@ -3,6 +3,7 @@
   import CardArticle from '$lib/svelte/components/CardArticle.svelte'
   import Disclosure from '$lib/svelte/components/Disclosure.svelte'
   import Published from '$lib/svelte/components/Published.svelte'
+  import { wrapInShadowDom } from '../storybook-utils/utils'
 
   const { Story } = defineMeta({
     title: 'Innhold/Faglig råd',
@@ -24,20 +25,30 @@
       <p>Paragraf med tekst</p>`,
       publishFrom: '2021-06-24T11:40:02.889Z',
       professionallyUpdated: '2021-06-24T11:32:22Z',
-      disableCss: false
+      disableCss: false,
+      loadJs: true
     },
     argTypes: {
       label: { control: 'text' },
       helpText: { control: 'text' },
       errorMessage: { control: 'text' },
-      disableCss: { control: 'boolean' }
+      disableCss: { control: 'boolean' },
+      loadJs: { control: 'boolean' }
     }
   })
 </script>
 
 <Story name="Normal">
-  {#snippet children({ title, intro, disableCss, publishFrom, professionallyUpdated, text })}
-    <div class="container">
+  {#snippet children({
+    title,
+    intro,
+    disableCss,
+    loadJs,
+    publishFrom,
+    professionallyUpdated,
+    text
+  })}
+    <div use:wrapInShadowDom={disableCss} class="container">
       <article class="article-page">
         <h1 class="mt-h1">{title}</h1>
         <div class="intro">
@@ -67,7 +78,7 @@
             linkText="Neste handling" />
         </section>
 
-        <Disclosure title={'Begrunnelse'} headerTag="h2">
+        <Disclosure title={'Begrunnelse'} headerTag="h2" {loadJs}>
           <p>Her kommer begrunnelsen</p>
         </Disclosure>
       </article>
