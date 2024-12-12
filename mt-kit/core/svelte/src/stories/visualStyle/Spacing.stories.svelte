@@ -1,23 +1,14 @@
 <script lang="ts" module>
   import { defineMeta } from '@storybook/addon-svelte-csf'
   import Breadcrumbs from '$lib/svelte/components/Breadcrumbs.svelte'
+  import { wrapInShadowDom } from '../storybook-utils/utils'
   import Disclosure from '$lib/svelte/components/Disclosure.svelte'
-
   import imageFile from '../assets/testbilde.jpg'
 
   const { Story } = defineMeta({
     title: 'Visual Style/Spacing',
     parameters: { layout: 'fullscreen' },
     args: {
-      h1: 'h1 - Overskrift',
-      h2: 'h2 - Overskrift',
-      h3: 'h3 - Overskrift',
-      h4: 'h4 - Overskrift',
-      paragraph: 'p - Denne teksten er den vanlige/paragraph (body/p) tekst størrelsen',
-      intro: '.intro - Denne teksten skal brukes til ingress',
-      small: '.text-small - Dette en en liten tekst størrelse. Skal ikke brukes som "vanlig" tekst',
-      label: 'label - label tekst størrelse',
-      link: 'a - link tekst størrelse',
       breadcrumbs: {
         ariaLabel: 'breadcrumbs',
         items: [
@@ -52,30 +43,22 @@
         { href: '', text: 'Kosmetikk' },
         { href: '', text: 'Kritikkverdige forhold på arbeidsplassen' }
       ],
-      disableCss: false
+      disableCss: false,
+      loadJs: true
     },
     argTypes: {
-      title: { control: 'text' },
-      disableCss: { control: 'boolean' }
+      disableCss: { control: 'boolean' },
+      loadJs: { control: 'boolean' }
     }
   })
 </script>
 
 <Story name="Normal">
-  {#snippet children({
-    transportCards,
-    breadcrumbs,
-    paragraph,
-    intro,
-    small,
-    label,
-    link,
-    disableCss
-  })}
-    <body class="mt-body">
+  {#snippet children({ transportCards, breadcrumbs, disableCss, loadJs })}
+    <div class="mt-body" use:wrapInShadowDom={disableCss}>
       <header class="mt-header mt-header-wrapper mt-header-wrapper--regular"></header>
       <div class="container content layout-grid layout-grid--column-12">
-        <Breadcrumbs {breadcrumbs} class="col-3-span-8" />
+        <Breadcrumbs {breadcrumbs} class="col-3-span-8" {loadJs} />
         <main id="main" class="mt-main layout-grid layout-grid--column-12 col-1-span-12">
           <div
             data-portal-region="main"
@@ -121,7 +104,7 @@
             <div class="layout-grid layout-grid--column-12 col-1-span-12">
               <section class="content col-3-span-8">
                 <h2 class="mt-h2">Nyttig å vite</h2>
-                <Disclosure title={'Kan jeg være anonym?'}>
+                <Disclosure title={'Kan jeg være anonym?'} {loadJs}>
                   <p>
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                     Ipsum has been the industry's standard dummy text ever since the 1500s
@@ -164,7 +147,7 @@
         </main>
       </div>
       <footer class="mt-footer"></footer>
-    </body>
+    </div>
   {/snippet}
 </Story>
 
