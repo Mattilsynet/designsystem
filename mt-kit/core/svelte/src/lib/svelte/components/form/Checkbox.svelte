@@ -42,11 +42,11 @@
   $effect.pre(() => {
     tick().then(() => {
       if (forceArray(value).length === 0 && !isInitialized && document) {
-        value = Array.from(document?.querySelectorAll(`input[name="${name}"]:checked`)).map(
-          item => {
-            return item.value
-          }
-        )
+        value = Array.from(
+          document?.querySelectorAll<HTMLInputElement>(`input[name="${name}"]:checked`)
+        ).map(item => {
+          return item.value
+        })
         isInitialized = true
       }
     })
