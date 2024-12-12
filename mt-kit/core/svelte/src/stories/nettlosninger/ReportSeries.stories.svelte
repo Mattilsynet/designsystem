@@ -10,7 +10,6 @@
     args: {
       title: 'Hovedoverskrift',
       intro: 'Veterinær grensekontroll sjømat 2020',
-      text: 'Veterinær grensekontroll sjømat 2020',
       publishFrom: '2021-06-24T11:40:02.889Z',
       professionallyUpdated: '2021-06-24T11:32:22Z',
       publications: [
@@ -40,16 +39,17 @@
           }
         }
       ],
-      disableCss: false
+      disableCss: false,
+      loadJs: true
     },
     argTypes: {
       title: { control: 'text' },
       intro: { control: 'text' },
-      text: { control: 'text' },
       publishFrom: { control: 'text' },
       professionallyUpdated: { control: 'text' },
       publications: { control: 'array' },
-      disableCss: { control: 'boolean' }
+      disableCss: { control: 'boolean' },
+      loadJs: { control: 'boolean' }
     }
   })
 </script>
@@ -58,11 +58,11 @@
   {#snippet children({
     title,
     intro,
-    text,
     publishFrom,
     professionallyUpdated,
     publications,
-    disableCss
+    disableCss,
+    loadJs
   })}
     <div class="layout-grid layout-grid--column-12" use:wrapInShadowDom={disableCss}>
       <article class="article-page col-1-span-12 report">
@@ -81,6 +81,7 @@
             theme="no-border"
             class="background-mt-white col-3-span-8"
             startOpen={index === 0}
+            {loadJs}
             headerTag="h2">
             {#if publication.text}
               <div class="text">
