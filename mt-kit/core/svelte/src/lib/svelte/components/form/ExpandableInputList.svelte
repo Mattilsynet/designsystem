@@ -3,34 +3,30 @@
 </script>
 
 <script lang="ts">
-  import { run, preventDefault } from 'svelte/legacy'
-
-  import type { InputProps, ErrorDetail, InputModeType } from '../../../ts/types'
-  import { createInputAriaDescribedby, interpolate } from '../../../ts/utils'
+  import type { InputProps, ErrorDetail, InputModeType } from '$lib/ts'
+  import { createInputAriaDescribedby, interpolate } from '$lib/ts'
   import TextInputHorizontal from './TextInputHorizontal.svelte'
 
   interface Props {
-    values?: any
-    isRequired?: boolean | undefined
+    values?: Record<string, string>
     inputClass?: string
     inputList?: Array<InputProps>
     numberOfInputOutside?: number
-    fieldSetId: any // use to relate error to fieldset
-    fieldSetLabel: any
+    fieldSetId: string // use to relate error to fieldset
+    fieldSetLabel: string
     fieldSetErrorHeading?: string
-    fieldSetError?: Array<ErrorDetail> | undefined
-    fieldSetHelpText?: string | undefined
+    fieldSetError?: Array<ErrorDetail>
+    fieldSetHelpText?: string
     expandableAriaLabel?: string //'{0}, viser {1} av {2}'
     expandableText?: string
     collapsableText?: string
     showOptionalText?: boolean
     loadJs?: boolean
-    inputMode: InputModeType | undefined
+    inputMode?: InputModeType
   }
 
   let {
     values = $bindable({}),
-    isRequired = undefined,
     inputClass = '',
     inputList = [],
     numberOfInputOutside = 2,
@@ -49,12 +45,13 @@
 
   let outsides = $derived(inputList.slice(0, numberOfInputOutside))
   let insides = $derived(inputList.slice(numberOfInputOutside, inputList.length))
-  let showMore
-  run(() => {
-    showMore = insides.some(({ name }) => {
+  let showMore = $state(
+    // eslint-disable-next-line svelte/valid-compile
+    insides.some(({ name }) => {
       return values[name]
     })
-  })
+  )
+
   const bodyId = `ui-expandable-list-${counter++}`
 
   function createAriaLabel(showMore: boolean) {
@@ -80,8 +77,7 @@
   aria-describedby={createInputAriaDescribedby(
     fieldSetHelpText ? fieldSetId : undefined,
     fieldSetError
-  )}
->
+  )}>
   <legend class="mt-legend form-legend">{fieldSetLabel}</legend>
 
   {#if fieldSetHelpText}
@@ -96,8 +92,7 @@
       class=""
       role="alert"
       tabindex="-1"
-      aria-labelledby="error-summary-heading"
-    >
+      aria-labelledby="error-summary-heading">
       <h2 id="error-summary-heading" class="mt-h2 inclusively-hidden">
         {fieldSetErrorHeading}
       </h2>
@@ -125,8 +120,7 @@
         error={outside.error}
         {showOptionalText}
         labelClass="text-body"
-        inputClass="form-field--small form-field--small-width"
-      />
+        inputClass="form-field--small form-field--small-width {inputClass}" />
     {/each}
 
     {#if loadJs}
@@ -138,9 +132,11 @@
           aria-expanded={showMore}
           aria-controls={bodyId}
           aria-label={createAriaLabel(showMore)}
-          onclick={preventDefault(() => (showMore = !showMore))}
-          style="order: {insides.length + outsides.length};"
-        >
+          onclick={e => {
+            e.preventDefault()
+            showMore = !showMore
+          }}
+          style="order: {insides.length + outsides.length};">
           {#if showMore}
             {@html collapsableText}
           {:else}
@@ -162,15 +158,18 @@
               hasTransition={true}
               {showOptionalText}
               labelClass="text-body"
-              inputClass="form-field--small form-field--small-width"
-            />
+              inputClass="form-field--small form-field--small-width {inputClass}" />
           {/each}
         {/if}
       {/if}
     {:else}
       <details bind:open={showMore} class="mt-details">
         <summary class="mt-summary">
-          {@html expandableText}
+          {#if showMore}
+            {@html collapsableText}
+          {:else}
+            {@html expandableText}
+          {/if}
         </summary>
         <div class="collapsable-input-list">
           {#each insides as inside}
@@ -187,8 +186,7 @@
               hasTransition={true}
               {showOptionalText}
               labelClass="text-body"
-              inputClass="form-field--small form-field--small-width"
-            />
+              inputClass="form-field--small form-field--small-width" />
           {/each}
         </div>
       </details>
