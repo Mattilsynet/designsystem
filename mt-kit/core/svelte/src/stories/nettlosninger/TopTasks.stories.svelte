@@ -51,9 +51,9 @@
       disableCss: false
     },
     argTypes: {
-      title: { control: 'string' },
-      intro: { control: 'string' },
-      topTasks: { control: 'array' },
+      title: { control: 'text' },
+      intro: { control: 'text' },
+      topTasks: { control: 'object' },
       disabled: { control: 'boolean' },
       disableCss: { control: 'boolean' }
     }
@@ -61,7 +61,7 @@
 </script>
 
 <Story name="Normal">
-  {#snippet children({ topTasks, icon, disableCss, title, intro, path })}
+  {#snippet children({ topTasks, disableCss, title, intro, path })}
     <div
       use:wrapInShadowDom={disableCss}
       class="layout-grid layout-grid--column-12 top-tasks-container">
