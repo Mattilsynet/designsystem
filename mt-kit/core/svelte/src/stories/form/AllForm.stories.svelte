@@ -158,7 +158,7 @@
             textOptional="Valgfritt"
             inputmode="text"
             placeholder=""
-            autocomplete="" />
+            autocomplete="off" />
           <!-- TextArea   -->
           <TextArea
             name="email"
@@ -239,7 +239,7 @@
           textOptional="(valgfritt felt)"
           inputmode="text"
           placeholder=""
-          autocomplete="" />
+          autocomplete="off" />
 
         <TextArea
           name="textfield"
