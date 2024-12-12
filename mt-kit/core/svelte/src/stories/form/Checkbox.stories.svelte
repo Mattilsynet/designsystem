@@ -1,14 +1,13 @@
-<!-- @migration-task Error while migrating Svelte code: Cannot read properties of undefined (reading 'end') -->
 <script lang="ts" module>
   import { defineMeta } from '@storybook/addon-svelte-csf'
   import Checkbox from '$lib/svelte/components/form/Checkbox.svelte'
   import { wrapInShadowDom } from '../storybook-utils/utils'
 
   const name = 'checkbox'
-  let buttonCheckboxValue = []
+  let buttonCheckboxValue: Array<string> = []
 
-  function handleOnChange(event) {
-    console.log(event.detail)
+  function onChange({ checked, value }: HTMLInputElement) {
+    console.log('checked:', checked, 'value:', value)
   }
 
   const { Story } = defineMeta({
@@ -71,14 +70,7 @@
       <h1 class="mt-h1">Checkbox</h1>
       <h2 id="theme" class="mt-h2">Theme - checkbox</h2>
       <form class="mt-form">
-        <Checkbox
-          {name}
-          {label}
-          {helpText}
-          {options}
-          {isRequired}
-          {textOptional}
-          on:onChange={handleOnChange} />
+        <Checkbox {name} {label} {helpText} {options} {isRequired} {textOptional} {onChange} />
       </form>
       <h2 id="theme" class="mt-h2">Theme - button</h2>
       <form action="" class="mt-form form-layout">
@@ -96,8 +88,7 @@
   {/snippet}
 </Story>
 
-<Story
-  name="Checkbox with error">
+<Story name="Checkbox with error">
   {#snippet children({
     label,
     helpText,
@@ -120,8 +111,7 @@
           {isRequired}
           {hiddenErrorText}
           {textOptional}
-          error={{ key: name, message: errorMessage }}
-          let:isRequired />
+          error={{ key: name, message: errorMessage }} />
       </form>
       <h2 id="theme" class="mt-h2">Theme - button</h2>
       <form class="mt-form">

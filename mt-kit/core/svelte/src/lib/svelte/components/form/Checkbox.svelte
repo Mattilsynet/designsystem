@@ -1,43 +1,62 @@
-<!-- @migration-task Error while migrating Svelte code: Can't migrate code with beforeUpdate. Please migrate by hand. -->
 <script lang="ts">
-  import { beforeUpdate, createEventDispatcher } from 'svelte'
+  import { tick } from 'svelte'
   import InputError from './InputErrorMessage.svelte'
   import { createInputAriaDescribedby, forceArray, toKebabCase } from '../../../ts/utils'
-  import type { CustomCheckedEvent, ErrorDetail } from '../../../ts/types'
+  import type { ErrorDetail } from '$lib/ts'
 
-  export let value: Array<string> | undefined
-  export let name: string
-  export let label: string
-  export let error: ErrorDetail | undefined
-  export let helpText: string | undefined
-  export let options: Array<{ value: string; text: string }> = []
-  export let isRequired: boolean | undefined = undefined
-  export let textOptional = 'Valgfitt'
-  export let showOptionalText: boolean = true
-  export let hiddenErrorText: string | undefined
+  interface Props {
+    value?: Array<string>
+    name: string
+    label: string
+    error?: ErrorDetail
+    helpText?: string
+    options?: Array<{ value: string; text: string }>
+    isRequired?: boolean
+    textOptional?: string
+    showOptionalText?: boolean
+    hiddenErrorText?: string
+    theme?: 'checkbox' | 'button'
+    class?: string
+    legendClass?: string
+    onChange?: (element: HTMLInputElement) => void
+  }
 
-  export let theme: 'checkbox' | 'button' = 'checkbox'
-  let className = ''
-  export { className as class }
-  export let legendClass = ''
-  let isInitialized = false
+  let {
+    value = $bindable(),
+    name,
+    label,
+    error,
+    helpText,
+    options = [],
+    isRequired = undefined,
+    textOptional = 'Valgfitt',
+    showOptionalText = true,
+    hiddenErrorText,
+    theme = 'checkbox',
+    class: className = '',
+    legendClass = '',
+    onChange = () => {}
+  }: Props = $props()
+  let isInitialized = $state(false)
 
-  const dispatch = createEventDispatcher<CustomEvent<CustomCheckedEvent>>()
-
-  beforeUpdate(() => {
-    if (forceArray(value).length === 0 && !isInitialized && document) {
-      value = Array.from(document?.querySelectorAll(`input[name="${name}"]:checked`)).map(item => {
-        return item.value
-      })
-      isInitialized = true
-    }
+  $effect.pre(() => {
+    tick().then(() => {
+      if (forceArray(value).length === 0 && !isInitialized && document) {
+        value = Array.from(document?.querySelectorAll(`input[name="${name}"]:checked`)).map(
+          item => {
+            return item.value
+          }
+        )
+        isInitialized = true
+      }
+    })
   })
 
-  function onChange(e: Event): void {
-    dispatch('onChange', { event: e })
-    const { checked } = e.target
-    const inputValue = e.target.value
-    if (checked) {
+  function handleOnChange(e: InputEvent): void {
+    const target = e.target as HTMLInputElement
+    onChange(target)
+    const inputValue = target.value
+    if (target.checked) {
       value = [...forceArray(value), inputValue]
     } else {
       value = forceArray(value).filter(item => item !== inputValue)
@@ -51,8 +70,7 @@
   aria-required={isRequired || undefined}
   class="mt-fieldset form-fieldset {theme === 'checkbox' ? 'checkbox' : ''} {theme === 'button'
     ? 'mt-button-checkbox'
-    : ''} {className}"
->
+    : ''} {className}">
   <legend class="mt-legend form-legend {legendClass}">
     {label}
     {#if !isRequired && showOptionalText}
@@ -80,14 +98,12 @@
         class:error
         value={checkbox.value}
         checked={forceArray(value).includes(checkbox.value)}
-        on:change={onChange}
+        onchange={handleOnChange}
         aria-required={isRequired}
-        aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)}
-      />
+        aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)} />
       <label
         class="mt-label {theme === 'button' ? 'mt-button mt-button--secondary' : ''}"
-        for={`${name}-${toKebabCase(checkbox.value)}`}
-      >
+        for={`${name}-${toKebabCase(checkbox.value)}`}>
         {checkbox.text}
       </label>
     </div>
