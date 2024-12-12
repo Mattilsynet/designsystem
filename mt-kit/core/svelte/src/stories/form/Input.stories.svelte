@@ -67,7 +67,7 @@
           {isRequired}
           {countCharactersLeftLabel}
           placeholder=""
-          autocomplete="" />
+          autocomplete="off" />
 
         <TextInput
           name="inputfield2"
@@ -78,7 +78,7 @@
           {isRequired}
           {countCharactersLeftLabel}
           placeholder="Skriv noe"
-          autocomplete="" />
+          autocomplete="off" />
 
         <TextInput
           name="inputfield3"
@@ -89,7 +89,7 @@
           {isRequired}
           {countCharactersLeftLabel}
           placeholder=""
-          autocomplete=""
+          autocomplete="off"
           {tooManyCharactersErrorText}
           maxlength={30} />
 
@@ -106,7 +106,7 @@
               isRequired={horizontal.isRequired}
               maxlength={horizontal.maxLength}
               placeholder=""
-              autocomplete=""
+              autocomplete="off"
               inputClass="form-field--small form-field--small-width" />
           {/each}
         </div>
@@ -137,7 +137,7 @@
           inputmode="text"
           maxlength={10}
           placeholder=""
-          autocomplete="" />
+          autocomplete="off" />
         <div class="collapsable-input-list-grid">
           {#each horizontal as horizontal, index}
             <TextInputHorizontal
@@ -150,7 +150,7 @@
               {countCharactersLeftLabel}
               isRequired={horizontal.isRequired}
               placeholder=""
-              autocomplete=""
+              autocomplete="off"
               inputClass="form-field--small form-field--small-width" />
           {/each}
         </div>
