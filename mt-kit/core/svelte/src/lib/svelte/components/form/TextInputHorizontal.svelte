@@ -1,37 +1,58 @@
-<!-- @migration-task Error while migrating Svelte code: Can't migrate code with beforeUpdate. Please migrate by hand. -->
-<!--suppress XmlDuplicatedId -->
 <script lang="ts">
   import InputError from './InputErrorMessage.svelte'
-  import type { AutocompleteType, ErrorDetail, InputModeType } from '../../../ts/types'
-  import { createInputAriaDescribedby } from '../../../ts/utils'
+  import type { AutocompleteType, ErrorDetail, InputModeType } from '$lib/ts'
+  import { createInputAriaDescribedby } from '$lib/ts'
   import Label from './Label.svelte'
   import { slide } from 'svelte/transition'
-  import { beforeUpdate } from 'svelte'
+  import { tick } from 'svelte'
 
-  export let value
-  export let name: string
-  export let label: string
-  export let labelClass: string
-  export let error: ErrorDetail | undefined
-  export let helpText: string | undefined
-  export let textOptional: string | undefined
-  export let showOptionalText: boolean
-  export let hiddenErrorText: string | undefined
-  export let maxlength: number | undefined
-  export let placeholder: string | undefined
-  export let isRequired: boolean | undefined = undefined
-  export let inputmode: InputModeType | undefined
-  export let autocomplete: AutocompleteType | undefined
-  export let hasTransition = false
+  interface Props {
+    value?: string
+    name: string
+    label: string
+    labelClass: string
+    error: ErrorDetail | undefined
+    helpText?: string | undefined
+    textOptional: string | undefined
+    showOptionalText: boolean
+    hiddenErrorText: string | undefined
+    maxlength: number | undefined
+    placeholder: string | undefined
+    isRequired?: boolean | undefined
+    inputmode: InputModeType | undefined
+    autocomplete: AutocompleteType | undefined
+    hasTransition?: boolean
+    inputClass?: string
+  }
 
-  export let inputClass = ''
+  let {
+    value = $bindable(),
+    name,
+    label,
+    labelClass,
+    error,
+    helpText,
+    textOptional,
+    showOptionalText,
+    hiddenErrorText,
+    maxlength,
+    placeholder,
+    isRequired = undefined,
+    inputmode,
+    autocomplete,
+    hasTransition = false,
+    inputClass = ''
+  }: Props = $props()
+
   let isInitialized = false
 
-  beforeUpdate(() => {
-    if (value === undefined && !isInitialized && document) {
-      value = document?.querySelector(`input[name="${name}"]`)?.value
-      isInitialized = true
-    }
+  $effect.pre(() => {
+    tick().then(() => {
+      if (value === undefined && !isInitialized && document) {
+        value = document?.querySelector<HTMLInputElement>(`input[name="${name}"]`)?.value
+        isInitialized = true
+      }
+    })
   })
 </script>
 
@@ -39,8 +60,7 @@
   class="input-horizontal"
   style="--gap:var(--spacer-xxx-small)"
   in:slide={{ duration: hasTransition ? 300 : 0 }}
-  out:slide={{ duration: hasTransition ? 300 : 0 }}
->
+  out:slide={{ duration: hasTransition ? 300 : 0 }}>
   {#if error}
     <InputError {...error} {hiddenErrorText} />
   {/if}
@@ -68,6 +88,5 @@
     aria-invalid={!!error}
     {inputmode}
     {placeholder}
-    {autocomplete}
-  />
+    {autocomplete} />
 </div>
