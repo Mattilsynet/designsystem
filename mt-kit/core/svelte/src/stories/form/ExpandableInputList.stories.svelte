@@ -55,8 +55,7 @@
   ])
 
   let fieldSetId = 'whatCountriesHaveYouBeenTo'
-  let expandableAriaLabel = ''
-  let values = $state({})
+  let values: Record<string, string> = $state({})
 
   let error: { key: string; message: string }[] | undefined = $state()
 
@@ -89,6 +88,7 @@
       expandableAriaLabel: '{0}, viser {1} av {2}',
       expandableText: 'Vis flere',
       collapsableText: 'Vis færre',
+      // eslint-disable-next-line svelte/valid-compile
       inputList: inputList,
       disableJs: false,
       disableCss: false
@@ -127,9 +127,3 @@
     </main>
   {/snippet}
 </Story>
-
-<style lang="scss">
-  .button {
-    margin-top: 5rem;
-  }
-</style>
