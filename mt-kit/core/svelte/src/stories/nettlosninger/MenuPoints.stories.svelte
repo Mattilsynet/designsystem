@@ -58,7 +58,7 @@
     },
     argTypes: {
       title: { control: 'text' },
-      menuPoints: { control: 'array' },
+      menuPoints: { control: 'object' },
       disableJs: { control: 'boolean' },
       disableCss: { control: 'boolean' }
     }

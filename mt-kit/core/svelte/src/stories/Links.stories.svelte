@@ -199,11 +199,11 @@
     argTypes: {
       primary: { control: 'text' },
       inText: { control: 'text' },
-      cards: { control: 'array' },
-      smallLinks: { control: 'array' },
-      searchResult: { control: 'array' },
-      internalLinks: { control: 'array' },
-      externalLinks: { control: 'array' },
+      cards: { control: 'object' },
+      smallLinks: { control: 'object' },
+      searchResult: { control: 'object' },
+      internalLinks: { control: 'object' },
+      externalLinks: { control: 'object' },
       secondary: { control: 'string' },
       disabled: { control: 'boolean' },
       disableCss: { control: 'boolean' }

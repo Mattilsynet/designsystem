@@ -36,7 +36,7 @@
       disableCss: false
     },
     argTypes: {
-      tags: { control: 'array' },
+      tags: { control: 'object' },
       isClosable: { control: 'boolean' },
       disableCss: { control: 'boolean' }
     }

@@ -23,7 +23,7 @@
     },
     argTypes: {
       disableCss: { control: 'boolean' },
-      chapters: { control: 'array' },
+      chapters: { control: 'object' },
       showChapterNumber: { control: 'boolean' }
     }
   })

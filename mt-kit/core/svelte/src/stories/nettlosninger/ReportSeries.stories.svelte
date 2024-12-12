@@ -47,7 +47,7 @@
       intro: { control: 'text' },
       publishFrom: { control: 'text' },
       professionallyUpdated: { control: 'text' },
-      publications: { control: 'array' },
+      publications: { control: 'object' },
       disableCss: { control: 'boolean' },
       loadJs: { control: 'boolean' }
     }
