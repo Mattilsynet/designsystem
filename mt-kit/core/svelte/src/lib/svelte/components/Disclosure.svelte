@@ -1,9 +1,8 @@
 <script lang="ts" module>
-  let counter = 0
+  let counter = $state(0)
 </script>
 
 <script lang="ts">
-  import { createEventDispatcher } from 'svelte'
   import { slide } from 'svelte/transition'
   import HeadingLevel from './HeadingLevel.svelte'
 
@@ -20,6 +19,7 @@
     chapter?: string | undefined
     class?: string
     children?: import('svelte').Snippet
+    onOpen?: () => void
   }
 
   let {
@@ -32,6 +32,7 @@
     headerClass = '',
     panelClass = '',
     startOpen = false,
+    onOpen = undefined,
     chapter = undefined,
     class: disclosureClass = '',
     children
@@ -42,15 +43,11 @@
   let isOpen = $state(startOpen ?? false)
   let onServer = $derived(!loadJs)
 
-  const dispatch = createEventDispatcher()
-
   function handleClick(): void {
-    isOpen = !isOpen
-    if (isOpen) {
-      dispatch('open')
-    } else {
-      dispatch('close')
+    if (onOpen) {
+      onOpen()
     }
+    isOpen = !isOpen
   }
 </script>
 
@@ -82,8 +79,7 @@
       class="mt-button--unstyled disclosure-header mt-{headerTag} {headerClass}"
       aria-expanded={isOpen}
       aria-controls={bodyId}
-      onclick={handleClick}
-    >
+      onclick={handleClick}>
       {#if chapter}
         <span class="chapter-number responsive-hide">
           {chapter}
@@ -107,8 +103,7 @@
     <div
       id={bodyId}
       class="disclosure-panel {panelClass}"
-      transition:slide|local={{ duration: 500 }}
-    >
+      transition:slide|local={{ duration: 500 }}>
       <HeadingLevel class="inclusively-hidden" headingLevel={+headerTag.charAt(1)}>
         {@html title}
       </HeadingLevel>
