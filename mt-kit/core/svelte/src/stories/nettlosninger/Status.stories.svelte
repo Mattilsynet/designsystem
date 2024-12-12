@@ -1,6 +1,7 @@
 <script lang="ts" module>
   import { defineMeta } from '@storybook/addon-svelte-csf'
   import Status from '$lib/svelte/content/Status.svelte'
+  import { wrapInShadowDom } from '../storybook-utils/utils'
 
   const { Story } = defineMeta({
     title: 'Innhold/Status',
@@ -9,19 +10,20 @@
       text: '<p>Dette er en melding om at det har skjedd noe</p><h3 class="mt-h3">Overkrift</h3><p>Mer tekst kommer her</p>',
       actionsTakenByMattilsynet:
         '<p>Dette er gjør Mattilsynet</p><h3 class="mt-h3">Overkrift</h3><p>Mer tekst kommer her</p>',
-      statusType: 'important',
+      statusType1: 'important',
+      statusType2: 'none',
       linkUrl: 'https://www.mattilsynet.no',
       linkText: 'Mattilsynet',
       linkIsExternal: true,
-      publishFrom: '2021-06-24T11:40:02.889Z',
-      professionallyUpdated: '2021-06-26T11:32:22Z',
+      updatedDate: '2021-06-26T11:32:22Z',
       disableCss: false
     },
     argTypes: {
       title: { control: 'text' },
       text: { control: 'text' },
       actionsTakenByMattilsynet: { control: 'text' },
-      statusType: 'important',
+      statusType1: { control: 'radio', options: ['important', 'none'] },
+      statusType2: { control: 'radio', options: ['important', 'none'] },
       linkUrl: { control: 'text' },
       linkText: { control: 'text' },
       linkIsExternal: { control: 'boolean' },
@@ -37,12 +39,12 @@
     actionsTakenByMattilsynet,
     linkUrl,
     linkText,
-    linkIsExternal,
     disableCss,
-    publishFrom,
-    professionallyUpdated
+    statusType1,
+    statusType2,
+    updatedDate
   })}
-    <div class="container layout-grid layout-grid--column-12">
+    <div class="container layout-grid layout-grid--column-12" use:wrapInShadowDom={disableCss}>
       <article class="col-3-span-8">
         <h1 class="mt-h1">Status med tekst, "hva gjør Mattilsynet" og link</h1>
         <Status
@@ -50,16 +52,15 @@
           {actionsTakenByMattilsynet}
           {linkUrl}
           {linkText}
-          {linkIsExternal}
-          updatedDate={professionallyUpdated}
-          statusType="important">
+          {updatedDate}
+          statusType={statusType1}>
           {#snippet heading()}
             <h2 class="mt-h2">{title}</h2>
           {/snippet}
         </Status>
 
         <h1 class="mt-h1 margin-top">Status med tekst og link</h1>
-        <Status {text} {linkUrl} {linkText} {linkIsExternal} statusType="none">
+        <Status {text} {linkUrl} {linkText} statusType={statusType2}>
           {#snippet heading()}
             <h2 class="mt-h2">{title}</h2>
           {/snippet}
