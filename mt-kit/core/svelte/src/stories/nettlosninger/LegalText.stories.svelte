@@ -22,20 +22,22 @@
       </ul>
       <p>Utformingen av rutinene skal være tilpasset virksomhetens egenart.</p>`,
       icon,
-      disableCss: false
+      disableCss: false,
+      loadJs: true
     },
     argTypes: {
-      disableCss: { control: 'boolean' }
+      disableCss: { control: 'boolean' },
+      loadJs: { control: 'boolean' }
     }
   })
 </script>
 
 <Story name="Normal">
-  {#snippet children({ disableCss, title, text, icon })}
+  {#snippet children({ disableCss, title, text, icon, loadJs })}
     <div use:wrapInShadowDom={disableCss} class="container">
       <CardArticle type="legal-text" class="background-mt-white" {title} {text} id={title} />
       <hr />
-      <Disclosure theme="no-border" class="background-mt-rationale-blue" {title} {icon}>
+      <Disclosure theme="no-border" class="background-mt-rationale-blue" {title} {icon} {loadJs}>
         {@html text}
       </Disclosure>
     </div>
