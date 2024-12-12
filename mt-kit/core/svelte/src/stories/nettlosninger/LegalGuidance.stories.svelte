@@ -3,6 +3,7 @@
   import CardArticle from '$lib/svelte/components/CardArticle.svelte'
   import Disclosure from '$lib/svelte/components/Disclosure.svelte'
   import Published from '$lib/svelte/components/Published.svelte'
+  import { wrapInShadowDom } from '../storybook-utils/utils'
 
   const icon = `<svg width='30' height='30' fill='none' xmlns='http://www.w3.org/2000/svg'>
   <circle cx='15' cy='15' r='15' fill='#3F3E3E' />
@@ -28,20 +29,30 @@
       </ul>`,
       publishFrom: '2021-06-24T11:40:02.889Z',
       professionallyUpdated: '2021-06-24T11:32:22Z',
-      disableCss: false
+      disableCss: false,
+      loadJs: true
     },
     argTypes: {
       label: { control: 'text' },
       helpText: { control: 'text' },
       errorMessage: { control: 'text' },
-      disableCss: { control: 'boolean' }
+      disableCss: { control: 'boolean' },
+      loadJs: { control: 'boolean' }
     }
   })
 </script>
 
 <Story name="Normal">
-  {#snippet children({ title, intro, disableCss, publishFrom, professionallyUpdated, text })}
-    <div class="container layout-grid layout-grid--column-12">
+  {#snippet children({
+    title,
+    intro,
+    disableCss,
+    publishFrom,
+    professionallyUpdated,
+    text,
+    loadJs
+  })}
+    <div use:wrapInShadowDom={disableCss} class="container layout-grid layout-grid--column-12">
       <article class="article-page col-1-span-12 legal-guidance">
         <h1 class="mt-h1">{title}</h1>
         <div class="intro">
@@ -78,6 +89,7 @@
             headerTag="h3"
             theme="no-border"
             class="background-mt-rationale-blue"
+            {loadJs}
             {icon}>
             <p>Begrunnelsen kommer her</p>
             <ul class="mt-ul">
@@ -90,6 +102,7 @@
             headerTag="h3"
             theme="no-border"
             class="background-mt-rationale-blue"
+            {loadJs}
             {icon}>
             <p>Begrunnelsen kommer her</p>
             <ul class="mt-ul">
