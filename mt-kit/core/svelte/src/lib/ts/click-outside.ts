@@ -1,4 +1,3 @@
-export let buttonId: string
 export function clickOutside(node: HTMLElement, buttonId: string): { destroy(): void } {
   const handleClick = (event: Event): void => {
     if (
