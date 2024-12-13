@@ -3,12 +3,10 @@
 </script>
 
 <script lang="ts">
-  // import { useMachine } from '@xstate/svelte'
   import { onMount } from 'svelte'
   import { slide } from 'svelte/transition'
   import { clickOutside } from '../../ts/click-outside'
   import { focusOutside } from '../../ts/focus-outside'
-  // import { createToggleMachine } from '../../ts/toggle-machine'
 
   export let title = ''
   export let titleWhenOpen = ''
@@ -21,10 +19,6 @@
 
   const LINK_TAG: Readonly<string> = 'A'
 
-  // const DropdownMachine = createToggleMachine('dropdown')
-  // const { state, send } = useMachine(DropdownMachine)
-  // $: isOpen = $state.context.isOpen
-  // $: onServer = $state.value === 'serverRendered'
   let isOpen = true
   let onServer = true
   $: hasDynamicTitleAndIsOpen = titleWhenOpen && isOpen
