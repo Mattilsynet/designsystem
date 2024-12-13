@@ -1,9 +1,15 @@
-export function focusOutside(node: HTMLElement, callBack: () => void): { destroy(): void } {
+export function focusOutside(node: HTMLElement, buttonId: string): { destroy(): void } {
   function handleFocusIn(event: Event): void {
-    if (event && event.target && !node.contains(document.activeElement)) {
-      callBack()
+    if (
+      event &&
+      event.target &&
+      !node.contains(document.activeElement) &&
+      event.target.id !== buttonId
+    ) {
+      node.dispatchEvent(new CustomEvent('focusOutside'))
     }
   }
+
   document.addEventListener('focusin', handleFocusIn)
 
   return {

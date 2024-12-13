@@ -5,15 +5,15 @@
 <script lang="ts">
   import { onMount } from 'svelte'
   import { slide } from 'svelte/transition'
-  import { clickOutside } from '../../ts/click-outside'
-  import { focusOutside } from '../../ts/focus-outside'
+  import { clickOutside } from '$lib/ts'
+  import { focusOutside } from '$lib/ts'
 
   export let title = ''
   export let titleWhenOpen = ''
-  const bodyId = `ui-dropdown-${counter++}`
   export let loadJs = false
-  export let titleId = `${bodyId}-title`
   export let icon = ''
+  const bodyId = `ui-dropdown-${counter++}`
+  export let titleId = `${bodyId}-title`
   let className = ''
   export { className as class }
 
@@ -30,13 +30,13 @@
     })
   }
 
-  function handleClickWhileOpen(e: PointerEvent) {
+  function closeDropdownOnNavigation(e: MouseEvent & { target: HTMLElement }): void {
     if (isOpen && e.target?.tagName === LINK_TAG) {
       isOpen = !isOpen
     }
   }
 
-  function handleClick(): void {
+  function toggleOpen(): void {
     isOpen = !isOpen
   }
 </script>
@@ -58,17 +58,18 @@
       aria-haspopup="true"
       aria-expanded={isOpen}
       aria-controls={bodyId}
-      on:click={handleClick}>
+      on:click={toggleOpen}>
       {@html hasDynamicTitleAndIsOpen ? titleWhenOpen : title}
     </button>
     {#if isOpen}
       <div
-        use:focusOutside={() => (isOpen = false)}
         class="dropdown-content"
         id={bodyId}
+        on:click={closeDropdownOnNavigation}
+        use:focusOutside={titleId}
         use:clickOutside={titleId}
-        on:click={handleClickWhileOpen}
-        on:clickOutside={() => isOpen && handleClick()}
+        on:clickOutside={() => (isOpen = false)}
+        on:focusOutside={() => (isOpen = false)}
         in:slide={{ duration: 650 }}
         out:slide={{ duration: 500 }}>
         <slot {isOpen} />
