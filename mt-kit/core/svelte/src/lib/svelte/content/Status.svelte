@@ -23,7 +23,7 @@
     statusType,
     linkUrl,
     linkText,
-    class: className,
+    class: className = '',
     lang = 'nb',
     heading
   }: Props = $props()
