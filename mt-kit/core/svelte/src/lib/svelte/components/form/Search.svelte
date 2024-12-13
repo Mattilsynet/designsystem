@@ -1,39 +1,59 @@
-<!-- @migration-task Error while migrating Svelte code: Can't migrate code with beforeUpdate. Please migrate by hand. -->
 <script lang="ts">
   import Label from './Label.svelte'
-  import { createInputAriaDescribedby } from '../../../ts/utils'
-  import { beforeUpdate } from 'svelte'
+  import { createInputAriaDescribedby } from '$lib/ts'
+  import { tick } from 'svelte'
 
-  export let searchString: string
-  export let name: string | undefined
-  export let shouldFocus: boolean = false
-  export let label: string | undefined = undefined
-  export let labelClass: string = ''
-  export let helpText: string | undefined = undefined
-  export let searchButtonText: string | undefined = undefined
-  export let placeholder: string | undefined = undefined
-  export let ariaControls: string | undefined = undefined
-  export let ariaRemoveTextLabel = 'Tøm'
-  export let inputClass = ''
+  interface Props {
+    searchString: string
+    name: string | undefined
+    shouldFocus?: boolean
+    label?: string | undefined
+    labelClass?: string
+    helpText?: string | undefined
+    searchButtonText?: string | undefined
+    placeholder?: string | undefined
+    ariaControls?: string | undefined
+    ariaRemoveTextLabel?: string
+    inputClass?: string
+    class?: string
+  }
+
+  let {
+    searchString = $bindable(),
+    name,
+    shouldFocus = false,
+    label = undefined,
+    labelClass = '',
+    helpText = undefined,
+    searchButtonText = undefined,
+    placeholder = undefined,
+    ariaControls = undefined,
+    ariaRemoveTextLabel = 'Tøm',
+    inputClass = '',
+    class: className = ''
+  }: Props = $props()
+
+  let searchInput: HTMLInputElement | undefined = $state()
+  $effect(() => {
+    if (shouldFocus) {
+      searchInput?.focus()
+    }
+  })
 
   let isInitialized = false
-  let className = ''
-  export { className as class }
-
-  let searchInput: HTMLInputElement
-
-  $: shouldFocus && searchInput?.focus()
-
-  beforeUpdate(() => {
-    if (!searchString && !isInitialized && document) {
-      searchString = document?.querySelector(`input[name="${name}"]`)?.value
-      isInitialized = true
-    }
+  $effect.pre(() => {
+    tick().then(() => {
+      if (!searchString && !isInitialized && document) {
+        searchString =
+          document?.querySelector<HTMLInputElement>(`input[name="${name}"]`)?.value ?? ''
+        isInitialized = true
+      }
+    })
   })
 </script>
 
 {#if label}
-  <Label class={labelClass} for={name} showOptionalText={false}>
+  <Label class={labelClass} for={'name'} showOptionalText={false}>
     {label}
   </Label>
 {/if}
@@ -56,15 +76,13 @@
       bind:value={searchString}
       aria-labelledby={!label && searchButtonText ? 'search-button' : undefined}
       aria-describedby={createInputAriaDescribedby(helpText ? name : undefined)}
-      {placeholder}
-    />
+      {placeholder} />
     {#if searchString}
       <button
         type="reset"
         class="mt-button mt-button--search-clear"
-        on:click={() => (searchString = '')}
-        data-testid="search-clear"
-      >
+        onclick={() => (searchString = '')}
+        data-testid="search-clear">
         <span class="inclusively-hidden">{ariaRemoveTextLabel}</span>
       </button>
     {/if}
@@ -74,8 +92,7 @@
       id="search-button"
       type="submit"
       class="mt-button mt-button--primary icon--search-after-primary"
-      aria-controls={ariaControls}
-    >
+      aria-controls={ariaControls}>
       {searchButtonText}
     </button>
   {/if}
