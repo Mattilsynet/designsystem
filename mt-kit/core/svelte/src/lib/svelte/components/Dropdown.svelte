@@ -3,12 +3,12 @@
 </script>
 
 <script lang="ts">
-  import { useMachine } from '@xstate/svelte'
+  // import { useMachine } from '@xstate/svelte'
   import { onMount } from 'svelte'
   import { slide } from 'svelte/transition'
   import { clickOutside } from '../../ts/click-outside'
   import { focusOutside } from '../../ts/focus-outside'
-  import { createToggleMachine } from '../../ts/toggle-machine'
+  // import { createToggleMachine } from '../../ts/toggle-machine'
 
   export let title = ''
   export let titleWhenOpen = ''
@@ -21,20 +21,29 @@
 
   const LINK_TAG: Readonly<string> = 'A'
 
-  const DropdownMachine = createToggleMachine('dropdown')
-  const { state, send } = useMachine(DropdownMachine)
-  $: isOpen = $state.context.isOpen
-  $: onServer = $state.value === 'serverRendered'
+  // const DropdownMachine = createToggleMachine('dropdown')
+  // const { state, send } = useMachine(DropdownMachine)
+  // $: isOpen = $state.context.isOpen
+  // $: onServer = $state.value === 'serverRendered'
+  let isOpen = true
+  let onServer = true
   $: hasDynamicTitleAndIsOpen = titleWhenOpen && isOpen
 
-  function handleClick(e: PointerEvent) {
+  if (loadJs) {
+    onMount(() => {
+      isOpen = false
+      onServer = false
+    })
+  }
+
+  function handleClickWhileOpen(e: PointerEvent) {
     if (isOpen && e.target?.tagName === LINK_TAG) {
-      send('TOGGLE')
+      isOpen = !isOpen
     }
   }
 
-  if (loadJs) {
-    onMount(() => send('MOUNTED'))
+  function handleClick(): void {
+    isOpen = !isOpen
   }
 </script>
 
@@ -55,7 +64,7 @@
       aria-haspopup="true"
       aria-expanded={isOpen}
       aria-controls={bodyId}
-      on:click={() => send('TOGGLE')}>
+      on:click={handleClick}>
       {@html hasDynamicTitleAndIsOpen ? titleWhenOpen : title}
     </button>
     {#if isOpen}
@@ -64,8 +73,8 @@
         class="dropdown-content"
         id={bodyId}
         use:clickOutside={titleId}
-        on:click={handleClick}
-        on:clickOutside={() => isOpen && send('TOGGLE')}
+        on:click={handleClickWhileOpen}
+        on:clickOutside={() => isOpen && handleClick()}
         in:slide={{ duration: 650 }}
         out:slide={{ duration: 500 }}>
         <slot {isOpen} />
