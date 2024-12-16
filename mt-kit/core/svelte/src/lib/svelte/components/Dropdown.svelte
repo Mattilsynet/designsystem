@@ -23,12 +23,12 @@
   let onServer = true
   $: hasDynamicTitleAndIsOpen = titleWhenOpen && isOpen
 
-  if (loadJs) {
-    onMount(() => {
+  onMount(() => {
+    if (loadJs) {
       isOpen = false
       onServer = false
-    })
-  }
+    }
+  })
 
   function closeDropdownOnNavigation(e: MouseEvent & { target: HTMLElement }): void {
     if (isOpen && e.target?.tagName === LINK_TAG) {
