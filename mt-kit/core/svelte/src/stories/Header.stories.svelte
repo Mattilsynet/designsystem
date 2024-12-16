@@ -25,10 +25,11 @@
 <rect x="5.52002" y="13.4414" width="4.08" height="1.8" fill="#055B7A"/>
 </svg>
 `
-  let value: string = ''
-  let searchString: string = null
+  let searchString: string
+  let isOpen = true
+  let titleId: string | undefined
   function onSubmit(): void {
-    searchString = value ?? ''
+    searchString = ''
   }
 </script>
 
@@ -133,8 +134,8 @@
     disableJs: { control: 'boolean' }
   }} />
 
-<Story name="Normal" let:title let:disableCss let:args let:disableJs>
-  <header class="mt-header" use:wrapInShadowDom={disableCss}>
+<Story name="Normal" let:args>
+  <header class="mt-header" use:wrapInShadowDom={args.disableCss}>
     <div class="container mt-header-wrapper mt-header-wrapper--regular">
       <a href="https://mattilsynet.no/" class="mt-link fit-content">
         <svg
@@ -153,7 +154,7 @@
         loadJs={!args.disableJs}
         class="m-r-xxs mt-button__small-text full-menu responsive-hide"
         icon="icon--caret-down-after"
-        let:titleId>
+        bind:titleId>
         <ol
           class="mt-ol alt-language m-t-0 layout-grid layout-grid--column-12 container"
           aria-labelledby={titleId}>
@@ -165,8 +166,7 @@
         </ol>
       </Dropdown>
       <Dropdown
-        let:isOpen
-        let:send
+        bind:isOpen
         title={args.search.linkText}
         loadJs={!args.disableJs}
         class="m-r-xxs mt-button__small-text full-menu"
@@ -177,12 +177,12 @@
           class="mt-form form-layout layout-grid layout-grid--column-12 container"
           on:submit|preventDefault={() => {
             onSubmit()
-            send('TOGGLE')
+            isOpen = false
           }}>
           <Search
             shouldFocus={isOpen}
             class="col-4-span-6"
-            bind:value
+            bind:searchString
             name="search"
             searchButtonText={args.search.linkText}
             ariaControls="search-status" />
@@ -193,13 +193,12 @@
         class="mt-button__small-text full-menu"
         loadJs={!args.disableJs}
         icon="icon--hamburger-menu-on-light-after"
-        let:titleId>
+        bind:titleId>
         <nav class="layout-grid layout-grid--column-12 container">
           <MenuItems
             itemsLeft={args.menu.items}
             itemsRight={args.menu.itemsRight}
             itemsBottom={args.menu.itemsBottom}
-            itemsLanguage={args.items}
             loadJs={!args.disableJs}
             {titleId} />
           <ol

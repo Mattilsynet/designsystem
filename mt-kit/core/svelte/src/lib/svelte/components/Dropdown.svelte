@@ -12,6 +12,7 @@
   export let titleWhenOpen = ''
   export let loadJs = false
   export let icon = ''
+  export let isOpen = true
   const bodyId = `ui-dropdown-${counter++}`
   export let titleId = `${bodyId}-title`
   let className = ''
@@ -19,7 +20,6 @@
 
   const LINK_TAG: Readonly<string> = 'A'
 
-  let isOpen = true
   let onServer = true
   $: hasDynamicTitleAndIsOpen = titleWhenOpen && isOpen
 
