@@ -109,16 +109,12 @@
           {statusTitle}
         </div>
         <Table {headers} {rows} style="--spacer-large: var(--spacer-x-small)">
-          <!-- @migration-task: migrate this slot by hand, `headers` would shadow a prop on the parent component -->
-          <th
-            slot="headers"
-            let:header
-            role="columnheader"
-            scope="col"
-            class="mt-th {header.class}">
-            {header.text}
-          </th>
-          {#snippet row({ row })}
+          {#snippet headersSlot(header)}
+            <th role="columnheader" scope="col" class="mt-th {header.class}">
+              {header.text}
+            </th>
+          {/snippet}
+          {#snippet rowSlot(row)}
             <tr class="mt-tr">
               <TableCol header={headers[0]?.text}>{row.tittel1}</TableCol>
               <TableCol header={headers[1]?.text}>{@html row.tittel2}</TableCol>
