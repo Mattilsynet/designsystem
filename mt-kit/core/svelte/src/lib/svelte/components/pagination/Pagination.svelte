@@ -1,12 +1,8 @@
 <script lang="ts">
-  import { run, preventDefault } from 'svelte/legacy'
-
-  import type { Page, ChapterChangeDetails } from '../../../ts/types'
-  import { onMount, createEventDispatcher } from 'svelte'
-  import { interpolate } from '../../../ts/utils'
+  import type { Page } from '$lib/ts'
+  import { interpolate } from '$lib/ts'
 
   const PAGINATION_BREAKPOINT = '1024px' // $breakpoint-x-large
-  const PAGE_CHANGE_EVENT = 'page-change'
   const ALLOWED_PAGES_DESKTOP = 5
   const ALLOWED_PAGES_MOBILE = 3
 
@@ -19,6 +15,7 @@
     pages?: Array<Page>
     currentPageIndex?: number
     class?: string
+    pageChange?: (index: number) => void
   }
 
   let {
@@ -29,17 +26,17 @@
     toPageTitle = 'Gå til side {0} av {1}',
     pages = [],
     currentPageIndex = 0,
-    class: className = ''
+    class: className = '',
+    pageChange = _ => {}
   }: Props = $props()
 
-  const dispatch = createEventDispatcher<{ chapterChange: ChapterChangeDetails }>()
+  let isMobile = $state(
+    window?.matchMedia(`(max-width: ${PAGINATION_BREAKPOINT})`).matches === true
+  )
 
-  onMount(() => {
-    isMobile = window?.matchMedia(`(max-width: ${PAGINATION_BREAKPOINT})`).matches === true
-  })
-
-  function handleClick(index: number): void {
-    dispatch(PAGE_CHANGE_EVENT, { index: index })
+  function handleClick(event: Event, index: number): void {
+    event.preventDefault()
+    pageChange(index)
   }
 
   function hasNextPage(currentPageNumber: number, pages: Array<Page>): boolean {
@@ -101,14 +98,12 @@
       return { ...page, hidden: true }
     })
   }
+
   let nextPageIndex = $derived(currentPageIndex + 1)
   let nextPage = $derived(pages[nextPageIndex])
   let previousPageIndex = $derived(currentPageIndex - 1)
   let previousPage = $derived(pages[previousPageIndex])
-  let isMobile
-  run(() => {
-    isMobile = undefined
-  })
+
   let mappedPages = $derived(mapPagination(isMobile, currentPageIndex + 1, pages))
 </script>
 
@@ -121,9 +116,8 @@
           ? 'inclusively-hidden--fit-content'
           : ''}"
         title={previousText}
-        onclick={preventDefault(() => handleClick(previousPageIndex))}
-        aria-disabled={!hasPreviousPage(currentPageIndex)}
-      >
+        onclick={e => handleClick(e, previousPageIndex)}
+        aria-disabled={!hasPreviousPage(currentPageIndex)}>
         {previousText}
       </a>
     {/if}
@@ -134,15 +128,13 @@
         {:else if !chapter.hidden}
           <li
             class="mt-li pagination-item"
-            class:pagination-item--current={index === currentPageIndex ? 'page' : undefined}
-          >
+            class:pagination-item--current={index === currentPageIndex ? 'page' : undefined}>
             <a
               href={chapter.url}
               class="mt-link"
-              title={interpolate(toPageTitle, [index + 1, pages.length])}
+              title={interpolate(toPageTitle, [String(index + 1), String(pages.length)])}
               aria-current={index === currentPageIndex ? 'page' : undefined}
-              onclick={preventDefault(() => handleClick(index))}
-            >
+              onclick={e => handleClick(e, index)}>
               <span class="inclusively-hidden-initial">{labelPage}</span>
               {index + 1}
             </a>
@@ -157,21 +149,19 @@
           ? 'inclusively-hidden--fit-content'
           : ''}"
         title={previousText}
-        onclick={preventDefault(() => handleClick(previousPageIndex))}
-        aria-disabled={!hasPreviousPage(currentPageIndex)}
-      >
+        onclick={e => handleClick(e, previousPageIndex)}
+        aria-disabled={!hasPreviousPage(currentPageIndex)}>
         {previousText}
       </a>
     {/if}
     <a
       href={nextPage ? nextPage.url : undefined}
-      onclick={preventDefault(() => handleClick(nextPageIndex))}
+      onclick={e => handleClick(e, nextPageIndex)}
       title={nextText}
       class="mt-link next-link {!hasNextPage(currentPageIndex, pages)
         ? 'inclusively-hidden--fit-content'
         : ''}"
-      aria-disabled={!hasNextPage(currentPageIndex, pages)}
-    >
+      aria-disabled={!hasNextPage(currentPageIndex, pages)}>
       {nextText}
     </a>
   </nav>

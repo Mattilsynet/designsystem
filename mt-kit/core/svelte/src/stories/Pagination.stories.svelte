@@ -7,10 +7,9 @@
   const pageChangeAction = action('pageChange')
   let currentPageIndex = $state(0)
 
-  function handlePageChange(e) {
-    e.preventDefault()
-    pageChangeAction(e)
-    currentPageIndex = e.detail.index
+  function handlePageChange(index: number) {
+    pageChangeAction('index', index)
+    currentPageIndex = index
   }
 
   const { Story } = defineMeta({
@@ -47,7 +46,7 @@
         <Pagination
           {pages}
           {currentPageIndex}
-          on:page-change={handlePageChange}
+          pageChange={handlePageChange}
           nextText="Neste"
           previousText="Forrige"
           labelPage="Side"
