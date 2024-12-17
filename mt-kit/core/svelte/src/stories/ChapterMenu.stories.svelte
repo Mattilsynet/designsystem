@@ -7,9 +7,9 @@
   const chapterChangeAction = action('chapterChange')
   let currentChapterNumber = $state(0)
 
-  function chapterChange(e) {
-    chapterChangeAction(e)
-    currentChapterNumber = e.detail.index
+  function chapterChange(index: number) {
+    chapterChangeAction('index', index)
+    currentChapterNumber = index
   }
 
   const { Story } = defineMeta({
@@ -66,7 +66,7 @@
         control: 'boolean'
       },
       chapters: {
-        control: 'array'
+        control: 'object'
       },
       disableCss: {
         control: 'boolean'
@@ -92,7 +92,7 @@
           loadJs={!disableJs}
           menuTitle="Innhold"
           {currentChapterNumber}
-          on:chapterChange={chapterChange} />
+          {chapterChange} />
       </div>
     </div>
   {/snippet}
