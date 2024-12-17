@@ -1,6 +1,4 @@
 <script lang="ts">
-  import { run } from 'svelte/legacy'
-
   type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6
 
   interface Props {
@@ -12,18 +10,17 @@
 
   let {
     headingLevel = 1,
-    class: className = $bindable(''),
+    class: classProp = '',
     id: idPassed = undefined,
     children
   }: Props = $props()
+
+  let className = $derived(getClassName(classProp, headingLevel))
 
   function getClassName(className: string, headingLevel: HeadingLevel): string {
     const regExpExecArray = /mt-h[1-6]/g.exec(className)
     return regExpExecArray ? regExpExecArray.input : `mt-h${headingLevel} ${className}`
   }
-  run(() => {
-    className = getClassName(className, headingLevel)
-  })
 </script>
 
 {#if headingLevel === 1}
