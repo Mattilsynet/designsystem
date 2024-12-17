@@ -4,12 +4,21 @@
   import MultiSelect from '$lib/svelte/components/form/MultiSelect.svelte'
   import { wrapInShadowDom } from '../storybook-utils/utils'
   import ResourceList from '../storybook-utils/ResourceList.svelte'
+  import { action } from '@storybook/addon-actions'
 
+  const submitAction = action('submitAction')
   let value = $state([])
 
   function handleSubmit(e: SubmitEvent) {
     e.preventDefault()
-    console.log('FORM handle submit')
+    const data = []
+    // @ts-expect-error Type FormData must have a [Symbol. iterator]() method
+    for (let field of new FormData(e.target)) {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const [_, value] = field
+      data.push(value)
+    }
+    submitAction(data.join(', '))
   }
 
   function handleFormKeyUp(e: KeyboardEvent) {
@@ -19,7 +28,7 @@
 
   function handleFormKeyDown(e: KeyboardEvent) {
     e.stopPropagation()
-    if (e.key === 'Enter' && e.target.type !== 'submit') {
+    if (e.key === 'Enter' && e.target?.type !== 'submit') {
       e.preventDefault()
     }
   }
@@ -38,12 +47,9 @@
         ],
         options: [
           { value: 'DA', text: 'Danmark', removeAriaLabel: 'Fjern Danmark fra listen' },
-          { value: 'FI', text: 'Finland', removeAriaLabel: 'Fjern Finland fra listen' },
           { value: 'FR', text: 'Frankrike', removeAriaLabel: 'Fjern Frankrike fra listen' },
-          { value: 'NO', text: 'Norge', removeAriaLabel: 'Fjern Norge fra listen' },
           { value: 'PT', text: 'Portugal', removeAriaLabel: 'Fjern Portugal fra listen' },
           { value: 'ES', text: 'Spania', removeAriaLabel: 'Fjern Spania fra listen' },
-          { value: 'SE', text: 'Sverige', removeAriaLabel: 'Fjern Sverige fra listen' },
           { value: 'KR', text: 'Sør Korea', removeAriaLabel: 'Fjern Sør Korea fra listen' },
           { value: 'DE', text: 'Tyskland', removeAriaLabel: 'Fjern Tyskland fra listen' }
         ],

@@ -3,9 +3,6 @@
 </script>
 
 <script lang="ts">
-  import { run, preventDefault, createBubbler } from 'svelte/legacy'
-
-  const bubble = createBubbler()
   import { onMount } from 'svelte'
   import { fly } from 'svelte/transition'
   import type { ErrorDetail, MultiSelectOption } from '$lib/ts'
@@ -22,7 +19,7 @@
     readonly?: boolean
     placeholder?: string
     options?: Array<MultiSelectOption>
-    preferredOptions?: any
+    preferredOptions?: Array<MultiSelectOption>
     isRequired?: boolean | undefined
     error: ErrorDetail | undefined
     helpText: string | undefined
@@ -49,14 +46,14 @@
     loadJs = true
   }: Props = $props()
 
-  let input: HTMLInputElement = $state()
-  let inputValue: string = $state()
+  let input: HTMLInputElement | undefined = $state()
+  let inputValue: string | undefined = $state()
   let allOptions: Array<MultiSelectOption> = $state([])
   let activeOption: undefined | MultiSelectOption = $state()
   let showOptions = $state(false)
   let first = $state(true)
   let selected: MultiSelectOption | object = $state({})
-  let listBox: HTMLUListElement = $state()
+  let listBox: HTMLUListElement | undefined = $state()
 
   const ENTER: Readonly<string> = 'Enter'
   const ESCAPE: Readonly<string> = 'Escape'
@@ -79,21 +76,23 @@
     first = false
   })
 
-  run(() => {
+  $effect(() => {
     if (!first) {
       values = Object.values(selected).map(o => o.value)
     }
   })
+  $effect(() => {
+    if ((activeOption && !filtered.includes(activeOption)) || (!activeOption && inputValue)) {
+      activeOption = filtered[0]
+    }
+  })
+
   let filtered = $derived(
     allOptions.filter(option => {
       return inputValue ? option.text.toLowerCase().includes(inputValue.toLowerCase()) : option
     })
   )
-  run(() => {
-    if ((activeOption && !filtered.includes(activeOption)) || (!activeOption && inputValue)) {
-      activeOption = filtered[0]
-    }
-  })
+
   let activeOptionIndex = $derived(filtered.indexOf(activeOption))
 
   function add(token: MultiSelectOption): void {
@@ -209,6 +208,7 @@
   }
 
   function handleRemoveItem(e: Event, value): void {
+    e.preventDefault()
     remove(value)
   }
 
@@ -219,6 +219,7 @@
   }
 
   function handleOptionMouseup(e: MouseEvent): void {
+    e.preventDefault()
     const value = (e.target as HTMLInputElement).dataset.value
     if (selected[value]) {
       remove(value)
@@ -235,15 +236,13 @@
     id="{selectId}-selected-label"
     class="text-small token-label"
     data-testid="multiselect-selected-list"
-    class:hidden={!Object.values(selected).length}
-  >
+    class:hidden={!Object.values(selected).length}>
     {tagsLabel}
   </div>
   <ul
     id="{selectId}-selected"
     class="mt-ul token-wrapper list-unstyled"
-    aria-labelledby="{selectId}-selected-label"
-  >
+    aria-labelledby="{selectId}-selected-label">
     {#each Object.values(selected) as selectedOption, index}
       <li>
         <button
@@ -253,8 +252,7 @@
           data-id={selectedOption.value}
           aria-label={selectedOption.removeAriaLabel}
           onkeydown={e => handleRemoveItemKeyDown(e, selectedOption.value)}
-          onclick={preventDefault(e => handleRemoveItem(e, selectedOption.value))}
-        >
+          onclick={e => handleRemoveItem(e, selectedOption.value)}>
           <span>{selectedOption.text}</span>
         </button>
       </li>
@@ -275,7 +273,13 @@
 
 {#if loadJs}
   <div class="multiselect m-t-xxs" class:readonly>
-    <div class="actions" onclick={preventDefault(handleTokenClick)} onblur={handleBlur}>
+    <div
+      class="actions"
+      onclick={e => {
+        e.preventDefault()
+        handleTokenClick()
+      }}
+      onblur={handleBlur}>
       {#if !readonly}
         <input
           id={`${name}-input`}
@@ -294,8 +298,7 @@
           aria-activedescendant={activeOption
             ? `${selectId}-${activeOption.value}-${activeOptionIndex}`
             : undefined}
-          {placeholder}
-        />
+          {placeholder} />
         <span class="down-arrow" aria-hidden="true"></span>
       {/if}
     </div>
@@ -308,9 +311,8 @@
       bind:this={listBox}
       class:hidden={!showOptions}
       transition:fly|local={{ duration: 200, y: 5 }}
-      onmousedown={preventDefault(bubble('mousedown'))}
-      onmouseup={preventDefault(handleOptionMouseup)}
-    >
+      onmousedown={e => e.preventDefault()}
+      onmouseup={handleOptionMouseup}>
       {#each filtered as option, index}
         <li
           id="{selectId}-{option.value}-{index}"
@@ -321,8 +323,7 @@
           class:selected={selected[option.value]}
           class:active={activeOption === option}
           aria-selected={!!selected[option.value]}
-          data-value={option.value}
-        >
+          data-value={option.value}>
           {option.text}
         </li>
       {/each}
@@ -333,8 +334,7 @@
     title=""
     ariaLabelledBy="{`${name}-input`}-label"
     detailsClass="full-width multiselect--no-js"
-    summaryWrapperClass="options-dropdown"
-  >
+    summaryWrapperClass="options-dropdown">
     {#each preferredOptions as option, index}
       <div class="form-control" class:divider={index === preferredOptions.length - 1}>
         <input
@@ -345,8 +345,7 @@
           class:error
           value={option.value}
           checked={values.includes(option.value)}
-          aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)}
-        />
+          aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)} />
         <label class="mt-label" for={toKebabCase(option.value)}>
           {option.text}
         </label>
@@ -362,8 +361,7 @@
           class:error
           value={option.value}
           checked={values.includes(option.value)}
-          aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)}
-        />
+          aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)} />
         <label class="mt-label" for={toKebabCase(option.value)}>
           {option.text}
         </label>
