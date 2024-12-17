@@ -1,13 +1,11 @@
 <script lang="ts">
-  import { run } from 'svelte/legacy'
-
   interface Props {
     title: string
     detailsClass?: string
     summaryClass?: string
     summaryWrapperClass?: string
     testId?: string
-    ariaLabelledBy?: any
+    ariaLabelledBy?: string
     summaryId?: string
     children?: import('svelte').Snippet
   }
@@ -24,9 +22,11 @@
   }: Props = $props()
 
   let isOpen = $state(false)
-  run(() => {
-    summaryId
-    isOpen = false
+
+  $effect.pre(() => {
+    if (summaryId !== undefined) {
+      isOpen = false
+    }
   })
 
   function beforePrint(): void {
@@ -43,8 +43,7 @@
   class="mt-details {detailsClass}"
   aria-labelledby={ariaLabelledBy}
   data-test-id={testId}
-  bind:open={isOpen}
->
+  bind:open={isOpen}>
   <summary id={summaryId} class="mt-summary mt-summary-icon {summaryClass}">
     {@html title}
   </summary>
