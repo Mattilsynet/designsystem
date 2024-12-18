@@ -1,6 +1,4 @@
 <script lang="ts">
-  import { run } from 'svelte/legacy'
-
   import 'ol/ol.css'
   import { Map, View } from 'ol'
   import { fromLonLat } from 'ol/proj'
@@ -69,7 +67,7 @@
     })
   })
 
-  run(() => {
+  $effect(() => {
     if (map) {
       setMap(map)
     }
