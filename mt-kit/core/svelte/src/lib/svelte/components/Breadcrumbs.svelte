@@ -3,19 +3,27 @@
   import type { Breadcrumbs, Link } from '$lib/ts/types'
 
   const BUTTON_ELLIPSIS = Symbol()
-  export let breadcrumbs: Breadcrumbs = { items: [] }
-  export let loadJs = false
-  let classNames = ''
-  export { classNames as class }
+
+  interface Props {
+    breadcrumbs?: Breadcrumbs
+    loadJs?: boolean
+    class?: string
+  }
+
+  let { breadcrumbs = { items: [] }, loadJs = false, class: classNames = '' }: Props = $props()
+
   const LIMIT_BEFORE_PARTIAL = 3
 
-  let ariaLabel = breadcrumbs.ariaLabel ?? 'brødsmulesti'
-  let showAllBreadCrumbsLabel = breadcrumbs.showAllAriaLabel ?? 'vis mer'
-  let homeLabel = breadcrumbs.homeLabel ?? 'Hjem'
+  const ariaLabel = breadcrumbs.ariaLabel ?? 'brødsmulesti'
+  const showAllBreadCrumbsLabel = breadcrumbs.showAllAriaLabel ?? 'vis mer'
+  const homeLabel = breadcrumbs.homeLabel ?? 'Hjem'
 
-  let isFull = true
-  let breadcrumbsItems: Array<Link | symbol>
-  $: breadcrumbsItems = breadcrumbs.items
+  let isFull = $state(true)
+  let breadcrumbsItems: Array<Link | symbol> = $state(breadcrumbs.items)
+
+  $effect(() => {
+    breadcrumbsItems = breadcrumbs.items
+  })
 
   if (loadJs) {
     onMount(() => {
@@ -49,7 +57,7 @@
             aria-expanded="false"
             aria-label={showAllBreadCrumbsLabel}
             class="mt-button mt-button--link"
-            on:click={() => handleShowFull()}>
+            onclick={() => handleShowFull()}>
             ...
           </button>
         {:else if index + 1 < breadcrumbsItems.length}
