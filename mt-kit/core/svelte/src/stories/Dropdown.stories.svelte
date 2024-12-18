@@ -62,12 +62,6 @@
   }
 
   const { Story } = defineMeta({
-    parameters: {
-      xstate: true,
-      inspectUrl: 'https://stately.ai/viz?inspect',
-      layout: 'fullscreen',
-      disableCss: false
-    },
     title: 'Components/Dropdown',
     argTypes: {
       buttonLabel: { control: 'text' },

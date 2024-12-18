@@ -56,7 +56,6 @@
 
   const { Story } = defineMeta({
     title: 'Components/Breadcrumbs',
-    parameters: { xstate: true, inspectUrl: 'https://stately.ai/viz?inspect' },
     args: {
       loadJs: true,
       breadcrumbsLong: {

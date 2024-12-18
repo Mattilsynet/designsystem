@@ -34,7 +34,6 @@
 
   const { Story } = defineMeta({
     title: 'Components/Trekkspill',
-    parameters: { xstate: true, inspectUrl: 'https://stately.ai/viz?inspect' },
     argTypes: {
       title: { control: 'text' },
       body: { control: 'text' },
