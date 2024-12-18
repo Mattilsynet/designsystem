@@ -15,10 +15,10 @@ import {
   DEFAULT_START_COORDINATES,
   PROJECTION,
   ZOOM_NORWAY
-} from '../../../ts/mapUtils'
+} from '$lib/ts/mapUtils'
 import { type Layer } from 'ol/layer'
 import { LAYER_ID, VECTOR_LAYER_ID } from './layer-utils'
-import { prefersReducedMotion } from '../../../ts/utils'
+import { prefersReducedMotion } from '$lib/ts'
 import { CLICK_POPUP_CLOSE_ID, setOverlayContent, setOverlayPosition } from './overlay'
 import { MARKER } from './marker'
 import { flyToAnimation } from '../../components/map/animations'

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { ErrorDetail } from '../../../ts/types'
+  import type { ErrorDetail } from '$lib/ts'
 
   interface Props {
     value: any
@@ -18,5 +18,4 @@
   class="mt-input"
   class:error
   aria-describedby={`${name}-hint ${name}-error`}
-  aria-invalid={!!error}
-/>
+  aria-invalid={!!error} />

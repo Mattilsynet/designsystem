@@ -43,7 +43,7 @@ export {
   prefersReducedMotion,
   isMobileOrTablet
 } from './utils'
-export { markers } from '../ts/markers'
+export { markers } from '$lib/ts/markers'
 export {
   DEFAULT_MARKER_OPACITY,
   DEFAULT_MARKER_SCALE,
@@ -54,5 +54,5 @@ export {
   DEFAULT_CLUSTER_MIN_DISTANCE,
   EUROPA_FORENKLET,
   NORGES_GRUNNKART
-} from '../ts/mapUtils'
+} from '$lib/ts/mapUtils'
 export { createClickMarkerContent } from '../svelte/components/map/overlay'

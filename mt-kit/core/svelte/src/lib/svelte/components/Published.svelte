@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { compareDates } from '../../ts/utils'
+  import { compareDates } from '$lib/ts'
 
   interface Props {
     publishFrom: string | undefined

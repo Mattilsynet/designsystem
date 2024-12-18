@@ -1,7 +1,7 @@
 <script lang="ts">
   import { tick } from 'svelte'
   import InputError from './InputErrorMessage.svelte'
-  import { createInputAriaDescribedby, forceArray, toKebabCase } from '../../../ts/utils'
+  import { createInputAriaDescribedby, forceArray, toKebabCase } from '$lib/ts/utils'
   import type { ErrorDetail } from '$lib/ts'
 
   interface Props {

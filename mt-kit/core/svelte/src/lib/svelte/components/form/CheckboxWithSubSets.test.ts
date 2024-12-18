@@ -1,6 +1,6 @@
 import { fireEvent, render, waitFor } from '@testing-library/svelte'
 import CheckboxWithSubSets from './CheckboxWithSubSets.svelte'
-import type { CheckboxWithSubSectionsOptions } from '../../../ts/types'
+import type { CheckboxWithSubSectionsOptions } from '$lib/ts'
 
 describe('Checkbox with subsets', () => {
   const level1Legend = 'Checkbox with subsets'

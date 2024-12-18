@@ -5,11 +5,11 @@ import {
   MAX_FLY_TO_ANIMATION_SPEED,
   ZOOM_HALF_NORWAY,
   ZOOM_NORWAY
-} from '../../../ts/mapUtils'
+} from '$lib/ts/mapUtils'
 import { fromLonLat } from 'ol/proj'
 import { toOLCoordinates } from './utils'
 import { distance } from 'ol/coordinate'
-import type { MTFlightAnimationOptions } from '../../../ts/types'
+import type { MTFlightAnimationOptions } from '$lib/ts/types'
 
 export function flyToAnimation(map: Map, options: MTFlightAnimationOptions): void {
   const {

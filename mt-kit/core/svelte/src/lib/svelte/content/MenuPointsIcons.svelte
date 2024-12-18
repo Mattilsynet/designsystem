@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { mapRelExternal, toKebabCase } from '../../ts/utils'
   import type { MenuPoint } from '$lib/ts'
+  import { mapRelExternal, toKebabCase } from '$lib/ts'
   import HeadingLevel from '../components/HeadingLevel.svelte'
 
   interface Props {
@@ -16,8 +16,7 @@
   aria-labelledby={ariaLabelledBy}
   class="mt-ul list-unstyled no-space-top layout-grid layout-grid--column-3 m-t-0"
   style="--gap:var(--spacer-medium);"
-  data-testid="menu-points"
->
+  data-testid="menu-points">
   {#each menuPoints as menuPoint, index}
     <li>
       <a
@@ -25,8 +24,7 @@
         rel={mapRelExternal(menuPoint.url)}
         class="menu-point border-radius p-xs"
         aria-describedby={menuPoint.keywords ? toKebabCase(menuPoint.keywords) : ''}
-        data-testid="menupoints-link"
-      >
+        data-testid="menupoints-link">
         {#if menuPoint.iconResource}
           <div class="svg-wrapper" aria-hidden="true">
             {@html menuPoint.iconResource}
@@ -37,12 +35,10 @@
             alt=""
             class="mt-img"
             aria-hidden="true"
-            data-testid="img-icon"
-          />
+            data-testid="img-icon" />
         {/if}
         <HeadingLevel class="mt-h3 menu-point-heading" headingLevel={+headerTag.charAt(1)}
-          >{@html menuPoint.text}</HeadingLevel
-        >
+          >{@html menuPoint.text}</HeadingLevel>
 
         {#if menuPoint.keywords}
           <p id={toKebabCase(menuPoint.keywords)}>

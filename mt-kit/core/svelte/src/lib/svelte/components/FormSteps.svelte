@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { interpolate } from '../../ts/index'
+  import { interpolate } from '$lib/ts'
   import type { FormStep } from '$lib/ts/types'
 
   interface Props {
@@ -44,8 +44,7 @@
     pageTitle,
     displayedStepIndex + 1,
     stepsDisplayed.length
-  ])}
->
+  ])}>
   <ol class="mt-ol m-t-xxs steps" aria-hidden="true">
     {#each steps as step}
       {#if step.show}
@@ -53,8 +52,7 @@
           class="mt-li"
           class:steps__complete={step.index <= displayedStep.index &&
             displayedStep.subPageUrl !== step.subPageUrl}
-          class:steps__current={displayedStep.subPageUrl === step.subPageUrl}
-        >
+          class:steps__current={displayedStep.subPageUrl === step.subPageUrl}>
           <span class="responsive-hide">{step.label}</span>
         </li>
       {/if}

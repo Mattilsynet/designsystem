@@ -1,6 +1,6 @@
 <script lang="ts">
   import HeadingLevel from '../components/HeadingLevel.svelte'
-  import { mapRelExternal } from '../../ts/utils'
+  import { mapRelExternal } from '$lib/ts'
 
   interface Props {
     href?: string
@@ -36,8 +36,7 @@
     href={url}
     rel={mapRelExternal(url)}
     class="mt-link col-1-span-12 layout-flex layout-flex-col box-border-radius-br-l highlighted-content highlighted-content--{displayType}"
-    data-testid="highlighted-content-link"
-  >
+    data-testid="highlighted-content-link">
     <HeadingLevel class="heading {headingClass}" headingLevel={+headerTag.charAt(1)}>
       {title}
     </HeadingLevel>
@@ -47,8 +46,7 @@
   <a
     href={url}
     rel={mapRelExternal(url)}
-    class="mt-link box-border-radius-br-l highlighted-content highlighted-content--{displayType} {className}"
-  >
+    class="mt-link box-border-radius-br-l highlighted-content highlighted-content--{displayType} {className}">
     <span class="col-1-span-5 layout-flex layout-flex-col highlighted-text">
       {#if shortTitle}
         <HeadingLevel class="heading {headingClass}" headingLevel={+headerTag.charAt(1)}>
@@ -66,8 +64,7 @@
     href={url}
     rel={mapRelExternal(url)}
     class="mt-link highlighted-content border-radius {className}"
-    data-testid="highlighted-content-link"
-  >
+    data-testid="highlighted-content-link">
     {#if image && image.src}
       <img src={image.src} alt={image.alt} class="mt-img" />
     {/if}

@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { mapRelExternal } from '../../ts/utils'
-  import HeadingLevel from '../components/HeadingLevel.svelte'
   import type { SearchResult } from '$lib/ts'
+  import { mapRelExternal } from '$lib/ts'
+  import HeadingLevel from '../components/HeadingLevel.svelte'
 
   interface Props {
     searchResult?: Array<SearchResult>
@@ -22,8 +22,7 @@
   <a
     href={result.url}
     rel={mapRelExternal(result.url)}
-    class="mt-link col-1-span-12 layout-flex layout-flex-col border-radius search-result"
-  >
+    class="mt-link col-1-span-12 layout-flex layout-flex-col border-radius search-result">
     <HeadingLevel class="heading {headingClass}" headingLevel={+headerTag.charAt(1)}>
       {@html result.title}
     </HeadingLevel>
@@ -36,8 +35,7 @@
       <div
         aria-label={breadCrumbAriaLabel}
         style="--gap: var(--fds-spacing-2)"
-        class="layout-flex layout-flex--center-vertical"
-      >
+        class="layout-flex layout-flex--center-vertical">
         {#each result.breadcrumbs as breadcrumb}
           <span class="breadcrumb">
             {@html breadcrumb}

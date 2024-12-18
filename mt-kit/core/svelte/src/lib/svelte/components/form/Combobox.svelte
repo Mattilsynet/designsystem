@@ -2,7 +2,7 @@
   import '@u-elements/u-datalist'
   import Label from './Label.svelte'
   import InputError from './InputErrorMessage.svelte'
-  import { createInputAriaDescribedby, type ErrorDetail } from '../../../ts'
+  import { createInputAriaDescribedby, type ErrorDetail } from '$lib/ts'
 
   interface Props {
     inputName?: string
@@ -82,14 +82,12 @@
         inputHelpText ? inputName : undefined,
         inputError
       )}
-      oninput={handleInput}
-    />
+      oninput={handleInput} />
     <span
       role="status"
       aria-live="assertive"
       class:icon--spinner={isLoading}
-      aria-label={isLoading ? formInProgressAriaLabel : ''}
-    ></span>
+      aria-label={isLoading ? formInProgressAriaLabel : ''}></span>
   </div>
   <u-datalist id={listName} class="mt-datalist">
     {@render options?.()}

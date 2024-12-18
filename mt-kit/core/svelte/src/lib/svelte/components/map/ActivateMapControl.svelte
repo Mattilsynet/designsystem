@@ -3,7 +3,7 @@
   import type { Control } from 'ol/control'
   import { getMap, type MapContext } from './contexts'
   import { createActivateMapControl, type MTActivateMapOptions } from './activate-map-control'
-  import { isMobileOrTablet } from '../../../ts/utils'
+  import { isMobileOrTablet } from '$lib/ts'
 
   interface Props {
     activateMapOptions?: MTActivateMapOptions

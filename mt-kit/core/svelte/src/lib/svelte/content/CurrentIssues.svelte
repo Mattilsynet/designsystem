@@ -1,6 +1,6 @@
 <script lang="ts">
   import HeadingLevel from '../components/HeadingLevel.svelte'
-  import { mapRelExternal } from '../../ts/utils'
+  import { mapRelExternal } from '$lib/ts'
 
   interface Props {
     title?: string
@@ -20,8 +20,7 @@
 <section
   class="layout-grid layout-grid--column-12 current-issues"
   data-testid="current-issues"
-  aria-labelledby="current-issues-heading"
->
+  aria-labelledby="current-issues-heading">
   <!--  todo-->
   <HeadingLevel class="col-1-span-12 heading mt-h3" headingLevel={+headerTag.charAt(1)}>
     {title}
@@ -32,15 +31,13 @@
       class:col-1-span-5={issues.length > 1 && index % 2 === 0}
       class:col-7-span-5={issues.length > 1 && index % 2 !== 0}
       class:col-1-span-12={issues.length === 1}
-      data-testid="current-issue-span-{index}"
-    >
+      data-testid="current-issue-span-{index}">
       {#if issue.title}
         <a
           class="self-start {headingClass}"
           rel={mapRelExternal(issue.href)}
           href={issue.href}
-          data-testid="current-issue-a-{index}"
-        >
+          data-testid="current-issue-a-{index}">
           {@html issue.title}
         </a>
       {/if}

@@ -7,7 +7,6 @@ import VectorLayer from 'ol/layer/Vector'
 import VectorSource from 'ol/source/Vector'
 import { LAYER_ID } from './layer-utils'
 import { zoomPopup } from './utils'
-import { ZOOM_NORWAY } from '../../../ts/index'
 
 export const GEOLOCATION_LAYER_ID = 'geolocationLayer'
 

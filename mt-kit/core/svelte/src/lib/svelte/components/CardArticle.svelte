@@ -1,6 +1,6 @@
 <script lang="ts">
   import HeadingLevel from './HeadingLevel.svelte'
-  import { mapRelExternal } from '../../ts/utils'
+  import { mapRelExternal } from '$lib/ts'
 
   interface Props {
     headingId: string
@@ -33,8 +33,7 @@
   <HeadingLevel
     id={headingId}
     class="title {iconClass} {headerTag === 'h2' ? 'mt-h3' : ''}"
-    headingLevel={+headerTag.charAt(1)}
-  >
+    headingLevel={+headerTag.charAt(1)}>
     {@html title}
   </HeadingLevel>
 

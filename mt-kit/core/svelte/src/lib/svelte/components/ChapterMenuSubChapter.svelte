@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Chapter } from '../../ts/types'
+  import type { Chapter } from '$lib/ts'
   import { onMount } from 'svelte'
   import { slide } from 'svelte/transition'
 

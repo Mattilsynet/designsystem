@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { getFileExtension, mapRelExternal } from '../../ts/utils'
+  import { getFileExtension, mapRelExternal } from '$lib/ts'
 
   interface Props {
     linkText: any

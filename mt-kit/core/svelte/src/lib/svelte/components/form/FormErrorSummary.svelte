@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { ErrorDetail } from '../../../ts/types'
+  import type { ErrorDetail } from '$lib/ts'
 
   interface Props {
     errors?: ErrorDetail[]
@@ -21,8 +21,7 @@
     style="--gap: var(--spacer-x-small)"
     role="alert"
     tabindex="-1"
-    aria-labelledby="error-summary-heading"
-  >
+    aria-labelledby="error-summary-heading">
     <h2 id="error-summary-heading" class="mt-h2">
       {heading}
     </h2>

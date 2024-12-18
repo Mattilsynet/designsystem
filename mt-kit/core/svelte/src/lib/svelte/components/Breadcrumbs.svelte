@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte'
-  import type { Breadcrumbs, Link } from '../../ts/types'
+  import type { Breadcrumbs, Link } from '$lib/ts/types'
 
   const BUTTON_ELLIPSIS = Symbol()
   export let breadcrumbs: Breadcrumbs = { items: [] }
