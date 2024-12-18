@@ -23,8 +23,7 @@
     "Design system",
     "Mattilsynet",
     "Svelte",
-    "Storybook",
-    "xstate"
+    "Storybook"
   ],
   "author": "Mattilsynet<matsdrift@mattilsynet.no>",
   "license": "MIT",
@@ -73,7 +72,6 @@
     "@tsconfig/svelte": "^5.0.2",
     "@types/testing-library__jest-dom": "^6.0.0",
     "@typescript-eslint/parser": "^8.17.0",
-    "@xstate/inspect": "^0.8.0",
     "eslint": "^9.16.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
@@ -99,9 +97,7 @@
   "dependencies": {
     "@mattilsynet/designsystem-css": "^0.2.63",
     "@u-elements/u-datalist": "^0.0.9",
-    "@xstate/svelte": "^2.0.1",
     "gh-pages": "^5.0.0",
-    "ol": "^8.2.0",
-    "xstate": "^4.38.3"
+    "ol": "^8.2.0"
   }
 }
