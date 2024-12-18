@@ -18,7 +18,6 @@ export {
   type MTClusterOptions,
   type MTGeolocationOptions,
   type CountCharsParams,
-  type CloseDialogEvent,
   type CustomCheckedEvent,
   type InputModeType,
   type InputProps,
