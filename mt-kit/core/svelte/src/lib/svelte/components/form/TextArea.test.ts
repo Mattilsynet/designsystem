@@ -56,7 +56,7 @@ describe('TextArea', () => {
     })
     const input = getByDisplayValue(props.value)
     expect(input).toBeInTheDocument()
-    expect(input.getAttribute('autocomplete')).toEqual(null)
+    expect(input.getAttribute('autocomplete')).toEqual('off')
     expect(input.getAttribute('inputmode')).toEqual(null)
     expect(input.getAttribute('aria-required')).toEqual(null)
     expect(input.getAttribute('cols')).toEqual(null)
