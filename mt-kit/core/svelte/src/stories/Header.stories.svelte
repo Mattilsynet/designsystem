@@ -1,6 +1,4 @@
 <script lang="ts" module>
-  import { preventDefault } from 'svelte/legacy'
-
   import { defineMeta } from '@storybook/addon-svelte-csf'
   import Dropdown from '$lib/svelte/components/Dropdown.svelte'
   import MenuItems from '$lib/svelte/content/MenuItems.svelte'
@@ -27,9 +25,9 @@
 <rect x='5.52002' y='13.4414' width='4.08' height='1.8' fill='#055B7A'/>
 </svg>
 `
-  let value: string = $state('')
-  let searchString: string = null
-  let titleId: string | undefined
+  let value = $state('')
+  let isOpen = $state(true)
+  let searchString: string | undefined = $state()
 
   function onSubmit(): void {
     searchString = value ?? ''
@@ -159,8 +157,7 @@
           title="Språk/language"
           loadJs={!args.disableJs}
           class="m-r-xxs mt-button__small-text full-menu responsive-hide"
-          icon="icon--caret-down-after"
-          bind:titleId>
+          icon="icon--caret-down-after">
           {#snippet children({ titleId })}
             <ol
               class="mt-ol alt-language m-t-0 layout-grid layout-grid--column-12 container"
@@ -177,16 +174,19 @@
           title={args.search.linkText}
           loadJs={!args.disableJs}
           class="m-r-xxs mt-button__small-text full-menu"
-          icon="icon--search-after">
-          {#snippet children({ isOpen, send })}
+          icon="icon--search-after"
+          bind:isOpen>
+          {#snippet children({ titleId })}
             <form
               role="search"
               method="GET"
               class="mt-form form-layout layout-grid layout-grid--column-12 container"
-              onsubmit={preventDefault(() => {
+              aria-labelledby={titleId}
+              onsubmit={e => {
+                e.preventDefault()
                 onSubmit()
                 isOpen = false
-              })}>
+              }}>
               <Search
                 shouldFocus={isOpen}
                 class="col-4-span-6"
@@ -201,15 +201,13 @@
           title={args.menu.title}
           class="mt-button__small-text full-menu"
           loadJs={!args.disableJs}
-          icon="icon--hamburger-menu-on-light-after"
-          bind:titleId>
+          icon="icon--hamburger-menu-on-light-after">
           {#snippet children({ titleId })}
             <nav class="layout-grid layout-grid--column-12 container">
               <MenuItems
                 itemsLeft={args.menu.items}
                 itemsRight={args.menu.itemsRight}
                 itemsBottom={args.menu.itemsBottom}
-                itemsLanguage={args.items}
                 loadJs={!args.disableJs}
                 {titleId} />
               <ol

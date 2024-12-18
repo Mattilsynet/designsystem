@@ -4,7 +4,7 @@
   import { tick } from 'svelte'
 
   interface Props {
-    searchString: string
+    searchString: string | undefined
     name: string | undefined
     shouldFocus?: boolean
     label?: string | undefined
