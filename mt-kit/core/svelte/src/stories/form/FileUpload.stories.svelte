@@ -2,14 +2,16 @@
   import { defineMeta } from '@storybook/addon-svelte-csf'
   import { wrapInShadowDom } from '../storybook-utils/utils'
   import FileUpload from '$lib/svelte/components/form/FileUpload.svelte'
-  import { forceArray } from '$lib/ts/utils.js'
+  import { forceArray } from '$lib/ts/utils'
 
   let values: Record<string, Array<string> | undefined> = $state({})
 
-  async function handleChange(e: CustomEvent, name): Promise<void> {
-    const files = e.detail.files
-    const existingFiles = forceArray(values[`filename-${name}`])
-    values[`filename-${name}`] = [...existingFiles, ...Array.from(files).map(f => f.name)]
+  function handleChange(files: FileList, target: HTMLInputElement): void {
+    if (!files) {
+      return
+    }
+    const existingFiles = forceArray(values[`filename-${target.id}`])
+    values[`filename-${target.id}`] = [...existingFiles, ...Array.from(files).map(f => f.name)]
   }
 
   const { Story } = defineMeta({
@@ -58,6 +60,10 @@
   })
 </script>
 
+<script>
+  $inspect(values)
+</script>
+
 <Story name="Normal">
   {#snippet children(args)}
     <div use:wrapInShadowDom={args.disableCss}>
@@ -78,7 +84,7 @@
           isRequired={args.upload1.isRequired}
           multiple={args.upload1.multiple}
           bind:value={values[args.upload1.name]}
-          on:change={e => handleChange(e, args.upload1.name)}
+          onChange={handleChange}
           error={undefined}
           isLoading={args.isLoading}
           uploadInProgressAriaLabel={args.uploadInProgressAriaLabel}
@@ -100,7 +106,7 @@
           isRequired={args.upload2.isRequired}
           multiple={args.upload2.multiple}
           bind:value={values[args.upload2.name]}
-          on:change={e => handleChange(e, args.upload2.name)}
+          onChange={handleChange}
           error={undefined}
           isLoading={args.isLoading}
           uploadInProgressAriaLabel={args.uploadInProgressAriaLabel}
@@ -122,7 +128,7 @@
           isRequired={args.upload3.isRequired}
           multiple={args.upload3.multiple}
           bind:value={values[args.upload3.name]}
-          on:change={e => handleChange(e, args.upload3.name)}
+          onChange={handleChange}
           error={{ message: 'Eksempel på feilmelding' }}
           isLoading={args.isLoading}
           uploadInProgressAriaLabel={args.uploadInProgressAriaLabel}
@@ -144,7 +150,7 @@
           isRequired={args.upload4.isRequired}
           multiple={args.upload4.multiple}
           bind:value={values[args.upload4.name]}
-          on:change={e => handleChange(e, args.upload4.name)}
+          onChange={handleChange}
           error={undefined}
           isLoading={true}
           uploadInProgressAriaLabel={args.uploadInProgressAriaLabel}
@@ -166,7 +172,7 @@
           isRequired={args.upload4.isRequired}
           multiple={args.upload4.multiple}
           bind:value={values[args.upload4.name]}
-          on:change={e => handleChange(e, args.upload4.name)}
+          onChange={handleChange}
           error={undefined}
           isLoading={true}
           uploadInProgressAriaLabel={args.uploadInProgressAriaLabel}

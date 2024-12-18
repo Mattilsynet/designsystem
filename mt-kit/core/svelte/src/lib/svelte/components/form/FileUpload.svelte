@@ -1,6 +1,5 @@
 <script lang="ts">
   import { createInputAriaDescribedby, type ErrorDetail } from '$lib/ts'
-  import { createEventDispatcher } from 'svelte'
   import { InputErrorMessage, Label } from '$lib/index'
 
   interface Props {
@@ -12,6 +11,7 @@
     buttonText?: string
     isRequired?: boolean | undefined
     value: undefined | string | Array<string>
+    onChange?: (files: FileList, target: HTMLInputElement) => void
     label: string
     fileInputName: string
     fileNameInputName: string
@@ -32,6 +32,7 @@
     buttonText = 'Legg til fil',
     isRequired = undefined,
     value = $bindable(),
+    onChange = _ => {},
     label,
     fileInputName,
     fileNameInputName,
@@ -43,10 +44,8 @@
     uploadInProgressAriaLabel = 'Laster opp filer'
   }: Props = $props()
 
-  let uuidInput: HTMLInputElement = $state()
-  let nameInput: HTMLInputElement = $state()
-
-  const dispatch = createEventDispatcher()
+  let uuidInput: HTMLInputElement | undefined = $state()
+  let nameInput: HTMLInputElement | undefined = $state()
 
   function removeFile(fileToRemove: string): void {
     const fileNames: Array<string> = nameInput.value.split(',')
@@ -58,9 +57,9 @@
     fileName = filterFileName(fileName, fileToRemove)
   }
 
-  function handleChange(e): void {
+  function handleChange(e: InputEvent): void {
     const target = e.target as HTMLInputElement
-    dispatch('change', { files: target.files })
+    onChange(target.files as FileList, target)
   }
 
   function removeValueByFileName(
@@ -108,16 +107,14 @@
   bind:this={uuidInput}
   {name}
   value={value || ''}
-  data-testid={name}
-/>
+  data-testid={name} />
 <input
   type="hidden"
   class="mt-input"
   bind:this={nameInput}
   name={fileNameInputName}
   value={fileName || ''}
-  data-testid={fileNameInputName}
-/>
+  data-testid={fileNameInputName} />
 
 <input
   type="file"
@@ -133,8 +130,7 @@
   aria-describedby={createInputAriaDescribedby(name, error)}
   aria-invalid={!!error}
   data-testid={fileInputName}
-  aria-required={isRequired || undefined}
-/>
+  aria-required={isRequired || undefined} />
 
 {#if loadJs}
   <label class="mt-label mt-button mt-button--secondary" for={name}>
@@ -143,8 +139,7 @@
       role="status"
       aria-live="polite"
       class:spinner={isLoading}
-      aria-label={isLoading ? uploadInProgressAriaLabel : ''}
-    ></span>
+      aria-label={isLoading ? uploadInProgressAriaLabel : ''}></span>
   </label>
 
   <ol class="mt-ol m-t-xxs list-unstyled file-button__file-list" aria-label="Vedlegg">
@@ -155,20 +150,17 @@
           type="button"
           class="mt-button mt-button--search-clear file-button__file-remove"
           onclick={() => removeFile(file)}
-          data-testid={`remove-${file}`}
-        >
+          data-testid={`remove-${file}`}>
           <span class="inclusively-hidden">Slett vedlegget: "{file}"</span>
           <svg
             aria-hidden="true"
             width="20"
             height="20"
             fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
+            xmlns="http://www.w3.org/2000/svg">
             <path
               d="M10 0C4.47 0 0 4.47 0 10s4.47 10 10 10 10-4.47 10-10S15.53 0 10 0Zm5 13.59L13.59 15 10 11.41 6.41 15 5 13.59 8.59 10 5 6.41 6.41 5 10 8.59 13.59 5 15 6.41 11.41 10 15 13.59Z"
-              fill="#464545"
-            />
+              fill="#464545" />
           </svg>
         </button>
       </li>
