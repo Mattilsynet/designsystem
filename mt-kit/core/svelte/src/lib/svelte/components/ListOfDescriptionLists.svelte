@@ -1,15 +1,25 @@
 <script lang="ts">
   import HeadingLevel from './HeadingLevel.svelte'
 
-  let className = ''
-  export { className as class }
+  interface Props {
+    class?: string
+    labelledBy: string
+    listOfDescriptionLists?: Record<string, unknown>[]
+    descriptionKeysToUseInTitle?: { descriptionKey: string; prefix?: string }[]
+    titleSeparator?: string
+    noValueAriaLabel?: string
+    headerTag?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+  }
 
-  export let labelledBy: string
-  export let listOfDescriptionLists: Record<string, unknown>[] = []
-  export let descriptionKeysToUseInTitle: { descriptionKey: string; prefix?: string }[] = []
-  export let titleSeparator: string = ' - '
-  export let noValueAriaLabel: string = 'No value'
-  export let headerTag: 'h2' | 'h3' | 'h4' | 'h5' | 'h6' = 'h2'
+  let {
+    class: className = '',
+    labelledBy,
+    listOfDescriptionLists = [],
+    descriptionKeysToUseInTitle = [],
+    titleSeparator = ' - ',
+    noValueAriaLabel = 'No value',
+    headerTag = 'h2'
+  }: Props = $props()
 </script>
 
 <ul class="mt-ul list-unstyled {className}" aria-labelledby={labelledBy}>
@@ -19,7 +29,8 @@
       <HeadingLevel
         {id}
         class="mt-h3 p-xs background-mt-bg-furu"
-        headingLevel={+headerTag.charAt(1)}>
+        headingLevel={+headerTag.charAt(1)}
+      >
         {#each descriptionKeysToUseInTitle as { descriptionKey, prefix }, i}
           {prefix || ''}
           {descriptionList[descriptionKey]}

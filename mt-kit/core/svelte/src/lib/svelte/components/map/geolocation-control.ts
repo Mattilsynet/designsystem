@@ -1,9 +1,9 @@
 import { Control } from 'ol/control'
-import { type Map, type Geolocation } from 'ol'
-import { markers } from '../../../ts/markers'
+import { type Geolocation, type Map } from 'ol'
+import type { MTGeolocationOptions } from '$lib/ts'
+import { markers } from '$lib/ts'
 import { GEOLOCATION_LAYER_ID, setUpGeolocation } from './geolocation'
 import { LAYER_ID } from './layer-utils'
-import type { MTGeolocationOptions } from '$lib/ts'
 
 export function createGeolocationControl(
   map: Map,

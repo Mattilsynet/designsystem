@@ -1,7 +1,7 @@
 import type { Action, CountCharsParams, ErrorDetail } from './types'
 
 export function errorOnTooManyCharacters(
-  e: InputEvent,
+  e: Event & { currentTarget: EventTarget & (HTMLInputElement | HTMLTextAreaElement) },
   countCharsParams: CountCharsParams,
   name: string,
   errorText: string
@@ -41,7 +41,7 @@ export const countCharacters: Action<HTMLInputElement | HTMLTextAreaElement> = (
     counterElHidden.setAttribute('id', `${params.id}-maxlength`)
   }
 
-  let timeout: number
+  let timeout: NodeJS.Timeout
   function updateCounter() {
     clearTimeout(timeout)
     const countCharactersLeft = params.maxlength - node.value.length

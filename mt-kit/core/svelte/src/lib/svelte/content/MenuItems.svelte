@@ -1,6 +1,7 @@
 <script lang="ts">
   import Disclosure from '../components/Disclosure.svelte'
-  import { mapRelExternal } from '../../ts/utils'
+  import { mapRelExternal } from '$lib/ts'
+
   interface MenuItem {
     title: string
     contentTitle?: string
@@ -13,11 +14,21 @@
     iconResource?: string
   }
 
-  export let itemsLeft: Array<MenuItem> = []
-  export let itemsRight: Array<MenuItem> = []
-  export let itemsBottom: Array<MenuItem> = []
-  export let titleId
-  export let loadJs = true
+  interface Props {
+    itemsLeft?: Array<MenuItem>
+    itemsRight?: Array<MenuItem>
+    itemsBottom?: Array<MenuItem>
+    titleId?: string
+    loadJs?: boolean
+  }
+
+  let {
+    itemsLeft = [],
+    itemsRight = [],
+    itemsBottom = [],
+    titleId,
+    loadJs = true
+  }: Props = $props()
 </script>
 
 <ol class="mt-ol m-t-xxs menu menu--icon border col-1-span-8" aria-labelledby={titleId}>

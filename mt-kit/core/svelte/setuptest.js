@@ -28,3 +28,10 @@ vi.stubGlobal('ResizeObserver', ResizeObserverMock)
 vi.stubGlobal('requestAnimationFrame', fn => {
   return window.setTimeout(() => fn(Date.now()), 16)
 })
+
+Element.prototype.animate ??= vi.fn().mockReturnValue({
+  finished: Promise.resolve(),
+  cancel: vi.fn(),
+  startTime: null,
+  currentTime: null
+})
