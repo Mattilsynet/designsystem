@@ -29,9 +29,12 @@ vi.stubGlobal('requestAnimationFrame', fn => {
   return window.setTimeout(() => fn(Date.now()), 16)
 })
 
-Element.prototype.animate ??= vi.fn().mockReturnValue({
-  finished: Promise.resolve(),
-  cancel: vi.fn(),
-  startTime: null,
-  currentTime: null
-})
+vi.mock('svelte/transition', () => ({
+  slide: vi.fn(),
+  blur: vi.fn(),
+  fade: vi.fn(),
+  fly: vi.fn(),
+  scale: vi.fn(),
+  draw: vi.fn(),
+  crossfade: vi.fn()
+}))
