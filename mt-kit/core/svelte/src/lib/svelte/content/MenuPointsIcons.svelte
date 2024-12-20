@@ -1,11 +1,15 @@
 <script lang="ts">
-  import { mapRelExternal, toKebabCase } from '../../ts/utils'
   import type { MenuPoint } from '$lib/ts'
+  import { mapRelExternal, toKebabCase } from '$lib/ts'
   import HeadingLevel from '../components/HeadingLevel.svelte'
 
-  export let ariaLabelledBy: string
-  export let headerTag: 'h2' | 'h3' | 'h4' | 'h5' | 'h6' = 'h3'
-  export let menuPoints: Array<MenuPoint> = []
+  interface Props {
+    ariaLabelledBy: string
+    headerTag?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+    menuPoints?: Array<MenuPoint>
+  }
+
+  let { ariaLabelledBy, headerTag = 'h3', menuPoints = [] }: Props = $props()
 </script>
 
 <ul

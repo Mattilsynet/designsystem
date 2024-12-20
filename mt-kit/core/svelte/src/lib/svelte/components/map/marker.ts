@@ -4,9 +4,9 @@ import { Point } from 'ol/geom'
 import { fromLonLat } from 'ol/proj'
 import type { Options } from 'ol/style/Icon'
 import { Icon, Style } from 'ol/style'
-import { DEFAULT_MARKER_OPACITY, DEFAULT_MARKER_SCALE, markers as svg } from '../../../ts/index'
+import type { MTMarker } from '$lib/ts'
+import { DEFAULT_MARKER_OPACITY, DEFAULT_MARKER_SCALE, markers as svg } from '$lib/ts'
 import { toOLCoordinates } from './utils'
-import type { MTMarker } from '../../../ts/types'
 
 export const MARKER = 'marker'
 

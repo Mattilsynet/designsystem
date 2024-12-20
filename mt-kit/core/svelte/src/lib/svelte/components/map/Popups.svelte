@@ -2,11 +2,15 @@
   import { onDestroy, onMount } from 'svelte'
   import type { MTPopupOptions } from '$lib/ts'
   import { Overlay } from 'ol'
-  import { DEFAULT_OVERLAY_OFFSET } from '../../../ts/mapUtils'
+  import { DEFAULT_OVERLAY_OFFSET } from '$lib/ts/mapUtils'
   import { getMap, type MapContext } from './contexts'
   import { addListeners } from './utils'
 
-  export let popUpOptions: Array<MTPopupOptions> = []
+  interface Props {
+    popUpOptions?: Array<MTPopupOptions>
+  }
+
+  let { popUpOptions = [] }: Props = $props()
 
   let map: MapContext = getMap()
   let overlays: Array<Overlay> | undefined = undefined

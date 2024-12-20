@@ -1,9 +1,9 @@
-<script lang="ts">
-  import { Meta, Story } from '@storybook/addon-svelte-csf'
+<script lang="ts" module>
+  import { defineMeta } from '@storybook/addon-svelte-csf'
   import ExpandableInputList from '$lib/svelte/components/form/ExpandableInputList.svelte'
   import { wrapInShadowDom } from '../storybook-utils/utils'
 
-  let inputList = [
+  let inputList = $state([
     {
       label: 'Hund, antall:',
       name: 'dogs',
@@ -52,15 +52,15 @@
       textOptional: '',
       error: undefined
     }
-  ]
+  ])
 
   let fieldSetId = 'whatCountriesHaveYouBeenTo'
-  let expandableAriaLabel = ''
-  $: values = {}
+  let values: Record<string, string> = $state({})
 
-  $: error = undefined
+  let error: { key: string; message: string }[] | undefined = $state()
 
-  function handleSubmit(e) {
+  function handleSubmit(e: SubmitEvent) {
+    e.preventDefault()
     inputList = inputList.map(input => {
       if (values[input.name] === undefined || values[input.name] === '') {
         return input
@@ -79,53 +79,51 @@
       inputList = inputList
     }
   }
+
+  const { Story } = defineMeta({
+    title: 'Components/Form/Utvidbar liste med inputs',
+    args: {
+      fieldSetLabel: 'Hvilke dyr reiser du med?',
+      helpText: 'Legg til de dyrene du reiser med.',
+      expandableAriaLabel: '{0}, viser {1} av {2}',
+      expandableText: 'Vis flere',
+      collapsableText: 'Vis færre',
+      // eslint-disable-next-line svelte/valid-compile
+      inputList: inputList,
+      disableJs: false,
+      disableCss: false
+    },
+    argTypes: {
+      fieldSetLabel: { control: 'text' },
+      helpText: { control: 'text' },
+      expandableAriaLabel: { control: 'text' },
+      expandableText: { control: 'text' },
+      collapsableText: { control: 'text' },
+      inputList: { control: 'object' },
+      disableJs: { control: 'boolean' },
+      disableCss: { control: 'boolean' }
+    }
+  })
 </script>
 
-<Meta
-  title="Components/Form/Utvidbar liste med inputs"
-  args={{
-    fieldSetLabel: 'Hvilke dyr reiser du med?',
-    helpText: 'Legg til de dyrene du reiser med.',
-    expandableAriaLabel: '{0}, viser {1} av {2}',
-    expandableText: 'Vis flere',
-    collapsableText: 'Vis færre',
-    inputList: inputList,
-    disableJs: false,
-    disableCss: false
-  }}
-  argTypes={{
-    fieldSetLabel: { control: 'text' },
-    helpText: { control: 'text' },
-    expandableAriaLabel: { control: 'text' },
-    expandableText: { control: 'text' },
-    collapsableText: { control: 'text' },
-    inputList: { control: 'object' },
-    disableJs: { control: 'boolean' },
-    disableCss: { control: 'boolean' }
-  }} />
-
-<Story name="Normal" let:disableCss let:args>
-  <main class="mt-main" use:wrapInShadowDom={disableCss}>
-    <h1 class="mt-h1">Utvidebarliste med inputs</h1>
-    <form class="mt-form" on:submit|preventDefault={handleSubmit}>
-      <ExpandableInputList
-        inputList={args.inputList}
-        {fieldSetId}
-        fieldSetLabel={args.fieldSetLabel}
-        fieldSetHelpText={args.helpText}
-        fieldSetError={error}
-        expandableText={args.expandableText}
-        collapsableText={args.collapsableText}
-        expandableAriaLabel={args.expandableAriaLabel}
-        bind:values
-        loadJs={!args.disableJs} />
-      <button type="submit" class="mt-button mt-button--primary">Gå videre</button>
-    </form>
-  </main>
+<Story name="Normal">
+  {#snippet children(args)}
+    <main class="mt-main" use:wrapInShadowDom={args.disableCss}>
+      <h1 class="mt-h1">Utvidebarliste med inputs</h1>
+      <form class="mt-form" onsubmit={handleSubmit}>
+        <ExpandableInputList
+          inputList={args.inputList}
+          {fieldSetId}
+          fieldSetLabel={args.fieldSetLabel}
+          fieldSetHelpText={args.helpText}
+          fieldSetError={error}
+          expandableText={args.expandableText}
+          collapsableText={args.collapsableText}
+          expandableAriaLabel={args.expandableAriaLabel}
+          bind:values
+          loadJs={!args.disableJs} />
+        <button type="submit" class="mt-button mt-button--primary">Gå videre</button>
+      </form>
+    </main>
+  {/snippet}
 </Story>
-
-<style lang="scss">
-  .button {
-    margin-top: 5rem;
-  }
-</style>

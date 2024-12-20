@@ -11,14 +11,16 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: ['./setuptest.js'],
     include: ['src/**/*.{test,spec}.{js,ts}'],
-    alias: [
-      { find: /^svelte$/, replacement: 'svelte/internal' }, //https://github.com/vitest-dev/vitest/issues/2834
-      { find: '$lib', replacement: resolve(__dirname, './src/lib') }
-    ]
+    alias: [{ find: '$lib', replacement: resolve(__dirname, './src/lib') }]
   },
   server: {
     fs: {
       allow: [searchForWorkspaceRoot(process.cwd()), '../css/src/app.scss']
     }
-  }
+  },
+  resolve: process.env.VITEST
+    ? {
+        conditions: ['browser']
+      }
+    : undefined
 })

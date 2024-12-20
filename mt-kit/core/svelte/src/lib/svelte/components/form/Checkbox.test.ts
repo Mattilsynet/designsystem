@@ -18,16 +18,16 @@ describe('Checkbox', () => {
   }
   test('Renders', async () => {
     const onChangeSpy = vi.fn()
-    const { getByLabelText, getByText, getByRole, component } = render(Checkbox, {
+    const { getByLabelText, getByText, getByRole } = render(Checkbox, {
       value,
       error,
       name,
       label,
       helpText,
       options,
+      onChange: onChangeSpy,
       isRequired: !!properties.validationRequired
     })
-    component.$on('onChange', onChangeSpy)
     expect(getByText(helpText)).toBeInTheDocument()
     const option1 = getByLabelText(options[0].text)
     expect(option1).toBeInTheDocument()

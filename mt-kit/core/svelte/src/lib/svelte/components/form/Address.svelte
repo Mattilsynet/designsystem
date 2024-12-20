@@ -14,59 +14,97 @@
     poststed: string
   }
 
-  export let inputName = ''
-  export let listName = 'address-list'
+  interface Props {
+    inputName?: string
+    listName?: string
+    streetLabel?: string
+    streetName?: string
+    streetValue?: string | undefined
+    streetIsRequired?: boolean | undefined
+    streetError: ErrorDetail | undefined
+    streetHelpText: any
+    streetInputClass?: string
+    streetInputmode?: InputModeType
+    streetFallbackLabel?: string
+    streetFallbackHelpText?: string
+    postalCodeLabel?: string
+    postalCodeName?: string
+    postalCodeValue?: string | undefined
+    postalCodeIsRequired?: boolean | undefined
+    postalCodeError: ErrorDetail | undefined
+    postalCodeHelpText: any
+    postalCodeInputClass?: string
+    postalCodeInputmode?: InputModeType
+    postalAreaLabel?: string
+    postalAreaName?: string
+    postalAreaValue?: string | undefined
+    postalAreaIsRequired?: boolean | undefined
+    postalAreaError: ErrorDetail | undefined
+    postalAreaHelpText: any
+    postalAreaInputClass?: string
+    postalAreaInputmode?: InputModeType
+    formInProgressAriaLabel?: string
+    hiddenErrorText?: string | undefined
+    textOptional?: string | undefined
+    noResultsText?: string
+    fetchFailedText?: string
+    showOptionalText?: boolean
+    loadJs?: boolean
+    hits?: any
+    inputError: undefined | ErrorDetail
+    isFetchFallback?: boolean
+  }
 
-  export let streetLabel = ''
-  export let streetName = ''
-  export let streetValue: string | undefined = undefined
-  export let streetIsRequired: boolean | undefined = undefined
-  export let streetError: ErrorDetail | undefined
-  export let streetHelpText
-  export let streetInputClass = ''
-  export let streetInputmode: InputModeType = 'text'
+  let {
+    inputName = '',
+    listName = 'address-list',
+    streetLabel = '',
+    streetName = '',
+    streetValue = $bindable(undefined),
+    streetIsRequired = undefined,
+    streetError,
+    streetHelpText,
+    streetInputClass = '',
+    streetInputmode = 'text',
+    streetFallbackLabel = '',
+    streetFallbackHelpText = '',
+    postalCodeLabel = '',
+    postalCodeName = '',
+    postalCodeValue = $bindable(undefined),
+    postalCodeIsRequired = undefined,
+    postalCodeError,
+    postalCodeHelpText,
+    postalCodeInputClass = '',
+    postalCodeInputmode = 'numeric',
+    postalAreaLabel = '',
+    postalAreaName = '',
+    postalAreaValue = $bindable(undefined),
+    postalAreaIsRequired = undefined,
+    postalAreaError,
+    postalAreaHelpText,
+    postalAreaInputClass = '',
+    postalAreaInputmode = 'text',
+    formInProgressAriaLabel = 'Søker',
+    hiddenErrorText = 'Feilmelding',
+    textOptional = 'Valgfritt',
+    noResultsText = 'Ingen resultater for {0}',
+    fetchFailedText = 'Skriv inn manuelt under',
+    showOptionalText = true,
+    loadJs = false,
+    hits = `10`,
+    inputError,
+    isFetchFallback = $bindable(false)
+  }: Props = $props()
 
-  export let streetFallbackLabel = ''
-  export let streetFallbackHelpText = ''
-
-  export let postalCodeLabel = ''
-  export let postalCodeName = ''
-  export let postalCodeValue: string | undefined = undefined
-  export let postalCodeIsRequired: boolean | undefined = undefined
-  export let postalCodeError: ErrorDetail | undefined
-  export let postalCodeHelpText
-  export let postalCodeInputClass = ''
-  export let postalCodeInputmode: InputModeType = 'numeric'
-
-  export let postalAreaLabel = ''
-  export let postalAreaName = ''
-  export let postalAreaValue: string | undefined = undefined
-  export let postalAreaIsRequired: boolean | undefined = undefined
-  export let postalAreaError: ErrorDetail | undefined
-  export let postalAreaHelpText
-  export let postalAreaInputClass = ''
-  export let postalAreaInputmode: InputModeType = 'text'
-
-  export let formInProgressAriaLabel = 'Søker'
-  export let hiddenErrorText: string | undefined = 'Feilmelding'
-
-  export let textOptional: string | undefined = 'Valgfritt'
-  export let noResultsText: string = 'Ingen resultater for {0}'
-  export let fetchFailedText: string = 'Skriv inn manuelt under'
-  export let showOptionalText = true
-  export let loadJs = false
-  export let hits = `10`
-  export let inputError: undefined | ErrorDetail
-  export let isFetchFallback = false
-
-  let input: HTMLInputElement
-  let inputValue =
+  let input: HTMLInputElement = $state()
+  let inputValue = $state(
     streetValue && postalCodeValue && postalAreaValue
       ? `${streetValue}, ${postalCodeValue} ${postalAreaValue}`
       : ''
+  )
 
-  let isLoading = false
-  let apiError: undefined | ErrorDetail = undefined
+  let isLoading = $state(false)
+  let apiError: undefined | ErrorDetail = $state(undefined)
   // eslint-disable-next-line no-undef
   let debounceTimer: NodeJS.Timeout
 
@@ -151,26 +189,30 @@
     {isLoading}
     {handleInput}
     bind:inputRef={input}
-    {formInProgressAriaLabel}></Combobox>
+    {formInProgressAriaLabel}
+  ></Combobox>
   {#if !isFetchFallback}
     <input
       type="hidden"
       class="form-field"
       name={streetName}
       value={streetValue}
-      data-testid="hidden-street" />
+      data-testid="hidden-street"
+    />
     <input
       type="hidden"
       class="form-field"
       name={postalCodeName}
       value={postalCodeValue}
-      data-testid="hidden-postal-code" />
+      data-testid="hidden-postal-code"
+    />
     <input
       type="hidden"
       class="form-field"
       name={postalAreaName}
       value={postalAreaValue}
-      data-testid="hidden-postal-place" />
+      data-testid="hidden-postal-place"
+    />
   {:else}
     <TextInput
       label={streetFallbackLabel}
@@ -183,7 +225,8 @@
       helpText={streetFallbackHelpText}
       {hiddenErrorText}
       {textOptional}
-      {showOptionalText} />
+      {showOptionalText}
+    />
     <TextInput
       label={postalCodeLabel}
       name={postalCodeName}
@@ -195,7 +238,8 @@
       helpText={postalCodeHelpText}
       {hiddenErrorText}
       {textOptional}
-      {showOptionalText} />
+      {showOptionalText}
+    />
     <TextInput
       label={postalAreaLabel}
       name={postalAreaName}
@@ -207,7 +251,8 @@
       helpText={postalAreaHelpText}
       {hiddenErrorText}
       {textOptional}
-      {showOptionalText} />
+      {showOptionalText}
+    />
   {/if}
 {:else}
   <TextInput
@@ -220,7 +265,8 @@
     helpText={streetFallbackHelpText}
     {hiddenErrorText}
     {textOptional}
-    {showOptionalText} />
+    {showOptionalText}
+  />
   <TextInput
     label={postalCodeLabel}
     name={postalCodeName}
@@ -232,7 +278,8 @@
     helpText={postalCodeHelpText}
     {hiddenErrorText}
     {textOptional}
-    {showOptionalText} />
+    {showOptionalText}
+  />
   <TextInput
     label={postalAreaLabel}
     name={postalAreaName}
@@ -244,5 +291,6 @@
     helpText={postalAreaHelpText}
     {hiddenErrorText}
     {textOptional}
-    {showOptionalText} />
+    {showOptionalText}
+  />
 {/if}
