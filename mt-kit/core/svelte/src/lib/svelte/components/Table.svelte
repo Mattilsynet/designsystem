@@ -17,13 +17,13 @@
   <thead class="mt-thead">
     <tr class="mt-tr">
       {#each headers as header}
-        <slot name="header" {header} />
+        <slot name="headersSlot" {header} />
       {/each}
     </tr>
   </thead>
   <tbody class="mt-tbody">
     {#each rows as row}
-      <slot name="row" {row} />
+      <slot name="rowSlot" {row} />
     {/each}
   </tbody>
 </table>
