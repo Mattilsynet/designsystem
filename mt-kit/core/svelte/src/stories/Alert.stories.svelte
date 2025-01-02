@@ -49,7 +49,7 @@
 <Story name="Information">
   {#snippet children({ alerts, disableCss })}
     <div use:wrapInShadowDom={disableCss} class="wrapper">
-      <Alert severity={alerts[0].severity} class="test" aria-hidden="false">
+      <Alert severity={alerts[0].severity} class="testClass" aria-hidden="false">
         {@html alerts[0].text}
         {#snippet right()}
           {@html alerts[0].rightText}

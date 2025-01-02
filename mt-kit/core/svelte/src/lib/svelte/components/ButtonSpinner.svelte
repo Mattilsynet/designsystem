@@ -1,11 +1,13 @@
 <script lang="ts">
+  import type { Snippet } from 'svelte'
+
   interface Props {
     type?: 'button' | 'submit' | 'reset'
     formInProgressAriaLabel?: string
     spinnerPlacement?: 'start' | 'end'
     btnClassNames?: string
     inProgress?: boolean
-    children?: import('svelte').Snippet
+    children?: Snippet
   }
 
   let {
@@ -32,13 +34,11 @@
   class={`mt-button mt-button--spinner--${
     spinnerPlacement === 'end' ? 'end' : 'start'
   } ${btnClassNames}`}
-  data-testid="spinner"
->
+  data-testid="spinner">
   <span
     role="status"
     aria-live="assertive"
     class:spinner={inProgress}
-    aria-label={inProgress ? formInProgressAriaLabel : ''}
-  ></span>
+    aria-label={inProgress ? formInProgressAriaLabel : ''}></span>
   {@render children?.()}
 </button>

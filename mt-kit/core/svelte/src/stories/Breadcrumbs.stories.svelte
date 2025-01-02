@@ -79,7 +79,7 @@
       <div class="layout-grid layout-grid--column-12">
         <div class="col-3-span-6">
           <p class="description">Brødsmuler med 4 eller fler elementer</p>
-          <Breadcrumbs breadcrumbs={breadcrumbsLong} {loadJs} />
+          <Breadcrumbs breadcrumbs={breadcrumbsLong} {loadJs} class="testClass" />
           <p class="description">Brødsmuler med 3 eller færre elementer</p>
           <Breadcrumbs breadcrumbs={breadcrumbsShort} {loadJs} />
         </div>

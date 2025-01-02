@@ -85,6 +85,7 @@
 
       <p class="description">Sekundær</p>
       <ButtonSpinner
+        type="submit"
         formInProgressAriaLabel="Sender inn skjema, venter på svar."
         btnClassNames="mt-button--secondary"
         {inProgress}
