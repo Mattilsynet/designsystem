@@ -108,7 +108,13 @@
         <div class="m-t-m" id="list-title" role="status" aria-live="polite">
           {statusTitle}
         </div>
-        <Table {headers} {rows} style="--spacer-large: var(--spacer-x-small)">
+        <Table
+          class="testClass"
+          caption="Testcaption"
+          captionClass="testCaptionClass"
+          {headers}
+          {rows}
+          style="--spacer-large: var(--spacer-x-small)">
           {#snippet headersSlot(header)}
             <th role="columnheader" scope="col" class="mt-th {header.class}">
               {header.text}
@@ -116,7 +122,7 @@
           {/snippet}
           {#snippet rowSlot(row)}
             <tr class="mt-tr">
-              <TableCol header={headers[0]?.text}>{row.tittel1}</TableCol>
+              <TableCol class="testColClass" header={headers[0]?.text}>{row.tittel1}</TableCol>
               <TableCol header={headers[1]?.text}>{@html row.tittel2}</TableCol>
               <TableCol header={headers[2]?.text}>{row.tittel3}</TableCol>
             </tr>

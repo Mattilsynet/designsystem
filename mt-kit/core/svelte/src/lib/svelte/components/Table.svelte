@@ -1,4 +1,5 @@
 <script lang="ts">
+  import type { Snippet } from 'svelte'
   interface Props {
     captionClass?: string
     class?: string
@@ -6,16 +7,16 @@
     caption?: string
     headers?: Array<Record<string, unknown>>
     rows?: Array<Record<string, unknown>>
-    headersSlot?: import('svelte').Snippet<[Record<string, unknown>]>
-    rowSlot?: import('svelte').Snippet<[Record<string, unknown>]>
+    headersSlot?: Snippet<[Record<string, unknown>]>
+    rowSlot?: Snippet<[Record<string, unknown>]>
   }
 
   let {
     captionClass = '',
     style = '',
     caption = '',
-    headers = [{}],
-    rows = [{}],
+    headers = [],
+    rows = [],
     headersSlot,
     rowSlot,
     class: className = ''

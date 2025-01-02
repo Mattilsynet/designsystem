@@ -600,7 +600,7 @@
 <Story name="Søkeresultat">
   {#snippet children({ searchResult, disableCss })}
     <div use:wrapInShadowDom={disableCss} class="container layout-grid layout-grid--column-12">
-      <SearchResult {searchResult} />
+      <SearchResult {searchResult} headingClass="testClass" headerTag="h3" />
     </div>
   {/snippet}
 </Story>
