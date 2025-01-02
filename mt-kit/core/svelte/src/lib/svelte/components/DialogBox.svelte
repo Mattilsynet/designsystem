@@ -18,7 +18,7 @@
     title = '',
     ariaTitle = '',
     closeBtnAriaLabel = 'Lukk',
-    onClosingDialog = _ => {},
+    onClosingDialog,
     // @ts-expect-error value is never read, but it's bound
     dialogRef = $bindable(),
     children
@@ -29,7 +29,9 @@
 
   function handleClose(): void {
     isOpen = false
-    onClosingDialog(false)
+    if (onClosingDialog) {
+      onClosingDialog(false)
+    }
   }
 </script>
 

@@ -1,5 +1,6 @@
 <script lang="ts" module>
   import { defineMeta } from '@storybook/addon-svelte-csf'
+  import { action } from '@storybook/addon-actions'
   import DialogBox from '$lib/svelte/components/DialogBox.svelte'
   import ButtonSpinner from '$lib/svelte/components/ButtonSpinner.svelte'
 
@@ -13,6 +14,11 @@
     showDialog = !showDialog
   }
 
+  const closeDialogAction = action('closeDialog')
+  function onClosingDialog(shouldReappear: boolean) {
+    closeDialogAction(shouldReappear)
+  }
+
   const { Story } = defineMeta({
     title: 'Components/Dialogboks',
     args: {
@@ -21,6 +27,16 @@
       <p>Eldre piggtrådgjerder som utgjør en risiko for at dyr blir skadet</p>`
     },
     argTypes: {}
+  })
+</script>
+
+<script lang="ts">
+  let dialogRef: HTMLDivElement | undefined = $state()
+  $effect(() => {
+    // Test to see that the dialog reference prop works as expected
+    if (dialogRef && showDialog) {
+      dialogRef?.scrollIntoView()
+    }
   })
 </script>
 
@@ -72,7 +88,7 @@
     <h2 class="mt-h2">Vises ved endring</h2>
     <div class="tags-wrapper">
       <button class="mt-button toggle-button" onclick={handleClick}>Toggle dialog</button>
-      <DialogBox {title} isOpen={showDialog} {closeBtnAriaLabel}>
+      <DialogBox {title} isOpen={showDialog} {closeBtnAriaLabel} {onClosingDialog} bind:dialogRef>
         <p>Dialogboks innhold</p>
       </DialogBox>
     </div>
