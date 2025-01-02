@@ -11,9 +11,9 @@ import {
   DEFAULT_CLUSTER_OFFSET_Y,
   DEFAULT_CLUSTER_RADIUS,
   DEFAULT_CLUSTER_SIZE_SCALE
-} from '../../../ts/mapUtils'
+} from '$lib/ts/mapUtils'
 import { addMarkersToSource, createMarkerStyle, MARKER } from './marker'
-import { markers as svg, type MTClusterOptions, type MTMarker } from '../../../ts/index'
+import { markers as svg, type MTClusterOptions, type MTMarker } from '$lib/ts'
 
 export const LAYER_ID = 'layerId'
 export const VECTOR_LAYER_ID = 'clusterLayer'

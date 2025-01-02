@@ -1,4 +1,4 @@
-import { render, fireEvent } from '@testing-library/svelte'
+import { fireEvent, render } from '@testing-library/svelte'
 import MenuItems from './MenuItems.svelte'
 
 describe('Related links list', () => {
@@ -120,7 +120,7 @@ describe('Related links list', () => {
   })
 
   test('Link is active', async () => {
-    const { rerender, getByText, getAllByText } = render(MenuItems, componentOptions)
+    const { rerender, getByText, getAllByText, queryByText } = render(MenuItems, componentOptions)
     const menuButtonOne = getByText('Menu item 1')
     await fireEvent.click(menuButtonOne)
     const notActiveItem = getByText('Child item 1.1')
@@ -136,23 +136,20 @@ describe('Related links list', () => {
 
     await rerender(componentOptions)
 
-    const menuItem1 = getAllByText('Menu item 1')
-    await fireEvent.click(menuItem1[0])
-    const notActiveAnymore = getByText('Child item 1.2')
-    expect(notActiveAnymore).toBeInTheDocument()
-    expect(notActiveAnymore.getAttribute('aria-current')).toEqual('false')
-
-    const activeMenu1 = getAllByText('Menu item 1')
-    expect(activeMenu1[2].getAttribute('aria-current')).toEqual('page')
+    const menuItem1 = getAllByText('Menu item 1').find(i => i.tagName === 'SPAN')
+    expect(menuItem1).toBeInTheDocument()
+    await fireEvent.click(menuItem1)
+    const notActiveAnymore = queryByText('Child item 1.2')
+    expect(notActiveAnymore).not.toBeInTheDocument()
 
     componentOptions.itemsLeft[0].isActive = false
     componentOptions.itemsRight[1].isActive = true
 
     await rerender(componentOptions)
 
-    const notActiveMenu1 = getAllByText('Menu item 1')
-    expect(notActiveMenu1[0]).toBeInTheDocument()
-    await fireEvent.click(notActiveMenu1[0])
+    const notActiveMenu1 = getAllByText('Menu item 1').find(i => i.tagName === 'SPAN')
+    expect(notActiveMenu1).toBeInTheDocument()
+    await fireEvent.click(notActiveMenu1)
     const menuOneLinks = getAllByText('Menu item 1')
     expect(menuOneLinks[2].getAttribute('aria-current')).toEqual('false')
 

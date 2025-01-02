@@ -1,39 +1,53 @@
-<script lang="ts" context="module">
-  let counter = 0
+<script lang="ts" module>
+  let counter = $state(0)
 </script>
 
 <script lang="ts">
-  import { createEventDispatcher } from 'svelte'
   import { slide } from 'svelte/transition'
   import HeadingLevel from './HeadingLevel.svelte'
 
-  export let id: string | undefined = undefined
-  export let loadJs = false
-  export let title: string
-  export let headerTag: 'h2' | 'h3' | 'h4' | 'h5' | 'h6' = 'h3'
-  export let theme: 'bordered' | 'no-border' = 'bordered'
-  export let icon: string | undefined = undefined
-  export let headerClass = ''
-  export let panelClass = ''
-  export let startOpen = false
-  export let chapter: string | undefined = undefined
-  let disclosureClass = ''
-  export { disclosureClass as class }
+  interface Props {
+    id?: string | undefined
+    loadJs?: boolean
+    title: string
+    headerTag?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+    theme?: 'bordered' | 'no-border'
+    icon?: string | undefined
+    headerClass?: string
+    panelClass?: string
+    startOpen?: boolean
+    chapter?: string | undefined
+    class?: string
+    children?: import('svelte').Snippet
+    onOpen?: () => void
+  }
+
+  let {
+    id = undefined,
+    loadJs = false,
+    title,
+    headerTag = 'h3',
+    theme = 'bordered',
+    icon = undefined,
+    headerClass = '',
+    panelClass = '',
+    startOpen = false,
+    onOpen = undefined,
+    chapter = undefined,
+    class: disclosureClass = '',
+    children
+  }: Props = $props()
 
   const bodyId = `ui-disclosure-${counter++}`
 
-  let isOpen = startOpen ?? false
-  $: onServer = !loadJs
-
-  const dispatch = createEventDispatcher()
+  let isOpen = $state(startOpen ?? false)
+  let onServer = $derived(!loadJs)
 
   function handleClick(): void {
-    isOpen = !isOpen
-    if (isOpen) {
-      dispatch('open')
-    } else {
-      dispatch('close')
+    if (onOpen) {
+      onOpen()
     }
+    isOpen = !isOpen
   }
 </script>
 
@@ -65,7 +79,7 @@
       class="mt-button--unstyled disclosure-header mt-{headerTag} {headerClass}"
       aria-expanded={isOpen}
       aria-controls={bodyId}
-      on:click={handleClick}>
+      onclick={handleClick}>
       {#if chapter}
         <span class="chapter-number responsive-hide">
           {chapter}
@@ -93,11 +107,11 @@
       <HeadingLevel class="inclusively-hidden" headingLevel={+headerTag.charAt(1)}>
         {@html title}
       </HeadingLevel>
-      <slot />
+      {@render children?.()}
     </div>
   {:else if onServer}
     <div id={bodyId} class="disclosure-panel {panelClass} on-server">
-      <slot />
+      {@render children?.()}
     </div>
   {/if}
 </div>

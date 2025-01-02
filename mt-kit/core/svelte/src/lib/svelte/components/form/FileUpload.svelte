@@ -1,32 +1,51 @@
 <script lang="ts">
   import { createInputAriaDescribedby, type ErrorDetail } from '$lib/ts'
-  import { createEventDispatcher } from 'svelte'
   import { InputErrorMessage, Label } from '$lib/index'
 
-  export let loadJs = false
-  export let name: string
-  export let error: ErrorDetail | undefined
-  export let multiple = false
-  export let accept: string | undefined
-  export let buttonText = 'Legg til fil'
-  export let isRequired: boolean | undefined = undefined
+  interface Props {
+    loadJs?: boolean
+    name: string
+    error: ErrorDetail | undefined
+    multiple?: boolean
+    accept: string | undefined
+    buttonText?: string
+    isRequired?: boolean | undefined
+    value: undefined | string | Array<string>
+    onChange?: (files: FileList, target: HTMLInputElement) => void
+    label: string
+    fileInputName: string
+    fileNameInputName: string
+    helpText: string | undefined
+    fileName: string | Array<string> | undefined
+    textOptional: string | undefined
+    hiddenErrorText: string | undefined
+    isLoading?: boolean
+    uploadInProgressAriaLabel?: string
+  }
 
-  export let value: undefined | string | Array<string>
-  export let label: string
-  export let fileInputName: string
-  export let fileNameInputName: string
-  export let helpText: string | undefined
-  export let fileName: string | Array<string> | undefined
-  export let textOptional: string | undefined
-  export let hiddenErrorText: string | undefined
+  let {
+    loadJs = false,
+    name,
+    error,
+    multiple = false,
+    accept,
+    buttonText = 'Legg til fil',
+    isRequired = undefined,
+    value = $bindable(),
+    onChange = _ => {},
+    label,
+    fileInputName,
+    fileNameInputName,
+    helpText,
+    fileName = $bindable(),
+    textOptional,
+    hiddenErrorText,
+    isLoading = false,
+    uploadInProgressAriaLabel = 'Laster opp filer'
+  }: Props = $props()
 
-  export let isLoading: boolean = false
-  export let uploadInProgressAriaLabel = 'Laster opp filer'
-
-  let uuidInput: HTMLInputElement
-  let nameInput: HTMLInputElement
-
-  const dispatch = createEventDispatcher()
+  let uuidInput: HTMLInputElement | undefined = $state()
+  let nameInput: HTMLInputElement | undefined = $state()
 
   function removeFile(fileToRemove: string): void {
     const fileNames: Array<string> = nameInput.value.split(',')
@@ -34,13 +53,13 @@
     value = removeValueByFileName(value, fileNames, fileToRemove)
 
     // update filename. This handles multiple files
-    nameInput.value = fileNames.filter((v) => v !== fileToRemove).join(',')
+    nameInput.value = fileNames.filter(v => v !== fileToRemove).join(',')
     fileName = filterFileName(fileName, fileToRemove)
   }
 
-  function handleChange(e): void {
+  function handleChange(e: InputEvent): void {
     const target = e.target as HTMLInputElement
-    dispatch('change', { files: target.files })
+    onChange(target.files as FileList, target)
   }
 
   function removeValueByFileName(
@@ -65,7 +84,7 @@
     if (typeof fileName === 'string' || fileName === undefined) {
       return undefined
     } else {
-      return fileName.filter((v) => v !== removeFileName)
+      return fileName.filter(v => v !== removeFileName)
     }
   }
 </script>
@@ -104,7 +123,7 @@
   {multiple}
   {accept}
   class="mt-input form-field"
-  on:change={(e) => handleChange(e)}
+  onchange={e => handleChange(e)}
   class:error
   class:inclusively-hidden-initial={loadJs}
   disabled={isLoading}
@@ -120,7 +139,7 @@
       role="status"
       aria-live="polite"
       class:spinner={isLoading}
-      aria-label={isLoading ? uploadInProgressAriaLabel : ''} />
+      aria-label={isLoading ? uploadInProgressAriaLabel : ''}></span>
   </label>
 
   <ol class="mt-ol m-t-xxs list-unstyled file-button__file-list" aria-label="Vedlegg">
@@ -130,7 +149,7 @@
         <button
           type="button"
           class="mt-button mt-button--search-clear file-button__file-remove"
-          on:click={() => removeFile(file)}
+          onclick={() => removeFile(file)}
           data-testid={`remove-${file}`}>
           <span class="inclusively-hidden">Slett vedlegget: "{file}"</span>
           <svg

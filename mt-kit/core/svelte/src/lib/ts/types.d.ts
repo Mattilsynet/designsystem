@@ -129,9 +129,6 @@ export interface CountCharsParams {
   countCharactersTooManyLabel?: string
 }
 
-export interface CloseDialogEvent {
-  shouldReappear: boolean
-}
 export interface CustomCheckedEvent {
   event: Event
 }

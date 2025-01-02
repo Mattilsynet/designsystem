@@ -1,6 +1,6 @@
 import { Control } from 'ol/control'
 import { type Map } from 'ol'
-import type { MTActivateMapOptions } from '../../../ts'
+import type { MTActivateMapOptions } from '$lib/ts'
 
 const FULLSCREEN_OPTIONS = 'fullscreen-options'
 export const locationTrackerId = 'activateMap'
