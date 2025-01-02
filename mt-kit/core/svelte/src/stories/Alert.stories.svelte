@@ -13,19 +13,20 @@
       alerts: [
         {
           severity: 'info',
-          text: `<h1 class="mt-h4">Kan legge inn tittel</h1><p>Paragrafen kommer under. Det skal være en <a href="www.mattilsynet.no">leneke til en side</a></p><p>Andre paragraphen. Det skal være en <a href="www.mattilsynet.no">leneke til en side</a></p>`
+          text: `<h1 class="mt-h4">Kan legge inn tittel</h1><p>Paragrafen kommer under. Det skal være en <a href="https://www.mattilsynet.no">lenke til en side</a></p><p>Andre paragrafen. Det skal være en <a href="https://www.mattilsynet.no">lenke til en side</a></p>`,
+          rightText: `<span style="text-wrap: nowrap">Text til høyre</span>`
         },
         {
           severity: 'success',
-          text: `<p>Paragrafen kommer under. Det skal være en <a href="www.mattilsynet.no">leneke til en side</a></p>`
+          text: `<p>Paragrafen kommer under. Det skal være en <a href="https://www.mattilsynet.no">lenke til en side</a></p>`
         },
         {
           severity: 'warning',
-          text: `<p>Paragrafen kommer under. Det skal være en <a href="www.mattilsynet.no">leneke til en side</a>. Paragrafen kommer under. Det skal være en <a href="www.mattilsynet.no">leneke til en side</a> Paragrafen kommer under. Det skal være en <a href="www.mattilsynet.no">leneke til en side</a></p>`
+          text: `<p>Paragrafen kommer under. Det skal være en <a href="https://www.mattilsynet.no">lenke til en side</a>. Paragrafen kommer under. Det skal være en <a href="https://www.mattilsynet.no">lenke til en side</a> Paragrafen kommer under. Det skal være en <a href="https://www.mattilsynet.no">lenke til en side</a></p>`
         },
         {
           severity: 'danger',
-          text: `<p>Paragrafen kommer under. Det skal være en <a href="www.mattilsynet.no">leneke til en side</a></p><p>Paragrafen kommer under. Det skal være en <a href="www.mattilsynet.no">leneke til en side</a></p>`
+          text: `<p>Paragrafen kommer under. Det skal være en <a href="https://www.mattilsynet.no">lenke til en side</a></p><p>Paragrafen kommer under. Det skal være en <a href="https://www.mattilsynet.no">lenke til en side</a></p>`
         }
       ],
       disableCss: false
@@ -48,8 +49,11 @@
 <Story name="Information">
   {#snippet children({ alerts, disableCss })}
     <div use:wrapInShadowDom={disableCss} class="wrapper">
-      <Alert severity={alerts[0].severity}>
+      <Alert severity={alerts[0].severity} class="test" aria-hidden="false">
         {@html alerts[0].text}
+        {#snippet right()}
+          {@html alerts[0].rightText}
+        {/snippet}
       </Alert>
     </div>
   {/snippet}
@@ -87,10 +91,5 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-  }
-  .box {
-    border: 2px solid red;
-    padding: var(--spacer-xx-small);
-    width: 40rem;
   }
 </style>

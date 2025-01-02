@@ -1,4 +1,5 @@
 <script lang="ts">
+  import type { Snippet } from 'svelte'
   import InformationOutline from '../components/icons/InformationOutline.svelte'
   import WarningOutline from '../components/icons/WaningOutline.svelte'
   import SuccessOutline from '../components/icons/SuccessOutline.svelte'
@@ -8,9 +9,9 @@
     class?: string
     severity?: 'info' | 'success' | 'warning' | 'danger'
     iconTitle?: string | undefined
-    children?: import('svelte').Snippet
-    right?: import('svelte').Snippet
-    [key: string]: any
+    children?: Snippet
+    right?: Snippet
+    [key: string]: unknown
   }
 
   let {
@@ -29,11 +30,11 @@
     danger: DangerOutline
   }
 
-  const SvelteComponent = $derived(icons[severity])
+  const IconComponent = $derived(icons[severity])
 </script>
 
 <div class="mt-alert {className} {severity}" {...rest}>
-  <SvelteComponent title={iconTitle} />
+  <IconComponent title={iconTitle} />
   <div class="mt-alert-wrapper">
     {@render children?.()}
   </div>
