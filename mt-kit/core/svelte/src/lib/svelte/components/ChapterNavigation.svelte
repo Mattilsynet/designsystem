@@ -9,7 +9,7 @@
     currentChapterIndex?: number
     startIndex?: number
     class?: string
-    chapterChange: (index: number) => void
+    chapterChange?: (index: number) => void
   }
 
   let {
@@ -20,7 +20,7 @@
     currentChapterIndex = 0,
     startIndex = 0,
     class: className = '',
-    chapterChange = _ => {}
+    chapterChange
   }: Props = $props()
 
   let nextChapterIndex = $derived(currentChapterIndex + 1)
@@ -40,7 +40,9 @@
 
   const handleChapterChange = (e: MouseEvent, index: number) => {
     e.preventDefault()
-    chapterChange(index)
+    if (chapterChange) {
+      chapterChange(index)
+    }
   }
 </script>
 
