@@ -88,7 +88,6 @@
         <ChapterMenu
           {chapters}
           {showChapterNumbers}
-          basePath="/#"
           loadJs={!disableJs}
           menuTitle="Innhold"
           {currentChapterNumber}

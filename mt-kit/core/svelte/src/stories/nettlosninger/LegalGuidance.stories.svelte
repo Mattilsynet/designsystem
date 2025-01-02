@@ -73,6 +73,8 @@
             linkUrl="http://"
             linkText="Neste handling" />
           <CardArticle
+            headerTag="h4"
+            class="testClass"
             type="form-intro-module"
             title="Dette er tittelen"
             text="Noe tekst i kroppen"

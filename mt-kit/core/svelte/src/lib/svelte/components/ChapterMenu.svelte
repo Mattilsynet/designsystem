@@ -21,7 +21,7 @@
     showChapterNumbers = false,
     subChapterToggleAriaLabel = 'toggle',
     loadJs = false,
-    chapterChange = _ => {}
+    chapterChange
   }: Props = $props()
 </script>
 
@@ -35,7 +35,9 @@
         <a
           onclick={e => {
             e.preventDefault()
-            chapterChange(chapter.index)
+            if (chapterChange) {
+              chapterChange(chapter.index)
+            }
           }}
           href={chapter.url}
           aria-current={chapterIndex === currentChapterNumber ? 'page' : undefined}>
