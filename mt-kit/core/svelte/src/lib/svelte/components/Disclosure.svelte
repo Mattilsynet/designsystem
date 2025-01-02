@@ -4,6 +4,7 @@
 
 <script lang="ts">
   import { slide } from 'svelte/transition'
+  import type { Snippet } from 'svelte'
   import HeadingLevel from './HeadingLevel.svelte'
 
   interface Props {
@@ -18,8 +19,9 @@
     startOpen?: boolean
     chapter?: string | undefined
     class?: string
-    children?: import('svelte').Snippet
+    children?: Snippet
     onOpen?: () => void
+    onClose?: () => void
   }
 
   let {
@@ -33,6 +35,7 @@
     panelClass = '',
     startOpen = false,
     onOpen = undefined,
+    onClose = undefined,
     chapter = undefined,
     class: disclosureClass = '',
     children
@@ -44,10 +47,13 @@
   let onServer = $derived(!loadJs)
 
   function handleClick(): void {
-    if (onOpen) {
-      onOpen()
-    }
     isOpen = !isOpen
+
+    if (isOpen) {
+      if (onOpen) onOpen()
+    } else {
+      if (onClose) onClose()
+    }
   }
 </script>
 

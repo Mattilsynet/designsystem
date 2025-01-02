@@ -272,8 +272,8 @@
           loadJs={!args.disableJs}
           headerTag={disclosure.headerTag}
           icon={i === 2 ? icon : undefined}
-          on:open={() => alert('opening')}
-          on:close={() => alert('closing')}
+          onOpen={() => alert('opening')}
+          onClose={() => alert('closing')}
           headerClass={args.headerClass}>
           {@html disclosure.body}
         </Disclosure>
