@@ -1,20 +1,22 @@
 <script lang="ts">
   import InputError from './InputErrorMessage.svelte'
+  import type { Snippet } from 'svelte'
+  import type { ErrorDetail } from '$lib/ts'
 
   interface Props {
     class?: string
     legend?: string
-    error?: any
-    hiddenErrorText?: boolean
+    error?: ErrorDetail
+    hiddenErrorText?: string
     legendClass?: string
-    children?: import('svelte').Snippet
+    children?: Snippet
   }
 
   let {
     class: className = '',
     legend = '',
-    error = null,
-    hiddenErrorText = false,
+    error,
+    hiddenErrorText,
     legendClass = '',
     children
   }: Props = $props()
@@ -24,11 +26,9 @@
 
 <fieldset
   class="mt-fieldset layout-flex layout-flex-col {className} {fieldsetErrorClass} "
-  aria-invalid={!!error}
   aria-describedby={inputErrorId}
   data-testid="fieldset"
-  style="--gap: 0"
->
+  style="--gap: 0">
   <legend class="mt-legend {legendClass}">
     {legend}
   </legend>

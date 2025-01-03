@@ -4,7 +4,8 @@
   import Fieldset from '$lib/svelte/components/form/Fieldset.svelte'
   import CheckboxWithSubSets from '$lib/svelte/components/form/CheckboxWithSubSets.svelte'
   import Disclosure from '$lib/svelte/components/Disclosure.svelte'
-  import { interpolate, toKebabCase } from '$lib/ts/utils'
+  import { interpolate } from '$lib/ts/utils'
+  import type { ErrorDetail } from '$lib/ts'
   import FormErrorSummary from '$lib/svelte/components/form/FormErrorSummary.svelte'
 
   const { Story } = defineMeta({
@@ -98,22 +99,17 @@
           <h1 class="mt-h1">Fieldset</h1>
           <h2 class="mt-h2">Normal</h2>
 
-          <FormErrorSummary
-            errors={args.errorsNormal}
-            heading={args.errorSummaryHeading}
-            hiddenErrorText={args.hiddenErrorText}
-            legendClass="h2" />
+          <FormErrorSummary errors={args.errorsNormal} heading={args.errorSummaryHeading} />
           <form class="mt-form col-3-span-8 form-layout">
             <Fieldset
               class="validation m-t-m"
               legend={args.legend}
-              error={args.errorsNormal.find(error => error.key === args.fieldsetId)}>
+              error={args.errorsNormal.find((error: ErrorDetail) => error.key === args.fieldsetId)}>
               <Disclosure
                 id={args.fieldsetId}
                 title={args.disclosure.title}
                 loadJs={!args.disableJs}
                 class="disclosure-no-border--align-left"
-                headingId={`${toKebabCase(args.disclosure.title)}-title`}
                 headerTag={args.disclosure.headerTag}>
                 <CheckboxWithSubSets
                   variation="secondary"
@@ -145,23 +141,19 @@
               To get validation for a fieldset, populate the `error: ErrorDetail` parameter with
               errors.
             </p>
-            <FormErrorSummary
-              errors={args.errors}
-              heading={args.errorSummaryHeading}
-              hiddenErrorText={args.hiddenErrorText} />
+            <FormErrorSummary errors={args.errors} heading={args.errorSummaryHeading} />
           </div>
           <form class="mt-form col-3-span-8 form-layout">
             <Fieldset
               class="validation m-t-m"
               legend={args.legend}
-              error={args.errors.find(error => error.key === args.fieldsetId)}
+              error={args.errors.find((error: ErrorDetail) => error.key === args.fieldsetId)}
               legendClass="mt-h2">
               <Disclosure
                 id={args.fieldsetId}
                 title={args.disclosure.title}
                 loadJs={!args.disableJs}
                 class="disclosure-no-border--align-left"
-                headingId={`${toKebabCase(args.disclosure.title)}-title`}
                 headerTag={args.disclosure.headerTag}>
                 <CheckboxWithSubSets
                   variation="secondary"
