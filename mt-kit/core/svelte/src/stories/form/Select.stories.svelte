@@ -21,18 +21,6 @@
     submitAction(data.join(', '))
   }
 
-  function handleFormKeyUp(e: KeyboardEvent) {
-    e.preventDefault()
-    console.log('HandleFormKeyUp')
-  }
-
-  function handleFormKeyDown(e: KeyboardEvent) {
-    e.stopPropagation()
-    if (e.key === 'Enter' && e.target?.type !== 'submit') {
-      e.preventDefault()
-    }
-  }
-
   const { Story } = defineMeta({
     title: 'Components/Form/Select',
     args: {
@@ -72,6 +60,15 @@
   })
 </script>
 
+<script lang="ts">
+  let singleValue: string | undefined = $state()
+  const valueChangeAction = action('valueChangedAction')
+
+  $effect(() => {
+    valueChangeAction(singleValue)
+  })
+</script>
+
 <Story name="Normal">
   {#snippet children({ label, helpText, disableCss })}
     <div use:wrapInShadowDom={disableCss}>
@@ -85,7 +82,7 @@
           {helpText}
           name="animal"
           error={undefined}
-          idPrefix="select-box-" />
+          bind:value={singleValue} />
       </form>
     </div>
   {/snippet}
@@ -100,11 +97,7 @@
         githubUrl="https://github.com/Mattilsynet/designsystem/blob/main/src/svelte/components/form/MultiSelect.svelte" />
       <section>
         <h2 class="mt-h2">Normal</h2>
-        <form
-          class="mt-form"
-          onkeyup={handleFormKeyUp}
-          onkeydown={handleFormKeyDown}
-          onsubmit={handleSubmit}>
+        <form class="mt-form" onsubmit={handleSubmit}>
           <MultiSelect
             options={args.multiselect.options}
             preferredOptions={args.multiselect.preferredOptions}

@@ -12,14 +12,14 @@
   interface Props {
     name: string
     label: string
-    value: string | undefined
-    error: ErrorDetail | undefined
-    helpText: string | undefined
-    isRequired?: boolean | undefined
+    value?: string
+    error?: ErrorDetail
+    helpText?: string
+    isRequired?: boolean
     options?: Array<{ value: string; text: string }>
-    textOptional: string | undefined
+    textOptional?: string
     showOptionalText?: boolean
-    hiddenErrorText: string | undefined
+    hiddenErrorText?: string
   }
 
   let {
@@ -28,7 +28,7 @@
     value = $bindable(),
     error,
     helpText,
-    isRequired = undefined,
+    isRequired,
     options = [],
     textOptional,
     showOptionalText = true,

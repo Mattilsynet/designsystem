@@ -20,11 +20,11 @@
     placeholder?: string
     options?: Array<MultiSelectOption>
     preferredOptions?: Array<MultiSelectOption>
-    isRequired?: boolean | undefined
-    error: ErrorDetail | undefined
-    helpText: string | undefined
-    textOptional: string | undefined
-    hiddenErrorText: string | undefined
+    isRequired?: boolean
+    error?: ErrorDetail
+    helpText?: string
+    textOptional?: string
+    hiddenErrorText?: string
     tagsLabel?: string
     loadJs?: boolean
   }
@@ -37,7 +37,7 @@
     placeholder = '',
     options = [],
     preferredOptions = [],
-    isRequired = undefined,
+    isRequired,
     error,
     helpText,
     textOptional,
