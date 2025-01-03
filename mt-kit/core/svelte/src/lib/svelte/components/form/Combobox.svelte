@@ -1,4 +1,5 @@
 <script lang="ts">
+  import type { Snippet } from 'svelte'
   import '@u-elements/u-datalist'
   import Label from './Label.svelte'
   import InputError from './InputErrorMessage.svelte'
@@ -8,21 +9,21 @@
     inputName?: string
     listName?: string
     inputLabel?: string
-    inputValue?: string | undefined
-    inputIsRequired?: boolean | undefined
-    inputHelpText?: string | undefined
+    inputValue?: string
+    inputIsRequired?: boolean
+    inputHelpText?: string
     inputClass?: string
-    inputError?: ErrorDetail | undefined
-    apiError?: ErrorDetail | undefined
-    hiddenErrorText?: string | undefined
-    textOptional?: string | undefined
+    inputError?: ErrorDetail
+    apiError?: ErrorDetail
+    hiddenErrorText?: string
+    textOptional?: string
     showOptionalText?: boolean
     formInProgressAriaLabel?: string
     isLoading?: boolean
-    inputRef: HTMLInputElement
+    inputRef?: HTMLInputElement
     isFetchFallback?: boolean
-    handleInput: (e: Event) => Promise<void>
-    options?: import('svelte').Snippet
+    handleInput?: (e: Event) => Promise<void>
+    options?: Snippet
   }
 
   let {
@@ -40,6 +41,7 @@
     showOptionalText = true,
     formInProgressAriaLabel = 'Søker',
     isLoading = false,
+    // @ts-expect-error value is never read, but it's bound
     inputRef = $bindable(),
     isFetchFallback = false,
     handleInput,

@@ -19,39 +19,39 @@
     listName?: string
     streetLabel?: string
     streetName?: string
-    streetValue?: string | undefined
-    streetIsRequired?: boolean | undefined
-    streetError: ErrorDetail | undefined
-    streetHelpText: any
+    streetValue?: string
+    streetIsRequired?: boolean
+    streetError?: ErrorDetail
+    streetHelpText?: string
     streetInputClass?: string
     streetInputmode?: InputModeType
     streetFallbackLabel?: string
     streetFallbackHelpText?: string
     postalCodeLabel?: string
     postalCodeName?: string
-    postalCodeValue?: string | undefined
-    postalCodeIsRequired?: boolean | undefined
-    postalCodeError: ErrorDetail | undefined
-    postalCodeHelpText: any
+    postalCodeValue?: string
+    postalCodeIsRequired?: boolean
+    postalCodeError?: ErrorDetail
+    postalCodeHelpText?: string
     postalCodeInputClass?: string
     postalCodeInputmode?: InputModeType
     postalAreaLabel?: string
     postalAreaName?: string
-    postalAreaValue?: string | undefined
-    postalAreaIsRequired?: boolean | undefined
-    postalAreaError: ErrorDetail | undefined
-    postalAreaHelpText: any
+    postalAreaValue?: string
+    postalAreaIsRequired?: boolean
+    postalAreaError?: ErrorDetail
+    postalAreaHelpText?: string
     postalAreaInputClass?: string
     postalAreaInputmode?: InputModeType
     formInProgressAriaLabel?: string
-    hiddenErrorText?: string | undefined
-    textOptional?: string | undefined
+    hiddenErrorText?: string
+    textOptional?: string
     noResultsText?: string
     fetchFailedText?: string
     showOptionalText?: boolean
     loadJs?: boolean
-    hits?: any
-    inputError: undefined | ErrorDetail
+    hits?: string
+    inputError?: ErrorDetail
     isFetchFallback?: boolean
   }
 
@@ -96,7 +96,7 @@
     isFetchFallback = $bindable(false)
   }: Props = $props()
 
-  let input: HTMLInputElement = $state()
+  let input: HTMLInputElement | undefined = $state()
   let inputValue = $state(
     streetValue && postalCodeValue && postalAreaValue
       ? `${streetValue}, ${postalCodeValue} ${postalAreaValue}`
@@ -112,9 +112,9 @@
     streetValue = undefined
     postalCodeValue = undefined
     postalAreaValue = undefined
-    if (!e.inputType) {
-      const index = Number(input.value.split(`:`)[0])
-      const option = input.list?.options?.[index]
+    if (!(e instanceof InputEvent)) {
+      const index = Number(input?.value.split(`:`)[0])
+      const option = input?.list?.options?.[index]
       if (option) {
         streetValue = option['data-street']
         postalCodeValue = option['data-postalcode']
@@ -124,10 +124,12 @@
             ? `${streetValue}, ${postalCodeValue} ${postalAreaValue}`
             : ''
       }
-    } else if (!input.value) {
-      input.list.textContent = ''
+    } else if (!input?.value) {
+      if (input && input.list) {
+        input.list.textContent = ''
+      }
     } else {
-      const addressSearchInput = e.target?.value?.trim()?.replace(/,+/g, '')
+      const addressSearchInput = (e.target as HTMLInputElement)?.value?.trim()?.replace(/,+/g, '')
       const addressSearchString = encodeURIComponent(addressSearchInput)
       apiError = undefined
       clearTimeout(debounceTimer)
@@ -153,20 +155,24 @@
           option.classList.add('option')
           return Object.assign(option, {
             text: `${adressetekst}, ${postnummer} ${poststed}`,
-            value: `${index}: ${input.value}`,
+            value: `${index}: ${input?.value}`,
             ['data-street']: `${adressetekst}`,
             ['data-postalcode']: `${postnummer}`,
             ['data-postalplace']: `${poststed}`
           })
         })
         if (options.length === 0) {
-          input.list.textContent = interpolate(noResultsText, [
-            decodeURIComponent(addressSearchString)
-          ])
+          if (input && input.list) {
+            input.list.textContent = interpolate(noResultsText, [
+              decodeURIComponent(addressSearchString)
+            ])
+          }
         } else {
-          input.list.replaceChildren(...options)
+          if (input && input.list) {
+            input.list.replaceChildren(...options)
+          }
         }
-      } catch (err) {
+      } catch {
         apiError = { key: `${streetName}-input`, message: fetchFailedText }
         isFetchFallback = true
       }
@@ -189,30 +195,26 @@
     {isLoading}
     {handleInput}
     bind:inputRef={input}
-    {formInProgressAriaLabel}
-  ></Combobox>
+    {formInProgressAriaLabel}></Combobox>
   {#if !isFetchFallback}
     <input
       type="hidden"
       class="form-field"
       name={streetName}
       value={streetValue}
-      data-testid="hidden-street"
-    />
+      data-testid="hidden-street" />
     <input
       type="hidden"
       class="form-field"
       name={postalCodeName}
       value={postalCodeValue}
-      data-testid="hidden-postal-code"
-    />
+      data-testid="hidden-postal-code" />
     <input
       type="hidden"
       class="form-field"
       name={postalAreaName}
       value={postalAreaValue}
-      data-testid="hidden-postal-place"
-    />
+      data-testid="hidden-postal-place" />
   {:else}
     <TextInput
       label={streetFallbackLabel}
@@ -225,8 +227,7 @@
       helpText={streetFallbackHelpText}
       {hiddenErrorText}
       {textOptional}
-      {showOptionalText}
-    />
+      {showOptionalText} />
     <TextInput
       label={postalCodeLabel}
       name={postalCodeName}
@@ -238,8 +239,7 @@
       helpText={postalCodeHelpText}
       {hiddenErrorText}
       {textOptional}
-      {showOptionalText}
-    />
+      {showOptionalText} />
     <TextInput
       label={postalAreaLabel}
       name={postalAreaName}
@@ -251,8 +251,7 @@
       helpText={postalAreaHelpText}
       {hiddenErrorText}
       {textOptional}
-      {showOptionalText}
-    />
+      {showOptionalText} />
   {/if}
 {:else}
   <TextInput
@@ -265,8 +264,7 @@
     helpText={streetFallbackHelpText}
     {hiddenErrorText}
     {textOptional}
-    {showOptionalText}
-  />
+    {showOptionalText} />
   <TextInput
     label={postalCodeLabel}
     name={postalCodeName}
@@ -278,8 +276,7 @@
     helpText={postalCodeHelpText}
     {hiddenErrorText}
     {textOptional}
-    {showOptionalText}
-  />
+    {showOptionalText} />
   <TextInput
     label={postalAreaLabel}
     name={postalAreaName}
@@ -291,6 +288,5 @@
     helpText={postalAreaHelpText}
     {hiddenErrorText}
     {textOptional}
-    {showOptionalText}
-  />
+    {showOptionalText} />
 {/if}
