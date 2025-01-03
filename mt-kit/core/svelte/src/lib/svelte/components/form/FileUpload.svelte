@@ -5,20 +5,20 @@
   interface Props {
     loadJs?: boolean
     name: string
-    error: ErrorDetail | undefined
+    error?: ErrorDetail
     multiple?: boolean
-    accept: string | undefined
+    accept?: string
     buttonText?: string
-    isRequired?: boolean | undefined
+    isRequired?: boolean
     value: undefined | string | Array<string>
     onChange?: (files: FileList, target: HTMLInputElement) => void
     label: string
     fileInputName: string
     fileNameInputName: string
-    helpText: string | undefined
-    fileName: string | Array<string> | undefined
-    textOptional: string | undefined
-    hiddenErrorText: string | undefined
+    helpText?: string
+    fileName?: string | Array<string>
+    textOptional?: string
+    hiddenErrorText?: string
     isLoading?: boolean
     uploadInProgressAriaLabel?: string
   }
@@ -30,7 +30,7 @@
     multiple = false,
     accept,
     buttonText = 'Legg til fil',
-    isRequired = undefined,
+    isRequired,
     value = $bindable(),
     onChange = _ => {},
     label,
@@ -48,16 +48,18 @@
   let nameInput: HTMLInputElement | undefined = $state()
 
   function removeFile(fileToRemove: string): void {
-    const fileNames: Array<string> = nameInput.value.split(',')
-    uuidInput.value = ''
-    value = removeValueByFileName(value, fileNames, fileToRemove)
+    if (nameInput && uuidInput) {
+      const fileNames: Array<string> = nameInput.value.split(',')
+      uuidInput.value = ''
+      value = removeValueByFileName(value, fileNames, fileToRemove)
 
-    // update filename. This handles multiple files
-    nameInput.value = fileNames.filter(v => v !== fileToRemove).join(',')
-    fileName = filterFileName(fileName, fileToRemove)
+      // update filename. This handles multiple files
+      nameInput.value = fileNames.filter(v => v !== fileToRemove).join(',')
+      fileName = filterFileName(fileName, fileToRemove)
+    }
   }
 
-  function handleChange(e: InputEvent): void {
+  function handleChange(e: Event): void {
     const target = e.target as HTMLInputElement
     onChange(target.files as FileList, target)
   }
@@ -123,7 +125,7 @@
   {multiple}
   {accept}
   class="mt-input form-field"
-  onchange={e => handleChange(e)}
+  onchange={handleChange}
   class:error
   class:inclusively-hidden-initial={loadJs}
   disabled={isLoading}
