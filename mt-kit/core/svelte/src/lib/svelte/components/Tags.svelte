@@ -8,7 +8,7 @@
   type TagColors = 'info' | 'success' | 'warning' | 'error' | 'neutral'
 
   function handleClick(index: number) {
-    tags = tags.filter((tag, tagIndex) => {
+    tags = tags.filter((_, tagIndex) => {
       return tagIndex !== index
     })
   }
@@ -19,16 +19,14 @@
     <li
       class={`${tag.color ? tag.color : ''} ${
         isClosable ? 'tag-list-item' : 'tag-list-item tag-text'
-      }`}
-    >
+      }`}>
       {#if isClosable}
         <button
           class="mt-button mt-button--secondary mt-button--small closable m-r-0 m-t-0"
           onclick={() => {
             handleClick(i)
           }}
-          aria-label={tag.ariaLabel}
-        >
+          aria-label={tag.ariaLabel}>
           {tag.text}
         </button>
       {:else}
