@@ -13,9 +13,9 @@
     hasCheckAll?: boolean
     forceCheckAll?: boolean
     checkAllLabel?: string
-    level2Legend?: any
-    level3Legend?: any
-    helpText: string | undefined
+    level2Legend?: string
+    level3Legend?: string
+    helpText?: string
     border?: boolean
   }
 
@@ -46,12 +46,12 @@
 
   function mainCategory(mainIndex: number): void {
     // Uncheck all subcategories if parent main category is unchecked
-    if (!options.children[mainIndex].checked) {
-      options.children[mainIndex].children.forEach(subCategory => {
+    if (!options.children?.[mainIndex].checked) {
+      options.children?.[mainIndex].children?.forEach(subCategory => {
         subCategory.checked = false
       })
     }
-    if (options.children?.length > 0) {
+    if (options.children?.length ?? 0 > 0) {
       options.checked = options.children?.filter(s => s.checked).length === options.children?.length
     }
   }
@@ -61,10 +61,11 @@
   }
 
   function toggleCheckedAll(e: Event): void {
+    const target = e.target as HTMLInputElement
     options.children = options.children?.map(state => {
       return {
         ...state,
-        checked: e.target.checked
+        checked: target?.checked
       }
     })
   }
@@ -114,7 +115,7 @@
     {#if (!hasJS || listItem.checked) && listItem.children && listItem.children.length > 0}
       <fieldset
         class={`mt-fieldset checkbox checkbox-subsets ${fieldsetClass}`}
-        transition:slide|local={{ y: 200, duration: 200 }}>
+        transition:slide={{ axis: 'y', duration: 200 }}>
         {#if level2Legend}
           <legend class="mt-legend">
             {interpolate(level2Legend, [listItem.displayName.toLowerCase()])}
@@ -139,7 +140,7 @@
           {#if subListItem.checked && subListItem.children && subListItem.children.length > 0}
             <fieldset
               class={'mt-fieldset checkbox checkbox-subsets--secondary'}
-              transition:slide|local={{ y: 200, duration: 200 }}>
+              transition:slide={{ axis: 'y', duration: 200 }}>
               {#if level3Legend}
                 <legend class="mt-legend">
                   {interpolate(level3Legend, [subListItem.displayName.toLowerCase()])}

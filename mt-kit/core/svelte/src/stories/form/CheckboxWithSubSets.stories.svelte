@@ -237,7 +237,7 @@
             title={disclosure.title}
             loadJs={!disableJs}
             class="disclosure-no-border--align-left"
-            headingId={`${toKebabCase(disclosure.title)}-title`}
+            id={`${toKebabCase(disclosure.title)}-title`}
             headerTag={disclosure.headerTag}>
             <CheckboxWithSubSets
               variation="secondary"
@@ -255,11 +255,6 @@
 </Story>
 
 <style lang="scss">
-  #theme {
-    margin-top: var(--spacer-medium);
-    margin-bottom: var(--spacer-xx-small);
-  }
-
   h2 {
     margin-top: var(--spacer-medium);
   }
