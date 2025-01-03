@@ -1,11 +1,13 @@
 <script lang="ts">
+  import type { Snippet } from 'svelte'
+
   interface Props {
     for: string
     class?: string
-    textOptional?: string | undefined
-    isRequired?: boolean | undefined
+    textOptional?: string
+    isRequired?: boolean
     showOptionalText?: boolean
-    children?: import('svelte').Snippet
+    children?: Snippet
   }
 
   let {
