@@ -99,6 +99,7 @@
         checked={forceArray(value).includes(checkbox.value)}
         onchange={handleOnChange}
         aria-required={isRequired}
+        aria-invalid={!!error}
         aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)} />
       <label
         class="mt-label {theme === 'button' ? 'mt-button mt-button--secondary' : ''}"
