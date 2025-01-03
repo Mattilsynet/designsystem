@@ -2,9 +2,9 @@
   import type { ErrorDetail } from '$lib/ts'
 
   interface Props {
-    value: any
+    value: string
     name: string
-    error: ErrorDetail | undefined
+    error?: ErrorDetail
   }
 
   let { value = $bindable(), name, error }: Props = $props()
