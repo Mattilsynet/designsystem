@@ -2,8 +2,10 @@
   import { defineMeta } from '@storybook/addon-svelte-csf'
   import ExpandableInputList from '$lib/svelte/components/form/ExpandableInputList.svelte'
   import { wrapInShadowDom } from '../storybook-utils/utils'
+  import type { InputProps } from '$lib/ts'
+  import { action } from '@storybook/addon-actions'
 
-  let inputList = $state([
+  let inputList: Array<InputProps> = $state([
     {
       label: 'Hund, antall:',
       name: 'dogs',
@@ -59,25 +61,32 @@
 
   let error: { key: string; message: string }[] | undefined = $state()
 
+  const submitValuesAction = action('submitValues')
   function handleSubmit(e: SubmitEvent) {
     e.preventDefault()
     inputList = inputList.map(input => {
       if (values[input.name] === undefined || values[input.name] === '') {
         return input
       }
-      return !isNaN(values[input.name])
+      return !isNaN(Number.parseInt(values[input.name]))
         ? { ...input, error: undefined }
         : { ...input, error: { key: input.name, message: 'Vennligst benytt tall' } }
     })
-    const isValid = inputList.some(
+    const hasError = inputList.some(input => input.error)
+
+    const hasValue = inputList.some(
       input => values[input.name] !== undefined && values[input.name] !== ''
     )
-    if (!isValid) {
+    if (!hasValue) {
       error = [{ key: fieldSetId, message: 'Vennligs fyll inn antall dyr' }]
+    } else if (hasError) {
+      error = [{ key: fieldSetId, message: 'Vennligs fyll inn tall i riktig format' }]
     } else {
       error = undefined
       inputList = inputList
     }
+
+    submitValuesAction(values)
   }
 
   const { Story } = defineMeta({
@@ -109,7 +118,7 @@
 <Story name="Normal">
   {#snippet children(args)}
     <main class="mt-main" use:wrapInShadowDom={args.disableCss}>
-      <h1 class="mt-h1">Utvidebarliste med inputs</h1>
+      <h1 class="mt-h1">Utvidbar liste med inputs</h1>
       <form class="mt-form" onsubmit={handleSubmit}>
         <ExpandableInputList
           inputList={args.inputList}
@@ -122,6 +131,23 @@
           expandableAriaLabel={args.expandableAriaLabel}
           bind:values
           loadJs={!args.disableJs} />
+        <button type="submit" class="mt-button mt-button--primary">Gå videre</button>
+      </form>
+
+      <h1 class="mt-h1">Utvidbar liste med inputs uten JS</h1>
+      <form class="mt-form" onsubmit={handleSubmit}>
+        <ExpandableInputList
+          inputList={args.inputList}
+          {fieldSetId}
+          fieldSetLabel={args.fieldSetLabel}
+          fieldSetHelpText={args.helpText}
+          fieldSetError={error}
+          expandableText={args.expandableText}
+          collapsableText={args.collapsableText}
+          expandableAriaLabel={args.expandableAriaLabel}
+          bind:values
+          loadJs={false}
+          numberOfInputOutside={4} />
         <button type="submit" class="mt-button mt-button--primary">Gå videre</button>
       </form>
     </main>

@@ -33,8 +33,8 @@
     fieldSetId,
     fieldSetLabel,
     fieldSetErrorHeading = 'Feil oppstod',
-    fieldSetError = undefined,
-    fieldSetHelpText = undefined,
+    fieldSetError,
+    fieldSetHelpText,
     expandableAriaLabel = '',
     expandableText = '',
     collapsableText = '',
@@ -46,8 +46,7 @@
   let outsides = $derived(inputList.slice(0, numberOfInputOutside))
   let insides = $derived(inputList.slice(numberOfInputOutside, inputList.length))
   let showMore = $state(
-    // eslint-disable-next-line svelte/valid-compile
-    insides.some(({ name }) => {
+    inputList.slice(numberOfInputOutside, inputList.length).some(({ name }) => {
       return values[name]
     })
   )
@@ -76,7 +75,7 @@
   class="mt-fieldset expandable-input-list"
   aria-describedby={createInputAriaDescribedby(
     fieldSetHelpText ? fieldSetId : undefined,
-    fieldSetError
+    fieldSetError?.find(() => true)
   )}>
   <legend class="mt-legend form-legend">{fieldSetLabel}</legend>
 
@@ -186,7 +185,7 @@
               hasTransition={true}
               {showOptionalText}
               labelClass="text-body"
-              inputClass="form-field--small form-field--small-width" />
+              inputClass="form-field--small form-field--small-width {inputClass}" />
           {/each}
         </div>
       </details>
