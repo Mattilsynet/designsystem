@@ -28,7 +28,7 @@
     error,
     helpText,
     options = [],
-    isRequired = undefined,
+    isRequired,
     textOptional = 'Valgfitt',
     showOptionalText = true,
     hiddenErrorText,
@@ -52,7 +52,7 @@
     })
   })
 
-  function handleOnChange(e: InputEvent): void {
+  function handleOnChange(e: Event): void {
     const target = e.target as HTMLInputElement
     onChange(target)
     const inputValue = target.value
@@ -67,7 +67,6 @@
 <fieldset
   id={name}
   aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)}
-  aria-required={isRequired || undefined}
   class="mt-fieldset form-fieldset {theme === 'checkbox' ? 'checkbox' : ''} {theme === 'button'
     ? 'mt-button-checkbox'
     : ''} {className}">

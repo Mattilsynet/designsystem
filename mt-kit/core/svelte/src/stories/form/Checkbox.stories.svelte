@@ -2,12 +2,14 @@
   import { defineMeta } from '@storybook/addon-svelte-csf'
   import Checkbox from '$lib/svelte/components/form/Checkbox.svelte'
   import { wrapInShadowDom } from '../storybook-utils/utils'
+  import { action } from '@storybook/addon-actions'
 
   const name = 'checkbox'
-  let buttonCheckboxValue: Array<string> = []
+  let buttonCheckboxValue: Array<string> = ['2']
 
+  const checkedAction = action('checked')
   function onChange({ checked, value }: HTMLInputElement) {
-    console.log('checked:', checked, 'value:', value)
+    checkedAction('checked:', checked, 'value:', value)
   }
 
   const { Story } = defineMeta({
@@ -19,7 +21,7 @@
       errorMessage: 'Fyll inn dette feltet.',
       hiddenErrorText: 'Feilmelding',
       isRequired: false,
-      textOptional: 'Valgfitt',
+      textOptional: 'Valgfritt',
       options: [
         {
           text: 'Dere kan kontakte meg',
@@ -119,12 +121,14 @@
           {name}
           {label}
           {helpText}
-          {isRequired}
+          isRequired
           {hiddenErrorText}
           {textOptional}
           options={buttonOptions}
           error={{ key: name, message: errorMessage }}
-          theme="button" />
+          theme="button"
+          class="testClass"
+          legendClass="legendClass" />
       </form>
     </div>
   {/snippet}
