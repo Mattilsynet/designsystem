@@ -2,8 +2,8 @@
   import { onDestroy, onMount } from 'svelte'
   import type { Control } from 'ol/control'
   import { getMap, type MapContext } from './contexts'
-  import { createActivateMapControl, type MTActivateMapOptions } from './activate-map-control'
-  import { isMobileOrTablet } from '$lib/ts'
+  import { createActivateMapControl } from './activate-map-control'
+  import { isMobileOrTablet, type MTActivateMapOptions } from '$lib/ts'
 
   interface Props {
     activateMapOptions?: MTActivateMapOptions

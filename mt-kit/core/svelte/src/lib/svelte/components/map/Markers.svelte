@@ -9,8 +9,8 @@
 
   interface Props {
     markers?: Array<MTMarker>
-    markerOptions: Options | undefined
-    clusterOptions: MTClusterOptions | undefined
+    markerOptions?: Options
+    clusterOptions?: MTClusterOptions
   }
 
   let { markers = [], markerOptions, clusterOptions }: Props = $props()

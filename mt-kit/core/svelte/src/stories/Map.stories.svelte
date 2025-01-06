@@ -16,8 +16,8 @@
     NORGES_GRUNNKART
   } from '$lib/ts/mapUtils'
   import { createClickMarkerContent } from '$lib/svelte/components/map/overlay'
-  import { type MTPopupOptions } from '$lib/svelte/components/map/utils'
-  import type { MTActivateMapOptions, MusselMarker } from '$lib/ts/types'
+  import { type MTPopupOptions } from '$lib/ts/types'
+  import type { MusselMarker } from '$lib/ts/types'
 
   let map = $state()
   let markers: Array<MusselMarker> = [

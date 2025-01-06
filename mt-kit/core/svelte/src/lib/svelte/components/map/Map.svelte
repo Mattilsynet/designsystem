@@ -5,19 +5,26 @@
   import { onDestroy, onMount } from 'svelte'
   import type { MTAnimationOptions } from '$lib/ts'
   import { toOLCoordinates, zoomPopup } from './utils'
-  import { DEFAULT_START_COORDINATES, MIN_ZOOM_DEFAULT, NORWAY_EXTENT, PROJECTION, ZOOM_NORWAY } from '$lib/ts/mapUtils'
+  import {
+    DEFAULT_START_COORDINATES,
+    MIN_ZOOM_DEFAULT,
+    NORWAY_EXTENT,
+    PROJECTION,
+    ZOOM_NORWAY
+  } from '$lib/ts/mapUtils'
   import { setMap } from './contexts'
+  import type { Snippet } from 'svelte'
 
   interface Props {
     class?: string
     mapId?: string
-    startCoordinates?: any
-    startZoom?: any
+    startCoordinates?: { lat: number; long: number }
+    startZoom?: number
     goToMapSkipLinkText?: string
     enableRotation?: boolean
-    extent?: any
-    children?: import('svelte').Snippet
-    extra?: import('svelte').Snippet
+    extent?: number[]
+    children?: Snippet
+    extra?: Snippet
   }
 
   let {
