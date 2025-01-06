@@ -17,7 +17,7 @@
   class="mt-ul list-unstyled no-space-top layout-grid layout-grid--column-3 m-t-0"
   style="--gap:var(--spacer-medium);"
   data-testid="menu-points">
-  {#each menuPoints as menuPoint, index}
+  {#each menuPoints as menuPoint}
     <li>
       <a
         href={menuPoint.url}
