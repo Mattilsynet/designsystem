@@ -24,7 +24,7 @@
           label: 'Katt, antall',
           textOptional: 'Valgfritt',
           helpText: 'Hjelpetekst',
-          isRequired: true
+          isRequired: false
         }
       ],
       countCharactersLeftLabel: 'karakterer igjen',
@@ -102,11 +102,11 @@
               textOptional={horizontal.textOptional}
               helpText={horizontal.helpText}
               inputmode="text"
-              {countCharactersLeftLabel}
               isRequired={horizontal.isRequired}
               maxlength={horizontal.maxLength}
-              placeholder=""
+              placeholder="enter text"
               autocomplete="off"
+              hasTransition={true}
               inputClass="form-field--small form-field--small-width" />
           {/each}
         </div>
@@ -147,7 +147,6 @@
               helpText={horizontal.helpText}
               inputmode="text"
               error={{ key: 'inputfield', message: 'Feltet er påkrevd' }}
-              {countCharactersLeftLabel}
               isRequired={horizontal.isRequired}
               placeholder=""
               autocomplete="off"

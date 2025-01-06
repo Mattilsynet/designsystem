@@ -10,17 +10,17 @@
     value?: string
     name: string
     label: string
-    labelClass: string
-    error: ErrorDetail | undefined
+    labelClass?: string
+    error?: ErrorDetail
     helpText?: string | undefined
-    textOptional: string | undefined
-    showOptionalText: boolean
-    hiddenErrorText: string | undefined
-    maxlength: number | undefined
-    placeholder: string | undefined
-    isRequired?: boolean | undefined
-    inputmode: InputModeType | undefined
-    autocomplete: AutocompleteType | undefined
+    textOptional?: string
+    showOptionalText?: boolean
+    hiddenErrorText?: string
+    maxlength?: number
+    placeholder?: string
+    isRequired?: boolean
+    inputmode?: InputModeType
+    autocomplete?: AutocompleteType
     hasTransition?: boolean
     inputClass?: string
   }
@@ -37,7 +37,7 @@
     hiddenErrorText,
     maxlength,
     placeholder,
-    isRequired = undefined,
+    isRequired,
     inputmode,
     autocomplete,
     hasTransition = false,
