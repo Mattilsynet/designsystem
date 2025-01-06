@@ -4,15 +4,15 @@
   import { tick } from 'svelte'
 
   interface Props {
-    searchString: string | undefined
-    name: string | undefined
+    searchString?: string
+    name: string
     shouldFocus?: boolean
-    label?: string | undefined
+    label?: string
     labelClass?: string
-    helpText?: string | undefined
-    searchButtonText?: string | undefined
-    placeholder?: string | undefined
-    ariaControls?: string | undefined
+    helpText?: string
+    searchButtonText?: string
+    placeholder?: string
+    ariaControls?: string
     ariaRemoveTextLabel?: string
     inputClass?: string
     class?: string
@@ -22,12 +22,12 @@
     searchString = $bindable(),
     name,
     shouldFocus = false,
-    label = undefined,
+    label,
     labelClass = '',
-    helpText = undefined,
-    searchButtonText = undefined,
-    placeholder = undefined,
-    ariaControls = undefined,
+    helpText,
+    searchButtonText,
+    placeholder,
+    ariaControls,
     ariaRemoveTextLabel = 'Tøm',
     inputClass = '',
     class: className = ''
@@ -53,7 +53,7 @@
 </script>
 
 {#if label}
-  <Label class={labelClass} for={'name'} showOptionalText={false}>
+  <Label class={labelClass} for={name} showOptionalText={false}>
     {label}
   </Label>
 {/if}

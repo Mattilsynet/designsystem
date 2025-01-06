@@ -25,7 +25,7 @@
     <div use:wrapInShadowDom={disableCss}>
       <article>
         <form class="mt-form form-layout">
-          <TextInputSearch name="inputfield_3" {searchButtonText} />
+          <TextInputSearch name="inputfield_0" {searchButtonText} />
         </form>
       </article>
       <article>
@@ -35,7 +35,12 @@
       </article>
       <article>
         <form class="mt-form form-layout">
-          <TextInputSearch name="inputfield_2" {label} {searchButtonText} />
+          <TextInputSearch
+            name="inputfield_2"
+            {label}
+            {searchButtonText}
+            searchString="test"
+            shouldFocus />
         </form>
       </article>
       <article>
