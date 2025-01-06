@@ -5,13 +5,13 @@
   interface Props {
     headingId: string
     title: string
-    intro: string | undefined
-    text: string | undefined
-    linkUrl: string | undefined
-    linkText: string | undefined
+    intro?: string
+    text?: string
+    linkUrl?: string
+    linkText?: string
     type?: 'task' | 'form-intro-module' | 'legal-text' | 'highlighted-link' | ''
     class?: string
-    headerTag?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | undefined // Fallback is h3
+    headerTag?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6' // Fallback is h3
     iconClass?: 'info-icon' | 'warning-icon' | 'task-icon' | ''
   }
 

@@ -2,8 +2,8 @@
   import { compareDates } from '$lib/ts'
 
   interface Props {
-    publishFrom: string | undefined
-    professionallyUpdated: string | undefined
+    publishFrom?: string
+    professionallyUpdated?: string
     lang?: string
     publishedText?: string
     lastPublishedText?: string

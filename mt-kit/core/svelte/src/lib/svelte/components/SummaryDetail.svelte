@@ -16,7 +16,7 @@
     summaryClass = '',
     summaryWrapperClass = '',
     testId = '',
-    ariaLabelledBy = undefined,
+    ariaLabelledBy,
     summaryId = '',
     children
   }: Props = $props()

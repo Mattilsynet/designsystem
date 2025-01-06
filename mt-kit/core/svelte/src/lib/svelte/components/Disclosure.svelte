@@ -8,16 +8,16 @@
   import HeadingLevel from './HeadingLevel.svelte'
 
   interface Props {
-    id?: string | undefined
+    id?: string
     loadJs?: boolean
     title: string
     headerTag?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
     theme?: 'bordered' | 'no-border'
-    icon?: string | undefined
+    icon?: string
     headerClass?: string
     panelClass?: string
     startOpen?: boolean
-    chapter?: string | undefined
+    chapter?: string
     class?: string
     children?: Snippet
     onOpen?: () => void
@@ -25,18 +25,18 @@
   }
 
   let {
-    id = undefined,
+    id,
     loadJs = false,
     title,
     headerTag = 'h3',
     theme = 'bordered',
-    icon = undefined,
+    icon,
     headerClass = '',
     panelClass = '',
     startOpen = false,
-    onOpen = undefined,
-    onClose = undefined,
-    chapter = undefined,
+    onOpen,
+    onClose,
+    chapter,
     class: disclosureClass = '',
     children
   }: Props = $props()

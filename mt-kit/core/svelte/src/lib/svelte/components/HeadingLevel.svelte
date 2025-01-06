@@ -4,16 +4,11 @@
   interface Props {
     headingLevel?: HeadingLevel
     class?: string
-    id?: string | undefined
+    id?: string
     children?: import('svelte').Snippet
   }
 
-  let {
-    headingLevel = 1,
-    class: classProp = '',
-    id: idPassed = undefined,
-    children
-  }: Props = $props()
+  let { headingLevel = 1, class: classProp = '', id: idPassed, children }: Props = $props()
 
   let className = $derived(getClassName(classProp, headingLevel))
 

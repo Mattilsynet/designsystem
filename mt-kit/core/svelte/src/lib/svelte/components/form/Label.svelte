@@ -14,7 +14,7 @@
     for: htmlFor,
     class: className = '',
     textOptional = 'Valgfritt',
-    isRequired = undefined,
+    isRequired,
     showOptionalText = true,
     children
   }: Props = $props()

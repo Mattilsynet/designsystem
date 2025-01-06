@@ -8,7 +8,7 @@
   interface Props {
     class?: string
     severity?: 'info' | 'success' | 'warning' | 'danger'
-    iconTitle?: string | undefined
+    iconTitle?: string
     children?: Snippet
     right?: Snippet
     [key: string]: unknown
@@ -17,7 +17,7 @@
   let {
     class: className = '',
     severity = 'info',
-    iconTitle = undefined,
+    iconTitle,
     children,
     right,
     ...rest

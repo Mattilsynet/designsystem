@@ -1,7 +1,7 @@
 <script lang="ts">
   interface Props {
     infoType?: 'important' | 'none'
-    iconText: string | undefined
+    iconText?: string
     text: string
   }
 
