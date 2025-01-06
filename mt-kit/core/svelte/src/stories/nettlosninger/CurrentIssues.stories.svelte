@@ -6,7 +6,7 @@
   const { Story } = defineMeta({
     title: 'Innhold/Aktuelle saker',
     args: {
-      title: 'Aktuelle saker',
+      title: 'Aktuelt',
       issues: [
         {
           title: 'Ukraina',
@@ -36,7 +36,7 @@
     <main use:wrapInShadowDom={disableCss} class="mt-main container layout-flex-col">
       <h1 class="mt-h1">Aktuelle saker</h1>
       <h3 class="mt-h3 m-t-m">1 sak</h3>
-      <CurrentIssues {title} issues={issues.slice(1)} />
+      <CurrentIssues {title} issues={issues.slice(1)} headerTag="h3" headingClass="mt-h3" />
       <h3 class="mt-h3 m-t-m">2 saker</h3>
       <CurrentIssues {title} {issues} />
     </main>

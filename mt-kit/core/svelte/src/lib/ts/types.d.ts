@@ -194,3 +194,9 @@ export interface MenuPoint {
   text: string
   keywords?: string
 }
+
+export interface Issue {
+  title?: string
+  text?: string
+  href?: string
+}
