@@ -5,17 +5,17 @@
   import { tick } from 'svelte'
 
   interface Props {
-    value?: string | undefined
+    value?: string
     name: string
     label: string
-    helpText: string | undefined
-    error: ErrorDetail | undefined
+    helpText?: string
+    error?: ErrorDetail
     class?: string
     options?: Array<{ value: string; text: string }>
-    isRequired?: boolean | undefined
+    isRequired?: boolean
     textOptional?: string
     showOptionalText?: boolean
-    hiddenErrorText: string | undefined
+    hiddenErrorText?: string
     theme?: 'radio' | 'button'
   }
 
@@ -27,7 +27,7 @@
     error,
     class: className = '',
     options = [],
-    isRequired = undefined,
+    isRequired,
     textOptional = '(valgfritt felt)',
     showOptionalText = true,
     hiddenErrorText,
@@ -47,6 +47,8 @@
 
 <fieldset
   id={name}
+  role="radiogroup"
+  aria-required={isRequired}
   aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)}
   class="mt-fieldset form-fieldset {theme === 'radio' ? 'radio' : ''} {theme === 'button'
     ? 'mt-button-radio'
@@ -78,7 +80,7 @@
         class:error
         bind:group={value}
         value={radio.value}
-        aria-required={isRequired}
+        required={isRequired}
         aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)}
         checked={value === radio.value} />
       <label

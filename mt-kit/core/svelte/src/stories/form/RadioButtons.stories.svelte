@@ -14,7 +14,7 @@
       value: 'no'
     }
   ]
-  let buttonRadioValue = $state()
+  let buttonRadioValue: string | undefined = $state('2')
   const buttonOptions = [
     {
       text: 'Ja',
@@ -62,9 +62,9 @@
           {name}
           {helpText}
           {label}
-          error={undefined}
           textOptional="Valgfritt"
-          theme="radio" />
+          theme="radio"
+          isRequired />
       </form>
       <h2 id="theme" class="mt-h2">Theme - button</h2>
       <form action="" class="mt-form form-layout">
@@ -74,7 +74,6 @@
           name={buttonRadio.name}
           {helpText}
           label={buttonRadio.label}
-          error={undefined}
           textOptional={buttonRadio.textOptional}
           theme="button" />
       </form>
