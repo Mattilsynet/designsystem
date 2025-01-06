@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Snippet } from 'svelte'
   import InformationOutline from '../components/icons/InformationOutline.svelte'
-  import WarningOutline from '../components/icons/WaningOutline.svelte'
+  import WarningOutline from './icons/WarningOutline.svelte'
   import SuccessOutline from '../components/icons/SuccessOutline.svelte'
   import DangerOutline from '../components/icons/DangerOutline.svelte'
 
