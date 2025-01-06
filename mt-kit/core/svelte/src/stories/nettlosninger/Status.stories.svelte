@@ -7,9 +7,9 @@
     title: 'Innhold/Status',
     args: {
       title: 'Dette er viktig',
-      text: '<p>Dette er en melding om at det har skjedd noe</p><h3 class="mt-h3">Overkrift</h3><p>Mer tekst kommer her</p>',
+      text: '<p>Dette er en melding om at det har skjedd noe</p><h3 class="mt-h3">Overskrift</h3><p>Mer tekst kommer her</p>',
       actionsTakenByMattilsynet:
-        '<p>Dette er gjør Mattilsynet</p><h3 class="mt-h3">Overkrift</h3><p>Mer tekst kommer her</p>',
+        '<p>Dette er gjør Mattilsynet</p><h3 class="mt-h3">Overskrift</h3><p>Mer tekst kommer her</p>',
       statusType1: 'important',
       statusType2: 'none',
       linkUrl: 'https://www.mattilsynet.no',
@@ -60,7 +60,13 @@
         </Status>
 
         <h1 class="mt-h1 margin-top">Status med tekst og link</h1>
-        <Status {text} {linkUrl} {linkText} statusType={statusType2}>
+        <Status
+          {text}
+          {linkUrl}
+          {linkText}
+          statusType={statusType2}
+          updatedDate="2024-12-24"
+          publishedText="test">
           {#snippet heading()}
             <h2 class="mt-h2">{title}</h2>
           {/snippet}

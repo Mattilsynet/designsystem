@@ -1,10 +1,11 @@
 <script lang="ts">
   import { mapRelExternal } from '$lib/ts'
   import Published from '../components/Published.svelte'
+  import type { Snippet } from 'svelte'
 
   interface Props {
     text: string
-    updatedDate: string
+    updatedDate?: string
     publishedText?: string
     actionsTakenByMattilsynet?: string
     statusType: 'important' | 'none'
@@ -12,7 +13,7 @@
     linkText: string
     class?: string
     lang?: string
-    heading?: import('svelte').Snippet
+    heading?: Snippet
   }
 
   let {
@@ -46,6 +47,6 @@
     <a href={linkUrl} rel={mapRelExternal(linkUrl)} class="fit-content">{linkText}</a>
   {/if}
   {#if updatedDate && statusType === 'important'}
-    <Published publishFrom={updatedDate} {publishedText} professionallyUpdated={undefined} {lang} />
+    <Published publishFrom={updatedDate} {publishedText} {lang} />
   {/if}
 </div>
