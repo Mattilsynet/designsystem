@@ -1,27 +1,44 @@
 <script lang="ts">
   import { slide } from 'svelte/transition'
   import { onMount } from 'svelte'
-  import type { CheckboxWithSubSectionsOptions } from '../../../ts/types'
-  import { interpolate } from '../../../ts/utils'
+  import type { CheckboxWithSubSectionsOptions } from '$lib/ts'
+  import { interpolate } from '$lib/ts'
 
-  let className = ''
-  export { className as class }
-  export let level1Legend: string
-  export let variation: 'primary' | 'secondary' = 'primary'
-  export let options: CheckboxWithSubSectionsOptions
-  export let optionsName = 'kategori'
-  export let hasCheckAll = false
-  export let forceCheckAll = false
-  export let checkAllLabel = 'Velg alle'
-  export let level2Legend = ``
-  export let level3Legend = ``
-  export let helpText: string | undefined
-  export let border: boolean = true
+  interface Props {
+    class?: string
+    level1Legend: string
+    variation?: 'primary' | 'secondary'
+    options: CheckboxWithSubSectionsOptions
+    optionsName?: string
+    hasCheckAll?: boolean
+    forceCheckAll?: boolean
+    checkAllLabel?: string
+    level2Legend?: string
+    level3Legend?: string
+    helpText?: string
+    border?: boolean
+  }
 
-  $: fieldsetClass =
+  let {
+    class: className = '',
+    level1Legend,
+    variation = 'primary',
+    options = $bindable(),
+    optionsName = 'kategori',
+    hasCheckAll = false,
+    forceCheckAll = false,
+    checkAllLabel = 'Velg alle',
+    level2Legend = ``,
+    level3Legend = ``,
+    helpText,
+    border = true
+  }: Props = $props()
+
+  let fieldsetClass = $derived(
     variation === 'primary' ? 'checkbox-subsets--primary' : 'checkbox-subsets--secondary'
+  )
 
-  let hasJS = false
+  let hasJS = $state(false)
 
   onMount(() => {
     hasJS = true
@@ -29,12 +46,12 @@
 
   function mainCategory(mainIndex: number): void {
     // Uncheck all subcategories if parent main category is unchecked
-    if (!options.children[mainIndex].checked) {
-      options.children[mainIndex].children.forEach(subCategory => {
+    if (!options.children?.[mainIndex].checked) {
+      options.children?.[mainIndex].children?.forEach(subCategory => {
         subCategory.checked = false
       })
     }
-    if (options.children?.length > 0) {
+    if (options.children?.length ?? 0 > 0) {
       options.checked = options.children?.filter(s => s.checked).length === options.children?.length
     }
   }
@@ -44,10 +61,11 @@
   }
 
   function toggleCheckedAll(e: Event): void {
+    const target = e.target as HTMLInputElement
     options.children = options.children?.map(state => {
       return {
         ...state,
-        checked: e.target.checked
+        checked: target?.checked
       }
     })
   }
@@ -73,7 +91,7 @@
         name={optionsName}
         value={options.key}
         bind:checked={options.checked}
-        on:change={toggleCheckedAll} />
+        onchange={toggleCheckedAll} />
       <label class="mt-label" for={`${optionsName}-${options.key}`}>
         {checkAllLabel}
       </label>
@@ -89,7 +107,7 @@
         value={listItem.key}
         bind:checked={listItem.checked}
         aria-checked={listItem.checked}
-        on:change={() => mainCategory(mainIndex)} />
+        onchange={() => mainCategory(mainIndex)} />
       <label class="mt-label" for={`${optionsName}-${listItem.key}`}>
         {formatLabel(listItem.displayName, listItem.docCount)}
       </label>
@@ -97,7 +115,7 @@
     {#if (!hasJS || listItem.checked) && listItem.children && listItem.children.length > 0}
       <fieldset
         class={`mt-fieldset checkbox checkbox-subsets ${fieldsetClass}`}
-        transition:slide|local={{ y: 200, duration: 200 }}>
+        transition:slide={{ axis: 'y', duration: 200 }}>
         {#if level2Legend}
           <legend class="mt-legend">
             {interpolate(level2Legend, [listItem.displayName.toLowerCase()])}
@@ -122,7 +140,7 @@
           {#if subListItem.checked && subListItem.children && subListItem.children.length > 0}
             <fieldset
               class={'mt-fieldset checkbox checkbox-subsets--secondary'}
-              transition:slide|local={{ y: 200, duration: 200 }}>
+              transition:slide={{ axis: 'y', duration: 200 }}>
               {#if level3Legend}
                 <legend class="mt-legend">
                   {interpolate(level3Legend, [subListItem.displayName.toLowerCase()])}

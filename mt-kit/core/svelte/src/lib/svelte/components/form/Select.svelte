@@ -1,32 +1,50 @@
-<script context="module" lang="ts">
+<script module lang="ts">
   let instanceCounter = 0
 </script>
 
 <script lang="ts">
   import InputError from './InputErrorMessage.svelte'
-  import type { ErrorDetail } from '../../../ts/types'
-  import { createInputAriaDescribedby } from '../../../ts/utils'
+  import type { ErrorDetail } from '$lib/ts'
+  import { createInputAriaDescribedby } from '$lib/ts'
   import Label from './Label.svelte'
-  import { beforeUpdate } from 'svelte'
-  export let name: string
-  export let label: string
-  export let value: string | undefined
-  export let error: ErrorDetail | undefined
-  export let helpText: string | undefined
-  export let isRequired: boolean | undefined = undefined
-  export let options: Array<{ value: string; text: string }> = []
-  export let textOptional: string | undefined
-  export let showOptionalText: boolean = true
-  export let hiddenErrorText: string | undefined
+  import { tick } from 'svelte'
+
+  interface Props {
+    name: string
+    label: string
+    value?: string
+    error?: ErrorDetail
+    helpText?: string
+    isRequired?: boolean
+    options?: Array<{ value: string; text: string }>
+    textOptional?: string
+    showOptionalText?: boolean
+    hiddenErrorText?: string
+  }
+
+  let {
+    name,
+    label,
+    value = $bindable(),
+    error,
+    helpText,
+    isRequired,
+    options = [],
+    textOptional,
+    showOptionalText = true,
+    hiddenErrorText
+  }: Props = $props()
 
   const selectId = `ui-select-${instanceCounter++}`
   let isInitialized = false
 
-  beforeUpdate(() => {
-    if (value === undefined && !isInitialized && document) {
-      value = document?.querySelector(`input[name="${name}"]:checked`)?.value
-      isInitialized = true
-    }
+  $effect.pre(() => {
+    tick().then(() => {
+      if (value === undefined && !isInitialized && document) {
+        value = document?.querySelector<HTMLInputElement>(`input[name="${name}"]:checked`)?.value
+        isInitialized = true
+      }
+    })
   })
 </script>
 

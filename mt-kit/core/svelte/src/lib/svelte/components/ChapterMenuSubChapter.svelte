@@ -1,20 +1,30 @@
 <script lang="ts">
-  import type { Chapter } from '../../ts/types'
+  import type { Chapter } from '$lib/ts'
   import { onMount } from 'svelte'
   import { slide } from 'svelte/transition'
 
-  export let showChapterNumbers = false
-  export let parentIndex = 0
-  export let subChapters: Array<Chapter> = []
-  export let ariaLabel = 'toggle'
-  export let loadJs = false
-  let componentId = ''
-  export { componentId as id }
+  interface Props {
+    showChapterNumbers?: boolean
+    parentIndex?: number
+    subChapters?: Array<Chapter>
+    ariaLabel?: string
+    loadJs?: boolean
+    id?: string
+  }
+
+  let {
+    showChapterNumbers = false,
+    parentIndex = 0,
+    subChapters = [],
+    ariaLabel = 'toggle',
+    loadJs = false,
+    id: componentId = ''
+  }: Props = $props()
 
   const SLIDE_DURATION: Readonly<number> = 500
 
-  let isOpen = true
-  let onServer = true
+  let isOpen = $state(true)
+  let onServer = $state(true)
 
   if (loadJs) {
     onMount(() => {
@@ -36,7 +46,7 @@
       aria-haspopup="true"
       aria-controls={componentId}
       aria-expanded={isOpen}
-      on:click={handleButtonClick} />
+      onclick={handleButtonClick}></button>
   {/if}
   {#if isOpen || onServer}
     <ul

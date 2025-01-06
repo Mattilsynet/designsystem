@@ -1,7 +1,12 @@
 <script lang="ts">
   let instanceCounter = 0
-  export let color = '#032C30'
-  export let title: string | undefined = undefined
+  interface Props {
+    color?: string
+    title?: string
+    [key: string]: unknown
+  }
+
+  let { color = '#032C30', title, ...rest }: Props = $props()
   const titleId = `x-icon-${instanceCounter++}`
 </script>
 
@@ -11,7 +16,7 @@
   height="22"
   fill="none"
   xmlns="http://www.w3.org/2000/svg"
-  {...$$restProps}>
+  {...rest}>
   {#if title}
     <title id={titleId}>{title}</title>
   {/if}

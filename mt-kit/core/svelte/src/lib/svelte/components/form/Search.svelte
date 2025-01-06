@@ -1,33 +1,54 @@
 <script lang="ts">
   import Label from './Label.svelte'
-  import { createInputAriaDescribedby } from '../../../ts/utils'
-  import { beforeUpdate } from 'svelte'
+  import { createInputAriaDescribedby } from '$lib/ts'
+  import { tick } from 'svelte'
 
-  export let searchString: string
-  export let name: string | undefined
-  export let shouldFocus: boolean = false
-  export let label: string | undefined = undefined
-  export let labelClass: string = ''
-  export let helpText: string | undefined = undefined
-  export let searchButtonText: string | undefined = undefined
-  export let placeholder: string | undefined = undefined
-  export let ariaControls: string | undefined = undefined
-  export let ariaRemoveTextLabel = 'Tøm'
-  export let inputClass = ''
+  interface Props {
+    searchString?: string
+    name: string
+    shouldFocus?: boolean
+    label?: string
+    labelClass?: string
+    helpText?: string
+    searchButtonText?: string
+    placeholder?: string
+    ariaControls?: string
+    ariaRemoveTextLabel?: string
+    inputClass?: string
+    class?: string
+  }
+
+  let {
+    searchString = $bindable(),
+    name,
+    shouldFocus = false,
+    label,
+    labelClass = '',
+    helpText,
+    searchButtonText,
+    placeholder,
+    ariaControls,
+    ariaRemoveTextLabel = 'Tøm',
+    inputClass = '',
+    class: className = ''
+  }: Props = $props()
+
+  let searchInput: HTMLInputElement | undefined = $state()
+  $effect(() => {
+    if (shouldFocus) {
+      searchInput?.focus()
+    }
+  })
 
   let isInitialized = false
-  let className = ''
-  export { className as class }
-
-  let searchInput: HTMLInputElement
-
-  $: shouldFocus && searchInput?.focus()
-
-  beforeUpdate(() => {
-    if (!searchString && !isInitialized && document) {
-      searchString = document?.querySelector(`input[name="${name}"]`)?.value
-      isInitialized = true
-    }
+  $effect.pre(() => {
+    tick().then(() => {
+      if (!searchString && !isInitialized && document) {
+        searchString =
+          document?.querySelector<HTMLInputElement>(`input[name="${name}"]`)?.value ?? ''
+        isInitialized = true
+      }
+    })
   })
 </script>
 
@@ -60,7 +81,7 @@
       <button
         type="reset"
         class="mt-button mt-button--search-clear"
-        on:click={() => (searchString = '')}
+        onclick={() => (searchString = '')}
         data-testid="search-clear">
         <span class="inclusively-hidden">{ariaRemoveTextLabel}</span>
       </button>

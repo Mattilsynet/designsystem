@@ -1,10 +1,14 @@
-<script context="module" lang="ts">
+<script module lang="ts">
   let instanceCounter = 0
 </script>
 
 <script lang="ts">
-  export let color = '#032C30'
-  export let title = 'Warning'
+  interface Props {
+    color?: string
+    title?: string
+  }
+
+  let { color = '#032C30', title = 'Warning' }: Props = $props()
   const titleId = `warning-outline-${instanceCounter++}`
 </script>
 

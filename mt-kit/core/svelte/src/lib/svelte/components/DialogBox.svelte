@@ -1,27 +1,37 @@
-<script context="module" lang="ts">
+<script module lang="ts">
   let instanceCounter = 0
 </script>
 
 <script lang="ts">
-  import { createEventDispatcher } from 'svelte'
-  import type { CloseDialogEvent } from '../../ts'
+  interface Props {
+    isOpen?: boolean
+    title?: string
+    ariaTitle?: string
+    closeBtnAriaLabel?: string
+    onClosingDialog?: (shouldReappear: boolean) => void
+    dialogRef?: HTMLDivElement
+    children?: import('svelte').Snippet
+  }
 
-  const dispatch = createEventDispatcher<CustomEvent<CloseDialogEvent>>()
-
-  export let isOpen = true
-  export let title = ''
-  export let ariaTitle = ''
-  export let closeBtnAriaLabel = 'Lukk'
-  export let dialogRef = undefined
+  let {
+    isOpen = $bindable(true),
+    title = '',
+    ariaTitle = '',
+    closeBtnAriaLabel = 'Lukk',
+    onClosingDialog,
+    // @ts-expect-error value is never read, but it's bound
+    dialogRef = $bindable(),
+    children
+  }: Props = $props()
 
   const dialogBoxHeadingId = `ui-dialog-box-${instanceCounter++}`
   const dialogCloseButtonId = `dialog-close-button-${instanceCounter++}`
 
   function handleClose(): void {
     isOpen = false
-    dispatch<CustomEvent<CloseDialogEvent>>('closingDialog', {
-      shouldReappear: false
-    })
+    if (onClosingDialog) {
+      onClosingDialog(false)
+    }
   }
 </script>
 
@@ -42,11 +52,11 @@
       data-testid="dialog-box-close"
       type="button"
       class="mt-button mt-button--link dialog-box--close-button"
-      on:click={handleClose}
-      aria-label={closeBtnAriaLabel} />
+      onclick={handleClose}
+      aria-label={closeBtnAriaLabel}></button>
 
     <div class="dialog-box--content">
-      <slot />
+      {@render children?.()}
     </div>
   </div>
 {/if}

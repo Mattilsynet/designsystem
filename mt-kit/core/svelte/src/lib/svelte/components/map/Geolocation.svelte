@@ -5,7 +5,11 @@
   import { createGeolocationControl } from './geolocation-control'
   import type { MTGeolocationOptions } from '$lib/ts'
 
-  export let geolocationOptions: MTGeolocationOptions | undefined = undefined
+  interface Props {
+    geolocationOptions?: MTGeolocationOptions
+  }
+
+  let { geolocationOptions }: Props = $props()
 
   let map: MapContext = getMap()
   let geolocationControl: Control | undefined = undefined

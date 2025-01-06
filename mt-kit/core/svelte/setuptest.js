@@ -28,3 +28,13 @@ vi.stubGlobal('ResizeObserver', ResizeObserverMock)
 vi.stubGlobal('requestAnimationFrame', fn => {
   return window.setTimeout(() => fn(Date.now()), 16)
 })
+
+vi.mock('svelte/transition', () => ({
+  slide: vi.fn(),
+  blur: vi.fn(),
+  fade: vi.fn(),
+  fly: vi.fn(),
+  scale: vi.fn(),
+  draw: vi.fn(),
+  crossfade: vi.fn()
+}))

@@ -1,6 +1,10 @@
 <script lang="ts">
-  export let figmaUrl: string | undefined = undefined
-  export let githubUrl: string | undefined = undefined
+  interface Props {
+    figmaUrl?: string
+    githubUrl?: string
+  }
+
+  let { figmaUrl, githubUrl }: Props = $props()
 </script>
 
 <ul class="mt-ul m-t-xxs list-unstyled layout-flex">

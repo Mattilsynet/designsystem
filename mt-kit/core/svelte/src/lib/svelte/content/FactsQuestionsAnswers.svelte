@@ -10,12 +10,23 @@
     caption?: string
   }
 
-  export let title: string | undefined
-  export let facts: string | undefined
-  export let disclosureHeadClass = 'text-body'
-  export let loadJs = true
-  export let questionsAnswers: Array<QuestionAnswer> = []
-  export let headerTag: 'h1' | 'h2' | 'h3' | 'h4' = 'h2'
+  interface Props {
+    title?: string
+    facts?: string
+    disclosureHeadClass?: string
+    loadJs?: boolean
+    questionsAnswers?: Array<QuestionAnswer>
+    headerTag?: 'h1' | 'h2' | 'h3' | 'h4'
+  }
+
+  let {
+    title,
+    facts,
+    disclosureHeadClass = 'text-body',
+    loadJs = true,
+    questionsAnswers = [],
+    headerTag = 'h2'
+  }: Props = $props()
 </script>
 
 {#if title}

@@ -1,35 +1,54 @@
 <script lang="ts">
   import InputError from './InputErrorMessage.svelte'
-  import { createInputAriaDescribedby, toKebabCase } from '../../../ts/utils'
-  import type { ErrorDetail } from '../../../ts/types'
-  import { beforeUpdate } from 'svelte'
+  import type { ErrorDetail } from '$lib/ts'
+  import { createInputAriaDescribedby, toKebabCase } from '$lib/ts'
+  import { tick } from 'svelte'
 
-  export let value
-  export let name: string
-  export let label: string
-  export let helpText: string | undefined
-  export let error: ErrorDetail | undefined
-  export let options: Array<{ value: string; text: string }> = []
-  export let isRequired: boolean | undefined = undefined
-  export let textOptional = '(valgfritt felt)'
-  export let showOptionalText: boolean = true
-  export let hiddenErrorText: string | undefined
-  export let loadJs = false
-  export let theme: 'radio' | 'button' = 'radio'
-  let className = ''
-  export { className as class }
+  interface Props {
+    value?: string
+    name: string
+    label: string
+    helpText?: string
+    error?: ErrorDetail
+    class?: string
+    options?: Array<{ value: string; text: string }>
+    isRequired?: boolean
+    textOptional?: string
+    showOptionalText?: boolean
+    hiddenErrorText?: string
+    theme?: 'radio' | 'button'
+  }
+
+  let {
+    value = $bindable(),
+    name,
+    label,
+    helpText,
+    error,
+    class: className = '',
+    options = [],
+    isRequired,
+    textOptional = '(valgfritt felt)',
+    showOptionalText = true,
+    hiddenErrorText,
+    theme = 'radio'
+  }: Props = $props()
   let isInitialized = false
 
-  beforeUpdate(() => {
-    if (value === undefined && !isInitialized && document) {
-      value = document?.querySelector(`input[name="${name}"]:checked`)?.value
-      isInitialized = true
-    }
+  $effect.pre(() => {
+    tick().then(() => {
+      if (value === undefined && !isInitialized && document) {
+        value = document?.querySelector<HTMLInputElement>(`input[name="${name}"]:checked`)?.value
+        isInitialized = true
+      }
+    })
   })
 </script>
 
 <fieldset
   id={name}
+  role="radiogroup"
+  aria-required={isRequired}
   aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)}
   class="mt-fieldset form-fieldset {theme === 'radio' ? 'radio' : ''} {theme === 'button'
     ? 'mt-button-radio'
@@ -61,7 +80,7 @@
         class:error
         bind:group={value}
         value={radio.value}
-        aria-required={isRequired}
+        required={isRequired}
         aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)}
         checked={value === radio.value} />
       <label

@@ -11,20 +11,36 @@
     NORWAY_EXTENT,
     PROJECTION,
     ZOOM_NORWAY
-  } from '../../../ts/mapUtils'
+  } from '$lib/ts/mapUtils'
   import { setMap } from './contexts'
+  import type { Snippet } from 'svelte'
 
-  let className = ''
-  export { className as class }
-  export let mapId = 'map'
-  export let startCoordinates = DEFAULT_START_COORDINATES
-  export let startZoom = ZOOM_NORWAY
-  export let goToMapSkipLinkText = 'Gå til kart'
-  export let enableRotation = false
-  export let extent = NORWAY_EXTENT
+  interface Props {
+    class?: string
+    mapId?: string
+    startCoordinates?: { lat: number; long: number }
+    startZoom?: number
+    goToMapSkipLinkText?: string
+    enableRotation?: boolean
+    extent?: number[]
+    children?: Snippet
+    extra?: Snippet
+  }
 
-  let map: Map | undefined
-  let mapElement
+  let {
+    class: className = '',
+    mapId = 'map',
+    startCoordinates = DEFAULT_START_COORDINATES,
+    startZoom = ZOOM_NORWAY,
+    goToMapSkipLinkText = 'Gå til kart',
+    enableRotation = false,
+    extent = NORWAY_EXTENT,
+    children,
+    extra
+  }: Props = $props()
+
+  let map: Map | undefined = $state()
+  let mapElement = $state()
 
   export function resetZoom(): void {
     zoom({})
@@ -52,9 +68,11 @@
     })
   })
 
-  $: if (map) {
-    setMap(map)
-  }
+  $effect(() => {
+    if (map) {
+      setMap(map)
+    }
+  })
 
   onDestroy(() => {
     if (map) {
@@ -67,10 +85,10 @@
   <a class="mt-link map-skiplink" href="#{mapId}">{goToMapSkipLinkText}</a>
   <div id={mapId} class="mt-map" tabindex="0" bind:this={mapElement} data-testid={mapId}>
     {#if map}
-      <slot />
+      {@render children?.()}
     {/if}
   </div>
   {#if map}
-    <slot name="extra" />
+    {@render extra?.()}
   {/if}
 </div>

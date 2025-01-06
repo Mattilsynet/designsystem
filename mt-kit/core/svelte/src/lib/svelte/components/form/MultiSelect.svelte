@@ -1,4 +1,4 @@
-<script context="module" lang="ts">
+<script module lang="ts">
   let instanceCounter = 0
 </script>
 
@@ -12,29 +12,48 @@
   import { createInputAriaDescribedby, toKebabCase } from '$lib/ts'
   import { forceArray } from '$lib/ts/utils'
 
-  export let name: string
-  export let label: string
-  export let values: string | Array<string> = []
-  export let readonly = false
-  export let placeholder = ''
-  export let options: Array<MultiSelectOption> = []
-  export let preferredOptions = []
-  export let isRequired: boolean | undefined = undefined
-  export let error: ErrorDetail | undefined
-  export let helpText: string | undefined
-  export let textOptional: string | undefined
-  export let hiddenErrorText: string | undefined
-  export let tagsLabel = ''
-  export let loadJs = true
+  interface Props {
+    name: string
+    label: string
+    values?: string | Array<string>
+    readonly?: boolean
+    placeholder?: string
+    options?: Array<MultiSelectOption>
+    preferredOptions?: Array<MultiSelectOption>
+    isRequired?: boolean
+    error?: ErrorDetail
+    helpText?: string
+    textOptional?: string
+    hiddenErrorText?: string
+    tagsLabel?: string
+    loadJs?: boolean
+  }
 
-  let input: HTMLInputElement
-  let inputValue: string
-  let allOptions: Array<MultiSelectOption> = []
-  let activeOption: undefined | MultiSelectOption
-  let showOptions = false
-  let first = true
-  let selected: MultiSelectOption | object = {}
-  let listBox: HTMLUListElement
+  let {
+    name,
+    label,
+    values = $bindable([]),
+    readonly = false,
+    placeholder = '',
+    options = [],
+    preferredOptions = [],
+    isRequired,
+    error,
+    helpText,
+    textOptional,
+    hiddenErrorText,
+    tagsLabel = '',
+    loadJs = true
+  }: Props = $props()
+
+  let input: HTMLInputElement | undefined = $state()
+  let inputValue: string | undefined = $state()
+  let allOptions: Array<MultiSelectOption> = $state([])
+  let activeOption: undefined | MultiSelectOption = $state()
+  let showOptions = $state(false)
+  let first = $state(true)
+  let selected: MultiSelectOption | object = $state({})
+  let listBox: HTMLUListElement | undefined = $state()
 
   const ENTER: Readonly<string> = 'Enter'
   const ESCAPE: Readonly<string> = 'Escape'
@@ -57,16 +76,24 @@
     first = false
   })
 
-  $: if (!first) {
-    values = Object.values(selected).map(o => o.value)
-  }
-  $: filtered = allOptions.filter(option => {
-    return inputValue ? option.text.toLowerCase().includes(inputValue.toLowerCase()) : option
+  $effect(() => {
+    if (!first) {
+      values = Object.values(selected).map(o => o.value)
+    }
   })
-  $: if ((activeOption && !filtered.includes(activeOption)) || (!activeOption && inputValue)) {
-    activeOption = filtered[0]
-  }
-  $: activeOptionIndex = filtered.indexOf(activeOption)
+  $effect(() => {
+    if ((activeOption && !filtered.includes(activeOption)) || (!activeOption && inputValue)) {
+      activeOption = filtered[0]
+    }
+  })
+
+  let filtered = $derived(
+    allOptions.filter(option => {
+      return inputValue ? option.text.toLowerCase().includes(inputValue.toLowerCase()) : option
+    })
+  )
+
+  let activeOptionIndex = $derived(filtered.indexOf(activeOption))
 
   function add(token: MultiSelectOption): void {
     if (!readonly) {
@@ -181,6 +208,7 @@
   }
 
   function handleRemoveItem(e: Event, value): void {
+    e.preventDefault()
     remove(value)
   }
 
@@ -191,6 +219,7 @@
   }
 
   function handleOptionMouseup(e: MouseEvent): void {
+    e.preventDefault()
     const value = (e.target as HTMLInputElement).dataset.value
     if (selected[value]) {
       remove(value)
@@ -222,8 +251,8 @@
           class="mt-button mt-button--flat mt-button--small closable token"
           data-id={selectedOption.value}
           aria-label={selectedOption.removeAriaLabel}
-          on:keydown={e => handleRemoveItemKeyDown(e, selectedOption.value)}
-          on:click|preventDefault={e => handleRemoveItem(e, selectedOption.value)}>
+          onkeydown={e => handleRemoveItemKeyDown(e, selectedOption.value)}
+          onclick={e => handleRemoveItem(e, selectedOption.value)}>
           <span>{selectedOption.text}</span>
         </button>
       </li>
@@ -244,7 +273,13 @@
 
 {#if loadJs}
   <div class="multiselect m-t-xxs" class:readonly>
-    <div class="actions" on:click|preventDefault={handleTokenClick} on:blur={handleBlur}>
+    <div
+      class="actions"
+      onclick={e => {
+        e.preventDefault()
+        handleTokenClick()
+      }}
+      onblur={handleBlur}>
       {#if !readonly}
         <input
           id={`${name}-input`}
@@ -252,8 +287,8 @@
           autocomplete="off"
           bind:value={inputValue}
           bind:this={input}
-          on:keyup={handleKeyup}
-          on:blur={handleBlur}
+          onkeyup={handleKeyup}
+          onblur={handleBlur}
           type="text"
           role="combobox"
           data-testid="multiselect-input"
@@ -264,7 +299,7 @@
             ? `${selectId}-${activeOption.value}-${activeOptionIndex}`
             : undefined}
           {placeholder} />
-        <span class="down-arrow" aria-hidden="true" />
+        <span class="down-arrow" aria-hidden="true"></span>
       {/if}
     </div>
     <ul
@@ -276,8 +311,8 @@
       bind:this={listBox}
       class:hidden={!showOptions}
       transition:fly|local={{ duration: 200, y: 5 }}
-      on:mousedown|preventDefault
-      on:mouseup|preventDefault={handleOptionMouseup}>
+      onmousedown={e => e.preventDefault()}
+      onmouseup={handleOptionMouseup}>
       {#each filtered as option, index}
         <li
           id="{selectId}-{option.value}-{index}"

@@ -1,4 +1,4 @@
-<script context="module" lang="ts">
+<script module lang="ts">
   let counter = 0
 </script>
 
@@ -8,20 +8,33 @@
   import { clickOutside } from '$lib/ts'
   import { focusOutside } from '$lib/ts'
 
-  export let title = ''
-  export let titleWhenOpen = ''
-  export let loadJs = false
-  export let icon = ''
-  export let isOpen = true
   const bodyId = `ui-dropdown-${counter++}`
-  export let titleId = `${bodyId}-title`
-  let className = ''
-  export { className as class }
+  interface Props {
+    title?: string
+    titleWhenOpen?: string
+    loadJs?: boolean
+    icon?: string
+    isOpen?: boolean
+    titleId?: string
+    class?: string
+    children?: import('svelte').Snippet<[{ isOpen?: boolean; loadJs?: boolean; titleId?: string }]>
+  }
+
+  let {
+    title = '',
+    titleWhenOpen = '',
+    loadJs = false,
+    icon = '',
+    isOpen = $bindable(true),
+    titleId = `${bodyId}-title`,
+    class: className = '',
+    children
+  }: Props = $props()
 
   const LINK_TAG: Readonly<string> = 'A'
 
-  let onServer = true
-  $: hasDynamicTitleAndIsOpen = titleWhenOpen && isOpen
+  let onServer = $state(true)
+  let hasDynamicTitleAndIsOpen = $derived(titleWhenOpen && isOpen)
 
   onMount(() => {
     if (loadJs) {
@@ -30,7 +43,7 @@
     }
   })
 
-  function closeDropdownOnNavigation(e: MouseEvent & { target: HTMLElement }): void {
+  function closeDropdownOnNavigation(e: MouseEvent & { target: HTMLDivElement }): void {
     if (isOpen && e.target?.tagName === LINK_TAG) {
       isOpen = !isOpen
     }
@@ -48,7 +61,7 @@
         {@html title}
       </summary>
       <div id={bodyId} class="dropdown-content">
-        <slot loadJs={false} />
+        {@render children?.({ loadJs: false, isOpen, titleId })}
       </div>
     </details>
   {:else}
@@ -58,21 +71,21 @@
       aria-haspopup="true"
       aria-expanded={isOpen}
       aria-controls={bodyId}
-      on:click={toggleOpen}>
+      onclick={toggleOpen}>
       {@html hasDynamicTitleAndIsOpen ? titleWhenOpen : title}
     </button>
     {#if isOpen}
       <div
         class="dropdown-content"
         id={bodyId}
-        on:click={closeDropdownOnNavigation}
+        onclick={closeDropdownOnNavigation}
         use:focusOutside={titleId}
         use:clickOutside={titleId}
-        on:clickOutside={() => (isOpen = false)}
-        on:focusOutside={() => (isOpen = false)}
+        onclickOutside={() => (isOpen = false)}
+        onfocusOutside={() => (isOpen = false)}
         in:slide={{ duration: 650 }}
         out:slide={{ duration: 500 }}>
-        <slot {isOpen} />
+        {@render children?.({ isOpen, titleId })}
       </div>
     {/if}
   {/if}

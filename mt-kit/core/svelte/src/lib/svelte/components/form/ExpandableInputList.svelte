@@ -1,34 +1,56 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
   let counter = 0
 </script>
 
 <script lang="ts">
-  import type { InputProps, ErrorDetail, InputModeType } from '../../../ts/types'
-  import { createInputAriaDescribedby, interpolate } from '../../../ts/utils'
+  import type { InputProps, ErrorDetail, InputModeType } from '$lib/ts'
+  import { createInputAriaDescribedby, interpolate } from '$lib/ts'
   import TextInputHorizontal from './TextInputHorizontal.svelte'
 
-  export let values = {}
-  export let isRequired: boolean | undefined = undefined
-  export let inputClass = ''
-  export let inputList: Array<InputProps> = []
-  export let numberOfInputOutside = 2
-  export let fieldSetId // use to relate error to fieldset
-  export let fieldSetLabel
-  export let fieldSetErrorHeading = 'Feil oppstod'
-  export let fieldSetError: Array<ErrorDetail> | undefined = undefined
-  export let fieldSetHelpText: string | undefined = undefined
-  export let expandableAriaLabel = '' //'{0}, viser {1} av {2}'
-  export let expandableText = ''
-  export let collapsableText = ''
-  export let showOptionalText = false
-  export let loadJs = true
-  export let inputMode: InputModeType | undefined
+  interface Props {
+    values?: Record<string, string>
+    inputClass?: string
+    inputList?: Array<InputProps>
+    numberOfInputOutside?: number
+    fieldSetId: string // use to relate error to fieldset
+    fieldSetLabel: string
+    fieldSetErrorHeading?: string
+    fieldSetError?: Array<ErrorDetail>
+    fieldSetHelpText?: string
+    expandableAriaLabel?: string //'{0}, viser {1} av {2}'
+    expandableText?: string
+    collapsableText?: string
+    showOptionalText?: boolean
+    loadJs?: boolean
+    inputMode?: InputModeType
+  }
 
-  $: outsides = inputList.slice(0, numberOfInputOutside)
-  $: insides = inputList.slice(numberOfInputOutside, inputList.length)
-  $: showMore = insides.some(({ name }) => {
-    return values[name]
-  })
+  let {
+    values = $bindable({}),
+    inputClass = '',
+    inputList = [],
+    numberOfInputOutside = 2,
+    fieldSetId,
+    fieldSetLabel,
+    fieldSetErrorHeading = 'Feil oppstod',
+    fieldSetError,
+    fieldSetHelpText,
+    expandableAriaLabel = '',
+    expandableText = '',
+    collapsableText = '',
+    showOptionalText = false,
+    loadJs = true,
+    inputMode
+  }: Props = $props()
+
+  let outsides = $derived(inputList.slice(0, numberOfInputOutside))
+  let insides = $derived(inputList.slice(numberOfInputOutside, inputList.length))
+  let showMore = $state(
+    inputList.slice(numberOfInputOutside, inputList.length).some(({ name }) => {
+      return values[name]
+    })
+  )
+
   const bodyId = `ui-expandable-list-${counter++}`
 
   function createAriaLabel(showMore: boolean) {
@@ -53,7 +75,7 @@
   class="mt-fieldset expandable-input-list"
   aria-describedby={createInputAriaDescribedby(
     fieldSetHelpText ? fieldSetId : undefined,
-    fieldSetError
+    fieldSetError?.find(() => true)
   )}>
   <legend class="mt-legend form-legend">{fieldSetLabel}</legend>
 
@@ -97,7 +119,7 @@
         error={outside.error}
         {showOptionalText}
         labelClass="text-body"
-        inputClass="form-field--small form-field--small-width" />
+        inputClass="form-field--small form-field--small-width {inputClass}" />
     {/each}
 
     {#if loadJs}
@@ -109,7 +131,10 @@
           aria-expanded={showMore}
           aria-controls={bodyId}
           aria-label={createAriaLabel(showMore)}
-          on:click|preventDefault={() => (showMore = !showMore)}
+          onclick={e => {
+            e.preventDefault()
+            showMore = !showMore
+          }}
           style="order: {insides.length + outsides.length};">
           {#if showMore}
             {@html collapsableText}
@@ -132,14 +157,18 @@
               hasTransition={true}
               {showOptionalText}
               labelClass="text-body"
-              inputClass="form-field--small form-field--small-width" />
+              inputClass="form-field--small form-field--small-width {inputClass}" />
           {/each}
         {/if}
       {/if}
     {:else}
       <details bind:open={showMore} class="mt-details">
         <summary class="mt-summary">
-          {@html expandableText}
+          {#if showMore}
+            {@html collapsableText}
+          {:else}
+            {@html expandableText}
+          {/if}
         </summary>
         <div class="collapsable-input-list">
           {#each insides as inside}
@@ -156,7 +185,7 @@
               hasTransition={true}
               {showOptionalText}
               labelClass="text-body"
-              inputClass="form-field--small form-field--small-width" />
+              inputClass="form-field--small form-field--small-width {inputClass}" />
           {/each}
         </div>
       </details>

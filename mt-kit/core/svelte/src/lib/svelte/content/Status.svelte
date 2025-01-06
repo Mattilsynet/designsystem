@@ -1,25 +1,39 @@
 <script lang="ts">
-  import { displayDataTime, mapRelExternal } from '../../ts/utils'
+  import { mapRelExternal } from '$lib/ts'
   import Published from '../components/Published.svelte'
+  import type { Snippet } from 'svelte'
 
-  export let text: string
-  export let updatedDate: string
-  export let publishedText = 'Oppdatert'
-  export let actionsTakenByMattilsynet: string
-  export let statusType: 'important' | 'none'
-  export let linkUrl: string
-  export let linkText: string
-  let className: string
-  export { className as class }
-  export let lang = 'NO-nb'
+  interface Props {
+    text: string
+    updatedDate?: string
+    publishedText?: string
+    actionsTakenByMattilsynet?: string
+    statusType: 'important' | 'none'
+    linkUrl: string
+    linkText: string
+    class?: string
+    lang?: string
+    heading?: Snippet
+  }
 
-  $: updatedDateLocalized = updatedDate ? displayDataTime(lang, updatedDate) : null
+  let {
+    text,
+    updatedDate,
+    publishedText = 'Oppdatert',
+    actionsTakenByMattilsynet,
+    statusType,
+    linkUrl,
+    linkText,
+    class: className = '',
+    lang = 'nb',
+    heading
+  }: Props = $props()
 </script>
 
 <div class="status {className}">
-  <span class="{statusType} mt-h2" data-testid="status-type" />
+  <span class="{statusType} mt-h2" data-testid="status-type"></span>
 
-  <slot name="heading" />
+  {@render heading?.()}
 
   <div class="text">
     {@html text}
@@ -33,6 +47,6 @@
     <a href={linkUrl} rel={mapRelExternal(linkUrl)} class="fit-content">{linkText}</a>
   {/if}
   {#if updatedDate && statusType === 'important'}
-    <Published publishFrom={updatedDate} {publishedText} />
+    <Published publishFrom={updatedDate} {publishedText} {lang} />
   {/if}
 </div>

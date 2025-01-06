@@ -1,20 +1,34 @@
 <script lang="ts">
-  import { compareDates } from '../../ts/utils'
+  import { compareDates } from '$lib/ts'
 
-  export let publishFrom: string | undefined
-  export let professionallyUpdated: string | undefined
-  export let lang = 'nb'
-  export let publishedText = 'Publisert'
-  export let lastPublishedText = 'Faglig oppdatert'
-  export let dtClass = ''
-  export let ddClass = ''
-  $: dateObject = compareDates({
-    lang,
+  interface Props {
+    publishFrom?: string
+    professionallyUpdated?: string
+    lang?: string
+    publishedText?: string
+    lastPublishedText?: string
+    dtClass?: string
+    ddClass?: string
+  }
+
+  let {
     publishFrom,
     professionallyUpdated,
-    publishedFromLabel: publishedText,
-    professionallyUpdatedLabel: lastPublishedText
-  })
+    lang = 'nb',
+    publishedText = 'Publisert',
+    lastPublishedText = 'Faglig oppdatert',
+    dtClass = '',
+    ddClass = ''
+  }: Props = $props()
+  let dateObject = $derived(
+    compareDates({
+      lang,
+      publishFrom,
+      professionallyUpdated,
+      publishedFromLabel: publishedText,
+      professionallyUpdatedLabel: lastPublishedText
+    })
+  )
 </script>
 
 <dl class="mt-dl meta">

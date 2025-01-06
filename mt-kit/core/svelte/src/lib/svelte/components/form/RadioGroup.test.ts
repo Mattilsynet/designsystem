@@ -37,7 +37,7 @@ describe('RadioGroup', () => {
     const input = getByDisplayValue(value)
     expect(input).toBeInTheDocument()
     expect(input.checked).toEqual(true)
-    const fieldSet = getByRole('radio', { name: 'Ja' })
+    const fieldSet = getByRole('radiogroup')
     expect(fieldSet?.getAttribute('aria-required')).toEqual('true')
     expect(fieldSet?.getAttribute('aria-describedby')).toEqual('name-hint')
   })
@@ -57,7 +57,7 @@ describe('RadioGroup', () => {
     expect(getByLabelText(options[1].text)).toBeInTheDocument()
     const input = getByDisplayValue(value)
     expect(input).toBeInTheDocument()
-    const fieldSet = getByRole('radio', { name: 'Ja' })
+    const fieldSet = getByRole('radiogroup')
     expect(fieldSet?.getAttribute('aria-required')).toEqual('true')
     const label2 = getByLabelText(options[1].text)
     await fireEvent.click(label2)
@@ -73,7 +73,7 @@ describe('RadioGroup', () => {
 
   test('Renders optional in label if not required', () => {
     const err = { fieldName: name, message: 'This is the errormessage' }
-    const { getByText } = render(RadioGroup, {
+    const { getByText, getByRole } = render(RadioGroup, {
       value,
       error: err,
       name,
@@ -82,6 +82,8 @@ describe('RadioGroup', () => {
       options
     })
     expect(getByText(/valgfritt felt/)).toBeInTheDocument()
+    const fieldSet = getByRole('radiogroup')
+    expect(fieldSet).not.toHaveAttribute('aria-required')
   })
 
   test('Renders error', () => {

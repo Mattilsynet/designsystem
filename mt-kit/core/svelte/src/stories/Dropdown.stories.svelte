@@ -1,5 +1,5 @@
-<script lang="ts">
-  import { Meta, Story, Template } from '@storybook/addon-svelte-csf'
+<script lang="ts" module>
+  import { defineMeta } from '@storybook/addon-svelte-csf'
   import Dropdown from '$lib/svelte/components/Dropdown.svelte'
   import Checkbox from '$lib/svelte/components/form/Checkbox.svelte'
   import CardArticle from '$lib/svelte/components/CardArticle.svelte'
@@ -60,57 +60,53 @@
     filterForm.reset()
     filterForm.submit()
   }
+
+  const { Story } = defineMeta({
+    title: 'Components/Dropdown',
+    argTypes: {
+      buttonLabel: { control: 'text' },
+      disableJs: { control: 'boolean' },
+      disableCss: { control: 'boolean' }
+    },
+    args: {
+      label: '',
+      helpText: '',
+      errorMessage: 'Fyll inn dette feltet.',
+      hiddenErrorText: 'Feilmelding',
+      isRequired: false,
+      textOptional: '',
+      options: [
+        {
+          text: 'Temasider',
+          value: 'true'
+        },
+        {
+          text: 'Nyheter',
+          value: 'no'
+        }
+      ],
+      disableCss: false
+    }
+  })
 </script>
 
-<Meta
-  parameters={{
-    xstate: true,
-    inspectUrl: 'https://stately.ai/viz?inspect',
-    layout: 'fullscreen',
-    disableCss: false
-  }}
-  title="Components/Dropdown"
-  argTypes={{
-    buttonLabel: { control: 'text' },
-    disableJs: { control: 'boolean' },
-    disableCss: { control: 'boolean' }
-  }}
-  args={{
-    label: '',
-    helpText: '',
-    errorMessage: 'Fyll inn dette feltet.',
-    hiddenErrorText: 'Feilmelding',
-    isRequired: false,
-    textOptional: '',
-    options: [
-      {
-        text: 'Temasider',
-        value: 'true'
-      },
-      {
-        text: 'Nyheter',
-        value: 'no'
-      }
-    ],
-    disableCss: false
-  }} />
-
-<Template let:args>
+{#snippet template(args)}
   <div use:wrapInShadowDom={args.disableCss}>
     <section class="preview-wrapper">
       <Dropdown
         title={args.buttonLabel}
         loadJs={!args.disableJs}
-        let:titleId
         icon="icon--caret-down-after"
         class="mt-button__small-text full-menu">
-        <ol class="mt-ol m-t-xxs alt-language" aria-labelledby={titleId}>
-          {#each args.items as item}
-            <li>
-              <a href={item.url} class="forward-arrow-small">{item.title}</a>
-            </li>
-          {/each}
-        </ol>
+        {#snippet children({ titleId })}
+          <ol class="mt-ol m-t-xxs alt-language" aria-labelledby={titleId}>
+            {#each args.items as item}
+              <li>
+                <a href={item.url} class="forward-arrow-small">{item.title}</a>
+              </li>
+            {/each}
+          </ol>
+        {/snippet}
       </Dropdown>
     </section>
     <section class="preview-wrapper" aria-labelledby="how-to-heading">
@@ -121,66 +117,65 @@
         text={args.cardArticle.text} />
     </section>
   </div>
-</Template>
+{/snippet}
 
-<Story name="Normal" args={configs[0]} />
+<Story name="Normal" args={configs[0]} children={template} />
 
-<Story name="Multiple" args={configs} let:args>
-  {#each [configs[0], configs[1]] as args, i}
-    <section class="preview-wrapper inline-block">
-      <Dropdown
-        title={args.buttonLabel}
-        loadJs={!args.disableJs}
-        let:titleId
-        icon="icon--caret-down-after"
-        class="mt-button__small-text  full-menu">
-        <ol class="mt-ol m-t-xxs alt-language" aria-labelledby={titleId}>
-          {#each args.items as item}
-            <li>
-              <a href={item.url} class="mt-link forward-arrow-small">{item.title}</a>
-            </li>
-          {/each}
-        </ol>
-      </Dropdown>
-    </section>
-  {/each}
+<Story name="Multiple" args={configs}>
+  {#snippet children(configs)}
+    {#each [configs[0], configs[1]] as args}
+      <section class="preview-wrapper inline-block">
+        <Dropdown
+          title={args.buttonLabel}
+          loadJs={!args.disableJs}
+          icon="icon--caret-down-after"
+          class="mt-button__small-text  full-menu">
+          {#snippet children({ titleId })}
+            <ol class="mt-ol m-t-xxs alt-language" aria-labelledby={titleId}>
+              {#each args.items as item}
+                <li>
+                  <a href={item.url} class="mt-link forward-arrow-small">{item.title}</a>
+                </li>
+              {/each}
+            </ol>
+          {/snippet}
+        </Dropdown>
+      </section>
+    {/each}
+  {/snippet}
 </Story>
 
-<Story
-  name="Standalone"
-  args={configs}
-  let:args
-  let:label
-  let:helpText
-  let:disableCss
-  let:options
-  let:isRequired
-  let:textOptional>
-  <div use:wrapInShadowDom={disableCss}>
-    <section class="m-t-l layout-grid layout-grid--column-12">
-      <Dropdown
-        let:isOpen
-        title="Vis søkefilter"
-        titleWhenOpen="Skjul søkefilter"
-        loadJs={!args.disableJs}
-        icon="icon--caret-down-after"
-        class="default-dropdown span-9-col-3-span-4">
-        <form class="mt-form">
-          <Checkbox {name} {label} {helpText} {options} {isRequired} {textOptional} />
-          <button class="mt-button mt-button--primary" type="submit"> Filtrer </button>
-          <button class="mt-button mt-button--secondary" type="reset" on:click={resetForm}>
-            Tøm filter
-          </button>
-        </form>
-      </Dropdown>
+<Story name="Standalone" args={configs}>
+  {#snippet children({ disableJs, label, helpText, disableCss, options, isRequired, textOptional })}
+    <div use:wrapInShadowDom={disableCss}>
+      <section class="m-t-l layout-grid layout-grid--column-12">
+        <Dropdown
+          title="Vis søkefilter"
+          titleWhenOpen="Skjul søkefilter"
+          loadJs={!disableJs}
+          icon="icon--caret-down-after"
+          class="default-dropdown span-9-col-3-span-4">
+          {#snippet children({ isOpen })}
+            <form class="mt-form">
+              <Checkbox {name} {label} {helpText} {options} {isRequired} {textOptional} />
+              <button class="mt-button mt-button--primary" type="submit"> Filtrer</button>
+              <button class="mt-button mt-button--secondary" type="reset" onclick={resetForm}>
+                Tøm filter
+              </button>
+            </form>
+          {/snippet}
+        </Dropdown>
 
-      <div class="m-t-l col-3-span-6">
-        <h2>Annet innhold på samme side</h2>
-        <p>Dropdown skal lukke seg når man trykker utenfor eller bruker TAB for å skifte fokus.</p>
-        <a class="mt-link" href="/">Lenke til annet innhold</a>
-      </div>
-    </section>
-  </div>
+        <div class="m-t-l col-3-span-6">
+          <h2>Annet innhold på samme side</h2>
+          <p>
+            Dropdown skal lukke seg når man trykker utenfor eller bruker TAB for å skifte fokus.
+          </p>
+          <a class="mt-link" href="/">Lenke til annet innhold</a>
+        </div>
+      </section>
+    </div>
+  {/snippet}
 </Story>
 
 <style>

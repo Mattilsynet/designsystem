@@ -1,28 +1,52 @@
 <script lang="ts">
+  import type { Snippet } from 'svelte'
   import '@u-elements/u-datalist'
   import Label from './Label.svelte'
   import InputError from './InputErrorMessage.svelte'
-  import { createInputAriaDescribedby, type ErrorDetail } from '../../../ts'
+  import { createInputAriaDescribedby, type ErrorDetail } from '$lib/ts'
 
-  export let inputName = ''
-  export let listName = ''
-  export let inputLabel = ''
-  export let inputValue: string | undefined = undefined
-  export let inputIsRequired: boolean | undefined = undefined
-  export let inputHelpText: string | undefined = undefined
-  export let inputClass = ''
-  export let inputError: ErrorDetail | undefined = undefined
-  export let apiError: ErrorDetail | undefined = undefined
-  export let hiddenErrorText: string | undefined = undefined
-  export let textOptional: string | undefined = undefined
-  export let showOptionalText = true
-  export let formInProgressAriaLabel = 'Søker'
-  export let isLoading = false
+  interface Props {
+    inputName?: string
+    listName?: string
+    inputLabel?: string
+    inputValue?: string
+    inputIsRequired?: boolean
+    inputHelpText?: string
+    inputClass?: string
+    inputError?: ErrorDetail
+    apiError?: ErrorDetail
+    hiddenErrorText?: string
+    textOptional?: string
+    showOptionalText?: boolean
+    formInProgressAriaLabel?: string
+    isLoading?: boolean
+    inputRef?: HTMLInputElement
+    isFetchFallback?: boolean
+    handleInput?: (e: Event) => Promise<void>
+    options?: Snippet
+  }
 
-  export let inputRef: HTMLInputElement
-  export let isFetchFallback = false
-
-  export let handleInput: (e: Event) => Promise<void>
+  let {
+    inputName = '',
+    listName = '',
+    inputLabel = '',
+    inputValue = $bindable(),
+    inputIsRequired,
+    inputHelpText,
+    inputClass = '',
+    inputError,
+    apiError,
+    hiddenErrorText,
+    textOptional,
+    showOptionalText = true,
+    formInProgressAriaLabel = 'Søker',
+    isLoading = false,
+    // @ts-expect-error value is never read, but it's bound
+    inputRef = $bindable(),
+    isFetchFallback = false,
+    handleInput,
+    options
+  }: Props = $props()
 </script>
 
 <div class="combobox-wrapper">
@@ -60,14 +84,14 @@
         inputHelpText ? inputName : undefined,
         inputError
       )}
-      on:input={handleInput} />
+      oninput={handleInput} />
     <span
       role="status"
       aria-live="assertive"
       class:icon--spinner={isLoading}
-      aria-label={isLoading ? formInProgressAriaLabel : ''} />
+      aria-label={isLoading ? formInProgressAriaLabel : ''}></span>
   </div>
   <u-datalist id={listName} class="mt-datalist">
-    <slot name="options" />
+    {@render options?.()}
   </u-datalist>
 </div>

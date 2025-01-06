@@ -1,38 +1,42 @@
 <script lang="ts">
-  import type { Page, ChapterChangeDetails } from '../../../ts/types'
-  import { onMount, createEventDispatcher } from 'svelte'
-  import { interpolate } from '../../../ts/utils'
+  import type { Page } from '$lib/ts'
+  import { interpolate } from '$lib/ts'
 
   const PAGINATION_BREAKPOINT = '1024px' // $breakpoint-x-large
-  const PAGE_CHANGE_EVENT = 'page-change'
   const ALLOWED_PAGES_DESKTOP = 5
   const ALLOWED_PAGES_MOBILE = 3
-  export let nextText = 'Neste'
-  export let previousText = 'Forrige'
-  export let paginationLabel = 'Paginering'
-  export let labelPage = 'Side'
-  export let toPageTitle = 'Gå til side {0} av {1}'
-  export let pages: Array<Page> = []
-  export let currentPageIndex: 0 | 1 = 0
 
-  let className = ''
-  export { className as class }
+  interface Props {
+    nextText?: string
+    previousText?: string
+    paginationLabel?: string
+    labelPage?: string
+    toPageTitle?: string
+    pages?: Array<Page>
+    currentPageIndex?: number
+    class?: string
+    pageChange?: (index: number) => void
+  }
 
-  $: nextPageIndex = currentPageIndex + 1
-  $: nextPage = pages[nextPageIndex]
-  $: previousPageIndex = currentPageIndex - 1
-  $: previousPage = pages[previousPageIndex]
-  $: isMobile = undefined
-  $: mappedPages = mapPagination(isMobile, currentPageIndex + 1, pages)
+  let {
+    nextText = 'Neste',
+    previousText = 'Forrige',
+    paginationLabel = 'Paginering',
+    labelPage = 'Side',
+    toPageTitle = 'Gå til side {0} av {1}',
+    pages = [],
+    currentPageIndex = 0,
+    class: className = '',
+    pageChange = _ => {}
+  }: Props = $props()
 
-  const dispatch = createEventDispatcher<{ chapterChange: ChapterChangeDetails }>()
+  let isMobile = $state(
+    window?.matchMedia(`(max-width: ${PAGINATION_BREAKPOINT})`).matches === true
+  )
 
-  onMount(() => {
-    isMobile = window?.matchMedia(`(max-width: ${PAGINATION_BREAKPOINT})`).matches === true
-  })
-
-  function handleClick(index: number): void {
-    dispatch(PAGE_CHANGE_EVENT, { index: index })
+  function handleClick(event: Event, index: number): void {
+    event.preventDefault()
+    pageChange(index)
   }
 
   function hasNextPage(currentPageNumber: number, pages: Array<Page>): boolean {
@@ -94,6 +98,13 @@
       return { ...page, hidden: true }
     })
   }
+
+  let nextPageIndex = $derived(currentPageIndex + 1)
+  let nextPage = $derived(pages[nextPageIndex])
+  let previousPageIndex = $derived(currentPageIndex - 1)
+  let previousPage = $derived(pages[previousPageIndex])
+
+  let mappedPages = $derived(mapPagination(isMobile, currentPageIndex + 1, pages))
 </script>
 
 {#if pages.length > 1}
@@ -105,7 +116,7 @@
           ? 'inclusively-hidden--fit-content'
           : ''}"
         title={previousText}
-        on:click|preventDefault={() => handleClick(previousPageIndex)}
+        onclick={e => handleClick(e, previousPageIndex)}
         aria-disabled={!hasPreviousPage(currentPageIndex)}>
         {previousText}
       </a>
@@ -121,9 +132,9 @@
             <a
               href={chapter.url}
               class="mt-link"
-              title={interpolate(toPageTitle, [index + 1, pages.length])}
+              title={interpolate(toPageTitle, [String(index + 1), String(pages.length)])}
               aria-current={index === currentPageIndex ? 'page' : undefined}
-              on:click|preventDefault={() => handleClick(index)}>
+              onclick={e => handleClick(e, index)}>
               <span class="inclusively-hidden-initial">{labelPage}</span>
               {index + 1}
             </a>
@@ -138,14 +149,14 @@
           ? 'inclusively-hidden--fit-content'
           : ''}"
         title={previousText}
-        on:click|preventDefault={() => handleClick(previousPageIndex)}
+        onclick={e => handleClick(e, previousPageIndex)}
         aria-disabled={!hasPreviousPage(currentPageIndex)}>
         {previousText}
       </a>
     {/if}
     <a
       href={nextPage ? nextPage.url : undefined}
-      on:click|preventDefault={() => handleClick(nextPageIndex)}
+      onclick={e => handleClick(e, nextPageIndex)}
       title={nextText}
       class="mt-link next-link {!hasNextPage(currentPageIndex, pages)
         ? 'inclusively-hidden--fit-content'

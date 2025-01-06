@@ -1,7 +1,11 @@
 <script lang="ts">
-  export let infoType: 'important' | 'none' = 'none'
-  export let iconText: string | undefined
-  export let text: string
+  interface Props {
+    infoType?: 'important' | 'none'
+    iconText?: string
+    text: string
+  }
+
+  let { infoType = 'none', iconText, text }: Props = $props()
 </script>
 
 <div class="notice" class:important={infoType !== 'none'}>

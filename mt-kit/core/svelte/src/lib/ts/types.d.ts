@@ -39,7 +39,7 @@ export interface Chapter {
   heading: string
   url: string
   index: number
-  subChapters: Array<Chapter>
+  subChapters?: Array<Chapter>
 }
 export interface Page {
   url: string
@@ -129,9 +129,6 @@ export interface CountCharsParams {
   countCharactersTooManyLabel?: string
 }
 
-export interface CloseDialogEvent {
-  shouldReappear: boolean
-}
 export interface CustomCheckedEvent {
   event: Event
 }

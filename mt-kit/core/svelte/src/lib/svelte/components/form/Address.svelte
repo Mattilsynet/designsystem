@@ -14,59 +14,97 @@
     poststed: string
   }
 
-  export let inputName = ''
-  export let listName = 'address-list'
+  interface Props {
+    inputName?: string
+    listName?: string
+    streetLabel?: string
+    streetName?: string
+    streetValue?: string
+    streetIsRequired?: boolean
+    streetError?: ErrorDetail
+    streetHelpText?: string
+    streetInputClass?: string
+    streetInputmode?: InputModeType
+    streetFallbackLabel?: string
+    streetFallbackHelpText?: string
+    postalCodeLabel?: string
+    postalCodeName?: string
+    postalCodeValue?: string
+    postalCodeIsRequired?: boolean
+    postalCodeError?: ErrorDetail
+    postalCodeHelpText?: string
+    postalCodeInputClass?: string
+    postalCodeInputmode?: InputModeType
+    postalAreaLabel?: string
+    postalAreaName?: string
+    postalAreaValue?: string
+    postalAreaIsRequired?: boolean
+    postalAreaError?: ErrorDetail
+    postalAreaHelpText?: string
+    postalAreaInputClass?: string
+    postalAreaInputmode?: InputModeType
+    formInProgressAriaLabel?: string
+    hiddenErrorText?: string
+    textOptional?: string
+    noResultsText?: string
+    fetchFailedText?: string
+    showOptionalText?: boolean
+    loadJs?: boolean
+    hits?: string
+    inputError?: ErrorDetail
+    isFetchFallback?: boolean
+  }
 
-  export let streetLabel = ''
-  export let streetName = ''
-  export let streetValue: string | undefined = undefined
-  export let streetIsRequired: boolean | undefined = undefined
-  export let streetError: ErrorDetail | undefined
-  export let streetHelpText
-  export let streetInputClass = ''
-  export let streetInputmode: InputModeType = 'text'
+  let {
+    inputName = '',
+    listName = 'address-list',
+    streetLabel = '',
+    streetName = '',
+    streetValue = $bindable(),
+    streetIsRequired,
+    streetError,
+    streetHelpText,
+    streetInputClass = '',
+    streetInputmode = 'text',
+    streetFallbackLabel = '',
+    streetFallbackHelpText = '',
+    postalCodeLabel = '',
+    postalCodeName = '',
+    postalCodeValue = $bindable(),
+    postalCodeIsRequired,
+    postalCodeError,
+    postalCodeHelpText,
+    postalCodeInputClass = '',
+    postalCodeInputmode = 'numeric',
+    postalAreaLabel = '',
+    postalAreaName = '',
+    postalAreaValue = $bindable(),
+    postalAreaIsRequired,
+    postalAreaError,
+    postalAreaHelpText,
+    postalAreaInputClass = '',
+    postalAreaInputmode = 'text',
+    formInProgressAriaLabel = 'Søker',
+    hiddenErrorText = 'Feilmelding',
+    textOptional = 'Valgfritt',
+    noResultsText = 'Ingen resultater for {0}',
+    fetchFailedText = 'Skriv inn manuelt under',
+    showOptionalText = true,
+    loadJs = false,
+    hits = `10`,
+    inputError,
+    isFetchFallback = $bindable(false)
+  }: Props = $props()
 
-  export let streetFallbackLabel = ''
-  export let streetFallbackHelpText = ''
-
-  export let postalCodeLabel = ''
-  export let postalCodeName = ''
-  export let postalCodeValue: string | undefined = undefined
-  export let postalCodeIsRequired: boolean | undefined = undefined
-  export let postalCodeError: ErrorDetail | undefined
-  export let postalCodeHelpText
-  export let postalCodeInputClass = ''
-  export let postalCodeInputmode: InputModeType = 'numeric'
-
-  export let postalAreaLabel = ''
-  export let postalAreaName = ''
-  export let postalAreaValue: string | undefined = undefined
-  export let postalAreaIsRequired: boolean | undefined = undefined
-  export let postalAreaError: ErrorDetail | undefined
-  export let postalAreaHelpText
-  export let postalAreaInputClass = ''
-  export let postalAreaInputmode: InputModeType = 'text'
-
-  export let formInProgressAriaLabel = 'Søker'
-  export let hiddenErrorText: string | undefined = 'Feilmelding'
-
-  export let textOptional: string | undefined = 'Valgfritt'
-  export let noResultsText: string = 'Ingen resultater for {0}'
-  export let fetchFailedText: string = 'Skriv inn manuelt under'
-  export let showOptionalText = true
-  export let loadJs = false
-  export let hits = `10`
-  export let inputError: undefined | ErrorDetail
-  export let isFetchFallback = false
-
-  let input: HTMLInputElement
-  let inputValue =
+  let input: HTMLInputElement | undefined = $state()
+  let inputValue = $state(
     streetValue && postalCodeValue && postalAreaValue
       ? `${streetValue}, ${postalCodeValue} ${postalAreaValue}`
       : ''
+  )
 
-  let isLoading = false
-  let apiError: undefined | ErrorDetail = undefined
+  let isLoading = $state(false)
+  let apiError: undefined | ErrorDetail = $state(undefined)
   // eslint-disable-next-line no-undef
   let debounceTimer: NodeJS.Timeout
 
@@ -74,9 +112,9 @@
     streetValue = undefined
     postalCodeValue = undefined
     postalAreaValue = undefined
-    if (!e.inputType) {
-      const index = Number(input.value.split(`:`)[0])
-      const option = input.list?.options?.[index]
+    if (!(e instanceof InputEvent)) {
+      const index = Number(input?.value.split(`:`)[0])
+      const option = input?.list?.options?.[index]
       if (option) {
         streetValue = option['data-street']
         postalCodeValue = option['data-postalcode']
@@ -86,10 +124,12 @@
             ? `${streetValue}, ${postalCodeValue} ${postalAreaValue}`
             : ''
       }
-    } else if (!input.value) {
-      input.list.textContent = ''
+    } else if (!input?.value) {
+      if (input && input.list) {
+        input.list.textContent = ''
+      }
     } else {
-      const addressSearchInput = e.target?.value?.trim()?.replace(/,+/g, '')
+      const addressSearchInput = (e.target as HTMLInputElement)?.value?.trim()?.replace(/,+/g, '')
       const addressSearchString = encodeURIComponent(addressSearchInput)
       apiError = undefined
       clearTimeout(debounceTimer)
@@ -115,20 +155,24 @@
           option.classList.add('option')
           return Object.assign(option, {
             text: `${adressetekst}, ${postnummer} ${poststed}`,
-            value: `${index}: ${input.value}`,
+            value: `${index}: ${input?.value}`,
             ['data-street']: `${adressetekst}`,
             ['data-postalcode']: `${postnummer}`,
             ['data-postalplace']: `${poststed}`
           })
         })
         if (options.length === 0) {
-          input.list.textContent = interpolate(noResultsText, [
-            decodeURIComponent(addressSearchString)
-          ])
+          if (input && input.list) {
+            input.list.textContent = interpolate(noResultsText, [
+              decodeURIComponent(addressSearchString)
+            ])
+          }
         } else {
-          input.list.replaceChildren(...options)
+          if (input && input.list) {
+            input.list.replaceChildren(...options)
+          }
         }
-      } catch (err) {
+      } catch {
         apiError = { key: `${streetName}-input`, message: fetchFailedText }
         isFetchFallback = true
       }

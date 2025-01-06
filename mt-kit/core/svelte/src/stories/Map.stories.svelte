@@ -1,5 +1,5 @@
-<script lang="ts">
-  import { Meta, Story } from '@storybook/addon-svelte-csf'
+<script lang="ts" module>
+  import { defineMeta } from '@storybook/addon-svelte-csf'
   import Map from '$lib/svelte/components/map/Map.svelte'
   import KartverketLayers from '$lib/svelte/components/map/KartverketLayers.svelte'
   import Markers from '$lib/svelte/components/map/Markers.svelte'
@@ -16,10 +16,10 @@
     NORGES_GRUNNKART
   } from '$lib/ts/mapUtils'
   import { createClickMarkerContent } from '$lib/svelte/components/map/overlay'
-  import { type MTPopupOptions } from '$lib/svelte/components/map/utils'
-  import type { MTActivateMapOptions, MusselMarker } from '$lib/ts/types'
+  import { type MTPopupOptions } from '$lib/ts/types'
+  import type { MusselMarker } from '$lib/ts/types'
 
-  let map
+  let map = $state()
   let markers: Array<MusselMarker> = [
     {
       municipality: 'Asker',
@@ -341,28 +341,33 @@
       map.resetZoom()
     }
   }
+
+  const { Story } = defineMeta({
+    title: 'Components/Map',
+    args: {
+      disableCss: false
+    },
+    argTypes: {
+      disableCss: { control: 'boolean' }
+    }
+  })
 </script>
 
-<Meta
-  title="Components/Map"
-  args={{
-    disableCss: false
-  }}
-  argTypes={{
-    disableCss: { control: 'boolean' }
-  }} />
-
-<Story name="Normal" let:disableCss>
-  <h1>Map</h1>
-  <Map class="mt-map-wrapper" bind:this={map}>
-    <KartverketLayers kartverketLayerNames={[EUROPA_FORENKLET, NORGES_GRUNNKART]} />
-    <Markers {markers} {markerOptions} {clusterOptions} />
-    <ActivateMapControl {activateMapOptions} />
-    <Geolocation {geolocationOptions} />
-    <DefaultControls />
-    <Popup slot="extra" {popUpOptions}></Popup>
-  </Map>
-  <button type="button" class="mt-button m-t-xxs" on:click={handleReset}>Reset zoom</button>
+<Story name="Normal">
+  {#snippet children({ disableCss })}
+    <h1>Map</h1>
+    <Map class="mt-map-wrapper" bind:this={map}>
+      <KartverketLayers kartverketLayerNames={[EUROPA_FORENKLET, NORGES_GRUNNKART]} />
+      <Markers {markers} {markerOptions} {clusterOptions} />
+      <ActivateMapControl {activateMapOptions} />
+      <Geolocation {geolocationOptions} />
+      <DefaultControls />
+      {#snippet extra()}
+        <Popup {popUpOptions}></Popup>
+      {/snippet}
+    </Map>
+    <button type="button" class="mt-button m-t-xxs" onclick={handleReset}>Reset zoom</button>
+  {/snippet}
 </Story>
 
 <style lang="scss">

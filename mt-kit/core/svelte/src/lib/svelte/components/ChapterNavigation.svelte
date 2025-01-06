@@ -1,22 +1,34 @@
 <script lang="ts">
-  import type { Chapter, ChapterChangeDetails } from '../../ts/types'
-  import { createEventDispatcher } from 'svelte'
+  import type { Chapter } from '$lib/ts'
 
-  export let showChapterNumber = false
-  export let nextText = ''
-  export let previousText = ''
-  export let chapters: Array<Chapter> = []
-  export let currentChapterIndex: 0 | 1 = 0
-  export let startIndex = 0
-  let className = ''
-  export { className as class }
+  interface Props {
+    showChapterNumber?: boolean
+    nextText?: string
+    previousText?: string
+    chapters?: Array<Chapter>
+    currentChapterIndex?: number
+    startIndex?: number
+    class?: string
+    chapterChange?: (index: number) => void
+  }
 
-  $: nextChapterIndex = currentChapterIndex + 1
-  $: nextChapterNumber = nextChapterIndex + startIndex
-  $: nextChapter = chapters[nextChapterIndex]
-  $: previousChapterIndex = currentChapterIndex - 1
-  $: previousChapterNumber = previousChapterIndex + startIndex
-  $: previousChapter = chapters[previousChapterIndex]
+  let {
+    showChapterNumber = false,
+    nextText = '',
+    previousText = '',
+    chapters = [],
+    currentChapterIndex = 0,
+    startIndex = 0,
+    class: className = '',
+    chapterChange
+  }: Props = $props()
+
+  let nextChapterIndex = $derived(currentChapterIndex + 1)
+  let nextChapterNumber = $derived(nextChapterIndex + startIndex)
+  let nextChapter = $derived(chapters[nextChapterIndex])
+  let previousChapterIndex = $derived(currentChapterIndex - 1)
+  let previousChapterNumber = $derived(previousChapterIndex + startIndex)
+  let previousChapter = $derived(chapters[previousChapterIndex])
 
   function hasNextChapter(currentChapterNumber: number): boolean {
     return currentChapterNumber < chapters.length - 1
@@ -26,14 +38,19 @@
     return currentChapterNumber > 0
   }
 
-  const dispatch = createEventDispatcher<{ chapterChange: ChapterChangeDetails }>()
+  const handleChapterChange = (e: MouseEvent, index: number) => {
+    e.preventDefault()
+    if (chapterChange) {
+      chapterChange(index)
+    }
+  }
 </script>
 
 {#if chapters.length > 1}
   <nav class="chapter-navigation {className}">
     <a
       href={nextChapter ? nextChapter.url : undefined}
-      on:click|preventDefault={dispatch('chapterChange', { index: nextChapterIndex })}
+      onclick={e => handleChapterChange(e, nextChapterIndex)}
       class="multi-line text-align-right {!hasNextChapter(currentChapterIndex)
         ? 'inclusively-hidden-initial'
         : ''}"
@@ -47,7 +64,7 @@
       class="multi-line {!hasPreviousChapter(currentChapterIndex)
         ? 'inclusively-hidden-initial'
         : ''}"
-      on:click|preventDefault={dispatch('chapterChange', { index: previousChapterIndex })}
+      onclick={e => handleChapterChange(e, previousChapterIndex)}
       aria-disabled={!hasPreviousChapter(currentChapterIndex)}>
       <span class="previous-link">{previousText}</span>
       {showChapterNumber ? `${previousChapterNumber}.` : ''}

@@ -1,5 +1,5 @@
-import { render, screen, fireEvent, waitFor, within } from '@testing-library/svelte'
-import type { Link } from '../../ts/types'
+import { fireEvent, render, screen, waitFor, within } from '@testing-library/svelte'
+import type { Link } from '$lib/ts'
 import BreadcrumbsComponent from './Breadcrumbs.svelte'
 
 describe('Breadcrumbs', () => {

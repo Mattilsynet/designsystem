@@ -2,16 +2,22 @@
   import { onDestroy, onMount } from 'svelte'
   import type { Control } from 'ol/control'
   import { getMap, type MapContext } from './contexts'
-  import { createActivateMapControl, type MTActivateMapOptions } from './activate-map-control'
-  import { isMobileOrTablet } from '../../../ts/utils'
+  import { createActivateMapControl } from './activate-map-control'
+  import { isMobileOrTablet, type MTActivateMapOptions } from '$lib/ts'
 
-  export let activateMapOptions: MTActivateMapOptions = {
-    label: 'Aktiver kart',
-    labelActive: 'Lukk kart',
-    labelId: 'activate-map-label',
-    className: 'activate-map',
-    fullscreenClassName: 'fullscreen'
+  interface Props {
+    activateMapOptions?: MTActivateMapOptions
   }
+
+  let {
+    activateMapOptions = {
+      label: 'Aktiver kart',
+      labelActive: 'Lukk kart',
+      labelId: 'activate-map-label',
+      className: 'activate-map',
+      fullscreenClassName: 'fullscreen'
+    }
+  }: Props = $props()
 
   let map: MapContext = getMap()
   let activateControl: Control | undefined = undefined

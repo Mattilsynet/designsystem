@@ -1,12 +1,12 @@
-<script lang="ts">
-  import { Meta, Story } from '@storybook/addon-svelte-csf'
+<script lang="ts" module>
+  import { defineMeta } from '@storybook/addon-svelte-csf'
   import { wrapInShadowDom } from '../storybook-utils/utils'
   import Combobox from '$lib/svelte/components/form/Combobox.svelte'
   import type { ErrorDetail } from '$lib/ts'
 
-  let input: HTMLInputElement
-  let secondInput: HTMLInputElement
-  let values = {}
+  let input: HTMLInputElement = $state()
+  let secondInput: HTMLInputElement = $state()
+  let values = $state({})
   let debounceTimer
   let isFetchFallback = false
   let isLoading = false
@@ -66,77 +66,79 @@
       }, 300)
     }
   }
+
+  const { Story } = defineMeta({
+    title: 'Components/Form/Combobox',
+    args: {
+      errorMessage: 'Fyll inn dette feltet.',
+      address: {
+        streetLabel: 'Søk etter gateadresse',
+        streetFallbackLabel: 'Gateadresse',
+        streetName: 'ownerStreet',
+        listName: 'ownerStreet-list',
+        isRequired: false,
+        showOptionalText: false,
+        streetHelpText: 'Skriv når hendelsen skjedde og om det har pågått over lengere periode.',
+        streetError: undefined,
+        postalCodeLabel: 'Postnummer',
+        postalCodeName: 'ownerZip',
+        postalCodeError: undefined,
+        loadJs: true
+      },
+      simple: {
+        inputLabel: 'Velg et tall',
+        inputName: 'choice',
+        listName: 'choices-list',
+        inputError: undefined
+      },
+      disableCss: false
+    },
+    argTypes: {
+      disableCss: { control: 'boolean' },
+      disableJs: { control: 'boolean' }
+    }
+  })
 </script>
 
-<Meta
-  title="Components/Form/Combobox"
-  args={{
-    errorMessage: 'Fyll inn dette feltet.',
-    address: {
-      streetLabel: 'Søk etter gateadresse',
-      streetFallbackLabel: 'Gateadresse',
-      streetName: 'ownerStreet',
-      listName: 'ownerStreet-list',
-      isRequired: false,
-      showOptionalText: false,
-      streetHelpText: 'Skriv når hendelsen skjedde og om det har pågått over lengere periode.',
-      streetError: undefined,
-      postalCodeLabel: 'Postnummer',
-      postalCodeName: 'ownerZip',
-      postalCodeError: undefined,
-      loadJs: true
-    },
-    simple: {
-      inputLabel: 'Velg et tall',
-      inputName: 'choice',
-      listName: 'choices-list',
-      inputError: undefined
-    },
-    disableCss: false
-  }}
-  argTypes={{
-    disableCss: { control: 'boolean' },
-    disableJs: { control: 'boolean' }
-  }} />
-
-<Story name="Normal" let:args>
-  <div use:wrapInShadowDom={args.disableCss}>
-    <h1 class="mt-h1">Combobox</h1>
-    <h2 class="mt-h2">Simple options</h2>
-    <form method="get" class="mt-form form-layout" style="--gap: 0;">
-      <Combobox
-        inputLabel={args.simple.inputLabel}
-        inputName={args.simple.inputName}
-        listName={args.simple.listName}
-        inputError={args.simple.inputError}
-        inputIsRequired={true}
-        inputHelpText={''}
-        bind:inputRef={secondInput}
-        bind:inputValue={values['choice']}>
-        <svelte:fragment slot="options">
-          <u-option>en</u-option>
-          <u-option>to</u-option>
-          <u-option>tre</u-option>
-          <u-option>fire</u-option>
-          <u-option>fem</u-option>
-        </svelte:fragment>
-      </Combobox>
-    </form>
-    <h2 class="mt-h2 m-t-m">With api request</h2>
-    <form method="get" class="mt-form form-layout" style="--gap: 0;">
-      <Combobox
-        inputLabel={args.address.streetLabel}
-        inputName={args.address.streetName}
-        listName={args.address.listName}
-        inputError={args.address.streetError}
-        inputIsRequired={args.address.isRequired}
-        showOptionalText={args.address.showOptionalText}
-        loadJs={args.address.loadJs}
-        inputHelpText={args.address.streetHelpText}
-        bind:inputRef={input}
-        bind:inputValue={values['ownerStreet']}
-        {handleInput}>
-      </Combobox>
-    </form>
-  </div>
+<Story name="Normal">
+  {#snippet children(args)}
+    <div use:wrapInShadowDom={args.disableCss}>
+      <h1 class="mt-h1">Combobox</h1>
+      <h2 class="mt-h2">Simple options</h2>
+      <form method="get" class="mt-form form-layout" style="--gap: 0;">
+        <Combobox
+          inputLabel={args.simple.inputLabel}
+          inputName={args.simple.inputName}
+          listName={args.simple.listName}
+          inputError={args.simple.inputError}
+          inputIsRequired={true}
+          inputHelpText={''}
+          bind:inputRef={secondInput}
+          bind:inputValue={values['choice']}>
+          {#snippet options()}
+            <u-option>en</u-option>
+            <u-option>to</u-option>
+            <u-option>tre</u-option>
+            <u-option>fire</u-option>
+            <u-option>fem</u-option>
+          {/snippet}
+        </Combobox>
+      </form>
+      <h2 class="mt-h2 m-t-m">With api request</h2>
+      <form method="get" class="mt-form form-layout" style="--gap: 0;">
+        <Combobox
+          inputLabel={args.address.streetLabel}
+          inputName={args.address.streetName}
+          listName={args.address.listName}
+          inputError={args.address.streetError}
+          inputIsRequired={args.address.isRequired}
+          showOptionalText={args.address.showOptionalText}
+          loadJs={args.address.loadJs}
+          inputHelpText={args.address.streetHelpText}
+          bind:inputRef={input}
+          bind:inputValue={values['ownerStreet']}
+          {handleInput}></Combobox>
+      </form>
+    </div>
+  {/snippet}
 </Story>

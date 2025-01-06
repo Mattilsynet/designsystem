@@ -1,9 +1,13 @@
 <script lang="ts">
-  import type { ErrorDetail } from '../../../ts/types'
+  import type { ErrorDetail } from '$lib/ts'
 
-  export let value
-  export let name: string
-  export let error: ErrorDetail | undefined
+  interface Props {
+    value: string
+    name: string
+    error?: ErrorDetail
+  }
+
+  let { value = $bindable(), name, error }: Props = $props()
 </script>
 
 <input
@@ -14,5 +18,4 @@
   class="mt-input"
   class:error
   aria-describedby={`${name}-hint ${name}-error`}
-  aria-invalid={!!error}
-/>
+  aria-invalid={!!error} />

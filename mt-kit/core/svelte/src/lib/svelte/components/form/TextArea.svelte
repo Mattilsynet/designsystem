@@ -1,41 +1,62 @@
-<!--suppress XmlDuplicatedId -->
 <script lang="ts">
   import InputError from './InputErrorMessage.svelte'
-  import { countCharacters, errorOnTooManyCharacters } from '../../../ts/count-characters'
-  import { createInputAriaDescribedby } from '../../../ts/utils'
-  import type {
-    AutocompleteType,
-    CountCharsParams,
-    ErrorDetail,
-    InputModeType
-  } from '../../../ts/types'
+  import type { AutocompleteType, CountCharsParams, ErrorDetail, InputModeType } from '$lib/ts'
+  import { countCharacters, createInputAriaDescribedby, errorOnTooManyCharacters } from '$lib/ts'
   import Label from './Label.svelte'
-  import { beforeUpdate } from 'svelte'
+  import { tick } from 'svelte'
 
-  export let value
-  export let name: string
-  export let label: string
-  export let labelClass = ''
-  export let countCharactersLeftLabel: string | undefined
-  export let countCharactersTooManyLabel: string | undefined
-  export let tooManyCharactersErrorText = 'Teksten er for lang'
-  export let error: ErrorDetail | undefined
-  export let helpText: string | undefined
-  export let textOptional: string | undefined
-  export let helpTextClass = ''
-  export let showOptionalText = true
-  export let hiddenErrorText: string | undefined
-  export let helpTextPlacement: 'above' | 'below' = 'above'
-  export let textAreaRef = undefined
-  export let textAreaClass = ''
+  interface Props {
+    value?: string
+    name: string
+    label: string
+    labelClass?: string
+    countCharactersLeftLabel?: string
+    countCharactersTooManyLabel?: string
+    tooManyCharactersErrorText?: string
+    error?: ErrorDetail
+    helpText?: string
+    textOptional?: string
+    helpTextClass?: string
+    showOptionalText?: boolean
+    hiddenErrorText?: string
+    helpTextPlacement?: 'above' | 'below'
+    textAreaRef?: HTMLElement
+    textAreaClass?: string
+    rows?: number
+    cols?: number
+    maxlength?: number
+    placeholder?: string
+    isRequired?: boolean
+    inputmode?: InputModeType
+    autocomplete?: AutocompleteType
+  }
 
-  export let rows: number | undefined = 5
-  export let cols: number | undefined
-  export let maxlength: number | undefined
-  export let placeholder: string | undefined
-  export let isRequired: boolean | undefined = undefined
-  export let inputmode: InputModeType | undefined
-  export let autocomplete: AutocompleteType | undefined
+  let {
+    value = $bindable(),
+    name,
+    label,
+    labelClass = '',
+    countCharactersLeftLabel,
+    countCharactersTooManyLabel,
+    tooManyCharactersErrorText = 'Teksten er for lang',
+    error = $bindable(),
+    helpText,
+    textOptional,
+    helpTextClass = '',
+    showOptionalText = true,
+    hiddenErrorText,
+    helpTextPlacement = 'above',
+    // @ts-expect-error "is declared but its value is never read." textAreaRef is used as a binding to the textarea element
+    textAreaRef = $bindable(),
+    textAreaClass = '',
+    rows = 5,
+    cols,
+    maxlength,
+    placeholder,
+    isRequired,
+    inputmode,
+    autocomplete = 'off'
+  }: Props = $props()
   let isInitialized = false
 
   let countCharsParams: CountCharsParams = {
@@ -46,11 +67,13 @@
     countCharactersTooManyLabel: countCharactersTooManyLabel
   }
 
-  beforeUpdate(() => {
-    if (value === undefined && !isInitialized && document) {
-      value = document?.querySelector(`input[name="${name}"]`)?.value
-      isInitialized = true
-    }
+  $effect.pre(() => {
+    tick().then(() => {
+      if (value === undefined && !isInitialized && document) {
+        value = document?.querySelector<HTMLInputElement>(`input[name="${name}"]`)?.value
+        isInitialized = true
+      }
+    })
   })
 </script>
 
@@ -70,7 +93,7 @@
   id={name}
   {name}
   use:countCharacters={countCharsParams}
-  on:input={e => {
+  oninput={e => {
     error = errorOnTooManyCharacters(e, countCharsParams, name, tooManyCharactersErrorText) || error
   }}
   class="form-field {textAreaClass}"
@@ -84,7 +107,7 @@
   {inputmode}
   aria-required={isRequired}
   aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error, maxlength)}
-  aria-invalid={!!error} />
+  aria-invalid={!!error}></textarea>
 
 {#if helpText && helpTextPlacement === 'below'}
   <div id={`${name}-hint`} class="hint {helpTextClass}">
