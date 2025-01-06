@@ -1,7 +1,12 @@
 <script lang="ts">
   import HeadingLevel from '../components/HeadingLevel.svelte'
   import { mapRelExternal } from '$lib/ts'
-  import type { Issue } from '$lib/ts/types'
+
+  interface Issue {
+    title?: string
+    text?: string
+    href?: string
+  }
 
   interface Props {
     title?: string

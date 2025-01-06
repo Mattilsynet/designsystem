@@ -11,8 +11,8 @@
   }
 
   interface Props {
-    title: string | undefined
-    facts: string | undefined
+    title?: string
+    facts?: string
     disclosureHeadClass?: string
     loadJs?: boolean
     questionsAnswers?: Array<QuestionAnswer>
