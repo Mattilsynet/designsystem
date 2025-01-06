@@ -35,7 +35,7 @@
 <Story name="Normal">
   {#snippet children({ disableCss, title, text, icon, loadJs })}
     <div use:wrapInShadowDom={disableCss} class="container">
-      <CardArticle type="legal-text" class="background-mt-white" {title} {text} id={title} />
+      <CardArticle type="legal-text" class="background-mt-white" {title} {text} headingId={title} />
       <hr />
       <Disclosure theme="no-border" class="background-mt-rationale-blue" {title} {icon} {loadJs}>
         {@html text}

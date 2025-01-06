@@ -1,10 +1,10 @@
 <script lang="ts">
   interface Props {
-    figmaUrl?: string | undefined
-    githubUrl?: string | undefined
+    figmaUrl?: string
+    githubUrl?: string
   }
 
-  let { figmaUrl = undefined, githubUrl = undefined }: Props = $props()
+  let { figmaUrl, githubUrl }: Props = $props()
 </script>
 
 <ul class="mt-ul m-t-xxs list-unstyled layout-flex">

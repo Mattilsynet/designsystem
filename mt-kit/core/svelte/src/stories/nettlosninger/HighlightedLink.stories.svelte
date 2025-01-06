@@ -76,10 +76,9 @@
           linkUrl={task.nextActionUrl}
           title={task.title}
           text={task.text}
-          id={task.title}
+          headingId={task.title}
           headerTag={task.headerTag}
-          iconClass={task.iconClass}
-          linkTypeButton={task.linkTypeButton} />
+          iconClass={task.iconClass} />
       {/each}
     </div>
   {/snippet}

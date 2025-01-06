@@ -130,7 +130,7 @@
           intro={task.intro}
           title={task.title}
           text={task.text}
-          id={task.title}
+          headingId={task.title}
           headerTag={task.headerTag} />
       {/each}
     </div>
