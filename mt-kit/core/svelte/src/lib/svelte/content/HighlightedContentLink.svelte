@@ -1,25 +1,24 @@
 <script lang="ts">
   import HeadingLevel from '../components/HeadingLevel.svelte'
   import { mapRelExternal } from '$lib/ts'
+  import type { Snippet } from 'svelte'
 
   interface Props {
     href?: string
     class?: string
-    image?: { src: string; alt: string | undefined } | undefined
-    lang?: string
-    title: string | undefined
-    shortTitle: string | undefined
-    displayType: HighlightedContentDisplayType | undefined
+    image?: { src: string; alt: string | undefined }
+    title?: string
+    shortTitle?: string
+    displayType?: HighlightedContentDisplayType
     headingClass?: string
     headerTag?: 'h2' | 'h3'
-    children?: import('svelte').Snippet
+    children?: Snippet
   }
 
   let {
     href: url = '',
     class: className = '',
-    image = undefined,
-    lang = 'NO-nb',
+    image,
     title,
     shortTitle,
     displayType,
