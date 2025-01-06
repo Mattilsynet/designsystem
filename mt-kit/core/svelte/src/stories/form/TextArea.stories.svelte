@@ -3,6 +3,8 @@
   import TextArea from '$lib/svelte/components/form/TextArea.svelte'
   import { wrapInShadowDom } from '../storybook-utils/utils'
 
+  let value: string | undefined = $state('start text')
+
   const { Story } = defineMeta({
     title: 'Components/Form/TextArea',
     args: {
@@ -49,7 +51,8 @@
           textOptional="Valgfritt"
           inputmode="text"
           rows={3}
-          cols={5} />
+          cols={5}
+          bind:value />
 
         <TextArea
           name="email2"

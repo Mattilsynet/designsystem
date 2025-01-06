@@ -10,25 +10,25 @@
     name: string
     label: string
     labelClass?: string
-    countCharactersLeftLabel: string | undefined
-    countCharactersTooManyLabel: string | undefined
+    countCharactersLeftLabel?: string
+    countCharactersTooManyLabel?: string
     tooManyCharactersErrorText?: string
-    error?: ErrorDetail | undefined
-    helpText: string | undefined
-    textOptional: string | undefined
+    error?: ErrorDetail
+    helpText?: string
+    textOptional?: string
     helpTextClass?: string
     showOptionalText?: boolean
-    hiddenErrorText?: string | undefined
+    hiddenErrorText?: string
     helpTextPlacement?: 'above' | 'below'
-    textAreaRef?: HTMLElement | undefined
+    textAreaRef?: HTMLElement
     textAreaClass?: string
-    rows?: number | undefined
-    cols: number | undefined
-    maxlength?: number | undefined
-    placeholder?: string | undefined
-    isRequired?: boolean | undefined
-    inputmode: InputModeType | undefined
-    autocomplete?: AutocompleteType | undefined
+    rows?: number
+    cols?: number
+    maxlength?: number
+    placeholder?: string
+    isRequired?: boolean
+    inputmode?: InputModeType
+    autocomplete?: AutocompleteType
   }
 
   let {
@@ -53,7 +53,7 @@
     cols,
     maxlength,
     placeholder,
-    isRequired = undefined,
+    isRequired,
     inputmode,
     autocomplete = 'off'
   }: Props = $props()
