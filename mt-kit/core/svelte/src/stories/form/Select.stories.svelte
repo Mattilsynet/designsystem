@@ -7,7 +7,7 @@
   import { action } from '@storybook/addon-actions'
 
   const submitAction = action('submitAction')
-  let value = $state([])
+  let value: undefined | string | string[] = $state()
 
   function handleSubmit(e: SubmitEvent) {
     e.preventDefault()
