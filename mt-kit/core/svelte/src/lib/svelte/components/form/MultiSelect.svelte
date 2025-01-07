@@ -32,7 +32,7 @@
   let {
     name,
     label,
-    values = $bindable([]),
+    values = $bindable(),
     readonly = false,
     placeholder = '',
     options = [],
@@ -93,7 +93,9 @@
     })
   )
 
-  let activeOptionIndex = $derived(filtered.indexOf(activeOption))
+  let activeOptionIndex: number | undefined = $derived(
+    activeOption ? filtered.indexOf(activeOption) : undefined
+  )
 
   function add(token: MultiSelectOption): void {
     if (!readonly) {
@@ -112,7 +114,7 @@
     if (readonly) return
     if (typeof show === 'boolean') {
       showOptions = show
-      show && input.focus()
+      if (show) input?.focus()
     } else {
       showOptions = !showOptions
     }
@@ -207,12 +209,12 @@
     optionsVisibility(true)
   }
 
-  function handleRemoveItem(e: Event, value): void {
+  function handleRemoveItem(e: Event, value: string): void {
     e.preventDefault()
     remove(value)
   }
 
-  function handleRemoveItemKeyDown(e: KeyboardEvent, value): void {
+  function handleRemoveItemKeyDown(e: KeyboardEvent, value: string): void {
     if (e.key === ENTER) {
       remove(value)
     }
@@ -221,11 +223,13 @@
   function handleOptionMouseup(e: MouseEvent): void {
     e.preventDefault()
     const value = (e.target as HTMLInputElement).dataset.value
-    if (selected[value]) {
-      remove(value)
-    } else {
-      add(allOptions.filter(o => o.value === value)[0])
-      input.focus()
+    if (value) {
+      if (selected[value]) {
+        remove(value)
+      } else {
+        add(allOptions.filter(o => o.value === value)[0])
+        input?.focus()
+      }
     }
   }
 </script>
@@ -344,7 +348,7 @@
           class="mt-input input__control"
           class:error
           value={option.value}
-          checked={values.includes(option.value)}
+          checked={values?.includes(option.value)}
           aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)} />
         <label class="mt-label" for={toKebabCase(option.value)}>
           {option.text}
@@ -360,7 +364,7 @@
           class="mt-input input__control"
           class:error
           value={option.value}
-          checked={values.includes(option.value)}
+          checked={values?.includes(option.value)}
           aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)} />
         <label class="mt-label" for={toKebabCase(option.value)}>
           {option.text}
