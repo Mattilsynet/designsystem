@@ -1,8 +1,9 @@
 <script lang="ts">
   import type { Page } from '$lib/ts'
   import { interpolate } from '$lib/ts'
+  import { innerWidth } from 'svelte/reactivity/window'
 
-  const PAGINATION_BREAKPOINT = '1024px' // $breakpoint-x-large
+  const PAGINATION_BREAKPOINT = 1024 // $breakpoint-x-large
   const ALLOWED_PAGES_DESKTOP = 5
   const ALLOWED_PAGES_MOBILE = 3
 
@@ -30,9 +31,7 @@
     pageChange = _ => {}
   }: Props = $props()
 
-  let isMobile = $state(
-    window?.matchMedia(`(max-width: ${PAGINATION_BREAKPOINT})`).matches === true
-  )
+  let isMobile = $derived(innerWidth.current ? innerWidth.current < PAGINATION_BREAKPOINT : false)
 
   function handleClick(event: Event, index: number): void {
     event.preventDefault()
