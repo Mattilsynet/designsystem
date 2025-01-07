@@ -1,7 +1,23 @@
 import { fireEvent, render, screen } from '@testing-library/svelte'
 import FileUpload from './FileUpload.svelte'
 import userEvent from '@testing-library/user-event'
+import { vi } from 'vitest'
 
+vi.hoisted(() => {
+  Object.defineProperty(window, 'matchMedia', {
+    writable: true,
+    value: vi.fn().mockImplementation(query => ({
+      matches: true,
+      media: query,
+      onchange: null,
+      addListener: vi.fn(), // deprecated
+      removeListener: vi.fn(), // deprecated
+      addEventListener: vi.fn(),
+      removeEventListener: vi.fn(),
+      dispatchEvent: vi.fn()
+    }))
+  })
+})
 describe('File upload', () => {
   const loadJs = true
   const value = 'this is the value'
