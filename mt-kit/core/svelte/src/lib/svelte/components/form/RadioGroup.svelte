@@ -80,7 +80,6 @@
         class:error
         bind:group={value}
         value={radio.value}
-        required={isRequired}
         aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)}
         checked={value === radio.value} />
       <label
