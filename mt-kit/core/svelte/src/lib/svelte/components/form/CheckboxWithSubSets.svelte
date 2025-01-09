@@ -1,6 +1,5 @@
 <script lang="ts">
   import { slide } from 'svelte/transition'
-  import { onMount } from 'svelte'
   import type { CheckboxWithSubSectionsOptions } from '$lib/ts'
   import { interpolate } from '$lib/ts'
 
@@ -17,6 +16,7 @@
     level3Legend?: string
     helpText?: string
     border?: boolean
+    loadJs?: boolean
   }
 
   let {
@@ -31,18 +31,13 @@
     level2Legend = ``,
     level3Legend = ``,
     helpText,
-    border = true
+    border = true,
+    loadJs = false
   }: Props = $props()
 
   let fieldsetClass = $derived(
     variation === 'primary' ? 'checkbox-subsets--primary' : 'checkbox-subsets--secondary'
   )
-
-  let hasJS = $state(false)
-
-  onMount(() => {
-    hasJS = true
-  })
 
   function mainCategory(mainIndex: number): void {
     // Uncheck all subcategories if parent main category is unchecked
@@ -82,7 +77,7 @@
   {#if helpText}
     <p class="hint">{helpText}</p>
   {/if}
-  {#if (hasJS && hasCheckAll) || forceCheckAll}
+  {#if (loadJs && hasCheckAll) || forceCheckAll}
     <div class="form-control checkbox-subsets">
       <input
         id={`${optionsName}-${options.key}`}
@@ -112,7 +107,7 @@
         {formatLabel(listItem.displayName, listItem.docCount)}
       </label>
     </div>
-    {#if (!hasJS || listItem.checked) && listItem.children && listItem.children.length > 0}
+    {#if (!loadJs || listItem.checked) && listItem.children && listItem.children.length > 0}
       <fieldset
         class={`mt-fieldset checkbox checkbox-subsets ${fieldsetClass}`}
         transition:slide={{ axis: 'y', duration: 200 }}>
@@ -137,7 +132,7 @@
               {formatLabel(subListItem.displayName, subListItem.docCount)}
             </label>
           </div>
-          {#if subListItem.checked && subListItem.children && subListItem.children.length > 0}
+          {#if (!loadJs || subListItem.checked) && subListItem.children && subListItem.children.length > 0}
             <fieldset
               class={'mt-fieldset checkbox checkbox-subsets--secondary'}
               transition:slide={{ axis: 'y', duration: 200 }}>

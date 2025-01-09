@@ -76,7 +76,8 @@ describe('Checkbox with subsets', () => {
     const { getByText, getByLabelText, queryByText } = render(CheckboxWithSubSets, {
       options: { children: addChecked(['dyr'], options) },
       level1Legend,
-      transitionSlide: { y: 200, duration: 0 }
+      transitionSlide: { y: 200, duration: 0 },
+      loadJs: true
     })
     expect(getByText(level1Legend)).toBeInTheDocument()
     expect(getByText(`${options[0].displayName} (${options[0].docCount})`)).toBeInTheDocument()
@@ -106,7 +107,8 @@ describe('Checkbox with subsets', () => {
   test('Renders subsets of checkboxes', async () => {
     const { getByText, getByLabelText, queryByText } = render(CheckboxWithSubSets, {
       options: { children: addChecked(['dyr'], options) },
-      level1Legend
+      level1Legend,
+      loadJs: true
     })
     expect(getByText(`${options[0].displayName} (${options[0].docCount})`)).toBeInTheDocument()
     const animal = getByLabelText(`${options[0].displayName} (${options[0].docCount})`)
@@ -125,7 +127,8 @@ describe('Checkbox with subsets', () => {
     const { getByLabelText } = render(CheckboxWithSubSets, {
       options: { children: addChecked(['dyr', 'dyr/produksjonsdyr'], options) },
       level1Legend,
-      optionsName
+      optionsName,
+      loadJs: true
     })
     const mainCategory = getByLabelText(`${options[0].displayName} (${options[0].docCount})`)
     expect(mainCategory).toBeChecked()
@@ -144,7 +147,8 @@ describe('Checkbox with subsets', () => {
   test('Test that subcategories are unchecked when main category is unchecked', async () => {
     const { getByLabelText, queryByLabelText } = render(CheckboxWithSubSets, {
       options: { children: addChecked(['dyr', 'dyr/produksjonsdyr'], options) },
-      level1Legend
+      level1Legend,
+      loadJs: true
     })
 
     const mainCategoryCheckbox = getByLabelText(
@@ -188,7 +192,8 @@ describe('Checkbox with subsets', () => {
       options: { children: addChecked(['dyr'], options) },
       level1Legend,
       level2Legend: 'Ønsker du å velge bare spesifikke tema?',
-      variation: 'secondary'
+      variation: 'secondary',
+      loadJs: true
     })
     const legendElement = queryAllByText('Ønsker du å velge bare spesifikke tema?')
     expect(legendElement.length > 0).toEqual(true)
@@ -202,7 +207,8 @@ describe('Checkbox with subsets', () => {
       level2Legend: 'Ønsker du å velge bare spesifikke tema?',
       variation: 'secondary',
       hasCheckAll: true,
-      checkAllLabel: 'Velg alle'
+      checkAllLabel: 'Velg alle',
+      loadJs: true
     })
     const selectAll = getByLabelText('Velg alle')
     expect(selectAll).toBeInTheDocument()
@@ -240,7 +246,8 @@ describe('Checkbox with subsets', () => {
       level2Legend: 'Ønsker du å velge bare spesifikke tema?',
       variation: 'secondary',
       hasCheckAll: true,
-      checkAllLabel: 'Velg alle'
+      checkAllLabel: 'Velg alle',
+      loadJs: true
     })
 
     const checkAll = getByLabelText('Velg alle')
@@ -265,7 +272,8 @@ describe('Checkbox with subsets', () => {
       level2Legend: 'Ønsker du å velge bare spesifikke tema?',
       variation: 'secondary',
       hasCheckAll: true,
-      checkAllLabel: 'Velg alle'
+      checkAllLabel: 'Velg alle',
+      loadJs: true
     })
 
     const checkAll = getByLabelText('Velg alle')
@@ -300,7 +308,8 @@ describe('Checkbox with subsets', () => {
       level2Legend: 'Ønsker du å velge bare spesifikke tema?',
       variation: 'secondary',
       hasCheckAll: true,
-      checkAllLabel: 'Velg alle'
+      checkAllLabel: 'Velg alle',
+      loadJs: true
     })
 
     const checkAll = getByLabelText('Velg alle')
@@ -321,7 +330,8 @@ describe('Checkbox with subsets', () => {
       variation: 'secondary',
       hasCheckAll: true,
       checkAllLabel: 'Velg alle',
-      checkAllValue: 'all'
+      checkAllValue: 'all',
+      loadJs: true
     })
     const checkAll = getByLabelText('Velg alle')
     expect(checkAll).not.toBeChecked()
