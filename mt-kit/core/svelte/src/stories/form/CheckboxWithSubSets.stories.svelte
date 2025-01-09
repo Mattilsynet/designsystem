@@ -5,81 +5,83 @@
   import { wrapInShadowDom } from '../storybook-utils/utils'
   import { interpolate, toKebabCase } from '$lib/ts/utils'
 
+  let options = $state({
+    key: 'all',
+    children: [
+      {
+        key: 'dyr',
+        displayName: 'Dyr asdflaksjdf alksadfjklfdasjkfds  sdaff ads asd kaldsfjs',
+        docCount: 49,
+        children: [
+          {
+            key: 'produksjonsdyr',
+            displayName: 'Produksjonsdyr',
+            docCount: 38,
+            children: []
+          },
+          {
+            key: 'dyresykdommer',
+            displayName: 'Dyresykdommer asdfasd asdfjas asd asdf afdasdfasdfdsdasdf',
+            docCount: 2,
+            children: []
+          },
+          {
+            key: 'kjaeledyr',
+            displayName: 'Kjæledyr',
+            docCount: 1,
+            children: []
+          }
+        ]
+      },
+      {
+        key: 'fisk-og-akvakultur',
+        displayName: 'Fisk og akvakultur',
+        docCount: 1,
+        children: [
+          {
+            key: 'fiskesykdommer',
+            displayName: 'Fiskesykdommer',
+            docCount: 1,
+            children: []
+          }
+        ]
+      },
+      {
+        key: 'mat',
+        displayName: 'Mat',
+        docCount: 3,
+        children: [
+          {
+            key: 'import-av-mat',
+            displayName: 'Import av mat',
+            docCount: 1,
+            children: [
+              {
+                key: 'kommersiell-import',
+                displayName: 'Kommersiell import',
+                docCount: 1,
+                children: []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        key: 'kosmetikk',
+        displayName: 'Kosmetikk',
+        docCount: 1,
+        children: []
+      }
+    ]
+  })
+
   const { Story } = defineMeta({
     title: 'Components/Form/CheckboxWithSubsets',
     args: {
       disableCss: false,
       legend: 'Tema',
       variation: 'primary',
-      options: {
-        key: 'all',
-        children: [
-          {
-            key: 'dyr',
-            displayName: 'Dyr asdflaksjdf alksadfjklfdasjkfds  sdaff ads asd kaldsfjs',
-            docCount: 49,
-            children: [
-              {
-                key: 'produksjonsdyr',
-                displayName: 'Produksjonsdyr',
-                docCount: 38,
-                children: []
-              },
-              {
-                key: 'dyresykdommer',
-                displayName: 'Dyresykdommer asdfasd asdfjas asd asdf afdasdfasdfdsdasdf',
-                docCount: 2,
-                children: []
-              },
-              {
-                key: 'kjaeledyr',
-                displayName: 'Kjæledyr',
-                docCount: 1,
-                children: []
-              }
-            ]
-          },
-          {
-            key: 'fisk-og-akvakultur',
-            displayName: 'Fisk og akvakultur',
-            docCount: 1,
-            children: [
-              {
-                key: 'fiskesykdommer',
-                displayName: 'Fiskesykdommer',
-                docCount: 1,
-                children: []
-              }
-            ]
-          },
-          {
-            key: 'mat',
-            displayName: 'Mat',
-            docCount: 3,
-            children: [
-              {
-                key: 'import-av-mat',
-                displayName: 'Import av mat',
-                docCount: 1,
-                children: [
-                  {
-                    key: 'kommersiell-import',
-                    displayName: 'Kommersiell import',
-                    docCount: 1,
-                    children: []
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            key: 'kosmetikk',
-            displayName: 'Kosmetikk',
-            docCount: 1,
-            children: []
-          }
-        ]
-      },
+      options: options,
       optionsWithoutDocCount: {
         key: 'all2',
         children: [
@@ -189,7 +191,6 @@
   {#snippet children({
     disableJs,
     legend,
-    options,
     disableCss,
     variation,
     optionsWithoutDocCount,
@@ -205,10 +206,11 @@
         <form class="mt-form">
           <CheckboxWithSubSets
             helpText="Velg et tema"
-            {options}
+            bind:options
             {variation}
             level1Legend={legend}
-            level2Legend={`${legend} i `} />
+            level2Legend={`${legend} i `}
+            loadJs={!disableJs} />
         </form>
         <h2 class="mt-h2">Nested checkboxes without doc count and border</h2>
         <p>User variation="primary" (default) when checkboxes stand alone</p>
@@ -218,14 +220,16 @@
             {variation}
             level1Legend="Tema uten antall"
             {border}
-            level2Legend={`${legend} i `} />
+            level2Legend={`${legend} i `}
+            loadJs={!disableJs} />
           <h2 class="mt-h3">Variation = secondary</h2>
           <CheckboxWithSubSets
             options={optionsWithoutDocCount}
             variation="secondary"
             level1Legend="legend 1"
             level2Legend="legend 2"
-            {border} />
+            {border}
+            loadJs={!disableJs} />
         </form>
         <h2 class="mt-h2">Nestede checkboxet inside disclosure</h2>
         <p>
@@ -244,10 +248,39 @@
               options={disclosureOptions}
               hasCheckAll={true}
               checkAllLabel={disclosure.checkAllLabel}
-              level1Legend={interpolate(disclosure.level1Legend, [
-                disclosure.title.toLowerCase()
-              ])} />
+              level1Legend={interpolate(disclosure.level1Legend, [disclosure.title.toLowerCase()])}
+              loadJs={!disableJs} />
           </Disclosure>
+        </form>
+      </section>
+    </div>
+  {/snippet}
+</Story>
+
+<Story name="Without JS">
+  {#snippet children({
+    disableJs,
+    legend,
+    options,
+    disableCss,
+    variation,
+    optionsWithoutDocCount,
+    border,
+    disclosure,
+    disclosureOptions
+  })}
+    <div class="container layout-grid layout-grid--column-12" use:wrapInShadowDom={disableCss}>
+      <section class="article-page col-1-span-12">
+        <h1 class="mt-h1">Nested checkbox</h1>
+        <h2 class="mt-h2">Nested checkbox without JS</h2>
+        <form class="mt-form">
+          <CheckboxWithSubSets
+            loadJs={false}
+            helpText="Velg et tema"
+            {options}
+            {variation}
+            level1Legend={legend}
+            level2Legend={`${legend} i `} />
         </form>
       </section>
     </div>
