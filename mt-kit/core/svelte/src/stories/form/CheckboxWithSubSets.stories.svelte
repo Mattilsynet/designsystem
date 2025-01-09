@@ -79,6 +79,7 @@
     title: 'Components/Form/CheckboxWithSubsets',
     args: {
       disableCss: false,
+      disableJs: false,
       legend: 'Tema',
       variation: 'primary',
       options: options,
@@ -179,6 +180,7 @@
     },
     argTypes: {
       disableCss: { control: 'boolean' },
+      disableJs: { control: 'boolean' },
       variation: {
         options: ['primary', 'secondary'],
         control: 'radio'
@@ -251,36 +253,6 @@
               level1Legend={interpolate(disclosure.level1Legend, [disclosure.title.toLowerCase()])}
               loadJs={!disableJs} />
           </Disclosure>
-        </form>
-      </section>
-    </div>
-  {/snippet}
-</Story>
-
-<Story name="Without JS">
-  {#snippet children({
-    disableJs,
-    legend,
-    options,
-    disableCss,
-    variation,
-    optionsWithoutDocCount,
-    border,
-    disclosure,
-    disclosureOptions
-  })}
-    <div class="container layout-grid layout-grid--column-12" use:wrapInShadowDom={disableCss}>
-      <section class="article-page col-1-span-12">
-        <h1 class="mt-h1">Nested checkbox</h1>
-        <h2 class="mt-h2">Nested checkbox without JS</h2>
-        <form class="mt-form">
-          <CheckboxWithSubSets
-            loadJs={false}
-            helpText="Velg et tema"
-            {options}
-            {variation}
-            level1Legend={legend}
-            level2Legend={`${legend} i `} />
         </form>
       </section>
     </div>
