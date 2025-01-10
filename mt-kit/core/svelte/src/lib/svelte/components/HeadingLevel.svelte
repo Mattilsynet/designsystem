@@ -1,11 +1,13 @@
 <script lang="ts">
+  import type { Snippet } from 'svelte'
+
   type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6
 
   interface Props {
     headingLevel?: HeadingLevel
     class?: string
     id?: string
-    children?: import('svelte').Snippet
+    children?: Snippet
   }
 
   let { headingLevel = 1, class: classProp = '', id: idPassed, children }: Props = $props()

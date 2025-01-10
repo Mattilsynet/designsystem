@@ -133,11 +133,10 @@
           inputError={args.address.streetError}
           inputIsRequired={args.address.isRequired}
           showOptionalText={args.address.showOptionalText}
-          loadJs={args.address.loadJs}
           inputHelpText={args.address.streetHelpText}
           bind:inputRef={input}
           bind:inputValue={values['ownerStreet']}
-          {handleInput}></Combobox>
+          onInput={handleInput}></Combobox>
       </form>
     </div>
   {/snippet}

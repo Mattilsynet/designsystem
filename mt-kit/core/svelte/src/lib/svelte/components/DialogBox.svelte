@@ -3,6 +3,8 @@
 </script>
 
 <script lang="ts">
+  import type { Snippet } from 'svelte'
+
   interface Props {
     isOpen?: boolean
     title?: string
@@ -10,7 +12,7 @@
     closeBtnAriaLabel?: string
     onClosingDialog?: (shouldReappear: boolean) => void
     dialogRef?: HTMLDivElement
-    children?: import('svelte').Snippet
+    children?: Snippet
   }
 
   let {

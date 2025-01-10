@@ -47,7 +47,7 @@
           {showChapterNumber}
           {chapters}
           {currentChapterIndex}
-          {chapterChange}
+          onChapterChange={chapterChange}
           nextText="Neste"
           previousText="Forrige"
           class="chapter-navigation--bottom" />
