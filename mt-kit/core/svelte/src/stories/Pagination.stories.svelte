@@ -46,7 +46,7 @@
         <Pagination
           {pages}
           {currentPageIndex}
-          pageChange={handlePageChange}
+          onPageChange={handlePageChange}
           nextText="Neste"
           previousText="Forrige"
           labelPage="Side"

@@ -193,7 +193,7 @@
     {inputError}
     {isFetchFallback}
     {isLoading}
-    {handleInput}
+    onInput={handleInput}
     bind:inputRef={input}
     {formInProgressAriaLabel}></Combobox>
   {#if !isFetchFallback}

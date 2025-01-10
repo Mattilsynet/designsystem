@@ -1,4 +1,6 @@
 <script lang="ts">
+  import type { Snippet } from 'svelte'
+
   interface Props {
     title: string
     detailsClass?: string
@@ -7,7 +9,7 @@
     testId?: string
     ariaLabelledBy?: string
     summaryId?: string
-    children?: import('svelte').Snippet
+    children?: Snippet
   }
 
   let {

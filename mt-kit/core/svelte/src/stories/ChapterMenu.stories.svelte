@@ -91,7 +91,7 @@
           loadJs={!disableJs}
           menuTitle="Innhold"
           {currentChapterNumber}
-          {chapterChange} />
+          onChapterChange={chapterChange} />
       </div>
     </div>
   {/snippet}

@@ -7,6 +7,7 @@
   import { slide } from 'svelte/transition'
   import { clickOutside } from '$lib/ts'
   import { focusOutside } from '$lib/ts'
+  import type { Snippet } from 'svelte'
 
   const bodyId = `ui-dropdown-${counter++}`
   interface Props {
@@ -17,7 +18,7 @@
     isOpen?: boolean
     titleId?: string
     class?: string
-    children?: import('svelte').Snippet<[{ isOpen?: boolean; loadJs?: boolean; titleId?: string }]>
+    children?: Snippet<[{ isOpen?: boolean; loadJs?: boolean; titleId?: string }]>
   }
 
   let {

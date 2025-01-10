@@ -22,7 +22,7 @@
     isLoading?: boolean
     inputRef?: HTMLInputElement
     isFetchFallback?: boolean
-    handleInput?: (e: Event) => Promise<void>
+    onInput?: (e: Event) => Promise<void>
     options?: Snippet
   }
 
@@ -44,7 +44,7 @@
     // @ts-expect-error value is never read, but it's bound
     inputRef = $bindable(),
     isFetchFallback = false,
-    handleInput,
+    onInput,
     options
   }: Props = $props()
 </script>
@@ -84,7 +84,7 @@
         inputHelpText ? inputName : undefined,
         inputError
       )}
-      oninput={handleInput} />
+      oninput={onInput} />
     <span
       role="status"
       aria-live="assertive"

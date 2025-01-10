@@ -10,7 +10,7 @@
     showChapterNumbers?: boolean
     subChapterToggleAriaLabel?: string
     loadJs?: boolean
-    chapterChange?: (index: number) => void
+    onChapterChange?: (index: number) => void
   }
 
   let {
@@ -21,7 +21,7 @@
     showChapterNumbers = false,
     subChapterToggleAriaLabel = 'toggle',
     loadJs = false,
-    chapterChange
+    onChapterChange
   }: Props = $props()
 </script>
 
@@ -35,8 +35,8 @@
         <a
           onclick={e => {
             e.preventDefault()
-            if (chapterChange) {
-              chapterChange(chapter.index)
+            if (onChapterChange) {
+              onChapterChange(chapter.index)
             }
           }}
           href={chapter.url}

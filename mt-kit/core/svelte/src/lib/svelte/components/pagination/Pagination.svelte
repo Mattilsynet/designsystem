@@ -16,7 +16,7 @@
     pages?: Array<Page>
     currentPageIndex?: number
     class?: string
-    pageChange?: (index: number) => void
+    onPageChange?: (index: number) => void
   }
 
   let {
@@ -28,14 +28,14 @@
     pages = [],
     currentPageIndex = 0,
     class: className = '',
-    pageChange = _ => {}
+    onPageChange = _ => {}
   }: Props = $props()
 
   let isMobile = $derived(innerWidth.current ? innerWidth.current < PAGINATION_BREAKPOINT : false)
 
   function handleClick(event: Event, index: number): void {
     event.preventDefault()
-    pageChange(index)
+    onPageChange(index)
   }
 
   function hasNextPage(currentPageNumber: number, pages: Array<Page>): boolean {
