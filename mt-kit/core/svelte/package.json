@@ -98,5 +98,8 @@
     "@u-elements/u-datalist": "^0.0.9",
     "gh-pages": "^5.0.0",
     "ol": "^8.2.0"
+  },
+  "peerDependencies": {
+    "svelte": "^5.14.4"
   }
 }
