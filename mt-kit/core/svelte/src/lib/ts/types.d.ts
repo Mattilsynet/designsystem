@@ -112,6 +112,13 @@ export interface MultiSelectOption {
   removeAriaLabel: string
 }
 
+export interface CheckboxOption {
+  value: string
+  text: string
+  helpText?: string
+  disabled?: boolean
+}
+
 export interface CheckboxWithSubSectionsOptions {
   key: string
   displayName: string
