@@ -70,6 +70,14 @@
   .form-control + .form-control {
     margin-top: $spacer-xx-small;
   }
+
+  .form-control {
+    .hint {
+      grid-column: 2;
+      margin-top: 0;
+      margin-bottom: var(--form-hint-spacer);
+    }
+  }
 }
 .checkbox,
 .mt-button-checkbox {

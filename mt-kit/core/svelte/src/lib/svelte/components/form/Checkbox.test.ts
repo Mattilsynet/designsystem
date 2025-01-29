@@ -55,7 +55,7 @@ describe('Checkbox', () => {
       helpText,
       options
     })
-    expect(getByText(/Valgfitt/)).toBeInTheDocument()
+    expect(getByText(/Valgfritt/)).toBeInTheDocument()
   })
 
   test('Renders error', () => {

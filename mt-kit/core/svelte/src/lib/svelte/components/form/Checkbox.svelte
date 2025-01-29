@@ -3,6 +3,7 @@
   import InputError from './InputErrorMessage.svelte'
   import { createInputAriaDescribedby, forceArray, toKebabCase } from '$lib/ts/utils'
   import type { ErrorDetail } from '$lib/ts'
+  import type { CheckboxOption } from '$lib/ts/types'
 
   interface Props {
     value?: Array<string>
@@ -10,7 +11,7 @@
     label: string
     error?: ErrorDetail
     helpText?: string
-    options?: Array<{ value: string; text: string }>
+    options?: Array<CheckboxOption>
     isRequired?: boolean
     textOptional?: string
     showOptionalText?: boolean
@@ -29,7 +30,7 @@
     helpText,
     options = [],
     isRequired,
-    textOptional = 'Valgfitt',
+    textOptional = 'Valgfritt',
     showOptionalText = true,
     hiddenErrorText,
     theme = 'checkbox',
@@ -98,6 +99,7 @@
         value={checkbox.value}
         checked={forceArray(value).includes(checkbox.value)}
         onchange={handleOnChange}
+        disabled={checkbox.disabled}
         aria-required={isRequired}
         aria-invalid={!!error}
         aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)} />
@@ -106,6 +108,11 @@
         for={`${name}-${toKebabCase(checkbox.value)}`}>
         {checkbox.text}
       </label>
+      {#if checkbox.helpText}
+        <div class="hint">
+          {@html checkbox.helpText}
+        </div>
+      {/if}
     </div>
   {/each}
 </fieldset>

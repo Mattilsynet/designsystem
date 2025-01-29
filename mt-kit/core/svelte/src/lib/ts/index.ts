@@ -22,6 +22,7 @@ export {
   type InputModeType,
   type InputProps,
   type MultiSelectOption,
+  type CheckboxOption,
   type CheckboxWithSubSectionsOptions,
   type SearchResult,
   type MenuPoint
