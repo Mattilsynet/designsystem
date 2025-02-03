@@ -1,3 +1,4 @@
+import '@mattilsynet/design/styles.css'
 import type { Preview } from '@storybook/svelte'
 import theme from './theme'
 import '../../css/src/app.scss'
