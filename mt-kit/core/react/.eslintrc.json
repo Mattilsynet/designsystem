@@ -1,6 +1,0 @@
-{
-  "extends": ["standard-with-typescript", "standard-jsx", "standard-react", "prettier"],
-  "parserOptions": {
-    "project": ["./tsconfig.json", "./tsconfig.node.json"]
-  }
-}
