@@ -94,7 +94,7 @@
     "vitest": "^2.1.6"
   },
   "dependencies": {
-    "@mattilsynet/design": "^0.0.13",
+    "@mattilsynet/design": "^0.2.17",
     "@mattilsynet/designsystem-css": "^0.2.77",
     "@u-elements/u-datalist": "^0.0.9",
     "gh-pages": "^5.0.0",
@@ -102,5 +102,6 @@
   },
   "peerDependencies": {
     "svelte": "^5.14.4"
-  }
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }
