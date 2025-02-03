@@ -44,7 +44,7 @@
     "!dist/**/*.spec.*"
   ],
   "engines": {
-    "node": ">= 18.18.0",
+    "node": ">= 20.0.0",
     "npm": ">= 9.5.1"
   },
   "devDependencies": {
