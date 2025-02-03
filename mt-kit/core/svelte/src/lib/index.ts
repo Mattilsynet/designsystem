@@ -1,3 +1,6 @@
+import '@mattilsynet/design/styles.css'
+export { styles } from '@mattilsynet/design'
+
 export { default as Alert } from './svelte/components/Alert.svelte'
 export { default as Address } from './svelte/components/form/Address.svelte'
 export { default as Checkbox } from './svelte/components/form/Checkbox.svelte'
