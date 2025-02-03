@@ -59,7 +59,6 @@ jobs:
           cache: 'npm'
           cache-dependency-path: |
             mt-kit/core/svelte/package-lock.json
-            mt-kit/core/react/package-lock.json
             mt-kit/core/css/package-lock.json
 
       - name: 'Publish to npmjs registry'
@@ -81,7 +80,6 @@ jobs:
           cache: 'npm'
           cache-dependency-path: |
             mt-kit/core/svelte/package-lock.json
-            mt-kit/core/react/package-lock.json
             mt-kit/core/css/package-lock.json
 
       - name: 'Publish to GitHub registry'
