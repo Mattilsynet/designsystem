@@ -1,6 +1,8 @@
 <script lang="ts">
   import { createInputAriaDescribedby, type ErrorDetail } from '$lib/ts'
   import { InputErrorMessage, Label } from '$lib/index'
+  import { styles } from '@mattilsynet/design'
+  import { XCircle } from 'phosphor-svelte'
 
   interface Props {
     loadJs?: boolean
@@ -150,20 +152,12 @@
         <span class="file-button__file-name">{file}</span>
         <button
           type="button"
-          class="mt-button mt-button--search-clear file-button__file-remove"
+          data-variant="tertiary"
+          class={styles.button}
           onclick={() => removeFile(file)}
           data-testid={`remove-${file}`}>
           <span class="inclusively-hidden">Slett vedlegget: "{file}"</span>
-          <svg
-            aria-hidden="true"
-            width="20"
-            height="20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M10 0C4.47 0 0 4.47 0 10s4.47 10 10 10 10-4.47 10-10S15.53 0 10 0Zm5 13.59L13.59 15 10 11.41 6.41 15 5 13.59 8.59 10 5 6.41 6.41 5 10 8.59 13.59 5 15 6.41 11.41 10 15 13.59Z"
-              fill="#464545" />
-          </svg>
+          <XCircle weight="fill" />
         </button>
       </li>
     {/each}

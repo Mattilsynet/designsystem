@@ -6,6 +6,8 @@
   import type { InputProps, ErrorDetail, InputModeType } from '$lib/ts'
   import { createInputAriaDescribedby, interpolate } from '$lib/ts'
   import TextInputHorizontal from './TextInputHorizontal.svelte'
+  import { styles } from '@mattilsynet/design'
+  import { CaretDown, CaretUp } from 'phosphor-svelte'
 
   interface Props {
     values?: Record<string, string>
@@ -126,7 +128,8 @@
       {#if insides.length > 0}
         <button
           type="button"
-          class="mt-button mt-button--flat mt-button--small expandable self-start"
+          data-variant="tertiary"
+          class={styles.button}
           class:m-t-xxs={showMore}
           aria-expanded={showMore}
           aria-controls={bodyId}
@@ -137,9 +140,9 @@
           }}
           style="order: {insides.length + outsides.length};">
           {#if showMore}
-            {@html collapsableText}
+            {@html collapsableText} <CaretUp />
           {:else}
-            {@html expandableText}
+            {@html expandableText} <CaretDown />
           {/if}
         </button>
         {#if showMore}
