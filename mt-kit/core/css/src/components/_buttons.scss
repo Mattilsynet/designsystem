@@ -46,7 +46,6 @@ $icon-button-border-radius: 0.25em;
   font-weight: var(--font-weight-normal);
 
   // Effects
-  // transition: all 180ms ease-in-out;
   transition: none 180ms ease-in-out;
   transition-property: background-color, color, border-color;
 
@@ -90,30 +89,7 @@ $icon-button-border-radius: 0.25em;
       box-shadow: 0 0 0 0.25rem var(--mt-button-no-primary-border-focus-shadow);
     }
   }
-  &--secondary {
-    --button-focus-inner: var(--button-background);
-    --button-focus-outer: var(--button-color);
-    --color: var(--button-background);
-    --background: var(--mt-button-neutral-bg);
 
-    border-color: var(--color);
-    color: var(--color);
-    background-color: var(--background);
-
-    &:hover,
-    &:active {
-      background-color: var(--mt-button-neutral-bg-hover);
-      color: var(--mt-button-neutral-color-hover);
-    }
-
-    &:disabled,
-    &[disabled],
-    &.disabled {
-      background-color: var(--mt-button-neutral-bg-disabled);
-      color: var(--mt-button-neutral-color-disabled);
-      border-color: var(--mt-button-neutral-border-disabled);
-    }
-  }
   &--search-clear {
     min-width: $button-min-width;
     min-height: $button-min-height;
@@ -143,43 +119,6 @@ $icon-button-border-radius: 0.25em;
     }
   }
 
-  &--unstyled {
-    background: transparent;
-    letter-spacing: normal;
-    text-align: left;
-    word-spacing: normal;
-    cursor: pointer;
-    border: 0;
-    color: var(--color);
-    &:focus {
-      border-color: inherit;
-      outline: none;
-      box-shadow: $focus-box-shadow-no-outline;
-    }
-  }
-  &--small {
-    padding: 0.25em $icon-button-padding;
-  }
-  &--flat {
-    background: var(--mt-button-flat-bg);
-    color: var(--mt-button-flat-color);
-
-    &:hover {
-      border-color: var(--mt-button-flat-border-hover);
-      background: var(--mt-button-flat-bg-hover);
-    }
-    &:focus,
-    &:focus-visible {
-      border-color: var(--mt-button-flat-border-focus);
-    }
-  }
-  &.no-icon {
-    text-decoration: underline;
-    &:hover {
-      text-decoration: none;
-    }
-  }
-
   &--link {
     border: 0 none;
     background: transparent;
@@ -194,25 +133,6 @@ $icon-button-border-radius: 0.25em;
       background: transparent;
       color: var(--color);
     }
-  }
-
-  &__icon {
-    width: 1em;
-    height: 1em;
-    flex-shrink: 0;
-  }
-
-  &:not(.mt-button-icon) .mt-button__icon {
-    margin-right: 0.5em;
-  }
-
-  &-icon {
-    border-radius: 50%;
-    min-width: unset;
-  }
-  &--space-between {
-    justify-content: space-between;
-    text-align: left;
   }
   &--spinner {
     vertical-align: bottom;
@@ -256,78 +176,6 @@ $icon-button-border-radius: 0.25em;
     100% {
       transform: rotate(360deg);
     }
-  }
-
-  &.forward-arrow {
-    @include apply-icon($icon: $icon-carret-right-small, $position: before);
-    & {
-      display: flex;
-      align-items: center;
-      gap: var(--spacer-xxx-small);
-    }
-  }
-  &.closable {
-    &:hover {
-      &:after {
-        background-color: var(--mt-button-flat-color-hover);
-      }
-    }
-    &:after {
-      width: var(--icon-size-normal);
-      height: var(--icon-size-normal);
-      display: inline-block;
-      content: '';
-      -webkit-mask: url('data:image/svg+xml,%3Csvg%20width%3D%2220%22%20height%3D%2221%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22m20%202.54-7.5%207.5%207.5%207.499-2.5%202.5-7.5-7.5-7.5%207.5-2.5-2.5%207.5-7.5L0%202.54%202.5.04l7.5%207.5%207.5-7.5%202.5%202.5Z%22%20fill%3D%22%23075B7A%22%2F%3E%3C%2Fsvg%3E')
-        no-repeat 50% 50%;
-      mask: url('data:image/svg+xml,%3Csvg%20width%3D%2220%22%20height%3D%2221%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22m20%202.54-7.5%207.5%207.5%207.499-2.5%202.5-7.5-7.5-7.5%207.5-2.5-2.5%207.5-7.5L0%202.54%202.5.04l7.5%207.5%207.5-7.5%202.5%202.5Z%22%20fill%3D%22%23075B7A%22%2F%3E%3C%2Fsvg%3E')
-        no-repeat 50% 50%;
-      -webkit-mask-size: cover;
-      mask-size: cover;
-      background-color: var(--color-mt-blue);
-    }
-  }
-  &.expandable {
-    --gap: 0;
-    justify-content: flex-start;
-    background-color: transparent;
-    color: var(--color-mt-blue);
-
-    &[aria-expanded] {
-      &::after {
-        content: var(--icon-carret-down-primary);
-        display: inline-block;
-        margin-left: var(--spacer-xxx-small);
-      }
-    }
-    &[aria-expanded='true'] {
-      &::after {
-        transform: rotate(-180deg);
-        margin-bottom: 0.25rem;
-      }
-    }
-  }
-}
-
-.mt-icon-button {
-  color: var(--color-mt-blue);
-  background: transparent;
-  border: var(--border-width-regular) solid transparent;
-  border-radius: $icon-button-border-radius;
-  padding: $icon-button-padding;
-  cursor: pointer;
-
-  transition: none 180ms ease-in-out;
-  transition-property: background-color, color, border-color;
-
-  min-height: $button-min-height;
-  min-width: $button-min-width;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  &:hover {
-    border-color: var(--color-mt-blue);
   }
 }
 
