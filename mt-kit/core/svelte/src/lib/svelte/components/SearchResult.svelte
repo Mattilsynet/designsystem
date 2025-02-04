@@ -2,6 +2,7 @@
   import type { SearchResult } from '$lib/ts'
   import { mapRelExternal } from '$lib/ts'
   import HeadingLevel from '../components/HeadingLevel.svelte'
+  import { styles } from '@mattilsynet/design'
 
   interface Props {
     searchResult?: Array<SearchResult>
@@ -32,15 +33,14 @@
       </div>
     {/if}
     {#if result.breadcrumbs?.length > 0}
-      <div
-        aria-label={breadCrumbAriaLabel}
-        style="--gap: var(--fds-spacing-2)"
-        class="layout-flex layout-flex--center-vertical">
-        {#each result.breadcrumbs as breadcrumb}
-          <span class="breadcrumb">
-            {@html breadcrumb}
-          </span>
-        {/each}
+      <div aria-label={breadCrumbAriaLabel} class={styles.breadcrumbs}>
+        <ol>
+          {#each result.breadcrumbs as breadcrumb}
+            <li>
+              {@html breadcrumb}
+            </li>
+          {/each}
+        </ol>
       </div>
     {/if}
   </a>
