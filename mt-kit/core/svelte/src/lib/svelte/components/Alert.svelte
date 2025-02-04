@@ -1,42 +1,17 @@
 <script lang="ts">
   import type { Snippet } from 'svelte'
-  import InformationOutline from '../components/icons/InformationOutline.svelte'
-  import WarningOutline from './icons/WarningOutline.svelte'
-  import SuccessOutline from '../components/icons/SuccessOutline.svelte'
-  import DangerOutline from '../components/icons/DangerOutline.svelte'
+  import { styles } from '@mattilsynet/design'
 
-  interface Props {
+  export type AlertProps = {
+    'data-color'?: 'info' | 'success' | 'warning' | 'danger'
     class?: string
-    severity?: 'info' | 'success' | 'warning' | 'danger'
-    iconTitle?: string
     children?: Snippet
-    right?: Snippet
     [key: string]: unknown
   }
 
-  let {
-    class: className = '',
-    severity = 'info',
-    iconTitle,
-    children,
-    right,
-    ...rest
-  }: Props = $props()
-
-  const icons = {
-    info: InformationOutline,
-    success: SuccessOutline,
-    warning: WarningOutline,
-    danger: DangerOutline
-  }
-
-  const IconComponent = $derived(icons[severity])
+  let { class: className = '', children, ...rest }: AlertProps = $props()
 </script>
 
-<div class="mt-alert {className} {severity}" {...rest}>
-  <IconComponent title={iconTitle} />
-  <div class="mt-alert-wrapper">
-    {@render children?.()}
-  </div>
-  {@render right?.()}
+<div class="{styles.alert} {className}" {...rest}>
+  {@render children?.()}
 </div>
