@@ -13,22 +13,22 @@
     args: {
       alerts: [
         {
-          severity: 'info',
+          'data-color': 'info',
           text: `<h1 class="mt-h4">Kan legge inn tittel</h1><p>Paragrafen kommer under. Det skal være en <a href="https://www.mattilsynet.no">lenke til en side</a></p><p>Andre paragrafen. Det skal være en <a href="https://www.mattilsynet.no">lenke til en side</a></p>`,
           hasClose: false
         },
         {
-          severity: 'success',
+          'data-color': 'success',
           text: `<p>Paragrafen kommer under. Det skal være en <a href="https://www.mattilsynet.no">lenke til en side</a></p>`,
           hasClose: false
         },
         {
-          severity: 'warning',
+          'data-color': 'warning',
           text: `<p>Paragrafen kommer under. Det skal være en <a href="https://www.mattilsynet.no">lenke til en side</a>. Paragrafen kommer under. Det skal være en <a href="https://www.mattilsynet.no">lenke til en side</a> Paragrafen kommer under. Det skal være en <a href="https://www.mattilsynet.no">lenke til en side</a></p>`,
           hasClose: false
         },
         {
-          severity: 'danger',
+          'data-color': 'danger',
           text: `<p>Paragrafen kommer under. Det skal være en <a href="https://www.mattilsynet.no">lenke til en side</a></p><p>Paragrafen kommer under. Det skal være en <a href="https://www.mattilsynet.no">lenke til en side</a></p>`,
           hasClose: false
         }
@@ -41,13 +41,13 @@
 <Story name="Normal">
   {#snippet children({ alerts, disableCss })}
     <div use:wrapInShadowDom={disableCss} class="wrapper">
-      <Alert severity={alerts[0].severity}>
+      <Alert data-color={alerts[0]['data-color']}>
         <p>Informasjon som kommer på en linje</p>
         {#if alerts[0].hasClose}
           <button type="button" aria-label="Lukk"></button>
         {/if}
       </Alert>
-      <Alert severity={alerts[0].severity}>
+      <Alert data-color={alerts[0]['data-color']}>
         {@html alerts[0].text}
         {#if alerts[0].hasClose}
           <button type="button" aria-label="Lukk"></button>
@@ -59,7 +59,7 @@
 <Story name="Information">
   {#snippet children({ alerts, disableCss })}
     <div use:wrapInShadowDom={disableCss} class="wrapper">
-      <Alert severity={alerts[0].severity}>
+      <Alert data-color={alerts[0]['data-color']}>
         {@html alerts[0].text}
         {#if alerts[0].hasClose}
           <button type="button" aria-label="Lukk"></button>
@@ -71,7 +71,7 @@
 <Story name="Success">
   {#snippet children({ alerts, disableCss })}
     <div use:wrapInShadowDom={disableCss} class="wrapper">
-      <Alert severity={alerts[1].severity}>
+      <Alert data-color={alerts[1]['data-color']}>
         {@html alerts[1].text}
         {#if alerts[1].hasClose}
           <button type="button" aria-label="Lukk"></button>
@@ -83,7 +83,7 @@
 <Story name="Warning">
   {#snippet children({ alerts, disableCss })}
     <div use:wrapInShadowDom={disableCss} class="wrapper">
-      <Alert severity={alerts[2].severity}>
+      <Alert data-color={alerts[2]['data-color']}>
         {@html alerts[2].text}
         {#if alerts[2].hasClose}
           <button type="button" aria-label="Lukk"></button>
@@ -95,7 +95,7 @@
 <Story name="Danger">
   {#snippet children({ alerts, disableCss })}
     <div use:wrapInShadowDom={disableCss} class="wrapper">
-      <Alert severity={alerts[3].severity}>
+      <Alert data-color={alerts[3]['data-color']}>
         {@html alerts[3].text}
         {#if alerts[3].hasClose}
           <button type="button" aria-label="Lukk"></button>

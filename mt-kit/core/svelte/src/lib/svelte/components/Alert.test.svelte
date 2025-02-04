@@ -1,13 +1,9 @@
 <script lang="ts">
-  import Alert from '$lib/svelte/components/Alert.svelte'
-  interface Props {
-    severity?: 'info' | 'success' | 'warning' | 'danger'
-    class?: string
-    children?: string
-  }
-  let { severity = 'info', class: className = '', children }: Props = $props()
+  import Alert, { type AlertProps } from '$lib/svelte/components/Alert.svelte'
+
+  let { class: className = '', children, ...rest }: Omit<AlertProps, 'children'> & { children: string } = $props()
 </script>
 
-<Alert {severity} {className}>
+<Alert {className} {...rest}>
   {@html children}
 </Alert>

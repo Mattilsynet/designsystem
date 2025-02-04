@@ -4,7 +4,7 @@ import Alert from './Alert.test.svelte'
 describe('Alert', () => {
   test('Renders - info', () => {
     const res = render(Alert, {
-      severity: 'info',
+      'data-color': 'info',
       children: `<p>This is an alert</p>`
     })
     expectTextAndSeverity(res, 'This is an alert', 'info')
@@ -12,7 +12,7 @@ describe('Alert', () => {
 
   test('Renders - warning', () => {
     const res = render(Alert, {
-      severity: 'warning',
+      'data-color': 'warning',
       children: `<p>This is an alert</p>`
     })
     expectTextAndSeverity(res, 'This is an alert', 'warning')
@@ -20,7 +20,7 @@ describe('Alert', () => {
 
   test('Renders - success', () => {
     const res = render(Alert, {
-      severity: 'success',
+      'data-color': 'success',
       children: `<p>This is an alert</p>`
     })
     expectTextAndSeverity(res, 'This is an alert', 'success')
@@ -28,7 +28,7 @@ describe('Alert', () => {
 
   test('Renders - danger', () => {
     const res = render(Alert, {
-      severity: 'danger',
+      'data-color': 'danger',
       children: `<p>This is an alert</p>`
     })
     expectTextAndSeverity(res, 'This is an alert', 'danger')
@@ -36,14 +36,15 @@ describe('Alert', () => {
 
   test('Renders with close button', () => {
     const res = render(Alert, {
-      severity: 'info',
+      'data-color': 'info',
       children: `<p>This is an alert</p><button type="button" aria-label="Lukk"></button>`
     })
     expect(res.getByLabelText('Lukk')).toBeInTheDocument()
   })
 })
 
-function expectTextAndSeverity(res: RenderResult<any>, text: string, severity: string) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function expectTextAndSeverity(res: RenderResult<any>, text: string, color: string) {
   const child = res.getByText(text)
-  expect(child.parentElement.getAttribute('data-color')).toEqual(severity)
+  expect(child.parentElement?.getAttribute('data-color')).toEqual(color)
 }

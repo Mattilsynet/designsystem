@@ -2,16 +2,16 @@
   import type { Snippet } from 'svelte'
   import { styles } from '@mattilsynet/design'
 
-  interface Props {
+  export type AlertProps = {
+    'data-color'?: 'info' | 'success' | 'warning' | 'danger'
     class?: string
-    severity?: 'info' | 'success' | 'warning' | 'danger'
     children?: Snippet
     [key: string]: unknown
   }
 
-  let { class: className = '', severity = 'info', children, ...rest }: Props = $props()
+  let { class: className = '', children, ...rest }: AlertProps = $props()
 </script>
 
-<div class="{styles.alert} {className}" data-color={severity} {...rest}>
+<div class="{styles.alert} {className}" {...rest}>
   {@render children?.()}
 </div>
