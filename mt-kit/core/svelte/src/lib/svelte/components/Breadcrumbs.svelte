@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte'
   import type { Breadcrumbs, Link } from '$lib/ts/types'
+  import { styles } from '@mattilsynet/design'
 
   const BUTTON_ELLIPSIS = Symbol()
 
@@ -45,12 +46,12 @@
   }
 </script>
 
-<nav class="breadcrumbs {classNames}" aria-label={ariaLabel}>
-  <ol class="mt-ol" class:expanded={isFull}>
+<nav class="{styles.breadcrumbs} {classNames}" aria-label={ariaLabel}>
+  <ol>
     {#each breadcrumbsItems as item, index}
-      <li class:ellipsis={!isFull && index + 1 > 2}>
+      <li>
         {#if index === 0}
-          <a class="mt-link" href={item.url} rel="external">{homeLabel}</a>
+          <a href={item.url} class={styles.link} rel="external">{homeLabel}</a>
         {:else if item === BUTTON_ELLIPSIS}
           <button
             type="button"
@@ -61,11 +62,11 @@
             ...
           </button>
         {:else if index + 1 < breadcrumbsItems.length}
-          <a class="mt-link" href={item.url} rel="external">{@html item.text}</a>
+          <a href={item.url} class={styles.link} rel="external">{@html item.text}</a>
         {:else}
-          <span class="last-breadcrumb">
+          <a href={item.url} class={styles.link} rel="external" aria-current="page">
             {item.text}
-          </span>
+          </a>
         {/if}
       </li>
     {/each}
