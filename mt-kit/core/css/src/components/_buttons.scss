@@ -77,6 +77,30 @@ $icon-button-border-radius: 0.25em;
       border-color: var(--mt-button-primary-border-disabled);
     }
   }
+  &--secondary {
+    --button-focus-inner: var(--button-background);
+    --button-focus-outer: var(--button-color);
+    --color: var(--button-background);
+    --background: var(--mt-button-neutral-bg);
+
+    border-color: var(--color);
+    color: var(--color);
+    background-color: var(--background);
+
+    &:hover,
+    &:active {
+      background-color: var(--mt-button-neutral-bg-hover);
+      color: var(--mt-button-neutral-color-hover);
+    }
+
+    &:disabled,
+    &[disabled],
+    &.disabled {
+      background-color: var(--mt-button-neutral-bg-disabled);
+      color: var(--mt-button-neutral-color-disabled);
+      border-color: var(--mt-button-neutral-border-disabled);
+    }
+  }
   &--on-primary {
     background-color: transparent;
     border-color: var(--color-mt-white);
