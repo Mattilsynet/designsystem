@@ -11,6 +11,7 @@
   import SummaryDetail from '../SummaryDetail.svelte'
   import { createInputAriaDescribedby, toKebabCase } from '$lib/ts'
   import { forceArray } from '$lib/ts/utils'
+  import { styles } from '@mattilsynet/design'
 
   interface Props {
     name: string
@@ -252,7 +253,8 @@
         <button
           id="{selectId}-remove-{index}"
           type="button"
-          class="mt-button mt-button--flat mt-button--small closable token"
+          data-variant="tertiary"
+          class={styles.button}
           data-id={selectedOption.value}
           aria-label={selectedOption.removeAriaLabel}
           onkeydown={e => handleRemoveItemKeyDown(e, selectedOption.value)}
