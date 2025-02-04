@@ -3,7 +3,8 @@
   import ButtonSpinner from '$lib/svelte/components/ButtonSpinner.svelte'
   import { wrapInShadowDom } from './storybook-utils/utils'
   import { styles } from '@mattilsynet/design'
-  import { X, MagnifyingGlass } from 'phosphor-svelte'
+  import X from 'phosphor-svelte/lib/X'
+  import MagnifyingGlass from 'phosphor-svelte/lib/MagnifyingGlass'
 
   const { Story } = defineMeta({
     title: 'Components/Buttons',
