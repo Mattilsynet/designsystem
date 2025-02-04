@@ -2,6 +2,8 @@
   import { defineMeta } from '@storybook/addon-svelte-csf'
   import ButtonSpinner from '$lib/svelte/components/ButtonSpinner.svelte'
   import { wrapInShadowDom } from './storybook-utils/utils'
+  import { styles } from '@mattilsynet/design'
+  import { X, MagnifyingGlass } from 'phosphor-svelte'
 
   const { Story } = defineMeta({
     title: 'Components/Buttons',
@@ -32,28 +34,37 @@
     <div use:wrapInShadowDom={disableCss}>
       <h1 class="mt-h1">Knapper</h1>
       <p class="description">Hovedknapp - stor</p>
-      <button class="mt-button mt-button--primary" {disabled}>{primary}</button>
-      <button class="mt-button mt-button--primary" {disabled}>{primaryLong}</button>
-      <button class="mt-button mt-button--primary" {disabled} style="width: 15rem"
+      <button type="button" data-variant="primary" class={styles.button} {disabled}
+        >{primary}</button>
+      <button type="button" data-variant="primary" class={styles.button} {disabled}
         >{primaryLong}</button>
+      <button
+        type="button"
+        data-variant="primary"
+        class={styles.button}
+        {disabled}
+        style="width: 15rem">{primaryLong}</button>
 
-      <p class="description">Sekundær - stor</p>
-      <button class="mt-button mt-button--secondary" {disabled}>{secondary}</button>
+      <p class="description">Sekundær</p>
+      <button type="button" data-variant="secondary" class={styles.button} {disabled}
+        >{secondary}</button>
 
       <p class="description">Lenkeknapp</p>
       <button class="mt-button mt-button--link"> ...</button>
 
       <p class="description">Flat - stor</p>
-      <button class="mt-button mt-button--flat no-icon">Uten ikon</button>
-      <button class="mt-button mt-button--flat no-icon">Avbryt</button>
+      <button type="button" data-variant="tertiary" class={styles.button}>Uten ikon</button>
+      <button type="button" data-variant="tertiary" class={styles.button}>Avbryt</button>
 
-      <p class="description">Flat med icon - stor</p>
-      <button class="mt-button mt-button--flat closable">Med ikon</button>
+      <p class="description">Flat med icon</p>
+      <button type="button" data-variant="tertiary" class={styles.button}
+        >Med ikon<X color="#000" /></button>
 
       <p class="description">Flat med icon på venstre side</p>
-      <button class="mt-button mt-button--flat icon--search-before">Søk</button>
+      <button type="button" data-variant="tertiary" class={styles.button}>
+        <MagnifyingGlass />Søk</button>
 
-      <p class="description">På blå - stor</p>
+      <p class="description">På bakgrunn</p>
       <div class="background-mt-blue p-xxs">
         <button type="button" class="mt-button mt-button--on-primary">{primary}</button>
       </div>
