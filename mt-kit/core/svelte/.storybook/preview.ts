@@ -5,6 +5,12 @@ import '../../css/src/app.scss'
 import '../src/stories/storybook-utils/docs-stories.css'
 
 const preview: Preview = {
+  decorators: [
+    partialStoryFn => {
+      document.documentElement.setAttribute('lang', 'nb')
+      return partialStoryFn()
+    }
+  ],
   parameters: {
     controls: {
       matchers: {
