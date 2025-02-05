@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { ErrorDetail } from '$lib/ts'
+  import { styles } from '@mattilsynet/design'
 
   interface Props {
     errors?: ErrorDetail[]
@@ -15,21 +16,15 @@
 </script>
 
 {#if errors && errors.length !== 0}
-  <div
-    use:setFocus
-    class="error-summary layout-flex-col"
-    style="--gap: var(--spacer-x-small)"
-    role="alert"
-    tabindex="-1"
-    aria-labelledby="error-summary-heading">
-    <h2 id="error-summary-heading" class="mt-h2">
+  <div use:setFocus class={styles.errorsummary} role="alert">
+    <h2>
       {heading}
     </h2>
-    <ul class="mt-ul">
+    <ul>
       {#each errors as error}
         {#if linkToFields}
-          <li class="error-summary__list--link">
-            <a href={`#${error.key}`} rel="external" class="inline-flex">{error.message}</a>
+          <li>
+            <a href={`#${error.key}`} rel="external">{error.message}</a>
           </li>
         {:else}
           <li>
