@@ -141,7 +141,7 @@
   {#snippet children(args)}
     <header class="mt-header" use:wrapInShadowDom={args.disableCss}>
       <div class="container mt-header-wrapper mt-header-wrapper--regular">
-        <a href="https://mattilsynet.no/" class={styles.logo} aria-label="Gå til forside"></a>
+        <a href="https://mattilsynet.no/" class="{styles.logo} width-fit-content" aria-label="Gå til forside"></a>
         <Dropdown
           title="Språk/language"
           loadJs={!args.disableJs}

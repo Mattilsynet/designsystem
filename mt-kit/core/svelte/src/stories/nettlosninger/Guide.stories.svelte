@@ -118,7 +118,11 @@
   {#snippet children({ showChapterNumbers, menu, disableJs, chapters })}
     <header class="mt-header">
       <div class="container mt-header-wrapper mt-header-wrapper--regular">
-        <a class={styles.logo} href="https://mattilsynet.no/" aria-label="Gå til forside"> </a>
+        <a
+          class="{styles.logo} width-fit-content"
+          href="https://mattilsynet.no/"
+          aria-label="Gå til forside">
+        </a>
         <Dropdown
           title="Språk/language"
           loadJs={!disableJs}
