@@ -1,7 +1,7 @@
 <script lang="ts" module>
   import { defineMeta } from '@storybook/addon-svelte-csf'
   import { wrapInShadowDom } from '../storybook-utils/utils'
-  import FormErrorSummary from '$lib/svelte/components/form/FormErrorSummary.svelte'
+  import ErrorSummary from '$lib/svelte/components/form/ErrorSummary.svelte'
 
   const { Story } = defineMeta({
     title: 'Components/Form/Error Summary',
@@ -24,7 +24,7 @@
 <Story name="Normal">
   {#snippet children({ errors, heading, disableCss })}
     <div use:wrapInShadowDom={disableCss}>
-      <FormErrorSummary {errors} {heading} />
+      <ErrorSummary {errors} {heading} />
 
       <form class="mt-form form-layout">
         <label class="mt-label" for="name"> Navn </label>
@@ -71,7 +71,7 @@
 <Story name="Text only">
   {#snippet children({ errors, heading, disableCss })}
     <div use:wrapInShadowDom={disableCss}>
-      <FormErrorSummary {errors} {heading} linkToFields={false} />
+      <ErrorSummary {errors} {heading} linkToFields={false} />
     </div>
   {/snippet}
 </Story>
