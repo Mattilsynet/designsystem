@@ -4,6 +4,7 @@
   import { createInputAriaDescribedby, forceArray, toKebabCase } from '$lib/ts/utils'
   import type { ErrorDetail } from '$lib/ts'
   import type { CheckboxOption } from '$lib/ts/types'
+  import { styles } from '@mattilsynet/design'
 
   interface Props {
     value?: Array<string>
@@ -68,10 +69,8 @@
 <fieldset
   id={name}
   aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)}
-  class="mt-fieldset form-fieldset {theme === 'checkbox' ? 'checkbox' : ''} {theme === 'button'
-    ? 'mt-button-checkbox'
-    : ''} {className}">
-  <legend class="mt-legend form-legend {legendClass}">
+  class="{styles.fieldset} {className}">
+  <legend class={legendClass}>
     {label}
     {#if !isRequired && showOptionalText}
       <span class="tag info tag-text">{textOptional}</span>
@@ -79,23 +78,18 @@
   </legend>
 
   {#if helpText}
-    <div class="hint">
-      {@html helpText}
-    </div>
-  {/if}
-
-  {#if error}
-    <InputError {...error} {hiddenErrorText} />
+    <p>
+      {helpText}
+    </p>
   {/if}
 
   {#each options as checkbox (checkbox.value)}
-    <div class="form-control">
+    <div class="{styles.field} form-control">
       <input
         type="checkbox"
         id={`${name}-${toKebabCase(checkbox.value)}`}
         {name}
-        class="mt-input input__control"
-        class:error
+        class={styles.input}
         value={checkbox.value}
         checked={forceArray(value).includes(checkbox.value)}
         onchange={handleOnChange}
@@ -108,6 +102,7 @@
         for={`${name}-${toKebabCase(checkbox.value)}`}>
         {checkbox.text}
       </label>
+
       {#if checkbox.helpText}
         <div class="hint">
           {@html checkbox.helpText}
@@ -115,4 +110,8 @@
       {/if}
     </div>
   {/each}
+
+  {#if error}
+    <InputError {...error} {hiddenErrorText} />
+  {/if}
 </fieldset>
