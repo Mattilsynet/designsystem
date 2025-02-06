@@ -17,7 +17,6 @@
     textOptional?: string
     showOptionalText?: boolean
     hiddenErrorText?: string
-    theme?: 'checkbox' | 'button'
     class?: string
     legendClass?: string
     onChange?: (element: HTMLInputElement) => void
@@ -34,7 +33,6 @@
     textOptional = 'Valgfritt',
     showOptionalText = true,
     hiddenErrorText,
-    theme = 'checkbox',
     class: className = '',
     legendClass = '',
     onChange = () => {}
@@ -84,7 +82,7 @@
   {/if}
 
   {#each options as checkbox (checkbox.value)}
-    <div class="{styles.field} form-control">
+    <div class={styles.field}>
       <input
         type="checkbox"
         id={`${name}-${toKebabCase(checkbox.value)}`}
@@ -95,18 +93,15 @@
         onchange={handleOnChange}
         disabled={checkbox.disabled}
         aria-required={isRequired}
-        aria-invalid={!!error}
         aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)} />
-      <label
-        class="mt-label {theme === 'button' ? 'mt-button mt-button--secondary' : ''}"
-        for={`${name}-${toKebabCase(checkbox.value)}`}>
+      <label for={`${name}-${toKebabCase(checkbox.value)}`}>
         {checkbox.text}
       </label>
 
       {#if checkbox.helpText}
-        <div class="hint">
-          {@html checkbox.helpText}
-        </div>
+        <p>
+          {checkbox.helpText}
+        </p>
       {/if}
     </div>
   {/each}
