@@ -16,8 +16,12 @@
 </script>
 
 {#if errors && errors.length !== 0}
-  <div use:setFocus class={styles.errorsummary} role="alert">
-    <h2>
+  <div
+    use:setFocus
+    class={styles.errorsummary}
+    role="alert"
+    aria-labelledby="error-summary-heading">
+    <h2 id="error-summary-heading">
       {heading}
     </h2>
     <ul>
