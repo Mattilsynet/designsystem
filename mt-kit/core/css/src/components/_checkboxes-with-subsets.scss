@@ -1,7 +1,7 @@
 @use '../utilities/layout';
 @use '../global/utils';
 
-.mt-fieldset .checkbox-subsets {
+fieldset .checkbox-subsets {
   .form-control {
     &.m-t-0 {
       margin-top: 0;
@@ -28,7 +28,7 @@
     flex-direction: column;
     gap: 0;
 
-    .mt-legend {
+    legend {
       float: left;
       width: 100%;
       font-weight: var(--font-weight-normal);
