@@ -36,7 +36,6 @@ $color-grey-hue: $color-primary !default;
 $color-background-body: color.scale($color-grey-hue, $lightness: 98%) !default;
 $color-grey-hue: color.channel($color-grey-hue, 'hue', $space: hsl);
 
-$font-family: Helvetica, Arial, sans-serif !default;
 $font-weight-light: 300 !default;
 $font-weight-normal: 400 !default;
 $font-weight-medium: 500 !default;
