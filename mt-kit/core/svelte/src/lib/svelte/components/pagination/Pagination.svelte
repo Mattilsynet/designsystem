@@ -4,18 +4,18 @@
   import { styles, pagination } from '@mattilsynet/design'
 
   const PAGINATION_BREAKPOINT = 1024 // $breakpoint-x-large
-  const ALLOWED_PAGES_DESKTOP = 5
-  const ALLOWED_PAGES_MOBILE = 3
+  const ALLOWED_PAGES_DESKTOP = 7
+  const ALLOWED_PAGES_MOBILE = 5
 
   interface Props {
     nextText?: string
     previousText?: string
     paginationLabel?: string
     toPageTitle?: string
-    pages?: Array<{ url: string; index?: number }> // TODO: According to "import type { Page } from '$lib/ts'", index is required, but it is never used?
+    pages?: Array<{ url: string; index?: number }> // TODO: According to `import type { Page } from '$lib/ts'`, `index` is required, but it is never used?
     currentPageIndex?: number
     class?: string
-    onPageChange?: (index: number) => void
+    onPageChange?: (index: number, event: Event) => void
   }
 
   let {
@@ -26,7 +26,7 @@
     pages: pagesRaw = [],
     currentPageIndex = 0,
     class: className = '',
-    onPageChange = _ => {}
+    onPageChange
   }: Props = $props()
 
   const isMobile = $derived(innerWidth.current ? innerWidth.current < PAGINATION_BREAKPOINT : false)
@@ -35,15 +35,8 @@
     total: pagesRaw.length,
     show: isMobile ? ALLOWED_PAGES_MOBILE : ALLOWED_PAGES_DESKTOP
   }));
-
-  function handleClick(event: Event, index: number): void {
-    console.log(event);
-    event.preventDefault()
-    onPageChange(index)
-  }
 </script>
 
-{console.log({ next, prev, pages })}
 {#if pages.length > 1}
   <nav class="{styles.pagination} {className}" aria-label={paginationLabel} data-size="md">
     <ul>
@@ -53,10 +46,10 @@
           aria-label={previousText}
           class={styles.button}
           href={prev ? pagesRaw[prev - 1].url : undefined}
-          onclick={event => handleClick(event, prev - 1)}>
+          onclick={event => onPageChange?.(prev - 1, event)}>
         </a>
       </li>
-      {#each pages as { page, current }, index}
+      {#each pages as { page, current }}
         <li>
           {#if page}
             <a
@@ -64,7 +57,7 @@
               aria-label={interpolate(toPageTitle, [`${page}`, String(pagesRaw.length)])}
               class={styles.button}
               href={pagesRaw[page - 1].url}
-              onclick={event => handleClick(event, index)}>
+              onclick={event => onPageChange?.(page - 1, event)}>
               {page}
             </a>
           {/if}
@@ -76,7 +69,7 @@
           aria-label={nextText}
           class={styles.button}
           href={next ? pagesRaw[next - 1].url : undefined}
-          onclick={event => handleClick(event, next - 1)}>
+          onclick={event => onPageChange?.(next - 1, event)}>
         </a>
       </li>
     </ul>

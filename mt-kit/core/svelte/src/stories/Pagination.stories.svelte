@@ -7,7 +7,8 @@
   const pageChangeAction = action('pageChange')
   let currentPageIndex = $state(0)
 
-  function handlePageChange(index: number) {
+  function handlePageChange(index: number, event: Event) {
+    event.preventDefault()
     pageChangeAction('index', index)
     currentPageIndex = index
   }
