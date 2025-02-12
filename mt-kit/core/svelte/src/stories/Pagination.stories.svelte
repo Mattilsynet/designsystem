@@ -7,7 +7,8 @@
   const pageChangeAction = action('pageChange')
   let currentPageIndex = $state(0)
 
-  function handlePageChange(index: number) {
+  function handlePageChange(index: number, event: Event) {
+    event.preventDefault()
     pageChangeAction('index', index)
     currentPageIndex = index
   }
@@ -49,13 +50,9 @@
           onPageChange={handlePageChange}
           nextText="Neste"
           previousText="Forrige"
-          labelPage="Side"
           toPageTitle={`Gå til side {0} av {1}`}
           class="" />
       </article>
     </div>
   {/snippet}
 </Story>
-
-<style lang="scss">
-</style>
