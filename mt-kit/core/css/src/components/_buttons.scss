@@ -46,7 +46,8 @@ $icon-button-border-radius: 0.25em;
   font-weight: var(--font-weight-normal);
 
   // Effects
-  transition: none 180ms ease-in-out;
+  transition-duration: 180ms;
+  transition-timing-function: ease-in-out;
   transition-property: background-color, color, border-color;
 
   &:hover,
