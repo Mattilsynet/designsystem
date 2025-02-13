@@ -20,9 +20,9 @@
 
 .article-page {
   @include article-spacing;
-  a {
-    @extend .mt-link;
-  }
+  // a {
+  //   @extend .mt-link;
+  // }
   figure {
     @extend .mt-figure;
     img {

@@ -25,7 +25,7 @@
         <ul class="mt-ul m-t-xxs list-unstyled">
           <li class="icon--list-checkmark-before">nummer en</li>
           <li class="icon--list-checkmark-before">dette er en lengre tekst over to linjer</li>
-          <li><a href="" class="mt-link icon--list-checkmark-before fit-content">nummer to</a></li>
+          <li><a href="#anchor" class="icon--list-checkmark-before">nummer to</a></li>
         </ul>
       </section>
       <section>

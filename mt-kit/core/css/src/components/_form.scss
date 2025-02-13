@@ -25,9 +25,9 @@ $form-outline-color: 'var(--form-outline-color)' !default;
   .form-error {
     font-size: $font-size-small;
     margin-top: var(--form-hint-spacer);
-    a {
-      @extend .mt-link;
-    }
+    // a {
+    //   @extend .mt-link;
+    // }
   }
   > * {
     margin-top: var(--form-text-space);

@@ -204,7 +204,7 @@
       searchResult: { control: 'object' },
       internalLinks: { control: 'object' },
       externalLinks: { control: 'object' },
-      secondary: { control: 'string' },
+      secondary: { control: 'text' },
       disabled: { control: 'boolean' },
       disableCss: { control: 'boolean' }
     }
@@ -212,7 +212,7 @@
 </script>
 
 <Story name="Normal">
-  {#snippet children({ primary, disableCss, disabled, secondary, inText, cards })}
+  {#snippet children({ primary, disableCss, inText, cards })}
     <div use:wrapInShadowDom={disableCss}>
       <h1 class="mt-h1">Normale lenker</h1>
       <article>
@@ -223,7 +223,7 @@
         <h2 class="mt-h2">Lenke i paragraf over flere linjer:</h2>
         <p class="text">
           Hvis du har spørsmål, ta kontakt med
-          <Link href="/mattilsynet/mat/drikkevann" class="" linkText={inText} />
+          <Link href="/mattilsynet/mat/drikkevann" linkText={inText} />
           for innreiseregler. Ved andre henvendelser ta kontakt med politiet på
           <Link href="https://www.politiet.no" linkText="politiet.no" />
           for svar.
@@ -271,17 +271,17 @@
       <article>
         <h2 class="mt-h2">Pdf lenke</h2>
 
-        <Link href="/mattilsynet.no/some.pdf" class="pdf" linkText="thisIsAPdf" />
+        <Link href="/mattilsynet.no/some.pdf" data-variant="pdf" linkText="thisIsAPdf" />
         <Link
           href="https://mattilsynet.no/some.pdf"
-          class="pdf"
+          data-variant="pdf"
           linkText="thisIsAPdf"
           fileName="thisIsAPdf.pdf" />
       </article>
       <article>
         <h2 class="mt-h2">Flere linjer</h2>
         <div class="wrapper">
-          <Link href="#" class="inline-flex" linkText={cards[5].text} />
+          <Link href="#anchor" class="inline-flex" linkText={cards[5].text} />
         </div>
       </article>
     </div>
@@ -289,7 +289,7 @@
 </Story>
 
 <Story name="Eksternlenke regel">
-  {#snippet children({ disableCss, disabled, internalLinks, externalLinks })}
+  {#snippet children({ disableCss, internalLinks, externalLinks })}
     <div use:wrapInShadowDom={disableCss}>
       <h1 class="mt-h1">Eksterne lenker</h1>
       <section class="link--button-wrapper m-t-xs space-y-children--xxx-small">
@@ -378,14 +378,14 @@
 </Story>
 
 <Story name="Små lenker">
-  {#snippet children({ smallLinks, disableCss, path })}
+  {#snippet children({ smallLinks, disableCss })}
     <div use:wrapInShadowDom={disableCss}>
       <h1 id="small-1" class="mt-h1">Mange lenker</h1>
       <section
         class="layout-grid layout-grid--auto-fill-desktop m-t-xxs"
         style="--gap: var(--spacer-small)"
         aria-labelledby="small-1">
-        {#each smallLinks as link, index}
+        {#each smallLinks as link}
           {#if link && link.url}
             <a href={link.url} class="mt-link">
               <h3 class="mt-h4 forward-arrow">{@html link.text}</h3>
@@ -395,7 +395,7 @@
       </section>
       <h2 id="small-2" class="mt-h2 m-t-xs">Få lenker</h2>
       <section class="layout-grid layout-grid--auto-fill-desktop m-t-xxs" aria-labelledby="small-2">
-        {#each smallLinks.slice(0, 2) as link, index}
+        {#each smallLinks.slice(0, 2) as link}
           {#if link && link.url}
             <a href={link.url} class="mt-link">
               <h4 class="mt-h4 forward-arrow">{@html link.text}</h4>
@@ -408,7 +408,7 @@
 </Story>
 
 <Story name="Lenkeliste">
-  {#snippet children({ cards, disableCss, disabled, secondary })}
+  {#snippet children({ cards, disableCss })}
     <div use:wrapInShadowDom={disableCss}>
       <h1 class="mt-h1">Lenkeliste</h1>
       <ul class="mt-ul m-t-xxs layout-grid list-unstyled">
@@ -436,21 +436,21 @@
 </Story>
 
 <Story name="Dokumentlenke">
-  {#snippet children({ cards, disableCss, disabled, secondary })}
+  {#snippet children({ cards, disableCss })}
     <div use:wrapInShadowDom={disableCss}>
       <h1 class="mt-h1">Dokumentlenker</h1>
       <ul class="mt-ul m-t-xxs layout-grid list-unstyled">
         <li>
-          <Link href={cards[3].href} class="pdf" linkText={cards[3].text} />
+          <Link href={cards[3].href} data-variant="pdf" linkText={cards[3].text} />
         </li>
         <li>
-          <Link href={cards[6].href} class="document" linkText={cards[6].text} />
+          <Link href={cards[6].href} data-variant="document" linkText={cards[6].text} />
         </li>
         <li>
-          <Link href={cards[2].href} class="pdf" linkText="Rapport fisk og bifangst 2023 (pdf)" />
+          <Link href={cards[2].href} data-variant="pdf" linkText="Rapport fisk og bifangst 2023 (pdf)" />
         </li>
         <li>
-          <Link href={cards[7].href} class="pdf" linkText={cards[7].text} />
+          <Link href={cards[7].href} data-variant="pdf" linkText={cards[7].text} />
         </li>
       </ul>
     </div>
@@ -458,28 +458,28 @@
 </Story>
 
 <Story name="Transportlenker">
-  {#snippet children({ disableCss, smallLinks, twoColumns, cards, disabled })}
+  {#snippet children({ disableCss, twoColumns, cards })}
     <div use:wrapInShadowDom={disableCss}>
       <h1 class="mt-h1">Transportlenker</h1>
 
       <ul class="mt-ul m-t-xxs list-unstyled col-1-span-3">
         <li>
           <h3 class="mt-h3">Default</h3>
-          <a href="#" class="mt-link link--transport"> Dyr og dyrehold </a>
+          <a href="#anchor" class="mt-link link--transport"> Dyr og dyrehold </a>
         </li>
 
         <br />
 
         <li>
           <h3 class="mt-h3">Primary</h3>
-          <a href="#" class="mt-link link--transport link--transport--primary"> Mat og vann </a>
+          <a href="#anchor" class="mt-link link--transport link--transport--primary"> Mat og vann </a>
         </li>
 
         <br />
 
         <li>
           <h3 class="mt-h3">Primary Large</h3>
-          <a href="#" class="mt-link link--transport link--transport--primary-large">
+          <a href="#anchor" class="mt-link link--transport link--transport--primary-large">
             Fisk og akvakultur
           </a>
         </li>
@@ -488,7 +488,7 @@
 
         <li>
           <h3 class="mt-h3">Secondary</h3>
-          <a href="#" class="mt-link link--transport link--transport--secondary">
+          <a href="#anchor" class="mt-link link--transport link--transport--secondary">
             Planter og dyrking
           </a>
         </li>
@@ -515,7 +515,7 @@
 </Story>
 
 <Story name="Transportliste">
-  {#snippet children({ cards, disableCss, disabled, secondary })}
+  {#snippet children({ cards, disableCss })}
     <div use:wrapInShadowDom={disableCss}>
       <h1 class="mt-h1">Transportlenkeliste</h1>
       <ul class="mt-ul m-t-xxs layout-grid list-unstyled transport-list">
@@ -533,7 +533,7 @@
 </Story>
 
 <Story name="Transportliste sekundær">
-  {#snippet children({ cards, twoColumns, disableCss })}
+  {#snippet children({ cards, twoColumns })}
     <h1 class="mt-h1 p-b-xs">Transportlenkeliste sekundær</h1>
     <ul
       class="mt-ul list-unstyled no-space-between no-space-top gap-small lines-top lines-between gap-small"
@@ -553,10 +553,10 @@
 </Story>
 
 <Story name="Transportkort">
-  {#snippet children({ cards, icon, disableCss, disabled, secondary })}
+  {#snippet children({ cards, disableCss })}
     <div use:wrapInShadowDom={disableCss} class="container">
       <h1 class="mt-h1">Transportkort</h1>
-      {#each cards as card, index}
+      {#each cards as _card, index}
         <section
           class="layout-flex layout-flex--centered"
           class:layout-flex--basis-3={index === 0 || index === 1 || index === 3}

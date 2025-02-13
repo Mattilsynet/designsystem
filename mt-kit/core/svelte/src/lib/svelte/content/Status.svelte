@@ -44,7 +44,7 @@
     </div>
   {/if}
   {#if linkUrl}
-    <a href={linkUrl} rel={mapRelExternal(linkUrl)} class="fit-content">{linkText}</a>
+    <a href={linkUrl} rel={mapRelExternal(linkUrl)}>{linkText}</a>
   {/if}
   {#if updatedDate && statusType === 'important'}
     <Published publishFrom={updatedDate} {publishedText} {lang} />

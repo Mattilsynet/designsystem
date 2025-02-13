@@ -114,7 +114,7 @@
                 <dd class="text">
                   {#if publication.file.url}
                     <Link
-                      class="document"
+                      data-variant="document"
                       href={publication.file.url}
                       linkText={publication.title}
                       fileName={publication.file.text} />

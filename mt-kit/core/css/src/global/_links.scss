@@ -7,15 +7,49 @@
 $transportlink-default-color: 'primary' !default;
 $transportlink-colors: 'error' !default;
 
-a {
-  @include apply-icon($position: before);
+:root {
+  --mt-icon-document: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath d='m213.7 82.3-56-56A8 8 0 0 0 152 24H56a16 16 0 0 0-16 16v176a16 16 0 0 0 16 16h144a16 16 0 0 0 16-16V88a8 8 0 0 0-2.3-5.7Zm-53.7-31L188.7 80H160ZM200 216H56V40h88v48a8 8 0 0 0 8 8h48v120Zm-32-80a8 8 0 0 1-8 8H96a8 8 0 0 1 0-16h64a8 8 0 0 1 8 8Zm0 32a8 8 0 0 1-8 8H96a8 8 0 0 1 0-16h64a8 8 0 0 1 8 8Z'/%3E%3C/svg%3E");
+  --mt-icon-external: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath d='M224 104a8 8 0 0 1-16 0V59.3l-66.3 66.4a8 8 0 0 1-11.3-11.4L196.7 48H152a8 8 0 0 1 0-16h64a8 8 0 0 1 8 8Zm-40 24a8 8 0 0 0-8 8v72H48V80h72a8 8 0 0 0 0-16H48a16 16 0 0 0-16 16v128a16 16 0 0 0 16 16h128a16 16 0 0 0 16-16v-72a8 8 0 0 0-8-8Z'/%3E%3C/svg%3E");
+  --mt-icon-pdf: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath d='M224 152a8 8 0 0 1-8 8h-24v16h16a8 8 0 0 1 0 16h-16v16a8 8 0 0 1-16 0v-56a8 8 0 0 1 8-8h32a8 8 0 0 1 8 8ZM92 172a28 28 0 0 1-28 28h-8v8a8 8 0 0 1-16 0v-56a8 8 0 0 1 8-8h16a28 28 0 0 1 28 28Zm-16 0a12 12 0 0 0-12-12h-8v24h8a12 12 0 0 0 12-12Zm88 8a36 36 0 0 1-36 36h-16a8 8 0 0 1-8-8v-56a8 8 0 0 1 8-8h16a36 36 0 0 1 36 36Zm-16 0a20 20 0 0 0-20-20h-8v40h8a20 20 0 0 0 20-20ZM40 112V40a16 16 0 0 1 16-16h96a8 8 0 0 1 5.7 2.3l56 56A8 8 0 0 1 216 88v24a8 8 0 0 1-16 0V96h-48a8 8 0 0 1-8-8V40H56v72a8 8 0 0 1-16 0Zm120-32h28.7L160 51.3Z'/%3E%3C/svg%3E");
+  --mt-text-external: 'Utgående lenke';
+  --mt-text-document: 'Dokument';
+  --mt-text-pdf: 'PDF';
 }
 
-p {
-  > a {
-    @include apply-icon($position: after);
-  }
+a[data-variant="document"]::before,
+a[data-variant="pdf"]::before,
+a[href]:not(:is(
+  [href^='#'],
+  [href^='?'],
+  [href^='..'],
+  [href^='tel:'],
+  [href^='mailto:'],
+  [href^='/']:not([href^='//']),
+  [href*='mattilsynet.no']:not([href*='hoering.mattilsynet']),
+  [href*='mattilsynet-xp7qa.enonic.cloud'],
+  [href*='mattilsynet-xp7prod.enonic.cloud']
+))::after {
+  background-color: currentcolor;
+  content: var(--mt-text-external);
+  display: inline-block;
+  height: 1em;
+  mask: center/contain no-repeat var(--mt-icon-external);
+  vertical-align: middle;
+  width: 1em;
 }
+
+/* Using :where to allow external icon to overwrite */
+a[data-variant="document"]::before { margin-inline-end: .3em; mask-image: var(--mt-icon-document) }
+a[data-variant="pdf"]::before { margin-inline-end: .3em; mask-image: var(--mt-icon-pdf) }
+
+// a {
+//   @include apply-icon($position: before);
+// }
+// p {
+//   > a {
+//     @include apply-icon($position: after);
+//   }
+// }
 
 @mixin text-decoration-underline() {
   & {
@@ -57,9 +91,9 @@ p {
   &.inline-flex {
     display: inline-flex;
   }
-  &.fit-content {
-    width: fit-content;
-  }
+  // &.fit-content {
+  //   width: fit-content;
+  // }
 
   &:focus {
     box-shadow: $focus-box-shadow-no-outline;
@@ -83,24 +117,24 @@ p {
     font-weight: $font-weight-bold;
   }
 
-  a[href$='.pdf'],
-  &.pdf {
-    @include apply-icon($icon: $icon-pdf, $position: before);
-    & {
-      display: inline-flex;
-      gap: var(--icon-gap);
-      align-items: flex-start;
-    }
-  }
+  // a[href$='.pdf'],
+  // &.pdf {
+  //   @include apply-icon($icon: $icon-pdf, $position: before);
+  //   & {
+  //     display: inline-flex;
+  //     gap: var(--icon-gap);
+  //     align-items: flex-start;
+  //   }
+  // }
 
-  &.document {
-    @include apply-icon($icon: $icon-document, $position: before);
-    & {
-      display: inline-flex;
-      gap: var(--icon-gap);
-      align-items: flex-start;
-    }
-  }
+  // &.document {
+  //   @include apply-icon($icon: $icon-document, $position: before);
+  //   & {
+  //     display: inline-flex;
+  //     gap: var(--icon-gap);
+  //     align-items: flex-start;
+  //   }
+  // }
   &.back-arrow {
     @include apply-icon($icon: $icon-carret-left, $position: before);
     & {

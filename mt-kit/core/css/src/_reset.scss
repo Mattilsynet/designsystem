@@ -64,14 +64,6 @@ ol:not([class]):not([role]) li {
   line-height: 140%;
 }
 
-/* A elements that don't have a class get default styles */
-a {
-  text-decoration-skip-ink: auto;
-  // 🟣 thickness and offset
-  text-decoration-thickness: max(0.08em, 1px);
-  text-underline-offset: 0.15em;
-}
-
 /* Make images easier to work with */
 .mt-img,
 picture,

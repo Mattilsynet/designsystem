@@ -100,7 +100,7 @@
               <dt>File</dt>
               <dd class="text">
                 {#if file.url}
-                  <Link class="document" href={file.url} linkText={title} fileName={file.text} />
+                  <Link data-variant="document" href={file.url} linkText={title} fileName={file.text} />
                 {/if}
               </dd>
             {/if}
