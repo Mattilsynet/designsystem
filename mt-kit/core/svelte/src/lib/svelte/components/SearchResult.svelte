@@ -15,7 +15,7 @@
     searchResult = [],
     headingClass = 'mt-h3',
     headerTag = 'h2',
-    breadCrumbAriaLabel = 'Brødsmulesti'
+    breadCrumbAriaLabel = 'Sidens plassering'
   }: Props = $props()
 </script>
 
@@ -24,7 +24,7 @@
     href={result.url}
     rel={mapRelExternal(result.url)}
     class="mt-link col-1-span-12 layout-flex layout-flex-col border-radius search-result">
-    <HeadingLevel class="heading {headingClass}" headingLevel={+headerTag.charAt(1)}>
+    <HeadingLevel class="heading {headingClass}" headingLevel={+headerTag.charAt(1) as 2 | 3}>
       {@html result.title}
     </HeadingLevel>
     {#if result.text}
@@ -32,8 +32,8 @@
         {@html result.text}
       </div>
     {/if}
-    {#if result.breadcrumbs?.length > 0}
-      <div aria-label={breadCrumbAriaLabel} class={styles.breadcrumbs}>
+    {#if result.breadcrumbs?.length}
+      <div aria-label={breadCrumbAriaLabel} data-size="sm" class={styles.breadcrumbs}>
         <ol>
           {#each result.breadcrumbs as breadcrumb}
             <li>
