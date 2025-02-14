@@ -4,6 +4,7 @@
   import SummaryDetail from '$lib/svelte/components/SummaryDetail.svelte'
   import { toKebabCase } from '$lib/ts/utils'
   import { wrapInShadowDom } from '../storybook-utils/utils'
+  import { styles } from '@mattilsynet/design'
 
   const { Story } = defineMeta({
     title: 'Innhold/Samleside',
@@ -34,18 +35,18 @@
               selvstendig ansvar for dyr.
             </li>
           </ul>
-          <table class='mt-table responsive-table col-2-span-10' role='table'>
-          <caption class='mt-caption'>Merkeregler for flaskevann</caption>
-          <thead role='rowgroup' class='mt-thead'>
-          <tr role='row' class='mt-tr'><th role='columnheader' scope='col' class='mt-th'>Produkt/merking med</th>
-          <th role='columnheader' scope='col' class='mt-th'>Handelsnavn/varenavn/varemerke</th>
-          <th role='columnheader' scope='col' class='mt-th'>Kilde/utvinningssted for kilden (for naturlig mineralvann/kildevann)</th>
-          <th role='columnheader' scope='col' class='mt-th'>Varebetegnelse</th></tr></thead>
+          <table class='${styles.table} col-2-span-10' data-fixed data-mobile='stacked' data-size='sm'>
+          <caption>Merkeregler for flaskevann</caption>
+          <thead>
+          <tr><th>Produkt/merking med</th>
+          <th>Handelsnavn/varenavn/varemerke</th>
+          <th>Kilde/utvinningssted for kilden (for naturlig mineralvann/kildevann)</th>
+          <th>Varebetegnelse</th></tr></thead>
           <tbody><tr role='row'>
-          <td class='text' role='cell'><span class='responsive-table__heading' aria-hidden='true'>Produkt/merking med</span>Naturlig mineralvann/kildevann</td>
-          <td class='text' role='cell'><span class='responsive-table__heading' aria-hidden='true'>Handelsnavn/varenavn/varemerke</span>Skal ikke frambys under mer enn ett handelsnavn/varenavn.</td>
-          <td class='text' role='cell'><span class='responsive-table__heading' aria-hidden='true'>Kilde/utvinningssted for kilden (for naturlig mineralvann/kildevann)</span>Navnet på kilden/utvinningsstedet skal være dominerende.</td>
-          <td class='text' role='cell'><span class='responsive-table__heading' aria-hidden='true'>Varebetegnelse</span>Naturlig mineralvann eller kildevann.<br><br>Varebetegnelsen naturlig mineralvann tillates bare på vann som har et naturlig mineralinnhold som avviker fra kildevann og drikkevann.</td></tr>
+          <td>Naturlig mineralvann/kildevann</td>
+          <td>Skal ikke frambys under mer enn ett handelsnavn/varenavn.</td>
+          <td>Navnet på kilden/utvinningsstedet skal være dominerende.</td>
+          <td>Naturlig mineralvann eller kildevann.<br><br>Varebetegnelsen naturlig mineralvann tillates bare på vann som har et naturlig mineralinnhold som avviker fra kildevann og drikkevann.</td></tr>
           </tbody></table>
 
           `,

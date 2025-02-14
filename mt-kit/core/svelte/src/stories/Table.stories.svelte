@@ -3,7 +3,7 @@
   import Published from '$lib/svelte/components/Published.svelte'
   import { wrapInShadowDom } from './storybook-utils/utils'
   import Table from '$lib/svelte/components/Table.svelte'
-  import TableCol from '$lib/svelte/components/TableCol.svelte'
+  import { styles } from '@mattilsynet/design'
 
   const { Story } = defineMeta({
     title: 'Components/Tabell',
@@ -11,43 +11,43 @@
       intro: `<p>Paragraf med tekst. Paragraf med tekst.`,
       statusTitle: `Status tittel`,
       text: `<p>Status tekst</p>
-<table role='table' class='mt-table' style='--spacer-large: 0'>
-<caption class='mt-caption'>Dette er tittelen til tabellen</caption>
-<thead class='mt-thead'>
-<tr role='row' class='mt-tr'>
-<th role='columnheader' scope='col' class='mt-th'>Kolonne 1</th>
-<th role='columnheader' scope='col' class='mt-th'>Kolonne 2</th>
-<th role='columnheader' scope='col' class='mt-th'>Kolonne 3</th>
-<th role='columnheader' scope='col' class='mt-th'>Kolonne 4</th>
-<th role='columnheader' scope='col' class='mt-th'>Kolonne 5</th>
-<th role='columnheader' scope='col' class='mt-th'>Kolonne 6</th>
+<table class="${styles.table}" data-fixed data-mobile="stacked" data-size="sm" style='--spacer-large: 0'>
+<caption>Dette er tittelen til tabellen</caption>
+<thead>
+<tr>
+<th>Kolonne 1</th>
+<th>Kolonne 2</th>
+<th>Kolonne 3</th>
+<th>Kolonne 4</th>
+<th>Kolonne 5</th>
+<th>Kolonne 6</th>
 </tr>
 </thead>
-<tbody class='mt-tbody'>
-<tr role='row' class='mt-tr'>
-<td class='mt-td text' role='cell'><span class='responsive-table__heading' aria-hidden='true'>Rad 1 tittel 1:</span>Rad 1</td>
-<td class='mt-td text' role='cell'><span class='responsive-table__heading' aria-hidden='true'>Rad 1 tittel 2:</span><p>Rad 1 - med beskrivende tekst</p></td>
-<td class='mt-td text' role='cell'><span class='responsive-table__heading' aria-hidden='true'>Rad 1 tittel 3:</span>Rad 1 - med mer beskrivende tekst</td>
-<td class='mt-td text' role='cell'><span class='responsive-table__heading' aria-hidden='true'>Rad 1 tittel 4:</span>Rad 1</td>
-<td class='mt-td text' role='cell'><span class='responsive-table__heading' aria-hidden='true'>Rad 1 tittel 5:</span><p>Rad 1 med en lang beskrivende og status tekst</p></td>
-<td class='mt-td text' role='cell'><span class='responsive-table__heading' aria-hidden='true'>Rad 1 tittel 6:</span>Rad 1</td>
+<tbody>
+<tr>
+<td>Rad 1</td>
+<td><p>Rad 1 - med beskrivende tekst</p></td>
+<td>Rad 1 - med mer beskrivende tekst</td>
+<td>Rad 1</td>
+<td><p>Rad 1 med en lang beskrivende og status tekst</p></td>
+<td>Rad 1</td>
 </tr>
-<tr role='row' class='mt-tr'>
-<td class='mt-td text' role='cell'><span class='responsive-table__heading' aria-hidden='true'>Rad 2 tittel 1:</span>Rad 2</td>
-<td class='mt-td text' role='cell'><span class='responsive-table__heading' aria-hidden='true'>Rad 2 tittel 2:</span>Rad 2 - med beskrivende tekst</td>
-<td class='mt-td text' role='cell'><span class='responsive-table__heading' aria-hidden='true'>Rad 2 tittel 3:</span>Rad 2 - med mer beskrivende tekst</td>
-<td class='mt-td text' role='cell'><span class='responsive-table__heading' aria-hidden='true'>Rad 2 tittel 4:</span><p>Rad 2</p> <ul><li>liste item 1</li><li>liste item 2</li></ul></td>
-<td class='mt-td text' role='cell'><span class='responsive-table__heading' aria-hidden='true'>Rad 2 tittel 5:</span>Rad 2 med en lang beskrivende og status tekst </td>
-<td class='mt-td text' role='cell'><span class='responsive-table__heading' aria-hidden='true'>Rad 2 tittel 6:</span>Rad 2</td>
+<tr>
+<td>Rad 2</td>
+<td>Rad 2 - med beskrivende tekst</td>
+<td>Rad 2 - med mer beskrivende tekst</td>
+<td><p>Rad 2</p> <ul><li>liste item 1</li><li>liste item 2</li></ul></td>
+<td>Rad 2 med en lang beskrivende og status tekst </td>
+<td>Rad 2</td>
 </tr>
 </tr>
-<tr role='row' class='mt-tr'>
-<td class='mt-td text' role='cell'><span class='responsive-table__heading' aria-hidden='true'>Rad 3 tittel 1:</span>Rad 3</td>
-<td class='mt-td text' role='cell'><span class='responsive-table__heading' aria-hidden='true'>Rad 3 tittel 2:</span>Rad 3 - med beskrivende tekst</td>
-<td class='mt-td text' role='cell'><span class='responsive-table__heading' aria-hidden='true'>Rad 3 tittel 3:</span>Rad 3 - med mer beskrivende tekst</td>
-<td class='mt-td text' role='cell'><span class='responsive-table__heading' aria-hidden='true'>Rad 3 tittel 4:</span>Rad 3</td>
-<td class='mt-td text' role='cell'><span class='responsive-table__heading' aria-hidden='true'>Rad 3 tittel 5:</span>Rad 3 med en lang beskrivende og status tekst </td>
-<td class='mt-td text' role='cell'><span class='responsive-table__heading' aria-hidden='true'>Rad 3 tittel 6:</span>Rad 3</td>
+<tr>
+<td>Rad 3</td>
+<td>Rad 3 - med beskrivende tekst</td>
+<td>Rad 3 - med mer beskrivende tekst</td>
+<td>Rad 3</td>
+<td>Rad 3 med en lang beskrivende og status tekst </td>
+<td>Rad 3</td>
 </tr>
 </tbody>
 </table>`,
@@ -116,15 +116,15 @@
           {rows}
           style="--spacer-large: var(--spacer-x-small)">
           {#snippet headersSlot(header)}
-            <th role="columnheader" scope="col" class="mt-th {header.class}">
+            <th class={`${header.class || ''}`}>
               {header.text}
             </th>
           {/snippet}
           {#snippet rowSlot(row)}
-            <tr class="mt-tr">
-              <TableCol class="testColClass" header={headers[0]?.text}>{row.tittel1}</TableCol>
-              <TableCol header={headers[1]?.text}>{@html row.tittel2}</TableCol>
-              <TableCol header={headers[2]?.text}>{row.tittel3}</TableCol>
+            <tr>
+              <td>{row.tittel1}</td>
+              <td>{@html row.tittel2}</td>
+              <td>{row.tittel3}</td>
             </tr>
           {/snippet}
         </Table>

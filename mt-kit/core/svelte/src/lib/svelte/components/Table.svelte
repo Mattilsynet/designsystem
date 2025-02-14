@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { Snippet } from 'svelte'
+  import { styles } from '@mattilsynet/design'
   interface Props {
     captionClass?: string
     class?: string
@@ -23,20 +24,20 @@
   }: Props = $props()
 </script>
 
-{#if caption}
-  <caption class={captionClass}>
-    {caption}
-  </caption>
-{/if}
-<table class="mt-table responsive-table {className}" id="table-{caption}" {style}>
-  <thead class="mt-thead">
-    <tr class="mt-tr">
+<table class="{styles.table} {className}" data-fixed data-mobile="stacked" data-size="sm" {style}>
+  {#if caption}
+    <caption class={captionClass}>
+      {caption}
+    </caption>
+  {/if}
+  <thead>
+    <tr>
       {#each headers as header}
         {@render headersSlot?.(header)}
       {/each}
     </tr>
   </thead>
-  <tbody class="mt-tbody">
+  <tbody>
     {#each rows as row}
       {@render rowSlot?.(row)}
     {/each}
