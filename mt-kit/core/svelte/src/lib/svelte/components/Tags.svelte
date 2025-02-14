@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { styles } from '@mattilsynet/design'
+
   interface Props {
     tags?: Array<{ text: string; ariaLabel: string; color: TagColors }>
     isClosable?: boolean
@@ -8,30 +10,26 @@
   type TagColors = 'info' | 'success' | 'warning' | 'error' | 'neutral'
 
   function handleClick(index: number) {
-    tags = tags.filter((_, tagIndex) => {
-      return tagIndex !== index
-    })
+    tags = tags.filter((_, tagIndex) => tagIndex !== index)
   }
 </script>
 
-<ul class="mt-ul m-t-xxs list-unstyled tags">
-  {#each tags as tag, i}
-    <li
-      class={`${tag.color ? tag.color : ''} ${
-        isClosable ? 'tag-list-item' : 'tag-list-item tag-text'
-      }`}>
-      {#if isClosable}
+<ul class={styles.flex} data-size="sm">
+  {#each tags as tag, index}
+    {#if isClosable}
+      <li>
         <button
-          class="mt-button mt-button--secondary mt-button--small closable m-r-0 m-t-0"
-          onclick={() => {
-            handleClick(i)
-          }}
+          class={styles.chip}
+          data-removable="true"
+          onclick={() => handleClick(index)}
           aria-label={tag.ariaLabel}>
           {tag.text}
         </button>
-      {:else}
+      </li>
+    {:else}
+      <li class={styles.tag} data-icon="false" data-color={tag.color?.replace('error', 'danger')}>
         {tag.text}
-      {/if}
-    </li>
+      </li>
+    {/if}
   {/each}
 </ul>
