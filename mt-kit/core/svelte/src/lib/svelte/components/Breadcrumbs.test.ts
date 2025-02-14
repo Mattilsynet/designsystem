@@ -20,9 +20,8 @@ describe('Breadcrumbs', () => {
     render(BreadcrumbsComponent, componentOptions)
 
     // Assert: full list of breadcrumbs visible and no ellipsis
-    expect(screen.getByRole('navigation', { name: 'brødsmulesti' })).toBeInTheDocument()
+    expect(screen.getByRole('navigation', { name: 'Du er her' })).toBeInTheDocument()
     expect(screen.getByRole('list')).toBeInTheDocument()
-    expect(screen.getByRole('list')).toHaveClass('expanded')
     expect(screen.getAllByRole('listitem').length).toBe(5)
     expect(screen.queryByRole('button', { name: 'vis mer' })).not.toBeInTheDocument()
   })
@@ -31,12 +30,11 @@ describe('Breadcrumbs', () => {
     render(BreadcrumbsComponent, { ...componentOptions, loadJs: true })
 
     // Assert: list of breadcrumbs is partial with ellipsis
-    expect(screen.getByRole('navigation', { name: 'brødsmulesti' })).toBeInTheDocument()
+    expect(screen.getByRole('navigation', { name: 'Du er her' })).toBeInTheDocument()
     expect(screen.getByRole('list')).toBeInTheDocument()
-    expect(screen.getByRole('list')).not.toHaveClass('expanded')
     expect(screen.getAllByRole('listitem').length).toBe(4)
 
-    const ellipsis = screen.getByRole('button', { name: 'vis mer' })
+    const ellipsis = screen.getByRole('button', { name: 'Vis mer' })
     expect(ellipsis).toBeInTheDocument()
 
     // Act: expand breadcrumbs
@@ -46,18 +44,17 @@ describe('Breadcrumbs', () => {
     await waitFor(() => {
       expect(screen.getAllByRole('listitem').length).toBe(5)
     })
-    expect(screen.queryByRole('button', { name: 'vis mer' })).not.toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: 'Vis mer' })).not.toBeInTheDocument()
   })
 
   test('Render component with short list of breadcrumbs', () => {
     render(BreadcrumbsComponent, { breadcrumbs: { items: items.slice(0, 3) }, loadJs: true })
 
     // Assert: full list of breadcrumbs visible and no ellipsis
-    expect(screen.getByRole('navigation', { name: 'brødsmulesti' })).toBeInTheDocument()
+    expect(screen.getByRole('navigation', { name: 'Du er her' })).toBeInTheDocument()
     expect(screen.getByRole('list')).toBeInTheDocument()
-    expect(screen.getByRole('list')).toHaveClass('expanded')
     expect(screen.getAllByRole('listitem').length).toBe(3)
-    expect(screen.queryByRole('button', { name: 'vis mer' })).not.toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: 'Vis mer' })).not.toBeInTheDocument()
   })
 
   test('Render breadcrumb items correct', async () => {
@@ -74,22 +71,23 @@ describe('Breadcrumbs', () => {
     expect(screen.getByRole('navigation', { name: 'Breadcrumbs' })).toBeInTheDocument()
 
     const crumbs = screen.getAllByRole('listitem')
+    const button = screen.getByRole('button')
     expect(crumbs.length).toBe(4)
 
     // Assert: first item has correct home label
-    expect(crumbs[0]).not.toHaveClass('ellipsis')
+    expect(crumbs[0]).not.toContainElement(button)
     expect(within(crumbs[0]).getByRole('link', { name: 'Home' })).toBeInTheDocument()
 
     // Assert: second item is an ellipsis button with correct label
-    expect(crumbs[1]).not.toHaveClass('ellipsis')
+    expect(crumbs[1]).toContainElement(button)
     expect(within(crumbs[1]).getByRole('button', { name: 'Show all' })).toBeInTheDocument()
 
     // Assert: third item is a shortened link with ellipsis
-    expect(crumbs[2]).toHaveClass('ellipsis')
+    expect(crumbs[2]).not.toContainElement(button)
     expect(within(crumbs[2]).getByRole('link', { name: 'gris' })).toBeInTheDocument()
 
     // Assert: fourth item is the last breadcrumb that's the current page (no link)
     expect(within(crumbs[3]).getByText('purke')).toBeInTheDocument()
-    expect(within(crumbs[3]).getByText('purke')).toHaveClass('last-breadcrumb')
+    expect(within(crumbs[3]).getByText('purke')).toHaveAttribute('aria-current', 'page')
   })
 })
