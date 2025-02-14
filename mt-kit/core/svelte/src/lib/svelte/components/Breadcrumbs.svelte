@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount } from 'svelte'
+  import { onMount, tick } from 'svelte'
   import type { Breadcrumbs, Link } from '$lib/ts/types'
   import { styles } from '@mattilsynet/design'
 
@@ -11,6 +11,7 @@
 
   let { breadcrumbs = { items: [] }, loadJs = false, class: classNames = '' }: Props = $props()
   let breadcrumbsItems: Link[] = $state(breadcrumbs.items)
+  const currentPage = $derived(breadcrumbsItems.length - 1);
 
   const ELLIPSIS = { text: '...', url: '' }
   const LIMIT_BEFORE_PARTIAL = 3
@@ -31,8 +32,11 @@
     })
   }
 
-  function handleShowFull(): void {
+  async function handleShowFull({ currentTarget: button }: Event) {
+    const crumbs = (button as HTMLButtonElement).closest('nav')
     breadcrumbsItems = breadcrumbs.items
+    await tick(); // Let svelte update the DOM before trying to move focus
+    crumbs?.querySelectorAll('a')[1]?.focus() // Help screen readers by moving focus to the first hidden breadcrumb
   }
 </script>
 
@@ -41,7 +45,7 @@
     {#each breadcrumbsItems as item, index}
       <li>
         {#if item.url}
-          <a href={item.url} class={styles.link} aria-current={index === breadcrumbsItems.length - 1 ? 'page' : undefined}>
+          <a href={item.url} class={styles.link} aria-current={index === currentPage ? 'page' : undefined}>
             {index === 0 ? homeLabel : item.text}
           </a>
         {:else}
