@@ -1,0 +1,8 @@
+import{a as h,t as p}from"./props-C0tvRuaH.js";import{p as c,a as f,t as v,s as y,c as u}from"./runtime-h0AMGDom.js";import{a as _}from"./actions-EVnswImp.js";import{s as w}from"./class-Dqk93oQ7.js";import{i as N}from"./lifecycle-DurhAeVF.js";import{d as C,c as k}from"./create-runtime-stories-BSZiRmpa.js";import{w as S}from"./utils-CMlWd0Pf.js";import"./hydration-C_mtSyjW.js";import"./index-D-8MO0q_.js";import"./index-DPS9-N-h.js";const{Story:I,meta:x}=C({title:"Innhold/Nyhetsbrev",args:{disableCss:!1,disabled:!1},argTypes:{disableCss:{control:"boolean"},disabled:{control:"boolean"}}});var A=p('<main><h1 class="mt-h1 m-b-m">Nyhetsbrev</h1> <h2 class="mt-h2 m-b-s">Lenke til påmelding</h2> <a href="#">Abonner på nyhetsbrev</a></main>');function o(a,n){c(n,!1),N(),I(a,{name:"Nyhetsbrev",children:(r,e)=>{let l=()=>e==null?void 0:e().disableCss,i=()=>e==null?void 0:e().disabled;var s=A(),m=y(u(s),4);_(s,(d,b)=>{var t;return(t=S)==null?void 0:t(d,b)},l),v(()=>w(m,`mt-link mt-button mt-button--secondary icon--newsletter-bell-before ${i()??""}`)),h(r,s)},$$slots:{default:!0},parameters:{__svelteCsf:{rawCode:`<main use:wrapInShadowDom={disableCss}>
+  <h1 class="mt-h1 m-b-m">Nyhetsbrev</h1>
+  <h2 class="mt-h2 m-b-s">Lenke til påmelding</h2>
+  <a
+    href="#"
+    class="mt-link mt-button mt-button--secondary icon--newsletter-bell-before {disabled}"
+    >Abonner på nyhetsbrev</a>
+</main>`}}}),f()}o.__docgen={version:3,name:"Newsletter.stories.svelte",data:[],computed:[],methods:[],components:[],description:null,keywords:[],events:[],slots:[],refs:[]};const D=k(o,x),G=["Nyhetsbrev"],H=D.Nyhetsbrev;export{H as Nyhetsbrev,G as __namedExportsOrder,x as default};

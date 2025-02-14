@@ -1,0 +1,1 @@
+import{y as i,z as o,A as m,B as d}from"./runtime-h0AMGDom.js";import{f as h,g as l}from"./props-C0tvRuaH.js";function p(t,f,c,_,v){var n=t,r="",a;i(()=>{r!==(r=f()??"")&&(a!==void 0&&(d(a),a=void 0),r!==""&&(a=o(()=>{var s=r+"",e=h(s);l(m(e),e.lastChild),n.before(e)})))})}export{p as h};
