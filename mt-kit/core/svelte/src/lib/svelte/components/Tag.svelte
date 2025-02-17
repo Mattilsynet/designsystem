@@ -18,7 +18,3 @@
 <span class={styles.tag} data-size={size} {...rest}>
   {@render children?.()}
 </span>
-<style module>
-  /* This flex-shrink: 0 can be removed when @mattilsynet/design is updated to 0.3.47 */
-  span { flex-shrink: 0; }
-</style>
