@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { interpolate } from '$lib/ts'
+  import { interpolate, type Page } from '$lib/ts'
   import { innerWidth } from 'svelte/reactivity/window'
   import { styles, pagination } from '@mattilsynet/design'
 
@@ -12,7 +12,7 @@
     previousText?: string
     paginationLabel?: string
     toPageTitle?: string
-    pages?: Array<{ url: string; index?: number }> // TODO: According to `import type { Page } from '$lib/ts'`, `index` is required, but it is never used?
+    pages?: Array<Page>
     currentPageIndex?: number
     class?: string
     onPageChange?: (index: number, event: Event) => void
@@ -30,11 +30,13 @@
   }: Props = $props()
 
   const isMobile = $derived(innerWidth.current ? innerWidth.current < PAGINATION_BREAKPOINT : false)
-  const { next, prev, pages } = $derived(pagination({
-    current: currentPageIndex + 1,
-    total: pagesRaw.length,
-    show: isMobile ? ALLOWED_PAGES_MOBILE : ALLOWED_PAGES_DESKTOP
-  }));
+  const { next, prev, pages } = $derived(
+    pagination({
+      current: currentPageIndex + 1,
+      total: pagesRaw.length,
+      show: isMobile ? ALLOWED_PAGES_MOBILE : ALLOWED_PAGES_DESKTOP
+    })
+  )
 </script>
 
 {#if pages.length > 1}
