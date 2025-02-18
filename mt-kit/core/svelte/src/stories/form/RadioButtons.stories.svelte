@@ -14,17 +14,6 @@
       value: 'no'
     }
   ]
-  let buttonRadioValue: string | undefined = $state('2')
-  const buttonOptions = [
-    {
-      text: 'Ja',
-      value: '1'
-    },
-    {
-      text: 'Nei',
-      value: '2'
-    }
-  ]
 
   const { Story } = defineMeta({
     title: 'Components/Form/RadioButtons',
@@ -33,13 +22,6 @@
       helpText:
         'Beskriv kort og konkret hva du har observert og hvor alvorlig hendelsen er. Vær oppmerksom på den ansvarlige ofte får se meldingen.',
       errorMessage: 'Fyll inn dette feltet.',
-      buttonRadio: {
-        label: 'Reiser du selv med dyret?',
-        helpText: 'Hjelpetekst',
-        errorMessage: 'Fyll inn dette feltet.',
-        name: 'travelWithAnimal',
-        textOptional: 'Valgfritt'
-      },
       disableCss: false
     },
     argTypes: {
@@ -52,7 +34,7 @@
 </script>
 
 <Story name="Normal">
-  {#snippet children({ label, helpText, disableCss, buttonRadio })}
+  {#snippet children({ label, helpText, disableCss })}
     <div use:wrapInShadowDom={disableCss}>
       <h1 class="mt-h1">Radioknapper</h1>
       <h2 class="mt-h2">Theme - radio</h2>
@@ -63,14 +45,14 @@
           {helpText}
           {label}
           textOptional="Valgfritt"
-          isRequired={false} />
+          isRequired />
       </form>
     </div>
   {/snippet}
 </Story>
 
 <Story name="Radio with error">
-  {#snippet children({ label, helpText, disableCss, errorMessage, buttonRadio })}
+  {#snippet children({ label, helpText, disableCss, errorMessage })}
     <div use:wrapInShadowDom={disableCss}>
       <h2 class="mt-h2">Theme - radio</h2>
       <form class="mt-form form-layout">
@@ -81,17 +63,6 @@
           {label}
           error={{ key: name, message: errorMessage }}
           textOptional="valgfritt" />
-      </form>
-      <h2 id="theme" class="mt-h2">Theme - button</h2>
-      <form class="mt-form form-layout">
-        <RadioGroup
-          options={buttonOptions}
-          bind:value={buttonRadioValue}
-          name={buttonRadio.name}
-          {helpText}
-          label={buttonRadio.label}
-          error={{ key: name, message: errorMessage }}
-          textOptional={buttonRadio.textOptional} />
       </form>
     </div>
   {/snippet}
