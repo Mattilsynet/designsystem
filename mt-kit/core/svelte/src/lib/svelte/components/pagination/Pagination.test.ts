@@ -20,8 +20,8 @@ describe('Pagination', () => {
   }
 
   test('Renders with defaults - first page - desktop', () => {
-    win.innerWidth.current = 1025
-    const { getByText } = render(Pagination, componentOptions)
+    Object.assign(win.innerWidth, { current: 1025 })
+    const { getByText, getByLabelText } = render(Pagination, componentOptions)
     const current = getByText('1')
     expect(current).toBeInTheDocument()
     expect(current.getAttribute('aria-current')).toEqual('page')
@@ -31,13 +31,13 @@ describe('Pagination', () => {
     expect(getByText('5')).toBeInTheDocument()
     expect(getByText('6')).toBeInTheDocument()
     expect(getByText('7')).toBeInTheDocument()
-    expect(getByText('Neste')).toBeInTheDocument()
-    expect(getByText('Forige').classList.contains('inclusively-hidden--fit-content')).toEqual(true)
+    expect(getByLabelText('Neste')).toBeInTheDocument()
+    expect(getByLabelText('Forige')).toHaveAttribute('aria-disabled', 'true')
   })
 
   test('Renders with defaults - first page - more than 7 pages - desktop', () => {
-    win.innerWidth.current = 1025
-    const { getByText, queryByText } = render(Pagination, {
+    Object.assign(win.innerWidth, { current: 1025 })
+    const { getByText, queryByText, getByLabelText } = render(Pagination, {
       ...componentOptions,
       pages: moreThan7Pages
     })
@@ -52,13 +52,13 @@ describe('Pagination', () => {
     expect(queryByText('7')).not.toBeInTheDocument()
     expect(queryByText('8')).not.toBeInTheDocument()
     expect(getByText('9')).toBeInTheDocument()
-    expect(getByText('Neste')).toBeInTheDocument()
-    expect(getByText('Forige').classList.contains('inclusively-hidden--fit-content')).toEqual(true)
+    expect(getByLabelText('Neste')).toBeInTheDocument()
+    expect(getByLabelText('Forige')).toHaveAttribute('aria-disabled', 'true')
   })
 
   test('Renders with defaults - first page - mobile', () => {
-    win.innerWidth.current = 1000
-    const { getByText, queryByText } = render(Pagination, componentOptions)
+    Object.assign(win.innerWidth, { current: 1000 })
+    const { getByText, queryByText, getByLabelText } = render(Pagination, componentOptions)
     const current = getByText('1')
     expect(current).toBeInTheDocument()
     expect(current.getAttribute('aria-current')).toEqual('page')
@@ -68,12 +68,15 @@ describe('Pagination', () => {
     expect(queryByText('5')).not.toBeInTheDocument()
     expect(queryByText('6')).not.toBeInTheDocument()
     expect(getByText('7')).toBeInTheDocument()
-    expect(getByText('Neste')).toBeInTheDocument()
-    expect(getByText('Forige').classList.contains('inclusively-hidden--fit-content')).toEqual(true)
+    expect(getByLabelText('Neste')).toBeInTheDocument()
+    expect(getByLabelText('Forige')).toHaveAttribute('aria-disabled', 'true')
   })
   test('Renders with defaults - first page - less than 5 - mobile', () => {
-    win.innerWidth.current = 1000
-    const { getByText } = render(Pagination, { ...componentOptions, pages: lessThan5 })
+    Object.assign(win.innerWidth, { current: 1000 })
+    const { getByText, getByLabelText } = render(Pagination, {
+      ...componentOptions,
+      pages: lessThan5
+    })
     const current = getByText('1')
     expect(current).toBeInTheDocument()
     expect(current.getAttribute('aria-current')).toEqual('page')
@@ -81,13 +84,13 @@ describe('Pagination', () => {
     expect(getByText('3')).toBeInTheDocument()
     expect(getByText('4')).toBeInTheDocument()
     expect(getByText('5')).toBeInTheDocument()
-    expect(getByText('Neste')).toBeInTheDocument()
-    expect(getByText('Forige').classList.contains('inclusively-hidden--fit-content')).toEqual(true)
+    expect(getByLabelText('Neste')).toBeInTheDocument()
+    expect(getByLabelText('Forige')).toHaveAttribute('aria-disabled', 'true')
   })
 
   test('Renders page 2 - desktop', () => {
-    win.innerWidth.current = 1025
-    const { getByText } = render(Pagination, {
+    Object.assign(win.innerWidth, { current: 1025 })
+    const { getByText, getByLabelText } = render(Pagination, {
       ...componentOptions,
       currentPageIndex: 1
     })
@@ -100,12 +103,12 @@ describe('Pagination', () => {
     expect(getByText('5')).toBeInTheDocument()
     expect(getByText('6')).toBeInTheDocument()
     expect(getByText('7')).toBeInTheDocument()
-    expect(getByText('Forige')).toBeInTheDocument()
-    expect(getByText('Neste')).toBeInTheDocument()
+    expect(getByLabelText('Forige')).toBeInTheDocument()
+    expect(getByLabelText('Neste')).toBeInTheDocument()
   })
   test('Renders page 4 - more than 7 pages - desktop', () => {
-    win.innerWidth.current = 1025
-    const { getByText, queryByText } = render(Pagination, {
+    Object.assign(win.innerWidth, { current: 1025 })
+    const { getByText, queryByText, getByLabelText } = render(Pagination, {
       ...componentOptions,
       pages: moreThan7Pages,
       currentPageIndex: 3
@@ -121,12 +124,12 @@ describe('Pagination', () => {
     expect(queryByText('7')).not.toBeInTheDocument()
     expect(queryByText('8')).not.toBeInTheDocument()
     expect(getByText('9')).toBeInTheDocument()
-    expect(getByText('Forige')).toBeInTheDocument()
-    expect(getByText('Neste')).toBeInTheDocument()
+    expect(getByLabelText('Forige')).toBeInTheDocument()
+    expect(getByLabelText('Neste')).toBeInTheDocument()
   })
   test('Renders page 2 - mobile', () => {
-    win.innerWidth.current = 1000
-    const { getByText, queryByText } = render(Pagination, {
+    Object.assign(win.innerWidth, { current: 1000 })
+    const { getByText, queryByText, getByLabelText } = render(Pagination, {
       ...componentOptions,
       currentPageIndex: 1
     })
@@ -139,13 +142,13 @@ describe('Pagination', () => {
     expect(queryByText('5')).not.toBeInTheDocument()
     expect(queryByText('6')).not.toBeInTheDocument()
     expect(getByText('7')).toBeInTheDocument()
-    expect(getByText('Forige')).toBeInTheDocument()
-    expect(getByText('Neste')).toBeInTheDocument()
+    expect(getByLabelText('Forige')).toBeInTheDocument()
+    expect(getByLabelText('Neste')).toBeInTheDocument()
   })
 
   test('Renders page 3 - mobile', () => {
-    win.innerWidth.current = 1000
-    const { getByText, queryByText } = render(Pagination, {
+    Object.assign(win.innerWidth, { current: 1000 })
+    const { getByText, queryByText, getByLabelText } = render(Pagination, {
       ...componentOptions,
       currentPageIndex: 2
     })
@@ -158,13 +161,13 @@ describe('Pagination', () => {
     expect(queryByText('5')).not.toBeInTheDocument()
     expect(queryByText('6')).not.toBeInTheDocument()
     expect(getByText('7')).toBeInTheDocument()
-    expect(getByText('Forige')).toBeInTheDocument()
-    expect(getByText('Neste')).toBeInTheDocument()
+    expect(getByLabelText('Forige')).toBeInTheDocument()
+    expect(getByLabelText('Neste')).toBeInTheDocument()
   })
 
   test('Renders from second last page - desktop', () => {
-    win.innerWidth.current = 1025
-    const { getByText } = render(Pagination, {
+    Object.assign(win.innerWidth, { current: 1025 })
+    const { getByText, getByLabelText } = render(Pagination, {
       ...componentOptions,
       currentPageIndex: 5
     })
@@ -177,13 +180,13 @@ describe('Pagination', () => {
     expect(current).toBeInTheDocument()
     expect(current.getAttribute('aria-current')).toEqual('page')
     expect(getByText('7')).toBeInTheDocument()
-    expect(getByText('Forige')).toBeInTheDocument()
-    expect(getByText('Neste')).toBeInTheDocument()
+    expect(getByLabelText('Forige')).toBeInTheDocument()
+    expect(getByLabelText('Neste')).toBeInTheDocument()
   })
 
   test('Renders from second last page - mobile', () => {
-    win.innerWidth.current = 1000
-    const { getByText, queryByText } = render(Pagination, {
+    Object.assign(win.innerWidth, { current: 1000 })
+    const { getByText, queryByText, getByLabelText } = render(Pagination, {
       ...componentOptions,
       currentPageIndex: 5
     })
@@ -196,13 +199,13 @@ describe('Pagination', () => {
     expect(current).toBeInTheDocument()
     expect(current.getAttribute('aria-current')).toEqual('page')
     expect(getByText('7')).toBeInTheDocument()
-    expect(getByText('Forige')).toBeInTheDocument()
-    expect(getByText('Neste')).toBeInTheDocument()
+    expect(getByLabelText('Forige')).toBeInTheDocument()
+    expect(getByLabelText('Neste')).toBeInTheDocument()
   })
 
   test('Renders from last page - desktop', () => {
-    win.innerWidth.current = 1025
-    const { getByText } = render(Pagination, {
+    Object.assign(win.innerWidth, { current: 1025 })
+    const { getByText, getByLabelText } = render(Pagination, {
       ...componentOptions,
       currentPageIndex: 6
     })
@@ -215,13 +218,13 @@ describe('Pagination', () => {
     const current = getByText('7')
     expect(current).toBeInTheDocument()
     expect(current.getAttribute('aria-current')).toEqual('page')
-    expect(getByText('Forige')).toBeInTheDocument()
-    expect(getByText('Neste').classList.contains('inclusively-hidden--fit-content')).toEqual(true)
+    expect(getByLabelText('Forige')).toBeInTheDocument()
+    expect(getByLabelText('Neste')).toHaveAttribute('aria-disabled', 'true')
   })
 
   test('Renders from last page - more than 7 - desktop', () => {
-    win.innerWidth.current = 1025
-    const { getByText, queryByText } = render(Pagination, {
+    Object.assign(win.innerWidth, { current: 1025 })
+    const { getByText, queryByText, getByLabelText } = render(Pagination, {
       ...componentOptions,
       pages: moreThan7Pages,
       currentPageIndex: 8
@@ -237,12 +240,12 @@ describe('Pagination', () => {
     const current = getByText('9')
     expect(current).toBeInTheDocument()
     expect(current.getAttribute('aria-current')).toEqual('page')
-    expect(getByText('Forige')).toBeInTheDocument()
-    expect(getByText('Neste').classList.contains('inclusively-hidden--fit-content')).toEqual(true)
+    expect(getByLabelText('Forige')).toBeInTheDocument()
+    expect(getByLabelText('Neste')).toHaveAttribute('aria-disabled', 'true')
   })
   test('Renders from last page - mobile', () => {
-    win.innerWidth.current = 1000
-    const { getByText, queryByText } = render(Pagination, {
+    Object.assign(win.innerWidth, { current: 1000 })
+    const { getByText, queryByText, getByLabelText } = render(Pagination, {
       ...componentOptions,
       currentPageIndex: 6
     })
@@ -255,12 +258,12 @@ describe('Pagination', () => {
     const current = getByText('7')
     expect(current).toBeInTheDocument()
     expect(current.getAttribute('aria-current')).toEqual('page')
-    expect(getByText('Forige')).toBeInTheDocument()
-    expect(getByText('Neste').classList.contains('inclusively-hidden--fit-content')).toEqual(true)
+    expect(getByLabelText('Forige')).toBeInTheDocument()
+    expect(getByLabelText('Neste')).toHaveAttribute('aria-disabled', 'true')
   })
   test('Renders from last page - less than 5 - mobile', () => {
-    win.innerWidth.current = 1000
-    const { getByText } = render(Pagination, {
+    Object.assign(win.innerWidth, { current: 1000 })
+    const { getByText, getByLabelText } = render(Pagination, {
       ...componentOptions,
       pages: lessThan5,
       currentPageIndex: 4
@@ -272,7 +275,7 @@ describe('Pagination', () => {
     const current = getByText('5')
     expect(current).toBeInTheDocument()
     expect(current.getAttribute('aria-current')).toEqual('page')
-    expect(getByText('Forige')).toBeInTheDocument()
-    expect(getByText('Neste').classList.contains('inclusively-hidden--fit-content')).toEqual(true)
+    expect(getByLabelText('Forige')).toBeInTheDocument()
+    expect(getByLabelText('Neste')).toHaveAttribute('aria-disabled', 'true')
   })
 })

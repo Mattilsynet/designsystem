@@ -2,7 +2,7 @@
   import { styles } from '@mattilsynet/design'
 
   interface Props {
-    key: string
+    key?: string
     message: string
     hiddenErrorText?: string
     class?: string

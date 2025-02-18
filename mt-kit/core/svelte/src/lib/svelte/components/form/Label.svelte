@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { Snippet } from 'svelte'
+  import Tag from '../Tag.svelte'
 
   interface Props {
     for: string
@@ -23,6 +24,6 @@
 <label class="mt-label {className}" id="{htmlFor}-label" for={htmlFor}>
   {@render children?.()}
   {#if !isRequired && showOptionalText}
-    <span class="tag info tag-text">{textOptional}</span>
+    <Tag data-icon={false} data-color="info">{textOptional}</Tag>
   {/if}
 </label>

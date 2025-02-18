@@ -6,29 +6,28 @@
     errors?: ErrorDetail[]
     heading: string
     linkToFields?: boolean
+    hasFocusOnLoad: boolean
   }
 
-  let { errors = [], heading, linkToFields = true }: Props = $props()
+  let { errors = [], heading, linkToFields = true, hasFocusOnLoad = false }: Props = $props()
 
   function setFocus(el: HTMLElement) {
-    el.focus()
+    if (hasFocusOnLoad) {
+      el.focus()
+    }
   }
 </script>
 
 {#if errors && errors.length !== 0}
-  <div
-    use:setFocus
-    class={styles.errorsummary}
-    role="alert"
-    aria-labelledby="error-summary-heading">
-    <h2 id="error-summary-heading">
+  <div class={styles.errorsummary} role="alert" aria-labelledby="error-summary-heading">
+    <h2 id="error-summary-heading" tabindex={hasFocusOnLoad ? '-1' : undefined} use:setFocus>
       {heading}
     </h2>
     <ul>
       {#each errors as error}
         {#if linkToFields}
           <li>
-            <a href={`#${error.key}`} rel="external">{error.message}</a>
+            <a href={`#${error.key}`} rel="external" class="mt-link">{error.message}</a>
           </li>
         {:else}
           <li>
