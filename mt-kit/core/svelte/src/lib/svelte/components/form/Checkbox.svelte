@@ -1,8 +1,7 @@
 <script lang="ts">
   import { tick } from 'svelte'
-  import InputError from './InputErrorMessage.svelte'
   import Tag from '../Tag.svelte'
-  import { createInputAriaDescribedby, forceArray, toKebabCase } from '$lib/ts/utils'
+  import { forceArray, toKebabCase } from '$lib/ts/utils'
   import type { ErrorDetail } from '$lib/ts'
   import type { CheckboxOption } from '$lib/ts/types'
   import { styles } from '@mattilsynet/design'
@@ -33,7 +32,7 @@
     isRequired,
     textOptional = 'Valgfritt',
     showOptionalText = true,
-    hiddenErrorText,
+    hiddenErrorText = 'Feilmelding',
     class: className = '',
     legendClass = '',
     onChange = () => {}
@@ -65,10 +64,7 @@
   }
 </script>
 
-<fieldset
-  id={name}
-  aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)}
-  class="{styles.fieldset} {className}">
+<fieldset id={name} class="{styles.fieldset} {className}" data-required="hidden">
   <legend class={legendClass}>
     {label}
     {#if !isRequired && showOptionalText}
@@ -93,8 +89,7 @@
         checked={forceArray(value).includes(checkbox.value)}
         onchange={handleOnChange}
         disabled={checkbox.disabled}
-        aria-required={isRequired}
-        aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)} />
+        aria-required={isRequired} />
       <label for={`${name}-${toKebabCase(checkbox.value)}`}>
         {checkbox.text}
       </label>
@@ -108,6 +103,9 @@
   {/each}
 
   {#if error}
-    <InputError {...error} {hiddenErrorText} />
+    <span id={`${error.key}-error`} class={styles.validation}>
+      <span class="inclusively-hidden">{hiddenErrorText}:</span>
+      {error.message}
+    </span>
   {/if}
 </fieldset>
