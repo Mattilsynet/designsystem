@@ -46,14 +46,6 @@
   }: Props = $props()
   let isInitialized = false
 
-  let countCharsParams: CountCharsParams = {
-    countCharacters: (maxlength && maxlength > 0) as boolean,
-    maxlength: maxlength ?? 0,
-    id: name,
-    countCharactersLeftLabel: countCharactersLeftLabel,
-    countCharactersTooManyLabel: countCharactersTooManyLabel
-  }
-
   $effect.pre(() => {
     tick().then(() => {
       if (value === undefined && !isInitialized && document) {
