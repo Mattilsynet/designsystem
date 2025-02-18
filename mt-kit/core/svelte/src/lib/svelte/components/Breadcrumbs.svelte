@@ -1,4 +1,7 @@
 <script lang="ts">
+  /**
+   * Note: Using rel="external" to opt out of SvelteKit router
+   */
   import { onMount, tick } from 'svelte'
   import type { Breadcrumbs, Link } from '$lib/ts/types'
   import { styles } from '@mattilsynet/design'
@@ -45,7 +48,12 @@
     {#each breadcrumbsItems as item, index}
       <li>
         {#if item.url}
-          <a href={item.url} class={styles.link} aria-current={index === currentPage ? 'page' : undefined}>
+          <a
+            aria-current={index === currentPage ? 'page' : undefined}
+            class={styles.link}
+            href={item.url}
+            rel="external"
+          >
             {index === 0 ? homeLabel : item.text}
           </a>
         {:else}
