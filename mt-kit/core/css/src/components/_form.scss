@@ -204,31 +204,6 @@ $form-outline-color: 'var(--form-outline-color)' !default;
   }
 }
 
-.error-summary {
-  margin-bottom: var(--form-group-spacer);
-  padding: var(--spacer-xxx-small) var(--spacer-xx-small);
-  border-left: $border-width-regular solid var(--color-error);
-
-  &:focus-visible {
-    outline: $border-width-regular solid var(--color-error);
-  }
-  a {
-    @extend .mt-link;
-  }
-  h2 {
-    color: var(--color-error);
-  }
-
-  .mt-ul {
-    margin-left: 0;
-    padding-left: var(--spacer-xx-small);
-    list-style: disc;
-    li.error-summary__list--link {
-      color: var(--color-primary);
-    }
-  }
-}
-
 .input-horizontal {
   display: grid;
   column-gap: var(--spacer-xx-small);

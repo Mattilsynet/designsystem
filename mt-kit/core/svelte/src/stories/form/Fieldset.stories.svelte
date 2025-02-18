@@ -6,7 +6,7 @@
   import Disclosure from '$lib/svelte/components/Disclosure.svelte'
   import { interpolate } from '$lib/ts/utils'
   import type { ErrorDetail } from '$lib/ts'
-  import FormErrorSummary from '$lib/svelte/components/form/FormErrorSummary.svelte'
+  import ErrorSummary from '$lib/svelte/components/form/ErrorSummary.svelte'
 
   const { Story } = defineMeta({
     title: 'Components/Form/Fieldset',
@@ -99,7 +99,7 @@
           <h1 class="mt-h1">Fieldset</h1>
           <h2 class="mt-h2">Normal</h2>
 
-          <FormErrorSummary errors={args.errorsNormal} heading={args.errorSummaryHeading} />
+          <ErrorSummary errors={args.errorsNormal} heading={args.errorSummaryHeading} />
           <form class="mt-form col-3-span-8 form-layout">
             <Fieldset
               class="validation m-t-m"
@@ -141,7 +141,7 @@
               To get validation for a fieldset, populate the `error: ErrorDetail` parameter with
               errors.
             </p>
-            <FormErrorSummary errors={args.errors} heading={args.errorSummaryHeading} />
+            <ErrorSummary errors={args.errors} heading={args.errorSummaryHeading} />
           </div>
           <form class="mt-form col-3-span-8 form-layout">
             <Fieldset
