@@ -169,9 +169,7 @@
             isRequired={true}
             textOptional="Valgfritt"
             inputmode="text"
-            maxlength={300}
-            rows={3}
-            cols={5} />
+            maxlength={300} />
 
           <!--  Radio -->
           <RadioGroup

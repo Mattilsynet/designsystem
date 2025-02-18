@@ -2,6 +2,7 @@
   import { defineMeta } from '@storybook/addon-svelte-csf'
   import TextArea from '$lib/svelte/components/form/TextArea.svelte'
   import { wrapInShadowDom } from '../storybook-utils/utils'
+  import { styles } from '@mattilsynet/design'
 
   let value: string | undefined = $state('start text')
 
@@ -50,8 +51,6 @@
           maxlength={100}
           textOptional="Valgfritt"
           inputmode="text"
-          rows={3}
-          cols={5}
           bind:value />
 
         <TextArea
@@ -65,9 +64,7 @@
           inputmode="text"
           maxlength={100}
           isRequired={true}
-          placeholder="Skriv inn tekst her"
-          rows={3}
-          cols={5} />
+          placeholder="Skriv inn tekst her" />
       </form>
     </div>
   {/snippet}
@@ -85,8 +82,7 @@
           textOptional="(valgfritt felt)"
           inputmode="text"
           maxlength={100}
-          rows={3}
-          cols={5} />
+          isRequired={true} />
       </form>
     </div>
   {/snippet}
