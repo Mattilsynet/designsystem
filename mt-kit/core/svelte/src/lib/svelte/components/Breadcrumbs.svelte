@@ -50,7 +50,6 @@
         {#if item.url}
           <a
             aria-current={index === currentPage ? 'page' : undefined}
-            class={styles.link}
             href={item.url}
             rel="external"
           >
