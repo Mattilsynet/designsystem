@@ -63,19 +63,7 @@
           {helpText}
           {label}
           textOptional="Valgfritt"
-          theme="radio"
-          isRequired />
-      </form>
-      <h2 id="theme" class="mt-h2">Theme - button</h2>
-      <form action="" class="mt-form form-layout">
-        <RadioGroup
-          options={buttonOptions}
-          bind:value={buttonRadioValue}
-          name={buttonRadio.name}
-          {helpText}
-          label={buttonRadio.label}
-          textOptional={buttonRadio.textOptional}
-          theme="button" />
+          isRequired={false} />
       </form>
     </div>
   {/snippet}
@@ -103,8 +91,7 @@
           {helpText}
           label={buttonRadio.label}
           error={{ key: name, message: errorMessage }}
-          textOptional={buttonRadio.textOptional}
-          theme="button" />
+          textOptional={buttonRadio.textOptional} />
       </form>
     </div>
   {/snippet}
