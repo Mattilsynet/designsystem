@@ -1,6 +1,6 @@
 <script lang="ts">
   interface Props {
-    key: string
+    key?: string
     message: string
     hiddenErrorText?: string
     class?: string
