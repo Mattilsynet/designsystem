@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { AutocompleteType, CountCharsParams, ErrorDetail, InputModeType } from '$lib/ts'
+  import type { CountCharsParams, ErrorDetail } from '$lib/ts'
   import { tick } from 'svelte'
   import Tag from '../Tag.svelte'
   import { styles } from '@mattilsynet/design'
@@ -42,7 +42,8 @@
     textAreaClass = '',
     maxlength,
     placeholder,
-    isRequired
+    isRequired,
+    ...rest
   }: Props = $props()
   let isInitialized = false
 
@@ -64,7 +65,7 @@
   })
 </script>
 
-<div class={styles.field} data-size="md" data-required="hidden">
+<div class={styles.field} data-size="md" data-required="hidden" {...rest}>
   <label for={name}
     >{label}
     {#if !isRequired && showOptionalText}
