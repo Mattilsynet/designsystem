@@ -11,7 +11,6 @@
     labelClass?: string
     countCharactersLeftLabel?: string
     countCharactersTooManyLabel?: string
-    tooManyCharactersErrorText?: string
     error?: ErrorDetail
     helpText?: string
     textOptional?: string
@@ -31,7 +30,6 @@
     labelClass = '',
     countCharactersLeftLabel,
     countCharactersTooManyLabel,
-    tooManyCharactersErrorText = 'Teksten er for lang',
     error = $bindable(),
     helpText,
     textOptional,
