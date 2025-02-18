@@ -1,5 +1,6 @@
 <script lang="ts">
   import InputError from './InputErrorMessage.svelte'
+  import Tag from '../Tag.svelte'
   import type { ErrorDetail } from '$lib/ts'
   import { createInputAriaDescribedby, toKebabCase } from '$lib/ts'
   import { tick } from 'svelte'
@@ -56,7 +57,7 @@
   <legend class="mt-legend form-legend">
     {label}
     {#if !isRequired && showOptionalText}
-      <span class="tag info tag-text">{textOptional}</span>
+      <Tag data-icon={false} data-color="info">{textOptional}</Tag>
     {/if}
   </legend>
 
