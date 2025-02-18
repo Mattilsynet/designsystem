@@ -17,7 +17,6 @@
     helpText?: string
     textOptional?: string
     showOptionalText?: boolean
-    hiddenErrorText?: string
     maxlength?: number
     placeholder?: string
     isRequired?: boolean
@@ -38,7 +37,6 @@
     helpText,
     textOptional,
     showOptionalText = true,
-    hiddenErrorText,
     maxlength,
     placeholder,
     isRequired,
