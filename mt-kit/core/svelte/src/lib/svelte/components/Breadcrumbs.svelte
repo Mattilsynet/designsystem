@@ -14,7 +14,7 @@
 
   let { breadcrumbs = { items: [] }, loadJs = false, class: classNames = '' }: Props = $props()
   let breadcrumbsItems: Link[] = $state(breadcrumbs.items)
-  const currentPage = $derived(breadcrumbsItems.length - 1);
+  const currentPage = $derived(breadcrumbsItems.length - 1)
 
   const ELLIPSIS = { text: '...', url: '' }
   const LIMIT_BEFORE_PARTIAL = 3
@@ -38,7 +38,7 @@
   async function handleShowFull({ currentTarget: button }: Event) {
     const crumbs = (button as HTMLButtonElement).closest('nav')
     breadcrumbsItems = breadcrumbs.items
-    await tick(); // Let svelte update the DOM before trying to move focus
+    await tick() // Let svelte update the DOM before trying to move focus
     crumbs?.querySelectorAll('a')[1]?.focus() // Help screen readers by moving focus to the first hidden breadcrumb
   }
 </script>
@@ -61,7 +61,8 @@
             aria-label={showAllBreadCrumbsLabel}
             class={styles.link}
             onclick={handleShowFull}
-            type="button">
+            type="button"
+          >
             {item.text}
           </button>
         {/if}
