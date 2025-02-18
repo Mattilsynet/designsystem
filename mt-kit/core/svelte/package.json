@@ -1,6 +1,6 @@
 {
   "name": "@mattilsynet/designsystem-svelte",
-  "version": "0.8.17",
+  "version": "0.8.18",
   "description": "Design system for Mattilsynet",
   "private": false,
   "homepage": "https://mattilsynet.github.io/designsystem",
