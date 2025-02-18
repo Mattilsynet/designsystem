@@ -1,8 +1,10 @@
 <script lang="ts">
-  import { onMount } from 'svelte'
+  /**
+   * Note: Using rel="external" to opt out of SvelteKit router
+   */
+  import { onMount, tick } from 'svelte'
   import type { Breadcrumbs, Link } from '$lib/ts/types'
-
-  const BUTTON_ELLIPSIS = Symbol()
+  import { styles } from '@mattilsynet/design'
 
   interface Props {
     breadcrumbs?: Breadcrumbs
@@ -11,15 +13,15 @@
   }
 
   let { breadcrumbs = { items: [] }, loadJs = false, class: classNames = '' }: Props = $props()
+  let breadcrumbsItems: Link[] = $state(breadcrumbs.items)
+  const currentPage = $derived(breadcrumbsItems.length - 1)
 
+  const ELLIPSIS = { text: '...', url: '' }
   const LIMIT_BEFORE_PARTIAL = 3
 
-  const ariaLabel = breadcrumbs.ariaLabel ?? 'brødsmulesti'
-  const showAllBreadCrumbsLabel = breadcrumbs.showAllAriaLabel ?? 'vis mer'
+  const ariaLabel = breadcrumbs.ariaLabel ?? 'Du er her'
+  const showAllBreadCrumbsLabel = breadcrumbs.showAllAriaLabel ?? 'Vis mer'
   const homeLabel = breadcrumbs.homeLabel ?? 'Hjem'
-
-  let isFull = $state(true)
-  let breadcrumbsItems: Array<Link | symbol> = $state(breadcrumbs.items)
 
   $effect(() => {
     breadcrumbsItems = breadcrumbs.items
@@ -28,44 +30,41 @@
   if (loadJs) {
     onMount(() => {
       if (breadcrumbs.items.length > LIMIT_BEFORE_PARTIAL) {
-        isFull = false
-        breadcrumbsItems = [
-          breadcrumbs.items[0],
-          BUTTON_ELLIPSIS,
-          breadcrumbs.items[breadcrumbs.items.length - 2],
-          breadcrumbs.items[breadcrumbs.items.length - 1]
-        ]
+        breadcrumbsItems = [breadcrumbs.items[0], ELLIPSIS].concat(breadcrumbs.items.slice(-2))
       }
     })
   }
 
-  function handleShowFull(): void {
-    isFull = true
+  async function handleShowFull({ currentTarget: button }: Event) {
+    const crumbs = (button as HTMLButtonElement).closest('nav')
     breadcrumbsItems = breadcrumbs.items
+    await tick() // Let svelte update the DOM before trying to move focus
+    crumbs?.querySelectorAll('a')[1]?.focus() // Help screen readers by moving focus to the first hidden breadcrumb
   }
 </script>
 
-<nav class="breadcrumbs {classNames}" aria-label={ariaLabel}>
-  <ol class="mt-ol" class:expanded={isFull}>
+<nav class="{styles.breadcrumbs} {classNames}" data-size="sm" aria-label={ariaLabel}>
+  <ol>
     {#each breadcrumbsItems as item, index}
-      <li class:ellipsis={!isFull && index + 1 > 2}>
-        {#if index === 0}
-          <a class="mt-link" href={item.url} rel="external">{homeLabel}</a>
-        {:else if item === BUTTON_ELLIPSIS}
+      <li>
+        {#if item.url}
+          <a
+            aria-current={index === currentPage ? 'page' : undefined}
+            href={item.url}
+            rel="external"
+          >
+            {index === 0 ? homeLabel : item.text}
+          </a>
+        {:else}
           <button
-            type="button"
             aria-expanded="false"
             aria-label={showAllBreadCrumbsLabel}
-            class="mt-button mt-button--link"
-            onclick={() => handleShowFull()}>
-            ...
-          </button>
-        {:else if index + 1 < breadcrumbsItems.length}
-          <a class="mt-link" href={item.url} rel="external">{@html item.text}</a>
-        {:else}
-          <span class="last-breadcrumb">
+            class={styles.link}
+            onclick={handleShowFull}
+            type="button"
+          >
             {item.text}
-          </span>
+          </button>
         {/if}
       </li>
     {/each}
