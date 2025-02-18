@@ -94,7 +94,9 @@
     aria-required={isRequired}
     aria-invalid={!!error}></textarea>
 
-  <p data-count={countCharsParams.maxlength}></p>
+  {#if countCharsParams.maxlength}
+    <div data-count={countCharsParams.maxlength}></div>
+  {/if}
 
   {#if helpText && helpTextPlacement === 'below'}
     <p>
