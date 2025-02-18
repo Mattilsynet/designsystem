@@ -79,7 +79,6 @@
     {name}
     class="{styles.input} {inputClass}"
     bind:value
-    class:error
     aria-required={isRequired || undefined}
     {inputmode}
     {placeholder}
