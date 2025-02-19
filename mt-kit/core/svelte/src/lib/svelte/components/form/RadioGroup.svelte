@@ -1,9 +1,9 @@
 <script lang="ts">
-  import InputError from './InputErrorMessage.svelte'
   import Tag from '../Tag.svelte'
   import type { ErrorDetail } from '$lib/ts'
-  import { createInputAriaDescribedby, toKebabCase } from '$lib/ts'
+  import { toKebabCase } from '$lib/ts'
   import { tick } from 'svelte'
+  import { styles } from '@mattilsynet/design'
 
   interface Props {
     value?: string
@@ -17,7 +17,6 @@
     textOptional?: string
     showOptionalText?: boolean
     hiddenErrorText?: string
-    theme?: 'radio' | 'button'
   }
 
   let {
@@ -30,9 +29,7 @@
     options = [],
     isRequired,
     textOptional = '(valgfritt felt)',
-    showOptionalText = true,
-    hiddenErrorText,
-    theme = 'radio'
+    showOptionalText = true
   }: Props = $props()
   let isInitialized = false
 
@@ -46,15 +43,8 @@
   })
 </script>
 
-<fieldset
-  id={name}
-  role="radiogroup"
-  aria-required={isRequired}
-  aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)}
-  class="mt-fieldset form-fieldset {theme === 'radio' ? 'radio' : ''} {theme === 'button'
-    ? 'mt-button-radio'
-    : ''} {className}">
-  <legend class="mt-legend form-legend">
+<fieldset class="{styles.fieldset} {className}" data-size="md" data-required="hidden">
+  <legend>
     {label}
     {#if !isRequired && showOptionalText}
       <Tag data-icon={false} data-color="info">{textOptional}</Tag>
@@ -62,30 +52,27 @@
   </legend>
 
   {#if helpText}
-    <div id={`${name}-hint`} class="hint">
+    <p>
       {@html helpText}
-    </div>
+    </p>
   {/if}
 
   {#if error}
-    <InputError {...error} {hiddenErrorText} />
+    <div class={styles.validation}>{error.message}</div>
   {/if}
 
   {#each options as radio (radio.value)}
-    <div class="form-control">
+    <div class={styles.field}>
       <input
         type="radio"
         id={`${name}-${toKebabCase(radio.value)}`}
         {name}
-        class="mt-input input__control"
-        class:error
+        class={styles.input}
         bind:group={value}
         value={radio.value}
-        aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)}
+        aria-required={isRequired}
         checked={value === radio.value} />
-      <label
-        class="mt-label {theme === 'button' ? 'mt-button mt-button--secondary' : ''}"
-        for={`${name}-${toKebabCase(radio.value)}`}>
+      <label for={`${name}-${toKebabCase(radio.value)}`}>
         {radio.text}
       </label>
     </div>
