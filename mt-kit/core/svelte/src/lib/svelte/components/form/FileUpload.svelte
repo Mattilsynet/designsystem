@@ -2,7 +2,7 @@
   import { createInputAriaDescribedby, type ErrorDetail } from '$lib/ts'
   import { InputErrorMessage, Label } from '$lib/index'
   import { styles } from '@mattilsynet/design'
-  import XCircle from 'phosphor-svelte/lib/XCircle'
+  import { XCircle } from 'phosphor-svelte'
 
   interface Props {
     loadJs?: boolean

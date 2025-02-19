@@ -3,8 +3,7 @@
   import ButtonSpinner from '$lib/svelte/components/ButtonSpinner.svelte'
   import { wrapInShadowDom } from './storybook-utils/utils'
   import { styles } from '@mattilsynet/design'
-  import X from 'phosphor-svelte/lib/X'
-  import MagnifyingGlass from 'phosphor-svelte/lib/MagnifyingGlass'
+  import { X, MagnifyingGlass } from 'phosphor-svelte'
 
   const { Story } = defineMeta({
     title: 'Components/Buttons',
@@ -59,11 +58,15 @@
 
       <p class="description">Flat med icon</p>
       <button type="button" data-variant="tertiary" class={styles.button}
-        >Med ikon<X color="#000" /></button>
+        >Med ikon
+        <X color="#000" />
+      </button>
 
       <p class="description">Flat med icon på venstre side</p>
       <button type="button" data-variant="tertiary" class={styles.button}>
-        <MagnifyingGlass />Søk</button>
+        <MagnifyingGlass />
+        Søk
+      </button>
 
       <p class="description">På bakgrunn</p>
       <div class="background-mt-blue p-xxs">

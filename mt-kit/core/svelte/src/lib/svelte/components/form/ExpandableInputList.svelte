@@ -7,8 +7,7 @@
   import { createInputAriaDescribedby, interpolate } from '$lib/ts'
   import TextInputHorizontal from './TextInputHorizontal.svelte'
   import { styles } from '@mattilsynet/design'
-  import CaretDown from 'phosphor-svelte/lib/CaretDown'
-  import CaretUp from 'phosphor-svelte/lib/CaretUp'
+  import { CaretDown, CaretUp } from 'phosphor-svelte'
 
   interface Props {
     values?: Record<string, string>
@@ -141,9 +140,11 @@
           }}
           style="order: {insides.length + outsides.length};">
           {#if showMore}
-            {@html collapsableText} <CaretUp />
+            {@html collapsableText}
+            <CaretUp />
           {:else}
-            {@html expandableText} <CaretDown />
+            {@html expandableText}
+            <CaretDown />
           {/if}
         </button>
         {#if showMore}
