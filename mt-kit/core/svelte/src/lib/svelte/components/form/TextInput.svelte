@@ -54,7 +54,7 @@
 </script>
 
 <div
-  class="{styles.field} field-wrapper"
+  class={styles.field}
   data-size="md"
   data-required="hidden"
   style={`--mtds-text-count-under: '%d ${countCharactersLeftLabel}'; --mtds-text-count-over: '%d ${countCharactersTooManyLabel}';`}>
