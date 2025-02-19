@@ -24,7 +24,7 @@
         {
           label: 'Katt, antall',
           textOptional: 'Valgfritt',
-          helpText: 'Hjelpetekst',
+          helpText: 'Hjelpetekst som er litt lengre tekst. Hva skjer da?',
           isRequired: false
         }
       ],
@@ -110,7 +110,7 @@
               inputmode="text"
               isRequired={horizontal.isRequired}
               maxlength={horizontal.maxLength}
-              placeholder="enter text"
+              placeholder={horizontal.placeholder}
               autocomplete="off"
               hasTransition={true}
               inputClass="form-field--small form-field--small-width" />
@@ -158,7 +158,7 @@
               isRequired={horizontal.isRequired}
               placeholder=""
               autocomplete="off"
-              inputClass="form-field--small form-field--small-width" />
+              inputClass="form-field--small form-field--small-width " />
           {/each}
         </div>
       </form>

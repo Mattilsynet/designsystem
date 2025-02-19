@@ -210,10 +210,26 @@ $form-outline-color: 'var(--form-outline-color)' !default;
 
   grid-template-columns: auto 1fr;
 
-  .form-error {
+  p:first-child {
     grid-column: span 2;
   }
-  .mt-input {
+  input {
+    margin-top: 0;
     justify-self: end;
+  }
+  input + p {
+    grid-column: span 2;
+  }
+
+  .form-field {
+    &--small-width {
+      width: #{$size-input-3};
+    }
+    &--medium-width {
+      width: #{$size-input-4};
+    }
+    &--small {
+      padding: calc(2 * #{$spacer-xxx-small});
+    }
   }
 }
