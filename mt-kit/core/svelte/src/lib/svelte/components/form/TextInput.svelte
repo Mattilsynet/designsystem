@@ -1,8 +1,8 @@
 <script lang="ts">
   import type { AutocompleteType, ErrorDetail, InputModeType } from '$lib/ts'
-  import Label from './Label.svelte'
   import { tick } from 'svelte'
   import { styles } from '@mattilsynet/design'
+  import Tag from '$lib/svelte/components/Tag.svelte'
 
   interface Props {
     value?: string
@@ -58,9 +58,12 @@
   data-size="md"
   data-required="hidden"
   style={`--mtds-text-count-under: '%d ${countCharactersLeftLabel}'; --mtds-text-count-over: '%d ${countCharactersTooManyLabel}';`}>
-  <Label for={name} {isRequired} {textOptional} {showOptionalText} class={labelClass}>
+  <label for={name}>
     {label}
-  </Label>
+    {#if !isRequired && showOptionalText}
+      <Tag data-icon={false} data-color="info">{textOptional}</Tag>
+    {/if}
+  </label>
 
   {#if helpText}
     <p>
@@ -69,9 +72,9 @@
   {/if}
 
   {#if error}
-    <p class={styles.validation}>
+    <div class={styles.validation}>
       {error.message}
-    </p>
+    </div>
   {/if}
 
   <input

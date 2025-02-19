@@ -1,11 +1,9 @@
 <script lang="ts">
-  import InputError from './InputErrorMessage.svelte'
   import type { AutocompleteType, ErrorDetail, InputModeType } from '$lib/ts'
-  import { createInputAriaDescribedby } from '$lib/ts'
-  import Label from './Label.svelte'
   import { slide } from 'svelte/transition'
   import { tick } from 'svelte'
   import { styles } from '@mattilsynet/design'
+  import Tag from '$lib/svelte/components/Tag.svelte'
 
   interface Props {
     value?: string
@@ -64,15 +62,19 @@
   in:slide={{ duration: hasTransition ? 300 : 0 }}
   out:slide={{ duration: hasTransition ? 300 : 0 }}>
   {#if error}
-    <p class={styles.validation}>
+    <!-- TODO change to p when fixing spacing. Also change _form.scss div:first-child-->
+    <div class={styles.validation}>
       {error.message}
-    </p>
+    </div>
   {/if}
 
   <div class="{styles.flex} layout-flex-col justify-content-center">
-    <Label for={name} {isRequired} {textOptional} {showOptionalText} class={labelClass}>
+    <label for={name}>
       {label}
-    </Label>
+      {#if !isRequired && showOptionalText}
+        <Tag data-icon={false} data-color="info">{textOptional}</Tag>
+      {/if}
+    </label>
 
     {#if helpText}
       <p>
