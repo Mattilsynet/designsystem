@@ -58,7 +58,7 @@
   data-size="md"
   data-required="hidden"
   style={`--mtds-text-count-under: '%d ${countCharactersLeftLabel}'; --mtds-text-count-over: '%d ${countCharactersTooManyLabel}';`}>
-  <label for={name}>
+  <label for={name} class={labelClass}>
     {label}
     {#if !isRequired && showOptionalText}
       <Tag data-icon={false} data-color="info">{textOptional}</Tag>
