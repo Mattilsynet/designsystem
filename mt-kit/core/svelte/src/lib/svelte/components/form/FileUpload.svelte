@@ -2,7 +2,7 @@
   import { createInputAriaDescribedby, type ErrorDetail } from '$lib/ts'
   import { InputErrorMessage, Label } from '$lib/index'
   import { styles } from '@mattilsynet/design'
-  import { XCircle } from 'phosphor-svelte'
+  import XCircle from '@phosphor-icons/core/regular/x-circle.svg?component'
 
   interface Props {
     loadJs?: boolean
@@ -157,7 +157,7 @@
           onclick={() => removeFile(file)}
           data-testid={`remove-${file}`}>
           <span class="inclusively-hidden">Slett vedlegget: "{file}"</span>
-          <XCircle weight="fill" />
+          <XCircle />
         </button>
       </li>
     {/each}

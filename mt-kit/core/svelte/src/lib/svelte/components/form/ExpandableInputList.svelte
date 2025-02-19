@@ -7,7 +7,8 @@
   import { createInputAriaDescribedby, interpolate } from '$lib/ts'
   import TextInputHorizontal from './TextInputHorizontal.svelte'
   import { styles } from '@mattilsynet/design'
-  import { CaretDown, CaretUp } from 'phosphor-svelte'
+  import CaretDown from '@phosphor-icons/core/regular/caret-down.svg?component'
+  import CaretUp from '@phosphor-icons/core/regular/caret-up.svg?component'
 
   interface Props {
     values?: Record<string, string>
