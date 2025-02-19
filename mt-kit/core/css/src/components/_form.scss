@@ -210,9 +210,10 @@ $form-outline-color: 'var(--form-outline-color)' !default;
 
   grid-template-columns: auto 1fr;
 
-  div:first-child {
+  div.validation:first-child {
     grid-column: span 2;
   }
+
   input {
     margin-top: 0;
     justify-self: end;

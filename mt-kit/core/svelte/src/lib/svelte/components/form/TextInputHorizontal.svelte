@@ -62,8 +62,8 @@
   in:slide={{ duration: hasTransition ? 300 : 0 }}
   out:slide={{ duration: hasTransition ? 300 : 0 }}>
   {#if error}
-    <!-- TODO change to p when fixing spacing. Also change _form.scss div:first-child-->
-    <div class={styles.validation}>
+    <!-- TODO change to p when fixing spacing. Also change _form.scss div.validation:first-child-->
+    <div class="{styles.validation} validation">
       {error.message}
     </div>
   {/if}
