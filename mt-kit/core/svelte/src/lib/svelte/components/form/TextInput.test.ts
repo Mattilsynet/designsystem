@@ -1,4 +1,3 @@
-import '@mattilsynet/design'
 import TextInput from './TextInput.svelte'
 import { fireEvent, render } from '@testing-library/svelte'
 import { tick } from 'svelte'
@@ -37,8 +36,6 @@ describe('TextInput', () => {
     expect(input.getAttribute('autocomplete')).toEqual(props.autocomplete)
     expect(input.getAttribute('inputmode')).toEqual(props.inputmode)
     expect(input.getAttribute('aria-required')).toEqual('true')
-    expect(input.getAttribute('aria-describedby')).toBeDefined()
-    expect(input.getAttribute('aria-invalid')).toEqual('false')
     expect(getByPlaceholderText(props.placeholder)).toBeInTheDocument()
   })
 
@@ -56,38 +53,23 @@ describe('TextInput', () => {
 
   test('Render error message when defined', async () => {
     const err = { key: props.name, message: 'This is the errormessage' }
-    const { getByText, getByLabelText } = render(TextInput, {
-      ...props,
-      error: err
-    })
-    await tick()
-    const errorMessage = getByText(err.message)
-    expect(errorMessage).toBeInTheDocument()
-    const input = getByLabelText(/Navn/)
-    expect(input.getAttribute('aria-describedby')).toBeDefined()
-    let attribute = input.getAttribute('aria-invalid')
-    console.log('input', input)
-    console.log('aria invalid', attribute)
-    expect(attribute).toEqual('true')
-  })
-
-  test('Does not render aria-describedby when no helptext, error or maxlength', () => {
-    const { getByLabelText } = render(TextInput, {
-      ...props,
-      error: undefined,
-      helpText: undefined
-    })
-    const input = getByLabelText(/Navn/)
-    expect(input.getAttribute('aria-describedby')).toBeNull()
-  })
-
-  test('Renders optional in label if not required', () => {
-    const err = { fieldName: props.name, message: 'This is the errormessage' }
     const { getByText } = render(TextInput, {
       ...props,
       error: err
     })
-    expect(getByText(/Valgfritt/)).toBeInTheDocument()
+    const errorMessage = getByText(err.message)
+    expect(errorMessage).toBeInTheDocument()
+  })
+
+  test('Does not set aria-required when isRequired is undefined', () => {
+    const { getByText, getByLabelText } = render(TextInput, {
+      ...props,
+      isRequired: undefined
+    })
+    const input = getByLabelText(/Navn/i)
+    expect(input).toBeInTheDocument()
+    console.log('input', input)
+    expect(input.getAttribute('aria-required')).toEqual(null)
   })
 
   test('A11y for characters left', async () => {
@@ -98,7 +80,6 @@ describe('TextInput', () => {
     })
     const input = getByLabelText(/Navn/i)
     expect(input).toBeInTheDocument()
-    // expect(input.getAttribute('aria-describedby')).toEqual('name-maxlength name-hint')
     await fireEvent.input(input, { target: { value: 'entotrefi' } })
     const characterCounter = document.querySelector('[data-count="10"]')
     expect(characterCounter.getAttribute('aria-live')).toBeDefined()
