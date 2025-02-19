@@ -1,7 +1,6 @@
 import { fireEvent, render } from '@testing-library/svelte'
 import TextArea from './TextArea.svelte'
 import { tick } from 'svelte'
-import TextInput from './TextInput.svelte'
 
 describe('TextArea', () => {
   const props = {
@@ -79,7 +78,7 @@ describe('TextArea', () => {
   })
 
   test('Render tooManyCharactersErrorText when defined', async () => {
-    const { getByText, queryByText, getByLabelText } = render(TextInput, {
+    const { getByText, queryByText, getByLabelText } = render(TextArea, {
       ...props,
       maxlength: 1,
       value: ''
