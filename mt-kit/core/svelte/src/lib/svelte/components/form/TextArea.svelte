@@ -23,6 +23,7 @@
     maxlength?: number
     placeholder?: string
     isRequired?: boolean
+    [key: string]: unknown
   }
 
   let {
