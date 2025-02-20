@@ -2,7 +2,7 @@ import { fireEvent, render } from '@testing-library/svelte'
 import Checkbox from './Checkbox.svelte'
 
 describe('Checkbox', () => {
-  const value = []
+  const value: string[] = []
   const name = 'name'
   const label = 'Velg noe'
   const error = undefined
@@ -39,7 +39,6 @@ describe('Checkbox', () => {
     const fieldSet = getByRole('checkbox', { name: 'Ja' })
     expect(fieldSet).not.toBeChecked()
     expect(fieldSet?.getAttribute('aria-required')).toEqual('true')
-    expect(fieldSet?.getAttribute('aria-describedby')).toEqual('name-hint')
     await fireEvent.click(fieldSet)
     expect(fieldSet).toBeChecked()
     expect(onChangeSpy).toHaveBeenCalledTimes(1)
@@ -60,7 +59,7 @@ describe('Checkbox', () => {
 
   test('Renders error', () => {
     const err = { fieldName: name, message: 'This is the errormessage' }
-    const { getByText, getByRole } = render(Checkbox, {
+    const { getByText } = render(Checkbox, {
       value,
       error: err,
       name,
@@ -69,8 +68,6 @@ describe('Checkbox', () => {
       options
     })
     expect(getByText(/This is the errormessage/)).toBeInTheDocument()
-    const fieldSet = getByRole('checkbox', { name: 'Ja' })
-    expect(fieldSet.getAttribute('aria-describedby')).toEqual('name-hint name-error')
   })
 
   test('Renders without helptext', () => {

@@ -1,10 +1,10 @@
 <script lang="ts">
   import { tick } from 'svelte'
-  import InputError from './InputErrorMessage.svelte'
   import Tag from '../Tag.svelte'
-  import { createInputAriaDescribedby, forceArray, toKebabCase } from '$lib/ts/utils'
+  import { forceArray, toKebabCase } from '$lib/ts/utils'
   import type { ErrorDetail } from '$lib/ts'
   import type { CheckboxOption } from '$lib/ts/types'
+  import { styles } from '@mattilsynet/design'
 
   interface Props {
     value?: Array<string>
@@ -17,7 +17,6 @@
     textOptional?: string
     showOptionalText?: boolean
     hiddenErrorText?: string
-    theme?: 'checkbox' | 'button'
     class?: string
     legendClass?: string
     onChange?: (element: HTMLInputElement) => void
@@ -33,8 +32,7 @@
     isRequired,
     textOptional = 'Valgfritt',
     showOptionalText = true,
-    hiddenErrorText,
-    theme = 'checkbox',
+    hiddenErrorText = 'Feilmelding',
     class: className = '',
     legendClass = '',
     onChange = () => {}
@@ -66,13 +64,8 @@
   }
 </script>
 
-<fieldset
-  id={name}
-  aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)}
-  class="mt-fieldset form-fieldset {theme === 'checkbox' ? 'checkbox' : ''} {theme === 'button'
-    ? 'mt-button-checkbox'
-    : ''} {className}">
-  <legend class="mt-legend form-legend {legendClass}">
+<fieldset id={name} class="{styles.fieldset} {className}" data-required="hidden">
+  <legend class={legendClass}>
     {label}
     {#if !isRequired && showOptionalText}
       <Tag data-icon={false} data-color="info">{textOptional}</Tag>
@@ -80,40 +73,39 @@
   </legend>
 
   {#if helpText}
-    <div class="hint">
-      {@html helpText}
-    </div>
-  {/if}
-
-  {#if error}
-    <InputError {...error} {hiddenErrorText} />
+    <p>
+      {helpText}
+    </p>
   {/if}
 
   {#each options as checkbox (checkbox.value)}
-    <div class="form-control">
+    <div class={styles.field}>
       <input
         type="checkbox"
         id={`${name}-${toKebabCase(checkbox.value)}`}
         {name}
-        class="mt-input input__control"
-        class:error
+        class={styles.input}
         value={checkbox.value}
         checked={forceArray(value).includes(checkbox.value)}
         onchange={handleOnChange}
         disabled={checkbox.disabled}
-        aria-required={isRequired}
-        aria-invalid={!!error}
-        aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error)} />
-      <label
-        class="mt-label {theme === 'button' ? 'mt-button mt-button--secondary' : ''}"
-        for={`${name}-${toKebabCase(checkbox.value)}`}>
+        aria-required={isRequired} />
+      <label for={`${name}-${toKebabCase(checkbox.value)}`}>
         {checkbox.text}
       </label>
+
       {#if checkbox.helpText}
-        <div class="hint">
-          {@html checkbox.helpText}
-        </div>
+        <p>
+          {checkbox.helpText}
+        </p>
       {/if}
     </div>
   {/each}
+
+  {#if error}
+    <span id={`${error.key}-error`} class={styles.validation}>
+      <span class="inclusively-hidden">{hiddenErrorText}:</span>
+      {error.message}
+    </span>
+  {/if}
 </fieldset>

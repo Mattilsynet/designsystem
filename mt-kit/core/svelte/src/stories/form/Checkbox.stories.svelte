@@ -5,7 +5,6 @@
   import { action } from '@storybook/addon-actions'
 
   const name = 'checkbox'
-  let buttonCheckboxValue: Array<string> = ['2']
 
   const checkedAction = action('checked')
   function onChange({ checked, value }: HTMLInputElement) {
@@ -29,17 +28,8 @@
         },
         {
           text: 'Jeg ønsker å være anonym',
-          value: 'no'
-        }
-      ],
-      buttonOptions: [
-        {
-          text: 'Ja',
-          value: '1'
-        },
-        {
-          text: 'Nei',
-          value: '2'
+          value: 'no',
+          helpText: 'Hjelpetekst til det enkelte valg'
         }
       ],
       disableCss: false
@@ -59,32 +49,11 @@
 </script>
 
 <Story name="Normal">
-  {#snippet children({
-    label,
-    helpText,
-    disableCss,
-    options,
-    buttonOptions,
-    isRequired,
-    textOptional
-  })}
+  {#snippet children({ label, helpText, disableCss, options, isRequired, textOptional })}
     <div use:wrapInShadowDom={disableCss}>
       <h1 class="mt-h1">Checkbox</h1>
-      <h2 id="theme" class="mt-h2">Theme - checkbox</h2>
       <form class="mt-form">
         <Checkbox {name} {label} {helpText} {options} {isRequired} {textOptional} {onChange} />
-      </form>
-      <h2 id="theme" class="mt-h2">Theme - button</h2>
-      <form action="" class="mt-form form-layout">
-        <Checkbox
-          {name}
-          {label}
-          {isRequired}
-          {textOptional}
-          options={buttonOptions}
-          {helpText}
-          theme="button"
-          bind:value={buttonCheckboxValue} />
       </form>
     </div>
   {/snippet}
@@ -98,12 +67,11 @@
     errorMessage,
     hiddenErrorText,
     options,
-    buttonOptions,
     isRequired,
     textOptional
   })}
     <div use:wrapInShadowDom={disableCss}>
-      <h2 id="theme" class="mt-h2">Theme - checkbox</h2>
+      <h1 class="mt-h1">Checkbox</h1>
       <form class="mt-form">
         <Checkbox
           {name}
@@ -115,28 +83,6 @@
           {textOptional}
           error={{ key: name, message: errorMessage }} />
       </form>
-      <h2 id="theme" class="mt-h2">Theme - button</h2>
-      <form class="mt-form">
-        <Checkbox
-          {name}
-          {label}
-          {helpText}
-          isRequired
-          {hiddenErrorText}
-          {textOptional}
-          options={buttonOptions}
-          error={{ key: name, message: errorMessage }}
-          theme="button"
-          class="testClass"
-          legendClass="legendClass" />
-      </form>
     </div>
   {/snippet}
 </Story>
-
-<style lang="scss">
-  #theme {
-    margin-top: var(--spacer-medium);
-    margin-bottom: var(--spacer-xx-small);
-  }
-</style>
