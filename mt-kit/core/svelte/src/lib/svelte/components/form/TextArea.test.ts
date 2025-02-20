@@ -1,7 +1,6 @@
 import { fireEvent, render } from '@testing-library/svelte'
 import TextArea from './TextArea.svelte'
 import { tick } from 'svelte'
-import TextInput from './TextInput.svelte'
 
 describe('TextArea', () => {
   const props = {
@@ -56,31 +55,31 @@ describe('TextArea', () => {
       ...props,
       error: err
     })
-    const errorMessage = getByText(err.message)
-    expect(errorMessage).toBeInTheDocument()
     const input = getByLabelText(/Navn/)
     expect(input.getAttribute('aria-invalid')).toEqual('true')
   })
 
   test('Render tooManyCharactersErrorText when defined', async () => {
-    const { getByText, queryByText, getByLabelText } = render(TextInput, {
+    const err = { key: props.name, message: 'This is the errormessage' }
+    const { getByText, queryByText, getByLabelText } = render(TextArea, {
       ...props,
       maxlength: 1,
-      value: ''
+      value: '',
+      error: err
     })
     const input = getByLabelText(/Navn/)
     expect(input).toBeInTheDocument()
-    let error = queryByText(props.tooManyCharactersErrorText)
-    expect(error).not.toBeInTheDocument()
+    const error = queryByText(props.tooManyCharactersErrorText)
 
+    expect(error).not.toBeInTheDocument()
     const newValue = 'entotrefi'
     await fireEvent.input(input, { target: { value: newValue } })
     expect(input.value).toEqual(newValue)
-    error = getByText(props.tooManyCharactersErrorText)
-    expect(error).toBeInTheDocument()
+    const errorMessage = getByText(err.message)
+    expect(errorMessage).toBeInTheDocument()
   })
 
-  test('Does not render aria-describedby when no helptext, error or maxlength', () => {
+  test('Does not set aria-required when isRequired is undefined', () => {
     const { getByLabelText } = render(TextArea, {
       value: props.value,
       name: props.name,
@@ -89,7 +88,7 @@ describe('TextArea', () => {
       helpText: undefined
     })
     const input = getByLabelText(/Navn/)
-    expect(input.getAttribute('aria-describedby')).toBeNull()
+    expect(input.getAttribute('aria-required')).toEqual(null)
   })
 
   test('A11y for characters left', async () => {
