@@ -51,7 +51,7 @@ describe('TextArea', () => {
 
   test('Render error message when defined', () => {
     const err = { key: props.name, message: 'This is the errormessage' }
-    const { getByText, getByLabelText } = render(TextArea, {
+    const { getByLabelText } = render(TextArea, {
       ...props,
       error: err
     })
