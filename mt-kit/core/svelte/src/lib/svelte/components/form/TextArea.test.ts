@@ -101,7 +101,7 @@ describe('TextArea', () => {
     const input = getByLabelText(/Navn/i)
     expect(input).toBeInTheDocument()
     await fireEvent.input(input, { target: { value: 'entotrefi' } })
-    const characterCounter = document.querySelector('[data-count]')
+    const characterCounter = document.querySelector('[data-count="10"]')
     expect(characterCounter).toBeInTheDocument()
     const newValue = 'entotrefire'
     await fireEvent.input(input, { target: { value: newValue } })
