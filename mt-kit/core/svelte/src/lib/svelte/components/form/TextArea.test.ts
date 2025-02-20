@@ -36,7 +36,7 @@ describe('TextArea', () => {
   })
 
   test('Does not render properties when not defined', () => {
-    const { getByDisplayValue, queryByPlaceholderText, getByText } = render(TextArea, {
+    const { getByDisplayValue, queryByPlaceholderText } = render(TextArea, {
       value: props.value,
       error: props.error,
       name: props.name,
