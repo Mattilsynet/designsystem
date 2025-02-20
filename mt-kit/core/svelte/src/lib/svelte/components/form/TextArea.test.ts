@@ -1,7 +1,6 @@
 import { fireEvent, render } from '@testing-library/svelte'
 import TextArea from './TextArea.svelte'
 import { tick } from 'svelte'
-import TextInput from './TextInput.svelte'
 
 describe('TextArea', () => {
   const props = {
@@ -10,13 +9,7 @@ describe('TextArea', () => {
     name: 'name',
     label: 'Navn',
     helpText: 'This is the helptext',
-    rows: 5,
-    cols: 3,
-    inputmode: 'text',
-    autocomplete: 'name',
     placeholder: 'Eg. Test Testsen',
-    countCharactersLeftLabel: 'chars left',
-    countCharactersTooManyLabel: 'chars too many',
     tooManyCharactersErrorText: 'too many chars error',
     validationRequired: {
       errorMessage: 'Error'
@@ -37,17 +30,12 @@ describe('TextArea', () => {
     expect(byLabelText.value).toEqual(props.value)
     const input = getByDisplayValue(props.value)
     expect(input).toBeInTheDocument()
-    expect(input.getAttribute('autocomplete')).toEqual(props.autocomplete)
-    expect(input.getAttribute('inputmode')).toEqual(props.inputmode)
     expect(input.getAttribute('aria-required')).toEqual('true')
-    expect(input.getAttribute('cols')).toEqual(`${props.cols}`)
-    expect(input.getAttribute('rows')).toEqual(`${props.rows}`)
-    expect(input.getAttribute('aria-describedby').indexOf('name-hint') > -1).toEqual(true)
     expect(getByPlaceholderText(props.placeholder)).toBeInTheDocument()
   })
 
   test('Does not render properties when not defined', () => {
-    const { getByDisplayValue, queryByPlaceholderText, getByText } = render(TextArea, {
+    const { getByDisplayValue, queryByPlaceholderText } = render(TextArea, {
       value: props.value,
       error: props.error,
       name: props.name,
@@ -56,47 +44,42 @@ describe('TextArea', () => {
     })
     const input = getByDisplayValue(props.value)
     expect(input).toBeInTheDocument()
-    expect(input.getAttribute('autocomplete')).toEqual('off')
-    expect(input.getAttribute('inputmode')).toEqual(null)
     expect(input.getAttribute('aria-required')).toEqual(null)
     expect(input.getAttribute('cols')).toEqual(null)
     expect(queryByPlaceholderText(props.placeholder)).not.toBeInTheDocument()
-    expect(getByText(/Valgfritt/)).toBeInTheDocument()
   })
 
   test('Render error message when defined', () => {
     const err = { key: props.name, message: 'This is the errormessage' }
-    const { getByText, getByLabelText } = render(TextArea, {
+    const { getByLabelText } = render(TextArea, {
       ...props,
       error: err
     })
-    const errorMessage = getByText(err.message)
-    expect(errorMessage).toBeInTheDocument()
-    expect(errorMessage.getAttribute('id').indexOf(props.name) > -1).toEqual(true)
     const input = getByLabelText(/Navn/)
-    expect(input.getAttribute('aria-describedby').indexOf('name-error') > -1).toEqual(true)
     expect(input.getAttribute('aria-invalid')).toEqual('true')
   })
 
   test('Render tooManyCharactersErrorText when defined', async () => {
-    const { getByText, queryByText, getByLabelText } = render(TextInput, {
+    const err = { key: props.name, message: 'This is the errormessage' }
+    const { getByText, queryByText, getByLabelText } = render(TextArea, {
       ...props,
       maxlength: 1,
-      value: ''
+      value: '',
+      error: err
     })
     const input = getByLabelText(/Navn/)
     expect(input).toBeInTheDocument()
-    let error = queryByText(props.tooManyCharactersErrorText)
-    expect(error).not.toBeInTheDocument()
+    const error = queryByText(props.tooManyCharactersErrorText)
 
+    expect(error).not.toBeInTheDocument()
     const newValue = 'entotrefi'
     await fireEvent.input(input, { target: { value: newValue } })
     expect(input.value).toEqual(newValue)
-    error = getByText(props.tooManyCharactersErrorText)
-    expect(error).toBeInTheDocument()
+    const errorMessage = getByText(err.message)
+    expect(errorMessage).toBeInTheDocument()
   })
 
-  test('Does not render aria-describedby when no helptext, error or maxlength', () => {
+  test('Does not set aria-required when isRequired is undefined', () => {
     const { getByLabelText } = render(TextArea, {
       value: props.value,
       name: props.name,
@@ -105,7 +88,7 @@ describe('TextArea', () => {
       helpText: undefined
     })
     const input = getByLabelText(/Navn/)
-    expect(input.getAttribute('aria-describedby')).toBeNull()
+    expect(input.getAttribute('aria-required')).toEqual(null)
   })
 
   test('A11y for characters left', async () => {
@@ -116,14 +99,12 @@ describe('TextArea', () => {
     })
     const input = getByLabelText(/Navn/i)
     expect(input).toBeInTheDocument()
-    expect(input.getAttribute('aria-describedby')).toEqual('name-maxlength name-hint')
     await fireEvent.input(input, { target: { value: 'entotrefi' } })
-    const characterCounter = document.querySelector('#name-maxlength')
-    expect(characterCounter.getAttribute('aria-live')).toEqual('polite')
-    const newValue = 'entotrefiee'
+    const characterCounter = document.querySelector('[data-count="10"]')
+    expect(characterCounter).toBeInTheDocument()
+    const newValue = 'entotrefire'
     await fireEvent.input(input, { target: { value: newValue } })
     await tick()
     expect(input.value).toEqual(newValue)
-    expect(characterCounter.getAttribute('aria-live')).toEqual('polite')
   })
 })

@@ -138,11 +138,9 @@
               value=""
               showOptionalText={false}
               helpText={'Informasjon blir brukt til å forbedre nettstedet. Vi kan ikke svare. <a class="mt-link" ' +
-                'href="" >Kontakt oss</a> hvis du luerer på noe'}
+                'href="" >Kontakt oss</a> hvis du lurer på noe'}
               helpTextPlacement="below"
-              textAreaClass={hideFeedbackText ? '' : 'hide-feedback'}
-              helpTextClass={hideFeedbackText ? '' : 'hide-feedback'}
-              labelClass={hideFeedbackText ? '' : 'hide-feedback'} />
+              hidden={!hideFeedbackText} />
             <button
               type="submit"
               class="mt-button mt-button--primary {hideFeedbackText ? '' : 'hide-feedback'}">
