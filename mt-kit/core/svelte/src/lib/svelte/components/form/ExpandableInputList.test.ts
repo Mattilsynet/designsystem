@@ -114,7 +114,7 @@ describe('ExpandableInputList', () => {
       fieldSetError: [{ key: componentOptions.fieldSetId, message: 'Det er en feil i skjema' }],
       showOptionalText: true
     })
-    const { getByText, rerender, queryByText, getAllByText, getByLabelText } = renderResult
+    const { getByText, rerender, queryByText, getByLabelText } = renderResult
     expect(getByText('Det er en feil i skjema')).toBeInTheDocument()
     expect(getByLabelText(/Hund/).getAttribute('aria-required')).toEqual(null)
     expect(getByLabelText(/Katt/).getAttribute('aria-required')).toEqual(null)

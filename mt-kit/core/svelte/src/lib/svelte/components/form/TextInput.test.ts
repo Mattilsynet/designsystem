@@ -62,7 +62,7 @@ describe('TextInput', () => {
   })
 
   test('Does not set aria-required when isRequired is undefined', () => {
-    const { getByText, getByLabelText } = render(TextInput, {
+    const { getByLabelText } = render(TextInput, {
       ...props,
       isRequired: undefined
     })
