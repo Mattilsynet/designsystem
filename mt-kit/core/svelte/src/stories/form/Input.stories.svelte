@@ -3,6 +3,7 @@
   import TextInput from '$lib/svelte/components/form/TextInput.svelte'
   import { wrapInShadowDom } from '../storybook-utils/utils'
   import TextInputHorizontal from '$lib/svelte/components/form/TextInputHorizontal.svelte'
+  import { styles } from '@mattilsynet/design'
 
   const { Story } = defineMeta({
     title: 'Components/Form/Input',
@@ -23,11 +24,12 @@
         {
           label: 'Katt, antall',
           textOptional: 'Valgfritt',
-          helpText: 'Hjelpetekst',
+          helpText: 'Hjelpetekst som er litt lengre tekst. Hva skjer da?',
           isRequired: false
         }
       ],
       countCharactersLeftLabel: 'karakterer igjen',
+      countCharactersTooManyLabel: 'karakterer for mange',
       tooManyCharactersErrorText: 'For lang tekst',
       disableCss: false
     },
@@ -40,6 +42,7 @@
       tooManyCharactersErrorText: { control: 'text' },
       horizontal: { control: 'object' },
       countCharactersLeftLabel: { control: 'text' },
+      countCharactersTooManyLabel: { control: 'text' },
       disableCss: { control: 'boolean' }
     }
   })
@@ -54,10 +57,11 @@
     isRequired,
     tooManyCharactersErrorText,
     horizontal,
-    countCharactersLeftLabel
+    countCharactersLeftLabel,
+    countCharactersTooManyLabel
   })}
     <div use:wrapInShadowDom={disableCss}>
-      <form class="mt-form form-layout">
+      <form class="mt-form form-layout {styles.grid}" data-gap="xl">
         <TextInput
           name="inputfield"
           {label}
@@ -66,6 +70,7 @@
           inputmode="text"
           {isRequired}
           {countCharactersLeftLabel}
+          {countCharactersTooManyLabel}
           placeholder=""
           autocomplete="off" />
 
@@ -88,6 +93,7 @@
           inputmode="text"
           {isRequired}
           {countCharactersLeftLabel}
+          {countCharactersTooManyLabel}
           placeholder=""
           autocomplete="off"
           {tooManyCharactersErrorText}
@@ -104,7 +110,7 @@
               inputmode="text"
               isRequired={horizontal.isRequired}
               maxlength={horizontal.maxLength}
-              placeholder="enter text"
+              placeholder={horizontal.placeholder}
               autocomplete="off"
               hasTransition={true}
               inputClass="form-field--small form-field--small-width" />
@@ -123,15 +129,17 @@
     disableCss,
     countCharactersLeftLabel,
     textOptional,
-    horizontal
+    horizontal,
+    countCharactersTooManyLabel
   })}
     <div use:wrapInShadowDom={disableCss}>
-      <form class="mt-form form-layout">
+      <form class="mt-form form-layout {styles.grid}" data-gap="xl">
         <TextInput
           name="inputfield"
           {label}
           {helpText}
           {countCharactersLeftLabel}
+          {countCharactersTooManyLabel}
           error={{ key: 'inputfield', message: errorMessage }}
           {textOptional}
           inputmode="text"
@@ -150,7 +158,7 @@
               isRequired={horizontal.isRequired}
               placeholder=""
               autocomplete="off"
-              inputClass="form-field--small form-field--small-width" />
+              inputClass="form-field--small form-field--small-width " />
           {/each}
         </div>
       </form>

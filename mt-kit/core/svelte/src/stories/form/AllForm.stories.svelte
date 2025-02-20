@@ -237,6 +237,7 @@
           error={{ key: 'name', message: errorMessage }}
           isRequired={true}
           textOptional="(valgfritt felt)"
+          maxlength="10"
           inputmode="text"
           placeholder=""
           autocomplete="off" />

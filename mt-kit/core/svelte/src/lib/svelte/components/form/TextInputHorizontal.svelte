@@ -1,10 +1,9 @@
 <script lang="ts">
-  import InputError from './InputErrorMessage.svelte'
   import type { AutocompleteType, ErrorDetail, InputModeType } from '$lib/ts'
-  import { createInputAriaDescribedby } from '$lib/ts'
-  import Label from './Label.svelte'
   import { slide } from 'svelte/transition'
   import { tick } from 'svelte'
+  import { styles } from '@mattilsynet/design'
+  import Tag from '$lib/svelte/components/Tag.svelte'
 
   interface Props {
     value?: string
@@ -57,35 +56,39 @@
 </script>
 
 <div
-  class="input-horizontal"
-  style="--gap:var(--spacer-xxx-small)"
+  class="{styles.field} input-horizontal"
+  data-size="md"
+  data-required="hidden"
   in:slide={{ duration: hasTransition ? 300 : 0 }}
   out:slide={{ duration: hasTransition ? 300 : 0 }}>
   {#if error}
-    <InputError {...error} {hiddenErrorText} />
+    <!-- TODO change to p when fixing spacing. Also change _form.scss div.validation:first-child-->
+    <div class="{styles.validation} validation">
+      {error.message}
+    </div>
   {/if}
 
-  <div class="layout-flex layout-flex-col justify-content-center" style="--gap: 0">
-    <Label for={name} {isRequired} {textOptional} {showOptionalText} class={labelClass}>
+  <div class="{styles.flex} layout-flex-col justify-content-center">
+    <label for={name}>
       {label}
-    </Label>
+      {#if !isRequired && showOptionalText}
+        <Tag data-icon={false} data-color="info">{textOptional}</Tag>
+      {/if}
+    </label>
 
     {#if helpText}
-      <div id={`${name}-hint`} class="hint">
+      <p>
         {@html helpText}
-      </div>
+      </p>
     {/if}
   </div>
 
   <input
     id={name}
     {name}
-    class="mt-input form-field {inputClass}"
+    class="{styles.input} {inputClass}"
     bind:value
-    class:error
     aria-required={isRequired || undefined}
-    aria-describedby={createInputAriaDescribedby(helpText ? name : undefined, error, maxlength)}
-    aria-invalid={!!error}
     {inputmode}
     {placeholder}
     {autocomplete} />

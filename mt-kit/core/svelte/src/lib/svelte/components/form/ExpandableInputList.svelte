@@ -6,6 +6,7 @@
   import type { InputProps, ErrorDetail, InputModeType } from '$lib/ts'
   import { createInputAriaDescribedby, interpolate } from '$lib/ts'
   import TextInputHorizontal from './TextInputHorizontal.svelte'
+  import { styles } from '@mattilsynet/design'
 
   interface Props {
     values?: Record<string, string>
@@ -72,17 +73,19 @@
 
 <fieldset
   id={fieldSetId}
-  class="mt-fieldset expandable-input-list"
+  class="{styles.fieldset} expandable-input-list"
+  data-size="md"
+  data-required="hidden"
   aria-describedby={createInputAriaDescribedby(
     fieldSetHelpText ? fieldSetId : undefined,
     fieldSetError?.find(() => true)
   )}>
-  <legend class="mt-legend form-legend">{fieldSetLabel}</legend>
+  <legend>{fieldSetLabel}</legend>
 
   {#if fieldSetHelpText}
-    <div id={`${fieldSetId}-hint`} class="hint">
+    <p>
       {@html fieldSetHelpText}
-    </div>
+    </p>
   {/if}
 
   {#if fieldSetError}
@@ -118,7 +121,6 @@
         autocomplete={outside.autocomplete}
         error={outside.error}
         {showOptionalText}
-        labelClass="text-body"
         inputClass="form-field--small form-field--small-width {inputClass}" />
     {/each}
 
@@ -156,7 +158,6 @@
               error={inside.error}
               hasTransition={true}
               {showOptionalText}
-              labelClass="text-body"
               inputClass="form-field--small form-field--small-width {inputClass}" />
           {/each}
         {/if}
@@ -184,7 +185,6 @@
               error={inside.error}
               hasTransition={true}
               {showOptionalText}
-              labelClass="text-body"
               inputClass="form-field--small form-field--small-width {inputClass}" />
           {/each}
         </div>
