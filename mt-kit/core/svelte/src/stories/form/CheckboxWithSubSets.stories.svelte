@@ -120,7 +120,6 @@
           }
         ]
       },
-      border: false,
       disclosure: {
         title: 'Dyr',
         headerTag: 'h2',
@@ -196,7 +195,6 @@
     disableCss,
     variation,
     optionsWithoutDocCount,
-    border,
     disclosure,
     disclosureOptions
   })}
@@ -214,14 +212,13 @@
             level2Legend={`${legend} i `}
             loadJs={!disableJs} />
         </form>
-        <h2 class="mt-h2">Nested checkboxes without doc count and border</h2>
-        <p>User variation="primary" (default) when checkboxes stand alone</p>
+        <h2 class="mt-h2">Nested checkboxes without doc count</h2>
+        <p>Use variation="primary" (default) when checkboxes stand alone</p>
         <form class="mt-form">
           <CheckboxWithSubSets
             options={optionsWithoutDocCount}
             {variation}
             level1Legend="Tema uten antall"
-            {border}
             level2Legend={`${legend} i `}
             loadJs={!disableJs} />
           <h2 class="mt-h3">Variation = secondary</h2>
@@ -230,7 +227,6 @@
             variation="secondary"
             level1Legend="legend 1"
             level2Legend="legend 2"
-            {border}
             loadJs={!disableJs} />
         </form>
         <h2 class="mt-h2">Nestede checkboxet inside disclosure</h2>

@@ -2,12 +2,6 @@
 @use '../global/utils';
 
 fieldset .checkbox-subsets {
-  .form-control {
-    &.m-t-0 {
-      margin-top: 0;
-    }
-  }
-
   &--primary {
     @extend .m-l-m;
     display: flex;
@@ -33,9 +27,6 @@ fieldset .checkbox-subsets {
       width: 100%;
       font-weight: var(--font-weight-normal);
       margin-top: 0;
-      + .form-control {
-        @extend .m-t-xs;
-      }
     }
   }
 }

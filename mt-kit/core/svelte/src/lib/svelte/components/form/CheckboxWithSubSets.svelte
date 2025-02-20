@@ -32,11 +32,10 @@
     level2Legend = ``,
     level3Legend = ``,
     helpText,
-    border = true,
     loadJs = false
   }: Props = $props()
 
-  let fieldsetClass = $derived(
+  let subsetFieldsetClass = $derived(
     variation === 'primary' ? 'checkbox-subsets--primary' : 'checkbox-subsets--secondary'
   )
 
@@ -68,7 +67,7 @@
 </script>
 
 <fieldset class="{styles.fieldset} {className}">
-  <legend id="legend" class:border class:inclusively-hidden={variation === 'secondary'}>
+  <legend id="legend" class:inclusively-hidden={variation === 'secondary'}>
     {level1Legend}
   </legend>
   {#if helpText}
@@ -98,7 +97,6 @@
         name={optionsName}
         value={listItem.key}
         bind:checked={listItem.checked}
-        aria-checked={listItem.checked}
         onchange={() => mainCategory(mainIndex)} />
       <label for={`${optionsName}-${listItem.key}`}>
         {formatLabel(listItem.displayName, listItem.docCount)}
@@ -106,7 +104,7 @@
     </div>
     {#if (!loadJs || listItem.checked) && listItem.children && listItem.children.length > 0}
       <fieldset
-        class="{styles.fieldset} checkbox-subsets {fieldsetClass}"
+        class="{styles.fieldset} checkbox-subsets {subsetFieldsetClass}"
         transition:slide={{ axis: 'y', duration: 200 }}>
         {#if level2Legend}
           <legend>
@@ -114,15 +112,14 @@
           </legend>
         {/if}
         {#each listItem.children as subListItem, subListIndex}
-          <div class={styles.field} class:m-t-0={!level2Legend && subListIndex === 0}>
+          <div class={styles.field} class:m-t-xs={level2Legend && subListIndex === 0}>
             <input
               id={`${optionsName}-${subListItem.key}`}
               type="checkbox"
               name={optionsName}
               class={styles.input}
               value={subListItem.key}
-              bind:checked={subListItem.checked}
-              aria-checked={subListItem.checked} />
+              bind:checked={subListItem.checked} />
             <label for={`${optionsName}-${subListItem.key}`}>
               {formatLabel(subListItem.displayName, subListItem.docCount)}
             </label>
@@ -137,15 +134,14 @@
                 </legend>
               {/if}
               {#each subListItem.children as subSubListItem, subSubListIndex}
-                <div class={styles.field} class:m-t-0={!level3Legend && subSubListIndex === 0}>
+                <div class={styles.field} class:m-t-xs={level3Legend && subSubListIndex === 0}>
                   <input
                     id={`${optionsName}-${subSubListItem.key}`}
                     type="checkbox"
                     name={optionsName}
                     class={styles.input}
                     value={subSubListItem.key}
-                    bind:checked={subSubListItem.checked}
-                    aria-checked={subSubListItem.checked} />
+                    bind:checked={subSubListItem.checked} />
                   <label for={`${optionsName}-${subSubListItem.key}`}>
                     {formatLabel(subSubListItem.displayName, subSubListItem.docCount)}
                   </label>
