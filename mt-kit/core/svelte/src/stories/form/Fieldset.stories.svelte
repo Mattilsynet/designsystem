@@ -1,12 +1,11 @@
 <script lang="ts" module>
   import { defineMeta } from '@storybook/addon-svelte-csf'
   import { wrapInShadowDom } from '../storybook-utils/utils'
-  import Fieldset from '$lib/svelte/components/form/Fieldset.svelte'
   import CheckboxWithSubSets from '$lib/svelte/components/form/CheckboxWithSubSets.svelte'
   import Disclosure from '$lib/svelte/components/Disclosure.svelte'
   import { interpolate } from '$lib/ts/utils'
-  import type { ErrorDetail } from '$lib/ts'
   import ErrorSummary from '$lib/svelte/components/form/ErrorSummary.svelte'
+  import { styles } from '@mattilsynet/design'
 
   const { Story } = defineMeta({
     title: 'Components/Form/Fieldset',
@@ -86,7 +85,8 @@
     argTypes: {
       legend: { control: 'text' },
       disableJs: { control: 'boolean' },
-      disableCss: { control: 'boolean' }
+      disableCss: { control: 'boolean' },
+      focusErrorOnLoad: { control: 'boolean' }
     }
   })
 </script>
@@ -99,12 +99,18 @@
           <h1 class="mt-h1">Fieldset</h1>
           <h2 class="mt-h2">Normal</h2>
 
-          <ErrorSummary errors={args.errorsNormal} heading={args.errorSummaryHeading} />
+          <ErrorSummary
+            errors={args.errorsNormal}
+            heading={args.errorSummaryHeading}
+            hasFocusOnLoad={args.focusErrorOnLoad} />
           <form class="mt-form col-3-span-8 form-layout">
-            <Fieldset
-              class="validation m-t-m"
-              legend={args.legend}
-              error={args.errorsNormal.find((error: ErrorDetail) => error.key === args.fieldsetId)}>
+            <fieldset class={styles.fieldset} data-size="md" data-required="hidden">
+              <legend>{args.legend}</legend>
+              {#if args.error}
+                <div class={styles.validation}>
+                  {args.errors.message}
+                </div>
+              {/if}
               <Disclosure
                 id={args.fieldsetId}
                 title={args.disclosure.title}
@@ -121,7 +127,7 @@
                   ])}
                   level2Legend={args.disclosure.level2Legend} />
               </Disclosure>
-            </Fieldset>
+            </fieldset>
           </form>
         </section>
       </div>
@@ -141,14 +147,21 @@
               To get validation for a fieldset, populate the `error: ErrorDetail` parameter with
               errors.
             </p>
-            <ErrorSummary errors={args.errors} heading={args.errorSummaryHeading} />
+            <ErrorSummary
+              errors={args.errors}
+              heading={args.errorSummaryHeading}
+              hasFocusOnLoad={args.focusErrorOnLoad} />
           </div>
           <form class="mt-form col-3-span-8 form-layout">
-            <Fieldset
-              class="validation m-t-m"
-              legend={args.legend}
-              error={args.errors.find((error: ErrorDetail) => error.key === args.fieldsetId)}
-              legendClass="mt-h2">
+            <fieldset class={styles.fieldset} data-size="md" data-required="hidden">
+              <legend>
+                {args.legend}
+              </legend>
+              {#if args.error}
+                <div class={styles.validation}>
+                  {args.errors.message}
+                </div>
+              {/if}
               <Disclosure
                 id={args.fieldsetId}
                 title={args.disclosure.title}
@@ -165,7 +178,7 @@
                   ])}
                   level2Legend={args.disclosure.level2Legend} />
               </Disclosure>
-            </Fieldset>
+            </fieldset>
           </form>
         </section>
       </div>
