@@ -1,3 +1,13 @@
+# :wave: Looking for `@mattilsynet/design`?
+
+### Mattilsynets official designsystem is now <br />available at [github.com/mattilsynet/design ➡️](https://github.com/mattilsynet/design)
+
+----
+
+<br />
+<br />
+<br />
+
 # Designsystem for Mattilsynet
 
 
