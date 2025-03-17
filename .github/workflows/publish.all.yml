@@ -48,7 +48,7 @@ jobs:
 
       - name: 'Get all css, svelte and react files that have changed'
         id: changed-files
-        uses: tj-actions/changed-files@v45
+        uses: tj-actions/changed-files@v46
         with:
           since_last_remote_commit: true
           files_yaml: |
