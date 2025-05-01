@@ -32,16 +32,16 @@
   },
   "devDependencies": {
     "@mattilsynet/designsystem": "^0.14.1",
-    "@storybook/addon-essentials": "^7.0.0-beta.60",
-    "@storybook/addon-interactions": "^7.0.0-beta.60",
+    "@storybook/addon-essentials": "^8.6.12",
+    "@storybook/addon-interactions": "^7.6.20",
     "@storybook/addon-links": "^7.0.0-beta.60",
     "@storybook/blocks": "^7.0.0-alpha.8",
-    "@storybook/react": "^7.0.0-beta.60",
-    "@storybook/react-vite": "^7.0.0-beta.60",
+    "@storybook/react": "^8.6.12",
+    "@storybook/react-vite": "^8.6.12",
     "@storybook/testing-library": "^0.0.14-next.1",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
-    "@vitejs/plugin-react": "^3.1.0",
+    "@vitejs/plugin-react": "^4.4.1",
     "classnames": "^2.3.2",
     "eslint-config-prettier": "^8.7.0",
     "eslint-config-standard-jsx": "^11.0.0",
@@ -51,9 +51,9 @@
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "storybook": "^7.0.0-beta.60",
+    "storybook": "^8.6.12",
     "typescript": "^4.9.3",
-    "vite": "^4.1.0",
+    "vite": "^6.3.4",
     "vite-plugin-dts": "^2.0.2"
   }
 }
